@@ -41,13 +41,12 @@ import android.widget.RemoteViews;
 import com.jrummyapps.android.shell.CommandResult;
 import com.jrummyapps.android.shell.Shell;
 
-import org.torproject.android.binary.TorResourceInstaller;
 import org.torproject.android.control.ConfigEntry;
 import org.torproject.android.control.TorControlConnection;
-import org.torproject.android.service.util.OtherResourceInstaller;
 import org.torproject.android.service.vpn.TorifiedApp;
 import org.torproject.android.service.util.DummyActivity;
 import org.torproject.android.service.util.Prefs;
+import org.torproject.android.service.util.TorResourceInstaller;
 import org.torproject.android.service.util.TorServiceUtils;
 import org.torproject.android.service.util.Utils;
 import org.torproject.android.service.vpn.OrbotVpnManager;
@@ -627,17 +626,14 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
             boolean success = installer.installResources();
             
             if (success)
-                prefs.edit().putString(PREF_BINARY_TOR_VERSION_INSTALLED,BINARY_TOR_VERSION).commit();
-
-            OtherResourceInstaller oInstaller = new OtherResourceInstaller(this, appBinHome);
-            oInstaller.installResources();
+                prefs.edit().putString(PREF_BINARY_TOR_VERSION_INSTALLED,BINARY_TOR_VERSION).commit();    
         }
 
         updateTorConfigFile ();
         isTorUpgradeAndConfigComplete = true;
     }
 
-    private boolean updateTorConfigFile () throws IOException, TimeoutException
+    private boolean updateTorConfigFile () throws FileNotFoundException, IOException, TimeoutException
     {
         SharedPreferences prefs = TorServiceUtils.getSharedPrefs(getApplicationContext());
 
