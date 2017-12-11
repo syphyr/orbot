@@ -323,38 +323,7 @@ public class OrbotMainActivity extends AppCompatActivity
 
 		mBtnVPN = (SwitchCompat)findViewById(R.id.btnVPN);
 		
-		boolean canDoVPN = Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH;
-
-		if (!canDoVPN)
-		{
-			//if not SDK 14 or higher, we can't use the VPN feature
-			mBtnVPN.setVisibility(View.GONE);
-		}
-		else
-		{
-			boolean useVPN = Prefs.useVpn();
-			mBtnVPN.setChecked(useVPN);
-			
-			//auto start VPN if VPN is enabled
-			if (useVPN)
-			{
-				startActivity(new Intent(OrbotMainActivity.this,VPNEnableActivity.class));
-			}
-			
-			mBtnVPN.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
-            {
-                @Override
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
-                {
-                    enableVPN(isChecked);
-
-
-                }
-            });
-
-
-		}
-		
+		mBtnVPN.setVisibility(View.GONE);
 		
 		mBtnBridges = (SwitchCompat)findViewById(R.id.btnBridges);
 		mBtnBridges.setChecked(Prefs.bridgesEnabled());
