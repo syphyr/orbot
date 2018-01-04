@@ -29,7 +29,7 @@ android {
 dependencies {
     compile project(':jsocksAndroid')
     compile project(':RootCommands')
-    compile 'com.android.support:appcompat-v7:25.0.0'
+    compile 'com.android.support:appcompat-v7:25.4.0'
     compile fileTree(dir: 'libs', include: ['*.jar','*.so'])
     testCompile 'junit:junit:4.12'
 }
