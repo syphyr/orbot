@@ -81,7 +81,6 @@ import java.util.concurrent.TimeoutException;
 
 public class TorService extends Service implements TorServiceConstants, OrbotConstants
 {
-    
     private String mCurrentStatus = STATUS_OFF;
     
     private final static int CONTROL_SOCKET_TIMEOUT = 0;
@@ -125,7 +124,6 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
     public static File appCacheHome;
 
     public static File fileTor;
-    public static File filePolipo;
     public static File fileObfsclient;
     public static File fileXtables;
     public static File fileTorRc;
@@ -567,7 +565,6 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
             mShell = Shell.startShell();
 
             fileTor= new File(appBinHome, TorServiceConstants.TOR_ASSET_KEY);
-            filePolipo = new File(appBinHome, TorServiceConstants.POLIPO_ASSET_KEY);
             fileObfsclient = new File(appBinHome, TorServiceConstants.OBFSCLIENT_ASSET_KEY);
             fileXtables = new File(appBinHome, TorServiceConstants.IPTABLES_ASSET_KEY);
             fileTorRc = new File(appBinHome, TorServiceConstants.TORRC_ASSET_KEY);
@@ -693,6 +690,8 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
     	if (Prefs.openProxyOnAllInterfaces())
     		extraLines.append("SocksListenAddress 0.0.0.0").append('\n');
 
+	extraLines.append("HTTPTunnelPort ").append(mPortHTTP).append(isolate).append('\n');
+
 	if(prefs.getBoolean(OrbotConstants.PREF_CONNECTION_PADDING, false))
 	{
 		extraLines.append("ConnectionPadding 1").append('\n');
@@ -765,7 +764,7 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
         reply.putExtra(EXTRA_SOCKS_PROXY, "socks://127.0.0.1:" + mPortSOCKS);
         reply.putExtra(EXTRA_SOCKS_PROXY_HOST, "127.0.0.1");
         reply.putExtra(EXTRA_SOCKS_PROXY_PORT, mPortSOCKS);
-        reply.putExtra(EXTRA_HTTP_PROXY, "http://127.0.0.1" + mPortHTTP);
+        reply.putExtra(EXTRA_HTTP_PROXY, "http://127.0.0.1:" + mPortHTTP);
         reply.putExtra(EXTRA_HTTP_PROXY_HOST, "127.0.0.1");
         reply.putExtra(EXTRA_HTTP_PROXY_PORT, mPortHTTP);
         
@@ -819,9 +818,6 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
 	        	}
 
 	        boolean success = runTorShellCmd();
-
-            if (mPortHTTP != -1)
-                runPolipoShellCmd();
 
             if (Prefs.useRoot() && Prefs.useTransparentProxying())
             {
@@ -1083,47 +1079,6 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
             command.waitForFinish();
 
         return command.getExitCode();
-    }
-    
-    private void updatePolipoConfig () throws FileNotFoundException, IOException
-    {
-        
-
-        File file = new File(appBinHome, POLIPOCONFIG_ASSET_KEY);
-        
-        Properties props = new Properties();
-        
-        props.load(new FileReader(file));
-        
-        props.put("socksParentProxy", "\"localhost:" + mPortSOCKS + "\"");
-        props.put("proxyPort",mPortHTTP+"");
-        
-        props.store(new FileWriter(file), "updated");
-        
-    }
-    
-    
-    private void runPolipoShellCmd () throws Exception
-    {
-        
-        logNotice( "Starting polipo process");
-
-        updatePolipoConfig();
-
-        String polipoConfigPath = new File(appBinHome, POLIPOCONFIG_ASSET_KEY).getCanonicalPath();
-        String cmd = (filePolipo.getCanonicalPath() + " -c " + polipoConfigPath);
-
-        if (mShellPolipo != null)
-            mShellPolipo.close();
-
-        mShellPolipo = Shell.startShell();
-        SimpleCommand cmdPolipo = new SimpleCommand(cmd);
-        mShellPolipo.add(cmdPolipo);
-
-        sendCallbackLogMessage(getString(R.string.privoxy_is_running_on_port_) + mPortHTTP);
-            
-        logNotice("Polipo is running");
-            
     }
 
     protected TorControlConnection getControlConnection ()
