@@ -705,7 +705,7 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
         String dnsPort = prefs.getString("pref_dnsport", TorServiceConstants.TOR_DNS_PORT_DEFAULT+"");
             
         extraLines.append("TransPort ").append(transPort).append('\n');
-    	extraLines.append("DNSPort ").append(dnsPort).append("\n");
+        extraLines.append("DNSPort ").append(dnsPort).append('\n');
     	
     	if (Prefs.useVpn())
     		extraLines.append("DNSListenAddress 0.0.0.0").append('\n');
