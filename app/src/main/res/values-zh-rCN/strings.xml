@@ -61,7 +61,7 @@
   <string name="btn_cancel">取消</string>
   <!--Welcome Wizard strings (DJH)-->
   <string name="wizard_details">更多 Orbot 信息</string>
-  <string name="wizard_details_msg">Orbot 是一个包含 Tor、LibEvent 和 Polipo 的开源应用程序。它提供了一个本地 HTTP 代理 (8118) 和一个 SOCKS 代理 (9050) 前往 Tor 网络。Orbot 也有能力在 root 过的设备上将所有互联网流量通过 Tor 发送。</string>
+  <string name="wizard_details_msg">Orbot 是一个包含 Tor 和 LibEvent 的开源应用程序。它提供了一个本地 HTTP 代理 (8118) 和一个 SOCKS 代理 (9050) 前往 Tor 网络。Orbot 也有能力在 root 过的设备上将所有互联网流量通过 Tor 发送。</string>
   <string name="wizard_permissions_root">已获取权限</string>
   <string name="wizard_permissions_stock">Orbot 权限</string>
   <string name="wizard_premissions_msg_root">好极了！我们检测到 Orbot 已获取 Root 权限 。我们会谨慎地使用这一权限。</string>
@@ -160,7 +160,6 @@ Tor帮助你避开那些威胁到你的隐私，重要信息和社交关系的�
   <string name="warning_error_starting_transparent_proxying_">警告：启动透明代理时发生错误！</string>
   <string name="transproxy_rules_cleared">已清除 TransProxy 规则</string>
   <string name="couldn_t_start_tor_process_">无法启动 Tor 进程：</string>
-  <string name="privoxy_is_running_on_port_">Polipo 正运行在端口:</string>
   <string name="setting_up_port_based_transparent_proxying_">正在对基于端口的透明代理进行设置...</string>
   <string name="bridge_error">网桥错误</string>
   <string name="bridge_requires_ip">为了需使用网桥，必须至少输入一个网桥 IP 地址。</string>
@@ -210,7 +209,6 @@ Tor帮助你避开那些威胁到你的隐私，重要信息和社交关系的�
   <string name="third_party_software">第三方软件：</string>
   <string name="tor_version">Tor: https://www.torproject.org</string>
   <string name="libevent_version">LibEvent v2.0.21: http://www.monkey.org/~provos/libevent/</string>
-  <string name="polipo_version">Polipo v1.1.9: https://github.com/jech/polipo</string>
   <string name="iptables_version">IPtables v1.4.21: http://www.netfilter.org</string>
   <string name="openssl_version">OpenSSL v1.0.1q: http://www.openssl.org</string>
   <string name="hidden_service_request">应用程序试图打开隐藏服务主机端口 %S 连接 Tor 网络。对于可信应用这是安全的。</string>

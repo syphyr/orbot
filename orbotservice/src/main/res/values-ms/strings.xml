@@ -55,7 +55,7 @@
   <string name="btn_cancel">Batal</string>
   <!--Welcome Wizard strings (DJH)-->
   <string name="wizard_details">Maklumat Orbot</string>
-  <string name="wizard_details_msg">Orbot merupakan aplikasi sumber terbuka yang mengandungi Tor, LibEvent dan Privoxy. Ia menyediakan seorang proksi HTTP tempatan (8118) dan proksi SOCKS (9050) ke dalam rangkaian Tor. Orbot juga mempunyai keupayaan, pada peranti berakar umbi, untuk menghantar semua trafik internet melalui Tor.</string>
+  <string name="wizard_details_msg">Orbot merupakan aplikasi sumber terbuka yang mengandungi Tor dan LibEvent. Ia menyediakan seorang proksi HTTP tempatan (8118) dan proksi SOCKS (9050) ke dalam rangkaian Tor. Orbot juga mempunyai keupayaan, pada peranti berakar umbi, untuk menghantar semua trafik internet melalui Tor.</string>
   <string name="wizard_permissions_root">Kebenaran disahkan</string>
   <string name="wizard_permissions_stock">Kebenaran Orbot</string>
   <string name="wizard_premissions_msg_root">Bagus! Kami mendapati anda ada akses root yang dibenarkan untuk Orbot. Kami akan gunakan kuasa ini dengan bijak.</string>
@@ -129,7 +129,6 @@
   <string name="warning_error_starting_transparent_proxying_">AMARAN: ralat semasa memulakan proxy telus!</string>
   <string name="transproxy_rules_cleared">Peraturan TransProxy dipadam</string>
   <string name="couldn_t_start_tor_process_">Tidak boleh memulakan proses Tor:</string>
-  <string name="privoxy_is_running_on_port_">Privoxy sedang berjalan pada port:</string>
   <string name="setting_up_port_based_transparent_proxying_">Menetap proxy telus berdasarkan port..</string>
   <string name="bridge_error">Ralat jambatan</string>
   <string name="bridge_requires_ip">Untuk menggunakan ciri jambatan, anda mesti masukkan sekurang-kurangnya satu alamat IP jambatan.</string>

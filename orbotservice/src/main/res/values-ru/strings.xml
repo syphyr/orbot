@@ -61,7 +61,7 @@
   <string name="btn_cancel">Отмена</string>
   <!--Welcome Wizard strings (DJH)-->
   <string name="wizard_details">Некоторые сведения о программе Orbot</string>
-  <string name="wizard_details_msg">Orbot — это приложение с открытым исходным кодом, которое содержит Tor, LibEvent и Privoxy. Оно предоставляет локальный HTTP-прокси (8118) и SOCKS-прокси (9050) в сеть Tor. Orbot также позволяет на устройствах с правами root пересылать весь интернет-трафик через Tor.</string>
+  <string name="wizard_details_msg">Orbot — это приложение с открытым исходным кодом, которое содержит Tor и LibEvent. Оно предоставляет локальный HTTP-прокси (8118) и SOCKS-прокси (9050) в сеть Tor. Orbot также позволяет на устройствах с правами root пересылать весь интернет-трафик через Tor.</string>
   <string name="wizard_permissions_root">Разрешение получено</string>
   <string name="wizard_permissions_stock">Разрешения Orbot</string>
   <string name="wizard_premissions_msg_root">Отлично! Мы определили, что вы предоставили root-права для Orbot. Мы будем использовать эту возможность с умом.</string>
@@ -155,7 +155,6 @@
   <string name="warning_error_starting_transparent_proxying_">ВНИМАНИЕ: ошибка запуска прозрачной проксификации!</string>
   <string name="transproxy_rules_cleared">Правила прозрачного прокси удалены</string>
   <string name="couldn_t_start_tor_process_">Невозможно запустить Tor: </string>
-  <string name="privoxy_is_running_on_port_">Polipo работает на порту:</string>
   <string name="setting_up_port_based_transparent_proxying_">Установка основанной на портах прозрачной проксификации...</string>
   <string name="bridge_error">Ошибка моста</string>
   <string name="bridge_requires_ip">Для использования необходимо задать IP-адрес как минимум одного моста.</string>
@@ -205,7 +204,6 @@
   <string name="third_party_software">Программы сторонних разработчиков: </string>
   <string name="tor_version">Tor: https://www.torproject.org</string>
   <string name="libevent_version">LibEvent v2.0.21: http://www.monkey.org/~provos/libevent/</string>
-  <string name="polipo_version">Polipo v1.1.9: https://github.com/jech/polipo</string>
   <string name="iptables_version">IPtables v1.4.21: http://www.netfilter.org</string>
   <string name="openssl_version">OpenSSL v1.0.1q: http://www.openssl.org</string>
   <string name="hidden_service_request">Приложение хочет открыть скрытый порт сервера %S сети Tor. Это безопасно, если вы доверяете данному приложению.</string>

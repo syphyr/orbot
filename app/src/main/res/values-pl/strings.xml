@@ -61,7 +61,7 @@
   <string name="btn_cancel">Anuluj</string>
   <!--Welcome Wizard strings (DJH)-->
   <string name="wizard_details">Niektóre szczegóły o Orbocie</string>
-  <string name="wizard_details_msg">Orbot jest otwartą aplikacją zawierającą Tor, LibEvent i Polipo. Dostarcza lokalnego proxy HTTP (8118) i SOCKS proxy (9050) do sieci Tora. Orbot ma możliwość, na urządzeniu uruchomionym z prawami administratora, wysyłać cały ruch internetowy przez Tora.</string>
+  <string name="wizard_details_msg">Orbot jest otwartą aplikacją zawierającą Tor i LibEvent. Dostarcza lokalnego proxy HTTP (8118) i SOCKS proxy (9050) do sieci Tora. Orbot ma możliwość, na urządzeniu uruchomionym z prawami administratora, wysyłać cały ruch internetowy przez Tora.</string>
   <string name="wizard_permissions_root">Dostęp zezwolony</string>
   <string name="wizard_permissions_stock">Prawa dostepu Orbota</string>
   <string name="wizard_premissions_msg_root">Doskonale! Odkryliśmy, że masz uprawnienia administratora włączone dla Orbota. Będziemy mądrze korzystać z tej władzy.</string>
@@ -155,7 +155,6 @@
   <string name="warning_error_starting_transparent_proxying_">OSTRZEŻENIE: błąd w uruchamianiu transparentnego proxy!</string>
   <string name="transproxy_rules_cleared">TransProxy działa czysto</string>
   <string name="couldn_t_start_tor_process_">Nie można było zainicjować procesu Tora:</string>
-  <string name="privoxy_is_running_on_port_">Polipo działa na porcie:</string>
   <string name="setting_up_port_based_transparent_proxying_">Ustawianie bazującego na porcie transparentnego proxy</string>
   <string name="bridge_error">Błąd mostka</string>
   <string name="bridge_requires_ip">Aby użyć funkcji mostka, musisz wpisać przynajmniej jeden adres IP mostka.</string>
@@ -205,7 +204,6 @@
   <string name="third_party_software">Oprogramowanie 3rd-Party</string>
   <string name="tor_version">Tor: https://www.torproject.org</string>
   <string name="libevent_version">LibEvent v2.0.21: http://www.monkey.org/~provos/libevent/</string>
-  <string name="polipo_version">Polipo v1.1.9: https://github.com/jech/polipo</string>
   <string name="iptables_version">IPtables v1.4.21: http://www.netfilter.org</string>
   <string name="openssl_version">OpenSSL v1.0.1q: http://www.openssl.org</string>
   <string name="hidden_service_request">Aplikacja chce otworzyć port ukrytego serwera %S do Sieci Tor. Jest to bezpieczne, jeśli ufasz aplikacji.</string>

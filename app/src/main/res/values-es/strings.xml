@@ -61,7 +61,7 @@
   <string name="btn_cancel">Cancelar</string>
   <!--Welcome Wizard strings (DJH)-->
   <string name="wizard_details">Algunos detalles de Orbot</string>
-  <string name="wizard_details_msg">Orbot es una aplicación de código-abierto que contiene Tor, LibEvent y Polipo. Proporciona un proxy HTTP (8118) y un proxy SOCKS (9050) locales hacia la red Tor. Orbot también tiene la capacidad, en un dispositivo rooteado, de enviar todo el tráfico de Internet a través de Tor.</string>
+  <string name="wizard_details_msg">Orbot es una aplicación de código-abierto que contiene Tor y LibEvent. Proporciona un proxy HTTP (8118) y un proxy SOCKS (9050) locales hacia la red Tor. Orbot también tiene la capacidad, en un dispositivo rooteado, de enviar todo el tráfico de Internet a través de Tor.</string>
   <string name="wizard_permissions_root">Permiso concedido</string>
   <string name="wizard_permissions_stock">Permisos de Orbot</string>
   <string name="wizard_premissions_msg_root">¡Excelente! Hemos detectado que ha concedido a Orbot permisos de root. Utilizaremos estos poderes sabiamente.</string>
@@ -156,7 +156,6 @@ direcciones (o rangos). No prevalecen sobre las configuraciones de exclusión de
   <string name="warning_error_starting_transparent_proxying_">ADVERTENCIA: ¡Error al iniciar la proxyficación transparente!</string>
   <string name="transproxy_rules_cleared">Reglas de TransProxy (proxyficación transparente) borradas</string>
   <string name="couldn_t_start_tor_process_">No se pudo iniciar el proceso de Tor: </string>
-  <string name="privoxy_is_running_on_port_">Polipo se está ejecutando en el puerto:</string>
   <string name="setting_up_port_based_transparent_proxying_">Estableciendo proxyficación transparente por puertos... </string>
   <string name="bridge_error">Error de bridge (repetidor puente)</string>
   <string name="bridge_requires_ip">Para utilizar la función bridge (repetidor puente, acceso a Tor de publicitación restringida), debe introducir al menos una dirección IP de bridge.</string>
@@ -206,7 +205,6 @@ direcciones (o rangos). No prevalecen sobre las configuraciones de exclusión de
   <string name="third_party_software">Software de terceras partes</string>
   <string name="tor_version">Tor: https://www.torproject.org</string>
   <string name="libevent_version">LibEvent v2.0.21: http://www.monkey.org/~provos/libevent/</string>
-  <string name="polipo_version">Polipo v1.1.9: https://github.com/jech/polipo</string>
   <string name="iptables_version">IPtables v1.4.21: http://www.netfilter.org</string>
   <string name="openssl_version">OpenSSL v1.0.1q: http://www.openssl.org</string>
   <string name="hidden_service_request">Una aplicación está intentando abrir el puerto %S de servicio oculto hacia la red Tor. Esto es seguro si su aplicación es de su confianza.</string>

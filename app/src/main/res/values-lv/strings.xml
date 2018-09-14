@@ -58,7 +58,7 @@
   <string name="btn_cancel">Atcelt</string>
   <!--Welcome Wizard strings (DJH)-->
   <string name="wizard_details">Vairāk informācijas par Orbot</string>
-  <string name="wizard_details_msg">Orbot ir atvērta koda lietojumprogramma, kura ietver Tor, LibEvent un Polipo. Programma nodrošina vietēju HTTP starpniekseveri (8118) un SOCKS starpniekserveri (9050) uz Tor tīklu. Turklāt saknes tiesību līmenī strādājošā ierīcē, Orbot spēj pārsūtīt visu interneta datplūsmu caur Tor.</string>
+  <string name="wizard_details_msg">Orbot ir atvērta koda lietojumprogramma, kura ietver Tor un LibEvent. Programma nodrošina vietēju HTTP starpniekseveri (8118) un SOCKS starpniekserveri (9050) uz Tor tīklu. Turklāt saknes tiesību līmenī strādājošā ierīcē, Orbot spēj pārsūtīt visu interneta datplūsmu caur Tor.</string>
   <string name="wizard_permissions_root">Tiesības piešķirtas</string>
   <string name="wizard_permissions_stock">Orbot tiesības</string>
   <string name="wizard_premissions_msg_root">Ļoti labi! Mēs konstatējām, ka Orbot\'am ir iespējotas saknes tiesības. Mēs apdomīgi izmantosim šīs tiesības.</string>
@@ -148,7 +148,6 @@
   <string name="warning_error_starting_transparent_proxying_">BRĪDINĀJUMS: kļūda uzsākot pārredzamu starpniekošanu!</string>
   <string name="transproxy_rules_cleared">TransProxy kārtulas notīrītas</string>
   <string name="couldn_t_start_tor_process_">Neizdevās palaist Tor\'a procesu:</string>
-  <string name="privoxy_is_running_on_port_">Polipo strādā caur portu: </string>
   <string name="setting_up_port_based_transparent_proxying_">Iestata portu nodrošinātu pārredzamu starpniekošanu...</string>
   <string name="bridge_error">Tilta kļūda</string>
   <string name="bridge_requires_ip">Lai izmantotu tilta līdzekli, jāievada vismaz viena tilta IP adrese.</string>
@@ -198,7 +197,6 @@
   <string name="third_party_software">Trešo personu programmatūra:</string>
   <string name="tor_version">Tor: https://www.torproject.org</string>
   <string name="libevent_version">LibEvent v2.0.21: http://www.monkey.org/~provos/libevent/</string>
-  <string name="polipo_version">Polipo v1.1.9: https://github.com/jech/polipo</string>
   <string name="iptables_version">IPtables v1.4.21: http://www.netfilter.org</string>
   <string name="hidden_service_request">Lietotne vēlas atvērt slēptu servera portu %S uz tīklu Tor. Tas ir droši, ja uzticaties lietotnei.</string>
   <string name="found_existing_tor_process">Atrada esošu Tor procesu...</string>

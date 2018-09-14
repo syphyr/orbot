@@ -158,7 +158,6 @@ HTTP: / /tinyurl.com/proxyandroid\n</string>
   <string name="warning_error_starting_transparent_proxying_">تحذير: حصل خطأ بتشغيل البروكسي الضمني!</string>
   <string name="transproxy_rules_cleared">تم مسح قواعد البروكسي الضمني</string>
   <string name="couldn_t_start_tor_process_">لقد تعذر بدء تشغيل تور:</string>
-  <string name="privoxy_is_running_on_port_">بوليبو يعمل على  المحمول </string>
   <string name="setting_up_port_based_transparent_proxying_">يتم إعداد البروكسي الضمني حسب المنفذ...</string>
   <string name="bridge_error">خطأ بالجسر</string>
   <string name="bridge_requires_ip">حتي تستطيع إستخدم ميزة الجسور، يجب عليك ادخال عنوان انترنت لجسر واحد علي الأقل.</string>
@@ -208,7 +207,6 @@ HTTP: / /tinyurl.com/proxyandroid\n</string>
   <string name="third_party_software">برامج من الطرف الثالث:</string>
   <string name="tor_version">تور: https://www.torproject.org</string>
   <string name="libevent_version">لب إيفينت النسخة http://www.monkey.org/~provos/libevent/ :v2.0.21</string>
-  <string name="polipo_version">بوليبو النسخة 1.1.9 : https://github.com/jech/polipo</string>
   <string name="iptables_version">آي بي تايبلز النسخة 1.4.21: http://www.netfilter.org</string>
   <string name="openssl_version">اوبن اس اس ال النسخة: http://www.openssl.org 1.0.1q</string>
   <string name="hidden_service_request">هناك برنامج يحاول فتح منفذ لخادم مخفي %S إلي شبكة تور. هذا السلوك آمن إذا كنت تثق بهذا البرنامج.</string>

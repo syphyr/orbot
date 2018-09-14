@@ -184,7 +184,6 @@
   <string name="third_party_software">Programari de terceres parts:</string>
   <string name="tor_version">Tor: https://www.torproject.org</string>
   <string name="libevent_version">LibEvent v2.0.21: http://www.monkey.org/~provos/libevent/</string>
-  <string name="polipo_version">Polipo v1.1.9: https://github.com/jech/polipo</string>
   <string name="iptables_version">IPtables v1.4.21: http://www.netfilter.org</string>
   <string name="hidden_service_request">Una aplicació vol obrir el port %S de servei ocult a la xarxa Tor. Això és segur si confieu en l\'aplicació.</string>
   <string name="found_existing_tor_process">s\'ha trobat un procés Tor existent...</string>

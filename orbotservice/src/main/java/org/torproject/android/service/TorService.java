@@ -130,8 +130,6 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
     private File mHSBasePath;
 
     private Shell mShell;
-    private Shell mShellPolipo;
-
 
     private ArrayList<Bridge> alBridges = null;
 
@@ -514,13 +512,6 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
             }
 
             conn = null;
-        }
-
-        if (mShellPolipo != null)
-        {
-            mShellPolipo.close();
-            //logNotice("Polipo exited with value: " + exitValue);
-
         }
 
     }

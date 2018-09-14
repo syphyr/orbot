@@ -57,7 +57,7 @@
   <string name="btn_cancel">Откажи</string>
   <!--Welcome Wizard strings (DJH)-->
   <string name="wizard_details">Детаљи о Орботу</string>
-  <string name="wizard_details_msg">Orbot je otvorena aplikacija koja sadrzi Tor, LibEvent i Polipo. Obezbeđuje lokalni HTTP proksi (8118) i SOCKS proksi (9050) u Tor mrežu. Takođe poseduje sposobnost, da kroz Tor, šalje sav internet saobraćaj sa rutovanih uređaja.</string>
+  <string name="wizard_details_msg">Orbot je otvorena aplikacija koja sadrzi Tor i LibEvent. Obezbeđuje lokalni HTTP proksi (8118) i SOCKS proksi (9050) u Tor mrežu. Takođe poseduje sposobnost, da kroz Tor, šalje sav internet saobraćaj sa rutovanih uređaja.</string>
   <string name="wizard_permissions_root">Дозвола одобрена</string>
   <string name="wizard_permissions_stock">Орбот дозволе</string>
   <string name="wizard_premissions_msg_root">Одлично! Детектовали смо да имате root дозволе за Орбот. Мудро ћемо искрористити ову моћ.</string>

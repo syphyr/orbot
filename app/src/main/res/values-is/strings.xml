@@ -58,7 +58,7 @@
   <string name="btn_cancel">Hætta við</string>
   <!--Welcome Wizard strings (DJH)-->
   <string name="wizard_details">Fáein Orbot Smáatriði</string>
-  <string name="wizard_details_msg">Orbot er open-source forrit sem inniheldur Tor, LibEvent og Polipo. Það veitir staðbundinn HTTP proxy (8118) og SOCKS proxy (9050) inná Tor netið. Orbot hefur líka eiginleika, á tæki með rótaraðgang, til að senda alla vefumferð í gegnum Tor.</string>
+  <string name="wizard_details_msg">Orbot er open-source forrit sem inniheldur Tor og LibEvent. Það veitir staðbundinn HTTP proxy (8118) og SOCKS proxy (9050) inná Tor netið. Orbot hefur líka eiginleika, á tæki með rótaraðgang, til að senda alla vefumferð í gegnum Tor.</string>
   <string name="wizard_permissions_root">Aðgangur Heimilaður</string>
   <string name="wizard_permissions_stock">Orbot Leyfisveiting</string>
   <string name="wizard_premissions_msg_root">Frábært! Við höfum skynjað að þú hefur rótaraðgang heimilaðan fyrir Orbot. Við munum nota þetta vald skynsamlega.</string>
@@ -148,7 +148,6 @@
   <string name="warning_error_starting_transparent_proxying_">AÐVÖRUN: villa við að kveikja á gegnsærri proxýun</string>
   <string name="transproxy_rules_cleared">TransProxy reglur hreinsaðar</string>
   <string name="couldn_t_start_tor_process_">Gat ekki kveikt á Tor þráð:</string>
-  <string name="privoxy_is_running_on_port_">Polipo keyrir á porti:</string>
   <string name="setting_up_port_based_transparent_proxying_">Set upp port-byggða gegnsæja proxýun...</string>
   <string name="bridge_error">Brúar Villa</string>
   <string name="bridge_requires_ip">Til að nota brúar viðbótina, verðuru að slá inn að minnsta kosti eina IP addressu fyrir brú.</string>
@@ -198,7 +197,6 @@
   <string name="third_party_software">Hugbúnaður frá 3ja aðila:</string>
   <string name="tor_version">Tor: https://www.torproject.org</string>
   <string name="libevent_version">LibEvent v2.0.21: http://www.monkey.org/~provos/libevent/</string>
-  <string name="polipo_version">Polipo v1.1.9: https://github.com/jech/polipo</string>
   <string name="iptables_version">IPtables v1.4.21: http://www.netfilter.org</string>
   <string name="hidden_service_request">Smáforrit vill opna falið port þjóns %S að Tor netinu. Þetta er öruggt ef þú treystir smáforritinu.</string>
   <string name="found_existing_tor_process">fann annan Tor þráð...</string>

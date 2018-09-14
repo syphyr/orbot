@@ -61,7 +61,7 @@
   <string name="btn_cancel">Откажи</string>
   <!--Welcome Wizard strings (DJH)-->
   <string name="wizard_details">Някои Орбот детайли</string>
-  <string name="wizard_details_msg">Orbot е приложение с отворен код, което съдържа Tor, LibEvent и Polipo. То предлага локално HTTP прокси (8118) и SOCKS прокси (9050) към Tor мрежата. Orbot също така има възможноста, на усройства с root достъп, да препраща целият интернет трафик през Tor.</string>
+  <string name="wizard_details_msg">Orbot е приложение с отворен код, което съдържа Tor и LibEvent. То предлага локално HTTP прокси (8118) и SOCKS прокси (9050) към Tor мрежата. Orbot също така има възможноста, на усройства с root достъп, да препраща целият интернет трафик през Tor.</string>
   <string name="wizard_permissions_root">Правата дадени</string>
   <string name="wizard_permissions_stock">Orbot Permissions</string>
   <string name="wizard_premissions_msg_root">Отлично! Засякохме, че имате root права достъпни за Орбот. Ще използваме тази сила разумно.</string>
@@ -155,7 +155,6 @@
   <string name="warning_error_starting_transparent_proxying_">ВНИМАНИЕ: грешка при стартиране на прозрачно проски!</string>
   <string name="transproxy_rules_cleared">TransProxy правила изчистени</string>
   <string name="couldn_t_start_tor_process_">Неуспешно стартиране на Тор процес: </string>
-  <string name="privoxy_is_running_on_port_">Polipo работи на порт:</string>
   <string name="setting_up_port_based_transparent_proxying_">Конфигуриране на прозрачно прокси на база порт...</string>
   <string name="bridge_error">Бридж грешка</string>
   <string name="bridge_requires_ip">За да използвате бридж функционалността трябва да въведете поне един IP адрес на бридж.</string>
@@ -205,7 +204,6 @@
   <string name="third_party_software">Софтуер на трети страни: </string>
   <string name="tor_version">Tor: https://www.torproject.org</string>
   <string name="libevent_version">LibEvent v2.0.21: http://www.monkey.org/~provos/libevent/</string>
-  <string name="polipo_version">Polipo v1.1.9: https://github.com/jech/polipo</string>
   <string name="iptables_version">IPtables v1.4.21: http://www.netfilter.org</string>
   <string name="openssl_version">OpenSSL v1.0.1q: http://www.openssl.org</string>
   <string name="hidden_service_request">Приложение иска да отвори порт на скрит сървър %S към Тор мрежата. Безопасно е да се доверите на приложението.</string>

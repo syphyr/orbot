@@ -61,7 +61,7 @@
   <string name="btn_cancel">Odustani</string>
   <!--Welcome Wizard strings (DJH)-->
   <string name="wizard_details">Detalji o Orbot-u</string>
-  <string name="wizard_details_msg">Orbot je otvorena aplikacija koja sadrži Tor, LibEvent i Polipo. Pruža lokalni HTTP proxy (8118) i SOCKS proxy (9050) u Tor mrežu. Orbot ima mogućnost, na root-anom uređaju, slati sav promet kroz Tor.</string>
+  <string name="wizard_details_msg">Orbot je otvorena aplikacija koja sadrži Tor i LibEvent. Pruža lokalni HTTP proxy (8118) i SOCKS proxy (9050) u Tor mrežu. Orbot ima mogućnost, na root-anom uređaju, slati sav promet kroz Tor.</string>
   <string name="wizard_permissions_root">Dopuštenje Odobreno</string>
   <string name="wizard_permissions_stock">Orbot Dopuštenja</string>
   <string name="wizard_premissions_msg_root">Odlično! Uočili smo da imate root dopuštenja omogućena za Orbot. Koristit ćemo ovu moć mudro.</string>
@@ -155,7 +155,6 @@
   <string name="warning_error_starting_transparent_proxying_">UPOZORENJE: greška pri pokretanju transparentnog proxy-a!</string>
   <string name="transproxy_rules_cleared">TransProxy pravila očišćena</string>
   <string name="couldn_t_start_tor_process_">Nije moguće započeti Tor proces:</string>
-  <string name="privoxy_is_running_on_port_">Polipo je pokrenut na portu:</string>
   <string name="setting_up_port_based_transparent_proxying_">Postavljam transparentan proxy zasnovan na portu...</string>
   <string name="bridge_error">Greška Mosta</string>
   <string name="bridge_requires_ip">Da bi koristili mostove, morate unijeti bar jednu IP adresu mosta.</string>
@@ -205,7 +204,6 @@
   <string name="third_party_software">Software treće strane:</string>
   <string name="tor_version">Tor: https://www.torproject.org</string>
   <string name="libevent_version">LibEvent v2.0.21: http://www.monkey.org/~provos/libevent/</string>
-  <string name="polipo_version">Polipo v1.1.9: https://github.com/jech/polipo</string>
   <string name="iptables_version">IPtables v1.4.21: http://www.netfilter.org</string>
   <string name="openssl_version">OpenSSL v1.0.1q: http://www.openssl.org</string>
   <string name="hidden_service_request">Aplikacija želi otvoriti port %S skrivenog poslužitelja Tor mreži. Ovo je sigurno ako vjerujete aplikaciji.</string>

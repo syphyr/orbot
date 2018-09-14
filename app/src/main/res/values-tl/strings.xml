@@ -57,7 +57,7 @@
   <string name="btn_cancel">Kanselahin</string>
   <!--Welcome Wizard strings (DJH)-->
   <string name="wizard_details">Ilang detalye sa Orbot</string>
-  <string name="wizard_details_msg">Ang Orbot ay isang open-source application na naglalaman ng Tor, LibEvent at Polipo. Ito ay nagbibigay ng local HTTP proxy (8118) at SOCKS proxy (9050) sa Tor network. Ang Orbot ay nagbibigay din ng kakayahan, sa mga rooted device, na ipadala ang lahat ng trapiko sa internet sa pamamagitan  ng Tor.</string>
+  <string name="wizard_details_msg">Ang Orbot ay isang open-source application na naglalaman ng Tor at LibEvent. Ito ay nagbibigay ng local HTTP proxy (8118) at SOCKS proxy (9050) sa Tor network. Ang Orbot ay nagbibigay din ng kakayahan, sa mga rooted device, na ipadala ang lahat ng trapiko sa internet sa pamamagitan  ng Tor.</string>
   <string name="wizard_permissions_root">Napahintulotan na</string>
   <string name="wizard_permissions_stock">Pahintulot ng Orbot</string>
   <string name="wizard_premissions_msg_root">Mahusay! Natuklasan namin na mayroon pahintulot ang Orbot para sa root. Gagamitin namin ito ng mabuti.</string>
@@ -147,7 +147,6 @@
   <string name="warning_error_starting_transparent_proxying_">BABALA: error sa pag start ng transparent proxying!</string>
   <string name="transproxy_rules_cleared">Nalinis na ang mga batas ng TransProxy</string>
   <string name="couldn_t_start_tor_process_">Hindi ma umpisahan ang proseso ng Tor:</string>
-  <string name="privoxy_is_running_on_port_">Ang Polipo ay gumagana ngayon sa port:</string>
   <string name="setting_up_port_based_transparent_proxying_">Isinasaayos ang port-based transpaprent proxying...</string>
   <string name="bridge_error">Error sa Bridge</string>
   <string name="bridge_requires_ip">Para magamit ang feature ng bridge, kailangan mong mag lagay ng kahit isang bridge IP address.</string>
@@ -198,7 +197,6 @@
   <string name="third_party_software">3rd-Party-Software:</string>
   <string name="tor_version">Tor: https://www.torproject.org</string>
   <string name="libevent_version">LibEvent v2.0.21: http://www.monkey.org/~provos/libevent/</string>
-  <string name="polipo_version">Polipo v1.1.9: https://github.com/jech/polipo</string>
   <string name="iptables_version">IPtables v1.4.21: http://www.netfilter.org</string>
   <string name="openssl_version">OpenSSL v1.0.1q: http://www.openssl.org</string>
   <string name="hidden_service_request">May app na gustong buksan ang nakatagong server port %S sa Tor network. Ito ay ligtas kung pinagkakatiwalaan ang app.</string>

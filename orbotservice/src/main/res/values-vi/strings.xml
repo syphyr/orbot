@@ -61,7 +61,7 @@
   <string name="btn_cancel">Hủy</string>
   <!--Welcome Wizard strings (DJH)-->
   <string name="wizard_details">Vài chi tiết về Orbot</string>
-  <string name="wizard_details_msg">Orbot là một ứng dụng mã nguồn mở có chứa Tor, LibEvent và Polipo. Nó cung cấp một proxy HTTP nội bộ (8118) và một proxy SOCKS (9050) tới mạng Tor. Orbot cũng có khả năng chuyển tất cả các kết nối Internet thông qua Tor trên các thiết bị đã root.</string>
+  <string name="wizard_details_msg">Orbot là một ứng dụng mã nguồn mở có chứa Tor và LibEvent. Nó cung cấp một proxy HTTP nội bộ (8118) và một proxy SOCKS (9050) tới mạng Tor. Orbot cũng có khả năng chuyển tất cả các kết nối Internet thông qua Tor trên các thiết bị đã root.</string>
   <string name="wizard_permissions_root">Đã cho phép quyền</string>
   <string name="wizard_permissions_stock">Quyền truy cập của Orbot</string>
   <string name="wizard_premissions_msg_root">Tuyệt! Chúng tôi đã nhận ra máy bạn có root được kích hoạt cho Orbot. Chúng tôi sẽ tận dụng điều này.</string>
@@ -155,7 +155,6 @@
   <string name="warning_error_starting_transparent_proxying_">CHÚ Ý: có lỗi khi khởi động proxy trong suốt!</string>
   <string name="transproxy_rules_cleared">Quy tắc TransProxy đã được xóa</string>
   <string name="couldn_t_start_tor_process_">Không thể khởi động tiến trình Tor:</string>
-  <string name="privoxy_is_running_on_port_">Polipo đang chạy ở cổng:</string>
   <string name="setting_up_port_based_transparent_proxying_">Đang cài đặt proxy trong suốt theo cổng</string>
   <string name="bridge_error">Lỗi bridge</string>
   <string name="bridge_requires_ip">Để dùng chức năng bridge, bạn phải nhập ít nhất một địa chỉ IP dùng cho bridge.</string>
@@ -205,7 +204,6 @@
   <string name="third_party_software">Phần mềm bên thứ 3:</string>
   <string name="tor_version">Tor: https://www.torproject.org</string>
   <string name="libevent_version">LibEvent v2.0.21: http://www.monkey.org/~provos/libevent/</string>
-  <string name="polipo_version">Polipo v1.1.9: https://github.com/jech/polipo</string>
   <string name="iptables_version">IPtables v1.4.21: http://www.netfilter.org</string>
   <string name="openssl_version">OpenSSL v1.0.1q: http://www.openssl.org</string>
   <string name="hidden_service_request">Một ứng dụng muốn mở cổng ẩn %S đến mạng Tor. Đây là điều an toàn nếu như bạn tin tưởng vào ứng dụng này.</string>

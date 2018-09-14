@@ -180,7 +180,6 @@
   <string name="third_party_software">3.-Ataleko-Softwarea:</string>
   <string name="tor_version">Tor: https://www.torproject.org</string>
   <string name="libevent_version">LibEvent v2.0.21: http://www.monkey.org/~provos/libevent/</string>
-  <string name="polipo_version">Polipo v1.1.9: https://github.com/jech/polipo</string>
   <string name="iptables_version">IPtables v1.4.21: http://www.netfilter.org</string>
   <string name="hidden_service_request">Aplikazio batek ezkutuko zerbitzariko %S portua ireki nau du Tor sarera. Segurua da aplikazioaz fidatzen bazara.</string>
   <string name="found_existing_tor_process">Aurreko Tor prozesua topatuta...</string>

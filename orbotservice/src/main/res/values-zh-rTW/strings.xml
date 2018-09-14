@@ -60,7 +60,7 @@ Orbot使用Tor在全球一系列的電腦間跳躍，以便隱藏網路流量並
   <string name="btn_cancel">取消</string>
   <!--Welcome Wizard strings (DJH)-->
   <string name="wizard_details">Orbot 的一些詳細資料</string>
-  <string name="wizard_details_msg">Orbot是個開源的應用程式，包含了Tor，LibEvent和Polipo。它提供了本地HTTP代理 (8118)和SOCKS代理 (9050)以進入Tor網路。Orbot也能夠在已Root的裝置上，以Tor傳送所有的網路流量。</string>
+  <string name="wizard_details_msg">Orbot是個開源的應用程式，包含了Tor 和 LibEvent。它提供了本地HTTP代理 (8118)和SOCKS代理 (9050)以進入Tor網路。Orbot也能夠在已Root的裝置上，以Tor傳送所有的網路流量。</string>
   <string name="wizard_permissions_root">已取得權限</string>
   <string name="wizard_permissions_stock">Orbot 權限</string>
   <string name="wizard_configure">組態 Tor 網路</string>
@@ -92,7 +92,6 @@ Orbot使用Tor在全球一系列的電腦間跳躍，以便隱藏網路流量並
   <string name="third_party_software">第三方軟體：</string>
   <string name="tor_version">Tor: https://www.torproject.org</string>
   <string name="libevent_version">LibEvent v2.0.21: http://www.monkey.org/~provos/libevent/</string>
-  <string name="polipo_version">Polipo v1.1.9: https://github.com/jech/polipo</string>
   <string name="iptables_version">IPtables v1.4.21: http://www.netfilter.org</string>
   <string name="openssl_version">OpenSSL v1.0.1q: http://www.openssl.org</string>
   <string name="default_bridges"></string>

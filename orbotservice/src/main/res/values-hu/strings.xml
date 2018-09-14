@@ -61,7 +61,7 @@
   <string name="btn_cancel">Mégsem</string>
   <!--Welcome Wizard strings (DJH)-->
   <string name="wizard_details">Néhány Orbot adat</string>
-  <string name="wizard_details_msg">Az Orbot egy nyílt-forráskódú alkalmazás, ami tartalmazza a Tor-t, LibEvent-et és Polipo-t. Szolgáltat egy helyi HTTP proxyt (8118) és egy SOCKS proxyt (9050) a Tor hálózatba. Az Orbot-nak megvan az a képessége is, hogy rootolt eszközön minden internetes forgalmat a Tor-on keresztül küldjön.</string>
+  <string name="wizard_details_msg">Az Orbot egy nyílt-forráskódú alkalmazás, ami tartalmazza a Tor-t és LibEvent-et. Szolgáltat egy helyi HTTP proxyt (8118) és egy SOCKS proxyt (9050) a Tor hálózatba. Az Orbot-nak megvan az a képessége is, hogy rootolt eszközön minden internetes forgalmat a Tor-on keresztül küldjön.</string>
   <string name="wizard_permissions_root">Jogosultság megadva</string>
   <string name="wizard_permissions_stock">Orbot jogosultságok</string>
   <string name="wizard_premissions_msg_root">Kitűnő! Úgy észleltük, hogy root jogot engedélyeztél az Orbot számára. Ezt az erőt bölcsen fogjuk használni.</string>
@@ -155,7 +155,6 @@
   <string name="warning_error_starting_transparent_proxying_">FIGYELMEZTETÉS: hiba a transzparens proxyzás indításakor!</string>
   <string name="transproxy_rules_cleared">TransProxy szabályok törölve</string>
   <string name="couldn_t_start_tor_process_">Nem indítható el a Tor folyamat:</string>
-  <string name="privoxy_is_running_on_port_">A Polipo ezen a porton fut:</string>
   <string name="setting_up_port_based_transparent_proxying_">Port alapú transzparens proxyzás beállítása...</string>
   <string name="bridge_error">Híd hiba</string>
   <string name="bridge_requires_ip">A híd szolgáltatás használatához legalább egy híd IP címét meg kell adnod.</string>
@@ -205,7 +204,6 @@
   <string name="third_party_software">3. fél szoftver:</string>
   <string name="tor_version">Tor: https://www.torproject.org</string>
   <string name="libevent_version">LibEvent v2.0.21: http://www.monkey.org/~provos/libevent/</string>
-  <string name="polipo_version">Polipo v1.1.9: https://github.com/jech/polipo</string>
   <string name="iptables_version">IPtables v1.4.21: http://www.netfilter.org</string>
   <string name="openssl_version">OpenSSL v1.0.1q: http://www.openssl.org</string>
   <string name="hidden_service_request">Egy alkalmazás a %S rejtett szerver portot akarja megnyitni a Tor hálózathoz. Ez biztonságos, ha megbízol az alkalmazásban.</string>

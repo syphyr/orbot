@@ -82,10 +82,6 @@ public class TorResourceInstaller implements TorServiceConstants {
         outFile = new File(installFolder, TORRC_ASSET_KEY);
         streamToFile(is,outFile, false, false);
         
-        is = context.getResources().openRawResource(R.raw.torpolipo);
-        outFile = new File(installFolder, POLIPOCONFIG_ASSET_KEY);
-        streamToFile(is,outFile, false, false);
-
         is = context.getAssets().open(cpuPath + '/' + OBFSCLIENT_ASSET_KEY + MP3_EXT);
         outFile = new File(installFolder, OBFSCLIENT_ASSET_KEY);
         streamToFile(is,outFile, false, true);
@@ -93,11 +89,6 @@ public class TorResourceInstaller implements TorServiceConstants {
 
         is = context.getAssets().open(cpuPath + '/' + TOR_ASSET_KEY + MP3_EXT);
         outFile = new File(installFolder, TOR_ASSET_KEY);
-        streamToFile(is,outFile, false, true);
-        setExecutable(outFile);
-    
-        is = context.getAssets().open(cpuPath + '/' + POLIPO_ASSET_KEY + MP3_EXT);
-        outFile = new File(installFolder, POLIPO_ASSET_KEY);
         streamToFile(is,outFile, false, true);
         setExecutable(outFile);
     

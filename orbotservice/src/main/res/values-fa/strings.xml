@@ -61,7 +61,7 @@
   <string name="btn_cancel">لغو</string>
   <!--Welcome Wizard strings (DJH)-->
   <string name="wizard_details">برخی جزییات درباره اوربوت</string>
-  <string name="wizard_details_msg">اربت یک برنامه زبان باز است که شامل Tor, LibEvent and Polipo می شود و وظیفه آن ارائه  local HTTP proxy (8118) و SOCKS proxy (9050) به شبکه تور است. همچنین اربت این قابلیت را در دستگاه های ریشه دار دارد  که می تواند ترافیک اینترنت را از طریق تور ارسال کند. </string>
+  <string name="wizard_details_msg">اربت یک برنامه زبان باز است که شامل Tor and LibEvent می شود و وظیفه آن ارائه  local HTTP proxy (8118) و SOCKS proxy (9050) به شبکه تور است. همچنین اربت این قابلیت را در دستگاه های ریشه دار دارد  که می تواند ترافیک اینترنت را از طریق تور ارسال کند. </string>
   <string name="wizard_permissions_root">مجوز صادر گردید</string>
   <string name="wizard_permissions_stock">مجوزهای اوربوت</string>
   <string name="wizard_premissions_msg_root">بسیار عالی! اینطور که معلوم است شما دارای مجوز root برای فعال کردن ربات پیازی هستید. این امکان را بخوبی مورد استفاده قرار خواهیم داد.</string>
@@ -154,7 +154,6 @@
   <string name="warning_error_starting_transparent_proxying_">هشدار: خطا در هنگام راه اندازی پروکسی شفاف!</string>
   <string name="transproxy_rules_cleared">قوانین TransProxy پاک شدند</string>
   <string name="couldn_t_start_tor_process_"> تور نتواست اجرا شود:</string>
-  <string name="privoxy_is_running_on_port_">Polipo در حال اجرا است در پورت:</string>
   <string name="setting_up_port_based_transparent_proxying_">نصب پروکسی شفاف مبتنی بر پورت...</string>
   <string name="bridge_error">خطای Bridge </string>
   <string name="bridge_requires_ip">برای استفاده از ویژگی Bridge، باید حداقل آدرس IP یک پل را وارد کنید.</string>
@@ -204,7 +203,6 @@
   <string name="third_party_software">3rd-Party-Software:</string>
   <string name="tor_version">Tor: https://www.torproject.org</string>
   <string name="libevent_version">LibEvent v2.0.21: http://www.monkey.org/~provos/libevent/</string>
-  <string name="polipo_version">Polipo v1.1.9: https://github.com/jech/polipo</string>
   <string name="iptables_version">IPtables v1.4.21: http://www.netfilter.org</string>
   <string name="openssl_version">OpenSSL v1.0.1q: http://www.openssl.org</string>
   <string name="hidden_service_request">یک اپلیکیشن میخواهد پورت %S سرویس مخفی را به شبکه تور باز کند. اگر به این اپلیکیشن اعتماد دارید این بی خطر است.</string>

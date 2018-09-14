@@ -61,7 +61,7 @@
   <string name="btn_cancel">Annuleren</string>
   <!--Welcome Wizard strings (DJH)-->
   <string name="wizard_details">Enkele Orbot-gegevens</string>
-  <string name="wizard_details_msg">Orbot is een open-bron-applicatie die Tor, LibEvent en Polipo bevat. Het biedt een lokale HTTP-proxy (8118) en een SOCKS-proxy (9050) naar het Tor-netwerk. Orbot heeft ook de mogelijkheid om op een toestel met root-toegang alle internetverkeer door Tor te sturen.</string>
+  <string name="wizard_details_msg">Orbot is een open-bron-applicatie die Tor en LibEvent bevat. Het biedt een lokale HTTP-proxy (8118) en een SOCKS-proxy (9050) naar het Tor-netwerk. Orbot heeft ook de mogelijkheid om op een toestel met root-toegang alle internetverkeer door Tor te sturen.</string>
   <string name="wizard_permissions_root">Rechten toegewezen</string>
   <string name="wizard_permissions_stock">Orbot-rechten</string>
   <string name="wizard_premissions_msg_root">Uitstekend! We hebben gedetecteerd dat je root-rechten hebt aangezet voor Orbot. We gebruiken deze kracht met verstand.</string>
@@ -155,7 +155,6 @@
   <string name="warning_error_starting_transparent_proxying_">WAARSCHUWING: fout tijdens starten van transparante proxy!</string>
   <string name="transproxy_rules_cleared">TransProxy-regels gewist</string>
   <string name="couldn_t_start_tor_process_">Kon Tor-proces niet starten: </string>
-  <string name="privoxy_is_running_on_port_">Polipo wordt uitgevoerd op poort:</string>
   <string name="setting_up_port_based_transparent_proxying_">Bezig met opzetten van per-poort transparante proxy…</string>
   <string name="bridge_error">Bridge-fout</string>
   <string name="bridge_requires_ip">Om de bridge-functie te gebruiken moet je minstens één bridge IP-adres invoeren.</string>
@@ -205,7 +204,6 @@
   <string name="third_party_software">Software van 3e partijen: </string>
   <string name="tor_version">Tor: https://www.torproject.org</string>
   <string name="libevent_version">LibEvent v2.0.21: http://www.monkey.org/~provos/libevent/</string>
-  <string name="polipo_version">Polipo v1.1.9: https://github.com/jech/polipo</string>
   <string name="iptables_version">IPtables v1.4.21: http://www.netfilter.org</string>
   <string name="openssl_version">OpenSSL v1.0.1q: http://www.openssl.org</string>
   <string name="hidden_service_request">Een applicatie wil verborgen dienst-poort %S openen naar het Tor-netwerk. Dit is veilig als je de applicatie vertrouwt.</string>

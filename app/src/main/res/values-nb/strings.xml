@@ -143,7 +143,6 @@
   <string name="warning_error_starting_transparent_proxying_">ADVARSEL: Feil under oppstart av transparent proxying!</string>
   <string name="transproxy_rules_cleared">TransProxy regler fjernet</string>
   <string name="couldn_t_start_tor_process_">Kunne ikke starte Tor prosessen:</string>
-  <string name="privoxy_is_running_on_port_">Polipo kjører på port:</string>
   <string name="setting_up_port_based_transparent_proxying_">Konfigurerer portbasert transparent proxying...</string>
   <string name="bridge_error">Brofeil</string>
   <string name="bridge_requires_ip">For å kunne bruke bro-funksjonen, må du oppgi minst én bro IP-adresse.</string>
@@ -193,7 +192,6 @@
   <string name="third_party_software">Tredjepartsprogramvare:</string>
   <string name="tor_version">Tor: https://www.torproject.org</string>
   <string name="libevent_version">LibEvent v2.0.21: http://www.monkey.org/~provos/libevent/</string>
-  <string name="polipo_version">Polipo v1.1.9: https://github.com/jech/polipo</string>
   <string name="iptables_version">IPtables v1.4.21: http://www.netfilter.org</string>
   <string name="openssl_version">OpenSSL v1.0.1q: http://www.openssl.org</string>
   <string name="hidden_service_request">En applikasjon vil åpne den skjulte tjenesteporten %S til Tor-nettverket. Dette er trygt hvis du stoler på applikasjonen. </string>

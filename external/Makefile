@@ -104,8 +104,7 @@ endif
 	iptables iptables-clean \
 	lzma lzma-clean \
 	zstd zstd-clean \
-	tor tor-clean \
-	polipo polipo-clean
+	tor tor-clean
 
 all: assets
 
@@ -324,23 +323,6 @@ tor-clean:
 		git reset HEAD --hard
 
 #------------------------------------------------------------------------------#
-# polipo
-
-polipo-build-stamp: 
-	CC="$(CC)" CFLAGS="$(PIEFLAGS)" LDFLAGS="$(PIEFLAGS)" $(MAKE) -C polipo
-	touch polipo-build-stamp
-
-polipo: polipo-build-stamp
-	test -d bin || mkdir bin
-	cp polipo/polipo bin
-
-polipo-clean:
-	$(MAKE) -C polipo clean
-	-rm -f polipo/polipo
-	-rm -f bin/polipo
-	-rm -f polipo-build-stamp
-
-#------------------------------------------------------------------------------#
 # PLUTO Pluggable Transports
 
 pluto/bin/android_arm/obfs4proxy:
@@ -363,10 +345,8 @@ pluto-clean:
 #in order to stop Android OS (older devices) from trying to compress/decompress it
 #this is related to a bug in compression of assets and resources > 1MB
 
-assets: tor polipo iptables pluto
+assets: tor iptables pluto
 	install -d ../orbotservice/src/main/assets/$(APP_ABI)
-	-$(STRIP) bin/polipo
-	-zip ../orbotservice/src/main/assets/$(APP_ABI)/polipo.mp3 bin/polipo
 	-$(STRIP) bin/tor
 	-zip ../orbotservice/src/main/assets/$(APP_ABI)/tor.mp3 bin/tor
 	-$(STRIP) bin/xtables
@@ -378,7 +358,6 @@ assets: tor polipo iptables pluto
 	-rm ../orbotservice/src/main/libs/$(APP_ABI)/pdnsd
 
 assets-clean:
-	-rm ../orbotservice/src/main/assets/$(APP_ABI)/polipo.mp3
 	-rm ../orbotservice/src/main/assets/$(APP_ABI)/tor.mp3
 	-rm ../orbotservice/src/main/assets/$(APP_ABI)/xtables.mp3
 	-rm ../orbotservice/src/main/assets/$(APP_ABI)/obfs4proxy.mp3
@@ -388,8 +367,8 @@ assets-clean:
 #------------------------------------------------------------------------------#
 # cleanup, cleanup, put the toys away
 
-##clean: openssl-clean libevent-clean tor-clean polipo-clean assets-clean
-clean: openssl-clean libevent-clean lzma-clean zstd-clean tor-clean polipo-clean iptables-clean pluto-clean
+##clean: openssl-clean libevent-clean tor-clean assets-clean
+clean: openssl-clean libevent-clean lzma-clean zstd-clean tor-clean iptables-clean pluto-clean
 
 #------------------------------------------------------------------------------#
 # debugging stuff
