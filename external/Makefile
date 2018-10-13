@@ -325,17 +325,17 @@ tor-clean:
 #------------------------------------------------------------------------------#
 # PLUTO Pluggable Transports
 
-pluto/bin/android_arm/obfs4proxy:
+pluto/bin/armeabi-v7a/obfs4proxy:
 #don't build for now until we sort out Go SDK 
 #	cd pluto && \
 #		./build.sh
 
-pluto-build-stamp: pluto/bin/android_arm/obfs4proxy
+pluto-build-stamp: pluto/bin/armeabi-v7a/obfs4proxy
 	touch pluto-build-stamp
 
 pluto: pluto-build-stamp
 	test -d bin || mkdir bin
-	cp pluto/bin/android_arm/obfs4proxy bin
+	cp pluto/bin/armeabi-v7a/obfs4proxy bin
 
 pluto-clean:
 #	-rm -rf pluto/bin
