@@ -163,13 +163,25 @@ android:dialogTitle="@string/enter_ports"
 />
 </PreferenceCategory>
 
-<PreferenceCategory android:title="Isolation">
+<PreferenceCategory android:title="Connectivity">
 <CheckBoxPreference
 android:key="pref_isolate_dest"
 android:defaultValue="false"
 android:title="@string/pref_isolate_dest"
 android:summary="@string/pref_isolate_dest_summary"
 android:enabled="true"></CheckBoxPreference>
+<CheckBoxPreference
+android:defaultValue="true"
+android:enabled="true"
+android:key="pref_prefer_ipv6"
+android:summary="@string/pref_prefer_ipv6_summary"
+android:title="@string/pref_prefer_ipv6"></CheckBoxPreference>
+<CheckBoxPreference
+android:defaultValue="false"
+android:enabled="true"
+android:key="pref_disable_ipv4"
+android:summary="@string/pref_disable_ipv4_summary"
+android:title="@string/pref_disable_ipv4"></CheckBoxPreference>
 </PreferenceCategory>
 
 <PreferenceCategory android:title="ConnectionPadding">
@@ -186,7 +198,6 @@ android:title="@string/pref_reduced_connection_padding"
 android:summary="@string/pref_reduced_connection_padding_summary"
 android:enabled="true"></CheckBoxPreference>
 </PreferenceCategory>
-
 
 <PreferenceCategory android:title="@string/pref_proxy_title">
 <EditTextPreference android:key="pref_proxy_type"
@@ -219,35 +230,34 @@ android:dialogTitle="@string/pref_proxy_password_dialog"
 
 <PreferenceCategory android:title="Debug">
     
-    <EditTextPreference android:key="pref_socks"
+<EditTextPreference android:key="pref_socks"
 android:title="@string/pref_socks_title"
 android:summary="@string/pref_socks_summary"
 android:dialogTitle="@string/pref_socks_dialog"
 android:defaultValue="9050"
 />
     
-      <EditTextPreference android:key="pref_transport"
+<EditTextPreference android:key="pref_transport"
 android:title="@string/pref_transport_title"
 android:summary="@string/pref_transport_summary"
 android:dialogTitle="@string/pref_transport_dialog"
 android:defaultValue="9040"
 />
       
-        <EditTextPreference android:key="pref_dnsport"
+<EditTextPreference android:key="pref_dnsport"
 android:title="@string/pref_dnsport_title"
 android:summary="@string/pref_dnsport_summary"
 android:dialogTitle="@string/pref_dnsport_dialog"
 android:defaultValue="5400"
 />
     
-  <EditTextPreference android:key="pref_custom_torrc"
+<EditTextPreference android:key="pref_custom_torrc"
 android:title="@string/pref_torrc_title"
 android:summary="@string/pref_torrc_summary"
 android:dialogTitle="@string/pref_torrc_dialog"
 android:defaultValue=""
 />
     
-  
 <CheckBoxPreference
 android:key="pref_enable_logging"
 android:defaultValue="false"
@@ -255,14 +265,12 @@ android:title="Debug Log"
 android:summary="@string/enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_"
 android:enabled="true"></CheckBoxPreference>
 
-
 <CheckBoxPreference
 android:defaultValue="false" 
 android:key="pref_use_sys_iptables"
 android:summary="@string/pref_use_sys_iptables_summary"
 android:enabled="true" 
 android:title="@string/pref_use_sys_iptables_title"/>
-
 
 <CheckBoxPreference
 android:defaultValue="true" 
