@@ -312,7 +312,7 @@ tor-build-stamp: tor/Makefile
 
 tor: lzma zstd libevent openssl tor-build-stamp
 	test -d bin || mkdir bin
-	cp tor/src/or/tor bin
+	cp tor/src/app/tor bin
 
 tor-clean:
 	-rm -f bin/tor

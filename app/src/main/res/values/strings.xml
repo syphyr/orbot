@@ -213,7 +213,7 @@
   <string name="the_tor_license">The Tor License</string>
   <string name="https_torproject_org">https://torproject.org</string>
   <string name="third_party_software">3rd-Party-Software: </string>
-  <string name="tor_version">Tor v0.3.4.10: https://www.torproject.org</string>
+  <string name="tor_version">Tor v0.3.5.7: https://www.torproject.org</string>
   <string name="libevent_version">LibEvent v2.0.23: http://www.monkey.org/~provos/libevent/</string>
   <string name="iptables_version">IPtables v1.4.21: http://www.netfilter.org</string>
   <string name="obfsproxy_version">Obfs4proxy v0.0.8: https://github.com/Yawning/obfs4</string>
