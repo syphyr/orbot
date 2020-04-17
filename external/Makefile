@@ -34,7 +34,8 @@ APP_ABI ?= armeabi
 NDK_ABI ?= $(APP_ABI)
 
 # PIEFLAGS for SDK 16/Android L must be set to -fPIE -pie, but can override for earlier targets 
-PIEFLAGS ?= -fPIE -pie
+PIECFLAGS ?= -fPIE -fPIC
+PIELDFLAGS ?= -pie
 
 ifneq ($(filter arm%, $(APP_ABI)),)
   NDK_ABI := arm
@@ -42,7 +43,7 @@ endif
 ifneq ($(filter arm64%, $(APP_ABI)),)
  NDK_ABI := arm64
 endif
-NDK_SYSROOT=$(ANDROID_NDK_HOME)/platforms/android-$(NDK_PLATFORM_LEVEL)/arch-$(NDK_ABI)
+NDK_SYSROOT=$(ANDROID_NDK_HOME)/sysroot
 NDK_UNAME := $(shell uname -s | tr '[A-Z]' '[a-z]')
 ifneq ($(filter mips%, $(NDK_ABI)),)
  HOST := $(NDK_ABI)el-linux-android
@@ -64,11 +65,10 @@ NDK_TOOLCHAIN := $(HOST)-$(NDK_TOOLCHAIN_VERSION)
 ifneq ($(filter x86%, $(NDK_ABI)),)
  NDK_TOOLCHAIN := $(NDK_ABI)-$(NDK_TOOLCHAIN_VERSION)
 endif
-NDK_TOOLCHAIN_BASE=$(ANDROID_NDK_HOME)/toolchains/$(NDK_TOOLCHAIN)/prebuilt/$(NDK_UNAME)-$(NDK_PROCESSOR)
+NDK_TOOLCHAIN_BASE=$(ANDROID_NDK_HOME)
 
 # include Android's build flags
 TARGET_ARCH_ABI = $(APP_ABI)
-#include $(ANDROID_NDK_HOME)/toolchains/$(NDK_TOOLCHAIN)/setup.mk
 
 CC := $(NDK_TOOLCHAIN_BASE)/bin/$(HOST)-gcc --sysroot=$(NDK_SYSROOT)
 CXX := $(NDK_TOOLCHAIN_BASE)/bin/$(HOST)-g++ --sysroot=$(NDK_SYSROOT)
@@ -84,8 +84,8 @@ else
 endif
 
 
-CFLAGS = -DANDROID $(TARGET_CFLAGS) $(PIEFLAGS)
-LDFLAGS = -llog $(TARGET_LDFLAGS) $(PIEFLAGS)
+CFLAGS = -DANDROID $(TARGET_CFLAGS) $(PIECFLAGS)
+LDFLAGS = -llog $(TARGET_LDFLAGS) $(PIELDFLAGS)
 
 # change 'release' to 'debug' for unoptimized debug builds
 ifeq ($(APP_ABI),armeabi-v7a)
@@ -99,11 +99,12 @@ endif
 
 .PHONY = clean showsetup \
 	assets assets-clean \
-	openssl-static openssl-static-clean \
+	openssl openssl-clean \
 	libevent libevent-clean \
 	iptables iptables-clean \
 	lzma lzma-clean \
 	zstd zstd-clean \
+	zlib zlib-clean \
 	tor tor-clean
 
 all: assets
@@ -129,17 +130,17 @@ endif
 
 lib/libcrypto.a:
 	cd openssl && \
-		./Configure android -DL_ENDIAN $(OPENSSL_CONF_FLAG) && \
-		make CC="$(CC)" ANDROID_DEV=$(NDK_SYSROOT)/usr depend && \
-		make CC="$(CC)" ANDROID_DEV=$(NDK_SYSROOT)/usr build_libs
+		./Configure android-arm -D__ANDROID_API__=$(NDK_PLATFORM_LEVEL) $(OPENSSL_CONF_FLAG) && \
+		make CC="clang" ANDROID_DEV=$(NDK_SYSROOT)/usr depend && \
+		make CC="clang" ANDROID_DEV=$(NDK_SYSROOT)/usr build_libs
 
 lib/libssl.a:
 	cp config.sub openssl
 	cp config.guess openssl
 	cd openssl && \
-		./Configure android -DL_ENDIAN $(OPENSSL_CONF_FLAG) && \
-		make CC="$(CC)" ANDROID_DEV=$(NDK_SYSROOT)/usr depend && \
-		make CC="$(CC)" ANDROID_DEV=$(NDK_SYSROOT)/usr build_libs
+		./Configure android-arm -D__ANDROID_API__=$(NDK_PLATFORM_LEVEL) $(OPENSSL_CONF_FLAG) && \
+		make CC="clang" ANDROID_DEV=$(NDK_SYSROOT)/usr depend && \
+		make CC="clang" ANDROID_DEV=$(NDK_SYSROOT)/usr build_libs
 
 openssl-build-stamp: lib/libcrypto.a lib/libssl.a
 	touch openssl-build-stamp
@@ -153,9 +154,10 @@ openssl: openssl-build-stamp
 	cp openssl/include/openssl/* include/openssl
 
 openssl-clean:
-	-rm openssl-build-stamp
-	-rm lib/libcrypto.a
-	-rm lib/libssl.a
+	-rm -f openssl-build-stamp
+	-rm -f lib/libcrypto.a
+	-rm -f lib/libssl.a
+	-rm -rf include/openssl
 	-cd openssl && \
 		git clean -fdx
 
@@ -188,7 +190,7 @@ libevent: openssl libevent-build-stamp
 	cp -R libevent/include/event2 include
 
 libevent-clean:
-	-rm -f include/event2
+	-rm -rf include/event2
 	-rm -f lib/libevent.a
 	-rm -f libevent-build-stamp
 	-cd libevent && \
@@ -215,6 +217,7 @@ lzma-clean:
 	-rm -f include/lzma.h
 	-rm -f lib/liblzma.a
 	-rm -f lib/liblzma.la
+	-rm -f lib/pkgconfig/liblzma.pc
 	-rm -f lzma-build-stamp
 	-cd xz && \
 		git clean -fdx
@@ -244,6 +247,30 @@ zstd-clean:
 	-rm -f zstd-build-stamp
 	-cd zstd && \
 		git clean -fdx
+
+#------------------------------------------------------------------------------#
+# zlib
+
+
+zlib-build-stamp:
+	touch zlib-build-stamp
+
+zlib: zlib-build-stamp
+	cd zlib && \
+		CC="$(CC)" CXX="$(CXX)" PKG_CONFIG_PATH="$(EXTERNAL_ROOT)/lib/pkgconfig" AR="$(AR)" RANLIB="$(RANLIB)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)" \
+		./configure --static --prefix=$(EXTERNAL_ROOT)
+	$(MAKE) -C zlib install
+
+zlib-clean:
+	-rm -f lib/libz.a
+	-rm -f lib/pkgconfig/zlib.pc
+	-rm -f include/zconf.h
+	-rm -f include/zlib.h
+	-rm -f zlib-build-stamp
+	-rm -f share/man/man3/zlib.3
+	-cd zlib && \
+		git clean -fdx
+
 #------------------------------------------------------------------------------#
 # iptables
 
@@ -288,12 +315,6 @@ tor/configure:
 	 ./autogen.sh
 
 tor/Makefile: tor/configure
-#	cp 0001-add-limits.h-to-support-MAX_SIZE-on-Android.patch tor
-#	cd tor && \
-#		git apply 0001-add-limits.h-to-support-MAX_SIZE-on-Android.patch
-#	cp fix_android_0.2.6.4rc_build.patch tor
-#	cd tor && \
-#		git apply fix_android_0.2.6.4rc_build.patch
 	cp config.sub tor
 	cp config.guess tor
 	cd tor && \
@@ -301,16 +322,18 @@ tor/Makefile: tor/configure
                         LIBS="-L$(EXTERNAL_ROOT)/lib" CFLAGS="-I$(EXTERNAL_ROOT)/include -I$(EXTERNAL_ROOT)/include/event2" \
                         ./configure \
                                 --host=$(HOST) \
-				--disable-asciidoc \
+				--disable-asciidoc --enable-android \
 				--enable-static-libevent --with-libevent-dir=$(EXTERNAL_ROOT) \
 				--enable-static-openssl --with-openssl-dir=$(EXTERNAL_ROOT) \
+				--enable-static-zlib --with-zlib-dir=$(EXTERNAL_ROOT) \
+				--enable-lzma --enable-zstd \
 				--disable-linker-hardening --disable-gcc-hardening --disable-tool-name-check --disable-systemd
 
 tor-build-stamp: tor/Makefile
 	$(MAKE) -C tor all-am
 	touch tor-build-stamp
 
-tor: lzma zstd libevent openssl tor-build-stamp
+tor: zlib lzma zstd libevent openssl tor-build-stamp
 	test -d bin || mkdir bin
 	cp tor/src/app/tor bin
 
@@ -338,7 +361,8 @@ pluto: pluto-build-stamp
 	cp pluto/bin/armeabi-v7a/obfs4proxy bin
 
 pluto-clean:
-#	-rm -rf pluto/bin
+	-rm -f bin/obfs4proxy
+	-rm -f pluto-build-stamp
 
 #------------------------------------------------------------------------------#
 #create and clean assets: FYI - tor is stored as a ZIP file with an mp3 extension
@@ -368,7 +392,7 @@ assets-clean:
 # cleanup, cleanup, put the toys away
 
 ##clean: openssl-clean libevent-clean tor-clean assets-clean
-clean: openssl-clean libevent-clean lzma-clean zstd-clean tor-clean iptables-clean pluto-clean
+clean: zlib-clean openssl-clean libevent-clean lzma-clean zstd-clean tor-clean iptables-clean pluto-clean assets-clean
 
 #------------------------------------------------------------------------------#
 # debugging stuff

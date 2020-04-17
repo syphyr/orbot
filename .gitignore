@@ -52,6 +52,7 @@ build/
 /external/test.c
 /external/test.h.gch
 /external/translation/
+/external/share/
 bin
 gen
 native
