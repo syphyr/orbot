@@ -1,0 +1,24 @@
+From fe6bf068a9e5268ff33c205ccbec196a9c769d62 Mon Sep 17 00:00:00 2001
+From: syphyr <syphyr@gmail.com>
+Date: Sat, 18 Apr 2020 21:12:01 +0200
+Subject: [PATCH] libevent: Do not build tests
+
+---
+ Makefile.am | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index dd905026..cf5b1822 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -173,7 +173,6 @@ DISTCLEANFILES=
+ BUILT_SOURCES =
+ include include/include.am
+ include sample/include.am
+-include test/include.am
+ 
+ if BUILD_WIN32
+ 
+-- 
+2.17.1
+

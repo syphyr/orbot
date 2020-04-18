@@ -165,11 +165,9 @@ openssl-clean:
 # libevent
 
 libevent/Makefile:
-	sed -i 's@\(SUBDIRS = . include\) sample test@\1@' libevent/Makefile.am
-	cp libevent-patch-1 libevent
+	cp 0001-libevent-Do-not-build-tests.patch libevent
 	-cd libevent && \
-	 	patch -N -p1 --reject-file=- < libevent-patch-1
-	##sed -i 's@\(AC_OUTPUT(Makefile include/Makefile\) test/Makefile sample/Makefile)@\1)@' libevent/configure.in
+		patch -N -p1 --reject-file=- < 0001-libevent-Do-not-build-tests.patch
 	cd libevent && ./autogen.sh
 	cp config.sub libevent
 	cp config.guess libevent
@@ -177,7 +175,9 @@ libevent/Makefile:
 		CC="$(CC)" AR="$(AR)" RANLIB=$(RANLIB) CFLAGS="$(CFLAGS) -I$(EXTERNAL_ROOT)/include" LDFLAGS="$(LDFLAGS)" \
 			./configure \
 				--host=$(HOST) \
-				--disable-shared
+				--disable-shared \
+				--enable-static \
+				--disable-samples
 
 libevent-build-stamp: libevent/Makefile
 	$(MAKE) -C libevent ./include/event2/event-config.h all-am
