@@ -31,7 +31,7 @@ ANDROID_TOOLCHAIN_HOME ?= /opt/android-ndk
 ANDROID_NDK_HOME ?= /opt/toolchains
 NDK_PLATFORM_LEVEL ?= 16
 NDK_TOOLCHAIN_VERSION=4.9
-APP_ABI ?= armeabi
+APP_ABI ?= armeabi-v7a
 NDK_ABI ?= $(APP_ABI)
 
 # PIEFLAGS for SDK 16/Android L must be set to -fPIE -pie, but can override for earlier targets 
