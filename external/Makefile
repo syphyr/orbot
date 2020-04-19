@@ -27,7 +27,8 @@ else
 endif
 
 # Android NDK setup
-ANDROID_NDK_HOME ?= /opt/android-ndk
+ANDROID_TOOLCHAIN_HOME ?= /opt/android-ndk
+ANDROID_NDK_HOME ?= /opt/toolchains
 NDK_PLATFORM_LEVEL ?= 16
 NDK_TOOLCHAIN_VERSION=4.9
 APP_ABI ?= armeabi
@@ -69,10 +70,11 @@ NDK_TOOLCHAIN_BASE=$(ANDROID_NDK_HOME)
 
 # include Android's build flags
 TARGET_ARCH_ABI = $(APP_ABI)
+#include $(ANDROID_TOOLCHAIN_HOME)/build/core/toolchains/$(HOST)-clang/config.mk
+#include $(ANDROID_TOOLCHAIN_HOME)/build/core/toolchains/$(HOST)-clang/setup.mk
 
 CC := $(NDK_TOOLCHAIN_BASE)/bin/$(HOST)-gcc --sysroot=$(NDK_SYSROOT)
 CXX := $(NDK_TOOLCHAIN_BASE)/bin/$(HOST)-g++ --sysroot=$(NDK_SYSROOT)
-CPP := $(NDK_TOOLCHAIN_BASE)/bin/$(HOST)-cpp --sysroot=$(NDK_SYSROOT)
 LD := $(NDK_TOOLCHAIN_BASE)/bin/$(HOST)-ld
 AR := $(NDK_TOOLCHAIN_BASE)/bin/$(HOST)-ar
 RANLIB := $(NDK_TOOLCHAIN_BASE)/bin/$(HOST)-ranlib
