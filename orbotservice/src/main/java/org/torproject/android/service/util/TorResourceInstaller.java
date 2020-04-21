@@ -69,7 +69,7 @@ public class TorResourceInstaller implements TorServiceConstants {
         InputStream is;
         File outFile;
 
-        String cpuPath = "armeabi";
+        String cpuPath = "armeabi-v7a";
             
         if (Build.CPU_ABI.contains("x86"))
         	cpuPath = "x86";
