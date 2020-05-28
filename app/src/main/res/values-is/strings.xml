@@ -241,7 +241,7 @@
   <string name="pref_transport_summary">Port sem Tor býður Gegnsæjum Proxy á (upprunalegt: 9040 eða 0 til að slökkva)</string>
   <string name="pref_transport_dialog">GegnsærProxy Port Stilling</string>
   <string name="pref_dnsport_title">Tor DNS Port</string>
-  <string name="pref_dnsport_summary">Port sem Tor býður DNS á (upprunalegt: 5400 eða 0 til að slökkva)</string>
+  <string name="pref_dnsport_summary">Port sem Tor býður DNS á (upprunalegt: 9053 eða 0 til að slökkva)</string>
   <string name="pref_dnsport_dialog">DNS Port Stilling</string>
   <string name="pref_torrc_title">Torrc Mótanleg Stilling</string>
   <string name="pref_torrc_summary">AÐEINS SÉRFRÆÐINGAR: sláðu inn beinar torrc stillingar línur</string>

@@ -49,7 +49,7 @@ public interface TorServiceConstants {
 	public final static int TOR_TRANSPROXY_PORT_DEFAULT = 9040;
 	
 	public final static int STANDARD_DNS_PORT = 53;
-	public final static int TOR_DNS_PORT_DEFAULT = 5400;
+	public final static int TOR_DNS_PORT_DEFAULT = 9053;
 	public final static String TOR_VPN_DNS_LISTEN_ADDRESS = "127.0.0.1";
 	
 	public final static int CONTROL_PORT_DEFAULT = 9051;

@@ -260,7 +260,7 @@ android:defaultValue="9040"
 android:title="@string/pref_dnsport_title"
 android:summary="@string/pref_dnsport_summary"
 android:dialogTitle="@string/pref_dnsport_dialog"
-android:defaultValue="5400"
+android:defaultValue="9053"
 />
     
 <EditTextPreference android:key="pref_custom_torrc"
