@@ -67,5 +67,5 @@ app/src/main/jniLibs/
 app/src/main/libs/
 orbotservice/src/main/libs/
 orbotservice/src/main/jniLibs/
-orbotservice/src/main/assets/armeabi/
+orbotservice/src/main/assets/armeabi-v7a/
 orbotservice/src/main/assets/x86/
