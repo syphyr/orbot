@@ -186,15 +186,13 @@ libevent-build-stamp: libevent/Makefile
 	touch libevent-build-stamp
 
 libevent: openssl libevent-build-stamp
-	test -d lib/.libs || mkdir -p lib/.libs
+	test -d lib || mkdir lib
 	test -d include || mkdir include
-	cp libevent/.libs/libevent.a lib/.libs/
-	ln -s .libs/libevent.a lib/libevent.a
+	cp libevent/.libs/libevent.a lib
 	cp -R libevent/include/event2 include
 
 libevent-clean:
 	-rm -rf include/event2
-	-rm -f lib/.libs/libevent.a
 	-rm -f lib/libevent.a
 	-rm -f libevent-build-stamp
 	-cd libevent && \
