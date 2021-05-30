@@ -13,6 +13,9 @@ docs
 doc
 .directory
 keystore.properties
+app/debug.keystore
+app-mini/debug.keystore
+app-tv/debug.keystore
 
 #built application files
 *.apk
