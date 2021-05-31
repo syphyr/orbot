@@ -2,6 +2,7 @@ import org.gradle.api.initialization.resolve.RepositoriesMode
 
 pluginManagement {
     repositories {
+        maven { url '/media/delta/T5/android/orbot-latest/maven' }
         google()
         mavenCentral()
         gradlePluginPortal()
@@ -11,6 +12,7 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        maven { url '/media/delta/T5/android/orbot-latest/maven' }
         google()
         // noinspection JcenterRepositoryObsolete
         jcenter {
