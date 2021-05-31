@@ -4,6 +4,7 @@ buildscript {
         kotlin_version = '1.4.32'
     }
     repositories {
+        maven { url '/media/delta/T5/android/orbot-latest/maven' }
         mavenCentral()
         google()
         maven { url 'https://jitpack.io' }
@@ -16,6 +17,7 @@ buildscript {
 
 allprojects {
     repositories {
+        maven { url '/media/delta/T5/android/orbot-latest/maven' }
         mavenCentral()
         google()
         maven { url 'https://jitpack.io' }
