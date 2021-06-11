@@ -60,7 +60,7 @@ dependencies {
 
     implementation 'info.guardianproject:geoip:20191217'
 
-    api 'info.guardianproject:jtorctl:0.4.5.7'
+    api 'info.guardianproject:jtorctl:0.4.5.9'
     implementation 'info.guardianproject:tor-android:0.4.5.9'
 
     implementation 'com.github.tladesignz:IPtProxy:1.0.0'
