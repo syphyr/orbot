@@ -58,7 +58,7 @@ dependencies {
 
     implementation 'com.offbynull.portmapper:portmapper:2.0.5'
 
-    implementation 'info.guardianproject:geoip:20191217'
+    implementation 'info.guardianproject:geoip:0.4.5.9'
 
     api 'info.guardianproject:jtorctl:0.4.5.9'
     implementation 'info.guardianproject:tor-android:0.4.5.9'
