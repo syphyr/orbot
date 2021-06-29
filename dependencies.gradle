@@ -47,7 +47,7 @@ ext {
             apl_appintro                   : "com.github.apl-devs:appintro:$versions.apl_appintro",
             bclogic_pulsator               : "pl.bclogic:pulsator4droid:$versions.bclogic_pulsator",
             fastlane_screengrab            : "tools.fastlane:screengrab:$versions.fastlane_screengrab",
-            guardian_jsocks                : "com.gitlab.guardianproject:jsocksandroid:$versions.guardian_jsocks",
+            guardian_jsocks                : "com.gitlab.guardianproject:jsocksAndroid:$versions.guardian_jsocks",
             guardian_jtorctl               : "info.guardianproject:jtorctl:$versions.guardian_jtorctl",
       //      ipt_proxy                      : "com.github.bitmold:OrbotIPtProxy:$versions.ipt_proxy",
             ipt_proxy                      : "com.github.tladesignz:IPtProxy:$versions.ipt_proxy",
