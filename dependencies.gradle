@@ -19,7 +19,7 @@ ext {
             bclogic_pulsator             : "1.0.3",
             fastlane_screengrab          : "1.2.0",
             guardian_jsocks              : "1.0.4",
-            guardian_jtorctl             : "0.4.5.7",
+            guardian_jtorctl             : "0.4.7.12",
             ipt_proxy                    : "1.8.1",
             portmapper                   : "2.0.5",
             tor_android                  : "0.4.7.8",
