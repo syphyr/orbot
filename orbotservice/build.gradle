@@ -50,12 +50,13 @@ dependencies {
             libs.androidx_localbroadcast,
    //         libs.ipt_proxy,
             libs.guardian_jsocks,
+            libs.guardian_geoip,
             libs.portmapper,
       //      libs.tor_android,
             libs.pcap_core,
             libs.pcap_factory
     )
 
-    implementation files('../libs/geoip.jar')
+    //implementation files('../libs/geoip.jar')
 
 }
