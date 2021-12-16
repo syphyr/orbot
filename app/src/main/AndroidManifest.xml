@@ -43,7 +43,7 @@
 
         <activity
             android:name=".OrbotMainActivity"
-            android:excludeFromRecents="false"
+            android:excludeFromRecents="true"
             android:launchMode="singleTop"
             android:exported="true">
             <intent-filter>
