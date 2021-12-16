@@ -21,7 +21,7 @@
             android:label="@string/title_activity_app_config"></activity>
         <activity
             android:name=".TeeveeMainActivity"
-            android:excludeFromRecents="false"
+            android:excludeFromRecents="true"
             android:launchMode="singleTop"
             android:theme="@style/Theme.Leanback"
             android:exported="true"
