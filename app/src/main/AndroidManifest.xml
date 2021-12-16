@@ -47,7 +47,7 @@
         android:taskAffinity="">
 
         <activity android:name=".OrbotActivity"
-            android:excludeFromRecents="false"
+            android:excludeFromRecents="true"
 
             android:launchMode="singleInstance"
             android:theme="@style/OrbotActivityTheme"
