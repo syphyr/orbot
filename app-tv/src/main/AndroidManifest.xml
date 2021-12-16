@@ -22,7 +22,7 @@
             android:label="@string/title_activity_app_config"></activity>
         <activity
             android:name="org.torproject.android.tv.TeeveeMainActivity"
-            android:excludeFromRecents="false"
+            android:excludeFromRecents="true"
             android:launchMode="singleTop"
             android:theme="@style/Theme.Leanback"
             >
