@@ -20,7 +20,7 @@
             android:label="@string/title_activity_app_config"></activity>
         <activity
             android:name="org.torproject.android.tv.MiniMainActivity"
-            android:excludeFromRecents="false"
+            android:excludeFromRecents="true"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
