@@ -57,7 +57,7 @@
 
         <activity
             android:name="org.torproject.android.OrbotActivity"
-            android:excludeFromRecents="false"
+            android:excludeFromRecents="true"
 
             android:exported="true"
             android:launchMode="singleInstance"
