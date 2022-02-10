@@ -52,7 +52,7 @@ public interface OrbotConstants {
     String IP_LOCALHOST = "127.0.0.1";
     int TOR_TRANSPROXY_PORT_DEFAULT = 9040;
 
-    int TOR_DNS_PORT_DEFAULT = 5400;
+    int TOR_DNS_PORT_DEFAULT = 9053;
 
     String HTTP_PROXY_PORT_DEFAULT = "8118"; // like Privoxy!
     String SOCKS_PROXY_PORT_DEFAULT = "9050";
