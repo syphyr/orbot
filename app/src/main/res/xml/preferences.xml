@@ -202,14 +202,14 @@
             android:title="@string/pref_http_title" />
 
         <EditTextPreference
-            android:defaultValue="auto"
+            android:defaultValue="9040"
             android:dialogTitle="@string/pref_transport_dialog"
             android:key="pref_transport"
             android:summary="@string/pref_transport_summary"
             android:title="@string/pref_transport_title" />
 
         <EditTextPreference
-            android:defaultValue="auto"
+            android:defaultValue="9053"
             android:dialogTitle="@string/pref_dnsport_dialog"
             android:key="pref_dnsport"
             android:summary="@string/pref_dnsport_summary"
