@@ -60,7 +60,6 @@ android {
 
     dependencies {
         implementation(
-                project(':tor-android'),
                 project(':iptproxy'),
                 project(':appcore'),
                 project(':intentintegrator'),
