@@ -4,13 +4,10 @@ apply from : '../dependencies.gradle'
 android {
     defaultConfig {
         applicationId "org.torproject.android.tv"
-        minSdkVersion 23 
-        targetSdkVersion 31
+        minSdkVersion 23
+        targetSdkVersion 33
     }
 
-    aaptOptions {
-        cruncherEnabled = false
-    }
 
     flavorDimensions "teevee"
 

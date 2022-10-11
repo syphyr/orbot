@@ -17,19 +17,12 @@ android {
         applicationId "org.torproject.android"
         versionName getVersionName()
         minSdkVersion 16
-        compileSdkVersion 31
-        targetSdkVersion 31
+        compileSdkVersion 33
+        targetSdkVersion 33
         multiDexEnabled true
     }
     compileOptions {
         coreLibraryDesugaringEnabled true
-    }
-    lintOptions {
-        htmlReport true
-        xmlReport false
-        textReport false
-        lintConfig file("../lint.xml")
-        disable "InvalidPackage"
     }
     buildTypes {
         release {
@@ -59,6 +52,21 @@ android {
             universalApk true
         }
     }
+    packagingOptions {
+        jniLibs {
+            /**
+            excludes += ['lib/x86/libgojni.so',
+                         'lib/x86_64/libgojni.so',
+                         'lib/arm64-v8a/libgojni.so',
+                         'lib/armeabi-v7a/libgojni.so',
+                         'lib/armeabi/libgojni.so']
+             **/
+        }
+
+        resources {
+            excludes += ['META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version']
+        }
+    }
 
     dependencies {
         implementation(
@@ -76,13 +84,21 @@ android {
         androidTestImplementation libs.fastlane_screengrab
         coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
 
+
+
+    }
+    lint {
+        abortOnError false
+        checkReleaseBuilds false
+        disable 'InvalidPackage'
+        htmlReport true
+        lintConfig file('../lint.xml')
+        textReport false
+        xmlReport false
     }
     namespace 'org.torproject.android'
 }
 dependencies {
     implementation "androidx.core:core-ktx:+"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-}
-repositories {
-    mavenCentral()
 }
