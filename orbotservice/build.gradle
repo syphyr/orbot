@@ -42,6 +42,7 @@ android {
 
 dependencies {
     api libs.guardian_jtorctl
+    api libs.tor_android
     implementation(
             project(':iptproxy'),
             libs.android_shell,
@@ -51,7 +52,6 @@ dependencies {
             libs.guardian_jsocks,
             libs.guardian_geoip,
             libs.portmapper,
-            libs.tor_android,
             libs.pcap_core,
             libs.pcap_factory
     )
