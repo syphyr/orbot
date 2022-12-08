@@ -25,6 +25,7 @@ android {
             archivesBaseName = "Orbot-TV-$versionName"
         }
     }
+    namespace 'org.torproject.android.tv'
 
 }
 
