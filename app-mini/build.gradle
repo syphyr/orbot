@@ -45,4 +45,5 @@ android {
         )
         androidTestImplementation libs.fastlane_screengrab
     }
+    namespace 'org.torproject.android.mini'
 }

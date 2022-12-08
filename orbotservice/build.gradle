@@ -38,6 +38,7 @@ android {
     packagingOptions {
         exclude 'META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version'
     }
+    namespace 'org.torproject.android.service'
 }
 
 dependencies {
