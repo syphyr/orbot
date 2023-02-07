@@ -46,7 +46,7 @@ dependencies {
     api libs.guardian_jtorctl
     api libs.tor_android
     implementation(
-            project(':iptproxy'),
+            project(':OrbotLib'),
             libs.android_shell,
             libs.androidx_core,
             libs.androidx_localbroadcast,

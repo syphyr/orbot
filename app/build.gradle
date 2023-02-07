@@ -70,7 +70,7 @@ android {
 
     dependencies {
         implementation(
-                project(':iptproxy'),
+                project(':OrbotLib'),
                 project(':appcore'),
                 project(':intentintegrator'),
                 project(':orbotservice'),

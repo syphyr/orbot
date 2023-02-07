@@ -1,4 +1,4 @@
-include ':iptproxy'
+include ':OrbotLib'
 include ':intentintegrator'
 include ':appcore'
 include ':orbotservice'
