@@ -294,7 +294,7 @@ public class Prefs {
     }
 
     public static boolean isPowerUserMode() {
-        return prefs.getBoolean(PREF_POWER_USER_MODE, false);
+        return prefs.getBoolean(PREF_POWER_USER_MODE, true);
     }
 
     public static void setSecureWindow(boolean isFlagSecure) {
