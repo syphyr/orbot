@@ -253,7 +253,7 @@ object Prefs {
         }
 
     val isPowerUserMode: Boolean
-        get() = cr?.getPrefBoolean(PREF_POWER_USER_MODE) ?: false
+        get() = cr?.getPrefBoolean(PREF_POWER_USER_MODE, true) ?: true
 
     var isSecureWindow: Boolean
         get() = cr?.getPrefBoolean(PREF_SECURE_WINDOW_FLAG, true) ?: true
