@@ -228,7 +228,7 @@ object Prefs {
         set(value) = putInt(PREF_SMART_CONNECT_TIMEOUT, value)
 
     val isPowerUserMode: Boolean
-        get() = prefs?.getBoolean(PREF_POWER_USER_MODE, false) ?: false
+        get() = prefs?.getBoolean(PREF_POWER_USER_MODE, true) ?: true
 
     var isSecureWindow: Boolean
         get() = prefs?.getBoolean(PREF_SECURE_WINDOW_FLAG, true) ?: true
