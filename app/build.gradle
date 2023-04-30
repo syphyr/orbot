@@ -49,7 +49,7 @@ android {
 
     splits {
         abi {
-            universalApk true
+            universalApk false
         }
     }
     packagingOptions {
