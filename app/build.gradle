@@ -51,7 +51,7 @@ android {
         abi {
             enable true
             reset()
-            include "x86", "armeabi-v7a", "x86_64", "arm64-v8a"
+            include "arm64-v8a"
         }
     }
 
@@ -86,7 +86,7 @@ android {
 
     splits {
         abi {
-            universalApk true
+            universalApk false
         }
     }
 
