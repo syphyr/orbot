@@ -54,8 +54,8 @@ configure<ApplicationExtension> {
             reset()
             // includes *every* ABI, x86 is only useful when *emulating* API 24 devices
             // include("x86", "armeabi-v7a", "x86_64", "arm64-v8a")
-            include("arm64-v8a", "armeabi-v7a", "x86_64")
-            isUniversalApk = true
+            include("arm64-v8a")
+            isUniversalApk = false
         }
     }
 
