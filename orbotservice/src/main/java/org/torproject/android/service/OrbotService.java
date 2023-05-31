@@ -49,6 +49,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.PrintWriter;
+import java.security.SecureRandom;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -56,7 +57,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Objects;
-import java.util.Random;
 import java.util.StringTokenizer;
 import java.util.UUID;
 import java.util.concurrent.ExecutorService;
@@ -99,7 +99,7 @@ public class OrbotService extends VpnService implements OrbotConstants {
     OrbotVpnManager mVpnManager;
     Handler mHandler;
     //we should randomly sort alBridges so we don't have the same bridge order each time
-    final Random bridgeSelectRandom = new Random(System.nanoTime());
+    final SecureRandom bridgeSelectRandom = new SecureRandom();
     ActionBroadcastReceiver mActionBroadcastReceiver;
     private String mCurrentStatus = STATUS_OFF;
     TorControlConnection conn = null;
@@ -389,14 +389,16 @@ public class OrbotService extends VpnService implements OrbotConstants {
 
     }
 
+    private SecureRandom mSecureRandGen = new SecureRandom(); //used to randomly select STUN servers for snowflake
+
     @SuppressWarnings("ConstantConditions")
     private void enableSnowflakeProxy () { // This is to host a snowflake entrance node / bridge
         var capacity = 1;
         var keepLocalAddresses = false;
         var unsafeLogging = false;
         var stunServers = getCdnFront("snowflake-stun").split(",");
-        Random generator = new Random();
-        int randomIndex = generator.nextInt(stunServers.length);
+
+        int randomIndex = mSecureRandGen.nextInt(stunServers.length);
         var stunUrl = stunServers[randomIndex];
         var relayUrl = getCdnFront("snowflake-relay-url");//"wss://snowflake.bamsoftware.com";
         var natProbeUrl = getCdnFront("snowflake-nat-probe");//"https://snowflake-broker.torproject.net:8443/probe";
