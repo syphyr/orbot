@@ -259,7 +259,7 @@ public class OrbotService extends VpnService implements OrbotConstants {
 
         if (Prefs.bridgesEnabled()) {
             if (useIPtObfsMeekProxy())
-                IPtProxy.stopObfs4Proxy();
+                IPtProxy.stopLyrebird();
             else if (useIPtSnowflakeProxyDomainFronting()||useIPtSnowflakeProxyAMPRendezvous()) {
                 IPtProxy.stopSnowflake();
                 File fileLog =  new File(appCacheHome, LOG_SNOWFLAKE);
@@ -1411,7 +1411,7 @@ public class OrbotService extends VpnService implements OrbotConstants {
             if (action.equals(ACTION_START)) {
                 if (Prefs.bridgesEnabled()) {
                     if (useIPtObfsMeekProxy())
-                        IPtProxy.startObfs4Proxy("DEBUG", false, false, null);
+                        IPtProxy.startLyrebird("DEBUG", false, false, null);
                     else if (useIPtSnowflakeProxyDomainFronting())
                         startSnowflakeClientDomainFronting();
                     else if (useIPtSnowflakeProxyAMPRendezvous())
