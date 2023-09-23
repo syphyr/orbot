@@ -394,10 +394,10 @@ public class OrbotService extends VpnService implements OrbotConstants {
         var capacity = 1;
         var keepLocalAddresses = false;
         var unsafeLogging = false;
-        var stunUrl = "stun:stun.l.google.com:19302";
-        var relayUrl = "wss://snowflake.bamsoftware.com";
-        var natProbeUrl = "https://snowflake-broker.torproject.net:8443/probe";
-        var brokerUrl = "https://snowflake-broker.torproject.net/";
+        var stunUrl = getCdnFront("snowflake-stun");
+        var relayUrl = getCdnFront("snowflake-relay-url");//"wss://snowflake.bamsoftware.com";
+        var natProbeUrl = getCdnFront("snowflake-nat-probe");//"https://snowflake-broker.torproject.net:8443/probe";
+        var brokerUrl = getCdnFront("snowflake-amp-target");//https://snowflake-broker.torproject.net/";
         IPtProxy.startSnowflakeProxy(capacity, brokerUrl, relayUrl, stunUrl, natProbeUrl, null, keepLocalAddresses, unsafeLogging, () -> {
             snowflakeClientsConnected++;
             Prefs.addSnowflakeServed();
