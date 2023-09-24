@@ -1,10 +1,10 @@
 moat-cdn https://d50gd378qj74g.cloudfront.net/
-moat-front cdn.sstatic.net
+moat-front foursquare.com
 moat-url https://moat.torproject.org.global.prod.fastly.net/
 snowflake-amp-cache https://cdn.ampproject.org/
 snowflake-amp-front www.google.com
 snowflake-amp-target https://snowflake-broker.torproject.net/
-snowflake-front cdn.sstatic.net
+snowflake-front foursquare.com
 snowflake-nat-probe https://snowflake-broker.torproject.net:8443/probe
 snowflake-relay-url wss://snowflake.bamsoftware.com
 snowflake-stun stun:stun.l.google.com:19302,stun:stun.altar.com.pl:3478,stun:stun.antisip.com:3478,stun:stun.bluesip.net:3478,stun:stun.dus.net:3478,stun:stun.epygi.com:3478,stun:stun.sonetel.com:3478,stun:stun.sonetel.net:3478,stun:stun.stunprotocol.org:3478,stun:stun.uls.co.za:3478,stun:stun.voipgate.com:3478,stun:stun.voys.nl:3478
