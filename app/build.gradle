@@ -16,7 +16,7 @@ android {
     defaultConfig {
         applicationId "org.torproject.android"
         versionName getVersionName()
-        minSdkVersion 16
+        minSdkVersion 19
         compileSdkVersion 33
         targetSdkVersion 33
         multiDexEnabled true
@@ -37,7 +37,7 @@ android {
         fullperm {
             dimension "free"
 
-            minSdkVersion 16
+            minSdkVersion 19
             applicationId 'org.torproject.android'
             targetSdkVersion 31
             versionCode 1663300200
