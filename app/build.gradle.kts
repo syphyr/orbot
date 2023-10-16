@@ -166,9 +166,10 @@ dependencies {
     implementation(libs.androidx.work.kotlin)
     implementation(libs.upnp)
     implementation(libs.quickie)
+    implementation(libs.guardian.geoip)
 
     // Tor
-    implementation(files("../libs/geoip.jar"))
+    // implementation(files("../libs/geoip.jar"))
     api(libs.guardian.jtorctl)
     api(libs.tor.android)
     // local tor-android:
