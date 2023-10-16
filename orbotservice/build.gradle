@@ -45,11 +45,12 @@ dependencies {
             libs.android_shell,
             libs.androidx_core,
             libs.androidx_localbroadcast,
+            libs.guardian_geoip,
             libs.pcap_core,
             libs.pcap_factory,
             libs.androidx_work,
             libs.androidx_work_kotlin
     )
 
-    implementation files('../libs/geoip.jar')
+    //implementation files('../libs/geoip.jar')
 }
