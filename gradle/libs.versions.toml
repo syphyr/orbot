@@ -12,6 +12,7 @@ androidx-rules = "1.7.0"
 androidx-runner = "1.7.0"
 androidx-window = "1.5.1"
 coroutines = "1.11.0"
+guardian-geoip = "0.4.9.12"
 guardian-jtorctl = "0.4.9.12"
 iptproxy = "5.5.1"
 junit = "4.13.2"
@@ -44,6 +45,7 @@ androidx-preference = { module = "androidx.preference:preference", version.ref =
 androidx-rules = { module = "androidx.test:rules", version.ref = "androidx-rules" }
 androidx-runner = { module = "androidx.test:runner", version.ref = "androidx-runner" }
 androidx-window = { module = "androidx.window:window", version.ref = "androidx-window" }
+guardian-geoip = { group = "info.guardianproject", name = "geoip", version.ref = "guardian-geoip" }
 guardian-jtorctl = { module = "info.guardianproject:jtorctl", version.ref = "guardian-jtorctl" }
 iptproxy = { module = "com.netzarchitekten:IPtProxy", version.ref = "iptproxy" }
 junit = { module = "junit:junit", version.ref = "junit" }
