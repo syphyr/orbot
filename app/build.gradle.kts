@@ -175,9 +175,10 @@ dependencies {
     // implementation(files("../../IPtProxy/IPtProxy.aar"))
 
     implementation(libs.quickie)
+    implementation(libs.guardian.geoip)
 
     // Tor
-    implementation(files("../libs/geoip.jar"))
+    // implementation(files("../libs/geoip.jar"))
     api(libs.guardian.jtorctl)
     api(libs.tor.android)
     // uncomment to use a local build of tor-android:
