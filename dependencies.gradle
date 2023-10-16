@@ -18,7 +18,7 @@ ext {
             apl_appintro                 : "v4.2.3",
             bclogic_pulsator             : "1.0.3",
             fastlane_screengrab          : "2.0.0",
-            guardian_jtorctl             : "0.4.5.7",
+            guardian_jtorctl             : "0.4.8.11",
          //   ipt_proxy                    : "1.7.1",
             tor_android                  : "0.4.8.12",
             pcap_core                    : "1.8.2",
