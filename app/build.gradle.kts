@@ -158,7 +158,8 @@ dependencies {
     implementation(libs.appiconnamechanger)
     implementation(libs.androidx.work.kotlin)
     implementation(libs.upnp)
-    implementation(files("../libs/geoip.jar"))
+    implementation(libs.guardian.geoip)
+    // implementation(files("../libs/geoip.jar"))
     api(libs.guardian.jtorctl)
     api(libs.tor.android)
     // local tor-android:
