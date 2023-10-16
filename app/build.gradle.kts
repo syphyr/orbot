@@ -194,14 +194,14 @@ dependencies {
     implementation(libs.upnp)
     implementation(libs.quickie)
     implementation(libs.material3)
+    implementation(libs.guardian.geoip)
 
     // IPtProxy (for Snowflake, obfs4, dnstt and all other pluggable transports)
     // uncomment to use a local build of IPtProxy:
     // implementation(files("../../IPtProxy/IPtProxy.aar"))
 
-
     // Tor
-    implementation(files("../libs/geoip.jar"))
+    // implementation(files("../libs/geoip.jar"))
     api(libs.guardian.jtorctl)
     api(libs.tor.android)
     // uncomment to use a local build of tor-android:
