@@ -58,10 +58,11 @@ dependencies {
     implementation(libs.androidx.localbroadcast)
     implementation(libs.androidx.work)
     implementation(libs.androidx.work.kotlin)
+    implementation(libs.guardian.geoip)
     implementation(libs.pcap.core)
     implementation(libs.pcap.factory)
 
-    implementation(files("../libs/geoip.jar"))
+//    implementation(files("../libs/geoip.jar"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.serialization.json)
 }
