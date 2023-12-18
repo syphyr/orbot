@@ -1,7 +1,6 @@
 #!/bin/sh
 
-rm *.aar *.jar
+rm *.aar
 cd OrbotIPtProxy
 bash build-orbot.sh
 mv OrbotLib.aar ..
-mv OrbotLib-sources.jar ..
