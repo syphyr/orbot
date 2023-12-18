@@ -2,6 +2,8 @@ package org.torproject.android;
 
 import android.app.Application;
 import android.content.res.Configuration;
+//import android.os.StrictMode;
+//import android.os.StrictMode.VmPolicy;
 
 import org.torproject.android.core.Languages;
 import org.torproject.android.core.LocaleHelper;
@@ -15,6 +17,15 @@ public class OrbotApp extends Application implements OrbotConstants {
     @Override
     public void onCreate() {
         super.onCreate();
+
+//      useful for finding unclosed sockets...
+//        StrictMode.setVmPolicy(
+//            VmPolicy.Builder()
+//                .detectLeakedClosableObjects()
+//                .penaltyLog()
+//                .build()
+//        );
+
         Prefs.setContext(this);
         LocaleHelper.onAttach(this);
 
