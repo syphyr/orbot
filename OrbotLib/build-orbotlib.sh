@@ -1,5 +1,5 @@
 #!/bin/sh
 
-rm -v *.aar *.jar
+rm -v *.aar
 cd OrbotIPtProxy
 bash build-orbot.sh
