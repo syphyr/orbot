@@ -24,8 +24,6 @@ public class OrbotApp extends Application implements OrbotConstants {
             Languages.setLanguage(this, Prefs.getDefaultLocale(), true);
         }
 
-        deleteDatabase("hidden_services"); // if it exists, remove v2 onion service data
-
         // this code only runs on first install and app updates
         if (Prefs.getCurrentVersionForUpdate() < BuildConfig.VERSION_CODE) {
             Prefs.setCurrentVersionForUpdate(BuildConfig.VERSION_CODE);
