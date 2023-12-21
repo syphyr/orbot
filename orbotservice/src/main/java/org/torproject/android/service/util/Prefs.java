@@ -31,8 +31,26 @@ public class Prefs {
 
     private final static String PREF_SNOWFLAKES_SERVED_COUNT = "pref_snowflakes_served";
 
+    private static final String PREF_CURRENT_VERSION = "pref_current_version";
+
     private static SharedPreferences prefs;
     private static Context sContext;
+
+    public static int getCurrentVersionForUpdate() {
+        return prefs.getInt(PREF_CURRENT_VERSION, 0);
+    }
+
+    public static void setCurrentVersionForUpdate(int version) {
+        putInt(PREF_CURRENT_VERSION, version);
+    }
+
+    private static final String PREF_REINSTALL_GEOIP = "pref_geoip";
+    public static boolean isGeoIpReinstallNeeded() {
+        return prefs.getBoolean(PREF_REINSTALL_GEOIP, true);
+    }
+    public static void setIsGeoIpReinstallNeeded(boolean reinstallNeeded) {
+        putBoolean(PREF_REINSTALL_GEOIP, reinstallNeeded);
+    }
 
     public static void setContext(Context context) {
         if (prefs == null)

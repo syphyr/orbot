@@ -26,6 +26,15 @@ public class OrbotApp extends Application implements OrbotConstants {
 
         deleteDatabase("hidden_services"); // if it exists, remove v2 onion service data
 
+        // this code only runs on first install and app updates
+        if (Prefs.getCurrentVersionForUpdate() < BuildConfig.VERSION_CODE) {
+            Prefs.setCurrentVersionForUpdate(BuildConfig.VERSION_CODE);
+            // don't do anything resource intensive here, instead set a flag to do the task later
+
+            // tell OrbotService it needs to reinstall geoip
+            Prefs.setIsGeoIpReinstallNeeded(true);
+        }
+
     }
 
     @Override
