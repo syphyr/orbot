@@ -12,6 +12,8 @@ import android.provider.BaseColumns;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.util.Objects;
+
 public class OnionServiceContentProvider extends ContentProvider {
 
     public static final String[] PROJECTION = {
@@ -72,7 +74,7 @@ public class OnionServiceContentProvider extends ContentProvider {
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues values) {
         SQLiteDatabase db = mDatabase.getWritableDatabase();
         long regId = db.insert(OnionServiceDatabase.ONION_SERVICE_TABLE_NAME, null, values);
-        getContext().getContentResolver().notifyChange(CONTENT_URI, null);
+        Objects.requireNonNull(getContext()).getContentResolver().notifyChange(CONTENT_URI, null);
         return ContentUris.withAppendedId(CONTENT_URI, regId);
     }
 
@@ -82,7 +84,7 @@ public class OnionServiceContentProvider extends ContentProvider {
             selection = "_id=" + uri.getLastPathSegment();
         SQLiteDatabase db = mDatabase.getWritableDatabase();
         int rows = db.delete(OnionServiceDatabase.ONION_SERVICE_TABLE_NAME, selection, selectionArgs);
-        getContext().getContentResolver().notifyChange(CONTENT_URI, null);
+        Objects.requireNonNull(getContext()).getContentResolver().notifyChange(CONTENT_URI, null);
         return rows;
     }
 
@@ -92,7 +94,7 @@ public class OnionServiceContentProvider extends ContentProvider {
         if (uriMatcher.match(uri) == ONION_ID)
             selection = "_id=" + uri.getLastPathSegment();
         int rows = db.update(OnionServiceDatabase.ONION_SERVICE_TABLE_NAME, values, selection, null);
-        getContext().getContentResolver().notifyChange(CONTENT_URI, null);
+        Objects.requireNonNull(getContext()).getContentResolver().notifyChange(CONTENT_URI, null);
         return rows;
     }
 
