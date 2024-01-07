@@ -949,6 +949,7 @@ public class TeeveeMainActivity extends Activity implements OrbotConstants, OnLo
                     aInfo = getPackageManager().getApplicationInfo(pkgId, 0);
                     TorifiedApp app = getApp(TeeveeMainActivity.this, aInfo);
 
+                    assert app != null;
                     avh.tv.setText(app.getName());
                     avh.iv.setImageDrawable(app.getIcon());
 
@@ -972,6 +973,7 @@ public class TeeveeMainActivity extends Activity implements OrbotConstants, OnLo
                         else {
                             Palette.generateAsync(drawableToBitmap(app.getIcon()), palette -> {
                                 // Do something with colors...
+                                assert palette != null;
                                 int color = palette.getVibrantColor(0x000000);
                                 avh.parent.setBackgroundColor(color);
 
