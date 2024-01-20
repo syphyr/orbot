@@ -501,6 +501,7 @@ public class OrbotService extends VpnService implements OrbotConstants {
             // only write out geoip files if there's an app update or they don't exist
             if (!hasGeoip || !hasGeoip6 || Prefs.isGeoIpReinstallNeeded()) {
                 try {
+                    Log.i("OrbotService", "Installing geoip files");
                     new CustomTorResourceInstaller(this, appBinHome).installGeoIP();
                     Prefs.setIsGeoIpReinstallNeeded(false);
                 } catch (IOException io) { // user has < 10MB free space on disk...
