@@ -26,8 +26,8 @@ android {
     }
     buildTypes {
         release {
-            shrinkResources false
-            minifyEnabled false
+            shrinkResources true
+            minifyEnabled true
         }
     }
 
@@ -81,11 +81,10 @@ android {
                 libs.bclogic_pulsator,
            //     libs.ipt_proxy - using OrbotLib below
         )
+        implementation "org.slf4j:slf4j-simple:1.6.1"
+
         androidTestImplementation libs.fastlane_screengrab
         coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
-
-
-
     }
     lint {
         abortOnError false
