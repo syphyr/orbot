@@ -56,6 +56,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivShadow" />
 
+   <TextView
+        android:id="@+id/secSubtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/secure_your_connection_subtitle"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+        android:fontFamily="sans-serif-black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
     <TextView
         android:textAlignment="center"
         android:layout_width="wrap_content"
@@ -66,7 +79,7 @@
         android:textColor="@android:color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/secSubtitle"
         android:gravity="center_horizontal"
         android:paddingLeft="@dimen/activity_horizontal_large_margin"
         android:paddingRight="@dimen/activity_horizontal_large_margin"

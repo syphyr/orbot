@@ -38,6 +38,7 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     // main screen UI
     private lateinit var tvTitle: TextView
     private lateinit var tvSubtitle: TextView
+    private lateinit var secSubtitle: TextView
     private lateinit var tvConfigure: TextView
     private lateinit var btnStartVpn: Button
     private lateinit var ivOnion: ImageView
@@ -64,7 +65,7 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
 
             tvTitle = it.findViewById(R.id.tvTitle)
             tvSubtitle = it.findViewById(R.id.tvSubtitle)
-            tvSubtitle = it.findViewById(R.id.tvSubtitle)
+            secSubtitle = it.findViewById(R.id.secSubtitle)
             tvConfigure = it.findViewById(R.id.tvConfigure)
             btnStartVpn = it.findViewById(R.id.btnStart)
             ivOnion = it.findViewById(R.id.ivStatus)
@@ -226,11 +227,10 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
         tvTitle.text = getString(R.string.no_interent_title)
         tvSubtitle.text = getString(R.string.no_internet_subtitle)
 
-        tvSubtitle.visibility = View.VISIBLE
-
         btnStartVpn.visibility = View.GONE
         lvConnectedActions.visibility = View.GONE
         tvConfigure.visibility = View.GONE
+        secSubtitle.visibility = View.GONE
         //refreshMenuList(context)
 
     }
@@ -240,9 +240,9 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
         ivOnion.setImageResource(R.drawable.orbion)
 
         tvSubtitle.visibility = View.GONE
+        secSubtitle.visibility = View.GONE
         progressBar.visibility = View.INVISIBLE
         tvTitle.text = context.getString(R.string.connected_title)
-        tvSubtitle.visibility = View.GONE
         btnStartVpn.visibility = View.GONE
         lvConnectedActions.visibility = View.VISIBLE
         tvConfigure.visibility = View.GONE
@@ -256,11 +256,10 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
 
         ivOnion.setImageResource(R.drawable.orbioff)
         stopAnimations()
-        tvSubtitle.visibility = View.VISIBLE
+        secSubtitle.visibility = View.VISIBLE
         progressBar.visibility = View.INVISIBLE
         lvConnectedActions.visibility = View.GONE
         tvTitle.text = getString(R.string.secure_your_connection_title)
-        tvSubtitle.text = getString(R.string.secure_your_connection_subtitle)
         tvConfigure.visibility = View.VISIBLE
         tvConfigure.text = getString(R.string.btn_configure)
         tvConfigure.paintFlags = Paint.UNDERLINE_TEXT_FLAG
