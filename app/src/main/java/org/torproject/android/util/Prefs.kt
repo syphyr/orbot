@@ -106,7 +106,7 @@ object Prefs {
         set(value) = cr?.putPref(PREF_DEFAULT_LOCALE, value) ?: Unit
 
     fun detectRoot(): Boolean {
-        return cr?.getPrefBoolean(PREF_DETECT_ROOT, true) ?: true
+        return cr?.getPrefBoolean(PREF_DETECT_ROOT) ?: false
     }
 
     fun beSnowflakeProxy(): Boolean {
