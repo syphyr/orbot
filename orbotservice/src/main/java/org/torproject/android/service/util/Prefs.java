@@ -163,7 +163,7 @@ public class Prefs {
     }
 
     public static boolean detectRoot() {
-        return prefs.getBoolean(PREF_DETECT_ROOT, true);
+        return prefs.getBoolean(PREF_DETECT_ROOT, false);
     }
 
     public static boolean beSnowflakeProxy() {
