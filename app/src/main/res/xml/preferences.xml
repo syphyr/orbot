@@ -57,7 +57,7 @@
 
        <CheckBoxPreference
             android:key="pref_detect_root"
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:summary="@string/pref_detect_root_summary"
             android:title="@string/pref_detect_root_title"
             app:iconSpaceReserved="false"
