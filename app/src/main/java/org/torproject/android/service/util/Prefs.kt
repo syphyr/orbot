@@ -118,7 +118,7 @@ object Prefs {
         set(value) = putString(PREF_DEFAULT_LOCALE, value)
 
     fun detectRoot(): Boolean {
-        return prefs?.getBoolean(PREF_DETECT_ROOT, true) ?: true
+        return prefs?.getBoolean(PREF_DETECT_ROOT, false) ?: false
     }
 
     @JvmStatic
