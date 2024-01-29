@@ -6,6 +6,7 @@ import android.content.Intent
 import android.os.Build
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
+import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.putNotSystem
 import java.lang.RuntimeException
@@ -20,8 +21,10 @@ class OnBootReceiver : BroadcastReceiver() {
                 return
             }
             if (Prefs.startOnBoot() && !sReceivedBoot) {
-                startService(context)
-                sReceivedBoot = true
+                if (NetworkUtils.isNetworkAvailable(context)) {
+                    startService(context)
+                    sReceivedBoot = true
+                }
             }
         } catch (_: RuntimeException) {
             //catch this to avoid malicious launches as document Cure53 Audit: ORB-01-009 WP1/2: Orbot DoS via exported activity (High)
