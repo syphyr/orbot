@@ -129,8 +129,8 @@
             android:name=".core.OnBootReceiver"
             android:enabled="true"
             android:exported="true"
-            android:directBootAware="true"
-            >
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED"
+            android:directBootAware="false">
 
             <intent-filter>
                 <action android:name="android.net.wifi.STATE_CHANGE" />
