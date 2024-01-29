@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 
+import org.torproject.android.core.NetworkUtils.isNetworkAvailable
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.util.Prefs
@@ -13,8 +14,10 @@ class OnBootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         try {
             if (Prefs.startOnBoot() && !sReceivedBoot) {
-                startService(context)
-                sReceivedBoot = true
+                if (isNetworkAvailable(context)) {
+                    startService(context)
+                    sReceivedBoot = true
+                }
             }
         }
         catch (re: java.lang.RuntimeException) {
