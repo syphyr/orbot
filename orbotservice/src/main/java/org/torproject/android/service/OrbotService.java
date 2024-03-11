@@ -392,7 +392,7 @@ public class OrbotService extends VpnService implements OrbotConstants {
     private SecureRandom mSecureRandGen = new SecureRandom(); //used to randomly select STUN servers for snowflake
 
     @SuppressWarnings("ConstantConditions")
-    private void enableSnowflakeProxy () { // This is to host a snowflake entrance node / bridge
+    private synchronized void enableSnowflakeProxy () { // This is to host a snowflake entrance node / bridge
         var capacity = 1;
         var keepLocalAddresses = false;
         var unsafeLogging = false;
@@ -413,11 +413,21 @@ public class OrbotService extends VpnService implements OrbotConstants {
             new Handler(getMainLooper()).post(() -> Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show());
         });
         logNotice(getString(R.string.log_notice_snowflake_proxy_enabled));
+
+        if (Prefs.showSnowflakeProxyMessage()) {
+            var message = getString(R.string.log_notice_snowflake_proxy_enabled);
+            new Handler(getMainLooper()).post(() -> Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show());
+        }
     }
 
-    private void disableSnowflakeProxy() {
+    private synchronized void disableSnowflakeProxy() {
         IPtProxy.stopSnowflakeProxy();
         logNotice(getString(R.string.log_notice_snowflake_proxy_disabled));
+
+        if (Prefs.showSnowflakeProxyMessage()) {
+            var message = getString(R.string.log_notice_snowflake_proxy_disabled);
+            new Handler(getMainLooper()).post(() -> Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show());
+        }
     }
 
     // if someone stops during startup, we may have to wait for the conn port to be setup, so we can properly shutdown tor

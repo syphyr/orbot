@@ -36,7 +36,7 @@ class SettingsPreferencesActivity : PreferenceActivity() {
         val bridgesEnabled = getSharedPreferences("org.torproject.android_preferences", MODE_MULTI_PROCESS).getBoolean("pref_bridges_enabled", false)
         findPreference("pref_be_a_snowflake")?.isEnabled = !bridgesEnabled
         findPreference("pref_be_a_snowflake_limit")?.isEnabled = !bridgesEnabled
-        findPreference("pref_show_snowflake_proxy_msg")?.isEnabled = !bridgesEnabled
+        // findPreference("pref_show_snowflake_proxy_msg")?.isEnabled = !bridgesEnabled
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             // if defined in XML, disable the persistent notification preference on Oreo+
