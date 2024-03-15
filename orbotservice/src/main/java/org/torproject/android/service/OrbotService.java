@@ -362,7 +362,23 @@ public class OrbotService extends VpnService implements OrbotConstants {
         var unsafeLogging = Prefs.useDebugLogging();
         int maxPeers = 1;
 
-        IPtProxy.startSnowflake(stunServers, target, front, null, logFile, logToStateDir, keepLocalAddresses, unsafeLogging, maxPeers);
+        // StartSnowflake - Start the Snowflake client.
+        // @param ice Comma-separated list of ICE servers.
+        // @param url URL of signaling broker.
+        // @param fronts Comma-separated list of front domains.
+        // @param ampCache OPTIONAL. URL of AMP cache to use as a proxy for signaling.
+        //      Only needed when you want to do the rendezvous over AMP instead of a domain fronted server.
+        // @param sqsQueueURL OPTIONAL. URL of SQS Queue to use as a proxy for signaling.
+        // @param sqsCredsStr OPTIONAL. Credentials to access SQS Queue.
+        // @param logFile Name of log file. OPTIONAL. Defaults to no log.
+        // @param logToStateDir Resolve the log file relative to Tor's PT state dir.
+        // @param keepLocalAddresses Keep local LAN address ICE candidates.
+        // @param unsafeLogging Prevent logs from being scrubbed.
+        // @param maxPeers Capacity for number of multiplexed WebRTC peers. DEFAULTs to 1 if less than that.
+        // @return Port number where Snowflake will listen on, if no error happens during start up.
+
+        IPtProxy.startSnowflake(stunServers, target, front, null, null, null, logFile, logToStateDir,
+                                keepLocalAddresses, unsafeLogging, maxPeers);
 
     }
 
@@ -385,7 +401,8 @@ public class OrbotService extends VpnService implements OrbotConstants {
         var unsafeLogging = Prefs.useDebugLogging();
         var maxPeers = 1;
 
-        IPtProxy.startSnowflake(stunServers, target, front, ampCache, logFile, logToStateDir, keepLocalAddresses, unsafeLogging, maxPeers);
+        IPtProxy.startSnowflake(stunServers, target, front, ampCache, null, null, logFile, logToStateDir,
+                                keepLocalAddresses, unsafeLogging, maxPeers);
 
     }
 
