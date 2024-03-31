@@ -326,10 +326,10 @@ public class OrbotService extends VpnService implements OrbotConstants {
                 var reader = new BufferedReader(new InputStreamReader(context.getAssets().open("fronts")));
                 String line;
                 while ((line = reader.readLine())!=null) {
-                    String[] front = line.split(" ");
-                    //add some code to test the connection here
-
-                    mFronts.put(front[0],front[1]);
+                    int spaceIdx = line.indexOf(' ');
+                    String key = line.substring(0,spaceIdx);
+                    String val = line.substring(spaceIdx+1);
+                    mFronts.put(key, val);
                 }
                 reader.close();
             } catch (IOException e) {
@@ -1097,8 +1097,17 @@ public class OrbotService extends VpnService implements OrbotConstants {
                 builtInBridgeType = "meek_lite";
             }
 
-            if (bridgeList.equals("snowflake") || bridgeList.equals("snowflake-amp")) {
+            if (bridgeList.equals("snowflake")) {
                 extraLines.append("ClientTransportPlugin snowflake socks5 127.0.0.1:" + IPtProxy.snowflakePort()).append('\n');
+                extraLines.append("Bridge ").append(getCdnFront("snowflake-broker-1")).append("\n");
+                extraLines.append("Bridge ").append(getCdnFront("snowflake-broker-2")).append("\n");
+                builtInBridgeType = "snowflake";
+            }
+
+            if (bridgeList.equals("snowflake-amp")) {
+                extraLines.append("ClientTransportPlugin snowflake socks5 127.0.0.1:" + IPtProxy.snowflakePort()).append('\n');
+                extraLines.append("Bridge ").append(getCdnFront("snowflake-amp-broker-1")).append("\n");
+                extraLines.append("Bridge ").append(getCdnFront("snowflake-amp-broker-2")).append("\n");
                 builtInBridgeType = "snowflake";
             }
 
