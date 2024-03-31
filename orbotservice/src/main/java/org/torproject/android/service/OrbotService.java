@@ -305,7 +305,7 @@ public class OrbotService extends VpnService implements OrbotConstants {
 
     private static boolean useIPtObfsMeekProxy() {
         var bridgeList = Prefs.getBridgesList();
-        return bridgeList.contains("obfs") || bridgeList.contains("meek");
+        return bridgeList.contains("obfs") || bridgeList.contains("meek") || bridgeList.contains("webtunnel");
     }
 
     private static boolean useIPtSnowflakeProxyDomainFronting() {
@@ -1095,6 +1095,11 @@ public class OrbotService extends VpnService implements OrbotConstants {
             if (bridgeList.equals("meek")) {
                 extraLines.append("ClientTransportPlugin meek_lite socks5 127.0.0.1:" + IPtProxy.meekPort()).append('\n');
                 builtInBridgeType = "meek_lite";
+            }
+
+            if (bridgeList.equals("webtunnel")) {
+                extraLines.append("ClientTransportPlugin webtunnel socks5 127.0.0.1:" + IPtProxy.webtunnelPort()).append('\n');
+                builtInBridgeType = "webtunnel";
             }
 
             if (bridgeList.equals("snowflake")) {

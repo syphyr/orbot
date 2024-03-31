@@ -23,6 +23,7 @@ public class BridgeWizardActivity extends AppCompatActivity {
     private static final int CUSTOM_BRIDGES_REQUEST_CODE = 1312;
     private RadioButton mBtDirect;
     private RadioButton mBtObfs4;
+    private RadioButton mBtWebtunnel;
     private RadioButton mBtCustom;
     private RadioButton mBtSnowflake;
     private RadioButton mBtnSnowflakeAmp;
@@ -64,6 +65,13 @@ public class BridgeWizardActivity extends AppCompatActivity {
         mBtObfs4.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (!isChecked) return;
             Prefs.setBridgesList("obfs4");
+            Prefs.putBridgesEnabled(true);
+        });
+
+        mBtWebtunnel = findViewById(R.id.btnBridgesWebtunnel);
+        mBtWebtunnel.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (!isChecked) return;
+            Prefs.setBridgesList("webtunnel");
             Prefs.putBridgesEnabled(true);
         });
 
@@ -136,6 +144,8 @@ public class BridgeWizardActivity extends AppCompatActivity {
             mBtDirect.setChecked(true);
         } else if (Prefs.getBridgesList().equals("obfs4")) {
             mBtObfs4.setChecked(true);
+        } else if (Prefs.getBridgesList().equals("webtunnel")) {
+            mBtWebtunnel.setChecked(true);
         } else if (Prefs.getBridgesList().equals("snowflake")) {
             mBtSnowflake.setChecked(true);
         } else if (Prefs.getBridgesList().equals("snowflake-amp")) {
