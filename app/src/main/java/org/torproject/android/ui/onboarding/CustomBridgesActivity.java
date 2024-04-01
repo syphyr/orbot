@@ -39,7 +39,7 @@ import java.net.URLEncoder;
 public class CustomBridgesActivity extends AppCompatActivity implements TextWatcher {
 
     private static final String EMAIL_TOR_BRIDGES = "bridges@torproject.org";
-    private static final String URL_TOR_BRIDGES = "https://bridges.torproject.org/bridges";
+    private static final String URL_TOR_BRIDGES = "https://bridges.torproject.org/options";
 
     private EditText mEtPastedBridges;
 
