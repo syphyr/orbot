@@ -31,6 +31,7 @@ public class Prefs {
 
     private final static String PREF_SMART_TRY_SNOWFLAKE = "pref_smart_try_snowflake";
     private final static String PREF_SMART_TRY_OBFS4 = "pref_smart_try_obfs";
+    private final static String PREF_SMART_TRY_WEBTUNNEL = "pref_smart_try_webtunnel";
     private static final String PREF_POWER_USER_MODE = "pref_power_user";
 
 
@@ -238,6 +239,14 @@ public class Prefs {
 
     public static String getPrefSmartTryObfs4() {
         return prefs.getString(PREF_SMART_TRY_OBFS4, null);
+    }
+
+    public static void putPrefSmartTryWebtunnel(String bridges) {
+        putString(PREF_SMART_TRY_WEBTUNNEL, bridges);
+    }
+
+    public static String getPrefSmartTryWebtunnel() {
+        return prefs.getString(PREF_SMART_TRY_WEBTUNNEL, null);
     }
 
     public static boolean isPowerUserMode() {

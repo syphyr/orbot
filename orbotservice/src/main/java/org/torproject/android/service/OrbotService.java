@@ -277,7 +277,8 @@ public class OrbotService extends VpnService implements OrbotConstants {
         // todo particularly this is true for the smart connection case...
         if (connectionPathway.startsWith(Prefs.PATHWAY_SNOWFLAKE) || Prefs.getPrefSmartTrySnowflake()) {
             IPtProxy.stopSnowflake();
-        } else if (connectionPathway.equals(Prefs.PATHWAY_CUSTOM) || Prefs.getPrefSmartTryObfs4() != null) {
+        } else if (connectionPathway.equals(Prefs.PATHWAY_CUSTOM) || Prefs.getPrefSmartTryObfs4() != null ||
+                   Prefs.getPrefSmartTryWebtunnel() != null) {
             IPtProxy.stopLyrebird();
         }
 
@@ -827,6 +828,10 @@ public class OrbotService extends VpnService implements OrbotConstants {
                     Log.d(TAG, "trying obfs4 didnt work");
                     clearEphemeralSmartConnectionSettings();
                     sendSmartStatusToActivity(SMART_STATUS_CIRCUMVENTION_ATTEMPT_FAILED);
+                } else if (Prefs.getPrefSmartTryWebtunnel() != null) {
+                    Log.d(TAG, "trying webtunnel didnt work");
+                    clearEphemeralSmartConnectionSettings();
+                    sendSmartStatusToActivity(SMART_STATUS_CIRCUMVENTION_ATTEMPT_FAILED);
                 } else {
                     sendSmartStatusToActivity(SMART_STATUS_NO_DIRECT);
                 }
@@ -834,9 +839,14 @@ public class OrbotService extends VpnService implements OrbotConstants {
             } else {
                 // tor was connected in the allotted time
                 var obfs4 = Prefs.getPrefSmartTryObfs4();
+                var webtunnel = Prefs.getPrefSmartTryWebtunnel();
                 if (obfs4 != null) {
                     // set these obfs4 bridges
                     Prefs.setBridgesList(obfs4);
+                    Prefs.putConnectionPathway(Prefs.PATHWAY_CUSTOM);
+		} else if (webtunnel != null) {
+                    // set these webtunnel bridges
+                    Prefs.setBridgesList(webtunnel);
                     Prefs.putConnectionPathway(Prefs.PATHWAY_CUSTOM);
                 } else if (Prefs.getPrefSmartTrySnowflake()) {
                     // set snowflake
@@ -849,6 +859,7 @@ public class OrbotService extends VpnService implements OrbotConstants {
 
     private void clearEphemeralSmartConnectionSettings() {
         Prefs.putPrefSmartTryObfs4(null);
+        Prefs.putPrefSmartTryWebtunnel(null);
         Prefs.putPrefSmartTrySnowflake(false);
     }
 
@@ -1124,12 +1135,14 @@ public class OrbotService extends VpnService implements OrbotConstants {
         } else if (pathway.equals(Prefs.PATHWAY_DIRECT)) {
             extraLines = processSettingsImplDirectPathway(extraLines);
         } else {
-            // snowflake or obfs4
+            // snowflake or obfs4 or webtunnel
             extraLines.append("UseBridges 1").append('\n');
             if (pathway.startsWith(Prefs.PATHWAY_SNOWFLAKE) || Prefs.getPrefSmartTrySnowflake()) {
                 extraLines = processSettingsImplSnowflake(extraLines);
             } else if (pathway.equals(Prefs.PATHWAY_CUSTOM) || Prefs.getPrefSmartTryObfs4() != null) {
                 extraLines = processSettingsImplObfs4(extraLines);
+            } else if (pathway.equals(Prefs.PATHWAY_CUSTOM) || Prefs.getPrefSmartTryWebtunnel() != null) {
+                extraLines = processSettingsImplWebtunnel(extraLines);
             }
         }
         var fileGeoIP = new File(appBinHome, GEOIP_ASSET_KEY);
@@ -1206,6 +1219,20 @@ public class OrbotService extends VpnService implements OrbotConstants {
         if (Prefs.getConnectionPathway().equals(Prefs.PATHWAY_CUSTOM)) {
             bridgeList = Prefs.getBridgesList();
         } else bridgeList = Prefs.getPrefSmartTryObfs4();
+        var customBridges = parseBridgesFromSettings(bridgeList);
+        for (var b : customBridges)
+            extraLines.append("Bridge ").append(b).append("\n");
+        return extraLines;
+    }
+
+   private StringBuffer processSettingsImplWebtunnel(StringBuffer extraLines) {
+        Log.d(TAG, "in webtunnel torrc config");
+        extraLines.append("ClientTransportPlugin webtunnel socks5 127.0.0.1:" + IPtProxy.webtunnelPort()).append('\n');
+        extraLines.append("Bridge ").append(getCdnFront("webtunnel-broker-1")).append("\n");
+        var bridgeList = "";
+        if (Prefs.getConnectionPathway().equals(Prefs.PATHWAY_CUSTOM)) {
+            bridgeList = Prefs.getBridgesList();
+        } else bridgeList = Prefs.getPrefSmartTryWebtunnel();
         var customBridges = parseBridgesFromSettings(bridgeList);
         for (var b : customBridges)
             extraLines.append("Bridge ").append(b).append("\n");
@@ -1451,7 +1478,8 @@ public class OrbotService extends VpnService implements OrbotConstants {
                         startSnowflakeClientDomainFronting();
                     } else if (connectionPathway.equals(Prefs.PATHWAY_SNOWFLAKE_AMP)) {
                         startSnowflakeClientAmpRendezvous();
-                    } else if (connectionPathway.equals(Prefs.PATHWAY_CUSTOM) || Prefs.getPrefSmartTryObfs4() != null) {
+                    } else if (connectionPathway.equals(Prefs.PATHWAY_CUSTOM) || Prefs.getPrefSmartTryObfs4() != null ||
+		               Prefs.getPrefSmartTryWebtunnel() != null) {
                         IPtProxy.startLyrebird("DEBUG", false, false, null);
                     }
                     startTor();
