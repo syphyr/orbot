@@ -16,7 +16,10 @@ fi
 
 cd OrbotIPtProxy/IPtProxy
 git clean -fdx
+git reset --hard
 cd snowflake
+git clean -fdx
 git reset --hard
 cd ../lyrebird
+git clean -fdx
 git reset --hard
