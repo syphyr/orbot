@@ -31,8 +31,7 @@ public class AboutDialogFragment extends DialogFragment {
 
         try {
             version = getContext().getPackageManager().getPackageInfo(
-                    getContext().getPackageName(), 0).versionName + " (Tor " +
-                    OrbotService.BINARY_TOR_VERSION + ")";
+                    getContext().getPackageName(), 0).versionName;
         } catch (PackageManager.NameNotFoundException e) {
             version = "Version Not Found";
         }
@@ -44,6 +43,9 @@ public class AboutDialogFragment extends DialogFragment {
 
         TextView tvObfs4 = view.findViewById(R.id.tvObfs4);
         tvObfs4.setText(getString(R.string.obfs4_url, IPtProxy.lyrebirdVersion()));
+
+        TextView tvTor = view.findViewById(R.id.tvTor);
+        tvTor.setText(getString(R.string.tor_url, OrbotService.BINARY_TOR_VERSION));
 
         TextView tvSnowflake = view.findViewById(R.id.tvSnowflake);
         tvSnowflake.setText(getString(R.string.snowflake_url, IPtProxy.snowflakeVersion()));
