@@ -9,3 +9,5 @@ webtunnel [2001:db8:f030:2b3a:61d5:ceaa:39fc:8703]:443 4F478EEDF844A246416D993BB
 webtunnel [2001:db8:b7ae:d8c2:260e:5434:3b1c:5bd]:443 DDB167A1D5033F658D12E994EB7D129D60FE9E7D url=https://rusthelpcentral.top/jeixiepheiWueshee0ae ver=0.0.1
 webtunnel [2001:db8:3d87:58ab:4ec3:21ba:913f:99d8]:443 E4B91C347D685E929C1B7CE84CC27EB073127EA6 url=https://borntec.autos/poh8aiteaqu6oophaiXo ver=0.0.1
 webtunnel [2001:db8:68dd:894:8211:947c:ba2:a16a]:443 27844016954C6F1398857629CAB2D95418970C5F url=https://bering-dev.arrecife.link/EX5uaZwOwl4wylewIpUJVlIu ver=0.0.1
+snowflake 192.0.2.3:1 2B280B23E1107BB62ABFC40DDCC8824814F80A72 fingerprint=2B280B23E1107BB62ABFC40DDCC8824814F80A72 utls-imitate=hellorandomizedalpn
+snowflake 192.0.2.4:1 8838024498816A039FCBBAB14E6F40A0843051FA fingerprint=8838024498816A039FCBBAB14E6F40A0843051FA utls-imitate=hellorandomizedalpn
