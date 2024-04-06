@@ -2,7 +2,6 @@ package org.torproject.android.ui.dialog;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -11,6 +10,7 @@ import android.widget.TextView;
 import androidx.fragment.app.DialogFragment;
 
 import org.torproject.android.R;
+import org.torproject.android.BuildConfig;
 import org.torproject.android.core.DiskUtils;
 import org.torproject.android.service.OrbotService;
 
@@ -21,23 +21,16 @@ import IPtProxy.IPtProxy;
 public class AboutDialogFragment extends DialogFragment {
 
     public static final String TAG = AboutDialogFragment.class.getSimpleName();
+    public static final String VERSION = BuildConfig.VERSION_NAME;
     private static final String BUNDLE_KEY_TV_ABOUT_TEXT = "about_tv_txt";
     private TextView tvAbout;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         View view = getActivity().getLayoutInflater().inflate(R.layout.layout_about, null);
-        String version;
-
-        try {
-            version = getContext().getPackageManager().getPackageInfo(
-                    getContext().getPackageName(), 0).versionName;
-        } catch (PackageManager.NameNotFoundException e) {
-            version = "Version Not Found";
-        }
 
         TextView versionName = view.findViewById(R.id.versionName);
-        versionName.setText(version);
+        versionName.setText(VERSION);
 
         tvAbout = view.findViewById(R.id.aboutother);
 
