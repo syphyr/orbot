@@ -176,6 +176,7 @@
     <string name="bridge_direct_connect">Connect directly to Tor (Best)</string>
     <string name="bridge_community">Connect through community obfs4 servers</string>
     <string name="bridge_cloud">Connect through cloud servers</string>
+    <string name="bridge_scramblesuit">Connect through community scramblesuit servers</string>
     <string name="bridge_webtunnel">Connect through community webtunnel servers</string>
     <string name="trouble_connecting">Trouble connecting?</string>
     <string name="full_device_vpn">Full Device VPN</string>

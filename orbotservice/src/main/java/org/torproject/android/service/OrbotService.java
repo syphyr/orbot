@@ -266,7 +266,7 @@ public class OrbotService extends VpnService implements OrbotConstants {
         if (showNotification) sendCallbackLogMessage(getString(R.string.status_shutting_down));
 
         if (Prefs.bridgesEnabled()) {
-            if (useIPtObfsMeekProxy())
+            if (useIPtProxy())
                 IPtProxy.stopLyrebird();
             else if (useIPtSnowflakeProxyDomainFronting()||useIPtSnowflakeProxyAMPRendezvous()) {
                 IPtProxy.stopSnowflake();
@@ -303,9 +303,10 @@ public class OrbotService extends VpnService implements OrbotConstants {
                 ERROR_NOTIFY_ID, R.drawable.ic_stat_notifyerr);
     }
 
-    private static boolean useIPtObfsMeekProxy() {
+    private static boolean useIPtProxy() {
         var bridgeList = Prefs.getBridgesList();
-        return bridgeList.contains("obfs") || bridgeList.contains("meek") || bridgeList.contains("webtunnel");
+        return bridgeList.contains("obfs") || bridgeList.contains("meek") || bridgeList.contains("scramblesuit") ||
+                bridgeList.contains("webtunnel");
     }
 
     private static boolean useIPtSnowflakeProxyDomainFronting() {
@@ -1083,18 +1084,30 @@ public class OrbotService extends VpnService implements OrbotConstants {
             String builtInBridgeType = null;
 
             //check if any PT bridges are needed
-            if (bridgeList.contains("obfs")) {
 
+            if (bridgeList.equals("obfs2")) {
+                extraLines.append("ClientTransportPlugin obfs2 socks5 127.0.0.1:" + IPtProxy.obfs2Port()).append('\n');
+                builtInBridgeType = "obfs2";
+            }
+
+            if (bridgeList.equals("obfs3")) {
                 extraLines.append("ClientTransportPlugin obfs3 socks5 127.0.0.1:" + IPtProxy.obfs3Port()).append('\n');
-                extraLines.append("ClientTransportPlugin obfs4 socks5 127.0.0.1:" + IPtProxy.obfs4Port()).append('\n');
+                builtInBridgeType = "obfs3";
+            }
 
-                if (bridgeList.equals("obfs4"))
-                    builtInBridgeType = "obfs4";
+            if (bridgeList.equals("obfs4")) {
+                extraLines.append("ClientTransportPlugin obfs4 socks5 127.0.0.1:" + IPtProxy.obfs4Port()).append('\n');
+                builtInBridgeType = "obfs4";
             }
 
             if (bridgeList.equals("meek")) {
                 extraLines.append("ClientTransportPlugin meek_lite socks5 127.0.0.1:" + IPtProxy.meekPort()).append('\n');
                 builtInBridgeType = "meek_lite";
+            }
+
+            if (bridgeList.equals("scramblesuit")) {
+                extraLines.append("ClientTransportPlugin scramblesuit socks5 127.0.0.1:" + IPtProxy.scramblesuitPort()).append('\n');
+                builtInBridgeType = "scramblesuit";
             }
 
             if (bridgeList.equals("webtunnel")) {
@@ -1459,7 +1472,7 @@ public class OrbotService extends VpnService implements OrbotConstants {
             if (TextUtils.isEmpty(action)) return;
             if (action.equals(ACTION_START)) {
                 if (Prefs.bridgesEnabled()) {
-                    if (useIPtObfsMeekProxy())
+                    if (useIPtProxy())
                         IPtProxy.startLyrebird("DEBUG", false, false, null);
                     else if (useIPtSnowflakeProxyDomainFronting())
                         startSnowflakeClientDomainFronting();

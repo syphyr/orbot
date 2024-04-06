@@ -196,7 +196,7 @@ public class CustomBridgesActivity extends AppCompatActivity implements TextWatc
 
     private static boolean userHasSetPreconfiguredBridge(String bridges) {
         if (bridges == null) return false;
-        return bridges.equals("obfs4") || bridges.equals("meek") || bridges.equals("webtunnel") ||
+        return bridges.contains("obfs") || bridges.equals("meek") || bridges.equals("scramblesuit") || bridges.equals("webtunnel") ||
                 bridges.equals("snowflake") || bridges.equals("snowflake-amp");
     }
 }
