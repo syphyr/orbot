@@ -87,7 +87,7 @@ class MoreFragment : Fragment() {
                     Intent(context, SettingsActivity::class.java), REQUEST_CODE_SETTINGS
                 )
             },
-            OrbotMenuAction(R.string.system_vpn_settings, R.drawable.ic_settings_gear) {
+            OrbotMenuAction(R.string.system_vpn_settings, R.drawable.ic_vpn_key) {
                 activity?.startActivity(
                     Intent("android.net.vpn.SETTINGS")
                         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
