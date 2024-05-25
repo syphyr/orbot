@@ -17,7 +17,7 @@ android {
         applicationId "org.torproject.android"
         versionName getVersionName()
         minSdkVersion 21
-        compileSdkVersion 33
+        compileSdk 33
         targetSdkVersion 33
         multiDexEnabled true
     }
