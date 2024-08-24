@@ -39,7 +39,6 @@ android {
 
             minSdkVersion 21
             applicationId 'org.torproject.android'
-            applicationIdSuffix ".legacy"
             targetSdkVersion 31
             versionCode 1665040812
 

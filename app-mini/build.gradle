@@ -16,7 +16,6 @@ android {
             dimension "freemini"
             minSdkVersion 21
             applicationId 'org.torproject.android.mini'
-            applicationIdSuffix ".legacy"
             targetSdkVersion 28
             versionCode 10020000
             versionName 'mini-1.0.0-BETA-2-tor-0.4.5.7'
