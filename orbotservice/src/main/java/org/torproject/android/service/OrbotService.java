@@ -411,6 +411,7 @@ public class OrbotService extends VpnService implements OrbotConstants {
 
     @SuppressWarnings("ConstantConditions")
     private synchronized void enableSnowflakeProxy () { // This is to host a snowflake entrance node / bridge
+        var pollInterval = 0;
         var capacity = 1;
         var keepLocalAddresses = false;
         var unsafeLogging = false;
@@ -421,7 +422,7 @@ public class OrbotService extends VpnService implements OrbotConstants {
         var relayUrl = getCdnFront("snowflake-relay-url");//"wss://snowflake.bamsoftware.com";
         var natProbeUrl = getCdnFront("snowflake-nat-probe");//"https://snowflake-broker.torproject.net:8443/probe";
         var brokerUrl = getCdnFront("snowflake-amp-target");//https://snowflake-broker.torproject.net/";
-        IPtProxy.startSnowflakeProxy(capacity, brokerUrl, relayUrl, stunUrl, natProbeUrl, null, keepLocalAddresses, unsafeLogging, () -> {
+        IPtProxy.startSnowflakeProxy(pollInterval, capacity, brokerUrl, relayUrl, stunUrl, natProbeUrl, null, keepLocalAddresses, unsafeLogging, () -> {
             snowflakeClientsConnected++;
             Prefs.addSnowflakeServed();
             LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(LOCAL_ACTION_SNOWFLAKE_PROXY));
