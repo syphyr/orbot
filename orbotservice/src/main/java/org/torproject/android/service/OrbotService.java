@@ -411,41 +411,45 @@ public class OrbotService extends VpnService implements OrbotConstants {
 
     @SuppressWarnings("ConstantConditions")
     private synchronized void enableSnowflakeProxy () { // This is to host a snowflake entrance node / bridge
-        var pollInterval = 0;
-        var capacity = 1;
-        var keepLocalAddresses = false;
-        var unsafeLogging = false;
-        var stunServers = getCdnFront("snowflake-stun").split(",");
+        if (!IPtProxy.isSnowflakeProxyRunning()) {
+            var pollInterval = 0;
+            var capacity = 1;
+            var keepLocalAddresses = false;
+            var unsafeLogging = false;
+            var stunServers = getCdnFront("snowflake-stun").split(",");
 
-        int randomIndex = mSecureRandGen.nextInt(stunServers.length);
-        var stunUrl = stunServers[randomIndex];
-        var relayUrl = getCdnFront("snowflake-relay-url");//"wss://snowflake.bamsoftware.com";
-        var natProbeUrl = getCdnFront("snowflake-nat-probe");//"https://snowflake-broker.torproject.net:8443/probe";
-        var brokerUrl = getCdnFront("snowflake-amp-target");//https://snowflake-broker.torproject.net/";
-        IPtProxy.startSnowflakeProxy(pollInterval, capacity, brokerUrl, relayUrl, stunUrl, natProbeUrl, null, keepLocalAddresses, unsafeLogging, () -> {
-            snowflakeClientsConnected++;
-            Prefs.addSnowflakeServed();
-            LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(LOCAL_ACTION_SNOWFLAKE_PROXY));
+            int randomIndex = mSecureRandGen.nextInt(stunServers.length);
+            var stunUrl = stunServers[randomIndex];
+            var relayUrl = getCdnFront("snowflake-relay-url");//"wss://snowflake.bamsoftware.com";
+            var natProbeUrl = getCdnFront("snowflake-nat-probe");//"https://snowflake-broker.torproject.net:8443/probe";
+            var brokerUrl = getCdnFront("snowflake-amp-target");//https://snowflake-broker.torproject.net/";
+            IPtProxy.startSnowflakeProxy(pollInterval, capacity, brokerUrl, relayUrl, stunUrl, natProbeUrl, null, keepLocalAddresses, unsafeLogging, () -> {
+                snowflakeClientsConnected++;
+                Prefs.addSnowflakeServed();
+                LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(LOCAL_ACTION_SNOWFLAKE_PROXY));
 
-            if (!Prefs.showSnowflakeProxyMessage()) return;
-            var  message = String.format(getString(R.string.snowflake_proxy_client_connected_msg), SNOWFLAKE_EMOJI, SNOWFLAKE_EMOJI);
-            new Handler(getMainLooper()).post(() -> Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show());
-        });
-        logNotice(getString(R.string.log_notice_snowflake_proxy_enabled));
+                if (!Prefs.showSnowflakeProxyMessage()) return;
+                var  message = String.format(getString(R.string.snowflake_proxy_client_connected_msg), SNOWFLAKE_EMOJI, SNOWFLAKE_EMOJI);
+                new Handler(getMainLooper()).post(() -> Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show());
+            });
+            logNotice(getString(R.string.log_notice_snowflake_proxy_enabled));
 
-        if (Prefs.showSnowflakeProxyMessage()) {
-            var message = getString(R.string.log_notice_snowflake_proxy_enabled);
-            new Handler(getMainLooper()).post(() -> Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show());
+            if (Prefs.showSnowflakeProxyMessage()) {
+                var message = getString(R.string.log_notice_snowflake_proxy_enabled);
+                new Handler(getMainLooper()).post(() -> Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show());
+            }
         }
     }
 
     private synchronized void disableSnowflakeProxy() {
-        IPtProxy.stopSnowflakeProxy();
-        logNotice(getString(R.string.log_notice_snowflake_proxy_disabled));
+        if (IPtProxy.isSnowflakeProxyRunning()) {
+            IPtProxy.stopSnowflakeProxy();
+            logNotice(getString(R.string.log_notice_snowflake_proxy_disabled));
 
-        if (Prefs.showSnowflakeProxyMessage()) {
-            var message = getString(R.string.log_notice_snowflake_proxy_disabled);
-            new Handler(getMainLooper()).post(() -> Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show());
+            if (Prefs.showSnowflakeProxyMessage()) {
+                var message = getString(R.string.log_notice_snowflake_proxy_disabled);
+                new Handler(getMainLooper()).post(() -> Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show());
+            }
         }
     }
 
