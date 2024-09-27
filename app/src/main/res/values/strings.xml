@@ -76,7 +76,7 @@
     <string name="libevent_url" translatable="false">LibEvent v2.1.12: http://www.monkey.org/~provos/libevent/</string>
     <string name="obfs4_url" translatable="false">Lyrebird v%s: https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/lyrebird</string>
     <string name="snowflake_url" translatable="false">Snowflake v%s: https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake</string>
-    <string name="openssl_url" translatable="false">OpenSSL v3.0.15: http://www.openssl.org</string>
+    <string name="openssl_url" translatable="false">OpenSSL v3.0.16: http://www.openssl.org</string>
     <string name="third_party_software">3rd-Party-Software: </string>
     <string name="version">Version:</string>
     <string name="license">License:</string>
