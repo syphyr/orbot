@@ -1,6 +1,6 @@
 moat-cdn https://d50gd378qj74g.cloudfront.net/
-moat-front github.githubassets.com
-moat-url https://moat.torproject.org.global.prod.fastly.net/
+moat-front www.phpmyadmin.net
+moat-url https://1723079976.rsc.cdn77.org
 snowflake-amp-cache https://cdn.ampproject.org/
 snowflake-amp-front www.google.com
 snowflake-amp-target https://snowflake-broker.torproject.net/
