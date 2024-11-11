@@ -1132,6 +1132,28 @@ public class OrbotService extends VpnService implements OrbotConstants {
                 int bridgeIdx = (int) Math.floor(Math.random() * ((double) bridgeListLines.length));
                 String bridgeLine = bridgeListLines[bridgeIdx];
                 if (!TextUtils.isEmpty(bridgeLine)) {
+                    // Add transport line when using custom configs
+                    if (bridgeLine.contains("obfs2")) {
+                        extraLines.append("ClientTransportPlugin obfs2 socks5 127.0.0.1:" + IPtProxy.obfs2Port()).append('\n');
+                    }
+                    if (bridgeLine.contains("obfs3")) {
+                        extraLines.append("ClientTransportPlugin obfs3 socks5 127.0.0.1:" + IPtProxy.obfs3Port()).append('\n');
+                    }
+                    if (bridgeLine.contains("obfs4")) {
+                        extraLines.append("ClientTransportPlugin obfs4 socks5 127.0.0.1:" + IPtProxy.obfs4Port()).append('\n');
+                    }
+                    if (bridgeLine.contains("meek")) {
+                        extraLines.append("ClientTransportPlugin meek_lite socks5 127.0.0.1:" + IPtProxy.meekPort()).append('\n');
+                    }
+                    if (bridgeLine.contains("scramblesuit")) {
+                        extraLines.append("ClientTransportPlugin scramblesuit socks5 127.0.0.1:" + IPtProxy.scramblesuitPort()).append('\n');
+                    }
+                    if (bridgeLine.contains("webtunnel")) {
+                        extraLines.append("ClientTransportPlugin webtunnel socks5 127.0.0.1:" + IPtProxy.webtunnelPort()).append('\n');
+                    }
+                    if (bridgeLine.contains("snowflake") || bridgeLine.contains("snowflake-amp")) {
+                        extraLines.append("ClientTransportPlugin snowflake socks5 127.0.0.1:" + IPtProxy.snowflakePort()).append('\n');
+                    }
                     extraLines.append("Bridge ");
                     extraLines.append(bridgeLine);
                     extraLines.append("\n");
