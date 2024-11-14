@@ -610,7 +610,7 @@ public class OrbotService extends VpnService implements OrbotConstants {
         }
 
         var ipv6Pref = "";
-        if (prefs.getBoolean(PREF_PREFER_IPV6, false)) {
+        if (prefs.getBoolean(PREF_PREFER_IPV6, true)) {
             ipv6Pref += " IPv6Traffic PreferIPv6 ";
         }
 

@@ -124,7 +124,7 @@
             android:summary="@string/pref_isolate_protocol_summary"
             android:title="@string/pref_isolate_protocol" />
         <CheckBoxPreference
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:enabled="true"
             android:key="pref_prefer_ipv6"
             android:summary="@string/pref_prefer_ipv6_summary"
