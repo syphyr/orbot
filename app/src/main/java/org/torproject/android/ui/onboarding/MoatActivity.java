@@ -407,7 +407,7 @@ public class MoatActivity extends AppCompatActivity implements View.OnClickListe
         switch (status) {
             case OrbotConstants.STATUS_OFF:
                 // We need the Meek bridge.
-                Prefs.setBridgesList("meek");
+                Prefs.setBridgesList("meek_lite");
                 Prefs.putBridgesEnabled(true);
 
                 sendIntentToService(OrbotConstants.ACTION_START);
@@ -416,7 +416,7 @@ public class MoatActivity extends AppCompatActivity implements View.OnClickListe
 
             case OrbotConstants.STATUS_ON:
                 // Switch to the Meek bridge, if not done, already.
-                Prefs.setBridgesList("meek");
+                Prefs.setBridgesList("meek_lite");
                 Prefs.putBridgesEnabled(true);
 
                 Log.d(MoatActivity.class.getSimpleName(), "Set up Volley queue. host=" + host + ", port=" + port);

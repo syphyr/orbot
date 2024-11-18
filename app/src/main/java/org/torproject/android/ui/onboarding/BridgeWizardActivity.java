@@ -23,6 +23,8 @@ public class BridgeWizardActivity extends AppCompatActivity {
     private static final int CUSTOM_BRIDGES_REQUEST_CODE = 1312;
     private RadioButton mBtDirect;
     private RadioButton mBtObfs4;
+    private RadioButton mBtMeek;
+    private RadioButton mBtScramblesuit;
     private RadioButton mBtWebtunnel;
     private RadioButton mBtCustom;
     private RadioButton mBtSnowflake;
@@ -72,6 +74,20 @@ public class BridgeWizardActivity extends AppCompatActivity {
         mBtWebtunnel.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (!isChecked) return;
             Prefs.setBridgesList("webtunnel");
+            Prefs.putBridgesEnabled(true);
+        });
+
+        mBtMeek = findViewById(R.id.btnBridgesMeek);
+        mBtMeek.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (!isChecked) return;
+            Prefs.setBridgesList("meek_lite");
+            Prefs.putBridgesEnabled(true);
+        });
+
+        mBtScramblesuit = findViewById(R.id.btnBridgesScramblesuit);
+        mBtScramblesuit.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (!isChecked) return;
+            Prefs.setBridgesList("scramblesuit");
             Prefs.putBridgesEnabled(true);
         });
 
@@ -144,8 +160,12 @@ public class BridgeWizardActivity extends AppCompatActivity {
             mBtDirect.setChecked(true);
         } else if (Prefs.getBridgesList().equals("obfs4")) {
             mBtObfs4.setChecked(true);
+        } else if (Prefs.getBridgesList().equals("meek_lite")) {
+            mBtMeek.setChecked(true);
         } else if (Prefs.getBridgesList().equals("webtunnel")) {
             mBtWebtunnel.setChecked(true);
+        } else if (Prefs.getBridgesList().equals("scramblesuit")) {
+            mBtScramblesuit.setChecked(true);
         } else if (Prefs.getBridgesList().equals("snowflake")) {
             mBtSnowflake.setChecked(true);
         } else if (Prefs.getBridgesList().equals("snowflake-amp")) {

@@ -305,7 +305,7 @@ public class OrbotService extends VpnService implements OrbotConstants {
 
     private static boolean useIPtProxy() {
         var bridgeList = Prefs.getBridgesList();
-        return bridgeList.contains("obfs") || bridgeList.contains("meek") || bridgeList.contains("scramblesuit") ||
+        return bridgeList.contains("obfs") || bridgeList.contains("meek_lite") || bridgeList.contains("scramblesuit") ||
                 bridgeList.contains("webtunnel");
     }
 
@@ -1105,7 +1105,7 @@ public class OrbotService extends VpnService implements OrbotConstants {
                 builtInBridgeType = "obfs4";
             }
 
-            if (bridgeList.equals("meek")) {
+            if (bridgeList.equals("meek_lite")) {
                 extraLines.append("ClientTransportPlugin meek_lite socks5 127.0.0.1:" + IPtProxy.meekPort()).append('\n');
                 builtInBridgeType = "meek_lite";
             }
@@ -1142,7 +1142,7 @@ public class OrbotService extends VpnService implements OrbotConstants {
                     if (bridgeLine.contains("obfs4")) {
                         extraLines.append("ClientTransportPlugin obfs4 socks5 127.0.0.1:" + IPtProxy.obfs4Port()).append('\n');
                     }
-                    if (bridgeLine.contains("meek")) {
+                    if (bridgeLine.contains("meek_lite")) {
                         extraLines.append("ClientTransportPlugin meek_lite socks5 127.0.0.1:" + IPtProxy.meekPort()).append('\n');
                     }
                     if (bridgeLine.contains("scramblesuit")) {
