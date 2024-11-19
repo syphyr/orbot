@@ -193,7 +193,7 @@
     <string name="enter_characters_from_image">Enter characters from image</string>
     <!-- BridgeWizardActivity -->
     <string name="request_bridges_from_torproject">Request Bridges from torproject.org</string>
-    <string name="custom_bridges">Custom Bridges (supports meek_lite, obfs2, obfs3, obfs4, scramblesuit, snowflake, and webtunnel)</string>
+    <string name="custom_bridges">Custom Bridges (meek_lite, obfs2, obfs3, obfs4, scramblesuit, snowflake, webtunnel)</string>
     <string name="configure_custom_bridges">Configure Custom Bridges</string>
     <!-- CustomBridgesActivity -->
     <string name="use_custom_bridges">Use Custom Bridges</string>
