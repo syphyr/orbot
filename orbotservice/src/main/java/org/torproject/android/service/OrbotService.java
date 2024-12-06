@@ -1013,6 +1013,7 @@ public class OrbotService extends VpnService implements OrbotConstants {
 
     private void sendCallbackLogMessage(final String logMessage) {
         var notificationMessage = logMessage;
+        var localIntent = new Intent(LOCAL_ACTION_LOG).putExtra(LOCAL_EXTRA_LOG, logMessage);
         if (logMessage.contains(LOG_NOTICE_HEADER)) {
             notificationMessage = notificationMessage.substring(LOG_NOTICE_HEADER.length());
             if (notificationMessage.contains(LOG_NOTICE_BOOTSTRAPPED)) {
@@ -1023,8 +1024,7 @@ public class OrbotService extends VpnService implements OrbotConstants {
             }
         }
         showToolbarNotification(notificationMessage, NOTIFY_ID, R.drawable.ic_stat_tor);
-        mHandler.post(() -> LocalBroadcastManager.getInstance(OrbotService.this).sendBroadcast(new Intent(LOCAL_ACTION_LOG)
-            .putExtra(LOCAL_EXTRA_LOG, logMessage)));
+        mHandler.post(() -> LocalBroadcastManager.getInstance(OrbotService.this).sendBroadcast(localIntent));
     }
 
     private void sendCallbackPorts(int socksPort, int httpPort, int dnsPort, int transPort) {
