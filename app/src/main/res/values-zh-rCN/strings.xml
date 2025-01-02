@@ -168,7 +168,7 @@
     <string name="refresh_captcha">刷新验证码</string>
     <string name="request_bridges">请求网桥</string>
     <string name="testing_tor_direct_success">成功。Tor 连接良好！</string>
-    <string name="testing_tor_direct">正在测试到 Tor 网络的连接 ...…</string>
+    <string name="testing_tor_direct">正在测试到 Tor 网络的连接 …</string>
     <string name="pref_reduced_circuit_padding_summary">使用低开销填充算法来减少数据和电池的使用</string>
     <string name="pref_reduced_circuit_padding">缩减的电路填充</string>
     <string name="pref_circuit_padding_summary">启用电路填充以防御一些形式的流量分析</string>
