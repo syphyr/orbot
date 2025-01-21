@@ -220,7 +220,7 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
 
         ivOnion.setImageResource(R.drawable.toroff)
         stopAnimations()
-        tvSubtitle.visibility = View.GONE
+        tvSubtitle.visibility = View.VISIBLE
         progressBar.visibility = View.INVISIBLE
         lvConnectedActions.visibility = View.GONE
         tvTitle.text = getString(R.string.secure_your_connection_title)
