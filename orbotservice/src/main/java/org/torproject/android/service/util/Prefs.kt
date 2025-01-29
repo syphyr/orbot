@@ -161,7 +161,7 @@ object Prefs {
     }
 
     fun enableRotation(): Boolean {
-        return prefs?.getBoolean(PREF_ENABLE_ROTATION, false) ?: false
+        return prefs?.getBoolean(PREF_ENABLE_ROTATION, true) ?: true
     }
 
     fun allowBackgroundStarts(): Boolean {
