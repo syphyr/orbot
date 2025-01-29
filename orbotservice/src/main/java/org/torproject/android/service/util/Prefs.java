@@ -199,7 +199,7 @@ public class Prefs {
     }
 
     public static boolean enableRotation() {
-        return prefs.getBoolean(PREF_ENABLE_ROTATION, false);
+        return prefs.getBoolean(PREF_ENABLE_ROTATION, true);
     }
 
     public static boolean allowBackgroundStarts() {

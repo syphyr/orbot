@@ -58,7 +58,7 @@
             app:iconSpaceReserved="false" />
 
         <CheckBoxPreference
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:key="pref_enable_rotation"
             android:summary="@string/pref_enable_rotation_summary"
             android:title="@string/pref_enable_rotation_title"
