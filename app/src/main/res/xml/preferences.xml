@@ -57,9 +57,9 @@
             android:title="@string/pref_detect_root_title"
             app:iconSpaceReserved="false" />
 
-        <CheckBoxPreference
-            android:defaultValue="false"
+       <CheckBoxPreference
             android:key="pref_enable_rotation"
+            android:defaultValue="false"
             android:summary="@string/pref_enable_rotation_summary"
             android:title="@string/pref_enable_rotation_title"
             app:iconSpaceReserved="false" />
