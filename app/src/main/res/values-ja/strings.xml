@@ -254,7 +254,7 @@
     <string name="power_user_description">Tor に精通しているユーザー向け。VPN 設定なしで Orbot を起動でき、開いているSOCKSポートとHTTPポートが表示されます</string>
     <string name="title_choose_apps">アプリを選ぶ</string>
     <string name="apps_suggested_title">提案されたアプリ</string>
-    <string name="app_suggested_subtitle">Orbot は、メッセージングアプリやSNSアプリとの相性が抜群です。</string>
+    <string name="app_suggested_subtitle">Orbot は、メッセージングアプリや SNS アプリとの相性が抜群です。</string>
     <string name="action_activate">有効化</string>
     <string name="hide_apps">アプリをネットワーク監視から隠し、遮断されているときにはアクセスできるようにします。</string>
     <string name="pref_isolate_port">宛先ポートを分離</string>
