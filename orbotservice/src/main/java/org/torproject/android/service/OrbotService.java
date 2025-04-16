@@ -3,6 +3,7 @@
 
 package org.torproject.android.service;
 
+import static android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED;
 import static org.torproject.android.service.OrbotConstants.*;
 import static org.torproject.jni.TorService.ACTION_ERROR;
 
@@ -80,6 +81,7 @@ import IPtProxy.OnTransportStopped;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
+import androidx.core.app.ServiceCompat;
 import androidx.core.content.ContextCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
@@ -228,7 +230,7 @@ public class OrbotService extends VpnService {
             mNotifyBuilder.setProgress(0, 0, false); // removes progress bar
         }
 
-        startForeground(NOTIFY_ID, mNotifyBuilder.build());
+        ServiceCompat.startForeground(this, NOTIFY_ID, mNotifyBuilder.build(), FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED);
     }
 
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -260,6 +262,7 @@ public class OrbotService extends VpnService {
             }
         } catch (RuntimeException re) {
             //catch this to avoid malicious launches as document Cure53 Audit: ORB-01-009 WP1/2: Orbot DoS via exported activity (High)
+            Log.e(TAG, "error with OrbotService",re);
         }
 
         return Service.START_REDELIVER_INTENT;
