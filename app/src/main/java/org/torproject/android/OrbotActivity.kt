@@ -15,6 +15,8 @@ import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
+import androidx.navigation.NavController
+import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 
@@ -30,11 +32,11 @@ import org.torproject.android.ui.LogBottomSheet
 
 class OrbotActivity : BaseActivity() {
 
-    private lateinit var bottomNavigationView: BottomNavigationView
-
     private lateinit var logBottomSheet: LogBottomSheet
     lateinit var fragConnect: ConnectFragment
-    lateinit var fragMore: MoreFragment
+
+    var portSocks: Int = -1
+    var portHttp: Int = -1
 
     var previousReceivedTorStatus: String? = null
 
@@ -79,11 +81,48 @@ class OrbotActivity : BaseActivity() {
 
         logBottomSheet = LogBottomSheet()
 
-        bottomNavigationView = findViewById(R.id.bottom_navigation)
+        val navController: NavController = findNavController(R.id.nav_fragment)
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
 
-        val navController = findNavController(R.id.nav_fragment)
         bottomNavigationView.setupWithNavController(navController)
-        bottomNavigationView.selectedItemId = R.id.connectFragment
+
+        bottomNavigationView.menu.findItem(R.id.connectFragment).isChecked = true
+
+        val navOptionsLeftToRight = NavOptions.Builder()
+            .setEnterAnim(R.anim.slide_in_right)
+            .setExitAnim(R.anim.slide_out_left)
+            .setPopEnterAnim(R.anim.slide_in_right)
+            .setPopExitAnim(R.anim.slide_out_left)
+            .build()
+
+        val navOptionsRightToLeft = NavOptions.Builder()
+            .setEnterAnim(R.anim.slide_in_left)
+            .setExitAnim(R.anim.slide_out_right)
+            .setPopEnterAnim(R.anim.slide_in_left)
+            .setPopExitAnim(R.anim.slide_out_right)
+            .build()
+
+        var lastSelectedItemId = R.id.connectFragment
+
+        bottomNavigationView.setOnItemSelectedListener { item ->
+            if (item.itemId == lastSelectedItemId) {
+                return@setOnItemSelectedListener true
+            }
+
+            val navOptions = if (item.itemId > lastSelectedItemId) {
+                navOptionsLeftToRight
+            } else {
+                navOptionsRightToLeft
+            }
+            lastSelectedItemId = item.itemId
+
+            when (item.itemId) {
+                R.id.connectFragment -> navController.navigate(R.id.connectFragment, null, navOptions)
+                R.id.kindnessFragment -> navController.navigate(R.id.kindnessFragment, null, navOptions)
+                R.id.moreFragment -> navController.navigate(R.id.moreFragment, null, navOptions)
+            }
+            true
+        }
 
         with(LocalBroadcastManager.getInstance(this)) {
             registerReceiver(
@@ -117,7 +156,6 @@ class OrbotActivity : BaseActivity() {
                 //we didn't find indication of root
             }
         }
-
     }
 
     override fun onBackPressed() {
@@ -236,7 +274,10 @@ class OrbotActivity : BaseActivity() {
                 OrbotConstants.LOCAL_ACTION_PORTS -> {
                     val socks = intent.getIntExtra(OrbotConstants.EXTRA_SOCKS_PROXY_PORT, -1)
                     val http = intent.getIntExtra(OrbotConstants.EXTRA_HTTP_PROXY_PORT, -1)
-                    if (http > 0 && socks > 0) fragMore.setPorts(http, socks)
+                    if (http > 0 && socks > 0) {
+                        portSocks = socks
+                        portHttp = http
+                    }
                 }
 
                 else -> {}
