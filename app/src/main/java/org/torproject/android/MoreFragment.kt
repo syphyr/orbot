@@ -32,15 +32,21 @@ class MoreFragment : Fragment() {
 
     override fun onAttach(activity: Activity) {
         super.onAttach(activity)
-        (activity as OrbotActivity).fragMore = this
+        //(activity as OrbotActivity).fragMore = this
+
+        httpPort = (activity as OrbotActivity).portHttp
+        socksPort = (activity as OrbotActivity).portSocks
+
+        if (view != null) updateStatus()
     }
 
 
+    /**
     fun setPorts(newHttpPort: Int, newSocksPort: Int) {
         httpPort = newHttpPort
         socksPort = newSocksPort
         if (view != null) updateStatus()
-    }
+    }**/
 
     private fun updateStatus() {
         val sb = StringBuilder()
