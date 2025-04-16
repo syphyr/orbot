@@ -17,6 +17,8 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"/>
+
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
 
     <!-- For Android 13 -->
@@ -115,12 +117,14 @@
             android:name=".service.OrbotService"
             android:enabled="true"
             android:permission="android.permission.BIND_VPN_SERVICE"
-            android:foregroundServiceType="dataSync"
+            android:foregroundServiceType="specialUse"
             android:stopWithTask="false"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.net.VpnService" />
             </intent-filter>
+            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Orbot is a VPN app that provides a long-running local proxy server that needs to be allowed to continue to run via this foreground special-use capability"/>
         </service>
 
         <service
