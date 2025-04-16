@@ -230,6 +230,8 @@ public class OrbotService extends VpnService {
             mNotifyBuilder.setProgress(0, 0, false); // removes progress bar
         }
 
+        startForeground(NOTIFY_ID, mNotifyBuilder.build());
+
         ServiceCompat.startForeground(this, NOTIFY_ID, mNotifyBuilder.build(), FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED);
     }
 
