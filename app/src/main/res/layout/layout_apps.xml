@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/new_background"
     android:orientation="vertical"
-    android:duplicateParentState="true">
+    android:duplicateParentState="true"
+    android:paddingTop="140dp"
+    >
 
     <ProgressBar
         android:indeterminateTint="@color/progress_bar_purple"

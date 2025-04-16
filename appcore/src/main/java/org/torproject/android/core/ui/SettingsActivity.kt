@@ -2,15 +2,18 @@ package org.torproject.android.core.ui
 
 import android.os.Bundle
 import android.view.MenuItem
+import org.torproject.android.core.R
 
 class SettingsActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setContentView(R.layout.activity_settings)
+
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         supportFragmentManager
             .beginTransaction()
-            .replace(android.R.id.content, SettingsPreferencesFragment())
+            .replace(R.id.settings_container, SettingsPreferencesFragment())
             .commit()
     }
 
