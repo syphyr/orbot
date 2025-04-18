@@ -83,7 +83,6 @@ class OrbotActivity : BaseActivity() {
 
         val navController: NavController = findNavController(R.id.nav_fragment)
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
-
         bottomNavigationView.setupWithNavController(navController)
 
         bottomNavigationView.menu.findItem(R.id.connectFragment).isChecked = true
@@ -159,6 +158,7 @@ class OrbotActivity : BaseActivity() {
     }
 
     override fun onBackPressed() {
+        super.onBackPressed()
         finish()
     }
 
