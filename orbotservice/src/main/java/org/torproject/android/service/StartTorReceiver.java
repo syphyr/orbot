@@ -19,7 +19,7 @@ public class StartTorReceiver extends BroadcastReceiver {
 
         try {
             /* sanitize the Intent before forwarding it to OrbotService */
-            Prefs.setContext(context);
+            Prefs.setContext(context.getApplicationContext());
             String action = intent.getAction();
             if (TextUtils.equals(action, ACTION_START)) {
                 String packageName = intent.getStringExtra(EXTRA_PACKAGE_NAME);
