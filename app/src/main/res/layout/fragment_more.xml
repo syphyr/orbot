@@ -22,11 +22,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Orbot vX.X.X"
+        android:layout_margin="12dp"
+        android:gravity="center"
         />
 
         <ImageView
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:src="@drawable/orbion"
             android:layout_margin="12dp"
             android:layout_gravity="center_horizontal"
