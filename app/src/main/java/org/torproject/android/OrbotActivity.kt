@@ -227,7 +227,7 @@ class OrbotActivity : BaseActivity() {
     }
 
 //    override fun attachBaseContext(newBase: Context) =
-  //      super.attachBaseContext(LocaleHelper.onAttach(newBase))
+//        super.attachBaseContext(LocaleHelper.onAttach(newBase))
 
     var allCircumventionAttemptsFailed = false
 
