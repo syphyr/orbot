@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="@dimen/button_horizontal_large_margin"
-    android:paddingTop="30dp"
+    android:paddingTop="25dp"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout

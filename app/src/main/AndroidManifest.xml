@@ -126,7 +126,7 @@
             <intent-filter>
                 <action android:name="android.net.VpnService" />
             </intent-filter>
-          </service>
+        </service>
 
         <service
             android:name=".ui.OrbotTileService"
