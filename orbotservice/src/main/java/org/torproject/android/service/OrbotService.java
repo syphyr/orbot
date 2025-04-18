@@ -674,7 +674,8 @@ public class OrbotService extends VpnService {
     }
 
     private void configLanguage() {
-        Configuration config = getBaseContext().getResources().getConfiguration();
+        Configuration config = getApplicationContext().getResources().getConfiguration();
+        Prefs.setContext(getApplicationContext());
         Locale locale = new Locale(Prefs.getDefaultLocale());
         Locale.setDefault(locale);
         config.locale = locale;

@@ -262,4 +262,5 @@ public class Prefs {
     public static boolean isSecureWindow () {
         return prefs.getBoolean(PREF_SECURE_WINDOW_FLAG, true);
     }
+
 }
