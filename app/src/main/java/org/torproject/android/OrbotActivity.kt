@@ -32,6 +32,7 @@ import org.torproject.android.ui.LogBottomSheet
 
 class OrbotActivity : BaseActivity() {
 
+    private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var logBottomSheet: LogBottomSheet
     lateinit var fragConnect: ConnectFragment
 
@@ -82,7 +83,7 @@ class OrbotActivity : BaseActivity() {
         logBottomSheet = LogBottomSheet()
 
         val navController: NavController = findNavController(R.id.nav_fragment)
-        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
+        bottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigationView.setupWithNavController(navController)
 
         bottomNavigationView.menu.findItem(R.id.connectFragment).isChecked = true
