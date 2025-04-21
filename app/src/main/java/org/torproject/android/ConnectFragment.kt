@@ -49,15 +49,14 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     lateinit var progressBar: ProgressBar
     private lateinit var lvConnectedActions: ListView
 
-    private var lastStatus: String? = ""
+    private val lastStatus: String
+        get() = (activity as? OrbotActivity)?.previousReceivedTorStatus ?: ""
 
     @Deprecated("Deprecated in Java")
     override fun onAttach(activity: Activity) {
         super.onAttach(activity)
 
         (activity as OrbotActivity).fragConnect = this
-        lastStatus = activity.previousReceivedTorStatus
-
     }
 
     override fun onCreateView(
@@ -80,24 +79,29 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
                 btnStartVpn.text = getString(R.string.connect)
             }
 
-            if (!isNetworkAvailable(requireContext())) {
-                doLayoutNoInternet()
-            } else {
-                when (lastStatus) {
-                    OrbotConstants.STATUS_OFF -> doLayoutOff()
-                    OrbotConstants.STATUS_STARTING -> doLayoutStarting(requireContext())
-                    OrbotConstants.STATUS_ON -> doLayoutOn(requireContext())
-                    OrbotConstants.STATUS_STOPPING -> {}
-                    else -> {
-                        doLayoutOff()
-                    }
-                }
-            }
-
-
+            updateLayoutBasedOnStatus()
         }
 
         return view
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateLayoutBasedOnStatus()
+    }
+
+    fun updateLayoutBasedOnStatus() {
+        if (!isNetworkAvailable(requireContext())) {
+            doLayoutNoInternet(requireContext())
+        } else {
+            when (lastStatus) {
+                OrbotConstants.STATUS_OFF -> doLayoutOff()
+                OrbotConstants.STATUS_STARTING -> doLayoutStarting(requireContext())
+                OrbotConstants.STATUS_ON -> doLayoutOn(requireContext())
+                OrbotConstants.STATUS_STOPPING -> {}
+                else -> doLayoutOff()
+            }
+        }
     }
 
     private fun stopTorAndVpn() {
