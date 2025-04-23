@@ -87,6 +87,22 @@ class OrbotActivity : BaseActivity() {
         super.onSaveInstanceState(outState)
     }
 
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+
+        lastSelectedItemId = savedInstanceState.getInt(KEY_SELECTED_TAB, R.id.connectFragment)
+        previousReceivedTorStatus = savedInstanceState.getString(KEY_TOR_STATUS)
+
+        val navController = findNavController(R.id.nav_fragment)
+        val currentDest = navController.currentDestination?.id
+
+        if (currentDest != lastSelectedItemId) {
+            navController.navigate(lastSelectedItemId)
+        }
+
+        findViewById<BottomNavigationView>(R.id.bottom_navigation).selectedItemId = lastSelectedItemId
+    }
+
     private fun createOrbot() {
         setContentView(R.layout.activity_orbot)
 
