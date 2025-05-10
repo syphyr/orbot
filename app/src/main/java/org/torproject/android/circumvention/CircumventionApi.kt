@@ -1,9 +1,6 @@
 package org.torproject.android.circumvention
 
-import IPtProxy.IPtProxy
 import okhttp3.OkHttpClient
-import org.torproject.android.service.OrbotService
-import org.torproject.android.ui.onboarding.ProxiedHurlStack
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -37,12 +34,9 @@ interface CircumventionEndpoints {
 
 object ServiceBuilder {
 
-
-
     fun <T> buildService(service: Class<T>, proxyPort: Long): T {
 
-        var proxy: Proxy =
-            Proxy(Proxy.Type.SOCKS, InetSocketAddress("127.0.0.1", proxyPort.toInt()))
+        val proxy = Proxy(Proxy.Type.SOCKS, InetSocketAddress("127.0.0.1", proxyPort.toInt()))
 
         val client = OkHttpClient.Builder().proxy(proxy).build()
 

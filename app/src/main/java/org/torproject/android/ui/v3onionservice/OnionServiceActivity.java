@@ -45,7 +45,8 @@ public class OnionServiceActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        var sab = getSupportActionBar();
+        if (sab != null) sab.setDisplayHomeAsUpEnabled(true);
 
         mLayoutRoot = findViewById(R.id.hostedServiceCoordinatorLayout);
         fab = findViewById(R.id.fab);

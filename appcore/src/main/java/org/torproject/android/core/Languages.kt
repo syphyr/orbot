@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ContextWrapper
 import android.content.res.Resources
-import android.os.Build
 import android.text.TextUtils
 import android.util.DisplayMetrics
 import java.util.*

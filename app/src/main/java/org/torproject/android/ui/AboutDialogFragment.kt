@@ -37,7 +37,7 @@ class AboutDialogFragment : DialogFragment() {
         val versionName = view?.findViewById<TextView>(R.id.versionName)
         versionName?.text = VERSION
 
-        tvAbout = view?.findViewById(R.id.aboutother) as TextView
+        tvAbout = view?.findViewById(R.id.aboutother)!!
 
         val tvTor = view.findViewById<TextView>(R.id.tvTor)
         tvTor.text = getString(R.string.tor_url, OrbotService.BINARY_TOR_VERSION)

@@ -51,6 +51,7 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
 
     private var lastStatus: String? = ""
 
+    @Deprecated("Deprecated in Java")
     override fun onAttach(activity: Activity) {
         super.onAttach(activity)
 
@@ -80,7 +81,7 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
             }
 
             if (!isNetworkAvailable(requireContext())) {
-                doLayoutNoInternet(requireContext())
+                doLayoutNoInternet()
             } else {
                 when (lastStatus) {
                     OrbotConstants.STATUS_OFF -> doLayoutOff()
@@ -157,6 +158,7 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
         lvConnectedActions.adapter = OrbotMenuActionAdapter(context, listItems)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == OrbotActivity.REQUEST_CODE_VPN && resultCode == AppCompatActivity.RESULT_OK) {
@@ -188,7 +190,7 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     }
 
 
-    private fun doLayoutNoInternet(context: Context) {
+    private fun doLayoutNoInternet() {
 
         ivOnion.setImageResource(R.drawable.nointernet)
 
@@ -317,16 +319,16 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
         startTorAndVpn() // TODO for now just start tor and VPN, we need to decouple this down the line
     }
 
-    override fun onExitNodeSelected(exitNode: String, countryDisplayName: String) {
+    override fun onExitNodeSelected(countryCode: String, displayCountryName: String) {
 
         //tor format expects "{" for country code
-        Prefs.setExitNodes("{$exitNode}")
+        Prefs.setExitNodes("{$countryCode}")
 
         requireContext().sendIntentToService(
             Intent(
                 requireActivity(),
                 OrbotService::class.java
-            ).setAction(OrbotConstants.CMD_SET_EXIT).putExtra("exit", exitNode)
+            ).setAction(OrbotConstants.CMD_SET_EXIT).putExtra("exit", countryCode)
         )
 
         refreshMenuList(requireContext())

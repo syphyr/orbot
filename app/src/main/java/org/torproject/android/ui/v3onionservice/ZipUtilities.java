@@ -12,7 +12,6 @@ import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
@@ -63,19 +62,6 @@ public class ZipUtilities {
             return false;
         }
         return true;
-    }
-
-    public boolean unzipLegacy(String outputPath, File zipFile) {
-        try {
-            FileInputStream fis = new FileInputStream((zipFile));
-            ZipInputStream zis = new ZipInputStream(new BufferedInputStream(fis));
-            boolean returnVal = extractFromZipInputStream(outputPath, zis);
-            fis.close();
-            return returnVal;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return false;
     }
 
     public boolean unzip(String outputPath) {

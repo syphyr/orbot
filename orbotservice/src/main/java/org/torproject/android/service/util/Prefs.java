@@ -8,8 +8,6 @@ import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
 
-import org.torproject.android.service.OrbotConstants;
-
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 

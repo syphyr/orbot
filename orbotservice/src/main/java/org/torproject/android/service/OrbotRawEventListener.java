@@ -1,5 +1,7 @@
 package org.torproject.android.service;
 
+import androidx.annotation.NonNull;
+
 import net.freehaven.tor.control.RawEventListener;
 import net.freehaven.tor.control.TorControlCommands;
 
@@ -234,6 +236,7 @@ public class OrbotRawEventListener implements RawEventListener {
         public String ipAddress;
         boolean querying = false;
 
+        @NonNull
         @Override
         public String toString() {
             return ipAddress + " " + country;

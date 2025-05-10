@@ -33,6 +33,7 @@ import java.io.UnsupportedEncodingException
 import java.net.URLDecoder
 import java.net.URLEncoder
 import java.nio.charset.StandardCharsets
+import androidx.core.net.toUri
 
 class CustomBridgesFragment : Fragment(), TextWatcher {
     private var mEtPastedBridges: EditText? = null
@@ -88,7 +89,7 @@ class CustomBridgesFragment : Fragment(), TextWatcher {
         view.findViewById<View>(R.id.btEmail).setOnClickListener {
             val requestText = "get transport"
             val emailUrl = "mailto:${Uri.encode(EMAIL_TOR_BRIDGES)}?subject=${Uri.encode(requestText)}&body=${Uri.encode(requestText)}"
-            val emailIntent = Intent(Intent.ACTION_SENDTO, Uri.parse(emailUrl)).apply {
+            val emailIntent = Intent(Intent.ACTION_SENDTO, emailUrl.toUri()).apply {
                 putExtra(Intent.EXTRA_SUBJECT, requestText)
                 putExtra(Intent.EXTRA_TEXT, requestText)
             }
@@ -98,6 +99,7 @@ class CustomBridgesFragment : Fragment(), TextWatcher {
         return view
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
             activity?.onBackPressed()
@@ -106,6 +108,7 @@ class CustomBridgesFragment : Fragment(), TextWatcher {
         return super.onOptionsItemSelected(item)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(request: Int, response: Int, data: Intent?) {
         super.onActivityResult(request, response, data)
 

@@ -81,7 +81,7 @@
     <string name="consider_enable_battery_optimizations">No hay servicios alojados en ejecución, considera habilitar optimizaciones de batería</string>
     <string name="menu_new_identity">Nueva identidad</string>
     <string name="request_bridges_from_torproject">Solicita puentes de torproject.org</string>
-    <string name="secure_your_connection_subtitle">Oculta las aplicaciones de la supervisión de la red y obten acceso cuando estan bloqueadas.</string>
+    <string name="secure_your_connection_subtitle">Oculta las aplicaciones de la supervisión de la red y obten acceso cuando están bloqueadas.</string>
     <string name="btn_change_exit">Cambiar salida</string>
     <string name="pref_circuit_padding_summary">Habilita el relleno de circuito para defenderte contra algunas formas de análisis de tráfico</string>
     <string name="pref_reduced_circuit_padding_summary">Usa algoritmos de relleno de gastos generales más bajos para reducir el uso de datos y batería</string>

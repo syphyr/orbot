@@ -4,7 +4,6 @@ import IPtProxy.Controller
 import IPtProxy.IPtProxy
 import IPtProxy.IPtProxy.MeekLite
 import android.app.Activity
-import android.content.pm.ApplicationInfo
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.os.Handler
@@ -27,7 +26,7 @@ import org.json.JSONException
 import org.json.JSONObject
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.util.Prefs
-import org.torproject.android.service.util.TCPSourceApp.getApplicationInfo
+import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 import org.torproject.android.ui.onboarding.ProxiedHurlStack
 import java.io.File
 
@@ -78,9 +77,9 @@ class MoatBottomSheet(private val callbacks: ConnectionHelperCallbacks) :
             fileCacheDir.mkdir()
         }
 
-        val isDebuggable = (0 != (context?.applicationInfo?.flags?.and(ApplicationInfo.FLAG_DEBUGGABLE)))
+        // val isDebuggable = (0 != (context?.applicationInfo?.flags?.and(ApplicationInfo.FLAG_DEBUGGABLE)))
         mController = OrbotService.getIptProxyController(context)
-        mController.start(IPtProxy.MeekLite,"")
+        mController.start(MeekLite,"")
 
         val phs = ProxiedHurlStack(
             "127.0.0.1",
@@ -117,7 +116,7 @@ class MoatBottomSheet(private val callbacks: ConnectionHelperCallbacks) :
                 mBtnAction.isEnabled = true
             } catch (e: JSONException) {
                 Log.d(TAG, "Error decoding answer: $response")
-                displayError(e, response)
+                displayError(e)
             }
         }
 
@@ -149,7 +148,7 @@ class MoatBottomSheet(private val callbacks: ConnectionHelperCallbacks) :
                 onBridgeRequestSuccess(sb.toString())
             } catch (e: JSONException) {
                 Log.d(TAG, "Error decoding answer: $response")
-                displayError(e, response)
+                displayError(e)
                 onBridgeRequestFailed()
             }
         }
@@ -180,7 +179,7 @@ class MoatBottomSheet(private val callbacks: ConnectionHelperCallbacks) :
                 mProgressBar.visibility = View.GONE
                 Log.d(TAG, "Error response.")
                 error.printStackTrace()
-                displayError(error, null)
+                displayError(error)
             }) {
             override fun getBodyContentType(): String {
                 return "application/vnd.api+json"
@@ -192,7 +191,7 @@ class MoatBottomSheet(private val callbacks: ConnectionHelperCallbacks) :
         return request
     }
 
-    private fun displayError(exception: Exception, response: JSONObject?) {
+    private fun displayError(exception: Exception) {
         Log.d("MoatBottomSheet", "DISPLAY ERROR: $exception")
     }
 

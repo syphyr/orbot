@@ -12,7 +12,6 @@ import android.widget.Toast
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-import org.torproject.android.OrbotBottomSheetDialogFragment
 import org.torproject.android.R
 
 class LogBottomSheet : OrbotBottomSheetDialogFragment() {
@@ -44,8 +43,4 @@ class LogBottomSheet : OrbotBottomSheetDialogFragment() {
         buffer.append(logLine).append("\n")
     }
 
-    fun resetLog() {
-        if (this::tvLog.isInitialized) tvLog.text = ""
-        buffer = StringBuffer()
-    }
 }
