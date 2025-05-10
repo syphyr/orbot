@@ -253,7 +253,7 @@
     <string name="having_trouble">Ci sono problemi</string>
     <string name="btn_copy_log">Copia log</string>
     <string name="no_internet_subtitle">Ti serve una connessione internet per usare Orbot.</string>
-    <string name="kindess_config_detail">Configura come e quando il dispositivo può agire da proxy Snowflake per altri utenti Tor.</string>
+    <string name="kindness_config_detail">Configura come e quando il dispositivo può agire da proxy Snowflake per altri utenti Tor.</string>
     <string name="log_copied">Log copiato</string>
     <string name="btn_change_exit">Cambia uscita</string>
     <string name="btn_tor_off">Spegni Tor</string>

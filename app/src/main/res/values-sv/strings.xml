@@ -272,7 +272,7 @@
     <string name="apps_other_apps">Andra appar</string>
     <string name="ask_tor">Fråga Tor</string>
     <string name="many_ways">Det finns många sätt att nå Tor. Vissa kanske fungerar bättre än andra för dig.</string>
-    <string name="kindess_config_detail">Konfigurera hur och när din enhet kan fungera som en Snowflake-proxy för andra Tor-användare.</string>
+    <string name="kindness_config_detail">Konfigurera hur och när din enhet kan fungera som en Snowflake-proxy för andra Tor-användare.</string>
     <string name="hide_apps">Dölj appar från nätverksövervakning och få tillgång till dem när de är blockerade.</string>
     <string name="connection_direct">Direkt</string>
     <string name="connection_snowflake">Snowflake</string>

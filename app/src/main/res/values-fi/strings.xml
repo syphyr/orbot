@@ -264,7 +264,7 @@
     <string name="action_use">käyttö</string>
     <string name="asking">KYSYTÄÄN…</string>
     <string name="no_internet_subtitle">Tarvitset Internet-yhteyden Orbotin käyttöön.</string>
-    <string name="kindess_config_detail">Määritä miten ja milloin laitteesi voi toimia Snowflake-välityspalvelimena muille Tor-käyttäjille.</string>
+    <string name="kindness_config_detail">Määritä miten ja milloin laitteesi voi toimia Snowflake-välityspalvelimena muille Tor-käyttäjille.</string>
     <string name="not_sure">Etkö osaa valita\?</string>
     <string name="many_ways">Tor voidaan tavoittaa monilla tavoilla. Jotkin saattavat sopia sinulle muita paremmin.</string>
     <string name="no_internet_title">Yhdistä Internetiin</string>

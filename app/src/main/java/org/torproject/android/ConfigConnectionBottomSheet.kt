@@ -39,7 +39,7 @@ class ConfigConnectionBottomSheet :
     private lateinit var btnAskTor: Button
 
     companion object {
-        public fun newInstance(callbacks: ConnectionHelperCallbacks): ConfigConnectionBottomSheet {
+        fun newInstance(callbacks: ConnectionHelperCallbacks): ConfigConnectionBottomSheet {
             return ConfigConnectionBottomSheet().apply {
                 this.callbacks = callbacks
             }

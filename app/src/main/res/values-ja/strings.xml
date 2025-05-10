@@ -273,7 +273,7 @@
     <string name="ask_tor">Tor に聞く</string>
     <string name="asking">質問…</string>
     <string name="kindness_adjust_title">設定</string>
-    <string name="kindess_config_detail">あなたのデバイスが他の Tor ユーザーの Snowflake プロキシとして機能する方法やタイミングを構成します。</string>
+    <string name="kindness_config_detail">あなたのデバイスが他の Tor ユーザーの Snowflake プロキシとして機能する方法やタイミングを構成します。</string>
     <string name="btn_copy_log">ログをコピー</string>
     <string name="setting_padding">パディング</string>
     <string name="menu_more">詳細を表示</string>

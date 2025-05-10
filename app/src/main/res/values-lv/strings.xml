@@ -272,7 +272,7 @@
     <string name="root_warning">Orbot ir konstatējis, ka jūsu ierīcei ir saknes, kas var radīt drošības problēmas.</string>
     <string name="snowflake">Sniegpārsliņa (oriģināls)</string>
     <string name="get_a_bridge_subtitle">Slēpj datplūsmu. Apiet dažas Tor bloķēšanas iespējas.</string>
-    <string name="kindess_config_detail">Konfigurējiet, kā un kad jūsu ierīce var darboties kā Snowflake starpniekserveris citiem Tor lietotājiem.</string>
+    <string name="kindness_config_detail">Konfigurējiet, kā un kad jūsu ierīce var darboties kā Snowflake starpniekserveris citiem Tor lietotājiem.</string>
     <string name="smart_connect_subtitle">Orbot mēģina izveidot savienojumu ar Tor, izmantojot jebkuru pieejamo veidu: Tiešais, sniega pārsla, tilts.</string>
     <string name="pref_isolate_protocol_summary">Katram savienojuma protokolam izmantojiet atšķirīgu ķēdi</string>
     <string name="incorrect_solution">Nepareizs risinājums</string>

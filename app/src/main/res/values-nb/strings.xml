@@ -265,7 +265,7 @@
     <string name="snowflake">Snowflake</string>
     <string name="backup_port_exist">Feil: En Onion-tjeneste bruker allerede porten %s</string>
     <string name="get_a_bridge_subtitle">Skjuler trafikken din. Omgår en del Tor-blokkering.</string>
-    <string name="kindess_config_detail">Konfigurer hvordan og når enheten din kan fungere som en Snowflake-proxy for andre Tor-brukere.</string>
+    <string name="kindness_config_detail">Konfigurer hvordan og når enheten din kan fungere som en Snowflake-proxy for andre Tor-brukere.</string>
     <string name="smart_connect_subtitle">Orbot prøver å koble til Tor på alle tilgjengelige måter: Direkte, Snowflake, Bridge.</string>
     <string name="v3_backup_key_warning">Advarsel: Dette kan eksponere nøkkelen din for andre apper</string>
     <string name="pref_isolate_protocol_summary">Bruk en annen krets for hver tilkoblingsprotokoll</string>

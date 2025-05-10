@@ -270,7 +270,7 @@
     <string name="drawer_open">Açyk</string>
     <string name="if_your_mobile_network_actively_blocks_tor_you_can_use_a_tor_bridge_to_access_the_network_another_way_to_get_bridges_is_to_send_an_email_to_bridges_torproject_org_please_note_that_you_must_send_the_email_using_an_address_from_one_of_the_following_email_providers_riseup_gmail_or_yahoo_">Jübi ulgamyňyzda Tor ulanylyşy işjeň ýagdaýda petiklenýän bolsa, Tor girmek üçin \'Köpri Serweri\' ulanyp bilersiňiz. Sazlamak we synap görmek üçin aşakdaky opsiýalardan birini saýlaň…</string>
     <string name="power_user_description">Tor bilen tanyş ulanyjylar üçin. Orbot-a VPN sazlamasyz başlamaga mümkinçilik berýär we açyk SOCKS we HTTP portlaryny görkezýär</string>
-    <string name="kindess_config_detail">Enjamyňyzyň beýleki Tor ulanyjylary üçin nädip we haçan Snowflake proksi bolup biljekdigini sazlaň.</string>
+    <string name="kindness_config_detail">Enjamyňyzyň beýleki Tor ulanyjylary üçin nädip we haçan Snowflake proksi bolup biljekdigini sazlaň.</string>
     <string name="setting_padding">Ýassyklama</string>
     <string name="setting_debug">Düzediş</string>
     <string name="get_a_bridge">Tor arkaly (Obfs4) köprisi</string>

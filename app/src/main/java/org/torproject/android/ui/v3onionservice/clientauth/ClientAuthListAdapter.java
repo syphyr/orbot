@@ -16,16 +16,16 @@ import androidx.appcompat.widget.SwitchCompat;
 import org.torproject.android.R;
 
 public class ClientAuthListAdapter extends CursorAdapter {
-    private final LayoutInflater mLayoutInflator;
+    private final LayoutInflater mLayoutInflater;
 
     ClientAuthListAdapter(Context context, Cursor cursor) {
         super(context, cursor, 0);
-        mLayoutInflator = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        mLayoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        return mLayoutInflator.inflate(R.layout.layout_client_cookie_list_item, null);
+        return mLayoutInflater.inflate(R.layout.layout_client_cookie_list_item, null);
     }
 
     @Override

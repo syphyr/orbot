@@ -226,7 +226,7 @@
     <string name="option_only_on_wifi">Chỉ trên Wifi</string>
     <string name="option_only_when_charging">Chỉ khi đang sạc</string>
     <string name="hide_apps">Ẩn giấu các app ứng dụng khỏi việc bị theo dõi mạng và lấy lại khả năng truy cập khi chúng bị chặn.</string>
-    <string name="kindess_config_detail">Định cấu hình làm cách nào và khi nào thì thiết bị của bạn có thể hoạt động như một proxy Snowflake cho những người dùng Tor khác.</string>
+    <string name="kindness_config_detail">Định cấu hình làm cách nào và khi nào thì thiết bị của bạn có thể hoạt động như một proxy Snowflake cho những người dùng Tor khác.</string>
     <string name="not_sure">Không chắc chắn ư\?</string>
     <string name="many_ways">Có nhiều cách để truy cập được Tor. Một số có thể sẽ hoạt động cho bạn tốt hơn những cái khác.</string>
     <string name="bridge_snowflake_amp">Kết nối thông qua những người dùng Tor khác sử dụng Snowflake (Phương pháp 2 - AMP)</string>
