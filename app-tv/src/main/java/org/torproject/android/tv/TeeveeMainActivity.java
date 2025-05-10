@@ -21,7 +21,6 @@ import android.graphics.Canvas;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.net.VpnService;
 import android.os.Bundle;
 import android.os.Handler;
@@ -31,7 +30,6 @@ import android.text.Spanned;
 import android.text.TextUtils;
 import android.text.style.StyleSpan;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -44,6 +42,7 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.palette.graphics.Palette;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -80,11 +79,9 @@ import java.util.StringTokenizer;
 public class TeeveeMainActivity extends Activity implements OnLongClickListener {
 
     private static final String DEFAULT_ENCODING = StandardCharsets.UTF_8.name();
-    private static final int RESULT_CLOSE_ALL = 0;
     private final static int REQUEST_VPN = 8888;
     private final static int REQUEST_SETTINGS = 0x9874;
     private final static int REQUEST_VPN_APPS_SELECT = 8889;
-    private final static int LOG_DRAWER_GRAVITY = Gravity.END;
     // message types for mStatusUpdateHandler
     private final static int STATUS_UPDATE = 1;
     private static final int MESSAGE_TRAFFIC_COUNT = 2;
@@ -93,8 +90,6 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
     private static final float ROTATE_TO = 360.0f * 4f;// 3.141592654f * 32.0f;
     ArrayList<String> pkgIds = new ArrayList<>();
     AlertDialog aDialog = null;
-    /* Useful UI bits */
-//    private TextView lblStatus = null; //the main text display widget
     private ImageView imgStatus = null; //the main touchable image for activating Orbot
     private TextView downloadText = null;
     private TextView uploadText = null;
@@ -167,42 +162,47 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
             if (action == null)
                 return;
 
-            if (action.equals(LOCAL_ACTION_LOG)) {
-                Message msg = mStatusUpdateHandler.obtainMessage(STATUS_UPDATE);
-                msg.obj = intent.getStringExtra(LOCAL_EXTRA_LOG);
-                msg.getData().putString("status", intent.getStringExtra(EXTRA_STATUS));
-                mStatusUpdateHandler.sendMessage(msg);
+            switch (action) {
+                case LOCAL_ACTION_LOG -> {
+                    Message msg = mStatusUpdateHandler.obtainMessage(STATUS_UPDATE);
+                    msg.obj = intent.getStringExtra(LOCAL_EXTRA_LOG);
+                    msg.getData().putString("status", intent.getStringExtra(EXTRA_STATUS));
+                    mStatusUpdateHandler.sendMessage(msg);
 
-            } else if (action.equals(LOCAL_ACTION_BANDWIDTH)) {
-                long upload = intent.getLongExtra("up", 0);
-                long download = intent.getLongExtra("down", 0);
-                long written = intent.getLongExtra("written", 0);
-                long read = intent.getLongExtra("read", 0);
+                }
+                case LOCAL_ACTION_BANDWIDTH -> {
+                    long upload = intent.getLongExtra("up", 0);
+                    long download = intent.getLongExtra("down", 0);
+                    long written = intent.getLongExtra("written", 0);
+                    long read = intent.getLongExtra("read", 0);
 
-                Message msg = mStatusUpdateHandler.obtainMessage(MESSAGE_TRAFFIC_COUNT);
-                msg.getData().putLong("download", download);
-                msg.getData().putLong("upload", upload);
-                msg.getData().putLong("readTotal", read);
-                msg.getData().putLong("writeTotal", written);
-                msg.getData().putString("status", intent.getStringExtra(EXTRA_STATUS));
+                    Message msg = mStatusUpdateHandler.obtainMessage(MESSAGE_TRAFFIC_COUNT);
+                    msg.getData().putLong("download", download);
+                    msg.getData().putLong("upload", upload);
+                    msg.getData().putLong("readTotal", read);
+                    msg.getData().putLong("writeTotal", written);
+                    msg.getData().putString("status", intent.getStringExtra(EXTRA_STATUS));
 
-                mStatusUpdateHandler.sendMessage(msg);
+                    mStatusUpdateHandler.sendMessage(msg);
 
-            } else if (action.equals(ACTION_STATUS)) {
-                lastStatusIntent = intent;
+                }
+                case ACTION_STATUS -> {
+                    lastStatusIntent = intent;
 
-                Message msg = mStatusUpdateHandler.obtainMessage(STATUS_UPDATE);
-                msg.getData().putString("status", intent.getStringExtra(EXTRA_STATUS));
+                    Message msg = mStatusUpdateHandler.obtainMessage(STATUS_UPDATE);
+                    msg.getData().putString("status", intent.getStringExtra(EXTRA_STATUS));
 
-                mStatusUpdateHandler.sendMessage(msg);
-            } else if (action.equals(LOCAL_ACTION_PORTS)) {
+                    mStatusUpdateHandler.sendMessage(msg);
+                }
+                case LOCAL_ACTION_PORTS -> {
 
-                Message msg = mStatusUpdateHandler.obtainMessage(MESSAGE_PORTS);
-                msg.getData().putInt("socks", intent.getIntExtra(OrbotConstants.EXTRA_SOCKS_PROXY_PORT, -1));
-                msg.getData().putInt("http", intent.getIntExtra(OrbotConstants.EXTRA_HTTP_PROXY_PORT, -1));
+                    Message msg = mStatusUpdateHandler.obtainMessage(MESSAGE_PORTS);
+                    msg.getData().putInt("socks", intent.getIntExtra(OrbotConstants.EXTRA_SOCKS_PROXY_PORT, -1));
+                    msg.getData().putInt("http", intent.getIntExtra(OrbotConstants.EXTRA_HTTP_PROXY_PORT, -1));
 
-                mStatusUpdateHandler.sendMessage(msg);
+                    mStatusUpdateHandler.sendMessage(msg);
 
+                }
             }
         }
     };
@@ -239,10 +239,9 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
     }
 
     public static Bitmap drawableToBitmap(Drawable drawable) {
-        Bitmap bitmap = null;
+        Bitmap bitmap;
 
-        if (drawable instanceof BitmapDrawable) {
-            BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+        if (drawable instanceof BitmapDrawable bitmapDrawable) {
             if (bitmapDrawable.getBitmap() != null) {
                 return bitmapDrawable.getBitmap();
             }
@@ -291,7 +290,7 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
         if (showFirstTime) {
             Editor pEdit = mPrefs.edit();
             pEdit.putBoolean("connect_first_time", false);
-            pEdit.commit();
+            pEdit.apply();
             startActivity(new Intent(this, OnboardingActivity.class));
         }
 
@@ -453,19 +452,6 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
                 .show();
     }
 
-    /**
-     * This is our attempt to REALLY exit Orbot, and stop the background service
-     * However, Android doesn't like people "quitting" apps, and/or our code may
-     * not be quite right b/c no matter what we do, it seems like the OrbotService
-     * still exists
-     **/
-    private void doExit() {
-        stopTor();
-
-        // Kill all the wizard activities
-        setResult(RESULT_CLOSE_ALL);
-        finish();
-    }
 
     protected void onPause() {
         try {
@@ -485,7 +471,7 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
     }
 
     private void enableVPN(boolean enable) {
-        if (enable && pkgIds.size() == 0) {
+        if (enable && pkgIds.isEmpty()) {
             showAppPicker();
         } else {
             Prefs.putUseVpn(enable);
@@ -533,7 +519,7 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
                         throw new RuntimeException(e);
                     }
 
-                    showAlert(getString(R.string.bridges_updated), getString(R.string.restart_orbot_to_use_this_bridge_) + newBridgeValue, false);
+                    showAlert(getString(R.string.bridges_updated), getString(R.string.restart_orbot_to_use_this_bridge_) + newBridgeValue);
 
                     setNewBridges(newBridgeValue);
                 }
@@ -552,46 +538,7 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
         Prefs.putBridgesEnabled(true);
 
         setResult(RESULT_OK);
-
-//        mBtnBridges.setChecked(true);
-
-        enableBridges(true);
-    }
-
-    /*
-     * Launch the system activity for Uri viewing with the provided url
-     */
-    private void openBrowser(final String browserLaunchUrl, boolean forceExternal, String pkgId) {
-        if (pkgId != null) {
-            startIntent(pkgId, Intent.ACTION_VIEW, Uri.parse(browserLaunchUrl));
-        } else if (mBtnVPN.isChecked() || forceExternal) {
-            //use the system browser since VPN is on
-            startIntent(null, Intent.ACTION_VIEW, Uri.parse(browserLaunchUrl));
-        }
-    }
-
-    private void startIntent(String pkg, String action, Uri data) {
-        Intent i;
-        PackageManager pm = getPackageManager();
-
-        try {
-            if (pkg != null) {
-                i = pm.getLaunchIntentForPackage(pkg);
-                if (i == null)
-                    throw new PackageManager.NameNotFoundException();
-            } else {
-                i = new Intent();
-            }
-
-            i.setAction(action);
-            i.setData(data);
-
-            if (i.resolveActivity(pm) != null)
-                startActivity(i);
-
-        } catch (PackageManager.NameNotFoundException e) {
-
-        }
+        enableBridges();
     }
 
     @Override
@@ -621,8 +568,7 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
 
             }
         } else if (request == REQUEST_VPN_APPS_SELECT) {
-            if (response == RESULT_OK &&
-                    torStatus == STATUS_ON) {
+            if (response == RESULT_OK && STATUS_ON.equals(torStatus)) {
                 refreshVPNApps();
 
                 String newPkgId = data.getStringExtra(Intent.EXTRA_PACKAGE_NAME);
@@ -642,7 +588,7 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
 
             String results = scanResult.getContents();
 
-            if (results != null && results.length() > 0) {
+            if (results != null && !results.isEmpty()) {
                 try {
 
                     int urlIdx = results.indexOf("://");
@@ -651,12 +597,12 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
                         results = URLDecoder.decode(results, DEFAULT_ENCODING);
                         results = results.substring(urlIdx + 3);
 
-                        showAlert(getString(R.string.bridges_updated), getString(R.string.restart_orbot_to_use_this_bridge_) + results, false);
+                        showAlert(getString(R.string.bridges_updated), getString(R.string.restart_orbot_to_use_this_bridge_) + results);
 
                         setNewBridges(results);
                     } else {
                         JSONArray bridgeJson = new JSONArray(results);
-                        StringBuffer bridgeLines = new StringBuffer();
+                        StringBuilder bridgeLines = new StringBuilder();
 
                         for (int i = 0; i < bridgeJson.length(); i++) {
                             String bridgeLine = bridgeJson.getString(i);
@@ -676,12 +622,12 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
 
     }
 
-    private void enableBridges(boolean enable) {
-        Prefs.putBridgesEnabled(enable);
+    private void enableBridges() {
+        Prefs.putBridgesEnabled(true);
 
-        if (torStatus == STATUS_ON) {
+        if (STATUS_ON.equals(torStatus)) {
             String bridgeList = Prefs.getBridgesList();
-            if (bridgeList != null && bridgeList.length() > 0) {
+            if (bridgeList != null && !bridgeList.isEmpty()) {
                 requestTorRereadConfig();
             }
         }
@@ -723,27 +669,19 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
     //sometimes this can go haywire or crazy with too many error
     //messages from Tor, and the user cannot stop or exit Orbot
     //so need to ensure repeated error messages are not spamming this method
-    private void showAlert(String title, String msg, boolean button) {
+    private void showAlert(String title, String msg) {
         try {
             if (aDialog != null && aDialog.isShowing())
                 aDialog.dismiss();
         } catch (Exception e) {
         } //swallow any errors
 
-        if (button) {
-            aDialog = new AlertDialog.Builder(TeeveeMainActivity.this)
-                    .setIcon(R.drawable.onion32)
-                    .setTitle(title)
-                    .setMessage(msg)
-                    .setPositiveButton(R.string.btn_okay, null)
-                    .show();
-        } else {
-            aDialog = new AlertDialog.Builder(TeeveeMainActivity.this)
-                    .setIcon(R.drawable.onion32)
-                    .setTitle(title)
-                    .setMessage(msg)
-                    .show();
-        }
+
+        aDialog = new AlertDialog.Builder(TeeveeMainActivity.this)
+                .setIcon(R.drawable.onion32)
+                .setTitle(title)
+                .setMessage(msg)
+                .show();
 
         aDialog.setCanceledOnTouchOutside(true);
     }
@@ -769,7 +707,7 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
         } else
             torStatus = newTorStatus;
 
-        if (torStatus == STATUS_ON) {
+        if (STATUS_ON.equals(torStatus)) {
 
             imgStatus.setImageResource(R.drawable.toron);
 
@@ -800,7 +738,7 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
                 sv.stopFalling();
             }
 
-        } else if (torStatus == STATUS_STARTING) {
+        } else if (STATUS_STARTING.equals(torStatus)) {
 
             imgStatus.setImageResource(R.drawable.torstarting);
 
@@ -813,20 +751,11 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
             //    	lblStatus.setText(getString(R.string.status_starting_up));
 
 
-        } else if (torStatus == STATUS_STOPPING) {
-
-            //	  if (torServiceMsg != null && torServiceMsg.contains(TorServiceConstants.LOG_NOTICE_HEADER))
-            //    	lblStatus.setText(torServiceMsg);
-
+        } else if (STATUS_STOPPING.equals(torStatus)) {
             imgStatus.setImageResource(R.drawable.torstarting);
-//            lblStatus.setText(torServiceMsg);
 
-        } else if (torStatus == STATUS_OFF) {
-
+        } else if (STATUS_OFF.equals(torStatus)) {
             imgStatus.setImageResource(R.drawable.toroff);
-            //          lblStatus.setText("Tor v" + OrbotService.BINARY_TOR_VERSION);
-
-
         }
 
 
@@ -853,7 +782,7 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
 
     public boolean onLongClick(View view) {
 
-        if (torStatus == STATUS_OFF) {
+        if (STATUS_OFF.equals(torStatus)) {
             startTor();
         } else {
             stopTor();
@@ -932,6 +861,7 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
             return pkgIds.size() + 1;
         }
 
+        @NonNull
         @Override
         public AppViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
 
@@ -1005,7 +935,7 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
             }
         }
 
-        public class AppViewHolder extends RecyclerView.ViewHolder {
+        public static class AppViewHolder extends RecyclerView.ViewHolder {
 
             ImageView iv;
             TextView tv;
