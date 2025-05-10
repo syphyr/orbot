@@ -28,7 +28,7 @@
 
     <TextView
         android:textColor="@android:color/white"
-        android:text="@string/kindess_config_detail"
+        android:text="@string/kindness_config_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"

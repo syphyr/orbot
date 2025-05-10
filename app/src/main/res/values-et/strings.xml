@@ -254,7 +254,7 @@
     <string name="app_suggested_subtitle">Orbot töötab kõige paremini koos sõnumite ja sotsiaalmeedia rakendustega.</string>
     <string name="no_internet_title">Ühendage internetiga</string>
     <string name="no_internet_subtitle">Orbot\'i kasutamiseks on vaja internetiühendust.</string>
-    <string name="kindess_config_detail">Määratle, kuidas ja millal sinu seade saab toimida Snowflake\'i proksina teiste Tori kasutajate jaoks.</string>
+    <string name="kindness_config_detail">Määratle, kuidas ja millal sinu seade saab toimida Snowflake\'i proksina teiste Tori kasutajate jaoks.</string>
     <string name="log_copied">Logi kopeeritud</string>
     <string name="configure_header">Tor-ühenduse konfigureerimine</string>
     <string name="smart_connect">Nutikas ühendus (vaikimisi)</string>

@@ -277,7 +277,7 @@
     <string name="log_copied">பதிவு நகலெடுக்கப்பட்டது</string>
     <string name="not_sure">நிச்சயமாக இல்லையா?</string>
     <string name="no_internet_subtitle">ஆர்போட்டைப் பயன்படுத்த உங்களுக்கு இணைய இணைப்பு தேவை.</string>
-    <string name="kindess_config_detail">உங்கள் சாதனம் மற்ற டோர் பயனர்களுக்கான ச்னோஃப்ளேக் ப்ராக்சியாக எவ்வாறு, எப்போது செயல்பட முடியும் என்பதை உள்ளமைக்கவும்.</string>
+    <string name="kindness_config_detail">உங்கள் சாதனம் மற்ற டோர் பயனர்களுக்கான ச்னோஃப்ளேக் ப்ராக்சியாக எவ்வாறு, எப்போது செயல்பட முடியும் என்பதை உள்ளமைக்கவும்.</string>
     <string name="menu_kindness">கருணை</string>
     <string name="option_only_on_wifi">வைஃபை மட்டுமே</string>
     <string name="option_only_when_charging">கட்டணம் வசூலிக்கும்போது மட்டுமே</string>

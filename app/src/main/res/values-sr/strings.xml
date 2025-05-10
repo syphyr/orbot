@@ -283,7 +283,7 @@
     <string name="power_user_description">За кориснике који су упознати са Тор-ом. Омогућава вам да покренете Orbot без VPN подешавања и приказује отворене SOCKS и HTTP портове</string>
     <string name="btn_copy_log">Копирај дневник</string>
     <string name="log_copied">Дневник копиран</string>
-    <string name="kindess_config_detail">Конфигуришите како и када ваш уређај може деловати као Snowflake прокси за друге Тор кориснике.</string>
+    <string name="kindness_config_detail">Конфигуришите како и када ваш уређај може деловати као Snowflake прокси за друге Тор кориснике.</string>
     <string name="menu_kindness">Љубазност</string>
     <string name="root_warning">Orbot је открио да је ваш уређај рутован, што може изазвати безбедносне проблеме.</string>
     <string name="no_internet_title">Повежите се на интернет</string>

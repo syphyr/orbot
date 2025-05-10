@@ -93,7 +93,7 @@ class  CircumventionApiManager (port: Long) {
         })
     }
 
-    fun getDefautls(request: SettingsRequest, onResult: (SettingsResponse?) -> Unit, onError: ((Throwable) -> Unit)? = null) {
+    fun getDefaults(request: SettingsRequest, onResult: (SettingsResponse?) -> Unit, onError: ((Throwable) -> Unit)? = null) {
         retrofit.getDefaults(request).enqueue(object: Callback<SettingsResponse> {
             override fun onResponse(call: Call<SettingsResponse>, response: Response<SettingsResponse>) {
                 onResult(response.body())

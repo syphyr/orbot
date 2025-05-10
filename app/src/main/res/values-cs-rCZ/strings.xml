@@ -245,7 +245,7 @@
     <string name="pref_connection_padding">Vycpávka připojení</string>
     <string name="share_as_qr">Sdílet jako QR</string>
     <string name="snowflake_proxy_msg_description">Zobrazení zprávy, když někomu pomůžete obejít cenzuru</string>
-    <string name="kindess_config_detail">Konfigurace toho, jak a kdy může vaše zařízení fungovat jako proxy server Snowflake pro ostatní uživatele Toru.</string>
+    <string name="kindness_config_detail">Konfigurace toho, jak a kdy může vaše zařízení fungovat jako proxy server Snowflake pro ostatní uživatele Toru.</string>
     <string name="user_services">Služby pro uživatele</string>
     <string name="smart_connect_subtitle">Orbot se pokouší připojit k Toru jakýmkoli dostupným způsobem: Přímý, Snowflake, Bridge.</string>
     <string name="v3_backup_key_warning">Varování: To by mohlo váš klíč zpřístupnit jiným aplikacím</string>

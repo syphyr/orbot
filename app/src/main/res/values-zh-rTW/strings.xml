@@ -276,7 +276,7 @@
     <string name="apps_other_apps">其他應用程式</string>
     <string name="many_ways">有很多方法可以連接到 Tor。有些可能比其他的更適合你。</string>
     <string name="no_internet_subtitle">你需要網絡連線才能使用 Orbot。</string>
-    <string name="kindess_config_detail">配置你的裝置如何以及何時充當其他 Tor 使用者的 Snowflake 代理。</string>
+    <string name="kindness_config_detail">配置你的裝置如何以及何時充當其他 Tor 使用者的 Snowflake 代理。</string>
     <string name="root_warning">Orbot 偵測到你的裝置已取得 root 權限，這可能會導致安全問題。</string>
     <string name="no_internet_title">連接到網絡</string>
     <string name="pref_detect_root_summary">如果此裝置上啟用了 root 權限，則啟動時發出警告</string>

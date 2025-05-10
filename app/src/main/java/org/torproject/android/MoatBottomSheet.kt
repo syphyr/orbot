@@ -1,7 +1,6 @@
 package org.torproject.android
 
 import IPtProxy.Controller
-import IPtProxy.IPtProxy
 import IPtProxy.IPtProxy.MeekLite
 import android.app.Activity
 import android.graphics.BitmapFactory

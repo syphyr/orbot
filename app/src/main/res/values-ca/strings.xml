@@ -256,7 +256,7 @@
     <string name="pref_open_proxy_on_all_interfaces_summary">Permet accedir al Tor als companys Wi-Fi, als dispositius connectats i a qualsevol que es pugui connectar a la vostra IP</string>
     <string name="get_a_bridge_subtitle">Emmascara el trànsit. Evita algun blocatge del Tor.</string>
     <string name="snowflake_proxy_msg_description">Mostra un missatge quan ajudeu altra persona a circumval·lar la censura</string>
-    <string name="kindess_config_detail">Configureu com i quan el vostre dispositiu pot actuar com a un servidor Snowflake per a altres usuaris del Tor.</string>
+    <string name="kindness_config_detail">Configureu com i quan el vostre dispositiu pot actuar com a un servidor Snowflake per a altres usuaris del Tor.</string>
     <string name="smart_connect_subtitle">L\'Orbot prova de connectar al Tor mitjançant qualsevol mètode: Directe, Snowflake, Pont.</string>
     <string name="v3_backup_key_warning">Atenció: Això podria exposar la clau a altres aplicacions</string>
     <string name="v3_delete_client_authorization">Suprimeix la clau d\'autorització del client</string>

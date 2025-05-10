@@ -283,7 +283,7 @@
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="pref_flag_secure_title">Bildschirmsicherheit</string>
     <string name="root_warning">Orbot hat herausgefunden, dass dein Gerät gerootet ist, was Sicherheitsprobleme auslösen kann.</string>
-    <string name="kindess_config_detail">Einstellen, wie und wann dein Gerät für andere Tor-Nutzer als Snowflake-Proxy auftreten kann.</string>
+    <string name="kindness_config_detail">Einstellen, wie und wann dein Gerät für andere Tor-Nutzer als Snowflake-Proxy auftreten kann.</string>
     <string name="pref_isolate_protocol_summary">Für jedes Verbindungsprotokoll eine andere Leitung verwenden</string>
     <string name="pref_flag_secure_summary">Andere Apps daran hindern, Screenshots von Orbot zu machen</string>
     <string name="many_ways">Es gibt viele Wege, Tor zu erreichen. Manche funktionieren vielleicht besser als andere für dich.</string>
