@@ -75,8 +75,6 @@ import java.util.concurrent.Executors;
 import IPtProxy.Controller;
 import IPtProxy.IPtProxy;
 import IPtProxy.SnowflakeProxy;
-import IPtProxy.SnowflakeClientConnected;
-import IPtProxy.OnTransportStopped;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -131,12 +129,8 @@ public class OrbotService extends VpnService {
     public static synchronized Controller getIptProxyController (Context context) {
 
         if (mIptProxy == null) {
-            mIptProxy = IPtProxy.newController(context.getCacheDir().getPath(), true, false, "DEBUG", new OnTransportStopped() {
-                @Override
-                public void stopped(String s, Exception e) {
-                    Log.e(TAG, "IPtProxy Error", e);
-                }
-            });
+            mIptProxy = IPtProxy.newController(context.getCacheDir().getPath(), true, false, "DEBUG", (s, e) ->
+                    Log.e(TAG, "IPtProxy Error", e));
         }
 
          return mIptProxy;
@@ -454,14 +448,7 @@ public class OrbotService extends VpnService {
                 mSnowflakeProxy.setNatProbeUrl(natProbeUrl);
 
 
-                mSnowflakeProxy.setClientConnected( new SnowflakeClientConnected (){
-
-                    @Override
-                    public void connected() {
-                        snowflakeProxyClientConnected();
-                    }
-
-                });
+                mSnowflakeProxy.setClientConnected(this::snowflakeProxyClientConnected);
                 mSnowflakeProxy.start();
 
 
@@ -579,7 +566,7 @@ public class OrbotService extends VpnService {
     }
 
     protected void logNotice(String msg) {
-        if (msg != null && msg.trim().length() > 0) {
+        if (msg != null && !msg.trim().isEmpty()) {
             if (Prefs.useDebugLogging()) Log.d(TAG, msg);
             sendCallbackLogMessage(msg);
         }
@@ -1192,17 +1179,18 @@ public class OrbotService extends VpnService {
         var excludeNodes = prefs.getString("pref_exclude_nodes", "");
 
         String pathway = Prefs.getConnectionPathway();
+        //noinspection StatementWithEmptyBody
         if (pathway.equals(Prefs.PATHWAY_SMART)) {
             // todo for now ...
         } else if (pathway.equals(Prefs.PATHWAY_DIRECT)) {
-            extraLines = processSettingsImplDirectPathway(extraLines);
+            processSettingsImplDirectPathway(extraLines);
         } else {
             // snowflake or obfs4
             extraLines.append("UseBridges 1").append('\n');
             if (pathway.startsWith(Prefs.PATHWAY_SNOWFLAKE) || Prefs.getPrefSmartTrySnowflake()) {
-                extraLines = processSettingsImplSnowflake(extraLines);
+                processSettingsImplSnowflake(extraLines);
             } else if (pathway.equals(Prefs.PATHWAY_CUSTOM) || Prefs.getPrefSmartTryObfs4() != null) {
-                extraLines = processSettingsLyrebird(extraLines);
+                processSettingsLyrebird(extraLines);
             }
         }
         var fileGeoIP = new File(appBinHome, GEOIP_ASSET_KEY);
@@ -1263,16 +1251,15 @@ public class OrbotService extends VpnService {
         return extraLines;
     }
 
-    private StringBuffer processSettingsImplSnowflake(StringBuffer extraLines) {
+    private void processSettingsImplSnowflake(StringBuffer extraLines) {
         Log.d(TAG, "in snowflake torrc config");
         extraLines.append("ClientTransportPlugin snowflake socks5 127.0.0.1:" + mIptProxy.port(IPtProxy.Snowflake)).append('\n');
         for (String bridge : mSnowflakeBridges) {
             extraLines.append("Bridge ").append(bridge).append("\n");
         }
-        return extraLines;
     }
 
-    private StringBuffer processSettingsLyrebird(StringBuffer extraLines) {
+    private void processSettingsLyrebird(StringBuffer extraLines) {
         Log.d(TAG, "in Lyrebird torrc config");
 
         var customBridges = getCustomBridges();
@@ -1287,8 +1274,6 @@ public class OrbotService extends VpnService {
         for (var b : customBridges) {
             extraLines.append("Bridge ").append(b).append("\n");
         }
-
-        return extraLines;
     }
 
     private List<Bridge> getCustomBridges() {
@@ -1298,18 +1283,18 @@ public class OrbotService extends VpnService {
                         : Prefs.getPrefSmartTryObfs4());
     }
 
-    private StringBuffer processSettingsImplDirectPathway(StringBuffer extraLines) {
+    private void processSettingsImplDirectPathway(StringBuffer extraLines) {
         var prefs = Prefs.getSharedPrefs(getApplicationContext());
         extraLines.append("UseBridges 0").append('\n');
         if (!Prefs.useVpn()) { //set the proxy here if we aren't using a bridge
             var proxyType = prefs.getString("pref_proxy_type", null);
-            if (proxyType != null && proxyType.length() > 0) {
+            if (proxyType != null && !proxyType.isEmpty()) {
                 var proxyHost = prefs.getString("pref_proxy_host", null);
                 var proxyPort = prefs.getString("pref_proxy_port", null);
                 var proxyUser = prefs.getString("pref_proxy_username", null);
                 var proxyPass = prefs.getString("pref_proxy_password", null);
 
-                if ((proxyHost != null && proxyHost.length() > 0) && (proxyPort != null && proxyPort.length() > 0)) {
+                if ((proxyHost != null && !proxyHost.isEmpty()) && (proxyPort != null && !proxyPort.isEmpty())) {
                     extraLines.append(proxyType).append("Proxy").append(' ').append(proxyHost).append(':').append(proxyPort).append('\n');
 
                     if (proxyUser != null && proxyPass != null) {
@@ -1324,7 +1309,6 @@ public class OrbotService extends VpnService {
                 }
             }
         }
-        return extraLines;
     }
 
     void showBandwidthNotification(String message, boolean isActiveTransfer) {
@@ -1608,7 +1592,8 @@ public class OrbotService extends VpnService {
 
     private class ActionBroadcastReceiver extends BroadcastReceiver {
         public void onReceive(Context context, Intent intent) {
-            switch (intent.getAction()) {
+            var action = intent.getAction();
+            switch (action) {
                 case TorControlCommands.SIGNAL_NEWNYM -> newIdentity();
                 case CMD_ACTIVE -> sendSignalActive();
                 case LOCAL_ACTION_NOTIFICATION_START -> startTor();
@@ -1622,10 +1607,10 @@ public class OrbotService extends VpnService {
                 case ACTION_STATUS -> {
                     // hack for https://github.com/guardianproject/tor-android/issues/73 remove when fixed
                     var newStatus = intent.getStringExtra(EXTRA_STATUS);
-                    if (mCurrentStatus.equals(STATUS_OFF) && newStatus.equals(STATUS_STOPPING))
+                    if (STATUS_OFF.equals(mCurrentStatus) && STATUS_STOPPING.equals(newStatus))
                         break;
                     mCurrentStatus = newStatus;
-                    if (mCurrentStatus.equals(STATUS_OFF)) {
+                    if (STATUS_OFF.equals(mCurrentStatus)) {
                         showDeactivatedNotification();
                     }
                     sendStatusToOrbotActivity();

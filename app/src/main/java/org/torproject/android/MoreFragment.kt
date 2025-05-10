@@ -35,7 +35,7 @@ class MoreFragment : Fragment() {
         //(activity as OrbotActivity).fragMore = this
 
         httpPort = (activity as OrbotActivity).portHttp
-        socksPort = (activity as OrbotActivity).portSocks
+        socksPort = activity.portSocks
 
         if (view != null) updateStatus()
     }

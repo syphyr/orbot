@@ -38,6 +38,7 @@ import org.torproject.android.service.vpn.TorifiedApp
 
 import java.util.Arrays
 import java.util.StringTokenizer
+import androidx.core.content.edit
 
 class AppManagerActivity : AppCompatActivity(), View.OnClickListener {
     inner class TorifiedAppWrapper {
@@ -236,9 +237,9 @@ class AppManagerActivity : AppCompatActivity(), View.OnClickListener {
                 response.putExtra(tApp.packageName, true)
             }
         }
-        val edit = mPrefs!!.edit()
-        edit.putString(OrbotConstants.PREFS_KEY_TORIFIED, tordApps.toString())
-        edit.apply()
+        mPrefs!!.edit {
+            putString(OrbotConstants.PREFS_KEY_TORIFIED, tordApps.toString())
+        }
         setResult(RESULT_OK, response)
     }
 

@@ -9,7 +9,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.zip.ZipInputStream;
 
 public class CustomTorResourceInstaller {
 
@@ -24,19 +23,10 @@ public class CustomTorResourceInstaller {
     /*
      * Write the inputstream contents to the file
      */
-    private static void streamToFile(InputStream stm, File outFile, boolean append, boolean zip) throws IOException {
+    private static void streamToFile(InputStream stm, File outFile) throws IOException {
         byte[] buffer = new byte[1024];
-
         int bytecount;
-
-        OutputStream stmOut = new FileOutputStream(outFile.getAbsolutePath(), append);
-        ZipInputStream zis = null;
-
-        if (zip) {
-            zis = new ZipInputStream(stm);
-            zis.getNextEntry();
-            stm = zis;
-        }
+        OutputStream stmOut = new FileOutputStream(outFile.getAbsolutePath(), false);
 
         while ((bytecount = stm.read(buffer)) > 0) {
             stmOut.write(buffer, 0, bytecount);
@@ -44,8 +34,6 @@ public class CustomTorResourceInstaller {
 
         stmOut.close();
         stm.close();
-
-        if (zis != null) zis.close();
     }
 
     /*
@@ -53,28 +41,17 @@ public class CustomTorResourceInstaller {
      */
     public void installGeoIP() throws IOException {
         if (!installFolder.exists()) installFolder.mkdirs();
-        assetToFile(OrbotConstants.GEOIP_ASSET_KEY, OrbotConstants.GEOIP_ASSET_KEY, false, false);
-        assetToFile(OrbotConstants.GEOIP6_ASSET_KEY, OrbotConstants.GEOIP6_ASSET_KEY, false, false);
+        assetToFile(OrbotConstants.GEOIP_ASSET_KEY, OrbotConstants.GEOIP_ASSET_KEY);
+        assetToFile(OrbotConstants.GEOIP6_ASSET_KEY, OrbotConstants.GEOIP6_ASSET_KEY);
     }
 
     /*
      * Reads file from assetPath/assetKey writes it to the install folder
      */
-    private File assetToFile(String assetPath, String assetKey, boolean isZipped, boolean isExecutable) throws IOException {
+    private void assetToFile(String assetPath, String assetKey) throws IOException {
         InputStream is = context.getAssets().open(assetPath);
         File outFile = new File(installFolder, assetKey);
-        streamToFile(is, outFile, false, isZipped);
-        if (isExecutable) {
-            setExecutable(outFile);
-        }
-        return outFile;
-    }
-
-    private void setExecutable(File fileBin) {
-        fileBin.setReadable(true);
-        fileBin.setExecutable(true);
-        fileBin.setWritable(false);
-        fileBin.setWritable(true, true);
+        streamToFile(is, outFile);
     }
 }
 

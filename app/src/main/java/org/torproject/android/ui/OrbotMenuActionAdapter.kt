@@ -3,7 +3,6 @@ package org.torproject.android.ui
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.net.Uri
 import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
@@ -15,6 +14,7 @@ import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.service.util.Utils
 import java.util.*
+import androidx.core.net.toUri
 
 
 class OrbotMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction>) :
@@ -72,7 +72,7 @@ class OrbotMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction>)
             Prefs.getSharedPrefs(context).getString(OrbotConstants.PREFS_KEY_TORIFIED, "")
         if (!TextUtils.isEmpty(tordAppString)) {
 
-            val packageManager: PackageManager = context.getPackageManager()
+            val packageManager: PackageManager = context.packageManager
             val tordApps = tordAppString!!.split("|").toTypedArray()
             val container = llBoxShortcuts.getChildAt(0) as LinearLayout
 
@@ -97,9 +97,7 @@ class OrbotMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction>)
                         iv.layoutParams = params
 
                         iv.setOnClickListener { v: View? ->
-                            openBrowser(
-                                URL_TOR_CHECK, false, applicationInfo.packageName
-                            )
+                            checkTorStatusUrl(context, applicationInfo.packageName)
                         }
                         icons[packageManager.getApplicationLabel(applicationInfo).toString()] = iv
                     } catch (e: PackageManager.NameNotFoundException) {
@@ -119,23 +117,15 @@ class OrbotMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction>)
         return false
     }
 
-    private val URL_TOR_CHECK = "https://check.torproject.org"
 
-    private fun openBrowser(checkUrl: String, doSomething: Boolean, packageName: String) {
-        startIntent(context, packageName, Intent.ACTION_VIEW, Uri.parse(checkUrl))
-    }
-
-    private fun startIntent(context: Context, pkg: String, action: String, data: Uri) {
-        val i = Intent()
-        val pm: PackageManager = context.getPackageManager()
-        try {
-            i.setPackage(pkg)
-            i.action = action
-            i.data = data
-            if (i.resolveActivity(pm) != null) context.startActivity(i)
-        } catch (e: Exception) {
-            // Should not occur. Ignore.
+    private fun checkTorStatusUrl(context: Context, pkg: String) {
+        val i = Intent().apply {
+            `package` = pkg
+            data = "https://check.torproject.org".toUri()
+            action = Intent.ACTION_VIEW
         }
+        val pm: PackageManager = context.packageManager
+        if (i.resolveActivity(pm) != null) context.startActivity(i)
     }
 
 }

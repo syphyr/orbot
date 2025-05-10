@@ -31,6 +31,8 @@ import android.system.OsConstants;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
 import org.pcap4j.packet.IllegalRawDataException;
 import org.pcap4j.packet.IpPacket;
 import org.pcap4j.packet.IpSelector;
@@ -151,10 +153,8 @@ public class OrbotVpnManager implements Handler.Callback {
     }
 
     @Override
-    public boolean handleMessage(Message message) {
-        if (message != null) {
-            Toast.makeText(mService, message.what, Toast.LENGTH_SHORT).show();
-        }
+    public boolean handleMessage(@NonNull Message message) {
+        Toast.makeText(mService, message.what, Toast.LENGTH_SHORT).show();
         return true;
     }
 
@@ -252,7 +252,8 @@ public class OrbotVpnManager implements Handler.Callback {
                                 if (packet instanceof IpPacket ipPacket) {
                                     if (isPacketDNS(ipPacket))
                                         mExec.execute(new RequestPacketHandler(ipPacket, pFlow, mDnsResolver));
-                                    else if (isPacketICMP(ipPacket)) {
+                                    else //noinspection StatementWithEmptyBody
+                                        if (isPacketICMP(ipPacket)) {
                                         //do nothing, drop!
                                     } else IPtProxy.inputPacket(pdata);
                                 }
@@ -305,7 +306,7 @@ public class OrbotVpnManager implements Handler.Callback {
         }
 
         if (!individualAppsWereSelected && !isLockdownMode) {
-            // disallow orobt itself...
+            // disallow orbot itself...
             builder.addDisallowedApplication(mService.getPackageName());
 
             // disallow tor apps to avoid tor over tor, Orbot doesnt need to concern itself with them
@@ -314,6 +315,7 @@ public class OrbotVpnManager implements Handler.Callback {
         }
     }
 
+    /** @noinspection BooleanMethodIsAlwaysInverted*/
     public boolean isStarted() {
         return isStarted;
     }

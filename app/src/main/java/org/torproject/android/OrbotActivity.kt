@@ -157,6 +157,7 @@ class OrbotActivity : BaseActivity() {
         }
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
         super.onBackPressed()
         finish()
@@ -210,6 +211,7 @@ class OrbotActivity : BaseActivity() {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(orbotServiceBroadcastReceiver)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CODE_VPN && resultCode == RESULT_OK) {
