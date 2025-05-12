@@ -2,16 +2,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:iconSpaceReserved="false">
 
-    <PreferenceCategory android:title="@string/pref_general_group"
+    <PreferenceCategory
+        android:title="@string/pref_general_group"
         app:iconSpaceReserved="false">
 
         <ListPreference
-            android:key="pref_default_locale"
-            android:title="@string/set_locale_title"
             android:enabled="true"
+            android:key="pref_default_locale"
             android:selectable="true"
-            app:iconSpaceReserved="false"
-            />
+            android:title="@string/set_locale_title"
+            app:iconSpaceReserved="false" />
 
         <CheckBoxPreference
             android:defaultValue="true"
@@ -19,8 +19,7 @@
             android:key="pref_start_boot"
             android:summary="@string/pref_start_boot_summary"
             android:title="@string/pref_start_boot_title"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
 
 
         <CheckBoxPreference
@@ -28,102 +27,91 @@
             android:key="pref_allow_background_starts"
             android:summary="@string/pref_allow_background_starts_summary"
             android:title="@string/pref_allow_background_starts_title"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_open_proxy_on_all_interfaces"
             android:summary="@string/pref_open_proxy_on_all_interfaces_summary"
             android:title="@string/pref_open_proxy_on_all_interfaces_title"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
 
         <CheckBoxPreference
-            android:key="pref_power_user"
             android:defaultValue="false"
+            android:key="pref_power_user"
             android:summary="@string/power_user_description"
             android:title="@string/power_user_mode"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
 
         <CheckBoxPreference
-            android:key="pref_flag_secure"
             android:defaultValue="true"
+            android:key="pref_flag_secure"
             android:summary="@string/pref_flag_secure_summary"
             android:title="@string/pref_flag_secure_title"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
 
-       <CheckBoxPreference
-            android:key="pref_detect_root"
+        <CheckBoxPreference
             android:defaultValue="true"
+            android:key="pref_detect_root"
             android:summary="@string/pref_detect_root_summary"
             android:title="@string/pref_detect_root_title"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
 
-       <CheckBoxPreference
-            android:key="pref_enable_rotation"
+        <CheckBoxPreference
             android:defaultValue="false"
+            android:key="pref_enable_rotation"
             android:summary="@string/pref_enable_rotation_summary"
             android:title="@string/pref_enable_rotation_title"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
 
     </PreferenceCategory>
 
     <PreferenceCategory
         android:key="category_node_config"
-        app:singleLineTitle="false"
         android:title="@string/pref_node_configuration"
-        app:summary="@string/pref_node_configuration_summary"
-        app:iconSpaceReserved="false">
+        app:iconSpaceReserved="false"
+        app:singleLineTitle="false"
+        app:summary="@string/pref_node_configuration_summary">
 
         <EditTextPreference
             android:dialogTitle="@string/pref_entrance_node_dialog"
             android:key="pref_entrance_nodes"
             android:summary="@string/pref_entrance_node_summary"
             android:title="@string/pref_entrance_node"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
         <EditTextPreference
             android:dialogTitle="@string/enter_exit_nodes"
             android:key="pref_exit_nodes"
             android:summary="@string/fingerprints_nicks_countries_and_addresses_for_the_last_hop"
             android:title="@string/exit_nodes"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
         <EditTextPreference
             android:dialogTitle="@string/enter_exclude_nodes"
             android:key="pref_exclude_nodes"
             android:summary="@string/fingerprints_nicks_countries_and_addresses_to_exclude"
             android:title="@string/exclude_nodes"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_strict_nodes"
             android:summary="@string/strict_nodes_description"
             android:title="@string/strict_nodes"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/relays"
+    <PreferenceCategory
+        android:title="@string/relays"
 
-        app:iconSpaceReserved="false"
-        >
+        app:iconSpaceReserved="false">
         <CheckBoxPreference
             android:defaultValue="false"
             android:enabled="true"
             android:key="pref_or"
             android:summary="@string/enable_your_device_to_be_a_non_exit_relay"
             android:title="@string/relaying"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
 
         <EditTextPreference
             android:defaultValue="9001"
@@ -132,8 +120,7 @@
             android:key="pref_or_port"
             android:summary="@string/listening_port_for_your_tor_relay"
             android:title="@string/relay_port"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
 
         <EditTextPreference
             android:defaultValue="OrbotRelay"
@@ -141,23 +128,21 @@
             android:key="pref_or_nickname"
             android:summary="@string/the_nickname_for_your_tor_relay"
             android:title="@string/relay_nickname"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
 
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/reachable_addresses"
+    <PreferenceCategory
+        android:title="@string/reachable_addresses"
 
-        app:iconSpaceReserved="false"
-        >
+        app:iconSpaceReserved="false">
         <CheckBoxPreference
             android:defaultValue="false"
             android:enabled="true"
             android:key="pref_reachable_addresses"
             android:summary="@string/run_as_a_client_behind_a_firewall_with_restrictive_policies"
             android:title="@string/reachable_addresses"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
 
         <EditTextPreference
             android:defaultValue="*:80,*:443"
@@ -165,171 +150,153 @@
             android:key="pref_reachable_addresses_ports"
             android:summary="@string/ports_reachable_behind_a_restrictive_firewall"
             android:title="@string/reachable_ports"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="Connectivity"
+    <PreferenceCategory
+        android:title="Connectivity"
 
-        app:iconSpaceReserved="false"
-        >
+        app:iconSpaceReserved="false">
         <CheckBoxPreference
             android:defaultValue="false"
             android:enabled="true"
             android:key="pref_isolate_dest"
             android:summary="@string/pref_isolate_dest_summary"
             android:title="@string/pref_isolate_dest"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:enabled="true"
             android:key="pref_isolate_port"
             android:summary="@string/pref_isolate_port_summary"
             android:title="@string/pref_isolate_port"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:enabled="true"
             android:key="pref_isolate_protocol"
             android:summary="@string/pref_isolate_protocol_summary"
             android:title="@string/pref_isolate_protocol"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:enabled="true"
             android:key="pref_isolate_keep_alive"
             android:summary="@string/pref_isolate_keep_alive_summary"
             android:title="@string/pref_isolate_keep_alive"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:enabled="true"
             android:key="pref_prefer_ipv6"
             android:summary="@string/pref_prefer_ipv6_summary"
             android:title="@string/pref_prefer_ipv6"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
         <CheckBoxPreference
             android:defaultValue="false"
             android:enabled="true"
             android:key="pref_disable_ipv4"
             android:summary="@string/pref_disable_ipv4_summary"
             android:title="@string/pref_disable_ipv4"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/setting_padding"
+    <PreferenceCategory
+        android:title="@string/setting_padding"
 
 
-        app:iconSpaceReserved="false"
-        >
+        app:iconSpaceReserved="false">
         <CheckBoxPreference
             android:defaultValue="false"
             android:enabled="true"
             android:key="pref_connection_padding"
             android:summary="@string/pref_connection_padding_summary"
             android:title="@string/pref_connection_padding"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:enabled="true"
             android:key="pref_reduced_connection_padding"
             android:summary="@string/pref_reduced_connection_padding_summary"
             android:title="@string/pref_reduced_connection_padding"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:enabled="true"
             android:key="pref_circuit_padding"
             android:summary="@string/pref_circuit_padding_summary"
             android:title="@string/pref_circuit_padding"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
         <CheckBoxPreference
             android:defaultValue="true"
             android:enabled="true"
             android:key="pref_reduced_circuit_padding"
             android:summary="@string/pref_reduced_circuit_padding_summary"
             android:title="@string/pref_reduced_circuit_padding"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/pref_proxy_title"
+    <PreferenceCategory
+        android:title="@string/pref_proxy_title"
 
-        app:iconSpaceReserved="false"
-        >
+        app:iconSpaceReserved="false">
         <EditTextPreference
             android:dialogTitle="@string/pref_proxy_type_dialog"
             android:key="pref_proxy_type"
             android:summary="@string/pref_proxy_type_summary"
             android:title="@string/pref_proxy_type_title"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
         <EditTextPreference
             android:dialogTitle="@string/pref_proxy_host_dialog"
             android:key="pref_proxy_host"
             android:summary="@string/pref_proxy_host_summary"
             android:title="@string/pref_proxy_host_title"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
         <EditTextPreference
             android:dialogTitle="@string/pref_proxy_port_dialog"
             android:inputType="number"
             android:key="pref_proxy_port"
             android:summary="@string/pref_proxy_port_summary"
             android:title="@string/pref_proxy_port_title"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
 
         <EditTextPreference
             android:dialogTitle="@string/pref_proxy_username_dialog"
             android:key="pref_proxy_username"
             android:summary="@string/pref_proxy_username_summary"
             android:title="@string/pref_proxy_username_title"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
         <EditTextPreference
             android:dialogTitle="@string/pref_proxy_password_dialog"
             android:inputType="textPassword"
             android:key="pref_proxy_password"
             android:summary="@string/pref_proxy_password_summary"
             android:title="@string/pref_proxy_password_title"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="@string/setting_debug"
+    <PreferenceCategory
+        android:title="@string/setting_debug"
 
-        app:iconSpaceReserved="false"
-        >
+        app:iconSpaceReserved="false">
 
         <EditTextPreference
-            android:inputType="number"
             android:defaultValue="9050"
             android:dialogTitle="@string/pref_socks_dialog"
+            android:inputType="number"
             android:key="pref_socks"
             android:summary="@string/pref_socks_summary"
             android:title="@string/pref_socks_title"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
 
         <EditTextPreference
-            android:inputType="number"
             android:defaultValue="8118"
             android:dialogTitle="@string/pref_http_dialog"
+            android:inputType="number"
             android:key="pref_http"
             android:summary="@string/pref_http_summary"
             android:title="@string/pref_http_title"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
 
         <EditTextPreference
             android:defaultValue="auto"
@@ -337,8 +304,7 @@
             android:key="pref_transport"
             android:summary="@string/pref_transport_summary"
             android:title="@string/pref_transport_title"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
 
         <EditTextPreference
             android:defaultValue="auto"
@@ -346,8 +312,7 @@
             android:key="pref_dnsport"
             android:summary="@string/pref_dnsport_summary"
             android:title="@string/pref_dnsport_title"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
 
         <EditTextPreference
             android:dialogTitle="@string/pref_torrc_dialog"
@@ -355,8 +320,7 @@
             android:key="pref_custom_torrc"
             android:summary="@string/pref_torrc_summary"
             android:title="@string/pref_torrc_title"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
 
 
         <CheckBoxPreference
@@ -365,8 +329,7 @@
             android:key="pref_enable_logging"
             android:summary="@string/enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_"
             android:title="Debug Log"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
 
 
         <CheckBoxPreference
@@ -375,21 +338,19 @@
             android:key="pref_disable_network"
             android:summary="@string/pref_disable_network_summary"
             android:title="@string/pref_disable_network_title"
-            app:iconSpaceReserved="false"
-            />
+            app:iconSpaceReserved="false" />
 
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/volunteer_mode"
-        app:iconSpaceReserved="false"
-        >
+    <PreferenceCategory
+        android:title="@string/volunteer_mode"
+        app:iconSpaceReserved="false">
 
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_show_snowflake_proxy_msg"
-            android:title="@string/snowflake_proxy_msg_title"
             android:summary="@string/snowflake_proxy_msg_description"
-            app:iconSpaceReserved="false"
-            />
+            android:title="@string/snowflake_proxy_msg_title"
+            app:iconSpaceReserved="false" />
 
     </PreferenceCategory>
 
