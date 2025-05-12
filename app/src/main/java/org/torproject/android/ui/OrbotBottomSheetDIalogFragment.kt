@@ -43,15 +43,6 @@ open class OrbotBottomSheetDialogFragment : BottomSheetDialogFragment() {
         dismiss()
     }
 
-    private fun closeAllSheetsInternal() {
-        val fm = requireActivity().supportFragmentManager
-        for (f in fm.fragments) {
-            if (f == this) continue
-            fm.beginTransaction().remove(f).commit()
-        }
-    }
-
-
     private fun setupRatio(bsd : BottomSheetDialog) {
         val bottomSheet = bsd.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
         bottomSheet?.let {
