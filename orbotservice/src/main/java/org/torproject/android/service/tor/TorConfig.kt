@@ -2,6 +2,7 @@ package org.torproject.android.service.tor
 
 import android.content.ContextWrapper
 import android.content.SharedPreferences
+import android.util.Log
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.db.OnionServiceColumns
@@ -124,9 +125,22 @@ object TorConfig {
         val enableStrictNodes = prefs?.getBoolean("pref_strict_nodes", false) ?: false
         conf.add("StrictNodes ${if (enableStrictNodes) "1" else "0"}")
 
-        if (prefs?.getBoolean(OrbotConstants.PREF_REACHABLE_ADDRESSES, false) ?: false) {
+        val reachableAddresses = prefs?.getBoolean(OrbotConstants.PREF_REACHABLE_ADDRESSES, false) ?: false
+        if (reachableAddresses) {
             val reachableAddressesPorts = prefs.getString(OrbotConstants.PREF_REACHABLE_ADDRESSES_PORTS, null) ?: "*:80,*:443"
             conf.add("ReachableAddresses $reachableAddressesPorts")
+        }
+
+        val becomeRelay = prefs?.getBoolean(OrbotConstants.PREF_OR, false) ?: false
+        if (becomeRelay && transport == Transport.NONE && !reachableAddresses) {
+            val orport = prefs?.getString(OrbotConstants.PREF_OR_PORT, null) ?: "9001"
+            val nickname = prefs?.getString(OrbotConstants.PREF_OR_NICKNAME, "OrbotRelay")
+            conf.add("ORPort $orport")
+            conf.add("Nickname $nickname")
+            conf.add("ExitPolicy reject *:*")
+        } else if (becomeRelay) {
+            val TAG = "TorConfig"
+            Log.e(TAG, "Unable to start relay. Disable all Bridges, Reachable Addresses, and Reduced Padding.")
         }
 
         if (Prefs.hostOnionServicesEnabled()) {
