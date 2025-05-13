@@ -47,6 +47,10 @@
     <string name="enter_exit_nodes">Entajpu finnofojn</string>
     <string name="bridges">Pontoj</string>
     <string name="use_bridges">Uzi Pontojn</string>
+    <string name="enter_or_port">Entajpu OR-pordon</string>
+    <string name="relay_nickname">Kaŝnomo de la relajso</string>
+    <string name="the_nickname_for_your_tor_relay">Kaŝnomo por via Tor-relajso</string>
+    <string name="enter_a_custom_relay_nickname">Entajpu propran kaŝnomon de la relajso</string>
     <string name="reachable_addresses">Atingeblaj adresoj</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Startigi kiel kliento malantaŭ fajromuro kun restriktaj reguloj</string>
     <string name="reachable_ports">Atingeblaj pordoj</string>
