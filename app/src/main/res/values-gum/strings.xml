@@ -21,8 +21,7 @@
     <string name="pref_proxy_title">Red wepintrai proxy marik (marinkui-marmuinkui)</string>
     <string name="pref_proxy_type_title">Wepintrai proxy marik</string>
     <string name="pref_proxy_type_summary">Proxyn mantɵ aship maramikwan eshkapik: HTTPS, SOCKS4, SOCKS5</string>
-    <string name="pref_proxy_host_title">Proxy Host wepintrai
- </string>
+    <string name="pref_proxy_host_title">Proxy Host wepintrai</string>
     <string name="pref_proxy_host_summary">Proxywai munchi</string>
     <string name="pref_proxy_port_title">Wepintrai puerto Proxy marik</string>
     <string name="pref_proxy_port_summary">Proxyu puerto </string>
@@ -49,6 +48,15 @@
     <string name="third_party_software">Pekelai 3rd, teiklɵ software</string>
     <string name="version">Katɵkan</string>
     <string name="license">Utɵ miek</string>
+    <string name="relays">Nak srup, kemesrɵpelɵ</string>
+    <string name="relaying">katɵpurɵ wam lasrpitsamik.</string>
+    <string name="enable_your_device_to_be_a_non_exit_relay">Nak srup, kemesrɵpelɵ mupurap kucha latrpichimɵntrai mar.</string>
+    <string name="relay_port">Nak srup, kemesrɵp karup srɵl</string>
+    <string name="listening_port_for_your_tor_relay">wam meran mɵra tretɵwai latrpichip srɵl Toryu</string>
+    <string name="enter_or_port">Puerto OR keramik</string>
+    <string name="relay_nickname">Munchi pɵnsra yunɵmarɵp ampinuk</string>
+    <string name="the_nickname_for_your_tor_relay">Toryu munchi pasrik</string>
+    <string name="enter_a_custom_relay_nickname">Naisuimai nunchimera pɵnsra wam meran lelatsamik</string>
     <string name="set_locale_title">Wam-mera</string>
     <string name="newnym">Tor maik kenamisrɵpik kuipe yunɵmaran</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Proxy wam latrpichipelan chiutɵmerayu kɵpen kuriklɵ</string>

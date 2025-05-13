@@ -47,6 +47,15 @@
     <string name="third_party_software">3rd -software apunuintüa</string>
     <string name="version">Eírrakawua</string>
     <string name="license">Jiat\'tapula Anaiwua  Puyataya</string>
+    <string name="relays">Papajer juchikumuín. </string>
+    <string name="relaying">Achuwuajajer ju chiku\'aya </string>
+    <string name="enable_your_device_to_be_a_non_exit_relay">Punata  pukachuerrase jupula   nojoluinjat ajuituin</string>
+    <string name="relay_port">Juntia´sülü shipia maimatua.</string>
+    <string name="listening_port_for_your_tor_relay">Apajia  jupula  jitnuín  Tor piantua </string>
+    <string name="enter_or_port">Pikero\'loo juluu  juntia OR</string>
+    <string name="relay_nickname">Kanulia yas  </string>
+    <string name="the_nickname_for_your_tor_relay"> Kanuliayas jupula jitnuin piantua</string>
+    <string name="enter_a_custom_relay_nickname">Pikerrotirra  tu kanúliayakal putuma, jupula jujuituin maimatua</string>
     <string name="set_locale_title">Anuiki</string>
     <string name="newnym">¡tü puanajun sülü wanee jeketü shiyawase Tor!</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Errutnuinjat proxy julu jupushuaya interface</string>
