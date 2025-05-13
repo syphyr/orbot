@@ -36,6 +36,15 @@
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Katılmayacak parmak izleri, kısaltmalar, ülkeler ve adresler</string>
     <string name="enter_exclude_nodes">Hariç Tutulacak Düğümleri Girin</string>
     <string name="strict_nodes">Değişmeyen Düğümler</string>
+    <string name="relays">Aktarıcılar</string>
+    <string name="relaying">Aktarım</string>
+    <string name="enable_your_device_to_be_a_non_exit_relay">Aygıtınız çıkış yapmayan bir aktarıcı olarak kullanılsın</string>
+    <string name="relay_port">Aktarıcı Bağlantı Noktası</string>
+    <string name="listening_port_for_your_tor_relay">Tor aktarıcınızın dinleme bağlantı noktası</string>
+    <string name="enter_or_port">OR bağlantı noktasını girin</string>
+    <string name="relay_nickname">Aktarıcı kısaltması</string>
+    <string name="the_nickname_for_your_tor_relay">Tor aktarıcınızın kısaltması</string>
+    <string name="enter_a_custom_relay_nickname">Özel bir aktarıcı kısaltması girin</string>
     <string name="reachable_addresses">Erişilebilecek Adresler</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Güvenlik duvarı ilkeleri ile kısıtlanmış bir istemci olarak bağlansın</string>
     <string name="reachable_ports">Ulaşılabilir bağlantı noktaları</string>
