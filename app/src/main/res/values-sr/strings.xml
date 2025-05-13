@@ -57,6 +57,15 @@
     <string name="strict_nodes">Стриктни чворови</string>
     <string name="bridges">Мостови</string>
     <string name="use_bridges">Користи bridge</string>
+    <string name="relays">Релеји</string>
+    <string name="relaying">Релејирање</string>
+    <string name="enable_your_device_to_be_a_non_exit_relay">Омогућите вашем уређају да буде релеј без излаза</string>
+    <string name="relay_port">Порт за релеј</string>
+    <string name="listening_port_for_your_tor_relay">Порт за слушање за твој Тор релеј</string>
+    <string name="enter_or_port">Укуцајте ИЛИ порт</string>
+    <string name="relay_nickname">Надимак релеја</string>
+    <string name="the_nickname_for_your_tor_relay">Надимак вашег Тор релеја</string>
+    <string name="enter_a_custom_relay_nickname">Унесите по избору надимак за релеј</string>
     <string name="reachable_addresses">Доступне адресе</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Покрените као клијента иза firewall-а који је рестриктивно подешен</string>
     <string name="reachable_ports">Доступни портови</string>
