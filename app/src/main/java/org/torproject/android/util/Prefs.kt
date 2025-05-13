@@ -344,6 +344,15 @@ object Prefs {
     val reachableAddressesPorts: String?
         get() = cr?.getPrefString(OrbotConstants.PREF_REACHABLE_ADDRESSES_PORTS)
 
+    val becomeRelay: Boolean
+        get() = cr?.getPrefBoolean(OrbotConstants.PREF_OR) ?: false
+
+    val orport: String?
+        get() = cr?.getPrefString(OrbotConstants.PREF_OR_PORT)
+
+    val nickname: String?
+        get() = cr?.getPrefString(OrbotConstants.PREF_OR_NICKNAME)
+
     val customTorRc: String?
         get() = cr?.getPrefString("pref_custom_torrc")
 
