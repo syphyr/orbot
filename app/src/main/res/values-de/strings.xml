@@ -44,6 +44,15 @@
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Fingerabdrücke, Spitznamen, Länder und Adressen, die ausgeschlossen werden sollen</string>
     <string name="enter_exclude_nodes">Auszuschließende Netzknoten eingeben</string>
     <string name="strict_nodes"> Strikte Netzknoten</string>
+    <string name="relays">Relais</string>
+    <string name="relaying">Weiterleitung</string>
+    <string name="enable_your_device_to_be_a_non_exit_relay">Dein Gerät als Nichtausgangsrelais aktivieren</string>
+    <string name="relay_port">Relais-Port</string>
+    <string name="listening_port_for_your_tor_relay">Port für dein Tor-Relais, auf das gehört werden soll</string>
+    <string name="enter_or_port">OR-Anschluss eingeben</string>
+    <string name="relay_nickname">Relais-Spitzname</string>
+    <string name="the_nickname_for_your_tor_relay">Der Spitzname für dein Tor-Relais</string>
+    <string name="enter_a_custom_relay_nickname">Benutzerdefinierten Nicknamen für das Relais eingeben</string>
     <string name="reachable_addresses">Erreichbare Adressen</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Als Client hinter einer Firewall mit restriktiven Richtlinien ausführen</string>
     <string name="reachable_ports">Erreichbare Ports</string>
