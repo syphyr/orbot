@@ -1,6 +1,7 @@
 package org.torproject.android.service.tor
 
 import android.content.ContextWrapper
+import android.util.Log
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.db.OnionServiceColumns
@@ -92,6 +93,17 @@ object TorConfig {
         if (Prefs.reachableAddresses) {
             val reachableAddressesPorts = Prefs.reachableAddressesPorts ?: "*:80,*:443"
             conf.add("ReachableAddresses $reachableAddressesPorts")
+        }
+
+        if (Prefs.becomeRelay && transport == Transport.NONE && !Prefs.reachableAddresses) {
+            val orport = Prefs.orport ?: "9001"
+            val nickname = Prefs.nickname ?: "OrbotRelay"
+            conf.add("ORPort $orport")
+            conf.add("Nickname $nickname")
+            conf.add("ExitPolicy reject *:*")
+        } else if (Prefs.becomeRelay) {
+            val TAG = "TorConfig"
+            Log.e(TAG, "Unable to start relay. Disable all Bridges, Reachable Addresses, and Reduced Padding.")
         }
 
         // Always add client authorization config if any entries exist.
