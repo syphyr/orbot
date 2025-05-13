@@ -58,6 +58,9 @@ object Prefs {
     private const val PREF_POWER_BATTERY_DIALOG_HIDE = "hide_battery_opt_dialog"
     const val PREF_ORBOT_SERVICE_LOG = "pref_orbotservice_log"
 
+    private const val PREF_OR = "pref_or"
+    const val PREF_OR_PORT = "pref_or_port"
+    private const val PREF_OR_NICKNAME = "pref_or_nickname"
 
     private const val PREF_REACHABLE_ADDRESSES = "pref_reachable_addresses"
     private const val PREF_REACHABLE_ADDRESSES_PORTS = "pref_reachable_addresses_ports"
@@ -445,6 +448,15 @@ object Prefs {
 
     val reachableAddressesPorts: String?
         get() = cr?.getPrefString(PREF_REACHABLE_ADDRESSES_PORTS)
+
+    val becomeRelay: Boolean
+        get() = cr?.getPrefBoolean(PREF_OR) ?: false
+
+    val orport: String?
+        get() = cr?.getPrefString(PREF_OR_PORT)
+
+    val nickname: String?
+        get() = cr?.getPrefString(PREF_OR_NICKNAME)
 
     val customTorRc: String?
         get() = cr?.getPrefString(PREF_CUSTOM_TORRC)
