@@ -57,15 +57,6 @@
     <string name="strict_nodes">Hacer estricta la exclusión de nodos (incluso si falla la comunicación)</string>
     <string name="bridges">Bridges (repetidores puente)</string>
     <string name="use_bridges">Usar puentes</string>
-    <string name="relays">Repetidores</string>
-    <string name="relaying">Repetición de tráfico</string>
-    <string name="enable_your_device_to_be_a_non_exit_relay">Habilita tu dispositivo para que sea un relé sin salida</string>
-    <string name="relay_port">Puerto de repetidor</string>
-    <string name="listening_port_for_your_tor_relay">Puerto de escucha para tu repetidor Tor</string>
-    <string name="enter_or_port">Introduzca puerto OR (Onion Routing, repositorio de repetidores)</string>
-    <string name="relay_nickname">Alias del repetidor</string>
-    <string name="the_nickname_for_your_tor_relay">El apodo que identificará a su repetidor en la red Tor</string>
-    <string name="enter_a_custom_relay_nickname">Introduzca un alias personalizado para su repetidor</string>
     <string name="reachable_addresses">Reglas de direcciones accesibles ([accept(*)|reject] IP:port, etc.)</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Ejecutar Tor como sólo cliente detrás de un cortafuegos (firewall) con políticas restrictivas</string>
     <string name="reachable_ports">Puertos accesibles</string>
