@@ -44,6 +44,15 @@
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">huellas digitales, usuarios, paises y direcciones para excluir</string>
     <string name="enter_exclude_nodes">ingrese nodos excluidos</string>
     <string name="strict_nodes">nodos estrictos</string>
+    <string name="relays">retransmitir</string>
+    <string name="relaying">retransmision </string>
+    <string name="enable_your_device_to_be_a_non_exit_relay">Habilite su dispositivo para que sea retransmision sin salida</string>
+    <string name="relay_port">puerto de retransmision</string>
+    <string name="listening_port_for_your_tor_relay">puerto de escucha para la retransmision de Tor</string>
+    <string name="enter_or_port">entrar puerto OR</string>
+    <string name="relay_nickname">apodo de retransmision</string>
+    <string name="the_nickname_for_your_tor_relay">el apodo para tu retransmision de Tor</string>
+    <string name="enter_a_custom_relay_nickname">Introduzca un apodo de retransmisión personalizado</string>
     <string name="reachable_addresses">direcciones alcanzables</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Ejecutar como un cliente detrás de un firewall con políticas restrictivas</string>
     <string name="reachable_ports">puertos alcanzables</string>

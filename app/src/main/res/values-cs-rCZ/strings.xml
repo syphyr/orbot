@@ -35,6 +35,15 @@
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Otisky (fingerprints), přezdívky serveru (nicks), státy a adresy pro vyloučené nody</string>
     <string name="enter_exclude_nodes">Zadejte nody k vyloučení</string>
     <string name="strict_nodes">Striktní nody</string>
+    <string name="relays">Relé</string>
+    <string name="relaying">Používání relé</string>
+    <string name="enable_your_device_to_be_a_non_exit_relay">Spuštění zařízení jako neodchozího relé</string>
+    <string name="relay_port">Port relé</string>
+    <string name="listening_port_for_your_tor_relay">Naslouchání Vašeho Tor relé</string>
+    <string name="enter_or_port">Zadejte OR port</string>
+    <string name="relay_nickname">Přezdívka relé</string>
+    <string name="the_nickname_for_your_tor_relay">Přezdívka Vašeho Tor relé</string>
+    <string name="enter_a_custom_relay_nickname">Zadejte klientskou přezdívku relé</string>
     <string name="reachable_addresses">Dostupné adresy</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Běžet jako klient za firewallem s restriktivní politikou</string>
     <string name="reachable_ports">Dostupné porty</string>

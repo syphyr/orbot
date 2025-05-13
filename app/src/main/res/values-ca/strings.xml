@@ -36,6 +36,15 @@
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Empremtes, àlies, països i adreces per excloure</string>
     <string name="enter_exclude_nodes">Introduïu nodes per excloure</string>
     <string name="strict_nodes">Nodes estrictes</string>
+    <string name="relays">Repetidors</string>
+    <string name="relaying">Repetició</string>
+    <string name="enable_your_device_to_be_a_non_exit_relay">Permet que el dispositiu sigui un repetidor sense sortida</string>
+    <string name="relay_port">Port repetidor</string>
+    <string name="listening_port_for_your_tor_relay">Port d\'escolta per al repetidor Tor</string>
+    <string name="enter_or_port">Introduïu el port OR</string>
+    <string name="relay_nickname">Àlies del repetidor</string>
+    <string name="the_nickname_for_your_tor_relay">L\'àlies del repetidor Tor</string>
+    <string name="enter_a_custom_relay_nickname">Introduïu un àlies personalitzat per al repetidor</string>
     <string name="reachable_addresses">Adreces accessibles</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">S\'executa com a client darrere d\'un tallafoc amb normes restrictives</string>
     <string name="reachable_ports">Ports accessibles</string>
