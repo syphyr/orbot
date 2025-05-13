@@ -55,6 +55,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
+import java.util.Objects;
 import java.util.StringTokenizer;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -839,6 +840,7 @@ public class OrbotService extends VpnService {
     private StringBuffer processSettingsImpl(StringBuffer extraLines) throws IOException {
         logNotice(getString(R.string.updating_settings_in_tor_service));
         var prefs = Prefs.getSharedPrefs(getApplicationContext());
+        var becomeRelay = prefs.getBoolean(OrbotConstants.PREF_OR, false);
         var ReachableAddresses = prefs.getBoolean(OrbotConstants.PREF_REACHABLE_ADDRESSES, false);
         var enableStrictNodes = prefs.getBoolean("pref_strict_nodes", false);
         var entranceNodes = prefs.getString("pref_entrance_nodes", "");
@@ -887,6 +889,23 @@ public class OrbotService extends VpnService {
 
         } catch (Exception e) {
             showToolbarNotification(getString(R.string.your_reachableaddresses_settings_caused_an_exception_), ERROR_NOTIFY_ID, R.drawable.ic_stat_notifyerr);
+            return null;
+        }
+
+        try {
+            if (becomeRelay && (pathway.equals(Prefs.CONNECTION_PATHWAY_DIRECT)) && (!ReachableAddresses)) {
+                var ORPort = Integer.parseInt(Objects.requireNonNull(prefs.getString(PREF_OR_PORT, "9001")));
+                var nickname = prefs.getString(PREF_OR_NICKNAME, "Orbot");
+                var dnsFile = writeDNSFile();
+
+                extraLines.append("ServerDNSResolvConfFile").append(' ').append(dnsFile).append('\n'); // DNSResolv is not a typo
+                extraLines.append("ORPort").append(' ').append(ORPort).append('\n');
+                extraLines.append("Nickname").append(' ').append(nickname).append('\n');
+                extraLines.append("ExitPolicy").append(' ').append("reject *:*").append('\n');
+            }
+
+        } catch (Exception e) {
+            showToolbarNotification(getString(R.string.your_relay_settings_caused_an_exception_), ERROR_NOTIFY_ID, R.drawable.ic_stat_notifyerr);
             return null;
         }
 
@@ -960,6 +979,16 @@ public class OrbotService extends VpnService {
         if (!mCurrentStatus.equals(STATUS_ON)) return;
         var icon = !isActiveTransfer ? R.drawable.ic_stat_tor : R.drawable.ic_stat_tor_xfer;
         showToolbarNotification(message, NOTIFY_ID, icon);
+    }
+
+    //using Google DNS for now as the public DNS server
+    private String writeDNSFile() throws IOException {
+        var file = new File(appBinHome, "resolv.conf");
+        var bw = new PrintWriter(new FileWriter(file));
+        bw.println("nameserver 8.8.8.8");
+        bw.println("nameserver 8.8.4.4");
+        bw.close();
+        return file.getCanonicalPath();
     }
 
     @Override
