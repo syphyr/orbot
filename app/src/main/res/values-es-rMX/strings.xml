@@ -8,6 +8,15 @@
     <string name="pref_entrance_node_summary">Fingerprints, nicks, países y direcciones para el primer salto</string>
     <string name="ports_reachable_behind_a_restrictive_firewall">Puertos accesibles detrás de un firewall restrictivo</string>
     <string name="enter_ports">Ingresar Puertos</string>
+    <string name="enable_your_device_to_be_a_non_exit_relay">Habilita tu dispositivo para que no sea un nodo de salida</string>
+    <string name="relay_port">Puerto de retransmisión</string>
+    <string name="listening_port_for_your_tor_relay">Puerto de escucha para tu nodo de Tor</string>
+    <string name="the_nickname_for_your_tor_relay">El apodo para tu nodo de Tor</string>
+    <string name="enter_a_custom_relay_nickname">Ingresa un apodo de Nodo personalizado</string>
+    <string name="relays">Nodos</string>
+    <string name="relaying">Retransmitiendo</string>
+    <string name="enter_or_port">Ingresa el puerto OR</string>
+    <string name="relay_nickname">Apodo del nodo</string>
     <string name="third_party_software">3rd-Party-Software:</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Ejecutar como cliente detrás de un firewall con políticas restrictivas</string>
     <string name="reachable_ports">Puertos accesibles</string>
