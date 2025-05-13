@@ -36,6 +36,15 @@
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Baztertuko diren hatzmarkak, ezizenak, herrialdeak eta helbideak</string>
     <string name="enter_exclude_nodes">Sartu baztertzeko nodoak</string>
     <string name="strict_nodes">Nodo hertsiak</string>
+    <string name="relays">Erreleak</string>
+    <string name="relaying">Erreleatzea</string>
+    <string name="enable_your_device_to_be_a_non_exit_relay">Gaitu zure gailua ez-irteerako errelea izatea</string>
+    <string name="relay_port">Errele ataka</string>
+    <string name="listening_port_for_your_tor_relay">Zure Tor errelearentzako entzuteko portua</string>
+    <string name="enter_or_port">Sartu OR ataka</string>
+    <string name="relay_nickname">Errele ezizena</string>
+    <string name="the_nickname_for_your_tor_relay">Zure Tor errelearen ezizena</string>
+    <string name="enter_a_custom_relay_nickname">Sartu errele pertsonalaren ezizena</string>
     <string name="reachable_addresses">Helbide atzigarriak</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Exekutatu politika murriztaileak dituen suebakiaren atzean dagoen bezero gisa</string>
     <string name="reachable_ports">Ataka atzigarriak</string>

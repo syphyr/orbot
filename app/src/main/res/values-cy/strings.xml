@@ -55,6 +55,15 @@
     <string name="ports_reachable_behind_a_restrictive_firewall">Porthladdoedd y gellir eu cyrraedd y tu ôl i wal dân gyfyngol</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_socks_summary">Porthladd y mae Tor yn cynnig ei ddirprwy SOCKS arno (diofyn: 9050 neu 0 i\'w analluogi)</string>
+    <string name="enter_or_port">Rhowch OR porthladd</string>
+    <string name="relaying">Ailgyfnewid</string>
+    <string name="relay_nickname">Llysenw Relay</string>
+    <string name="listening_port_for_your_tor_relay">Porth gwrando ar gyfer eich ras gyfnewid Tor</string>
+    <string name="enable_your_device_to_be_a_non_exit_relay">Galluogi eich dyfais i fod yn ras gyfnewid nad yw\'n gadael</string>
+    <string name="relays">Releiau</string>
+    <string name="the_nickname_for_your_tor_relay">Y llysenw ar gyfer eich ras gyfnewid Tor</string>
+    <string name="enter_a_custom_relay_nickname">Rhowch lysenw cyfnewid personol</string>
+    <string name="relay_port">Porthladd Cyfnewid</string>
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Galluogi log dadfygio i allbwn (rhaid defnyddio adb neu aLogcat i weld)</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Rhedeg fel cleient y tu ôl i wal dân gyda pholisïau cyfyngol</string>
     <string name="pref_disable_network_title">Dim Rhwydwaith Auto-Cwsg</string>

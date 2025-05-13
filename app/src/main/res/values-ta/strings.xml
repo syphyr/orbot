@@ -79,6 +79,15 @@
     <string name="enter_exclude_nodes">முனைகளை விலக்கவும்</string>
     <string name="strict_nodes">கண்டிப்பான முனைகள்</string>
     <string name="strict_nodes_description">அனைத்து சுற்றுகளையும் கட்டுவதற்கான தேவையாக முனைகள் அமைப்புகளை விலக்கு. உங்கள் விலக்கு முனைகள் அமைப்புகளுடன் எந்த சுற்றுகளையும் உருவாக்க முடியாவிட்டால் இது செயல்பாட்டை உடைக்கக்கூடும்.</string>
+    <string name="relays">ரிலேக்கள்</string>
+    <string name="relaying">ரிலே</string>
+    <string name="listening_port_for_your_tor_relay">உங்கள் டோர் ரிலேவுக்கான துறைமுகம்</string>
+    <string name="enter_or_port">உள்ளிடவும் அல்லது துறைமுகம் செய்யவும்</string>
+    <string name="enable_your_device_to_be_a_non_exit_relay">உங்கள் சாதனம் வெளியேற்றப்படாத ரிலேவாக இருக்க இயக்கவும்</string>
+    <string name="relay_port">ரிலே துறைமுகம்</string>
+    <string name="relay_nickname">ரிலே புனைப்பெயர்</string>
+    <string name="the_nickname_for_your_tor_relay">உங்கள் டோர் ரிலேவுக்கான புனைப்பெயர்</string>
+    <string name="enter_a_custom_relay_nickname">தனிப்பயன் ரிலே புனைப்பெயரை உள்ளிடவும்</string>
     <string name="reachable_addresses">அணுகக்கூடிய முகவரிகள்</string>
     <string name="pref_transport_summary">துறைமுகம் அந்த டோர் அதன் வெளிப்படையான ப்ராக்சியை வழங்குகிறது (இயல்புநிலை: முடக்க 9040 அல்லது 0)</string>
     <string name="pref_transport_dialog">டிரான்ச்ப்ராக்சி துறைமுகம் கட்டமைப்பு</string>
