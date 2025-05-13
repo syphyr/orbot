@@ -162,8 +162,7 @@ public class OrbotService extends VpnService {
     @Override
     public void onLowMemory() {
         super.onLowMemory();
-        //this doesn't need to be shown to the user unless there is something to do
-        debug(getString(R.string.log_notice_low_memory_warning));
+        debug("onLowMemory() called");
     }
 
     private void clearNotifications() {

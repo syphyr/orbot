@@ -28,7 +28,6 @@
     <string name="snowflake_proxy_client_connected_msg">%s Kindness Mode helped someone circumvent censorship %s</string>
 
     <string name="log_notice_unable_to_update_onions">unable to upload onion names</string>
-    <string name="log_notice_low_memory_warning">Low memory warning!</string>
     <string name="log_notice_snowflake_proxy_enabled">Snowflake proxy mode enabled</string>
     <string name="log_notice_snowflake_proxy_disabled">Snowflake proxy mode disabled</string>
     <string name="log_notice_updating_torrc">Updating torrc custom configuration…</string>
