@@ -14,7 +14,6 @@
     <string name="couldn_t_start_tor_process_">Ahmo huel opehua Tor</string>
     <string name="your_reachableaddresses_settings_caused_an_exception_">¡Mocentiliz ReachableAddresses ye omochihua, yehce za iyopa!</string>
     <string name="your_relay_settings_caused_an_exception_">¡Mocentilis tepozteknolotilistli ye omochihua, yehce za iyopa!</string>
-    <string name="found_existing_tor_process">Otinamiqueh ce ayiliztli cenyuhqui quenime Tor &#8230;</string>
     <string name="unable_to_start_tor">Ahmo opehua Tor</string>
 
     <string name="newnym">¡Axan tiyancuitlacauh ica Tor! </string>
@@ -22,8 +21,6 @@
     <string name="updating_settings_in_tor_service">Mochihua yancuic in mocentilis ipan Tor</string>
 
     <string name="menu_new_identity">Yancuic in ixtli in yollotl </string>
-    <string name="waiting_for_control_port">Ticchiatocqueh in  huelititzalantli</string>
-    <string name="connecting_to_control_port">Nican xictencuiz huelititzalantli</string>
 
     <string name="kibibyte_per_second">KiB/s</string>
     <string name="mebibyte_per_second">MiB/s</string>
