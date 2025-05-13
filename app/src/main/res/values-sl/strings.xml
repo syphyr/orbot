@@ -35,6 +35,15 @@
     <string name="pref_proxy_username_summary">Uporabniško ime posrednika (neobvezno)</string>
     <string name="exit_nodes">Izhodna vozlišča</string>
     <string name="pref_proxy_port_summary">Vrata strežnika proxy</string>
+    <string name="relay_port">Relejna vrata</string>
+    <string name="enter_or_port">Vnesite vrata OR</string>
+    <string name="the_nickname_for_your_tor_relay">Vzdevek za rele Tor</string>
+    <string name="enter_a_custom_relay_nickname">Vnesite vzdevek releja po meri</string>
+    <string name="relays">Releji</string>
+    <string name="relaying">Posredovanje</string>
+    <string name="listening_port_for_your_tor_relay">Vrata za poslušanje releja Tor</string>
+    <string name="relay_nickname">Vzdevek štafete</string>
+    <string name="enable_your_device_to_be_a_non_exit_relay">Omogočite, da je vaša naprava posrednik brez izhoda</string>
     <string name="reachable_addresses">Dosegljivi naslovi</string>
     <string name="ports_reachable_behind_a_restrictive_firewall">Porti, dosegljivi za omejujočim požarnim zidom</string>
     <string name="third_party_software">Programska oprema tretje osebe:</string>

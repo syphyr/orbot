@@ -123,6 +123,15 @@
     <string name="enter_exclude_nodes">Jepni Nyja Përjashtimi</string>
     <string name="strict_nodes">Nyja Strikt</string>
     <string name="use_bridges">Përdorni Ura</string>
+    <string name="relays">Rele</string>
+    <string name="relaying">Përdorim Relesh</string>
+    <string name="relay_port">Portë Releje</string>
+    <string name="listening_port_for_your_tor_relay">Portë përgjimi për relenë tuaj Tor</string>
+    <string name="enter_or_port">Jepni portë OR</string>
+    <string name="relay_nickname">Nofkë releje</string>
+    <string name="the_nickname_for_your_tor_relay">Nofka për relenë tuaj Tor</string>
+    <string name="enter_a_custom_relay_nickname">Jepni një nofkë vetjake për relenë</string>
+    <string name="enable_your_device_to_be_a_non_exit_relay">Aktivizojeni pajisjen tuaj të jetë një rele jo-dalje</string>
     <string name="reachable_addresses">Adresa të Kapshme</string>
     <string name="reachable_ports">Porta të kapshme</string>
     <string name="enter_ports">Jepni porta</string>
