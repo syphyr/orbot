@@ -43,6 +43,15 @@
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Otisci prstiju, nadimci, države i adrese koje ne treba uključiti</string>
     <string name="enter_exclude_nodes">Unesi Čvorove koje treba isključiti</string>
     <string name="strict_nodes">Striktni Čvorovi</string>
+    <string name="relays">Releji</string>
+    <string name="relaying">Prenošenje</string>
+    <string name="enable_your_device_to_be_a_non_exit_relay">Omogućite svom uređaju da bude ne-izlazni relej</string>
+    <string name="relay_port">Relej Port</string>
+    <string name="listening_port_for_your_tor_relay">Port za slušanje Vašeg Tor releja</string>
+    <string name="enter_or_port">Unesi OR port</string>
+    <string name="relay_nickname">Nadimak releja</string>
+    <string name="the_nickname_for_your_tor_relay">Nadimak za Vaš Tor relej</string>
+    <string name="enter_a_custom_relay_nickname">Unesi prilagođeni nadimak releja</string>
     <string name="reachable_addresses">Dostupne Adrese</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Pokreni kao klijent iza firewall-a sa restriktivnim pravilima</string>
     <string name="reachable_ports">Dostupni portovi</string>

@@ -36,6 +36,12 @@
     <string name="smart_connect">Խելացի միացում (լռելայն)</string>
     <string name="not_sure">Վստահ չե՞ք</string>
     <string name="menu_log">Մատյան</string>
+    <string name="relays">Հերթափոխություններ</string>
+    <string name="relaying">Հերթափոխում</string>
+    <string name="relay_nickname">Հերթափոխության մականուն</string>
+    <string name="the_nickname_for_your_tor_relay">Ձեր Tor-ի հերթափոխության մականունը</string>
+    <string name="relay_port">Հերթափոխության մատույց</string>
+    <string name="enter_a_custom_relay_nickname">Մուտքագրեք հերթափոխության հարմարեցված մականունը</string>
     <string name="setting_debug">Վրիպազերծում</string>
     <string name="reachable_ports">Մատչելի մատույցներ</string>
     <string name="pref_proxy_host_title">Արտագնա փոխանորդի հյուրընկալ</string>
