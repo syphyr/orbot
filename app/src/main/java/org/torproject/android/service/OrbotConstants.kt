@@ -7,6 +7,9 @@ object OrbotConstants {
 
     const val ACTION_STOP = "org.torproject.android.intent.action.STOP"
 
+    const val PREF_OR = "pref_or"
+    const val PREF_OR_PORT = "pref_or_port"
+    const val PREF_OR_NICKNAME = "pref_or_nickname"
     const val PREF_REACHABLE_ADDRESSES = "pref_reachable_addresses"
     const val PREF_REACHABLE_ADDRESSES_PORTS = "pref_reachable_addresses_ports"
 
