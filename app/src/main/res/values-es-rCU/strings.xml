@@ -17,7 +17,6 @@
     <string name="app_description">Orbot es una aplicación proxy gratuita que habilita otras aplicaciones para que usen Internet de forma más segura. Orbot usa Tor para encriptar el tráfico y luego lo esconde rebotando a través de una serie de computadoras alrededor del mundo. Tor es un software libre y una red abierta que te protege contra formas de vigilancia en la red que amenazan la libertad personal, la privacidad, actividades y relaciones comerciales confidenciales, y el estado de seguridad conocido como análisis de tráfico.</string>
     <string name="error">Error</string>
     <string name="fingerprints_nicks_countries_and_addresses_for_the_last_hop">Huellas dactilares, nicks, países y direcciones para el último salto</string>
-    <string name="enter_a_custom_relay_nickname">Introduzca un apodo de repetidor personalizado</string>
     <string name="project_home">Inicio del proyecto:</string>
     <string name="pref_start_boot_summary">Ejecutar Orbot automáticamente y conectar Tor al iniciar el dispositivo</string>
     <string name="pref_node_configuration">Configuración de nodos</string>
@@ -51,14 +50,6 @@
     <string name="strict_nodes">Nodos estrictos</string>
     <string name="bridges">Puentes</string>
     <string name="use_bridges">Usar Puentes</string>
-    <string name="relays">Repetidores</string>
-    <string name="relaying">Repitiendo</string>
-    <string name="enable_your_device_to_be_a_non_exit_relay">Permite que tu dispositivo sea un repetidor de no-salida</string>
-    <string name="relay_port">Puerto Repetidor</string>
-    <string name="listening_port_for_your_tor_relay">Puerto de escucha para tu repetidor de Tor</string>
-    <string name="enter_or_port">Entrar puerto OR</string>
-    <string name="relay_nickname">Apodo de Repetidor</string>
-    <string name="the_nickname_for_your_tor_relay">Apodo de tu repetidor de Tor</string>
     <string name="reachable_addresses">Direcciones alcanzables</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Correr como cliente detrás de un cortafuegos con políticas restrictivas</string>
     <string name="reachable_ports">Puertos alcanzables</string>

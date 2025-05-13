@@ -52,15 +52,6 @@
   <string name="strict_nodes_description">Mɵi tɵmmera wampik kɵtrɵmariklan, srɵitɵ circuitos tamaramiku ash. Trek marmupene, chi wan kɵpen tap marɵp pasramisrmɵntrapik kɵn. </string>
   <string name="bridges">Chi kɵpen purentrai piuntsik mera</string>
   <string name="use_bridges">Piuntsik meran kemɵr</string>
-  <string name="relays">Nak srup, kemesrɵpelɵ</string>
-  <string name="relaying">katɵpurɵ wam lasrpitsamik.</string>
-  <string name="enable_your_device_to_be_a_non_exit_relay">Nak srup, kemesrɵpelɵ mupurap kucha latrpichimɵntrai mar.</string>
-  <string name="relay_port">Nak srup, kemesrɵp karup srɵl</string>
-  <string name="listening_port_for_your_tor_relay">wam meran mɵra tretɵwai latrpichip srɵl Toryu</string>
-  <string name="enter_or_port">Puerto OR keramik</string>
-  <string name="relay_nickname">Munchi pɵnsra yunɵmarɵp ampinuk</string>
-  <string name="the_nickname_for_your_tor_relay">Toryu munchi pasrik</string>
-  <string name="enter_a_custom_relay_nickname">Naisuimai nunchimera pɵnsra wam meran lelatsamik</string>
   <string name="reachable_addresses">Chu pumikwan eshkapelan kepampamtelɵ</string>
   <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Lutɵ meran mu ashmɵntrai isua malsrɵp ampamik </string>
   <string name="reachable_ports">Chi lutɵ meran kɵpen maramik kepampamtik srɵlmera </string>
