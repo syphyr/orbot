@@ -28,7 +28,6 @@
     <string name="snowflake_proxy_client_connected_msg">%sMocepayahuiproxy otepalehui oquitzicuini ahmo huelmati%s</string>
 
     <string name="log_notice_unable_to_update_onions">Ahmo huel xictlecahuiz xonacatl itocalhuan</string>
-    <string name="log_notice_low_memory_warning">¡Ihuaniamatlacuiloli, ocachi tlamantli ahmo actica motepoznonotza!</string>
     <string name="log_notice_snowflake_proxy_enabled">Yuhcayotl proxy Snowflake neconiliztli</string>
     <string name="log_notice_snowflake_proxy_disabled">Yuhcayotl proxy Snowflake ahmo neconiliztli</string>
     <string name="log_notice_updating_torrc">Mocentiliz torrc quenime mitzpactia, papatica.</string>

@@ -28,7 +28,6 @@
     <string name="snowflake_proxy_client_connected_msg">%sPuuproxinka copo de nieve munaka amuliajús wayuu jupula nainjuin tu nainrreka.%s</string>
 
     <string name="log_notice_unable_to_update_onions">Nojoluinjat  aitanüin junulia cewoolla.</string>
-    <string name="log_notice_low_memory_warning">Motée ainrüü</string>
     <string name="log_notice_snowflake_proxy_enabled">Proxy copo de nieve amuliajús jupula painruuín tu paiinrreka </string>
     <string name="log_notice_snowflake_proxy_disabled">proxinka copo de nieve Yokúuts</string>
     <string name="log_notice_updating_torrc">Jeketerr  tu anatiakal  tu ipünamiukal C</string>
