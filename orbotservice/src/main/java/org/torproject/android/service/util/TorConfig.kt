@@ -2,12 +2,16 @@ package org.torproject.android.service.util
 
 import android.content.ContextWrapper
 import android.content.SharedPreferences
+import android.util.Log
 import org.torproject.android.service.OrbotConstants.HTTP_PROXY_PORT_DEFAULT
 import org.torproject.android.service.OrbotConstants.PREF_CIRCUIT_PADDING
 import org.torproject.android.service.OrbotConstants.PREF_CONNECTION_PADDING
 import org.torproject.android.service.OrbotConstants.PREF_DISABLE_IPV4
 import org.torproject.android.service.OrbotConstants.PREF_DNSPORT
 import org.torproject.android.service.OrbotConstants.PREF_HTTP
+import org.torproject.android.service.OrbotConstants.PREF_OR
+import org.torproject.android.service.OrbotConstants.PREF_OR_PORT
+import org.torproject.android.service.OrbotConstants.PREF_OR_NICKNAME
 import org.torproject.android.service.OrbotConstants.PREF_ISOLATE_DEST
 import org.torproject.android.service.OrbotConstants.PREF_ISOLATE_KEEP_ALIVE
 import org.torproject.android.service.OrbotConstants.PREF_ISOLATE_PORT
@@ -141,9 +145,22 @@ object TorConfig {
         val enableStrictNodes = prefs?.getBoolean("pref_strict_nodes", false) ?: false
         conf.add("StrictNodes ${if (enableStrictNodes) "1" else "0"}")
 
-        if (prefs?.getBoolean(PREF_REACHABLE_ADDRESSES, false) ?: false) {
+        val reachableAddresses = prefs?.getBoolean(PREF_REACHABLE_ADDRESSES, false) ?: false
+        if (reachableAddresses) {
             val reachableAddressesPorts = prefs.getString(PREF_REACHABLE_ADDRESSES_PORTS, null) ?: "*:80,*:443"
             conf.add("ReachableAddresses $reachableAddressesPorts")
+        }
+
+        val becomeRelay = prefs?.getBoolean(PREF_OR, false) ?: false
+        if (becomeRelay && transport == Transport.NONE && !reachableAddresses) {
+            val orport = prefs?.getString(PREF_OR_PORT, null) ?: "9001"
+            val nickname = prefs?.getString(PREF_OR_NICKNAME, "OrbotRelay")
+            conf.add("ORPort $orport")
+            conf.add("Nickname $nickname")
+            conf.add("ExitPolicy reject *:*")
+        } else if (becomeRelay) {
+            val TAG = "TorConfig"
+            Log.e(TAG, "Unable to start relay. Disable all Bridges, Reachable Addresses, and Reduced Padding.")
         }
 
         if (Prefs.hostOnionServicesEnabled()) {
