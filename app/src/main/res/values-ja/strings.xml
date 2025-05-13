@@ -36,6 +36,15 @@
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">除外するフィンガープリント、Nickname、国と IP アドレス</string>
     <string name="enter_exclude_nodes">除外ノードを入力</string>
     <string name="strict_nodes">Strictノード</string>
+    <string name="relays">リレー</string>
+    <string name="relaying">リレーになる</string>
+    <string name="enable_your_device_to_be_a_non_exit_relay">この端末を非出口リレーにする</string>
+    <string name="relay_port">リレーのポート</string>
+    <string name="listening_port_for_your_tor_relay">この Tor リレーのリスニングポート</string>
+    <string name="enter_or_port">OR ポートを入力</string>
+    <string name="relay_nickname">リレーの Nickname</string>
+    <string name="the_nickname_for_your_tor_relay">この Tor リレーの Nickname</string>
+    <string name="enter_a_custom_relay_nickname">リレーのカスタム Nickname を入力</string>
     <string name="reachable_addresses">到達可能アドレス</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">制限付きのポリシーを持つファイアウォールの背後で、クライアントとして実行する</string>
     <string name="reachable_ports">到達可能ポート</string>
