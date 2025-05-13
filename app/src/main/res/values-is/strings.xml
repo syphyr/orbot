@@ -57,6 +57,15 @@
     <string name="strict_nodes">Ófrávíkjanlegir punktar</string>
     <string name="bridges">Brýr</string>
     <string name="use_bridges">Nota brýr</string>
+    <string name="relays">Endurvarpar</string>
+    <string name="relaying">Endurvörpun</string>
+    <string name="enable_your_device_to_be_a_non_exit_relay">Leyfa tækinu þínu að vera útgangslaus endurvarpi</string>
+    <string name="relay_port">Endurvörpunargátt</string>
+    <string name="listening_port_for_your_tor_relay">Hlustunargátt fyrir Tor-endurvarpann þinn</string>
+    <string name="enter_or_port">Settu inn OR-gátt</string>
+    <string name="relay_nickname">Gælunafn endurvörpunar</string>
+    <string name="the_nickname_for_your_tor_relay">Viðurnefni fyrir Tor-endurvarpið þitt</string>
+    <string name="enter_a_custom_relay_nickname">Settu inn sérsniðið viðurnefni á endurvarp</string>
     <string name="reachable_addresses">Vistföng sem næst í</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Keyra sem biðlari á bakvið eldvegg með hamlandi skilyrðum</string>
     <string name="reachable_ports">Gáttir sem næst í</string>
