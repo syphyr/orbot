@@ -39,6 +39,15 @@
     <string name="exclude_nodes">צמתים מוחרגים</string>
     <string name="enter_exclude_nodes">הזן צמתים מוחרגים</string>
     <string name="strict_nodes">הקפדה על צמתים</string>
+    <string name="relays">ממסרים</string>
+    <string name="relaying">ממסור</string>
+    <string name="enable_your_device_to_be_a_non_exit_relay">אפשר למכשיר שלך להיות תחנת ממסר שאיננה יציאה</string>
+    <string name="relay_port">פורט הממסר</string>
+    <string name="listening_port_for_your_tor_relay">פורט מאזין עבור Tor relay</string>
+    <string name="enter_or_port">נא למלא פתחת OR</string>
+    <string name="relay_nickname">כינוי הממסר</string>
+    <string name="the_nickname_for_your_tor_relay">הכינוי לממסר Tor שלך</string>
+    <string name="enter_a_custom_relay_nickname">נא למלא כינוי לממסר</string>
     <string name="reachable_addresses">כתובות נגישות</string>
     <string name="reachable_ports">פתחות נגישות</string>
     <string name="enter_ports">נא למלא פתחות</string>
