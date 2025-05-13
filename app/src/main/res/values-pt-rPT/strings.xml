@@ -132,6 +132,15 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Ativar os registos de depuração para saída (deve usar adb ou aLogCat para ver)</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Executar como um cliente atrás de um firewall com políticas restritivas</string>
     <string name="reachable_addresses">Endereços Atingíveis</string>
+    <string name="relays">Retransmissores</string>
+    <string name="enter_or_port">Inserir OU porta</string>
+    <string name="enter_a_custom_relay_nickname">Insira um apelido de retransmissão customizado</string>
+    <string name="the_nickname_for_your_tor_relay">O apelido para o seu retransmissor Tor</string>
+    <string name="relay_nickname">Apelido do retransmissor</string>
+    <string name="listening_port_for_your_tor_relay">Ouvindo a porta do seu retransmissor Tor</string>
+    <string name="relay_port">Porta Retransmissora</string>
+    <string name="enable_your_device_to_be_a_non_exit_relay">Ativar o seu aparelho para ser um retransmissor de sem saída</string>
+    <string name="relaying">Retransmitindo</string>
     <string name="strict_nodes">Nós Estritos</string>
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Impressões digitais, apelidos, países e endereços para excluir</string>
     <string name="fingerprints_nicks_countries_and_addresses_for_the_last_hop">Impressões digitais, apelidos, países e endereços para a última etapa</string>

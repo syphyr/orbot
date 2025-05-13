@@ -29,6 +29,15 @@
     <string name="name">Name</string>
     <string name="disable">Disable</string>
     <string name="pref_general_group">General</string>
+    <string name="relay_port">Relay Port</string>
+    <string name="the_nickname_for_your_tor_relay">The nickname for your Tor relay</string>
+    <string name="relay_nickname">Relay nickname</string>
+    <string name="enter_or_port">Enter OR port</string>
+    <string name="enable_your_device_to_be_a_non_exit_relay">Allow your device to be a non-exit relay</string>
+    <string name="enter_a_custom_relay_nickname">Enter a custom relay nickname</string>
+    <string name="relays">Relays</string>
+    <string name="relaying">Relaying</string>
+    <string name="listening_port_for_your_tor_relay">Listening port for your Tor relay</string>
     <string name="hidden_service_request">An app wants to open onion server on port %1$s to the Tor network. This is safe if you trust the app.</string>
     <string name="allow">Allow</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Open Proxy on All Interfaces</string>

@@ -114,6 +114,15 @@
     <string name="strict_nodes">Üýtgemeýän Düwünler</string>
     <string name="bridges">Köpriler</string>
     <string name="use_bridges">Köprileri Ulan</string>
+    <string name="relay_port">Releý Porty</string>
+    <string name="listening_port_for_your_tor_relay">Tor relýeňiziň diňleýiş porty</string>
+    <string name="the_nickname_for_your_tor_relay">Tor relýeňiz üçin lakam</string>
+    <string name="enter_a_custom_relay_nickname">Ýörite releý lakamyny giriň</string>
+    <string name="enable_your_device_to_be_a_non_exit_relay">Enjamyňyzy çykyşsyz releý hökmünde işlediň</string>
+    <string name="relay_nickname">Releý lakamy</string>
+    <string name="relays">Releýler</string>
+    <string name="relaying">Releýlenýär</string>
+    <string name="enter_or_port">OR portyna giriň</string>
     <string name="reachable_addresses">Elýeterli Salgylar</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Çäklendiriji syýasatlar bilen gorag diwarynyň arkasynda müşderi hökmünde işlemek</string>
     <string name="reachable_ports">Elýeterli portlar</string>

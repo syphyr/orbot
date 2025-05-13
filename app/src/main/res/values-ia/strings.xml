@@ -97,6 +97,7 @@
     <string name="btn_configure">Selige le typo de connexion</string>
     <string name="menu_log">Registro</string>
     <string name="exit_nodes">Nodos de sortita</string>
+    <string name="enter_or_port">Insere le porto OR</string>
     <string name="menu_kindness">Amabilitate</string>
     <string name="use_qr_code">Usar un codice QR</string>
     <string name="pref_node_configuration_summary">Iste es parametros avantiate que pote reducer tu anonymitate</string>
