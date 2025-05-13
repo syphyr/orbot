@@ -56,15 +56,6 @@
     <string name="strict_nodes">Задължителни възли</string>
     <string name="bridges">Мостове</string>
     <string name="use_bridges">Използване на мостове</string>
-    <string name="relays">Препращане</string>
-    <string name="relaying">Препращане</string>
-    <string name="enable_your_device_to_be_a_non_exit_relay">Устройството да бъде неизходен препращач</string>
-    <string name="relay_port">Порт за препращане</string>
-    <string name="listening_port_for_your_tor_relay">Порт за слушане при препращане на Тор</string>
-    <string name="enter_or_port">Въведете порт на OR</string>
-    <string name="relay_nickname">Псевдоним на препращача</string>
-    <string name="the_nickname_for_your_tor_relay">Псевдоним на вашия препращач на Тор</string>
-    <string name="enter_a_custom_relay_nickname">Въведете псевдонима</string>
     <string name="reachable_addresses">Достижими адреси</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Стартиране като клиент зад защитна стена с ограничителна политика</string>
     <string name="reachable_ports">Достъпни портове</string>

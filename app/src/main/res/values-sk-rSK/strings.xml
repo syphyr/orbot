@@ -36,7 +36,6 @@
     <string name="delete_service">Odstránenie služby</string>
     <string name="in_a_browser">V prehliadači navštívte stránku %s a ťuknite na položky Získať mosty &gt; Len mi daj mosty!</string>
     <string name="exit_nodes">Výstupné uzly</string>
-    <string name="relays">Relé</string>
     <string name="pref_prefer_ipv6">Uprednostňovanie pripojení IPv6</string>
     <string name="app_shortcuts">Aplikácie s podporou Tor</string>
     <string name="use_custom_bridges">Používanie vlastných mostov</string>
@@ -87,13 +86,6 @@
     <string name="strict_nodes">Prísne uzly</string>
     <string name="bridges">Mosty</string>
     <string name="use_bridges">Používanie mostov</string>
-    <string name="relaying">Sprostredkovanie</string>
-    <string name="enable_your_device_to_be_a_non_exit_relay">Povolenie zariadenia ako non-exit relé</string>
-    <string name="relay_port">Reléový port</string>
-    <string name="listening_port_for_your_tor_relay">Počúvací port pre relé Tor</string>
-    <string name="enter_or_port">Zadajte port OR</string>
-    <string name="the_nickname_for_your_tor_relay">Prezývka vášho relé Tor</string>
-    <string name="enter_a_custom_relay_nickname">Zadajte vlastnú prezývku relé</string>
     <string name="version">Verzia:</string>
     <string name="hidden_service_request">Aplikácia chce otvoriť cibuľový server na porte %1$s do siete Tor. Je to bezpečné, ak aplikácii dôverujete.</string>
     <string name="reachable_addresses">Dosiahnuteľné adresy</string>
@@ -179,7 +171,6 @@
     <string name="pref_proxy_type_summary">Protokol, ktorý sa má použiť pre proxy server: HTTP, HTTPS, SOCKS4, SOCKS5</string>
     <string name="pref_allow_background_starts_summary">Nechajte ľubovoľnú aplikáciu povedať Orbotu, aby spustil Tor a súvisiace služby</string>
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Odtlačky prstov, zárezy, krajiny a adresy na vylúčenie</string>
-    <string name="relay_nickname">Štafetová prezývka</string>
     <string name="pref_proxy_title">Odchádzajúci sieťový proxy server (voliteľné)</string>
     <string name="pref_proxy_username_summary">Používateľské meno proxy servera (voliteľné)</string>
     <string name="send_email">Odoslať e-mail</string>
