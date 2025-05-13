@@ -16,7 +16,6 @@ Torpe kan software kɵn mayaelai chi anwei kɵmɵ, incha chu puisrɵ, kape chu p
     <string name="couldn_t_start_tor_process_">Torwan p­‎​ɵlpasrtrap kaimeik pasran</string>
     <string name="your_reachableaddresses_settings_caused_an_exception_">ReachableAddresses wan tamartrentikpe nɵrɵ pek tamarik kenamisran</string>
     <string name="your_relay_settings_caused_an_exception_">Relay wan tamartrentikpe nɵrɵ pek tamarik kenamisran</string>
-    <string name="found_existing_tor_process">Wetɵtraik kenamisran Tor&#8230; </string>
     <string name="unable_to_start_tor">Torpe pɵlpasrtrap kaiman</string>
 
     <string name="newnym">Tor maik kenamisrɵpik kuipe yunɵmaran</string>
@@ -24,8 +23,6 @@ Torpe kan software kɵn mayaelai chi anwei kɵmɵ, incha chu puisrɵ, kape chu p
     <string name="updating_settings_in_tor_service">Toryu srɵitɵ tamaramelɵ</string>
 
     <string name="menu_new_identity">Srɵitɵ malɵ kena maramik</string>
-    <string name="waiting_for_control_port">Puerto de controlwan munirap</string>
-    <string name="connecting_to_control_port">Puerto de controlyu kelichip</string>
 
     <string name="kibibyte_per_second">KiB/s</string>
     <string name="mebibyte_per_second">MiB/s</string>
