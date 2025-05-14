@@ -322,7 +322,6 @@ class AppManagerActivity : AppCompatActivity(), View.OnClickListener {
                         }
                     }
                 } catch (e: Exception) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace()
                 }
 

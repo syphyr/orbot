@@ -62,7 +62,12 @@ class AboutDialogFragment : DialogFragment() {
                 aboutText = aboutText.replace(equalsBlockRegex, "")
 
                 val spannableAboutText = SpannableStringBuilder(aboutText)
-                spannableAboutText.setSpan(StyleSpan(Typeface.BOLD), 0, aboutText.indexOf("\n"), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                spannableAboutText.setSpan(
+                    StyleSpan(Typeface.BOLD),
+                    0,
+                    aboutText.indexOf("\n"),
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
 
                 tvAbout.text = spannableAboutText
             } catch (e: IOException) {

@@ -4,7 +4,6 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
-import org.torproject.android.service.util.Prefs
 import org.torproject.android.service.util.Utils
 import java.text.Collator
 import java.util.*
@@ -17,7 +16,7 @@ class ExitNodeDialogFragment(private val callback: ExitNodeSelectedCallback) : D
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val currentExit = Prefs.getExitNodes().replace("\\{", "").replace("\\}", "")
+//        val currentExit = Prefs.getExitNodes().replace("\\{", "").replace("\\}", "")
         val sortedCountries = TreeMap<String, Locale>(Collator.getInstance())
         COUNTRY_CODES.forEach {
             val locale = Locale("", it)
