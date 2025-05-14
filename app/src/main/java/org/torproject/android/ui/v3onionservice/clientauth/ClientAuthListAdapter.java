@@ -33,7 +33,9 @@ public class ClientAuthListAdapter extends CursorAdapter {
         int id = cursor.getInt(cursor.getColumnIndex(ClientAuthContentProvider.V3ClientAuth._ID));
         final String where = ClientAuthContentProvider.V3ClientAuth._ID + "=" + id;
         TextView domain = view.findViewById(R.id.cookie_onion);
-        String url = cursor.getString(cursor.getColumnIndex(ClientAuthContentProvider.V3ClientAuth.DOMAIN)) + ".onion";
+        String url = cursor.getString(cursor.getColumnIndex(ClientAuthContentProvider.V3ClientAuth.DOMAIN));
+        if (url.length() > 10)
+            url = url.substring(0, 10) + "…" + "  .onion";
         domain.setText(url);
         SwitchCompat enabled = view.findViewById(R.id.cookie_switch);
         enabled.setChecked(cursor.getInt(cursor.getColumnIndex(ClientAuthContentProvider.V3ClientAuth.ENABLED)) == 1);
