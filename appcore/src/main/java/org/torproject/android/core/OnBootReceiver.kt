@@ -13,10 +13,8 @@ class OnBootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         try {
             if (Prefs.startOnBoot() && !sReceivedBoot) {
-                //   if (isNetworkAvailable(context)) {
-                startService(OrbotConstants.ACTION_START, context)
+                startService(context)
                 sReceivedBoot = true
-                // }
             }
         }
         catch (re: java.lang.RuntimeException) {
@@ -24,10 +22,10 @@ class OnBootReceiver : BroadcastReceiver() {
         }
     }
 
-    private fun startService(action: String, context: Context) {
+    private fun startService(context: Context) {
         try {
             val intent = Intent(context, OrbotService::class.java).apply {
-                this.action = action
+                this.action = OrbotConstants.ACTION_START
             }.putNotSystem()
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                 context.startForegroundService(intent)
