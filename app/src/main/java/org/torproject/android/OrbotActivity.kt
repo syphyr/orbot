@@ -229,7 +229,6 @@ class OrbotActivity : BaseActivity() {
     override fun onResume() {
         super.onResume()
         sendIntentToService(OrbotConstants.CMD_ACTIVE)
-        LocaleHelper.onAttach(this)
     }
 
     override fun onDestroy() {
@@ -253,9 +252,6 @@ class OrbotActivity : BaseActivity() {
             fragConnect.refreshMenuList(this)
         }
     }
-
-//    override fun attachBaseContext(newBase: Context) =
-  //      super.attachBaseContext(LocaleHelper.onAttach(newBase))
 
     var allCircumventionAttemptsFailed = false
 
