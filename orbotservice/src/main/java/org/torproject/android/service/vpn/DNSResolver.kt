@@ -9,7 +9,7 @@ class DNSResolver(private val mPort: Int) {
     private var mLocalhost: InetAddress? = null
 
     @Throws(IOException::class)
-    fun processDNS(payload: ByteArray): ByteArray {
+    fun processDNS(payload: ByteArray): ByteArray? {
         if (mLocalhost == null) mLocalhost = InetAddress.getLocalHost()
 
         var packet = DatagramPacket(payload, payload.size, mLocalhost, mPort)
