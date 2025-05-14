@@ -20,7 +20,6 @@ public class Utils {
             socket.close();
             return true;
         } catch (Exception ex) {
-            //ex.printStackTrace();
             return false;
         }
     }
