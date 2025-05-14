@@ -6,7 +6,6 @@
     android:background="@color/new_background"
     android:orientation="vertical"
     android:duplicateParentState="true"
-    android:paddingTop="140dp"
     >
 
     <ProgressBar
