@@ -21,7 +21,6 @@ import android.widget.ListAdapter
 import android.widget.ProgressBar
 import android.widget.TextView
 
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 
 import kotlinx.coroutines.CoroutineScope
@@ -39,8 +38,9 @@ import org.torproject.android.service.vpn.TorifiedApp
 import java.util.Arrays
 import java.util.StringTokenizer
 import androidx.core.content.edit
+import org.torproject.android.core.ui.BaseActivity
 
-class AppManagerActivity : AppCompatActivity(), View.OnClickListener {
+class AppManagerActivity : BaseActivity(), View.OnClickListener {
     inner class TorifiedAppWrapper {
         var header: String? = null
         var subheader: String? = null

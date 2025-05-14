@@ -1,7 +1,6 @@
 package org.torproject.android.ui.v3onionservice;
 
 import android.content.ContentResolver;
-import android.content.Context;
 import android.content.Intent;
 import android.database.ContentObserver;
 import android.database.Cursor;
@@ -15,7 +14,6 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
@@ -23,9 +21,9 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.torproject.android.R;
 import org.torproject.android.core.DiskUtils;
-import org.torproject.android.core.LocaleHelper;
+import org.torproject.android.core.ui.BaseActivity;
 
-public class OnionServiceActivity extends AppCompatActivity {
+public class OnionServiceActivity extends BaseActivity {
 
     static final String BUNDLE_KEY_ID = "id", BUNDLE_KEY_PORT = "port", BUNDLE_KEY_DOMAIN = "domain", BUNDLE_KEY_PATH = "path";
     private static final String BASE_WHERE_SELECTION_CLAUSE = OnionServiceContentProvider.OnionService.CREATED_BY_USER + "=";
@@ -88,11 +86,6 @@ public class OnionServiceActivity extends AppCompatActivity {
         }
         mAdapter.changeCursor(mContentResolver.query(OnionServiceContentProvider.CONTENT_URI, OnionServiceContentProvider.PROJECTION,
                 BASE_WHERE_SELECTION_CLAUSE + predicate, null, null));
-    }
-
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(LocaleHelper.onAttach(base));
     }
 
     @Override
