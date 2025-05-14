@@ -3,6 +3,7 @@ package org.torproject.android
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -36,23 +37,14 @@ class MoreFragment : Fragment() {
 
     private lateinit var tvStatus: TextView
 
-    @Deprecated("Deprecated in Java")
-    override fun onAttach(activity: Activity) {
-        super.onAttach(activity)
-        //(activity as OrbotActivity).fragMore = this
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
 
-        httpPort = (activity as OrbotActivity).portHttp
-        socksPort = activity.portSocks
+        httpPort = (context as OrbotActivity).portHttp
+        socksPort = context.portSocks
 
         if (view != null) updateStatus()
     }
-
-    /**
-    fun setPorts(newHttpPort: Int, newSocksPort: Int) {
-    httpPort = newHttpPort
-    socksPort = newSocksPort
-    if (view != null) updateStatus()
-    }**/
 
     private fun updateStatus() {
         val sb = StringBuilder()
@@ -60,8 +52,7 @@ class MoreFragment : Fragment() {
         sb.append(getString(R.string.proxy_ports)).append(" ")
 
         if (httpPort != -1 && socksPort != -1) {
-            sb.append("\nHTTP: ").append(httpPort).append(" - ").append(" SOCKS: ")
-                .append(socksPort)
+            sb.append("\nHTTP: ").append(httpPort).append(" -  SOCKS: ").append(socksPort)
         } else {
             sb.append(": " + getString(R.string.ports_not_set))
         }
