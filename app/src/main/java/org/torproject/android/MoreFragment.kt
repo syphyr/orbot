@@ -36,6 +36,7 @@ class MoreFragment : Fragment() {
 
     private lateinit var tvStatus: TextView
 
+    @Deprecated("Deprecated in Java")
     override fun onAttach(activity: Activity) {
         super.onAttach(activity)
         //(activity as OrbotActivity).fragMore = this
@@ -48,9 +49,9 @@ class MoreFragment : Fragment() {
 
     /**
     fun setPorts(newHttpPort: Int, newSocksPort: Int) {
-        httpPort = newHttpPort
-        socksPort = newSocksPort
-        if (view != null) updateStatus()
+    httpPort = newHttpPort
+    socksPort = newSocksPort
+    if (view != null) updateStatus()
     }**/
 
     private fun updateStatus() {
@@ -90,26 +91,34 @@ class MoreFragment : Fragment() {
         val ivMascot = view.findViewById<ImageView>(R.id.ivMascot)
 
         val listItems = listOf(
+            OrbotMenuAction(R.string.menu_settings, R.drawable.ic_settings_gear) {
+                activity?.startActivityForResult(
+                    Intent(context, SettingsActivity::class.java), REQUEST_CODE_SETTINGS
+                )
+            },
+            OrbotMenuAction(R.string.system_vpn_settings, R.drawable.ic_settings_gear) {
+                activity?.startActivity(
+                    Intent("android.net.vpn.SETTINGS")
+                        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                )
+            },
+            OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
+                activity?.startActivityForResult(
+                    Intent(requireActivity(), AppManagerActivity::class.java),
+                    REQUEST_VPN_APP_SELECT
+                )
+            },
+            OrbotMenuAction(R.string.menu_log, R.drawable.ic_log) { showLog() },
             OrbotMenuAction(R.string.v3_hosted_services, R.drawable.ic_menu_onion) {
                 startActivity(Intent(requireActivity(), OnionServiceActivity::class.java))
             },
             OrbotMenuAction(R.string.v3_client_auth_activity_title, R.drawable.ic_shield) {
                 startActivity(Intent(requireActivity(), ClientAuthActivity::class.java))
             },
-            OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
-                activity?.startActivityForResult(
-                    Intent(requireActivity(), AppManagerActivity::class.java), REQUEST_VPN_APP_SELECT
-                )
-            },
-            OrbotMenuAction(R.string.menu_settings, R.drawable.ic_settings_gear) {
-                activity?.startActivityForResult(
-                    Intent(context, SettingsActivity::class.java), REQUEST_CODE_SETTINGS
-                )
-            },
-            OrbotMenuAction(R.string.menu_log, R.drawable.ic_log) { showLog() },
             OrbotMenuAction(R.string.menu_about, R.drawable.ic_about) {
                 AboutDialogFragment().show(
-                    requireActivity().supportFragmentManager, AboutDialogFragment.TAG
+                    requireActivity().supportFragmentManager,
+                    AboutDialogFragment.TAG
                 )
             },
             OrbotMenuAction(R.string.menu_exit, R.drawable.ic_exit) { doExit() }
