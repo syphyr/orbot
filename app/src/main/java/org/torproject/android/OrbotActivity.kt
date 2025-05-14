@@ -23,7 +23,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scottyab.rootbeer.RootBeer
 
-import org.torproject.android.core.LocaleHelper
 import org.torproject.android.core.sendIntentToService
 import org.torproject.android.core.ui.BaseActivity
 import org.torproject.android.service.OrbotConstants
@@ -48,21 +47,18 @@ class OrbotActivity : BaseActivity() {
         lastSelectedItemId = savedInstanceState?.getInt(KEY_SELECTED_TAB) ?: lastSelectedItemId
         previousReceivedTorStatus = savedInstanceState?.getString(KEY_TOR_STATUS)
 
-        if (!Prefs.enableRotation()) {
-            /* TODO TODO TODO TODO TODO
+        if (!Prefs.enableRotation()) {/* TODO TODO TODO TODO TODO
             Currently there are a lot of problems wiht landscape mode and bugs resulting from
             rotation. To this end, Orbot will be locked into either portrait or landscape
             if the device is a tablet (whichever the app is set when an activity is created)
             until these things are fixed. On smaller devices it's just portrait...
             */
             val isTablet =
-                resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK >=
-                        Configuration.SCREENLAYOUT_SIZE_LARGE
+                resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK >= Configuration.SCREENLAYOUT_SIZE_LARGE
             requestedOrientation = if (isTablet) {
                 val currentOrientation = resources.configuration.orientation
                 val lockedInOrientation =
-                    if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE)
-                        ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                    if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
                     else ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
                 lockedInOrientation
             } else ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
@@ -100,7 +96,8 @@ class OrbotActivity : BaseActivity() {
             navController.navigate(lastSelectedItemId)
         }
 
-        findViewById<BottomNavigationView>(R.id.bottom_navigation).selectedItemId = lastSelectedItemId
+        findViewById<BottomNavigationView>(R.id.bottom_navigation).selectedItemId =
+            lastSelectedItemId
     }
 
     private fun createOrbot() {
@@ -114,19 +111,13 @@ class OrbotActivity : BaseActivity() {
 
         bottomNavigationView.selectedItemId = lastSelectedItemId
 
-        val navOptionsLeftToRight = NavOptions.Builder()
-            .setEnterAnim(R.anim.slide_in_right)
-            .setExitAnim(R.anim.slide_out_left)
-            .setPopEnterAnim(R.anim.slide_in_right)
-            .setPopExitAnim(R.anim.slide_out_left)
-            .build()
+        val navOptionsLeftToRight = NavOptions.Builder().setEnterAnim(R.anim.slide_in_right)
+            .setExitAnim(R.anim.slide_out_left).setPopEnterAnim(R.anim.slide_in_right)
+            .setPopExitAnim(R.anim.slide_out_left).build()
 
-        val navOptionsRightToLeft = NavOptions.Builder()
-            .setEnterAnim(R.anim.slide_in_left)
-            .setExitAnim(R.anim.slide_out_right)
-            .setPopEnterAnim(R.anim.slide_in_left)
-            .setPopExitAnim(R.anim.slide_out_right)
-            .build()
+        val navOptionsRightToLeft = NavOptions.Builder().setEnterAnim(R.anim.slide_in_left)
+            .setExitAnim(R.anim.slide_out_right).setPopEnterAnim(R.anim.slide_in_left)
+            .setPopExitAnim(R.anim.slide_out_right).build()
 
         bottomNavigationView.setOnItemSelectedListener { item ->
             if (item.itemId == lastSelectedItemId) {
@@ -140,8 +131,14 @@ class OrbotActivity : BaseActivity() {
             }
 
             when (item.itemId) {
-                R.id.connectFragment -> navController.navigate(R.id.connectFragment, null, navOptions)
-                R.id.kindnessFragment -> navController.navigate(R.id.kindnessFragment, null, navOptions)
+                R.id.connectFragment -> navController.navigate(
+                    R.id.connectFragment, null, navOptions
+                )
+
+                R.id.kindnessFragment -> navController.navigate(
+                    R.id.kindnessFragment, null, navOptions
+                )
+
                 R.id.moreFragment -> navController.navigate(R.id.moreFragment, null, navOptions)
             }
 
@@ -169,17 +166,10 @@ class OrbotActivity : BaseActivity() {
 
         Prefs.initWeeklyWorker()
 
-        if (Prefs.detectRoot()) {
-            val rootBeer = RootBeer(this)
-            if (rootBeer.isRooted) {
-                //we found indication of root
-                val toast = Toast.makeText(
-                    applicationContext, getString(R.string.root_warning), Toast.LENGTH_LONG
-                )
-                toast.show()
-            } else {
-                //we didn't find indication of root
-            }
+        if (Prefs.detectRoot() && RootBeer(this).isRooted) {
+            //we found indication of root
+            Toast.makeText(applicationContext, getString(R.string.root_warning), Toast.LENGTH_LONG)
+                .show()
         }
     }
 
@@ -270,7 +260,9 @@ class OrbotActivity : BaseActivity() {
                                     previousReceivedTorStatus = status
                                     return
                                 }
-                                if (!Prefs.getConnectionPathway().equals(Prefs.PATHWAY_SMART) && fragConnect.isAdded && fragConnect.context != null) {
+                                if (!Prefs.getConnectionPathway()
+                                        .equals(Prefs.PATHWAY_SMART) && fragConnect.isAdded && fragConnect.context != null
+                                ) {
                                     fragConnect.doLayoutOff()
                                 }
                             } else if (fragConnect.isAdded && fragConnect.context != null) {
@@ -278,8 +270,14 @@ class OrbotActivity : BaseActivity() {
                             }
                         }
 
-                        OrbotConstants.STATUS_STARTING -> if (fragConnect.isAdded && fragConnect.context != null) fragConnect.doLayoutStarting(this@OrbotActivity)
-                        OrbotConstants.STATUS_ON -> if (fragConnect.isAdded && fragConnect.context != null) fragConnect.doLayoutOn(this@OrbotActivity)
+                        OrbotConstants.STATUS_STARTING -> if (fragConnect.isAdded && fragConnect.context != null) fragConnect.doLayoutStarting(
+                            this@OrbotActivity
+                        )
+
+                        OrbotConstants.STATUS_ON -> if (fragConnect.isAdded && fragConnect.context != null) fragConnect.doLayoutOn(
+                            this@OrbotActivity
+                        )
+
                         OrbotConstants.STATUS_STOPPING -> {}
                     }
 
