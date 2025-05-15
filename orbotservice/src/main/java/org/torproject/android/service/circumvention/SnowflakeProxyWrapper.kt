@@ -5,6 +5,7 @@ import IPtProxy.SnowflakeProxy
 import android.content.Context
 import android.os.Handler
 import android.widget.Toast
+import org.torproject.android.service.OrbotConstants.ONION_EMOJI
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.R
 import org.torproject.android.service.util.Prefs
@@ -16,8 +17,7 @@ class SnowflakeProxyWrapper(private val context: Context) {
     @Synchronized
     fun enableProxy(
         hasWifi: Boolean,
-        hasPower: Boolean,
-        onProxyConnected: SnowflakeClientConnected?
+        hasPower: Boolean
     ) {
         if (proxy != null) return
         if (Prefs.limitSnowflakeProxyingWifi() && !hasWifi) return
@@ -35,7 +35,7 @@ class SnowflakeProxyWrapper(private val context: Context) {
             stunServer = stunUrl
             relayUrl = OrbotService.getCdnFront("snowflake-relay-url")
             natProbeUrl = OrbotService.getCdnFront("snowflake-nat-probe")
-            clientConnected = onProxyConnected
+            clientConnected = SnowflakeClientConnected { onConnected() }
             start()
         }
 
@@ -62,5 +62,19 @@ class SnowflakeProxyWrapper(private val context: Context) {
                 ).show()
             }
         }
+    }
+
+    private fun onConnected() {
+        Prefs.addSnowflakeServed()
+        if (!Prefs.showSnowflakeProxyMessage()) return
+        val message: String = String.format(context.getString(R.string.snowflake_proxy_client_connected_msg), ONION_EMOJI, ONION_EMOJI)
+        Handler(context.mainLooper).post {
+            Toast.makeText(
+                context.applicationContext,
+                message,
+                Toast.LENGTH_LONG
+            ).show()
+        }
+
     }
 }
