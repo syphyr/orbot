@@ -33,7 +33,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
-import android.provider.BaseColumns;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
@@ -41,6 +40,8 @@ import android.widget.Toast;
 import net.freehaven.tor.control.TorControlCommands;
 import net.freehaven.tor.control.TorControlConnection;
 
+import org.torproject.android.service.db.OnionServiceColumns;
+import org.torproject.android.service.db.V3ClientAuthColumns;
 import org.torproject.android.service.util.Bridge;
 import org.torproject.android.service.util.CustomTorResourceInstaller;
 import org.torproject.android.service.util.PowerConnectionReceiver;
@@ -82,7 +83,6 @@ import androidx.core.app.ServiceCompat;
 import androidx.core.content.ContextCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
-
 /**
  * @noinspection CallToPrintStackTrace
  */
@@ -98,8 +98,6 @@ public class OrbotService extends VpnService {
     private static Uri V3_ONION_SERVICES_CONTENT_URI = null;//Uri.parse("content://org.torproject.android.ui.v3onionservice/v3");
     private static Uri V3_CLIENT_AUTH_URI = null;//Uri.parse("content://org.torproject.android.ui.v3onionservice.clientauth/v3auth");
     private final static String NOTIFICATION_CHANNEL_ID = "orbot_channel_1";
-    private static final String[] V3_ONION_SERVICE_PROJECTION = new String[]{OnionService._ID, OnionService.NAME, OnionService.DOMAIN, OnionService.PORT, OnionService.ONION_PORT, OnionService.ENABLED, OnionService.PATH};
-    private static final String[] V3_CLIENT_AUTH_PROJECTION = new String[]{V3ClientAuth._ID, V3ClientAuth.DOMAIN, V3ClientAuth.HASH, V3ClientAuth.ENABLED};
 
     public static int mPortSOCKS = -1;
     public static int mPortHTTP = -1;
@@ -270,7 +268,7 @@ public class OrbotService extends VpnService {
     @Override
     public void onDestroy() {
         try {
-            unregisterReceiver(mActionBroadcastReceiver);\
+            unregisterReceiver(mActionBroadcastReceiver);
             unregisterReceiver(mPowerReceiver);
         } catch (IllegalArgumentException iae) {
             //not registered yet
@@ -884,9 +882,9 @@ public class OrbotService extends VpnService {
         if (onionServices != null) {
             try {
                 while (onionServices.moveToNext()) {
-                    var domain_index = onionServices.getColumnIndex(OnionService.DOMAIN);
-                    var path_index = onionServices.getColumnIndex(OnionService.PATH);
-                    var id_index = onionServices.getColumnIndex(OnionService._ID);
+                    var domain_index = onionServices.getColumnIndex(OnionServiceColumns.DOMAIN);
+                    var path_index = onionServices.getColumnIndex(OnionServiceColumns.PATH);
+                    var id_index = onionServices.getColumnIndex(OnionServiceColumns._ID);
                     if (domain_index < 0 || path_index < 0 || id_index < 0) continue;
                     var domain = onionServices.getString(domain_index);
                     if (domain == null || TextUtils.isEmpty(domain)) {
@@ -897,8 +895,8 @@ public class OrbotService extends VpnService {
                             int id = onionServices.getInt(id_index);
                             domain = Utils.readInputStreamAsString(new FileInputStream(hostname)).trim();
                             var fields = new ContentValues();
-                            fields.put(OnionService.DOMAIN, domain);
-                            contentResolver.update(V3_ONION_SERVICES_CONTENT_URI, fields, OnionService._ID + "=" + id, null);
+                            fields.put(OnionServiceColumns.DOMAIN, domain);
+                            contentResolver.update(V3_ONION_SERVICES_CONTENT_URI, fields, OnionServiceColumns._ID + "=" + id, null);
                         }
                     }
                 }
@@ -1266,14 +1264,14 @@ public class OrbotService extends VpnService {
 
     private void addV3OnionServicesToTorrc(StringBuffer torrc, ContentResolver contentResolver) {
         try {
-            var onionServices = contentResolver.query(V3_ONION_SERVICES_CONTENT_URI, V3_ONION_SERVICE_PROJECTION, OnionService.ENABLED + "=1", null, null);
+            var onionServices = contentResolver.query(V3_ONION_SERVICES_CONTENT_URI, OnionServiceColumns.V3_ONION_SERVICE_PROJECTION, OnionServiceColumns.ENABLED + "=1", null, null);
             if (onionServices != null) {
                 while (onionServices.moveToNext()) {
-                    var id_index = onionServices.getColumnIndex(OnionService._ID);
-                    var port_index = onionServices.getColumnIndex(OnionService.PORT);
-                    var onion_port_index = onionServices.getColumnIndex(OnionService.ONION_PORT);
-                    var path_index = onionServices.getColumnIndex(OnionService.PATH);
-                    var domain_index = onionServices.getColumnIndex(OnionService.DOMAIN);
+                    var id_index = onionServices.getColumnIndex(OnionServiceColumns._ID);
+                    var port_index = onionServices.getColumnIndex(OnionServiceColumns.PORT);
+                    var onion_port_index = onionServices.getColumnIndex(OnionServiceColumns.ONION_PORT);
+                    var path_index = onionServices.getColumnIndex(OnionServiceColumns.PATH);
+                    var domain_index = onionServices.getColumnIndex(OnionServiceColumns.DOMAIN);
                     // Ensure that are have all the indexes before trying to use them
                     if (id_index < 0 || port_index < 0 || onion_port_index < 0 || path_index < 0 || domain_index < 0)
                         continue;
@@ -1288,8 +1286,8 @@ public class OrbotService extends VpnService {
                         if (domain == null) path += UUID.randomUUID().toString();
                         else path += localPort;
                         var cv = new ContentValues();
-                        cv.put(OnionService.PATH, path);
-                        contentResolver.update(V3_ONION_SERVICES_CONTENT_URI, cv, OnionService._ID + "=" + id, null);
+                        cv.put(OnionServiceColumns.PATH, path);
+                        contentResolver.update(V3_ONION_SERVICES_CONTENT_URI, cv, OnionServiceColumns._ID + "=" + id, null);
                     }
                     var v3DirPath = new File(mV3OnionBasePath.getAbsolutePath(), path).getCanonicalPath();
                     torrc.append("HiddenServiceDir ").append(v3DirPath).append("\n")
@@ -1308,7 +1306,7 @@ public class OrbotService extends VpnService {
     }
 
     private void addV3ClientAuthToTorrc(StringBuffer torrc, ContentResolver contentResolver) {
-        var v3auths = contentResolver.query(V3_CLIENT_AUTH_URI, V3_CLIENT_AUTH_PROJECTION, V3ClientAuth.ENABLED + "=1", null, null);
+        var v3auths = contentResolver.query(V3_CLIENT_AUTH_URI, V3ClientAuthColumns.V3_CLIENT_AUTH_PROJECTION, V3ClientAuthColumns.ENABLED + "=1", null, null);
         if (v3auths != null) {
             for (File file : mV3AuthBasePath.listFiles()) {
                 if (!file.isDirectory())
@@ -1318,8 +1316,8 @@ public class OrbotService extends VpnService {
             try {
                 int i = 0;
                 while (v3auths.moveToNext()) {
-                    var domain_index = v3auths.getColumnIndex(V3ClientAuth.DOMAIN);
-                    var hash_index = v3auths.getColumnIndex(V3ClientAuth.HASH);
+                    var domain_index = v3auths.getColumnIndex(V3ClientAuthColumns.DOMAIN);
+                    var hash_index = v3auths.getColumnIndex(V3ClientAuthColumns.HASH);
                     // Ensure that are have all the indexes before trying to use them
                     if (domain_index < 0 || hash_index < 0) continue;
                     var domain = v3auths.getString(domain_index);
@@ -1415,22 +1413,6 @@ public class OrbotService extends VpnService {
             }
         }
     }
-
-    public static final class OnionService implements BaseColumns {
-        public static final String NAME = "name";
-        public static final String PORT = "port";
-        public static final String ONION_PORT = "onion_port";
-        public static final String DOMAIN = "domain";
-        public static final String ENABLED = "enabled";
-        public static final String PATH = "filepath";
-    }
-
-    public static final class V3ClientAuth implements BaseColumns {
-        public static final String DOMAIN = "domain";
-        public static final String HASH = "hash";
-        public static final String ENABLED = "enabled";
-    }
-
 
     private class IncomingIntentRouter implements Runnable {
         final Intent mIntent;
