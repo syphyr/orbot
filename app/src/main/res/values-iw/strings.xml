@@ -263,7 +263,7 @@
     <string name="snowflake_proxy_msg_description">להציג הודעה כשעזרת למישהו לעקוף את הצנזורה</string>
     <string name="kindess_config_detail">הגדרת כיצד ומתי המכשיר שלך יוכל לפעול כמתווך של Snowflake לטובת משתמשי Tor אחרים.</string>
     <string name="smart_connect_subtitle">אורבוט מנסה להתחבר ל־Tor בכל דרך זמינה: ישירה, Snowflake, גשר.</string>
-    <string name="v3_backup_key_warning">אזהרה: עלול לחשוף את המפתח שלך לאפליקציות אחרות</string>
+    <string name="v3_backup_key_warning">אזהרה: עלול לחשוף את המפתח שלך ליישומונים אחרים</string>
     <string name="v3_delete_client_authorization">מחיקת מפתח הרשאת לקוח</string>
     <string name="incorrect_solution">פתרון שגוי</string>
     <string name="bridge_snowflake_amp">התחברות דרך משתמשי Tor אחרים באמצעות Snowflake (שיטה 2 - AMP)</string>
