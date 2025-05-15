@@ -1,6 +1,7 @@
 package org.torproject.android.service.circumvention
 
 import IPtProxy.Controller
+import IPtProxy.IPtProxy
 import android.content.Context
 import android.util.Log
 import org.torproject.android.service.OrbotService
@@ -21,14 +22,14 @@ object SnowflakeClient {
             iPtProxy.snowflakeFrontDomains = front
             iPtProxy.snowflakeIceServers = stunServer
             iPtProxy.snowflakeMaxPeers = 1
-            iPtProxy.start(IPtProxy.IPtProxy.Snowflake, "")
+            iPtProxy.start(IPtProxy.Snowflake, "")
         } catch (e: Exception) {
             throw RuntimeException(e)
         }
     }
 
     @JvmStatic
-    fun startWithAmpRendezvous(iPtProxy: IPtProxy.Controller) {
+    fun startWithAmpRendezvous(iPtProxy: Controller) {
         val stunServers = OrbotService.getCdnFront("snowflake-stun")
         val target = OrbotService.getCdnFront("snowflake-target-direct")
         val front = OrbotService.getCdnFront("snowflake-amp-front")
@@ -39,7 +40,7 @@ object SnowflakeClient {
             iPtProxy.snowflakeIceServers = stunServers
             iPtProxy.snowflakeAmpCacheUrl = ampCache
             iPtProxy.snowflakeMaxPeers = 1
-            iPtProxy.start(IPtProxy.IPtProxy.Snowflake, "")
+            iPtProxy.start(IPtProxy.Snowflake, "")
         } catch (e: Exception) {
             throw RuntimeException(e)
         }
@@ -47,11 +48,16 @@ object SnowflakeClient {
 
     @JvmStatic
     fun stop(iPtProxy: Controller) {
-        iPtProxy.stop(IPtProxy.IPtProxy.Snowflake)
+        iPtProxy.stop(IPtProxy.Snowflake)
     }
 
     @JvmStatic
-    fun getBrokers(context: Context) : List<String>{
+    fun getClientTransportPluginTorrcLine(iPtProxy: Controller) : String{
+        return "ClientTransportPlugin snowflake socks5 127.0.0.1:${iPtProxy.port(IPtProxy.Snowflake)}\n"
+    }
+
+    @JvmStatic
+    fun getLocalBrokers(context: Context) : List<String>{
         val brokers = ArrayList<String>()
         try {
             val reader = BufferedReader(InputStreamReader(context.assets.open("snowflake-brokers")))
