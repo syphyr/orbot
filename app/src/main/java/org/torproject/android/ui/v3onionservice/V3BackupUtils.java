@@ -171,8 +171,8 @@ public class V3BackupUtils {
             Toast.makeText(mContext, R.string.error, Toast.LENGTH_LONG).show();
             return;
         }
-        fields.put(ClientAuthContentProvider.   V3ClientAuth.DOMAIN, split[0]);
-        fields.put(ClientAuthContentProvider.V3ClientAuth.HASH, split[3]);
+        fields.put(V3ClientAuthColumns.DOMAIN, split[0]);
+        fields.put(V3ClientAuthColumns.HASH, split[3]);
         mResolver.insert(ClientAuthContentProvider.CONTENT_URI, fields);
         Toast.makeText(mContext, R.string.backup_restored, Toast.LENGTH_LONG).show();
     }

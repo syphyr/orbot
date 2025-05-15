@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import org.torproject.android.R;
 import org.torproject.android.core.DiskUtils;
 import org.torproject.android.core.ui.BaseActivity;
+import org.torproject.android.service.db.V3ClientAuthColumns;
 import org.torproject.android.ui.v3onionservice.V3BackupUtils;
 
 import java.util.List;
@@ -58,9 +59,9 @@ public class ClientAuthActivity extends BaseActivity {
         auths.setOnItemClickListener((parent, view, position, id) -> {
             Cursor item = (Cursor) parent.getItemAtPosition(position);
             Bundle args = new Bundle();
-            args.putInt(BUNDLE_KEY_ID, item.getInt(item.getColumnIndex(ClientAuthContentProvider.V3ClientAuth._ID)));
-            args.putString(BUNDLE_KEY_DOMAIN, item.getString(item.getColumnIndex(ClientAuthContentProvider.V3ClientAuth.DOMAIN)));
-            args.putString(BUNDLE_KEY_HASH, item.getString(item.getColumnIndex(ClientAuthContentProvider.V3ClientAuth.HASH)));
+            args.putInt(BUNDLE_KEY_ID, item.getInt(item.getColumnIndex(V3ClientAuthColumns._ID)));
+            args.putString(BUNDLE_KEY_DOMAIN, item.getString(item.getColumnIndex(V3ClientAuthColumns.DOMAIN)));
+            args.putString(BUNDLE_KEY_HASH, item.getString(item.getColumnIndex(V3ClientAuthColumns.HASH)));
             new ClientAuthActionsDialogFragment(args).show(getSupportFragmentManager(), ClientAuthActionsDialogFragment.class.getSimpleName());
         });
     }

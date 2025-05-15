@@ -9,6 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import org.torproject.android.R;
+import org.torproject.android.service.db.V3ClientAuthColumns;
 
 public class ClientAuthDeleteDialogFragment extends DialogFragment {
 
@@ -31,7 +32,7 @@ public class ClientAuthDeleteDialogFragment extends DialogFragment {
     private void doDelete() {
         assert getArguments() != null;
         int id = getArguments().getInt(ClientAuthActivity.BUNDLE_KEY_ID);
-        requireContext().getContentResolver().delete(ClientAuthContentProvider.CONTENT_URI, ClientAuthContentProvider.V3ClientAuth._ID + "=" + id, null);
+        requireContext().getContentResolver().delete(ClientAuthContentProvider.CONTENT_URI, V3ClientAuthColumns._ID + "=" + id, null);
     }
 
 }

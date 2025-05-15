@@ -13,15 +13,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.torproject.android.BuildConfig;
+import org.torproject.android.service.db.V3ClientAuthColumns;
 
 import java.util.Objects;
 
 public class ClientAuthContentProvider extends ContentProvider {
     public static final String[] PROJECTION = {
-            V3ClientAuth._ID,
-            V3ClientAuth.DOMAIN,
-            V3ClientAuth.HASH,
-            V3ClientAuth.ENABLED,
+            V3ClientAuthColumns._ID,
+            V3ClientAuthColumns.DOMAIN,
+            V3ClientAuthColumns.HASH,
+            V3ClientAuthColumns.ENABLED,
     };
     private static final String AUTH = BuildConfig.APPLICATION_ID + ".ui.v3onionservice.clientauth";
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTH + "/v3auth");
@@ -92,14 +93,5 @@ public class ClientAuthContentProvider extends ContentProvider {
         return rows;
     }
 
-    public static final class V3ClientAuth implements BaseColumns {
-        private V3ClientAuth() {
-        } // no-op
-
-        public static final String
-                DOMAIN = "domain",
-                HASH = "hash",
-                ENABLED = "enabled";
-    }
 
 }
