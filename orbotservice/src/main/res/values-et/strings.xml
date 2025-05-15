@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">Orbot</string>
-    <string name="status_starting_up">Orbot käivitub...</string>
+    <string name="status_starting_up">Orbot käivitub…</string>
   <string name="status_activated">Ühendatud Tor võrgustikku</string>
   <string name="status_disabled">Orbot deaktiveeritud</string>
     <!--Welcome Wizard strings (DJH)-->
