@@ -41,8 +41,9 @@ class SnowflakeProxyWrapper(private val context: Context) {
 
         if (Prefs.showSnowflakeProxyMessage()) {
             val message = context.getString(R.string.log_notice_snowflake_proxy_enabled)
-            Handler(context.mainLooper)
-                .post(Toast.makeText(context.applicationContext, message, Toast.LENGTH_LONG)::show)
+            Handler(context.mainLooper).post {
+                Toast.makeText(context.applicationContext, message, Toast.LENGTH_LONG).show()
+            }
         }
     }
 

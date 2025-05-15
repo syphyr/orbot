@@ -68,6 +68,8 @@ object OrbotConstants {
      */
     const val ACTION_STATUS = TorService.ACTION_STATUS
 
+    const val ACTION_ERROR = TorService.ACTION_ERROR
+
     /**
      * `String` that contains a status constant: [.STATUS_ON],
      * [.STATUS_OFF], [.STATUS_STARTING], or

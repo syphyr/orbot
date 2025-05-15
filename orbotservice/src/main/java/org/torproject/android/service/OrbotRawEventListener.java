@@ -87,14 +87,13 @@ public class OrbotRawEventListener implements RawEventListener {
     private void handleBandwidth(long read, long written) {
         String message = formatBandwidthCount(mService, read) + " ↓ / " + formatBandwidthCount(mService, written) + " ↑";
 
-        if (mService.getCurrentStatus().equals(TorService.STATUS_ON))
+        if (mService.mCurrentStatus.equals(TorService.STATUS_ON))
             mService.showBandwidthNotification(message, read != 0 || written != 0);
 
         mTotalBandwidthWritten += written;
         mTotalBandwidthRead += read;
 
         mService.sendCallbackBandwidth(written, read, mTotalBandwidthWritten, mTotalBandwidthRead);
-
     }
 
     private void handleNewDescriptors(String[] descriptors) {

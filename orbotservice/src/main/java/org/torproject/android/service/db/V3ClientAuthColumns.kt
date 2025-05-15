@@ -6,7 +6,6 @@ import android.net.Uri
 import android.provider.BaseColumns
 import android.util.Log
 import androidx.core.net.toUri
-import org.torproject.android.service.OrbotService
 import java.io.File
 import java.io.FileOutputStream
 
@@ -35,7 +34,6 @@ object V3ClientAuthColumns : BaseColumns {
         for (file in v3AuthBasePath.listFiles()) {
             if (!file.isDirectory) file.delete() // todo the adapter should maybe just write these files and not do this in service...
         }
-        torrc.append("ClientOnionAuthDir " + v3AuthBasePath.getAbsolutePath()).append('\n')
         var i = 0
         try {
             while (v3auths.moveToNext()) {
@@ -51,6 +49,9 @@ object V3ClientAuthColumns : BaseColumns {
                 fos.write(buildV3ClientAuthFile(domain, hash).toByteArray())
                 fos.close()
             }
+            if (i > 0)
+                torrc.append("ClientOnionAuthDir " + v3AuthBasePath.getAbsolutePath()).append('\n')
+
         } catch (e: Exception) {
             Log.e("V3ClientAuthColumns", "error adding v3 client auth...")
         } finally {
