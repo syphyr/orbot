@@ -22,11 +22,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import org.torproject.android.R;
 import org.torproject.android.core.DiskUtils;
 import org.torproject.android.core.ui.BaseActivity;
+import org.torproject.android.service.db.OnionServiceColumns;
 
 public class OnionServiceActivity extends BaseActivity {
 
     static final String BUNDLE_KEY_ID = "id", BUNDLE_KEY_PORT = "port", BUNDLE_KEY_DOMAIN = "domain", BUNDLE_KEY_PATH = "path";
-    private static final String BASE_WHERE_SELECTION_CLAUSE = OnionServiceContentProvider.OnionService.CREATED_BY_USER + "=";
+    private static final String BASE_WHERE_SELECTION_CLAUSE = OnionServiceColumns.CREATED_BY_USER + "=";
     private static final String BUNDLE_KEY_SHOW_USER_SERVICES = "show_user_key";
     private static final int REQUEST_CODE_READ_ZIP_BACKUP = 347;
     private RadioButton radioShowUserServices;
@@ -51,7 +52,7 @@ public class OnionServiceActivity extends BaseActivity {
         fab.setOnClickListener(v -> new OnionServiceCreateDialogFragment().show(getSupportFragmentManager(), OnionServiceCreateDialogFragment.class.getSimpleName()));
 
         mContentResolver = getContentResolver();
-        mAdapter = new OnionV3ListAdapter(this, mContentResolver.query(OnionServiceContentProvider.CONTENT_URI, OnionServiceContentProvider.PROJECTION, BASE_WHERE_SELECTION_CLAUSE + '1', null, null));
+        mAdapter = new OnionV3ListAdapter(this, mContentResolver.query(OnionServiceContentProvider.CONTENT_URI, OnionServiceColumns.getV3_ONION_SERVICE_PROJECTION(), BASE_WHERE_SELECTION_CLAUSE + '1', null, null));
         mContentResolver.registerContentObserver(OnionServiceContentProvider.CONTENT_URI, true, new OnionServiceObserver(new Handler()));
 
         ListView onionList = findViewById(R.id.onion_list);
@@ -66,10 +67,10 @@ public class OnionServiceActivity extends BaseActivity {
         onionList.setOnItemClickListener((parent, view, position, id) -> {
             Cursor item = (Cursor) parent.getItemAtPosition(position);
             Bundle arguments = new Bundle();
-            arguments.putInt(BUNDLE_KEY_ID, item.getInt(item.getColumnIndex(OnionServiceContentProvider.OnionService._ID)));
-            arguments.putString(BUNDLE_KEY_PORT, item.getString(item.getColumnIndex(OnionServiceContentProvider.OnionService.PORT)));
-            arguments.putString(BUNDLE_KEY_DOMAIN, item.getString(item.getColumnIndex(OnionServiceContentProvider.OnionService.DOMAIN)));
-            arguments.putString(BUNDLE_KEY_PATH, item.getString(item.getColumnIndex(OnionServiceContentProvider.OnionService.PATH)));
+            arguments.putInt(BUNDLE_KEY_ID, item.getInt(item.getColumnIndex(OnionServiceColumns._ID)));
+            arguments.putString(BUNDLE_KEY_PORT, item.getString(item.getColumnIndex(OnionServiceColumns.PORT)));
+            arguments.putString(BUNDLE_KEY_DOMAIN, item.getString(item.getColumnIndex(OnionServiceColumns.DOMAIN)));
+            arguments.putString(BUNDLE_KEY_PATH, item.getString(item.getColumnIndex(OnionServiceColumns.PATH)));
             OnionServiceActionsDialogFragment dialog = new OnionServiceActionsDialogFragment(arguments);
             dialog.show(getSupportFragmentManager(), OnionServiceActionsDialogFragment.class.getSimpleName());
         });
@@ -84,7 +85,7 @@ public class OnionServiceActivity extends BaseActivity {
             predicate = "0";
             fab.hide();
         }
-        mAdapter.changeCursor(mContentResolver.query(OnionServiceContentProvider.CONTENT_URI, OnionServiceContentProvider.PROJECTION,
+        mAdapter.changeCursor(mContentResolver.query(OnionServiceContentProvider.CONTENT_URI, OnionServiceColumns.getV3_ONION_SERVICE_PROJECTION(),
                 BASE_WHERE_SELECTION_CLAUSE + predicate, null, null));
     }
 
@@ -139,8 +140,8 @@ public class OnionServiceActivity extends BaseActivity {
     }
 
     void showBatteryOptimizationsMessageIfAppropriate() {
-        Cursor activeServices = getContentResolver().query(OnionServiceContentProvider.CONTENT_URI, OnionServiceContentProvider.PROJECTION,
-                OnionServiceContentProvider.OnionService.ENABLED + "=1", null, null);
+        Cursor activeServices = getContentResolver().query(OnionServiceContentProvider.CONTENT_URI, OnionServiceColumns.getV3_ONION_SERVICE_PROJECTION(),
+                OnionServiceColumns.ENABLED + "=1", null, null);
         if (activeServices == null) return;
         if (activeServices.getCount() > 0)
             PermissionManager.requestBatteryPermissions(this, mLayoutRoot);

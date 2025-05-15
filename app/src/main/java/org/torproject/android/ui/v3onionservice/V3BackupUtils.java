@@ -13,6 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.torproject.android.R;
 import org.torproject.android.service.OrbotConstants;
+import org.torproject.android.service.db.OnionServiceColumns;
 import org.torproject.android.service.db.V3ClientAuthColumns;
 import org.torproject.android.ui.v3onionservice.clientauth.ClientAuthContentProvider;
 
@@ -65,8 +66,8 @@ public class V3BackupUtils {
                 privKeyPath = v3BasePath + "hs_ed25519_secret_key",
                 pubKeyPath = v3BasePath + "hs_ed25519_public_key";
 
-        Cursor portData = mResolver.query(OnionServiceContentProvider.CONTENT_URI, OnionServiceContentProvider.PROJECTION,
-                OnionServiceContentProvider.OnionService.PATH + "=\"" + relativePath + "\"", null, null);
+        Cursor portData = mResolver.query(OnionServiceContentProvider.CONTENT_URI, OnionServiceColumns.getV3_ONION_SERVICE_PROJECTION(),
+                OnionServiceColumns.PATH + "=\"" + relativePath + "\"", null, null);
 
         JSONObject config = new JSONObject();
         try {
@@ -75,12 +76,12 @@ public class V3BackupUtils {
             portData.moveToNext();
 
 
-            config.put(OnionServiceContentProvider.OnionService.NAME, portData.getString(portData.getColumnIndex(OnionServiceContentProvider.OnionService.NAME)));
-            config.put(OnionServiceContentProvider.OnionService.PORT, portData.getString(portData.getColumnIndex(OnionServiceContentProvider.OnionService.PORT)));
-            config.put(OnionServiceContentProvider.OnionService.ONION_PORT, portData.getString(portData.getColumnIndex(OnionServiceContentProvider.OnionService.ONION_PORT)));
-            config.put(OnionServiceContentProvider.OnionService.DOMAIN, portData.getString(portData.getColumnIndex(OnionServiceContentProvider.OnionService.DOMAIN)));
-            config.put(OnionServiceContentProvider.OnionService.CREATED_BY_USER, portData.getString(portData.getColumnIndex(OnionServiceContentProvider.OnionService.CREATED_BY_USER)));
-            config.put(OnionServiceContentProvider.OnionService.ENABLED, portData.getString(portData.getColumnIndex(OnionServiceContentProvider.OnionService.ENABLED)));
+            config.put(OnionServiceColumns.NAME, portData.getString(portData.getColumnIndex(OnionServiceColumns.NAME)));
+            config.put(OnionServiceColumns.PORT, portData.getString(portData.getColumnIndex(OnionServiceColumns.PORT)));
+            config.put(OnionServiceColumns.ONION_PORT, portData.getString(portData.getColumnIndex(OnionServiceColumns.ONION_PORT)));
+            config.put(OnionServiceColumns.DOMAIN, portData.getString(portData.getColumnIndex(OnionServiceColumns.DOMAIN)));
+            config.put(OnionServiceColumns.CREATED_BY_USER, portData.getString(portData.getColumnIndex(OnionServiceColumns.CREATED_BY_USER)));
+            config.put(OnionServiceColumns.ENABLED, portData.getString(portData.getColumnIndex(OnionServiceColumns.ENABLED)));
 
             portData.close();
 
@@ -111,20 +112,20 @@ public class V3BackupUtils {
             JSONObject savedValues = new JSONObject(jsonString);
             ContentValues fields = new ContentValues();
 
-            int port = savedValues.getInt(OnionServiceContentProvider.OnionService.PORT);
-            fields.put(OnionServiceContentProvider.OnionService.PORT, port);
-            fields.put(OnionServiceContentProvider.OnionService.NAME, savedValues.getString(OnionServiceContentProvider.OnionService.NAME));
-            fields.put(OnionServiceContentProvider.OnionService.ONION_PORT, savedValues.getInt(OnionServiceContentProvider.OnionService.ONION_PORT));
-            fields.put(OnionServiceContentProvider.OnionService.DOMAIN, savedValues.getString(OnionServiceContentProvider.OnionService.DOMAIN));
-            fields.put(OnionServiceContentProvider.OnionService.CREATED_BY_USER, savedValues.getInt(OnionServiceContentProvider.OnionService.CREATED_BY_USER));
-            fields.put(OnionServiceContentProvider.OnionService.ENABLED, savedValues.getInt(OnionServiceContentProvider.OnionService.ENABLED));
+            int port = savedValues.getInt(OnionServiceColumns.PORT);
+            fields.put(OnionServiceColumns.PORT, port);
+            fields.put(OnionServiceColumns.NAME, savedValues.getString(OnionServiceColumns.NAME));
+            fields.put(OnionServiceColumns.ONION_PORT, savedValues.getInt(OnionServiceColumns.ONION_PORT));
+            fields.put(OnionServiceColumns.DOMAIN, savedValues.getString(OnionServiceColumns.DOMAIN));
+            fields.put(OnionServiceColumns.CREATED_BY_USER, savedValues.getInt(OnionServiceColumns.CREATED_BY_USER));
+            fields.put(OnionServiceColumns.ENABLED, savedValues.getInt(OnionServiceColumns.ENABLED));
 
-            Cursor dbService = mResolver.query(OnionServiceContentProvider.CONTENT_URI, OnionServiceContentProvider.PROJECTION,
-                    OnionServiceContentProvider.OnionService.PORT + "=" + port, null, null);
+            Cursor dbService = mResolver.query(OnionServiceContentProvider.CONTENT_URI, OnionServiceColumns.getV3_ONION_SERVICE_PROJECTION(),
+                    OnionServiceColumns.PORT + "=" + port, null, null);
             if (dbService == null || dbService.getCount() == 0)
                 mResolver.insert(OnionServiceContentProvider.CONTENT_URI, fields);
             else
-                mResolver.update(OnionServiceContentProvider.CONTENT_URI, fields, OnionServiceContentProvider.OnionService.PORT + "=" + port, null);
+                mResolver.update(OnionServiceContentProvider.CONTENT_URI, fields, OnionServiceColumns.PORT + "=" + port, null);
             dbService.close();
 
             configFile.delete();

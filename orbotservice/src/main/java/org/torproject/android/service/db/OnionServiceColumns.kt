@@ -13,15 +13,17 @@ import java.util.UUID
 import androidx.core.net.toUri
 
 object OnionServiceColumns : BaseColumns {
-    private const val NAME: String = "name"
-    private const val PORT: String = "port"
-    private const val ONION_PORT: String = "onion_port"
-    private const val DOMAIN: String = "domain"
-    private const val ENABLED: String = "enabled"
-    private const val PATH: String = "filepath"
+    const val NAME: String = "name"
+    const val PORT: String = "port"
+    const val ONION_PORT: String = "onion_port"
+    const val DOMAIN: String = "domain"
+    const val CREATED_BY_USER: String = "created_by_user"
+    const val ENABLED: String = "enabled"
+    const val PATH: String = "filepath"
 
-    private val V3_ONION_SERVICE_PROJECTION: Array<String> =
-        arrayOf(BaseColumns._ID, NAME, DOMAIN, PORT, ONION_PORT, ENABLED, PATH)
+    @JvmStatic
+    val V3_ONION_SERVICE_PROJECTION: Array<String> =
+        arrayOf(BaseColumns._ID, NAME, DOMAIN, PORT, ONION_PORT, CREATED_BY_USER, ENABLED, PATH)
 
     @JvmStatic
     fun addV3OnionServicesToTorrc(
