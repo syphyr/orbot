@@ -41,6 +41,7 @@ import net.freehaven.tor.control.TorControlCommands;
 import net.freehaven.tor.control.TorControlConnection;
 
 import org.torproject.android.service.circumvention.SnowflakeClient;
+import org.torproject.android.service.circumvention.SnowflakeProxyWrapper;
 import org.torproject.android.service.db.OnionServiceColumns;
 import org.torproject.android.service.db.V3ClientAuthColumns;
 import org.torproject.android.service.util.Bridge;
@@ -61,7 +62,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.PrintWriter;
-import java.security.SecureRandom;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -125,7 +125,6 @@ public class OrbotService extends VpnService {
     private boolean mHasWifi = false;
 
     private static Controller mIptProxy = null;
-    private SnowflakeProxy mSnowflakeProxy = null;
 
     public static synchronized Controller getIptProxyController(Context context) {
 
@@ -271,6 +270,7 @@ public class OrbotService extends VpnService {
         try {
             unregisterReceiver(mActionBroadcastReceiver);
             unregisterReceiver(mPowerReceiver);
+            mSnowflakeProxyWrapper.stopProxy(); // stop snowflake proxy if its somehow running
         } catch (IllegalArgumentException iae) {
             //not registered yet
         }
@@ -355,49 +355,10 @@ public class OrbotService extends VpnService {
         return mFronts.get(service);
     }
 
-    private void startSnowflakeClientAmpRendezvous() {
-
-    }
-
-    private final SecureRandom mSecureRandGen = new SecureRandom(); //used to randomly select STUN servers for snowflake
 
     public synchronized void enableSnowflakeProxy() { // This is to host a snowflake entrance node / bridge
-
-        if (Prefs.limitSnowflakeProxyingWifi() && (!mHasWifi))
-            return;
-
-        if (Prefs.limitSnowflakeProxyingCharging() && (!mHasPower))
-            return;
-
-        if (mSnowflakeProxy == null) {
-            var capacity = 1;
-            var pollInterval = 120;
-            var stunServers = getCdnFront("snowflake-stun").split(",");
-
-            int randomIndex = mSecureRandGen.nextInt(stunServers.length);
-            var stunUrl = stunServers[randomIndex];
-            var relayUrl = getCdnFront("snowflake-relay-url");
-            var natProbeUrl = getCdnFront("snowflake-nat-probe");
-            var brokerUrl = getCdnFront("snowflake-target-direct");
-
-            mSnowflakeProxy = new SnowflakeProxy();
-            mSnowflakeProxy.setBrokerUrl(brokerUrl);
-            mSnowflakeProxy.setCapacity(capacity);
-            mSnowflakeProxy.setPollInterval(pollInterval);
-            mSnowflakeProxy.setRelayUrl(relayUrl);
-            mSnowflakeProxy.setStunServer(stunUrl);
-            mSnowflakeProxy.setNatProbeUrl(natProbeUrl);
-
-            mSnowflakeProxy.setClientConnected(this::snowflakeProxyClientConnected);
-            mSnowflakeProxy.start();
-        }
-
+        mSnowflakeProxyWrapper.enableProxy(mHasWifi, mHasPower, this::snowflakeProxyClientConnected);
         logNotice(getString(R.string.log_notice_snowflake_proxy_enabled));
-
-        if (Prefs.showSnowflakeProxyMessage()) {
-            var message = getString(R.string.log_notice_snowflake_proxy_enabled);
-            new Handler(getMainLooper()).post(() -> Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show());
-        }
     }
 
     private void snowflakeProxyClientConnected() {
@@ -464,15 +425,8 @@ public class OrbotService extends VpnService {
     }
 
     public synchronized void disableSnowflakeProxy() {
-        if (mSnowflakeProxy == null) return;
-        mSnowflakeProxy.stop();
+        mSnowflakeProxyWrapper.stopProxy();
         logNotice(getString(R.string.log_notice_snowflake_proxy_disabled));
-
-        if (Prefs.showSnowflakeProxyMessage()) {
-            var message = getString(R.string.log_notice_snowflake_proxy_disabled);
-            new Handler(getMainLooper()).post(() -> Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show());
-        }
-        mSnowflakeProxy = null;
     }
 
     // if someone stops during startup, we may have to wait for the conn port to be setup, so we can properly shutdown tor
@@ -503,6 +457,8 @@ public class OrbotService extends VpnService {
             sendCallbackLogMessage(msg);
         }
     }
+
+    private SnowflakeProxyWrapper mSnowflakeProxyWrapper;
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @Override
@@ -583,6 +539,7 @@ public class OrbotService extends VpnService {
 
             enableSnowflakeProxyNetworkListener();
 
+            mSnowflakeProxyWrapper = new SnowflakeProxyWrapper(this);
             if (Prefs.beSnowflakeProxy()
                     && !(Prefs.limitSnowflakeProxyingCharging() || Prefs.limitSnowflakeProxyingWifi()))
                 enableSnowflakeProxy();
