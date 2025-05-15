@@ -1,7 +1,13 @@
 package org.torproject.android.service.circumvention
 
 import IPtProxy.Controller
+import android.content.Context
+import android.util.Log
 import org.torproject.android.service.OrbotService
+import java.io.BufferedReader
+import java.io.IOException
+import java.io.InputStreamReader
+import java.util.ArrayList
 
 object SnowflakeClient {
     @JvmStatic
@@ -42,5 +48,18 @@ object SnowflakeClient {
     @JvmStatic
     fun stop(iPtProxy: Controller) {
         iPtProxy.stop(IPtProxy.IPtProxy.Snowflake)
+    }
+
+    @JvmStatic
+    fun getBrokers(context: Context) : List<String>{
+        val brokers = ArrayList<String>()
+        try {
+            val reader = BufferedReader(InputStreamReader(context.assets.open("snowflake-brokers")))
+            reader.forEachLine { brokers.add(it) }
+            reader.close()
+        } catch (e: IOException) {
+            Log.e("SnowflakeClient", "$e")
+        }
+        return brokers
     }
 }

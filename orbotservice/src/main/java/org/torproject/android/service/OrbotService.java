@@ -150,12 +150,6 @@ public class OrbotService extends VpnService {
         showToolbarNotification(getString(R.string.status_activated), NOTIFY_ID, R.drawable.ic_stat_tor);
     }
 
-    @Override
-    public void onLowMemory() {
-        super.onLowMemory();
-        debug("onLowMemory() called");
-    }
-
     private void clearNotifications() {
         if (mNotificationManager != null) mNotificationManager.cancelAll();
         if (mOrbotRawEventListener != null) mOrbotRawEventListener.getNodes().clear();
@@ -308,19 +302,6 @@ public class OrbotService extends VpnService {
 
     private static HashMap<String, String> mFronts;
     private static List<String> mSnowflakeBridges;
-
-    public static void loadSnowflakeBridges(Context context) {
-        if (mSnowflakeBridges != null) return;
-        mSnowflakeBridges = new ArrayList<>();
-        try {
-            var reader = new BufferedReader(new InputStreamReader(context.getAssets().open("snowflake-brokers")));
-            String line;
-            while ((line = reader.readLine()) != null) mSnowflakeBridges.add(line);
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public static void loadCdnFronts(Context context) {
         if (mFronts != null) return;
@@ -502,7 +483,7 @@ public class OrbotService extends VpnService {
                 }
 
                 mVpnManager = new OrbotVpnManager(this);
-                loadSnowflakeBridges(this);
+                mSnowflakeBridges = SnowflakeClient.getBrokers(this);
                 loadCdnFronts(this);
             } catch (Exception e) {
                 Log.e(TAG, "Error setting up Orbot", e);
