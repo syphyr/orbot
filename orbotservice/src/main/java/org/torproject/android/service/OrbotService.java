@@ -1179,14 +1179,6 @@ public class OrbotService extends VpnService {
         showToolbarNotification(message, NOTIFY_ID, icon);
     }
 
-    public static String formatBandwidthCount(Context context, long bitsPerSecond) {
-        var nf = NumberFormat.getInstance(Locale.getDefault());
-        if (bitsPerSecond < 1e6)
-            return nf.format(Math.round(((float) ((int) (bitsPerSecond * 10 / 1024)) / 10))) + context.getString(R.string.kibibyte_per_second);
-        else
-            return nf.format(Math.round(((float) ((int) (bitsPerSecond * 100 / 1024 / 1024)) / 100))) + context.getString(R.string.mebibyte_per_second);
-    }
-
     private void addV3OnionServicesToTorrc(StringBuffer torrc, ContentResolver contentResolver) {
         try {
             var onionServices = contentResolver.query(V3_ONION_SERVICES_CONTENT_URI, OnionServiceColumns.V3_ONION_SERVICE_PROJECTION, OnionServiceColumns.ENABLED + "=1", null, null);
