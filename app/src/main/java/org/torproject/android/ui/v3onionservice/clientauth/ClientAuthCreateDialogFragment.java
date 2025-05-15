@@ -16,6 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
 import org.torproject.android.R;
+import org.torproject.android.service.db.V3ClientAuthColumns;
 
 public class ClientAuthCreateDialogFragment extends DialogFragment {
 
@@ -64,8 +65,8 @@ public class ClientAuthCreateDialogFragment extends DialogFragment {
         String onionName = sanitizeOnionDomainTextField();
         String hash = etKeyHash.getText().toString();
         ContentValues fields = new ContentValues();
-        fields.put(ClientAuthContentProvider.V3ClientAuth.DOMAIN, onionName);
-        fields.put(ClientAuthContentProvider.V3ClientAuth.HASH, hash);
+        fields.put(V3ClientAuthColumns.DOMAIN, onionName);
+        fields.put(V3ClientAuthColumns.HASH, hash);
         ContentResolver cr = context.getContentResolver();
         cr.insert(ClientAuthContentProvider.CONTENT_URI, fields);
         Toast.makeText(context, R.string.please_restart_Orbot_to_enable_the_changes, Toast.LENGTH_LONG).show();

@@ -10,11 +10,11 @@ import java.io.File
 import java.io.FileOutputStream
 
 object V3ClientAuthColumns : BaseColumns {
-    private const val DOMAIN: String = "domain"
-    private const val HASH: String = "hash"
-    private const val ENABLED: String = "enabled"
+    const val DOMAIN: String = "domain"
+    const val HASH: String = "hash"
+    const val ENABLED: String = "enabled"
 
-    private val V3_CLIENT_AUTH_PROJECTION: Array<String> = arrayOf(BaseColumns._ID, DOMAIN, HASH, ENABLED)
+    val V3_CLIENT_AUTH_PROJECTION: Array<String> = arrayOf(BaseColumns._ID, DOMAIN, HASH, ENABLED)
 
     @JvmStatic
     fun addClientAuthToTorrc(
