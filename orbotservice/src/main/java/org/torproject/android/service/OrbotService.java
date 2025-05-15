@@ -3,9 +3,7 @@
 
 package org.torproject.android.service;
 
-import static android.content.pm.ServiceInfo.FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED;
 import static org.torproject.android.service.OrbotConstants.*;
-import static org.torproject.jni.TorService.ACTION_ERROR;
 
 import android.annotation.SuppressLint;
 import android.app.Application;
@@ -20,6 +18,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.pm.ServiceInfo;
 import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.Network;
@@ -50,11 +49,9 @@ import org.torproject.android.service.util.Utils;
 import org.torproject.android.service.vpn.OrbotVpnManager;
 import org.torproject.jni.TorService;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -83,24 +80,18 @@ public class OrbotService extends VpnService {
 
     public final static String BINARY_TOR_VERSION = TorService.VERSION_NAME;
 
-    static final int NOTIFY_ID = 1;
-    private static final int ERROR_NOTIFY_ID = 3;
+    static final int NOTIFY_ID = 1, ERROR_NOTIFY_ID = 3;
 
-    //these will be set dynamically due to build flavors
     private final static String NOTIFICATION_CHANNEL_ID = "orbot_channel_1";
 
-    public static int mPortSOCKS = -1;
-    public static int mPortHTTP = -1;
-    public static int mPortDns = -1;
-    public static int mPortTrans = -1;
-    public static File appBinHome;
-    public static File appCacheHome;
+    public static int mPortSOCKS = -1, mPortHTTP = -1, mPortDns = -1, mPortTrans = -1;
+    public static File appBinHome, appCacheHome;
     private final ExecutorService mExecutor = Executors.newCachedThreadPool();
     OrbotRawEventListener mOrbotRawEventListener;
     OrbotVpnManager mVpnManager;
     Handler mHandler;
     ActionBroadcastReceiver mActionBroadcastReceiver;
-    private String mCurrentStatus = STATUS_OFF;
+    protected String mCurrentStatus = STATUS_OFF;
     TorControlConnection conn = null;
     private ServiceConnection torServiceConnection;
     private boolean shouldUnbindTorService;
@@ -110,37 +101,23 @@ public class OrbotService extends VpnService {
 
     private PowerConnectionReceiver mPowerReceiver;
 
-    private boolean mHasPower = false, mHasWifi= false;
+    private boolean mHasPower = false, mHasWifi = false;
 
     private static Controller mIptProxy = null;
 
     public static synchronized Controller getIptProxyController(Context context) {
-
         if (mIptProxy == null) {
             mIptProxy = IPtProxy.newController(context.getCacheDir().getPath(), true, false, "DEBUG", (s, e) ->
                     Log.e(TAG, "IPtProxy Error", e));
         }
-
         return mIptProxy;
     }
 
     public void debug(String msg) {
         Log.d(TAG, msg);
-
         if (Prefs.useDebugLogging()) {
             sendCallbackLogMessage(msg);
         }
-    }
-
-    public void logException(String msg, Exception e) {
-        if (Prefs.useDebugLogging()) {
-            Log.e(TAG, msg, e);
-            var baos = new ByteArrayOutputStream();
-            e.printStackTrace(new PrintStream(baos));
-
-            sendCallbackLogMessage(msg + '\n' + baos);
-        } else sendCallbackLogMessage(msg);
-
     }
 
     private void showConnectedToTorNetworkNotification() {
@@ -180,9 +157,8 @@ public class OrbotService extends VpnService {
         var title = getString(R.string.status_disabled);
         if (mCurrentStatus.equals(STATUS_STARTING) || notifyMsg.equals(getString(R.string.status_starting_up)))
             title = getString(R.string.status_starting_up);
-        else if (mCurrentStatus.equals(STATUS_ON)) {
+        else if (mCurrentStatus.equals(STATUS_ON))
             title = getString(R.string.status_activated);
-        }
 
         mNotifyBuilder.setContentTitle(title);
 
@@ -205,7 +181,7 @@ public class OrbotService extends VpnService {
             mNotifyBuilder.setProgress(0, 0, false); // removes progress bar
         }
 
-        ServiceCompat.startForeground(this, NOTIFY_ID, mNotifyBuilder.build(), FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED);
+        ServiceCompat.startForeground(this, NOTIFY_ID, mNotifyBuilder.build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED);
     }
 
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -312,23 +288,19 @@ public class OrbotService extends VpnService {
     }
 
     private void enableSnowflakeProxyNetworkListener() {
-        if (Prefs.limitSnowflakeProxyingWifi()) {
-            //check if on wifi
+        if (Prefs.limitSnowflakeProxyingWifi() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            connMgr.registerDefaultNetworkCallback(new ConnectivityManager.NetworkCallback() {
+                @Override // update if on wifi
+                public void onAvailable(@NonNull Network network) {
+                    checkNetworkForSnowflakeProxy();
+                }
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                connMgr.registerDefaultNetworkCallback(new ConnectivityManager.NetworkCallback() {
-                    @Override
-                    public void onAvailable(@NonNull Network network) {
-                        checkNetworkForSnowflakeProxy();
-                    }
-
-                    @Override
-                    public void onLost(@NonNull Network network) {
-                        checkNetworkForSnowflakeProxy();
-                    }
-                });
-            }
+                @Override // or if lost
+                public void onLost(@NonNull Network network) {
+                    checkNetworkForSnowflakeProxy();
+                }
+            });
         }
     }
 
@@ -493,94 +465,74 @@ public class OrbotService extends VpnService {
         getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
     }
 
-    protected String getCurrentStatus() {
-        return mCurrentStatus;
-    }
-
     private File updateTorrcCustomFile() throws IOException {
         var prefs = Prefs.getSharedPrefs(getApplicationContext());
-        var extraLines = new StringBuffer();
-
-        extraLines.append("\n");
-        extraLines.append("RunAsDaemon 0").append('\n');
-        extraLines.append("AvoidDiskWrites 1").append('\n');
+        var extraLines = new StringBuffer("RunAsDaemon 0\n")
+                .append("AvoidDiskWrites 1\n");
 
         var socksPortPref = prefs.getString(PREF_SOCKS, SOCKS_PROXY_PORT_DEFAULT);
         if (socksPortPref.indexOf(':') != -1) socksPortPref = socksPortPref.split(":")[1];
-
         socksPortPref = checkPortOrAuto(socksPortPref);
 
         var httpPortPref = prefs.getString(PREF_HTTP, HTTP_PROXY_PORT_DEFAULT);
         if (httpPortPref.indexOf(':') != -1) httpPortPref = httpPortPref.split(":")[1];
-
         httpPortPref = checkPortOrAuto(httpPortPref);
 
         var isolate = "";
-        if (prefs.getBoolean(PREF_ISOLATE_DEST, false)) {
+        if (prefs.getBoolean(PREF_ISOLATE_DEST, false))
             isolate += " IsolateDestAddr ";
-        }
-        if (prefs.getBoolean(PREF_ISOLATE_PORT, false)) {
+        if (prefs.getBoolean(PREF_ISOLATE_PORT, false))
             isolate += " IsolateDestPort ";
-        }
-        if (prefs.getBoolean(PREF_ISOLATE_PROTOCOL, false)) {
+        if (prefs.getBoolean(PREF_ISOLATE_PROTOCOL, false))
             isolate += " IsolateClientProtocol ";
-        }
-        if (prefs.getBoolean(PREF_ISOLATE_KEEP_ALIVE, false)) {
+        if (prefs.getBoolean(PREF_ISOLATE_KEEP_ALIVE, false))
             isolate += " KeepAliveIsolateSOCKSAuth ";
-        }
 
         var ipv6Pref = "";
-        if (prefs.getBoolean(PREF_PREFER_IPV6, true)) {
+        if (prefs.getBoolean(PREF_PREFER_IPV6, true))
             ipv6Pref += " IPv6Traffic PreferIPv6 ";
-        }
 
-        if (prefs.getBoolean(PREF_DISABLE_IPV4, false)) {
+        if (prefs.getBoolean(PREF_DISABLE_IPV4, false))
             ipv6Pref += " IPv6Traffic NoIPv4Traffic ";
-        }
 
         if (!Prefs.openProxyOnAllInterfaces()) {
-            extraLines.append("SOCKSPort ").append(socksPortPref).append(isolate).append(ipv6Pref).append('\n');
+            extraLines.append("SOCKSPort " + socksPortPref + ipv6Pref + isolate + "\n");
         } else {
             extraLines
-                    .append("SOCKSPort 0.0.0.0:").append(socksPortPref).append(ipv6Pref).append(isolate).append("\n")
+                    .append("SOCKSPort 0.0.0.0:" + socksPortPref + ipv6Pref + isolate + "\n")
                     .append("SocksPolicy accept *:*\n");
         }
-
         extraLines
                 .append("SafeSocks 0\n")
                 .append("TestSocks 0\n")
-                .append("HTTPTunnelPort ").append(httpPortPref).append(isolate).append('\n');
+                .append("HTTPTunnelPort " + httpPortPref + isolate + "\n");
 
-
-        if (prefs.getBoolean(PREF_CONNECTION_PADDING, false)) {
+        if (prefs.getBoolean(PREF_CONNECTION_PADDING, false))
             extraLines.append("ConnectionPadding 1\n");
-        }
 
-        if (prefs.getBoolean(PREF_REDUCED_CONNECTION_PADDING, true)) {
+
+        if (prefs.getBoolean(PREF_REDUCED_CONNECTION_PADDING, true))
             extraLines.append("ReducedConnectionPadding 1\n");
-        }
 
-        if (prefs.getBoolean(PREF_CIRCUIT_PADDING, true)) {
+
+        if (prefs.getBoolean(PREF_CIRCUIT_PADDING, true))
             extraLines.append("CircuitPadding 1\n");
-        } else {
+        else
             extraLines.append("CircuitPadding 0\n");
-        }
 
-        if (prefs.getBoolean(PREF_REDUCED_CIRCUIT_PADDING, true)) {
+        if (prefs.getBoolean(PREF_REDUCED_CIRCUIT_PADDING, true))
             extraLines.append("ReducedCircuitPadding 1\n");
-        }
 
         var transPort = prefs.getString(PREF_TRANSPORT, String.valueOf(TOR_TRANSPROXY_PORT_DEFAULT));
         var dnsPort = prefs.getString(PREF_DNSPORT, String.valueOf(TOR_DNS_PORT_DEFAULT));
 
-        extraLines.append("TransPort ").append(checkPortOrAuto(transPort)).append(isolate).append('\n')
-                .append("DNSPort ").append(checkPortOrAuto(dnsPort)).append(isolate).append('\n')
+        extraLines.append("TransPort " + checkPortOrAuto(transPort) + isolate + "\n")
+                .append("DNSPort " + checkPortOrAuto(dnsPort) + isolate + "\n")
                 .append("VirtualAddrNetwork 10.192.0.0/10\n")
                 .append("AutomapHostsOnResolve 1\n")
                 .append("DormantClientTimeout 10 minutes\n")
                 .append("DormantCanceledByStartup 1\n")
                 .append("DisableNetwork 0\n");
-        // extraLines.append("DormantOnFirstStartup 0").append('\n');
 
         if (Prefs.useDebugLogging()) {
             extraLines.append("Log debug syslog\n")
@@ -588,12 +540,9 @@ public class OrbotService extends VpnService {
         }
 
         extraLines = processSettingsImpl(extraLines);
-
         if (extraLines == null) return null;
 
-        extraLines.append('\n')
-                .append(prefs.getString("pref_custom_torrc", ""))
-                .append('\n');
+        extraLines.append("\n" + prefs.getString("pref_custom_torrc", "") + "\n");
 
         logNotice(getString(R.string.log_notice_updating_torrc));
         debug("torrc.custom=" + extraLines);
@@ -607,16 +556,13 @@ public class OrbotService extends VpnService {
         if (!portString.equalsIgnoreCase("auto")) {
             var isPortUsed = true;
             var port = Integer.parseInt(portString);
-
             while (isPortUsed) {
                 isPortUsed = Utils.isPortOpen("127.0.0.1", port, 500);
-
                 if (isPortUsed) //the specified port is not available, so let Tor find one instead
                     port++;
             }
             return String.valueOf(port);
         }
-
         return portString;
     }
 
@@ -634,7 +580,6 @@ public class OrbotService extends VpnService {
      */
     private void replyWithStatus(Intent startRequest) {
         String packageName = startRequest.getStringExtra(EXTRA_PACKAGE_NAME);
-
         Intent reply = new Intent(ACTION_STATUS)
                 .putExtra(EXTRA_STATUS, mCurrentStatus)
                 .putExtra(EXTRA_SOCKS_PROXY, "socks://127.0.0.1:" + mPortSOCKS)
@@ -645,18 +590,15 @@ public class OrbotService extends VpnService {
                 .putExtra(EXTRA_HTTP_PROXY_PORT, mPortHTTP)
                 .putExtra(EXTRA_DNS_PORT, mPortDns);
 
-        if (packageName != null) {
+        if (packageName != null)
             sendBroadcast(reply.setPackage(packageName));
-        }
 
         LocalBroadcastManager.getInstance(this).sendBroadcast(reply.setAction(LOCAL_ACTION_STATUS));
-
         if (mPortSOCKS != -1 && mPortHTTP != -1)
             sendCallbackPorts(mPortSOCKS, mPortHTTP, mPortDns, mPortTrans);
     }
 
     private boolean showTorServiceErrorMsg = false;
-    private static final int TIMEOUT_MS = 15000;
 
     // The entire process for starting tor and related services is run from this method.
     private void startTor() {
@@ -666,13 +608,12 @@ public class OrbotService extends VpnService {
                 showConnectedToTorNetworkNotification();
                 return;
             }
-
             mNotifyBuilder.setProgress(100, 0, false);
             showToolbarNotification("", NOTIFY_ID, R.drawable.ic_stat_tor);
 
-            if (Prefs.getConnectionPathway().equals(Prefs.PATHWAY_SMART)) {
+            if (Prefs.getConnectionPathway().equals(Prefs.PATHWAY_SMART))
                 smartConnectionPathwayStartTor();
-            }
+
             startTorService();
             showTorServiceErrorMsg = true;
 
@@ -684,7 +625,7 @@ public class OrbotService extends VpnService {
                 }
             }
         } catch (Exception e) {
-            logException(getString(R.string.unable_to_start_tor) + " " + e.getLocalizedMessage(), e);
+            logNotice(getString(R.string.unable_to_start_tor) + " " + e.getLocalizedMessage());
             stopTorOnError(e.getLocalizedMessage());
         }
     }
@@ -692,7 +633,7 @@ public class OrbotService extends VpnService {
     static int TRIES_DELETE = 0;
 
     private void smartConnectionPathwayStartTor() {
-        Log.d(TAG, "timing out in " + TIMEOUT_MS + "ms");
+        Log.d(TAG, "timing out in " + 150000 + "ms");
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             Log.d(TAG, "timed out mCurrentStatus=" + mCurrentStatus);
             if (!mCurrentStatus.equals(STATUS_ON)) {
@@ -717,12 +658,11 @@ public class OrbotService extends VpnService {
                     Prefs.setBridgesList(obfs4);
                     Prefs.putConnectionPathway(Prefs.PATHWAY_CUSTOM);
                 } else if (Prefs.getPrefSmartTrySnowflake()) {
-                    // set snowflake
-                    Prefs.putConnectionPathway(Prefs.PATHWAY_SNOWFLAKE);
+                    Prefs.putConnectionPathway(Prefs.PATHWAY_SNOWFLAKE); // set snowflake
                 }
                 clearEphemeralSmartConnectionSettings();
             }
-        }, ((TRIES_DELETE++) != 2) ? TIMEOUT_MS : 10000);
+        }, ((TRIES_DELETE++) != 2) ? 15000 : 10000);
     }
 
     private void clearEphemeralSmartConnectionSettings() {
@@ -740,7 +680,7 @@ public class OrbotService extends VpnService {
         OnionServiceColumns.updateV3OnionNames(this, mV3OnionBasePath);
         // This old status hack is temporary and fixes the issue reported by syphyr at
         // https://github.com/guardianproject/orbot/pull/556
-        // Down the line a better approach needs to happen for sending back the onion names updated
+        // Down the line a better approach needs to happen for sending back the onion names' updated
         // status, perhaps just adding it as an extra to the normal Intent callback...
         var oldStatus = mCurrentStatus;
         var intent = new Intent(LOCAL_ACTION_V3_NAMES_UPDATED);
@@ -763,7 +703,6 @@ public class OrbotService extends VpnService {
         torServiceConnection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-
                 //moved torService to a local variable, since we only need it once
                 TorService torService = ((TorService.LocalBinder) iBinder).getService();
 
@@ -775,8 +714,7 @@ public class OrbotService extends VpnService {
                     }
                 }
 
-                //wait another second before we set our own event listener
-                try {
+                try { //wait another second before we set our own event listener
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -800,11 +738,8 @@ public class OrbotService extends VpnService {
                         if (Prefs.useDebugLogging()) {
                             events.add(TorControlCommands.EVENT_DEBUG_MSG);
                             events.add(TorControlCommands.EVENT_INFO_MSG);
-                        }
-
-                        if (Prefs.useDebugLogging())
                             events.add(TorControlCommands.EVENT_STREAM_STATUS);
-
+                        }
                         conn.setEvents(events);
                         logNotice(getString(R.string.log_notice_added_event_handler));
                     } catch (IOException e) {
@@ -833,11 +768,10 @@ public class OrbotService extends VpnService {
 
         Intent serviceIntent = new Intent(this, TorService.class);
         debug("binding tor service");
-        if (Build.VERSION.SDK_INT < 29) {
+        if (Build.VERSION.SDK_INT < 29)
             shouldUnbindTorService = bindService(serviceIntent, torServiceConnection, BIND_AUTO_CREATE);
-        } else {
+        else
             shouldUnbindTorService = bindService(serviceIntent, BIND_AUTO_CREATE, mExecutor, torServiceConnection);
-        }
     }
 
     private void sendLocalStatusOffBroadcast() {
@@ -952,7 +886,6 @@ public class OrbotService extends VpnService {
 
     private void sendCallbackPorts(int socksPort, int httpPort, int dnsPort, int transPort) {
         var intent = new Intent(LOCAL_ACTION_PORTS).putExtra(EXTRA_SOCKS_PROXY_PORT, socksPort).putExtra(EXTRA_HTTP_PROXY_PORT, httpPort).putExtra(EXTRA_DNS_PORT, dnsPort).putExtra(EXTRA_TRANS_PORT, transPort);
-
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
         if (Prefs.useVpn() && mVpnManager != null) mVpnManager.handleIntent(new Builder(), intent);
     }
@@ -965,9 +898,8 @@ public class OrbotService extends VpnService {
         var entranceNodes = prefs.getString("pref_entrance_nodes", "");
         var exitNodes = prefs.getString("pref_exit_nodes", "");
         var excludeNodes = prefs.getString("pref_exclude_nodes", "");
-
         String pathway = Prefs.getConnectionPathway();
-        //noinspection StatementWithEmptyBody
+
         if (pathway.equals(Prefs.PATHWAY_SMART)) {
             // todo for now ...
         } else if (pathway.equals(Prefs.PATHWAY_DIRECT)) {
@@ -975,37 +907,34 @@ public class OrbotService extends VpnService {
         } else {
             // snowflake or obfs4
             extraLines.append("UseBridges 1").append('\n');
-            if (pathway.startsWith(Prefs.PATHWAY_SNOWFLAKE) || Prefs.getPrefSmartTrySnowflake()) {
+            if (pathway.startsWith(Prefs.PATHWAY_SNOWFLAKE) || Prefs.getPrefSmartTrySnowflake())
                 processSettingsImplSnowflake(extraLines);
-            } else if (pathway.equals(Prefs.PATHWAY_CUSTOM) || Prefs.getPrefSmartTryObfs4() != null) {
+            else if (pathway.equals(Prefs.PATHWAY_CUSTOM) || Prefs.getPrefSmartTryObfs4() != null)
                 processSettingsLyrebird(extraLines);
-            }
         }
         var fileGeoIP = new File(appBinHome, GEOIP_ASSET_KEY);
         var fileGeoIP6 = new File(appBinHome, GEOIP6_ASSET_KEY);
 
         if (fileGeoIP.exists()) { // only apply geoip if it exists
-            extraLines.append("GeoIPFile" + ' ').append(fileGeoIP.getCanonicalPath()).append('\n');
-            extraLines.append("GeoIPv6File" + ' ').append(fileGeoIP6.getCanonicalPath()).append('\n');
+            extraLines.append("GeoIPFile " + fileGeoIP.getCanonicalPath() + "\n")
+                    .append("GeoIPv6File " + fileGeoIP6.getCanonicalPath() + "\n");
         }
 
         if (!TextUtils.isEmpty(entranceNodes))
-            extraLines.append("EntryNodes ").append(entranceNodes).append('\n');
+            extraLines.append("EntryNodes " + entranceNodes + "\n");
 
         if (!TextUtils.isEmpty(exitNodes))
-            extraLines.append("ExitNodes ").append(exitNodes).append('\n');
+            extraLines.append("ExitNodes " + exitNodes + "\n");
 
         if (!TextUtils.isEmpty(excludeNodes))
-            extraLines.append("ExcludeNodes ").append(excludeNodes).append('\n');
+            extraLines.append("ExcludeNodes " + excludeNodes + "\n");
 
-        extraLines.append("StrictNodes ").append(enableStrictNodes ? "1" : "0").append('\n');
-
-        extraLines.append("\n");
+        extraLines.append("StrictNodes ").append(enableStrictNodes ? "1\n" : "0\n");
 
         try {
             if (ReachableAddresses) {
                 var ReachableAddressesPorts = prefs.getString(PREF_REACHABLE_ADDRESSES_PORTS, "*:80,*:443");
-                extraLines.append("ReachableAddresses" + ' ').append(ReachableAddressesPorts).append('\n');
+                extraLines.append("ReachableAddresses " + ReachableAddressesPorts + "\n");
             }
 
         } catch (Exception e) {
@@ -1025,20 +954,15 @@ public class OrbotService extends VpnService {
     private void processSettingsImplSnowflake(StringBuffer extraLines) {
         extraLines.append(SnowflakeClient.getClientTransportPluginTorrcLine(mIptProxy));
         var brokers = SnowflakeClient.getLocalBrokers(this);
-        for (String bridge : brokers) {
+        for (String bridge : brokers)
             extraLines.append("Bridge " + bridge + "\n");
-        }
     }
 
     @SuppressLint("DefaultLocale")
     private void processSettingsLyrebird(StringBuffer extraLines) {
-        Log.d(TAG, "in Lyrebird torrc config");
-
         var customBridges = getCustomBridges();
-
         for (String transport : Bridge.getTransports(customBridges)) {
-            extraLines
-                    .append(String.format("ClientTransportPlugin %s socks5 127.0.0.1:%d\n", transport, mIptProxy.port(transport)));
+            extraLines.append(String.format("ClientTransportPlugin %s socks5 127.0.0.1:%d\n", transport, mIptProxy.port(transport)));
         }
 
         for (var b : customBridges)
@@ -1055,24 +979,24 @@ public class OrbotService extends VpnService {
     private void processSettingsImplDirectPathway(StringBuffer extraLines) {
         var prefs = Prefs.getSharedPrefs(getApplicationContext());
         extraLines.append("UseBridges 0\n");
-        if (!Prefs.useVpn()) { //set the proxy here if we aren't using a bridge
-            var proxyType = prefs.getString("pref_proxy_type", null);
-            if (proxyType != null && !proxyType.isEmpty()) {
-                var proxyHost = prefs.getString("pref_proxy_host", null);
-                var proxyPort = prefs.getString("pref_proxy_port", null);
-                var proxyUser = prefs.getString("pref_proxy_username", null);
-                var proxyPass = prefs.getString("pref_proxy_password", null);
+        if (Prefs.useVpn()) return;
+        //set the proxy here if we aren't using a bridge
+        var proxyType = prefs.getString("pref_proxy_type", null);
+        if (proxyType != null && !proxyType.isEmpty()) {
+            var proxyHost = prefs.getString("pref_proxy_host", null);
+            var proxyPort = prefs.getString("pref_proxy_port", null);
+            var proxyUser = prefs.getString("pref_proxy_username", null);
+            var proxyPass = prefs.getString("pref_proxy_password", null);
 
-                if ((proxyHost != null && !proxyHost.isEmpty()) && (proxyPort != null && !proxyPort.isEmpty())) {
-                    extraLines.append(proxyType).append("Proxy ").append(proxyHost).append(':').append(proxyPort).append('\n');
+            if ((proxyHost != null && !proxyHost.isEmpty()) && (proxyPort != null && !proxyPort.isEmpty())) {
+                extraLines.append(proxyType).append("Proxy " + proxyHost + ":" + proxyPort + "\n");
 
-                    if (proxyUser != null && proxyPass != null) {
-                        if (proxyType.equalsIgnoreCase("socks5")) {
-                            extraLines.append("Socks5ProxyUsername ").append(proxyUser).append('\n')
-                                    .append("Socks5ProxyPassword ").append(proxyPass).append('\n');
-                        } else
-                            extraLines.append(proxyType).append("ProxyAuthenticator ").append(proxyUser).append(':').append(proxyPort).append('\n');
-                    }
+                if (proxyUser != null && proxyPass != null) {
+                    if (proxyType.equalsIgnoreCase("socks5")) {
+                        extraLines.append("Socks5ProxyUsername " + proxyUser + "\n")
+                                .append("Socks5ProxyPassword " + proxyPass + "\n");
+                    } else
+                        extraLines.append(proxyType).append(" ProxyAuthenticator " + proxyUser + ":" + proxyPort + "\n");
                 }
             }
         }
@@ -1084,23 +1008,9 @@ public class OrbotService extends VpnService {
         showToolbarNotification(message, NOTIFY_ID, icon);
     }
 
-    @SuppressLint("NewApi")
     @Override
     public void onTrimMemory(int level) {
-        super.onTrimMemory(level);
-        switch (level) {
-            case TRIM_MEMORY_BACKGROUND -> debug("trim memory requested: app in the background");
-            case TRIM_MEMORY_COMPLETE -> debug("trim memory requested: cleanup all memory");
-            case TRIM_MEMORY_MODERATE -> debug("trim memory requested: clean up some memory");
-            case TRIM_MEMORY_RUNNING_CRITICAL ->
-                    debug("trim memory requested: memory on device is very low and critical");
-            case TRIM_MEMORY_RUNNING_LOW ->
-                    debug("trim memory requested: memory on device is running low");
-            case TRIM_MEMORY_RUNNING_MODERATE ->
-                    debug("trim memory requested: memory on device is moderate");
-            case TRIM_MEMORY_UI_HIDDEN ->
-                    debug("trim memory requested: app is not showing UI anymore");
-        }
+        debug("TRIM MEMORY REQUESTED level=" + level);
     }
 
     public void setNotificationSubtext(String message) {
@@ -1145,16 +1055,12 @@ public class OrbotService extends VpnService {
             Prefs.setExitNodes("{" + newExits + "}");
             if (conn != null) {
                 try {
-                    var fileGeoIP = new File(appBinHome, GEOIP_ASSET_KEY);
-                    var fileGeoIP6 = new File(appBinHome, GEOIP6_ASSET_KEY);
-
-                    conn.setConf("GeoIPFile", fileGeoIP.getCanonicalPath());
-                    conn.setConf("GeoIPv6File", fileGeoIP6.getCanonicalPath());
+                    conn.setConf("GeoIPFile", new File(appBinHome, GEOIP_ASSET_KEY).getCanonicalPath());
+                    conn.setConf("GeoIPv6File", new File(appBinHome, GEOIP6_ASSET_KEY).getCanonicalPath());
                     conn.setConf("ExitNodes", newExits);
                     conn.setConf("StrictNodes", "1");
                     conn.setConf("DisableNetwork", "1");
                     conn.setConf("DisableNetwork", "0");
-
                 } catch (Exception ioe) {
                     Log.e(TAG, "Connection exception occurred resetting exits", ioe);
                 }
