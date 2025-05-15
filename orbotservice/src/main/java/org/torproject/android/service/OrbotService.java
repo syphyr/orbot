@@ -40,6 +40,7 @@ import android.widget.Toast;
 import net.freehaven.tor.control.TorControlCommands;
 import net.freehaven.tor.control.TorControlConnection;
 
+import org.torproject.android.service.circumvention.SnowflakeClient;
 import org.torproject.android.service.db.OnionServiceColumns;
 import org.torproject.android.service.db.V3ClientAuthColumns;
 import org.torproject.android.service.util.Bridge;
@@ -285,7 +286,7 @@ public class OrbotService extends VpnService {
         // todo this needs to handle a lot of different cases that haven't been defined yet
         // todo particularly this is true for the smart connection case...
         if (connectionPathway.startsWith(Prefs.PATHWAY_SNOWFLAKE) || Prefs.getPrefSmartTrySnowflake()) {
-            mIptProxy.stop(IPtProxy.Snowflake);
+            SnowflakeClient.stop(mIptProxy);
         } else if (connectionPathway.equals(Prefs.PATHWAY_CUSTOM) || Prefs.getPrefSmartTryObfs4() != null) {
             mIptProxy.stop(IPtProxy.MeekLite);
             mIptProxy.stop(IPtProxy.Obfs4);
@@ -354,41 +355,8 @@ public class OrbotService extends VpnService {
         return mFronts.get(service);
     }
 
-    private void startSnowflakeClientDomainFronting() {
-        //this is using the current, default Tor snowflake infrastructure
-        var target = getCdnFront("snowflake-target");
-        var front = getCdnFront("snowflake-front");
-        var stunServer = getCdnFront("snowflake-stun");
-
-        try {
-            mIptProxy.setSnowflakeBrokerUrl(target);
-            mIptProxy.setSnowflakeFrontDomains(front);
-            mIptProxy.setSnowflakeIceServers(stunServer);
-            mIptProxy.setSnowflakeMaxPeers(1);
-            mIptProxy.start(IPtProxy.Snowflake, "");
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
     private void startSnowflakeClientAmpRendezvous() {
-        var stunServers = getCdnFront("snowflake-stun");
-        var target = getCdnFront("snowflake-target-direct");
-        var front = getCdnFront("snowflake-amp-front");
-        var ampCache = getCdnFront("snowflake-amp-cache");
 
-        try {
-            mIptProxy.setSnowflakeBrokerUrl(target);
-            mIptProxy.setSnowflakeFrontDomains(front);
-            mIptProxy.setSnowflakeIceServers(stunServers);
-            mIptProxy.setSnowflakeAmpCacheUrl(ampCache);
-            mIptProxy.setSnowflakeMaxPeers(1);
-            mIptProxy.start(IPtProxy.Snowflake, "");
-
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
     }
 
     private final SecureRandom mSecureRandGen = new SecureRandom(); //used to randomly select STUN servers for snowflake
@@ -1428,9 +1396,9 @@ public class OrbotService extends VpnService {
                 case ACTION_START -> {
                     var connectionPathway = Prefs.getConnectionPathway();
                     if (connectionPathway.equals(Prefs.PATHWAY_SNOWFLAKE) || Prefs.getPrefSmartTrySnowflake()) {
-                        startSnowflakeClientDomainFronting();
+                        SnowflakeClient.startWithDomainFronting(mIptProxy);
                     } else if (connectionPathway.equals(Prefs.PATHWAY_SNOWFLAKE_AMP)) {
-                        startSnowflakeClientAmpRendezvous();
+                        SnowflakeClient.startWithAmpRendezvous(mIptProxy);
                     } else if (connectionPathway.equals(Prefs.PATHWAY_CUSTOM) || Prefs.getPrefSmartTryObfs4() != null) {
                         for (var transport : Bridge.getTransports(getCustomBridges())) {
                             try {
