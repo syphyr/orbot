@@ -4,7 +4,9 @@ rm -f orbotservice/src/main/assets/snowflake-brokers
 function bridges_conf {
   local bridge_type="$1"
   jq -r ".bridges.\"$bridge_type\" | .[]" "pt_config.json" | while read -r line; do
+    echo adding $line
     echo $line >> orbotservice/src/main/assets/snowflake-brokers
+    echo
   done
 }
 
