@@ -18,6 +18,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
 import org.torproject.android.R;
+import org.torproject.android.service.db.OnionServiceColumns;
 
 public class OnionServiceCreateDialogFragment extends DialogFragment {
 
@@ -85,10 +86,10 @@ public class OnionServiceCreateDialogFragment extends DialogFragment {
         int localPort = Integer.parseInt(etLocalPort.getText().toString());
         int onionPort = Integer.parseInt(etOnionPort.getText().toString());
         ContentValues fields = new ContentValues();
-        fields.put(OnionServiceContentProvider.OnionService.NAME, serverName);
-        fields.put(OnionServiceContentProvider.OnionService.PORT, localPort);
-        fields.put(OnionServiceContentProvider.OnionService.ONION_PORT, onionPort);
-        fields.put(OnionServiceContentProvider.OnionService.CREATED_BY_USER, 1);
+        fields.put(OnionServiceColumns.NAME, serverName);
+        fields.put(OnionServiceColumns.PORT, localPort);
+        fields.put(OnionServiceColumns.ONION_PORT, onionPort);
+        fields.put(OnionServiceColumns.CREATED_BY_USER, 1);
         ContentResolver cr = context.getContentResolver();
         cr.insert(OnionServiceContentProvider.CONTENT_URI, fields);
         Toast.makeText(context, R.string.please_restart_Orbot_to_enable_the_changes, Toast.LENGTH_SHORT).show();

@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
 import android.os.Bundle
+import android.provider.BaseColumns
 
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
@@ -11,6 +12,7 @@ import androidx.fragment.app.DialogFragment
 import org.torproject.android.R
 import org.torproject.android.core.DiskUtils.recursivelyDeleteDirectory
 import org.torproject.android.service.OrbotConstants
+import org.torproject.android.service.db.OnionServiceColumns
 
 import java.io.File
 
@@ -30,7 +32,7 @@ class OnionServiceDeleteDialogFragment internal constructor(arguments: Bundle?) 
     private fun doDelete(arguments: Bundle?, context: Context) {
         context.contentResolver.delete(
             OnionServiceContentProvider.CONTENT_URI,
-            OnionServiceContentProvider.OnionService._ID + '=' + requireArguments().getInt(
+            BaseColumns._ID + '=' + requireArguments().getInt(
                 OnionServiceActivity.BUNDLE_KEY_ID
             ),
             null
