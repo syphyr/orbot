@@ -122,7 +122,7 @@
     <string name="name">Name</string>
     <string name="done">Done!</string>
     <string name="copy_address_to_clipboard">Copy address to clipboard</string>
-    <string name="backup_service">Backup Service &lt;i&gt;(Warning: This Could Expose Your Service Configuration to Other Apps)&lt;/i&gt;</string>
+    <string name="backup_service">Backup Service (Warning: This Could Expose Your Service Configuration to Other Apps)</string>
     <string name="delete_service">Delete Service</string>
     <string name="backup_saved_at_external_storage">Backup saved at external storage</string>
     <string name="backup_restored">Backup restored</string>
