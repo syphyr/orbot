@@ -79,11 +79,8 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 public class OrbotService extends VpnService {
 
     public final static String BINARY_TOR_VERSION = TorService.VERSION_NAME;
-
     static final int NOTIFY_ID = 1, ERROR_NOTIFY_ID = 3;
-
     private final static String NOTIFICATION_CHANNEL_ID = "orbot_channel_1";
-
     public static int mPortSOCKS = -1, mPortHTTP = -1, mPortDns = -1, mPortTrans = -1;
     public static File appBinHome, appCacheHome;
     private final ExecutorService mExecutor = Executors.newCachedThreadPool();
@@ -366,7 +363,7 @@ public class OrbotService extends VpnService {
 
     protected void logNotice(String msg) {
         if (msg != null && !msg.trim().isEmpty()) {
-            if (Prefs.useDebugLogging()) Log.d(TAG, msg);
+            Log.d(TAG, msg);
             sendCallbackLogMessage(msg);
         }
     }
@@ -388,11 +385,10 @@ public class OrbotService extends VpnService {
                 appBinHome = getFilesDir();
                 if (!appBinHome.exists()) appBinHome.mkdirs();
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
                     appCacheHome = new File(getDataDir(), DIRECTORY_TOR_DATA);
-                } else {
+                else
                     appCacheHome = getDir(DIRECTORY_TOR_DATA, Application.MODE_PRIVATE);
-                }
 
                 if (!appCacheHome.exists()) appCacheHome.mkdirs();
 
@@ -545,7 +541,7 @@ public class OrbotService extends VpnService {
         extraLines.append("\n" + prefs.getString("pref_custom_torrc", "") + "\n");
 
         logNotice(getString(R.string.log_notice_updating_torrc));
-        debug("torrc.custom=" + extraLines);
+        debug("torrc.custom=\n" + extraLines);
 
         var fileTorRcCustom = TorService.getTorrc(this);
         updateTorConfigCustom(fileTorRcCustom, extraLines.toString(), false);
@@ -722,29 +718,28 @@ public class OrbotService extends VpnService {
 
                 mOrbotRawEventListener = new OrbotRawEventListener(OrbotService.this);
 
-                if (conn != null) {
-                    try {
-                        initControlConnection();
-                        if (conn == null)
-                            return; // maybe there was an error setting up the control connection
+                if (conn == null) return;
+                try {
+                    initControlConnection();
+                    if (conn == null)
+                        return; // maybe there was an error setting up the control connection
 
-                        //override the TorService event listener
-                        conn.addRawEventListener(mOrbotRawEventListener);
+                    //override the TorService event listener
+                    conn.addRawEventListener(mOrbotRawEventListener);
 
-                        logNotice(getString(R.string.log_notice_connected_to_tor_control_port));
+                    logNotice(getString(R.string.log_notice_connected_to_tor_control_port));
 
-                        //now set our own events
-                        ArrayList<String> events = new ArrayList<>(Arrays.asList(TorControlCommands.EVENT_OR_CONN_STATUS, TorControlCommands.EVENT_CIRCUIT_STATUS, TorControlCommands.EVENT_NOTICE_MSG, TorControlCommands.EVENT_WARN_MSG, TorControlCommands.EVENT_ERR_MSG, TorControlCommands.EVENT_BANDWIDTH_USED, TorControlCommands.EVENT_NEW_DESC, TorControlCommands.EVENT_ADDRMAP));
-                        if (Prefs.useDebugLogging()) {
-                            events.add(TorControlCommands.EVENT_DEBUG_MSG);
-                            events.add(TorControlCommands.EVENT_INFO_MSG);
-                            events.add(TorControlCommands.EVENT_STREAM_STATUS);
-                        }
-                        conn.setEvents(events);
-                        logNotice(getString(R.string.log_notice_added_event_handler));
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    //now set our own events
+                    ArrayList<String> events = new ArrayList<>(Arrays.asList(TorControlCommands.EVENT_OR_CONN_STATUS, TorControlCommands.EVENT_CIRCUIT_STATUS, TorControlCommands.EVENT_NOTICE_MSG, TorControlCommands.EVENT_WARN_MSG, TorControlCommands.EVENT_ERR_MSG, TorControlCommands.EVENT_BANDWIDTH_USED, TorControlCommands.EVENT_NEW_DESC, TorControlCommands.EVENT_ADDRMAP));
+                    if (Prefs.useDebugLogging()) {
+                        events.add(TorControlCommands.EVENT_DEBUG_MSG);
+                        events.add(TorControlCommands.EVENT_INFO_MSG);
+                        events.add(TorControlCommands.EVENT_STREAM_STATUS);
                     }
+                    conn.setEvents(events);
+                    logNotice(getString(R.string.log_notice_added_event_handler));
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
 
@@ -1053,17 +1048,16 @@ public class OrbotService extends VpnService {
             }
         } else {
             Prefs.setExitNodes("{" + newExits + "}");
-            if (conn != null) {
-                try {
-                    conn.setConf("GeoIPFile", new File(appBinHome, GEOIP_ASSET_KEY).getCanonicalPath());
-                    conn.setConf("GeoIPv6File", new File(appBinHome, GEOIP6_ASSET_KEY).getCanonicalPath());
-                    conn.setConf("ExitNodes", newExits);
-                    conn.setConf("StrictNodes", "1");
-                    conn.setConf("DisableNetwork", "1");
-                    conn.setConf("DisableNetwork", "0");
-                } catch (Exception ioe) {
-                    Log.e(TAG, "Connection exception occurred resetting exits", ioe);
-                }
+            if (conn == null) return;
+            try {
+                conn.setConf("GeoIPFile", new File(appBinHome, GEOIP_ASSET_KEY).getCanonicalPath());
+                conn.setConf("GeoIPv6File", new File(appBinHome, GEOIP6_ASSET_KEY).getCanonicalPath());
+                conn.setConf("ExitNodes", newExits);
+                conn.setConf("StrictNodes", "1");
+                conn.setConf("DisableNetwork", "1");
+                conn.setConf("DisableNetwork", "0");
+            } catch (Exception ioe) {
+                Log.e(TAG, "Connection exception occurred resetting exits", ioe);
             }
         }
     }
