@@ -37,6 +37,7 @@ import android.widget.Toast;
 import net.freehaven.tor.control.TorControlCommands;
 import net.freehaven.tor.control.TorControlConnection;
 
+import org.torproject.android.service.circumvention.ContentDeliveryNetworkFronts;
 import org.torproject.android.service.circumvention.SnowflakeClient;
 import org.torproject.android.service.circumvention.SnowflakeProxyWrapper;
 import org.torproject.android.service.db.OnionServiceColumns;
@@ -49,12 +50,10 @@ import org.torproject.android.service.util.Utils;
 import org.torproject.android.service.vpn.OrbotVpnManager;
 import org.torproject.jni.TorService;
 
-import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -111,8 +110,7 @@ public class OrbotService extends VpnService {
 
     private PowerConnectionReceiver mPowerReceiver;
 
-    private boolean mHasPower = false;
-    private boolean mHasWifi = false;
+    private boolean mHasPower = false, mHasWifi= false;
 
     private static Controller mIptProxy = null;
 
@@ -265,7 +263,6 @@ public class OrbotService extends VpnService {
         debug("stopTorAsync");
 
         if (showNotification) sendCallbackLogMessage(getString(R.string.status_shutting_down));
-
         var connectionPathway = Prefs.getConnectionPathway();
         // todo this needs to handle a lot of different cases that haven't been defined yet
         // todo particularly this is true for the smart connection case...
@@ -276,12 +273,10 @@ public class OrbotService extends VpnService {
             mIptProxy.stop(IPtProxy.Obfs4);
             mIptProxy.stop(IPtProxy.Webtunnel);
         }
-
         stopTor();
 
         //stop the foreground priority and make sure to remove the persistent notification
         stopForeground(!showNotification);
-
         if (showNotification) sendCallbackLogMessage(getString(R.string.status_disabled));
 
         mPortDns = -1;
@@ -301,31 +296,15 @@ public class OrbotService extends VpnService {
     }
 
     private static HashMap<String, String> mFronts;
-    private static List<String> mSnowflakeBridges;
 
     public static void loadCdnFronts(Context context) {
         if (mFronts != null) return;
-        mFronts = new HashMap<>();
-
-        try {
-            var reader = new BufferedReader(new InputStreamReader(context.getAssets().open("fronts")));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                int spaceIdx = line.indexOf(' ');
-                String key = line.substring(0, spaceIdx);
-                String val = line.substring(spaceIdx + 1);
-                mFronts.put(key, val);
-            }
-            reader.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        mFronts = ContentDeliveryNetworkFronts.localFronts(context);
     }
 
     public static String getCdnFront(String service) {
         return mFronts.get(service);
     }
-
 
     public synchronized void enableSnowflakeProxy() { // This is to host a snowflake entrance node / bridge
         mSnowflakeProxyWrapper.enableProxy(mHasWifi, mHasPower);
@@ -341,13 +320,11 @@ public class OrbotService extends VpnService {
                 connMgr.registerDefaultNetworkCallback(new ConnectivityManager.NetworkCallback() {
                     @Override
                     public void onAvailable(@NonNull Network network) {
-                        super.onAvailable(network);
                         checkNetworkForSnowflakeProxy();
                     }
 
                     @Override
                     public void onLost(@NonNull Network network) {
-                        super.onLost(network);
                         checkNetworkForSnowflakeProxy();
                     }
                 });
@@ -453,9 +430,8 @@ public class OrbotService extends VpnService {
                 mV3AuthBasePath = new File(getFilesDir().getAbsolutePath(), V3_CLIENT_AUTH_DIR);
                 if (!mV3AuthBasePath.isDirectory()) mV3AuthBasePath.mkdirs();
 
-                if (mNotificationManager == null) {
+                if (mNotificationManager == null)
                     mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-                }
 
                 IntentFilter filter = new IntentFilter(TorControlCommands.SIGNAL_NEWNYM);
                 filter.addAction(CMD_ACTIVE);
@@ -483,7 +459,6 @@ public class OrbotService extends VpnService {
                 }
 
                 mVpnManager = new OrbotVpnManager(this);
-                mSnowflakeBridges = SnowflakeClient.getBrokers(this);
                 loadCdnFronts(this);
             } catch (Exception e) {
                 Log.e(TAG, "Error setting up Orbot", e);
@@ -1048,10 +1023,10 @@ public class OrbotService extends VpnService {
     }
 
     private void processSettingsImplSnowflake(StringBuffer extraLines) {
-        Log.d(TAG, "in snowflake torrc config");
-        extraLines.append("ClientTransportPlugin snowflake socks5 127.0.0.1:" + mIptProxy.port(IPtProxy.Snowflake)).append('\n');
-        for (String bridge : mSnowflakeBridges) {
-            extraLines.append("Bridge ").append(bridge).append("\n");
+        extraLines.append(SnowflakeClient.getClientTransportPluginTorrcLine(mIptProxy));
+        var brokers = SnowflakeClient.getLocalBrokers(this);
+        for (String bridge : brokers) {
+            extraLines.append("Bridge " + bridge + "\n");
         }
     }
 
