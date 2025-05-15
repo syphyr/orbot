@@ -1,11 +1,70 @@
 package org.torproject.android.service.db
 
+import android.content.Context
+import android.database.Cursor
+import android.net.Uri
 import android.provider.BaseColumns
+import android.util.Log
+import androidx.core.net.toUri
+import org.torproject.android.service.OrbotService
+import java.io.File
+import java.io.FileOutputStream
 
 object V3ClientAuthColumns : BaseColumns {
-    const val DOMAIN: String = "domain"
-    const val HASH: String = "hash"
-    const val ENABLED: String = "enabled"
-    @JvmField
-    val V3_CLIENT_AUTH_PROJECTION: Array<String> = arrayOf(BaseColumns._ID, DOMAIN, HASH, ENABLED)
+    private const val DOMAIN: String = "domain"
+    private const val HASH: String = "hash"
+    private const val ENABLED: String = "enabled"
+
+    private val V3_CLIENT_AUTH_PROJECTION: Array<String> = arrayOf(BaseColumns._ID, DOMAIN, HASH, ENABLED)
+
+    @JvmStatic
+    fun addClientAuthToTorrc(
+        torrc: StringBuffer,
+        context: Context,
+        v3AuthBasePath: File
+    ) {
+        val uri = getContentUri(context)
+        val v3auths: Cursor? = context.applicationContext.contentResolver.query(
+            uri,
+            V3_CLIENT_AUTH_PROJECTION,
+            "$ENABLED=1",
+            null,
+            null
+        )
+        if (v3auths == null) return
+        for (file in v3AuthBasePath.listFiles()) {
+            if (!file.isDirectory) file.delete() // todo the adapter should maybe just write these files and not do this in service...
+        }
+        torrc.append("ClientOnionAuthDir " + v3AuthBasePath.getAbsolutePath()).append('\n')
+        var i = 0
+        try {
+            while (v3auths.moveToNext()) {
+                val domain_index = v3auths.getColumnIndex(DOMAIN)
+                val hash_index = v3auths.getColumnIndex(HASH)
+                // Ensure that are have all the indexes before trying to use them
+                if (domain_index < 0 || hash_index < 0) continue
+                val domain = v3auths.getString(domain_index)
+                val hash = v3auths.getString(hash_index)
+                val authFile = File(v3AuthBasePath, "${i++}.auth_private")
+                authFile.createNewFile()
+                val fos = FileOutputStream(authFile)
+                fos.write(buildV3ClientAuthFile(domain, hash).toByteArray())
+                fos.close()
+            }
+        } catch (e: Exception) {
+            Log.e("V3ClientAuthColumns", "error adding v3 client auth...")
+        } finally {
+            v3auths.close()
+        }
+    }
+
+    @JvmStatic
+    fun buildV3ClientAuthFile(domain: String, keyHash: String): String {
+        return "$domain:descriptor:x25519:$keyHash"
+    }
+
+    private fun getContentUri(context: Context) : Uri{
+        return "content://${context.applicationContext.packageName}.ui.v3onionservice.clientauth/v3auth".toUri()
+    }
+
 }

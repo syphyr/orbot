@@ -16,8 +16,6 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
-import android.content.ContentResolver;
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
@@ -27,7 +25,6 @@ import android.net.ConnectivityManager;
 import android.net.Network;
 import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
-import android.net.Uri;
 import android.net.VpnService;
 import android.os.Build;
 import android.os.Handler;
@@ -55,27 +52,22 @@ import org.torproject.jni.TorService;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.io.PrintWriter;
-import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.StringTokenizer;
-import java.util.UUID;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import IPtProxy.Controller;
 import IPtProxy.IPtProxy;
-import IPtProxy.SnowflakeProxy;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -96,8 +88,6 @@ public class OrbotService extends VpnService {
     private static final int ERROR_NOTIFY_ID = 3;
 
     //these will be set dynamically due to build flavors
-    private static Uri V3_ONION_SERVICES_CONTENT_URI = null;//Uri.parse("content://org.torproject.android.ui.v3onionservice/v3");
-    private static Uri V3_CLIENT_AUTH_URI = null;//Uri.parse("content://org.torproject.android.ui.v3onionservice.clientauth/v3auth");
     private final static String NOTIFICATION_CHANNEL_ID = "orbot_channel_1";
 
     public static int mPortSOCKS = -1;
@@ -469,10 +459,6 @@ public class OrbotService extends VpnService {
         getIptProxyController(this);
 
         try {
-            //set proper content URIs for current build flavor
-            V3_ONION_SERVICES_CONTENT_URI = Uri.parse("content://" + getApplicationContext().getPackageName() + ".ui.v3onionservice/v3");
-            V3_CLIENT_AUTH_URI = Uri.parse("content://" + getApplicationContext().getPackageName() + ".ui.v3onionservice.clientauth/v3auth");
-
             try {
                 mHandler = new Handler();
 
@@ -801,46 +787,16 @@ public class OrbotService extends VpnService {
     }
 
 
-    private void updateV3OnionNames() throws SecurityException {
-        var contentResolver = getApplicationContext().getContentResolver();
-        var onionServices = contentResolver.query(V3_ONION_SERVICES_CONTENT_URI, null, null, null, null);
-        if (onionServices != null) {
-            try {
-                while (onionServices.moveToNext()) {
-                    var domain_index = onionServices.getColumnIndex(OnionServiceColumns.DOMAIN);
-                    var path_index = onionServices.getColumnIndex(OnionServiceColumns.PATH);
-                    var id_index = onionServices.getColumnIndex(OnionServiceColumns._ID);
-                    if (domain_index < 0 || path_index < 0 || id_index < 0) continue;
-                    var domain = onionServices.getString(domain_index);
-                    if (domain == null || TextUtils.isEmpty(domain)) {
-                        var path = onionServices.getString(path_index);
-                        var v3OnionDirPath = new File(mV3OnionBasePath.getAbsolutePath(), path).getCanonicalPath();
-                        var hostname = new File(v3OnionDirPath, "hostname");
-                        if (hostname.exists()) {
-                            int id = onionServices.getInt(id_index);
-                            domain = Utils.readInputStreamAsString(new FileInputStream(hostname)).trim();
-                            var fields = new ContentValues();
-                            fields.put(OnionServiceColumns.DOMAIN, domain);
-                            contentResolver.update(V3_ONION_SERVICES_CONTENT_URI, fields, OnionServiceColumns._ID + "=" + id, null);
-                        }
-                    }
-                }
-                /*
-                This old status hack is temporary and fixes the issue reported by syphyr at
-                https://github.com/guardianproject/orbot/pull/556
-                Down the line a better approach needs to happen for sending back the onion names updated
-                status, perhaps just adding it as an extra to the normal Intent callback...
-                 */
-                var oldStatus = mCurrentStatus;
-                var intent = new Intent(LOCAL_ACTION_V3_NAMES_UPDATED);
-                LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
-
-                mCurrentStatus = oldStatus;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            onionServices.close();
-        }
+    private void updateV3OnionNames() {
+        OnionServiceColumns.updateV3OnionNames(this, mV3OnionBasePath);
+        // This old status hack is temporary and fixes the issue reported by syphyr at
+        // https://github.com/guardianproject/orbot/pull/556
+        // Down the line a better approach needs to happen for sending back the onion names updated
+        // status, perhaps just adding it as an extra to the normal Intent callback...
+        var oldStatus = mCurrentStatus;
+        var intent = new Intent(LOCAL_ACTION_V3_NAMES_UPDATED);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
+        mCurrentStatus = oldStatus;
     }
 
     private synchronized void startTorService() throws Exception {
@@ -1109,9 +1065,9 @@ public class OrbotService extends VpnService {
         }
 
         if (Prefs.hostOnionServicesEnabled()) {
-            var contentResolver = getApplicationContext().getContentResolver();
-            addV3OnionServicesToTorrc(extraLines, contentResolver);
-            addV3ClientAuthToTorrc(extraLines, contentResolver);
+            // add any needed client authorization and hosted onion service config lines to torrc
+            V3ClientAuthColumns.addClientAuthToTorrc(extraLines, this, mV3AuthBasePath);
+            OnionServiceColumns.addV3OnionServicesToTorrc(extraLines, this, mV3OnionBasePath);
         }
 
         return extraLines;
@@ -1177,80 +1133,6 @@ public class OrbotService extends VpnService {
         if (!mCurrentStatus.equals(STATUS_ON)) return;
         var icon = !isActiveTransfer ? R.drawable.ic_stat_tor : R.drawable.ic_stat_tor_xfer;
         showToolbarNotification(message, NOTIFY_ID, icon);
-    }
-
-    private void addV3OnionServicesToTorrc(StringBuffer torrc, ContentResolver contentResolver) {
-        try {
-            var onionServices = contentResolver.query(V3_ONION_SERVICES_CONTENT_URI, OnionServiceColumns.V3_ONION_SERVICE_PROJECTION, OnionServiceColumns.ENABLED + "=1", null, null);
-            if (onionServices != null) {
-                while (onionServices.moveToNext()) {
-                    var id_index = onionServices.getColumnIndex(OnionServiceColumns._ID);
-                    var port_index = onionServices.getColumnIndex(OnionServiceColumns.PORT);
-                    var onion_port_index = onionServices.getColumnIndex(OnionServiceColumns.ONION_PORT);
-                    var path_index = onionServices.getColumnIndex(OnionServiceColumns.PATH);
-                    var domain_index = onionServices.getColumnIndex(OnionServiceColumns.DOMAIN);
-                    // Ensure that are have all the indexes before trying to use them
-                    if (id_index < 0 || port_index < 0 || onion_port_index < 0 || path_index < 0 || domain_index < 0)
-                        continue;
-
-                    var id = onionServices.getInt(id_index);
-                    var localPort = onionServices.getInt(port_index);
-                    var onionPort = onionServices.getInt(onion_port_index);
-                    var path = onionServices.getString(path_index);
-                    var domain = onionServices.getString(domain_index);
-                    if (path == null) {
-                        path = "v3";
-                        if (domain == null) path += UUID.randomUUID().toString();
-                        else path += localPort;
-                        var cv = new ContentValues();
-                        cv.put(OnionServiceColumns.PATH, path);
-                        contentResolver.update(V3_ONION_SERVICES_CONTENT_URI, cv, OnionServiceColumns._ID + "=" + id, null);
-                    }
-                    var v3DirPath = new File(mV3OnionBasePath.getAbsolutePath(), path).getCanonicalPath();
-                    torrc.append("HiddenServiceDir ").append(v3DirPath).append("\n")
-                            .append("HiddenServiceVersion 3\n")
-                            .append("HiddenServicePort ").append(onionPort).append(" 127.0.0.1:").append(localPort).append("\n");
-                }
-                onionServices.close();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public static String buildV3ClientAuthFile(String domain, String keyHash) {
-        return domain + ":descriptor:x25519:" + keyHash;
-    }
-
-    private void addV3ClientAuthToTorrc(StringBuffer torrc, ContentResolver contentResolver) {
-        var v3auths = contentResolver.query(V3_CLIENT_AUTH_URI, V3ClientAuthColumns.V3_CLIENT_AUTH_PROJECTION, V3ClientAuthColumns.ENABLED + "=1", null, null);
-        if (v3auths != null) {
-            for (File file : mV3AuthBasePath.listFiles()) {
-                if (!file.isDirectory())
-                    file.delete(); // todo the adapter should maybe just write these files and not do this in service...
-            }
-            torrc.append("ClientOnionAuthDir " + mV3AuthBasePath.getAbsolutePath()).append('\n');
-            try {
-                int i = 0;
-                while (v3auths.moveToNext()) {
-                    var domain_index = v3auths.getColumnIndex(V3ClientAuthColumns.DOMAIN);
-                    var hash_index = v3auths.getColumnIndex(V3ClientAuthColumns.HASH);
-                    // Ensure that are have all the indexes before trying to use them
-                    if (domain_index < 0 || hash_index < 0) continue;
-                    var domain = v3auths.getString(domain_index);
-                    var hash = v3auths.getString(hash_index);
-                    var authFile = new File(mV3AuthBasePath, (i++) + ".auth_private");
-                    authFile.createNewFile();
-                    var fos = new FileOutputStream(authFile);
-                    fos.write(buildV3ClientAuthFile(domain, hash).getBytes());
-                    fos.close();
-                }
-            } catch (Exception e) {
-                Log.e(TAG, "error adding v3 client auth...");
-            } finally {
-                v3auths.close();
-            }
-        }
     }
 
     @SuppressLint("NewApi")

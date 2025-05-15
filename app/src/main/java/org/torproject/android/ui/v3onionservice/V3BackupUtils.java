@@ -13,7 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.torproject.android.R;
 import org.torproject.android.service.OrbotConstants;
-import org.torproject.android.service.OrbotService;
+import org.torproject.android.service.db.V3ClientAuthColumns;
 import org.torproject.android.ui.v3onionservice.clientauth.ClientAuthContentProvider;
 
 import java.io.File;
@@ -43,7 +43,7 @@ public class V3BackupUtils {
     }
 
     public String createV3AuthBackup(String domain, String keyHash, Uri backupFile) {
-        String fileText = OrbotService.buildV3ClientAuthFile(domain, keyHash);
+        String fileText = V3ClientAuthColumns.buildV3ClientAuthFile(domain, keyHash);
         try {
             ParcelFileDescriptor pfd = mContext.getContentResolver().openFileDescriptor(backupFile, "w");
             assert pfd != null;
