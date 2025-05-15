@@ -347,15 +347,8 @@ public class OrbotService extends VpnService {
 
 
     public synchronized void enableSnowflakeProxy() { // This is to host a snowflake entrance node / bridge
-        mSnowflakeProxyWrapper.enableProxy(mHasWifi, mHasPower, this::snowflakeProxyClientConnected);
+        mSnowflakeProxyWrapper.enableProxy(mHasWifi, mHasPower);
         logNotice(getString(R.string.log_notice_snowflake_proxy_enabled));
-    }
-
-    private void snowflakeProxyClientConnected() {
-        Prefs.addSnowflakeServed();
-        if (!Prefs.showSnowflakeProxyMessage()) return;
-        var message = String.format(getString(R.string.snowflake_proxy_client_connected_msg), ONION_EMOJI, ONION_EMOJI);
-        new Handler(getMainLooper()).post(() -> Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show());
     }
 
     private void enableSnowflakeProxyNetworkListener() {
