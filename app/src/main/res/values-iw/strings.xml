@@ -52,15 +52,6 @@
     <string name="strict_nodes">צמתים קפדנים</string>
     <string name="bridges">גשרים</string>
     <string name="use_bridges">השתמש בגשרים</string>
-    <string name="relays">ממסרים</string>
-    <string name="relaying">ממסור</string>
-    <string name="enable_your_device_to_be_a_non_exit_relay">אפשר למכשיר שלך להיות תחנת ממסר שאיננה יציאה</string>
-    <string name="relay_port">פורט הממסר</string>
-    <string name="listening_port_for_your_tor_relay">פורט מאזין עבור Tor relay</string>
-    <string name="enter_or_port">נא למלא פתחת OR</string>
-    <string name="relay_nickname">כינוי הממסר</string>
-    <string name="the_nickname_for_your_tor_relay">הכינוי לממסר Tor שלך</string>
-    <string name="enter_a_custom_relay_nickname">נא למלא כינוי לממסר</string>
     <string name="reachable_addresses">כתובות נגישות</string>
     <string name="reachable_ports">פורטים נגישים</string>
     <string name="enter_ports">נא למלא פתחות</string>
@@ -261,7 +252,7 @@
     <string name="backup_port_exist">שגיאה: שירות Onion כבר משתמש בפתחה %s</string>
     <string name="get_a_bridge_subtitle">הסוואת התנועה שלך. מעקף חלק מחסימות Tor.</string>
     <string name="snowflake_proxy_msg_description">להציג הודעה כשעזרת למישהו לעקוף את הצנזורה</string>
-    <string name="kindess_config_detail">הגדרת כיצד ומתי המכשיר שלך יוכל לפעול כמתווך של Snowflake לטובת משתמשי Tor אחרים.</string>
+    <string name="kindness_config_detail">הגדרת כיצד ומתי המכשיר שלך יוכל לפעול כמתווך של Snowflake לטובת משתמשי Tor אחרים.</string>
     <string name="smart_connect_subtitle">אורבוט מנסה להתחבר ל־Tor בכל דרך זמינה: ישירה, Snowflake, גשר.</string>
     <string name="v3_backup_key_warning">אזהרה: עלול לחשוף את המפתח שלך ליישומונים אחרים</string>
     <string name="v3_delete_client_authorization">מחיקת מפתח הרשאת לקוח</string>

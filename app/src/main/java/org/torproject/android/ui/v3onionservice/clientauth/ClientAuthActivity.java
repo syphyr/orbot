@@ -1,7 +1,6 @@
 package org.torproject.android.ui.v3onionservice.clientauth;
 
 import android.content.ContentResolver;
-import android.content.Context;
 import android.content.Intent;
 import android.database.ContentObserver;
 import android.database.Cursor;
@@ -16,18 +15,18 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import org.torproject.android.R;
 import org.torproject.android.core.DiskUtils;
-import org.torproject.android.core.LocaleHelper;
+import org.torproject.android.core.ui.BaseActivity;
+import org.torproject.android.service.db.V3ClientAuthColumns;
 import org.torproject.android.ui.v3onionservice.V3BackupUtils;
 
 import java.util.List;
 import java.util.Objects;
 
-public class ClientAuthActivity extends AppCompatActivity {
+public class ClientAuthActivity extends BaseActivity {
 
     public static final String BUNDLE_KEY_ID = "_id",
             BUNDLE_KEY_DOMAIN = "domain",
@@ -60,9 +59,9 @@ public class ClientAuthActivity extends AppCompatActivity {
         auths.setOnItemClickListener((parent, view, position, id) -> {
             Cursor item = (Cursor) parent.getItemAtPosition(position);
             Bundle args = new Bundle();
-            args.putInt(BUNDLE_KEY_ID, item.getInt(item.getColumnIndex(ClientAuthContentProvider.V3ClientAuth._ID)));
-            args.putString(BUNDLE_KEY_DOMAIN, item.getString(item.getColumnIndex(ClientAuthContentProvider.V3ClientAuth.DOMAIN)));
-            args.putString(BUNDLE_KEY_HASH, item.getString(item.getColumnIndex(ClientAuthContentProvider.V3ClientAuth.HASH)));
+            args.putInt(BUNDLE_KEY_ID, item.getInt(item.getColumnIndex(V3ClientAuthColumns._ID)));
+            args.putString(BUNDLE_KEY_DOMAIN, item.getString(item.getColumnIndex(V3ClientAuthColumns.DOMAIN)));
+            args.putString(BUNDLE_KEY_HASH, item.getString(item.getColumnIndex(V3ClientAuthColumns.HASH)));
             new ClientAuthActionsDialogFragment(args).show(getSupportFragmentManager(), ClientAuthActionsDialogFragment.class.getSimpleName());
         });
     }
@@ -91,11 +90,6 @@ public class ClientAuthActivity extends AppCompatActivity {
             List<Fragment> frags = getSupportFragmentManager().getFragments();
             for (Fragment f : frags) f.onActivityResult(requestCode, resultCode, data);
         }
-    }
-
-    @Override
-    protected void attachBaseContext(Context base) {
-        super.attachBaseContext(LocaleHelper.onAttach(base));
     }
 
     private class V3ClientAuthContentObserver extends ContentObserver {

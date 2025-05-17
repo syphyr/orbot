@@ -135,18 +135,10 @@
     <string name="strict_nodes">கண்டிப்பான முனைகள்</string>
     <string name="strict_nodes_description">அனைத்து சுற்றுகளையும் கட்டுவதற்கான தேவையாக முனைகள் அமைப்புகளை விலக்கு. உங்கள் விலக்கு முனைகள் அமைப்புகளுடன் எந்த சுற்றுகளையும் உருவாக்க முடியாவிட்டால் இது செயல்பாட்டை உடைக்கக்கூடும்.</string>
     <string name="use_bridges">பாலங்களைப் பயன்படுத்துங்கள்</string>
-    <string name="relays">ரிலேக்கள்</string>
-    <string name="listening_port_for_your_tor_relay">உங்கள் டோர் ரிலேவுக்கான துறைமுகம்</string>
-    <string name="enter_or_port">உள்ளிடவும் அல்லது துறைமுகம் செய்யவும்</string>
     <string name="reachable_addresses">அணுகக்கூடிய முகவரிகள்</string>
     <string name="use_qr_code">QR குறியீட்டைப் பயன்படுத்தவும்</string>
     <string name="pref_flag_secure_summary">மற்ற பயன்பாடுகள் ஆர்போட்டின் திரை சாட்களை எடுப்பதைத் தடுக்கவும்</string>
     <string name="pref_flag_secure_title">திரை பாதுகாப்பு</string>
-    <string name="enable_your_device_to_be_a_non_exit_relay">உங்கள் சாதனம் வெளியேற்றப்படாத ரிலேவாக இருக்க இயக்கவும்</string>
-    <string name="relay_port">ரிலே துறைமுகம்</string>
-    <string name="relay_nickname">ரிலே புனைப்பெயர்</string>
-    <string name="the_nickname_for_your_tor_relay">உங்கள் டோர் ரிலேவுக்கான புனைப்பெயர்</string>
-    <string name="enter_a_custom_relay_nickname">தனிப்பயன் ரிலே புனைப்பெயரை உள்ளிடவும்</string>
     <string name="pref_use_expanded_notifications">அறிவிப்பில் காண்பிக்கப்படும் நாடு மற்றும் உங்கள் டோர் வெளியேறும் முனையின் ஐபி முகவரி கிடைக்கும்போது</string>
     <string name="pref_transport_summary">துறைமுகம் அந்த டோர் அதன் வெளிப்படையான ப்ராக்சியை வழங்குகிறது (இயல்புநிலை: முடக்க 9040 அல்லது 0)</string>
     <string name="pref_transport_dialog">டிரான்ச்ப்ராக்சி துறைமுகம் கட்டமைப்பு</string>
@@ -182,7 +174,6 @@
     <string name="hide_apps">பிணைய கண்காணிப்பிலிருந்து பயன்பாடுகளை மறைத்து, அவை தடுக்கப்படும்போது அணுகலைப் பெறுங்கள்.</string>
     <string name="btn_copy_log">நகல் பதிவு</string>
     <string name="pref_detect_root_summary">இந்த சாதனத்தில் ரூட் அனுமதிகள் இயக்கப்பட்டிருந்தால் தொடக்கத்தைப் பற்றி எச்சரிக்கவும்</string>
-    <string name="relaying">ரிலே</string>
     <string name="pref_start_boot_summary">உங்கள் ஆண்ட்ராய்டு சாதனம் துவங்கும் போது தானாகவே ஆர்போட்டைத் தொடங்கி டோர் இணைக்கவும்</string>
     <string name="pref_node_configuration">முனை உள்ளமைவு</string>
     <string name="pref_entrance_node">நுழைவு முனைகள்</string>
@@ -277,7 +268,7 @@
     <string name="log_copied">பதிவு நகலெடுக்கப்பட்டது</string>
     <string name="not_sure">நிச்சயமாக இல்லையா?</string>
     <string name="no_internet_subtitle">ஆர்போட்டைப் பயன்படுத்த உங்களுக்கு இணைய இணைப்பு தேவை.</string>
-    <string name="kindess_config_detail">உங்கள் சாதனம் மற்ற டோர் பயனர்களுக்கான ச்னோஃப்ளேக் ப்ராக்சியாக எவ்வாறு, எப்போது செயல்பட முடியும் என்பதை உள்ளமைக்கவும்.</string>
+    <string name="kindness_config_detail">உங்கள் சாதனம் மற்ற டோர் பயனர்களுக்கான ச்னோஃப்ளேக் ப்ராக்சியாக எவ்வாறு, எப்போது செயல்பட முடியும் என்பதை உள்ளமைக்கவும்.</string>
     <string name="menu_kindness">கருணை</string>
     <string name="option_only_on_wifi">வைஃபை மட்டுமே</string>
     <string name="option_only_when_charging">கட்டணம் வசூலிக்கும்போது மட்டுமே</string>

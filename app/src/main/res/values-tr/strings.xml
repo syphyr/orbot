@@ -57,15 +57,6 @@
     <string name="strict_nodes">Değişmeyen Düğümler</string>
     <string name="bridges">Köprüler</string>
     <string name="use_bridges">Köprüleri Kullan</string>
-    <string name="relays">Aktarıcılar</string>
-    <string name="relaying">Aktarım</string>
-    <string name="enable_your_device_to_be_a_non_exit_relay">Aygıtınız çıkış yapmayan bir aktarıcı olarak kullanılsın</string>
-    <string name="relay_port">Aktarıcı Bağlantı Noktası</string>
-    <string name="listening_port_for_your_tor_relay">Tor aktarıcınızın dinleme bağlantı noktası</string>
-    <string name="enter_or_port">OR bağlantı noktasını girin</string>
-    <string name="relay_nickname">Aktarıcı kısaltması</string>
-    <string name="the_nickname_for_your_tor_relay">Tor aktarıcınızın kısaltması</string>
-    <string name="enter_a_custom_relay_nickname">Özel bir aktarıcı kısaltması girin</string>
     <string name="reachable_addresses">Erişilebilecek Adresler</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Güvenlik duvarı ilkeleri ile kısıtlanmış bir istemci olarak bağlansın</string>
     <string name="reachable_ports">Ulaşılabilir bağlantı noktaları</string>
@@ -269,7 +260,7 @@
     <string name="kindness_adjust_title">Ayarlar</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="no_internet_subtitle">Orbot\'u kullanmak için internet bağlantınızın olması gerekir.</string>
-    <string name="kindess_config_detail">Aygıtınızın diğer Tor kullanıcıları için nasıl ve ne zaman bir Snowflake vekili olarak çalışabileceğini yapılandırın.</string>
+    <string name="kindness_config_detail">Aygıtınızın diğer Tor kullanıcıları için nasıl ve ne zaman bir Snowflake vekili olarak çalışabileceğini yapılandırın.</string>
     <string name="pref_isolate_port_summary">Her hedef bağlantı noktası için farklı bir devre kullanın</string>
     <string name="pref_isolate_port">Hedef bağlantı noktaları yalıtılsın</string>
     <string name="pref_isolate_protocol">İstemci iletişim kuralları yalıtılsın</string>

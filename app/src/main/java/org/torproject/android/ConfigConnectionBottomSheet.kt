@@ -1,7 +1,6 @@
 package org.torproject.android
 
 import IPtProxy.IPtProxy
-import IPtProxy.OnTransportStopped
 import android.content.Context
 import android.os.Bundle
 import android.telephony.TelephonyManager
@@ -17,15 +16,15 @@ import androidx.appcompat.content.res.AppCompatResources
 import org.torproject.android.circumvention.Bridges
 import org.torproject.android.circumvention.CircumventionApiManager
 import org.torproject.android.circumvention.SettingsRequest
-import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.util.Prefs
+import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 import java.io.File
 import java.net.Authenticator
 import java.net.PasswordAuthentication
 import java.util.*
 
-class ConfigConnectionBottomSheet() :
+class ConfigConnectionBottomSheet :
     OrbotBottomSheetDialogFragment() {
 
     private var callbacks: ConnectionHelperCallbacks? = null
@@ -40,7 +39,7 @@ class ConfigConnectionBottomSheet() :
     private lateinit var btnAskTor: Button
 
     companion object {
-        public fun newInstance(callbacks: ConnectionHelperCallbacks): ConfigConnectionBottomSheet {
+        fun newInstance(callbacks: ConnectionHelperCallbacks): ConfigConnectionBottomSheet {
             return ConfigConnectionBottomSheet().apply {
                 this.callbacks = callbacks
             }
@@ -201,7 +200,7 @@ class ConfigConnectionBottomSheet() :
         }
 
         val proxy = OrbotService.getIptProxyController(context)
-        proxy.start(IPtProxy.MeekLite,null);
+        proxy.start(IPtProxy.MeekLite, null)
 
         val pUsername =
             "url=" + OrbotService.getCdnFront("moat-url") + ";front=" + OrbotService.getCdnFront("moat-front")
@@ -241,7 +240,7 @@ class ConfigConnectionBottomSheet() :
             }
         }, {
             // TODO what happens to the app in this case?!
-            Log.e("ConfigConnectionBottomSheet", "Couldn't hit circumvention API... $it")
+            Log.e("ConfigConnectBttmSheet", "Couldn't hit circumvention API... $it")
             Toast.makeText(requireContext(), "Ask Tor was not available", Toast.LENGTH_LONG).show()
         })
     }

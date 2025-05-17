@@ -56,15 +56,6 @@
     <string name="strict_nodes">Nút giao mạng được chỉ định</string>
     <string name="bridges">Cầu Bridge</string>
     <string name="use_bridges">Sử dụng cầu Bridge</string>
-    <string name="relays">Rơ-le chuyển tiếp</string>
-    <string name="relaying">Đang chuyển tiếp rơ-le</string>
-    <string name="enable_your_device_to_be_a_non_exit_relay">Cho phép thiết bị của bạn làm một nút giao rơ-le chuyển tiếp (không phải nút đầu ra cuối cùng)</string>
-    <string name="relay_port">Cổng Rơ-le chuyển tiếp</string>
-    <string name="listening_port_for_your_tor_relay">Cổng tiếp nhận cho rơ-le chuyển tiếp Tor của bạn</string>
-    <string name="enter_or_port">Nhập cổng OR</string>
-    <string name="relay_nickname">Biệt hiệu nút relay</string>
-    <string name="the_nickname_for_your_tor_relay">Biệt hiệu cho nút Tor-relay của bạn</string>
-    <string name="enter_a_custom_relay_nickname">Nhập biệt hiệu tuỳ ý</string>
     <string name="reachable_addresses">Địa chỉ truy cập được (Reachable Addresses)</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Chạy như một máy con (client) đằng sau tường lửa với các thiết lập thu hẹp</string>
     <string name="reachable_ports">Cổng truy cập được</string>
@@ -226,7 +217,7 @@
     <string name="option_only_on_wifi">Chỉ trên Wifi</string>
     <string name="option_only_when_charging">Chỉ khi đang sạc</string>
     <string name="hide_apps">Ẩn giấu các app ứng dụng khỏi việc bị theo dõi mạng và lấy lại khả năng truy cập khi chúng bị chặn.</string>
-    <string name="kindess_config_detail">Định cấu hình làm cách nào và khi nào thì thiết bị của bạn có thể hoạt động như một proxy Snowflake cho những người dùng Tor khác.</string>
+    <string name="kindness_config_detail">Định cấu hình làm cách nào và khi nào thì thiết bị của bạn có thể hoạt động như một proxy Snowflake cho những người dùng Tor khác.</string>
     <string name="not_sure">Không chắc chắn ư\?</string>
     <string name="many_ways">Có nhiều cách để truy cập được Tor. Một số có thể sẽ hoạt động cho bạn tốt hơn những cái khác.</string>
     <string name="bridge_snowflake_amp">Kết nối thông qua những người dùng Tor khác sử dụng Snowflake (Phương pháp 2 - AMP)</string>

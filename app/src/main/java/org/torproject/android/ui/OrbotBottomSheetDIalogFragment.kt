@@ -1,4 +1,4 @@
-package org.torproject.android
+package org.torproject.android.ui
 
 import android.annotation.SuppressLint
 import android.app.Dialog
@@ -20,6 +20,7 @@ open class OrbotBottomSheetDialogFragment : BottomSheetDialogFragment() {
     private var backPressed = false
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
             val dialog = object : BottomSheetDialog(requireActivity(), theme) {
+                @Deprecated("Deprecated in Java")
                 override fun onBackPressed() {
                     super.onBackPressed()
                     backPressed = true
@@ -41,15 +42,6 @@ open class OrbotBottomSheetDialogFragment : BottomSheetDialogFragment() {
        // closeAllSheetsInternal()
         dismiss()
     }
-
-    private fun closeAllSheetsInternal() {
-        val fm = requireActivity().supportFragmentManager
-        for (f in fm.fragments) {
-            if (f == this) continue
-            fm.beginTransaction().remove(f).commit()
-        }
-    }
-
 
     private fun setupRatio(bsd : BottomSheetDialog) {
         val bottomSheet = bsd.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)

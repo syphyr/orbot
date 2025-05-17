@@ -56,15 +56,6 @@
     <string name="strict_nodes">Precīzie mezgli</string>
     <string name="bridges">Tilti</string>
     <string name="use_bridges">Lietot tiltus</string>
-    <string name="relays">Retranslatori</string>
-    <string name="relaying">Retranslēšana</string>
-    <string name="enable_your_device_to_be_a_non_exit_relay">Iespējot Jūsu iekārtu par bezapstājas retranslatoru</string>
-    <string name="relay_port">Retranslatora ports</string>
-    <string name="listening_port_for_your_tor_relay">Jūsu Tor retranslatora klausīšanās ports</string>
-    <string name="enter_or_port">Ievadiet OR portu</string>
-    <string name="relay_nickname">Retranslatora segvārds</string>
-    <string name="the_nickname_for_your_tor_relay">Jūsu Tor\'a retranslatora segvārds</string>
-    <string name="enter_a_custom_relay_nickname">Ievadiet brīvi izraudzītu rertranslatora segvārdu</string>
     <string name="reachable_addresses">Sasniedzamās adreses</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Izpildīt kā klientprogrammu aiz ugunsmūra, kurš nodrošina ierobežojošu kārtību</string>
     <string name="reachable_ports">Sasniedzamie porti</string>
@@ -272,7 +263,7 @@
     <string name="root_warning">Orbot ir konstatējis, ka jūsu ierīcei ir saknes, kas var radīt drošības problēmas.</string>
     <string name="snowflake">Sniegpārsliņa (oriģināls)</string>
     <string name="get_a_bridge_subtitle">Slēpj datplūsmu. Apiet dažas Tor bloķēšanas iespējas.</string>
-    <string name="kindess_config_detail">Konfigurējiet, kā un kad jūsu ierīce var darboties kā Snowflake starpniekserveris citiem Tor lietotājiem.</string>
+    <string name="kindness_config_detail">Konfigurējiet, kā un kad jūsu ierīce var darboties kā Snowflake starpniekserveris citiem Tor lietotājiem.</string>
     <string name="smart_connect_subtitle">Orbot mēģina izveidot savienojumu ar Tor, izmantojot jebkuru pieejamo veidu: Tiešais, sniega pārsla, tilts.</string>
     <string name="pref_isolate_protocol_summary">Katram savienojuma protokolam izmantojiet atšķirīgu ķēdi</string>
     <string name="incorrect_solution">Nepareizs risinājums</string>

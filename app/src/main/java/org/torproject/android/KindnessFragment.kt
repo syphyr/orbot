@@ -44,7 +44,7 @@ class KindnessFragment : Fragment() {
         }
 
         view.findViewById<TextView>(R.id.swVolunteerAdjust).setOnClickListener {
-            KindessConfigBottomSheet().show(requireActivity().supportFragmentManager, CustomBridgeBottomSheet.TAG)
+            KindnessConfigBottomSheet().show(requireActivity().supportFragmentManager, CustomBridgeBottomSheet.TAG)
         }
 
         btnActionActivate.setOnClickListener {

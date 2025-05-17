@@ -37,7 +37,7 @@ class AboutDialogFragment : DialogFragment() {
         val versionName = view?.findViewById<TextView>(R.id.versionName)
         versionName?.text = VERSION
 
-        tvAbout = view?.findViewById(R.id.aboutother) as TextView
+        tvAbout = view?.findViewById(R.id.aboutother)!!
 
         val tvTor = view.findViewById<TextView>(R.id.tvTor)
         tvTor.text = getString(R.string.tor_url, OrbotService.BINARY_TOR_VERSION)
@@ -62,7 +62,12 @@ class AboutDialogFragment : DialogFragment() {
                 aboutText = aboutText.replace(equalsBlockRegex, "")
 
                 val spannableAboutText = SpannableStringBuilder(aboutText)
-                spannableAboutText.setSpan(StyleSpan(Typeface.BOLD), 0, aboutText.indexOf("\n"), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+                spannableAboutText.setSpan(
+                    StyleSpan(Typeface.BOLD),
+                    0,
+                    aboutText.indexOf("\n"),
+                    Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
 
                 tvAbout.text = spannableAboutText
             } catch (e: IOException) {

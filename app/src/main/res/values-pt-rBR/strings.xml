@@ -57,15 +57,6 @@
     <string name="strict_nodes">Nós Estritos</string>
     <string name="bridges">Pontes</string>
     <string name="use_bridges">Usar Pontes</string>
-    <string name="relays">Retransmissores</string>
-    <string name="relaying">Retransmitindo</string>
-    <string name="enable_your_device_to_be_a_non_exit_relay">Ativar o seu dispositivo para ser retransmissor sem saída</string>
-    <string name="relay_port">Porta Retransmissora</string>
-    <string name="listening_port_for_your_tor_relay">Ouvindo a porta do seu retransmissor Tor</string>
-    <string name="enter_or_port">Insira a porta OR</string>
-    <string name="relay_nickname">Nickname do Retransmissor</string>
-    <string name="the_nickname_for_your_tor_relay">O nickname para o seu retransmissor Tor</string>
-    <string name="enter_a_custom_relay_nickname">Insira um nickname de retransmissão personalizado</string>
     <string name="reachable_addresses">Endereços Atingíveis</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Rodar como um cliente atrás de um firewall com políticas restritivas</string>
     <string name="reachable_ports">Portas Atingíveis</string>
@@ -262,7 +253,7 @@
     <string name="log_copied">Registro log copiado</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="not_sure">Não tem certeza?</string>
-    <string name="kindess_config_detail">Configure como e quando o seu dispositivo pode atuar como um proxy Snowflake para outros usuários do Tor.</string>
+    <string name="kindness_config_detail">Configure como e quando o seu dispositivo pode atuar como um proxy Snowflake para outros usuários do Tor.</string>
     <string name="many_ways">Existem muitas maneiras de chegar ao Tor. Alguns podem funcionar melhor do que outros para você.</string>
     <string name="ask_tor">Pergunte ao Tor</string>
     <string name="action_use">Usar</string>

@@ -56,15 +56,6 @@
     <string name="strict_nodes">Node Terlarang</string>
     <string name="bridges">Jembatan-jembatan</string>
     <string name="use_bridges">Pakai Bridges</string>
-    <string name="relays">Relays</string>
-    <string name="relaying">Sedang me-Relay</string>
-    <string name="enable_your_device_to_be_a_non_exit_relay">Nyalakan perangkat anda menjadi non-exit relay</string>
-    <string name="relay_port">Port Relay</string>
-    <string name="listening_port_for_your_tor_relay">Port mendengarkan untuk TOR relay anda</string>
-    <string name="enter_or_port">Memasuki OR port</string>
-    <string name="relay_nickname">Nama Relay</string>
-    <string name="the_nickname_for_your_tor_relay">sebuah nama untuk Tor Relay anda</string>
-    <string name="enter_a_custom_relay_nickname">Masukkan nama relay</string>
     <string name="reachable_addresses">Addresses Terjangkau</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Jalankan sebagai client dibalik firewall dengan ketentuan ketat</string>
     <string name="reachable_ports">Ports terjangkau</string>
@@ -270,7 +261,7 @@
     <string name="no_internet_title">Hubungkan ke internet</string>
     <string name="no_internet_subtitle">Anda membutuhkan koneksi internet untuk menggunakan Orbot.</string>
     <string name="kindness_adjust_title">Pengaturan</string>
-    <string name="kindess_config_detail">Atur bagaimana dan kapan perangkat Anda dapat menjadi sebagai proksi Snowflake untuk pengguna Tor lain.</string>
+    <string name="kindness_config_detail">Atur bagaimana dan kapan perangkat Anda dapat menjadi sebagai proksi Snowflake untuk pengguna Tor lain.</string>
     <string name="asking">MENANYAKAN…</string>
     <string name="action_use">Gunakan</string>
     <string name="pref_isolate_port_summary">Gunakan sirkuit yang berbeda untuk setiap porta tujuan</string>

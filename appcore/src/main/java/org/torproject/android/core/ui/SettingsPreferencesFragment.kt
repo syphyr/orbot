@@ -16,7 +16,7 @@ import org.torproject.android.service.util.Prefs
 class SettingsPreferencesFragment : PreferenceFragmentCompat() {
     private var prefLocale: ListPreference? = null
 
-    private fun initPrefs () {
+    private fun initPrefs() {
         setNoPersonalizedLearningOnEditTextPreferences()
 
         prefLocale = findPreference("pref_default_locale")
@@ -37,7 +37,8 @@ class SettingsPreferencesFragment : PreferenceFragmentCompat() {
 
         // kludge for #992
         val categoryNodeConfig = findPreference<Preference>("category_node_config")
-        categoryNodeConfig?.title = "${categoryNodeConfig?.title}" + "\n\n" + "${categoryNodeConfig?.summary}"
+        categoryNodeConfig?.title =
+            "${categoryNodeConfig?.title}" + "\n\n" + "${categoryNodeConfig?.summary}"
         categoryNodeConfig?.summary = null
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -48,24 +49,23 @@ class SettingsPreferencesFragment : PreferenceFragmentCompat() {
         }
 
         val prefFlagSecure = findPreference<CheckBoxPreference>("pref_flag_secure")
-        prefFlagSecure?.onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
+        prefFlagSecure?.onPreferenceChangeListener =
+            Preference.OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
 
-            Prefs.setSecureWindow(newValue as Boolean)
-            (activity as BaseActivity).resetSecureFlags()
+                Prefs.setSecureWindow(newValue as Boolean)
+                (activity as BaseActivity).resetSecureFlags()
 
-            true
-        }
+                true
+            }
 
         val prefPowerUser = findPreference<CheckBoxPreference>("pref_power_user")
-        prefPowerUser?.onPreferenceChangeListener = Preference.OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
+        prefPowerUser?.onPreferenceChangeListener =
+            Preference.OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
 
-         //   Prefs.setPrefPowerUserMode(newValue as Boolean)
+                //   Prefs.setPrefPowerUserMode(newValue as Boolean)
 
-        true
-
-
-    }
-
+                true
+            }
 
 
     }
@@ -77,6 +77,8 @@ class SettingsPreferencesFragment : PreferenceFragmentCompat() {
     }
 
     private fun setNoPersonalizedLearningOnEditTextPreferences() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+            return
         val preferenceScreen = preferenceScreen
         val categoryCount = preferenceScreen.preferenceCount
         for (i in 0 until categoryCount) {
@@ -88,7 +90,8 @@ class SettingsPreferencesFragment : PreferenceFragmentCompat() {
                     p = pc.getPreference(j)
                     if (p is EditTextPreference) {
                         p.setOnBindEditTextListener {
-                            it.imeOptions = it.imeOptions or EditorInfo.IME_FLAG_NO_PERSONALIZED_LEARNING
+                            it.imeOptions =
+                                it.imeOptions or EditorInfo.IME_FLAG_NO_PERSONALIZED_LEARNING
                         }
                     }
                 }
@@ -101,8 +104,8 @@ class SettingsPreferencesFragment : PreferenceFragmentCompat() {
 
         @JvmStatic
         fun createIntent(context: Context?, @XmlRes xmlPrefId: Int): Intent =
-                Intent(context, SettingsPreferencesFragment::class.java).apply {
-                    putExtra(BUNDLE_KEY_PREFERENCES_XML, xmlPrefId)
-                }
+            Intent(context, SettingsPreferencesFragment::class.java).apply {
+                putExtra(BUNDLE_KEY_PREFERENCES_XML, xmlPrefId)
+            }
     }
 }

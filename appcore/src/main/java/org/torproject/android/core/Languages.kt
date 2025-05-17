@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ContextWrapper
 import android.content.res.Resources
-import android.os.Build
 import android.text.TextUtils
 import android.util.DisplayMetrics
 import java.util.*
@@ -29,53 +28,54 @@ class Languages private constructor(activity: Activity) {
         private var defaultLocale: Locale? = null
         val TIBETAN = Locale("bo")
         val localesToTest = arrayOf(
-                Locale.ENGLISH, Locale.FRENCH, Locale.GERMAN,
-                Locale.ITALIAN, Locale.JAPANESE, Locale.KOREAN,
-                Locale.TRADITIONAL_CHINESE, Locale.SIMPLIFIED_CHINESE,
-                TIBETAN, Locale("af"), Locale("am"),
-                Locale("ar"), Locale("ay"), Locale("az"),
-            Locale("bg"),Locale("be"),Locale("bn","BD"),
-            Locale("bn","IN"),
-                Locale("bn"), Locale("ca"), Locale("cs"),
-                Locale("da"), Locale("el"), Locale("es"),
-                Locale("es", "MX"),
+            Locale.ENGLISH, Locale.FRENCH, Locale.GERMAN,
+            Locale.ITALIAN, Locale.JAPANESE, Locale.KOREAN,
+            Locale.TRADITIONAL_CHINESE, Locale.SIMPLIFIED_CHINESE,
+            TIBETAN, Locale("af"), Locale("am"),
+            Locale("ar"), Locale("ay"), Locale("az"),
+            Locale("bg"), Locale("be"), Locale("bn", "BD"),
+            Locale("bn", "IN"),
+            Locale("bn"), Locale("ca"), Locale("cs"),
+            Locale("da"), Locale("el"), Locale("es"),
+            Locale("es", "MX"),
             Locale("es", "CU"),
 
             Locale("es", "AR"),
-                Locale("en","GB"),
-                Locale("eo"),
-                Locale("et"), Locale("eu"), Locale("fa"),
+            Locale("en", "GB"),
+            Locale("eo"),
+            Locale("et"), Locale("eu"), Locale("fa"),
             Locale("fr"),
-                Locale("fi"), Locale("gl"),
+            Locale("fi"), Locale("gl"),
             Locale("gu"),
             Locale("guc"),
             Locale("gum"),
             Locale("nah"),
             Locale("hi"),
-                Locale("hr"), Locale("hu"), Locale("hy","AM"),
+            Locale("hr"), Locale("hu"), Locale("hy", "AM"),
             Locale("ia"),
-                Locale("in"), Locale("hy"), Locale("in"),
-                Locale("is"), Locale("it"), Locale("iw"),
-                Locale("ka"), Locale("kk"), Locale("km"),
-                Locale("kn"), Locale("ky"), Locale("lo"),
-                Locale("lt"), Locale("lv"), Locale("mk"),
-                Locale("ml"), Locale("mn"), Locale("mr"),
-                Locale("ms"), Locale("my"), Locale("nb"),
-                Locale("ne"), Locale("nl"),
+            Locale("in"), Locale("hy"), Locale("in"),
+            Locale("is"), Locale("it"), Locale("iw"),
+            Locale("ka"), Locale("kk"), Locale("km"),
+            Locale("kn"), Locale("ky"), Locale("lo"),
+            Locale("lt"), Locale("lv"), Locale("mk"),
+            Locale("ml"), Locale("mn"), Locale("mr"),
+            Locale("ms"), Locale("my"), Locale("nb"),
+            Locale("ne"), Locale("nl"),
             Locale("pa"),
             Locale("pbb"),
 
             Locale("pl"),
-            Locale("pt","BR"),
-                Locale("pt"), Locale("rm"), Locale("ro"),
-                Locale("ru"), Locale("si","LK"), Locale("sk"),
-                Locale("sl"), Locale("sn"), Locale("sq"), Locale("sr"),
-                Locale("sv"), Locale("sw"), Locale("ta"),
-                Locale("te"), Locale("th"), Locale("tl"),
-                Locale("tr"), Locale("uk"), Locale("ur"),
-                Locale("uz"), Locale("vi"), Locale("zu"))
+            Locale("pt", "BR"),
+            Locale("pt"), Locale("rm"), Locale("ro"),
+            Locale("ru"), Locale("si", "LK"), Locale("sk"),
+            Locale("sl"), Locale("sn"), Locale("sq"), Locale("sr"),
+            Locale("sv"), Locale("sw"), Locale("ta"),
+            Locale("te"), Locale("th"), Locale("tl"),
+            Locale("tr"), Locale("uk"), Locale("ur"),
+            Locale("uz"), Locale("vi"), Locale("zu")
+        )
         private const val USE_SYSTEM_DEFAULT = ""
-        private const val defaultString = "Use System Default"
+        private const val DEFAULT_STRING = "Use System Default"
         private var locale: Locale? = null
         private var singleton: Languages? = null
         private var clazz: Class<*>? = null
@@ -130,19 +130,20 @@ class Languages private constructor(activity: Activity) {
         @JvmStatic
         @SuppressLint("NewApi")
         fun setLanguage(contextWrapper: ContextWrapper, language: String?, refresh: Boolean) {
-            locale = if (locale != null && TextUtils.equals(locale!!.language, language) && !refresh) {
-                return  // already configured
-            } else if (language == null || language === USE_SYSTEM_DEFAULT) {
-                defaultLocale
-            } else {
-                /* handle locales with the country in it, i.e. zh_CN, zh_TW, etc */
-                val localeSplit = language.split("_".toRegex()).toTypedArray()
-                if (localeSplit.size > 1) {
-                    Locale(localeSplit[0], localeSplit[1])
+            locale =
+                if (locale != null && TextUtils.equals(locale!!.language, language) && !refresh) {
+                    return  // already configured
+                } else if (language == null || language === USE_SYSTEM_DEFAULT) {
+                    defaultLocale
                 } else {
-                    Locale(language)
+                    /* handle locales with the country in it, i.e. zh_CN, zh_TW, etc */
+                    val localeSplit = language.split("_".toRegex()).toTypedArray()
+                    if (localeSplit.size > 1) {
+                        Locale(localeSplit[0], localeSplit[1])
+                    } else {
+                        Locale(language)
+                    }
                 }
-            }
             setLocale(contextWrapper, locale)
         }
 
@@ -164,8 +165,9 @@ class Languages private constructor(activity: Activity) {
         val localeSet: MutableSet<Locale> = LinkedHashSet()
         for (locale in localesToTest) {
             resources = Resources(assets, ignored, config)
-            if (!TextUtils.equals(defaultString, resources.getString(resId))
-                    || locale == Locale.ENGLISH) localeSet.add(locale)
+            if (!TextUtils.equals(DEFAULT_STRING, resources.getString(resId))
+                || locale == Locale.ENGLISH
+            ) localeSet.add(locale)
         }
         for (locale in localeSet) {
             if (locale == TIBETAN) {
@@ -175,23 +177,21 @@ class Languages private constructor(activity: Activity) {
                 tmpMap[Locale.SIMPLIFIED_CHINESE.toString()] = "中文 (中国)" // Chinese (China)
             } else if (locale == Locale.TRADITIONAL_CHINESE) {
                 tmpMap[Locale.TRADITIONAL_CHINESE.toString()] = "中文 (台灣)" // Chinese (Taiwan)
-            }
-            else if (locale.language.equals("pbb")) {
+            } else if (locale.language.equals("pbb")) {
                 tmpMap["pbb"] = "Páez"
-            }
-            else if (locale.language.equals("gum")) {
+            } else if (locale.language.equals("gum")) {
                 tmpMap["gum"] = "Guambiano"
-            }
-            else if (locale.language.equals("guc")) {
+            } else if (locale.language.equals("guc")) {
                 tmpMap["guc"] = "Wayuu"
             } else if (locale.language.equals("nah")) {
                 tmpMap["nah"] = "Nahuatl"
-            }
-            else if (locale.country.equals("cu",true)) {
+            } else if (locale.country.equals("cu", true)) {
                 tmpMap[locale.toString()] = "Español Cubano"
-            }
-            else {
-                tmpMap[locale.toString()] = locale.getDisplayLanguage(locale).capitalize() + " " + locale.getDisplayCountry(locale)
+            } else {
+                tmpMap[locale.toString()] =
+                    locale.getDisplayLanguage(locale).capitalize() + " " + locale.getDisplayCountry(
+                        locale
+                    )
             }
         }
 

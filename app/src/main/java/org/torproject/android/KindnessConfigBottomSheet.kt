@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.widget.SwitchCompat
 import org.torproject.android.service.util.Prefs
+import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 
-class KindessConfigBottomSheet : OrbotBottomSheetDialogFragment() {
+class KindnessConfigBottomSheet : OrbotBottomSheetDialogFragment() {
 
     private lateinit var btnAction: Button
 

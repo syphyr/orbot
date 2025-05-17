@@ -2,7 +2,8 @@
 <resources>
     <string name="app_name">Orbot</string>
     <string name="app_description">Orbot is a free proxy app that empowers other apps to use the internet more securely. Orbot uses Tor to encrypt your Internet traffic and then hides it by bouncing through a series of computers around the world. Tor is free software and an open network that helps you defend against a form of network surveillance that threatens personal freedom and privacy, confidential business activities and relationships, and state security known as traffic analysis.</string>
-    <string name="menu_settings">Settings</string>
+    <string name="menu_settings">Orbot Settings</string>
+    <string name="system_vpn_settings">Android VPN Settings</string>
     <string name="menu_log">Log</string>
     <string name="menu_stop">Stop</string>
     <string name="menu_about">About</string>
@@ -50,15 +51,6 @@
     <string name="strict_nodes_description">Treat Exclude Nodes settings as a requirement for building all circuits. This may break functionality if no circuits are able to be generated with your Exclude Nodes settings.</string>
     <string name="bridges">Bridges</string>
     <string name="use_bridges">Use Bridges</string>
-    <string name="relays">Relays</string>
-    <string name="relaying">Relaying</string>
-    <string name="enable_your_device_to_be_a_non_exit_relay">Enable your device to be a non-exit relay</string>
-    <string name="relay_port">Relay Port</string>
-    <string name="listening_port_for_your_tor_relay">Listening port for your Tor relay</string>
-    <string name="enter_or_port">Enter OR port</string>
-    <string name="relay_nickname">Relay nickname</string>
-    <string name="the_nickname_for_your_tor_relay">The nickname for your Tor relay</string>
-    <string name="enter_a_custom_relay_nickname">Enter a custom relay nickname</string>
     <string name="reachable_addresses">Reachable Addresses</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Run as a client behind a firewall with restrictive policies</string>
     <string name="reachable_ports">Reachable ports</string>
@@ -130,7 +122,7 @@
     <string name="name">Name</string>
     <string name="done">Done!</string>
     <string name="copy_address_to_clipboard">Copy address to clipboard</string>
-    <string name="backup_service">Backup Service &lt;i&gt;(Warning: This Could Expose Your Service Configuration to Other Apps)&lt;/i&gt;</string>
+    <string name="backup_service">Backup Service (Warning: This Could Expose Your Service Configuration to Other Apps)</string>
     <string name="delete_service">Delete Service</string>
     <string name="backup_saved_at_external_storage">Backup saved at external storage</string>
     <string name="backup_restored">Backup restored</string>
@@ -153,6 +145,8 @@
     <string name="pref_isolate_port_summary">Use a different circuit for each destination port</string>
     <string name="pref_isolate_protocol">Isolate client protocols</string>
     <string name="pref_isolate_protocol_summary">Use a different circuit for each connecting protocol</string>
+    <string name="pref_isolate_keep_alive">Keep isolated circuits alive</string>
+    <string name="pref_isolate_keep_alive_summary">Keep isolated circuits alive that have at least one stream with SOCKS authentication active</string>
     <string name="pref_connection_padding">Connection padding</string>
     <string name="pref_connection_padding_summary">Always enables connection padding to defend against some forms of traffic analysis. Default: auto</string>
     <string name="pref_reduced_connection_padding">Reduced connection padding</string>
@@ -270,7 +264,7 @@
     <string name="no_internet_title">Connect to internet</string>
     <string name="no_internet_subtitle">You need an internet connection to use Orbot.</string>
     <string name="kindness_adjust_title">Settings</string>
-    <string name="kindess_config_detail">Configure how and when your device can act as a Snowflake proxy for other Tor users.</string>
+    <string name="kindness_config_detail">Configure how and when your device can act as a Snowflake proxy for other Tor users.</string>
     <string name="menu_kindness">Kindness</string>
     <string name="menu_more">More</string>
     <string name="option_only_on_wifi">Only on Wifi</string>

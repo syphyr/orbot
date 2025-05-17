@@ -48,15 +48,6 @@
     <string name="strict_nodes">Nœuds stricts</string>
     <string name="bridges">Ponts</string>
     <string name="use_bridges">Utiliser des ponts</string>
-    <string name="relays">Relais</string>
-    <string name="relaying">Relais</string>
-    <string name="enable_your_device_to_be_a_non_exit_relay">Faire de votre appareil un relais de non-sortie</string>
-    <string name="relay_port">Port de relais</string>
-    <string name="listening_port_for_your_tor_relay">Port d’écoute de votre relais Tor</string>
-    <string name="enter_or_port">Saisir le port OR</string>
-    <string name="relay_nickname">Pseudonyme du relais</string>
-    <string name="the_nickname_for_your_tor_relay">Le pseudonyme de votre relais Tor</string>
-    <string name="enter_a_custom_relay_nickname">Saisir un pseudonyme personnalisé pour le relais</string>
     <string name="reachable_addresses">Adresses accessibles</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Exécuter en tant que client derrière un pare-feu avec des politiques restrictives</string>
     <string name="reachable_ports">Ports accessibles</string>
@@ -268,7 +259,7 @@
     <string name="volunteer_mode">Mode gentillesse</string>
     <string name="hide_apps">Masquer les applications de la surveillance du réseau et y accéder lorsqu\'elles sont bloquées.</string>
     <string name="having_trouble">Difficultés</string>
-    <string name="kindess_config_detail">Configurez quand et comment votre appareil peut agir en tant que proxy Snowflake pour les autres utilisateurs de Tor.</string>
+    <string name="kindness_config_detail">Configurez quand et comment votre appareil peut agir en tant que proxy Snowflake pour les autres utilisateurs de Tor.</string>
     <string name="btn_copy_log">Journal des copies</string>
     <string name="log_copied">Journal copié</string>
     <string name="strict_nodes_description">Traiter les paramètres des nœuds d\'exclusion comme une exigence pour la construction de tous les circuits. Cela risque d\'interrompre la fonctionnalité si aucun circuit ne peut être généré avec vos paramètres de nœuds d\'exclusion.</string>

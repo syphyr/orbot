@@ -56,15 +56,6 @@
     <string name="strict_nodes">Strict noder</string>
     <string name="bridges">Broer</string>
     <string name="use_bridges">Bruk broer</string>
-    <string name="relays">Reléer</string>
-    <string name="relaying">Videresending</string>
-    <string name="enable_your_device_to_be_a_non_exit_relay">Aktiver enheten til å være et ikke-exit relé</string>
-    <string name="relay_port">Relé-port</string>
-    <string name="listening_port_for_your_tor_relay">Porten Tor-reléet ditt lytter på</string>
-    <string name="enter_or_port">Skriv inn ELLER-port</string>
-    <string name="relay_nickname">Reléets kallenavn</string>
-    <string name="the_nickname_for_your_tor_relay">Kallenavnet for ditt Tor-relé</string>
-    <string name="enter_a_custom_relay_nickname">Skriv inn et egendefinert kallenavn på reléet</string>
     <string name="reachable_addresses">Antreffbare adresser</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Kjør som en klient bak en brannmur med restriktive regler</string>
     <string name="reachable_ports">Antreffbare porter</string>
@@ -198,7 +189,7 @@
     <string name="connect">Koble til</string>
     <string name="action_activate">Aktiver</string>
     <string name="title_choose_apps">Velg programmer</string>
-    <string name="no_internet_title">Koble til internett</string>
+    <string name="no_internet_title">Koble til Internett</string>
     <string name="connection_direct">Direkte</string>
     <string name="connection_snowflake">Snowflake</string>
     <string name="connection_custom">Egendefinert</string>
@@ -220,7 +211,7 @@
     <string name="volunteer_mode_subtitle_desc">Med vennlighetsmodus kan enheten din være en bro for andre. Den hjelper folk med å bruke Tor på steder der det er blokkert.
 \n
 \n- Den tapper ikke batteriet
-\n- Den gjør ikke internett langsommere
+\n- Den gjør ikke Internett langsommere
 \n- Den kan bare kjøres over wifi
 \n- Kan slås av når som helst</string>
     <string name="ports_not_set">Porter ikke innstilt</string>
@@ -265,7 +256,7 @@
     <string name="snowflake">Snowflake</string>
     <string name="backup_port_exist">Feil: En Onion-tjeneste bruker allerede porten %s</string>
     <string name="get_a_bridge_subtitle">Skjuler trafikken din. Omgår en del Tor-blokkering.</string>
-    <string name="kindess_config_detail">Konfigurer hvordan og når enheten din kan fungere som en Snowflake-proxy for andre Tor-brukere.</string>
+    <string name="kindness_config_detail">Konfigurer hvordan og når enheten din kan fungere som en Snowflake-proxy for andre Tor-brukere.</string>
     <string name="smart_connect_subtitle">Orbot prøver å koble til Tor på alle tilgjengelige måter: Direkte, Snowflake, Bridge.</string>
     <string name="v3_backup_key_warning">Advarsel: Dette kan eksponere nøkkelen din for andre apper</string>
     <string name="pref_isolate_protocol_summary">Bruk en annen krets for hver tilkoblingsprotokoll</string>

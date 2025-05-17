@@ -57,15 +57,6 @@
     <string name="strict_nodes">Nodi rigorosi</string>
     <string name="bridges">Bridge</string>
     <string name="use_bridges">Utilizza i bridge</string>
-    <string name="relays">Relay (Inoltratori)</string>
-    <string name="relaying">Relaying (Inoltro)</string>
-    <string name="enable_your_device_to_be_a_non_exit_relay">Consenti al tuo dispositivo di fare da relay senza uscita</string>
-    <string name="relay_port">Porta del relay</string>
-    <string name="listening_port_for_your_tor_relay">Porta in ascolto per il proprio relay di Tor</string>
-    <string name="enter_or_port">Inserisci la porta OR</string>
-    <string name="relay_nickname">Nickname del relay</string>
-    <string name="the_nickname_for_your_tor_relay">Il nickname per il proprio relay di Tor</string>
-    <string name="enter_a_custom_relay_nickname">Inserisci un nickname personalizzato per il relay</string>
     <string name="reachable_addresses">Indirizzi raggiungibili</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Esegui come un client dietro un firewall con politiche restrittive</string>
     <string name="reachable_ports">Porte raggiungibili</string>
@@ -253,7 +244,7 @@
     <string name="having_trouble">Ci sono problemi</string>
     <string name="btn_copy_log">Copia log</string>
     <string name="no_internet_subtitle">Ti serve una connessione internet per usare Orbot.</string>
-    <string name="kindess_config_detail">Configura come e quando il dispositivo può agire da proxy Snowflake per altri utenti Tor.</string>
+    <string name="kindness_config_detail">Configura come e quando il dispositivo può agire da proxy Snowflake per altri utenti Tor.</string>
     <string name="log_copied">Log copiato</string>
     <string name="btn_change_exit">Cambia uscita</string>
     <string name="btn_tor_off">Spegni Tor</string>

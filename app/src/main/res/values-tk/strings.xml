@@ -114,10 +114,6 @@
     <string name="strict_nodes">Üýtgemeýän Düwünler</string>
     <string name="bridges">Köpriler</string>
     <string name="use_bridges">Köprileri Ulan</string>
-    <string name="relay_port">Releý Porty</string>
-    <string name="listening_port_for_your_tor_relay">Tor relýeňiziň diňleýiş porty</string>
-    <string name="the_nickname_for_your_tor_relay">Tor relýeňiz üçin lakam</string>
-    <string name="enter_a_custom_relay_nickname">Ýörite releý lakamyny giriň</string>
     <string name="reachable_addresses">Elýeterli Salgylar</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Çäklendiriji syýasatlar bilen gorag diwarynyň arkasynda müşderi hökmünde işlemek</string>
     <string name="reachable_ports">Elýeterli portlar</string>
@@ -199,8 +195,6 @@
     <string name="next">Indiki</string>
     <string name="pref_general_group">Umumy</string>
     <string name="exit_nodes">Çykalga Düwünleri</string>
-    <string name="enable_your_device_to_be_a_non_exit_relay">Enjamyňyzy çykyşsyz releý hökmünde işlediň</string>
-    <string name="relay_nickname">Releý lakamy</string>
     <string name="project_home">Taslamanyň Baş Sahypasy:</string>
     <string name="volunteer_mode_title">Başgalaryna kömek ediň
 \nTor bilen birikdiriň</string>
@@ -219,9 +213,6 @@
     <string name="fingerprints_nicks_countries_and_addresses_for_the_last_hop">Barmak yzlary, gysgaltmalar, ýurtlar we soňky böküş üçin salgylar</string>
     <string name="pref_proxy_host_title">Çykýan Proksi Wekili</string>
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Gatnaşmajak barmak yzlary, gysgaltmalar, ýurtlar we salgylar</string>
-    <string name="relays">Releýler</string>
-    <string name="relaying">Releýlenýär</string>
-    <string name="enter_or_port">OR portyna giriň</string>
     <string name="third_party_software">Üçünji tarap programma üpjünçiligi:</string>
     <string name="hidden_service_request">Bir programma, %1$s portdaky onion serwerini Tor network-ine açmak isleýär. Programma ynanýan bolsaňyz, bu howpsuz.</string>
     <string name="pref_use_expanded_notifications">Elýeterli bolanda habarnamada toruňyzdan çykýan ýurduňyzy ýa-da IP adresiňizi görkeziň</string>
@@ -270,7 +261,7 @@
     <string name="drawer_open">Açyk</string>
     <string name="if_your_mobile_network_actively_blocks_tor_you_can_use_a_tor_bridge_to_access_the_network_another_way_to_get_bridges_is_to_send_an_email_to_bridges_torproject_org_please_note_that_you_must_send_the_email_using_an_address_from_one_of_the_following_email_providers_riseup_gmail_or_yahoo_">Jübi ulgamyňyzda Tor ulanylyşy işjeň ýagdaýda petiklenýän bolsa, Tor girmek üçin \'Köpri Serweri\' ulanyp bilersiňiz. Sazlamak we synap görmek üçin aşakdaky opsiýalardan birini saýlaň…</string>
     <string name="power_user_description">Tor bilen tanyş ulanyjylar üçin. Orbot-a VPN sazlamasyz başlamaga mümkinçilik berýär we açyk SOCKS we HTTP portlaryny görkezýär</string>
-    <string name="kindess_config_detail">Enjamyňyzyň beýleki Tor ulanyjylary üçin nädip we haçan Snowflake proksi bolup biljekdigini sazlaň.</string>
+    <string name="kindness_config_detail">Enjamyňyzyň beýleki Tor ulanyjylary üçin nädip we haçan Snowflake proksi bolup biljekdigini sazlaň.</string>
     <string name="setting_padding">Ýassyklama</string>
     <string name="setting_debug">Düzediş</string>
     <string name="get_a_bridge">Tor arkaly (Obfs4) köprisi</string>

@@ -13,21 +13,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import org.torproject.android.BuildConfig;
+import org.torproject.android.service.db.OnionServiceColumns;
 
 import java.util.Objects;
 
 public class OnionServiceContentProvider extends ContentProvider {
-
-    public static final String[] PROJECTION = {
-            OnionService._ID,
-            OnionService.NAME,
-            OnionService.PORT,
-            OnionService.DOMAIN,
-            OnionService.ONION_PORT,
-            OnionService.CREATED_BY_USER,
-            OnionService.ENABLED,
-            OnionService.PATH
-    };
 
     private static final int ONIONS = 1, ONION_ID = 2;
     private static final String AUTH = BuildConfig.APPLICATION_ID + ".ui.v3onionservice";
@@ -96,17 +86,4 @@ public class OnionServiceContentProvider extends ContentProvider {
         Objects.requireNonNull(getContext()).getContentResolver().notifyChange(CONTENT_URI, null);
         return rows;
     }
-
-    public static final class OnionService implements BaseColumns {
-        public static final String NAME = "name";
-        public static final String PORT = "port";
-        public static final String ONION_PORT = "onion_port";
-        public static final String DOMAIN = "domain";
-        public static final String CREATED_BY_USER = "created_by_user";
-        public static final String ENABLED = "enabled";
-        public static final String PATH = "filepath";
-        private OnionService() { // no-op
-        }
-    }
-
 }

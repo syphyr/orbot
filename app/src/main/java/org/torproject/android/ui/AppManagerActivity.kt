@@ -21,7 +21,6 @@ import android.widget.ListAdapter
 import android.widget.ProgressBar
 import android.widget.TextView
 
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 
 import kotlinx.coroutines.CoroutineScope
@@ -38,8 +37,10 @@ import org.torproject.android.service.vpn.TorifiedApp
 
 import java.util.Arrays
 import java.util.StringTokenizer
+import androidx.core.content.edit
+import org.torproject.android.core.ui.BaseActivity
 
-class AppManagerActivity : AppCompatActivity(), View.OnClickListener {
+class AppManagerActivity : BaseActivity(), View.OnClickListener {
     inner class TorifiedAppWrapper {
         var header: String? = null
         var subheader: String? = null
@@ -236,9 +237,9 @@ class AppManagerActivity : AppCompatActivity(), View.OnClickListener {
                 response.putExtra(tApp.packageName, true)
             }
         }
-        val edit = mPrefs!!.edit()
-        edit.putString(OrbotConstants.PREFS_KEY_TORIFIED, tordApps.toString())
-        edit.apply()
+        mPrefs!!.edit {
+            putString(OrbotConstants.PREFS_KEY_TORIFIED, tordApps.toString())
+        }
         setResult(RESULT_OK, response)
     }
 
@@ -321,7 +322,6 @@ class AppManagerActivity : AppCompatActivity(), View.OnClickListener {
                         }
                     }
                 } catch (e: Exception) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace()
                 }
 

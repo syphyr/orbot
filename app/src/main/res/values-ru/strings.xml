@@ -57,15 +57,6 @@
     <string name="strict_nodes">Точные узлы</string>
     <string name="bridges">Мосты</string>
     <string name="use_bridges">Использовать мосты</string>
-    <string name="relays">Ретрансляторы</string>
-    <string name="relaying">Ретрансляция</string>
-    <string name="enable_your_device_to_be_a_non_exit_relay">Разрешить вашему устройству быть невыходным ретранслятором</string>
-    <string name="relay_port">Порт ретранслятора</string>
-    <string name="listening_port_for_your_tor_relay">Прослушиваемый порт для вашего ретранслятора Tor</string>
-    <string name="enter_or_port">Введите порт OR</string>
-    <string name="relay_nickname">Имя ретранслятора</string>
-    <string name="the_nickname_for_your_tor_relay">Имя для вашего ретранслятора Tor</string>
-    <string name="enter_a_custom_relay_nickname">Введите пользовательское имя ретранслятора</string>
     <string name="reachable_addresses">Доступные адреса</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Запускать как клиент за межсетевым экраном с ограничивающими политиками</string>
     <string name="reachable_ports">Доступные порты</string>
@@ -269,7 +260,7 @@
     <string name="no_internet_title">Подключиться к интернету</string>
     <string name="no_internet_subtitle">Для использования Orbot необходимо подключение к интернету.</string>
     <string name="kindness_adjust_title">Настройки</string>
-    <string name="kindess_config_detail">Настройте, как и когда ваше устройство может использоваться в качестве прокси-сервера Snowflake для других пользователей Tor.</string>
+    <string name="kindness_config_detail">Настройте, как и когда ваше устройство может использоваться в качестве прокси-сервера Snowflake для других пользователей Tor.</string>
     <string name="pref_isolate_protocol">Изолировать протоколы клиентов</string>
     <string name="pref_isolate_port_summary">Использовать разные цепочки подключения для каждого порта назначения</string>
     <string name="pref_isolate_port">Изолировать порты назначения</string>

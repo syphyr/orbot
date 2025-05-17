@@ -49,6 +49,7 @@ dependencies {
     api(project(":OrbotLib"))
     api(libs.guardian.jtorctl)
     api(libs.tor.android)
+//    api(files("../../tor-android/tor-android-binary/build/outputs/aar/tor-android-binary-debug.aar"))
 
     implementation(libs.android.shell)
     implementation(libs.androidx.core)

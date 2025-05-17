@@ -13,8 +13,6 @@
 
     <string name="couldn_t_start_tor_process_">Nojotsü o\'ottuin sukuaipa shiatain Tor</string>
     <string name="your_reachableaddresses_settings_caused_an_exception_">Tü anatiaaka   erree juntunuín  casaa, nojots jainrre\'in</string>
-    <string name="your_relay_settings_caused_an_exception_">Tü anatiaka  eerjaya maimatuaa, nojots  jainrrei´n </string>
-    <string name="found_existing_tor_process">Antusü sünain sajia wanee Tor etüjulia &#8230;</string>
     <string name="unable_to_start_tor">no jot süpüla achuajaje\'in Tor</string>
 
     <string name="newnym">Tü piranaajain sülü wanee jeketü shiyawase Tor</string>
@@ -22,8 +20,6 @@
     <string name="updating_settings_in_tor_service">Anoutuüin  tüü akümajiak süpüla Tor</string>
 
     <string name="menu_new_identity">Anuli\'aa jekets</string>
-    <string name="waiting_for_control_port">Atapajus  juntia</string>
-    <string name="connecting_to_control_port">süntiraya tü süchecheria sütsin</string>
 
     <string name="kibibyte_per_second">KiB/s</string>
     <string name="mebibyte_per_second">MiB/s</string>
@@ -31,7 +27,6 @@
     <string name="snowflake_proxy_client_connected_msg">%sPuuproxinka copo de nieve munaka amuliajús wayuu jupula nainjuin tu nainrreka.%s</string>
 
     <string name="log_notice_unable_to_update_onions">Nojoluinjat  aitanüin junulia cewoolla.</string>
-    <string name="log_notice_low_memory_warning">Motée ainrüü</string>
     <string name="log_notice_snowflake_proxy_enabled">Proxy copo de nieve amuliajús jupula painruuín tu paiinrreka </string>
     <string name="log_notice_snowflake_proxy_disabled">proxinka copo de nieve Yokúuts</string>
     <string name="log_notice_updating_torrc">Jeketerr  tu anatiakal  tu ipünamiukal C</string>

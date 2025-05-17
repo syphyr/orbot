@@ -42,3 +42,6 @@ OrbotLib/OrbotIPtProxy
 
 # License
 app/src/main/assets/LICENSE
+
+# local kotlin config 
+.kotlin/

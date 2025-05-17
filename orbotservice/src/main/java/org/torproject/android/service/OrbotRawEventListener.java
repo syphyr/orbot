@@ -1,5 +1,9 @@
 package org.torproject.android.service;
 
+import android.content.Context;
+
+import androidx.annotation.NonNull;
+
 import net.freehaven.tor.control.RawEventListener;
 import net.freehaven.tor.control.TorControlCommands;
 
@@ -7,6 +11,7 @@ import org.torproject.android.service.util.Prefs;
 import org.torproject.android.service.util.Utils;
 import org.torproject.jni.TorService;
 
+import java.text.NumberFormat;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Locale;
@@ -72,17 +77,23 @@ public class OrbotRawEventListener implements RawEventListener {
         }
     }
 
+    private static String formatBandwidthCount(Context context, long bitsPerSecond) {
+        var nf = NumberFormat.getInstance(Locale.getDefault());
+        if (bitsPerSecond < 1e6)
+            return nf.format(Math.round(((float) ((int) (bitsPerSecond * 10 / 1024)) / 10))) + context.getString(R.string.kibibyte_per_second);
+        else
+            return nf.format(Math.round(((float) ((int) (bitsPerSecond * 100 / 1024 / 1024)) / 100))) + context.getString(R.string.mebibyte_per_second);
+    }
     private void handleBandwidth(long read, long written) {
-        String message = OrbotService.formatBandwidthCount(mService, read) + " ↓ / " + OrbotService.formatBandwidthCount(mService, written) + " ↑";
+        String message = formatBandwidthCount(mService, read) + " ↓ / " + formatBandwidthCount(mService, written) + " ↑";
 
-        if (mService.getCurrentStatus().equals(TorService.STATUS_ON))
+        if (mService.mCurrentStatus.equals(TorService.STATUS_ON))
             mService.showBandwidthNotification(message, read != 0 || written != 0);
 
         mTotalBandwidthWritten += written;
         mTotalBandwidthRead += read;
 
         mService.sendCallbackBandwidth(written, read, mTotalBandwidthWritten, mTotalBandwidthRead);
-
     }
 
     private void handleNewDescriptors(String[] descriptors) {
@@ -234,6 +245,7 @@ public class OrbotRawEventListener implements RawEventListener {
         public String ipAddress;
         boolean querying = false;
 
+        @NonNull
         @Override
         public String toString() {
             return ipAddress + " " + country;

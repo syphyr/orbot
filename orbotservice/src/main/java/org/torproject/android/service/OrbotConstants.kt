@@ -5,13 +5,8 @@ import org.torproject.jni.TorService
 object OrbotConstants {
     const val TAG = "Orbot"
 
-    const val PREF_OR = "pref_or"
-    const val PREF_OR_PORT = "pref_or_port"
-    const val PREF_OR_NICKNAME = "pref_or_nickname"
     const val PREF_REACHABLE_ADDRESSES = "pref_reachable_addresses"
     const val PREF_REACHABLE_ADDRESSES_PORTS = "pref_reachable_addresses_ports"
-
-    const val PREF_TOR_SHARED_PREFS = "org.torproject.android_preferences"
 
     const val PREF_DNSPORT = "pref_dnsport"
     const val PREF_HTTP = "pref_http"
@@ -21,6 +16,7 @@ object OrbotConstants {
     const val PREF_ISOLATE_DEST = "pref_isolate_dest"
     const val PREF_ISOLATE_PORT = "pref_isolate_port"
     const val PREF_ISOLATE_PROTOCOL = "pref_isolate_protocol"
+    const val PREF_ISOLATE_KEEP_ALIVE = "pref_isolate_keep_alive"
 
     const val PREF_CONNECTION_PADDING = "pref_connection_padding"
     const val PREF_REDUCED_CONNECTION_PADDING = "pref_reduced_connection_padding"
@@ -68,9 +64,11 @@ object OrbotConstants {
     const val ACTION_UPDATE_ONION_NAMES = "org.torproject.android.intent.action.UPDATE_ONION_NAMES"
 
     /**
-     * [Intent] send by Orbot with `ON/OFF/STARTING/STOPPING` status
+     * Intent send by Orbot with `ON/OFF/STARTING/STOPPING` status
      */
     const val ACTION_STATUS = TorService.ACTION_STATUS
+
+    const val ACTION_ERROR = TorService.ACTION_ERROR
 
     /**
      * `String` that contains a status constant: [.STATUS_ON],
@@ -81,7 +79,7 @@ object OrbotConstants {
 
     /**
      * A [String] `packageName` for Orbot to direct its status reply
-     * to, used in [.ACTION_START] [Intent]s sent to Orbot
+     * to, used in [.ACTION_START] Intents sent to Orbot
      */
     const val EXTRA_PACKAGE_NAME = TorService.EXTRA_PACKAGE_NAME
 
@@ -142,7 +140,7 @@ object OrbotConstants {
 
     /**
      * The user has disabled the ability for background starts triggered by
-     * apps. Fallback to the old [Intent] action that brings up Orbot:
+     * apps. Fallback to the old Intent action that brings up Orbot:
      * [.ACTION_START]
      */
     const val STATUS_STARTS_DISABLED = "STARTS_DISABLED"
