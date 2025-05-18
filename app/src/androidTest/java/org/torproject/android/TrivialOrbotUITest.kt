@@ -1,6 +1,5 @@
 package org.torproject.android
 
-
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
@@ -17,16 +16,12 @@ class TrivialOrbotUITest {
 
     @Rule
     @JvmField
-    var mActivityScenarioRule = ActivityScenarioRule(OrbotActivity::class.java)
+    val activityScenarioRule = ActivityScenarioRule(OrbotActivity::class.java)
 
     @Test
     fun trivialOrbotUITest() {
-
         val bottomNav = onView(
-                allOf(withId(R.id.bottom_navigation),
-                        isDisplayed()))
-
-        //textView.check(matches(withText("CONFIGURE")))
-
+            allOf(withId(R.id.bottom_navigation), isDisplayed())
+        )
     }
 }

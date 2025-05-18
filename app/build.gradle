@@ -123,10 +123,11 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.rootbeer.lib)
 
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.junit.jupiter)
     androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.fastlane.screengrab)
+    androidTestImplementation(libs.androidx.espresso)
+    androidTestImplementation(libs.androidx.rules)
+    androidTestImplementation(libs.androidx.runner)
 }
 
 tasks.register("copyLicenseToAssets", Copy) {
