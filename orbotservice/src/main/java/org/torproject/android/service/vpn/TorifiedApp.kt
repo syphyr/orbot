@@ -44,9 +44,8 @@ class TorifiedApp : Comparable<TorifiedApp> {
     @Serializable
     var usesInternet: Boolean = false
 
-    override fun compareTo(other: TorifiedApp): Int {
-        return (name ?: "").compareTo(other.name ?: "", ignoreCase = true)
-    }
+    override fun compareTo(other: TorifiedApp): Int =
+         (name ?: "").compareTo(other.name ?: "", ignoreCase = true)
 
     override fun toString(): String = name ?: ""
 
@@ -62,12 +61,11 @@ class TorifiedApp : Comparable<TorifiedApp> {
             val pMgr = context.packageManager
             val lAppInfo = pMgr.getInstalledApplications(0)
             val apps = ArrayList<TorifiedApp>()
-
-            for (aInfo in lAppInfo) {
+            lAppInfo.forEach {
                 val app = TorifiedApp()
                 try {
-                    val pInfo = pMgr.getPackageInfo(aInfo.packageName, PackageManager.GET_PERMISSIONS)
-                    if (OrbotConstants.BYPASS_VPN_PACKAGES.contains(aInfo.packageName)) {
+                    val pInfo = pMgr.getPackageInfo(it.packageName, PackageManager.GET_PERMISSIONS)
+                    if (OrbotConstants.BYPASS_VPN_PACKAGES.contains(it.packageName)) {
                         app.usesInternet = false
                     } else if (pInfo?.requestedPermissions != null) {
                         for (permInfo in pInfo.requestedPermissions!!) {
@@ -80,27 +78,24 @@ class TorifiedApp : Comparable<TorifiedApp> {
                     e.printStackTrace()
                 }
 
-                if ((aInfo.flags and ApplicationInfo.FLAG_SYSTEM) == 1) {
-                    // System app
-                    app.usesInternet = true
-                }
+                if ((it.flags and ApplicationInfo.FLAG_SYSTEM) == 1)
+                    app.usesInternet = true // System app
 
-                if (!app.usesInternet) {
-                    continue
-                } else {
-                    apps.add(app)
-                }
+                if (!app.usesInternet) return@forEach
+                else apps.add(app)
 
-                app.isEnabled = aInfo.enabled
-                app.uid = aInfo.uid
-                app.username = pMgr.getNameForUid(app.uid)
-                app.procname = aInfo.processName
-                app.packageName = aInfo.packageName
+                app.apply {
+                    isEnabled = it.enabled
+                    uid = it.uid
+                    username = pMgr.getNameForUid(it.uid)
+                    procname = it.processName
+                    packageName = it.packageName
+                }
 
                 try {
-                    app.name = pMgr.getApplicationLabel(aInfo).toString()
+                    app.name = pMgr.getApplicationLabel(it).toString()
                 } catch (e: Exception) {
-                    app.name = aInfo.packageName
+                    app.name = it.packageName
                 }
 
                 // Check if this application is allowed
