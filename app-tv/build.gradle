@@ -72,6 +72,4 @@ dependencies {
     implementation(libs.androidx.recyclerview)
     implementation(libs.apl.appintro)
     implementation libs.androidx.core.ktx
-
-    androidTestImplementation(libs.fastlane.screengrab)
 }
