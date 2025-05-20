@@ -52,15 +52,6 @@
     <string name="strict_nodes">הקפדה על צמתים</string>
     <string name="bridges">גשרים</string>
     <string name="use_bridges">שימוש בגשרים</string>
-    <string name="relays">ממסרים</string>
-    <string name="relaying">ממסור</string>
-    <string name="enable_your_device_to_be_a_non_exit_relay">לאפשר למכשיר להיות תחנת ממסר שאיננה יציאה</string>
-    <string name="relay_port">פתחת הממסר</string>
-    <string name="listening_port_for_your_tor_relay">פתחת האזנה עבור ממסר הTor</string>
-    <string name="enter_or_port">נא למלא פתחת OR</string>
-    <string name="relay_nickname">כינוי הממסר</string>
-    <string name="the_nickname_for_your_tor_relay">הכינוי לממסר הTor שלך</string>
-    <string name="enter_a_custom_relay_nickname">נא למלא כינוי לממסר</string>
     <string name="reachable_addresses">כתובות נגישות</string>
     <string name="reachable_ports">פתחות נגישות</string>
     <string name="enter_ports">נא למלא פתחות</string>
