@@ -97,7 +97,7 @@
     <string name="onion_port">Port onion</string>
     <string name="done">Terminé</string>
     <string name="copy_address_to_clipboard">Copier l’adresse dans le presse-papiers</string>
-    <string name="backup_service">Sauvegarder le service <i>(Avertissement : La configuration de votre service pourrait être exposée à d’autres applis)</i></string>
+    <string name="backup_service">Sauvegarder le service <i>(Avertissement : La configuration de votre service pourrait être exposée à d’autres applis)</i></string>
     <string name="delete_service">Supprimer le service</string>
     <string name="backup_saved_at_external_storage">La sauvegarde a été enregistrée sur la mémoire externe</string>
     <string name="backup_restored">La sauvegarde a été restaurée</string>
