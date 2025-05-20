@@ -140,6 +140,81 @@
             </intent-filter>
         </service>
 
-    </application>
 
+        <activity-alias
+            android:name=".main.NightWatch"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_camouflage_night_watch"
+            android:label="@string/app_icon_chooser_label_night_watch"
+            android:launchMode="singleInstance"
+            android:targetActivity=".OrbotActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity-alias>
+        <activity-alias
+            android:name=".main.Assistant"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_camouflage_assistant"
+            android:label="@string/app_icon_chooser_label_assistant"
+            android:launchMode="singleInstance"
+            android:targetActivity=".OrbotActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity-alias>
+        <activity-alias
+            android:name=".main.Paint"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_camouflage_paint"
+            android:label="@string/app_icon_chooser_label_paint"
+            android:launchMode="singleInstance"
+            android:targetActivity=".OrbotActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity-alias>
+        <activity-alias
+            android:name=".main.Tetras"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_camouflage_tetras"
+            android:label="@string/app_icon_chooser_label_tetras"
+            android:launchMode="singleInstance"
+            android:targetActivity=".OrbotActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity-alias>
+        <activity-alias
+            android:name=".main.Todo"
+            android:enabled="false"
+            android:exported="true"
+            android:icon="@drawable/ic_camouflage_todo"
+            android:label="@string/app_icon_chooser_label_todo"
+            android:launchMode="singleInstance"
+            android:targetActivity=".OrbotActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+    </application>
 </manifest>
