@@ -2,7 +2,6 @@ package org.torproject.android
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
