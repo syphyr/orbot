@@ -150,9 +150,11 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                 var convertView = convertView
                 var entry: ListEntry? = null
-                if (convertView == null) convertView =
-                    inflater.inflate(R.layout.layout_apps_item, parent, false) else entry =
-                    convertView.tag as ListEntry
+                if (convertView == null)
+                    convertView = inflater.inflate(R.layout.layout_apps_item, parent, false)
+                else
+                    entry = convertView.tag as ListEntry
+
                 if (entry == null) {
                     // Inflate a new view
                     entry = ListEntry()
@@ -244,9 +246,12 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
+        // todo make whatever is clicked (box, icon, text) set selected=true on the TextView
+        // to make the text scroll, for now only selecting the text itself makes it scroll
         var cbox: CheckBox? = null
-        if (v is CheckBox) cbox = v else if (v.tag is CheckBox) cbox =
-            v.tag as CheckBox else if (v.tag is ListEntry) cbox = (v.tag as ListEntry).box
+        if (v is CheckBox) cbox = v
+        else if (v.tag is CheckBox) cbox = v.tag as CheckBox
+        else if (v.tag is ListEntry) cbox = (v.tag as ListEntry).box
         if (cbox != null) {
             val app = cbox.tag as TorifiedApp
             app.isTorified = !app.isTorified
