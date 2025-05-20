@@ -1,5 +1,6 @@
 package org.torproject.android.ui.v3onionservice.clientauth;
 
+import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.ContentObserver;
@@ -38,6 +39,7 @@ public class ClientAuthActivity extends BaseActivity {
     static final String CLIENT_AUTH_FILE_EXTENSION = ".auth_private",
             CLIENT_AUTH_SAF_MIME_TYPE = "*/*";
 
+    @SuppressLint("Range")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
