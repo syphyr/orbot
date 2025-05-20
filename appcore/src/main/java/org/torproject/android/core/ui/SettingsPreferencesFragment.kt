@@ -58,17 +58,20 @@ class SettingsPreferencesFragment : PreferenceFragmentCompat() {
                 true
             }
 
-        val prefPowerUser = findPreference<CheckBoxPreference>("pref_power_user")
-        prefPowerUser?.onPreferenceChangeListener =
+        val prefCamoEnabled = findPreference<CheckBoxPreference>("pref_key_camo_enabled")
+        val prefCamoDialog = findPreference<ListPreference>("pref_key_camo_dialog")
+        prefCamoEnabled?.onPreferenceChangeListener =
             Preference.OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
-
-                //   Prefs.setPrefPowerUserMode(newValue as Boolean)
-
+                prefCamoDialog?.isEnabled = newValue as Boolean
                 true
             }
+        prefCamoDialog?.entries
+        prefCamoDialog?.onPreferenceClickListener = Preference.OnPreferenceClickListener {
 
-
+            true
+        }
     }
+
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
 

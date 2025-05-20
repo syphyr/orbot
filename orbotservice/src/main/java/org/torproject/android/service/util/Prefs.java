@@ -247,10 +247,6 @@ public class Prefs {
         return prefs.getString(PREF_SMART_TRY_OBFS4, null);
     }
 
-    public static void setPrefPowerUserMode (boolean powerUser) {
-        putBoolean(PREF_POWER_USER_MODE, powerUser);
-    }
-
     public static boolean isPowerUserMode() {
         return prefs.getBoolean(PREF_POWER_USER_MODE, false);
     }
@@ -265,10 +261,6 @@ public class Prefs {
 
     public static boolean isCamoEnabled() {
         return prefs.getBoolean(PREF_CAMO_ENABLED, false);
-    }
-
-    public static void setCamoEnabled(boolean enabled) {
-        putBoolean(PREF_CAMO_ENABLED, enabled);
     }
 
 }

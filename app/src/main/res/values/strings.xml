@@ -292,6 +292,8 @@
     <string name="app_icon_chooser_label_todo">To-Do</string>
 
     <string name="pref_title_camouflage">Camouflage</string>
-    <string name="pref_camo_title">Enable Camouflage Mode</string>
+    <string name="pref_camo_title">Enable Camouflage</string>
     <string name="pref_camo_subtitle">Make Orbot look like another app and hide notification information about Tor.</string>
+    <string name="pref_camo_app_select_title">Select Camouflage Theme</string>
+    <string name="pref_camo_app_select_subtitle">This will change how Orbot\'s icon and label will appear on your device</string>
 </resources>

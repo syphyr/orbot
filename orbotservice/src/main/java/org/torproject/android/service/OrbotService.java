@@ -8,7 +8,6 @@ import static org.torproject.android.service.OrbotConstants.*;
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.app.Notification;
-import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -41,6 +40,7 @@ import org.torproject.android.service.circumvention.SnowflakeClient;
 import org.torproject.android.service.circumvention.SnowflakeProxyWrapper;
 import org.torproject.android.service.db.OnionServiceColumns;
 import org.torproject.android.service.db.V3ClientAuthColumns;
+import org.torproject.android.service.ui.Notifications;
 import org.torproject.android.service.util.Bridge;
 import org.torproject.android.service.util.CustomTorResourceInstaller;
 import org.torproject.android.service.util.PowerConnectionReceiver;
@@ -79,7 +79,7 @@ public class OrbotService extends VpnService {
 
     public final static String BINARY_TOR_VERSION = TorService.VERSION_NAME;
     static final int NOTIFY_ID = 1, ERROR_NOTIFY_ID = 3;
-    final static String NOTIFICATION_CHANNEL_ID = "orbot_channel_1";
+    public final static String NOTIFICATION_CHANNEL_ID = "orbot_channel_1";
     public static int mPortSOCKS = -1, mPortHTTP = -1, mPortDns = -1, mPortTrans = -1;
     public static File appBinHome, appCacheHome;
     private final ExecutorService mExecutor = Executors.newCachedThreadPool();
@@ -149,7 +149,6 @@ public class OrbotService extends VpnService {
                     .setSmallIcon(R.drawable.ic_generic_info)
                     .setProgress(0, 0, false)
                     .setContentIntent(null);
-            // .setSmallIcon() ? TODO
         } else {
             var title = getString(R.string.status_disabled);
             if (mCurrentStatus.equals(STATUS_STARTING) || notifyMsg.equals(getString(R.string.status_starting_up)))
