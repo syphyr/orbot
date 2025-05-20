@@ -1,5 +1,6 @@
 package org.torproject.android.ui.v3onionservice;
 
+import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.ContentObserver;
@@ -36,6 +37,7 @@ public class OnionServiceActivity extends BaseActivity {
     private OnionV3ListAdapter mAdapter;
     private CoordinatorLayout mLayoutRoot;
 
+    @SuppressLint("Range")
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);

@@ -1,5 +1,6 @@
 package org.torproject.android.ui.v3onionservice.clientauth;
 
+import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
@@ -29,6 +30,7 @@ public class ClientAuthListAdapter extends CursorAdapter {
         return mLayoutInflater.inflate(R.layout.layout_client_cookie_list_item, null);
     }
 
+    @SuppressLint("Range")
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
         int id = cursor.getInt(cursor.getColumnIndex(V3ClientAuthColumns._ID));
