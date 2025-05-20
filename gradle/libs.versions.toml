@@ -4,6 +4,7 @@ android-material = "1.12.0"
 android-shell = "1.0.0"
 android-snowfall = "1.2.1"
 android-volley = "1.2.1"
+androidx-activity = "1.10.1"
 androidx-appcompat = "1.7.0"
 androidx-constraint = "2.2.1"
 androidx-coordinator = "1.3.0"
@@ -38,6 +39,7 @@ android-material = { group = "com.google.android.material", name = "material", v
 android-shell = { group = "com.jaredrummler", name = "android-shell", version.ref = "android-shell" }
 android-snowfall = { group = "com.github.jetradarmobile", name = "android-snowfall", version.ref = "android-snowfall" }
 android-volley = { group = "com.android.volley", name = "volley", version.ref = "android-volley" }
+androidx-activity = { group = "androidx.activity", name = "activity-ktx", version.ref = "androidx-activity" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
 androidx-constraint = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidx-constraint" }
 androidx-coordinator = { group = "androidx.coordinatorlayout", name = "coordinatorlayout", version.ref = "androidx-coordinator" }
@@ -69,7 +71,7 @@ tor-android = { group = "info.guardianproject", name = "tor-android", version.re
 pcap-core = { group = "org.pcap4j", name = "pcap4j-core", version.ref = "pcap-core" }
 pcap-factory = { group = "org.pcap4j", name = "pcap4j-packetfactory-static", version.ref = "pcap-factory" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization" }
-appiconnamechanger = { group = "com.github.myinnos", name ="AppIconNameChanger", version.ref="app-icon-name-changer"}
+appiconnamechanger = { group = "com.github.myinnos", name = "AppIconNameChanger", version.ref = "app-icon-name-changer"}
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

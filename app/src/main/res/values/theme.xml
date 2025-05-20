@@ -14,7 +14,6 @@
         <item name="android:windowIsFloating">false</item>
         <item name="colorPrimary">@color/new_background_secondary</item>
         <item name="colorPrimaryDark">@color/new_background_secondary</item>
-
     </style>
 
     <style name="OrbotDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
