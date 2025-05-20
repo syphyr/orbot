@@ -1,0 +1,32 @@
+package org.torproject.android.service
+
+import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.content.Context
+import android.os.Build
+import androidx.annotation.RequiresApi
+import org.torproject.android.service.util.Prefs
+
+object Notifications {
+    @JvmStatic
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    fun createNotificationChannel(context: Context) {
+        val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        val appName = if (!Prefs.isCamoEnabled())
+            context.getString(R.string.app_name)
+        else
+            "PLACEHOLDER"
+        val channelDescription = if (!Prefs.isCamoEnabled())
+            context.getString(R.string.app_description)
+        else
+            "PLACEHOLDER"
+        manager.createNotificationChannel(NotificationChannel(OrbotService.NOTIFICATION_CHANNEL_ID, appName, NotificationManager.IMPORTANCE_LOW).apply {
+            description = channelDescription
+            enableLights(false)
+            enableVibration(false)
+            setShowBadge(false)
+            lockscreenVisibility = Notification.VISIBILITY_SECRET
+        })
+    }
+}

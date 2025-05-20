@@ -41,6 +41,8 @@ public class Prefs {
 
     private static final String PREF_CURRENT_VERSION = "pref_current_version";
 
+    private static final String PREF_CAMO_ENABLED = "pref_key_camo_enabled";
+
     private static final String PREF_CONNECTION_PATHWAY = "pref_connection_pathway";
     public static final String PATHWAY_SMART = "smart", PATHWAY_DIRECT = "direct",
         PATHWAY_SNOWFLAKE = "snowflake", PATHWAY_SNOWFLAKE_AMP = "snowflake_amp", PATHWAY_CUSTOM = "custom";
@@ -259,6 +261,14 @@ public class Prefs {
 
     public static boolean isSecureWindow () {
         return prefs.getBoolean(PREF_SECURE_WINDOW_FLAG, true);
+    }
+
+    public static boolean isCamoEnabled() {
+        return prefs.getBoolean(PREF_CAMO_ENABLED, false);
+    }
+
+    public static void setCamoEnabled(boolean enabled) {
+        putBoolean(PREF_CAMO_ENABLED, enabled);
     }
 
 }

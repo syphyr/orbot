@@ -291,4 +291,7 @@
     <string name="app_icon_chooser_label_tetras">Tetras</string>
     <string name="app_icon_chooser_label_todo">To-Do</string>
 
+    <string name="pref_title_camouflage">Camouflage</string>
+    <string name="pref_camo_title">Enable Camouflage Mode</string>
+    <string name="pref_camo_subtitle">Make Orbot look like another app and hide notification information about Tor.</string>
 </resources>
