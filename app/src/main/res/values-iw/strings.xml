@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Orbot</string>
     <string name="app_description">Orbot היא אפליקציית פרוקסי חינמית המאפשרת לאפליקציות אחרות להשתמש באינטרנט בבטחה. Orbot נעזרת ב-Tor כדי להצפין את תעבורת האינטרנט שלך ולהסוותה באמצעותה ניתובה דרך מספר מחשבים ברחבי העולם. Tor היא תוכנה חופשית ורשת פתוחה המסייעת לך להתגונן מפני סוג ניטור רשת הידוע כניתוח תעבורה שמאיים על פרטיות, חירות אישית, פעילויות עסקיות, מערכות יחסים חשאיות ואבטחת מדינה.</string>
-    <string name="menu_settings">הגדרות</string>
+    <string name="menu_settings">הגדרות Orbot</string>
     <string name="menu_log">רישום</string>
     <string name="menu_stop">עצירה</string>
     <string name="menu_about">אודות</string>
@@ -88,7 +88,7 @@
     <string name="pref_open_proxy_on_all_interfaces_title">פתיחת מתווך על כל הממשקים</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">לאפשר לעמיתים ברשת האלחוטית, מכשירים קשורים ולכל אחד אחר שיכול להתחבר ל־IP שלך לגשת לTor</string>
     <string name="pref_socks_summary">פתחה דרכה Tor מגיש את מתווך ה־SOCKS שלו (ברירת מחדל: 9050 או 0 להשבתה)</string>
-    <string name="pref_dnsport_summary">פתחה דרכה יוגש ה־DNS של Tor (ברירת מחדל: 5400 או 0 כדי להשבית)</string>
+    <string name="pref_dnsport_summary">פתחה דרכה יוגש ה־DNS של Tor (ברירת מחדל: 9053 או 0 כדי להשבית)</string>
     <string name="pref_dnsport_dialog">תצורת פתחת DNS</string>
     <string name="pref_torrc_title">תצורה מותאמת אישית של Torrc</string>
     <string name="pref_torrc_summary">למומחים בלבד: הכנסת שורות ישירות לתצורת torrc</string>
@@ -170,7 +170,7 @@
     <string name="pref_isolate_port_summary">להשתמש במעגל נפרד לכל פתחת יעד</string>
     <string name="pref_isolate_protocol">בידוד פרוטוקולי לקוח</string>
     <string name="btn_use_custom_bridge">להשתמש בגשר משלך</string>
-    <string name="backup_service">שירות גיבוי <i>(אזהרה: עלול לחשוף את הגדרות השירות שלך ליישומונים אחרים)</i></string>
+    <string name="backup_service">שירות גיבוי (אזהרה: עלול לחשוף את הגדרות השירות שלך ליישומונים אחרים)</string>
     <string name="msg_taking_too_long">נראה שזה אורך זמן רב מדי</string>
     <string name="msg_try_something_else">כדאי לנסות משהו אחר</string>
     <string name="hidden_service_request">יישום רוצה לפתוח שרת בצל בפתחה %1$s לרשת הTor. הפעולה בטוחה אם היישום אמין.</string>
@@ -280,4 +280,5 @@
     <string name="configure_header">הגדרת חיבור ה־Tor שלך</string>
     <string name="pref_detect_root_summary">להזהיר בהתחלה אם המכשיר הזה פרוץ (root) וההרשאות האלה פעילות</string>
     <string name="pref_detect_root_title">זיהוי פריצה (root)</string>
+    <string name="system_vpn_settings">הגדרות ה־VPN של Android</string>
 </resources>
