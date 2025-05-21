@@ -31,6 +31,7 @@ tor-android = "0.4.8.16.1"
 pcap-core = "1.8.2"
 pcap-factory = "1.8.2"
 kotlin = "2.1.20"
+coroutines = "1.10.2"
 serialization = "1.7.3"
 app-icon-name-changer = "1.0.7"
 
@@ -70,6 +71,7 @@ rootbeer-lib = { module = "com.scottyab:rootbeer-lib", version.ref = "rootbeer-l
 tor-android = { group = "info.guardianproject", name = "tor-android", version.ref = "tor-android" }
 pcap-core = { group = "org.pcap4j", name = "pcap4j-core", version.ref = "pcap-core" }
 pcap-factory = { group = "org.pcap4j", name = "pcap4j-packetfactory-static", version.ref = "pcap-factory" }
+kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization" }
 appiconnamechanger = { group = "com.github.myinnos", name = "AppIconNameChanger", version.ref = "app-icon-name-changer"}
 

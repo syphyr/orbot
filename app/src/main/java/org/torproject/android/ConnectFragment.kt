@@ -20,10 +20,15 @@ import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+
+import kotlinx.coroutines.launch
 
 import net.freehaven.tor.control.TorControlCommands
 
-import org.torproject.android.core.NetworkUtils.isNetworkAvailable
 import org.torproject.android.core.putNotSystem
 import org.torproject.android.core.sendIntentToService
 import org.torproject.android.service.OrbotConstants
@@ -46,12 +51,32 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     lateinit var progressBar: ProgressBar
     private lateinit var lvConnectedActions: ListView
 
+    private val viewModel: ConnectViewModel by viewModels()
+
     private val lastStatus: String
         get() = (activity as? OrbotActivity)?.previousReceivedTorStatus ?: ""
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
         (activity as OrbotActivity).fragConnect = this
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiState.collect { state ->
+                    when (state) {
+                        is ConnectUiState.NoInternet -> doLayoutNoInternet()
+                        is ConnectUiState.Off -> doLayoutOff()
+                        is ConnectUiState.Starting -> doLayoutStarting(requireContext())
+                        is ConnectUiState.On -> doLayoutOn(requireContext())
+                        is ConnectUiState.Stopping -> {}
+                    }
+                }
+            }
+        }
     }
 
     override fun onCreateView(
@@ -73,28 +98,15 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
                 btnStartVpn.text = getString(R.string.connect)
             }
 
-            updateLayoutBasedOnStatus()
+            viewModel.updateState(requireContext(), lastStatus)
         }
+
         return view
     }
 
     override fun onResume() {
         super.onResume()
-        updateLayoutBasedOnStatus()
-    }
-
-    private fun updateLayoutBasedOnStatus() {
-        if (!isNetworkAvailable(requireContext())) {
-            doLayoutNoInternet()
-        } else {
-            when (lastStatus) {
-                OrbotConstants.STATUS_OFF -> doLayoutOff()
-                OrbotConstants.STATUS_STARTING -> doLayoutStarting(requireContext())
-                OrbotConstants.STATUS_ON -> doLayoutOn(requireContext())
-                OrbotConstants.STATUS_STOPPING -> {}
-                else -> doLayoutOff()
-            }
-        }
+        viewModel.updateState(requireContext(), lastStatus)
     }
 
     private fun stopTorAndVpn() {
