@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Orbot</string>
     <string name="app_description">Orbot - це безкоштовний проксі-сервер, який дає змогу іншим застосункам безпечніше користуватися інтернетом. Orbot використовує Tor для шифрування вашого інтернет-трафіку, а потім приховує його, пересилаючи через низку комп\'ютерів по всьому світу. Tor - це вільне програмне забезпечення і відкрита мережа, яка допомагає вам захиститися від форми мережевого стеження, що загрожує особистій свободі і приватності, конфіденційній діловій діяльності та відносинам, а також державній безпеці, відомої як аналіз трафіку.</string>
-    <string name="menu_settings">Налаштування</string>
+    <string name="menu_settings">Налаштування Orbot</string>
     <string name="menu_log">Журнал</string>
     <string name="menu_stop">Зупинити</string>
     <string name="menu_about">Про застосунок</string>
@@ -99,7 +99,7 @@
     <string name="name">Ім\'я</string>
     <string name="done">Готово!</string>
     <string name="copy_address_to_clipboard">Скопіювати адресу в буфер обміну</string>
-    <string name="backup_service">Резервне копіювання <i>(Попередження: це може надати конфігурацію вашої служби іншим застосункам)</i></string>
+    <string name="backup_service">Служба резервного копіювання (Попередження: це може розкрити конфігурацію вашої служби іншим програмам)</string>
     <string name="delete_service">Вилучити службу</string>
     <string name="backup_saved_at_external_storage">Резервна копія збережена у зовнішньому сховищі</string>
     <string name="backup_restored">Резервну копію відновлено</string>
@@ -208,7 +208,7 @@
     <string name="btn_use_custom_bridge">Використовувати власний міст</string>
     <string name="drawer_open">Відкрити</string>
     <string name="drawer_close">Закрити</string>
-    <string name="snowflake">Snowflake</string>
+    <string name="snowflake">Сніжинка</string>
     <string name="ports_not_set">Порти не налаштовані</string>
     <string name="configure_header">Налаштуйте з\'єднання Tor</string>
     <string name="direct_connect_subtitle">Кращий спосіб під\'єднання до Tor. Використовуйте, якщо Tor не заблокований.</string>
@@ -254,7 +254,7 @@
     <string name="action_use">Використати</string>
     <string name="many_ways">Існує багато способів отримати доступ до Tor. Деякі з них можуть працювати для вас краще, ніж інші.</string>
     <string name="no_internet_title">Підключення до Інтернету</string>
-    <string name="snowflake_amp">Snowflake (спосіб 2)</string>
+    <string name="snowflake_amp">Сніжинка AMP</string>
     <string name="not_sure">Не впевнений\?</string>
     <string name="ask_tor">Запитайте Tor</string>
     <string name="asking">ЗАПИТУЄМО…</string>
@@ -280,4 +280,21 @@
     <string name="root_warning">Orbot виявив, що ваш пристрій рутовано, що може спричинити проблеми з безпекою.</string>
     <string name="pref_detect_root_summary">Попереджати під час запуску, якщо на цьому пристрої увімкнено права root</string>
     <string name="pref_detect_root_title">Виявлення Root</string>
+    <string name="system_vpn_settings">Налаштування VPN для Android</string>
+    <string name="pref_isolate_keep_alive">Зберігайте ізольовані ланцюги живими</string>
+    <string name="pref_title_camouflage">Камуфляж</string>
+    <string name="pref_camo_title">Увімкнути камуфляж</string>
+    <string name="pref_enable_rotation_summary">Увімкнути обертання пристрою (потрібне перезавантаження)</string>
+    <string name="pref_isolate_keep_alive_summary">Підтримувати активність ізольованих каналів, які мають принаймні один потік з активною SOCKS-автентифікацією</string>
+    <string name="app_icon_chooser_label_todo">Справи</string>
+    <string name="pref_enable_rotation_title">Обертання пристрою</string>
+    <string name="app_icon_chooser_label_night_watch">Нічна варта</string>
+    <string name="settings_app_icon_chooser_title">Значок програми</string>
+    <string name="settings_app_icon_chooser_description">Виберіть значок і назву програми, які будуть відображатися на головному екрані та в панелі програм вашого телефону.</string>
+    <string name="app_icon_chooser_label_assistant">Помічник</string>
+    <string name="app_icon_chooser_label_paint">Фарба</string>
+    <string name="app_icon_chooser_label_tetras">Тетри</string>
+    <string name="pref_camo_subtitle">Зробіть Orbot схожим на окремий додаток та приховуйте інформацію про сповіщення про Tor.</string>
+    <string name="pref_camo_app_select_title">Виберіть тему камуфляжу</string>
+    <string name="pref_camo_app_select_subtitle">Це змінить вигляд значка та мітки Orbot на вашому пристрої</string>
 </resources>
