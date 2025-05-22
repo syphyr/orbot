@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Orbot</string>
     <string name="app_description">Orbot er frjálst og ókeypis milliþjónsforrit (proxy) sem gerir öðrum forritum kleift að nota veraldarvefinn á öruggari hátt. Orbot notar Tor til að dulkóða umferð þína á netinu og felur hana svo með að hoppa í gegnum fjölda tölva um allan heim. Tor er frjáls hugbúnaður og opið net sem aðstoðar þig við að verjast eftirliti á netinu sem vinnur gegn frelsi einkalífsins og friðhelgi; vinnur gegn viðkvæmum viðskiptamálum og samböndum og þeirri tegund ríkisöryggis sem þekkt er sem umferðargreining.</string>
-    <string name="menu_settings">Stillingar</string>
+    <string name="menu_settings">Stillingar Orbot</string>
     <string name="menu_log">Atvikaskráning</string>
     <string name="menu_stop">Stöðva</string>
     <string name="menu_about">Um hugbúnaðinn</string>
@@ -99,7 +99,7 @@
     <string name="name">Heiti</string>
     <string name="done">Lokið!</string>
     <string name="copy_address_to_clipboard">Afrita vistfang yfir á klippispjald</string>
-    <string name="backup_service">Öryggisafritunarþjónusta <i>(Aðvörun: Þetta gæti gert uppsetningu þjónustunnar þinnar sýnilega öðrum forritum)</i></string>
+    <string name="backup_service">Öryggisafritunarþjónusta (Aðvörun: Þetta gæti gert uppsetningu þjónustunnar þinnar sýnilega öðrum forritum)</string>
     <string name="delete_service">Eyða þjónustu</string>
     <string name="backup_saved_at_external_storage">Öryggisafrit var vistað í ytri gagnageymslu</string>
     <string name="backup_restored">Öryggisafrit var endurheimt</string>
@@ -211,7 +211,7 @@
     <string name="proxy_ports">Gáttir milliþjóna</string>
     <string name="smart_connect">Snjalltenging (sjálfgefið)</string>
     <string name="direct_connect">Bein tenging við Tor</string>
-    <string name="snowflake">Snowflake (upprunalegt)</string>
+    <string name="snowflake">Snowflake</string>
     <string name="secure_your_connection_subtitle">Feldu forrit fyrir netvöktun og náðu aðgangi þegar lokað er á þau.</string>
     <string name="volunteer_mode_title">Hjálpaðu öðrum
 \nað tengjast við Tor</string>
@@ -252,7 +252,7 @@
     <string name="pref_isolate_port">Einangra markgáttir</string>
     <string name="pref_isolate_protocol">Einangra samskiptamáta biðlara</string>
     <string name="pref_isolate_protocol_summary">Nota mismunandi rás fyrir hvern samskiptamáta tengingar</string>
-    <string name="snowflake_amp">Snowflake (AMP)</string>
+    <string name="snowflake_amp">Snowflake AMP</string>
     <string name="ask_tor">Spurðu Tor</string>
     <string name="many_ways">Það eru margar aðferðir við að ná sambandi við Tor. Sumar gætu virkað betur fyrir þig en aðrar.</string>
     <string name="action_use">Nota</string>
@@ -280,4 +280,8 @@
     <string name="kindness_config_detail">Stilltu hvernig og hvenær tækið þitt getur unnið sem Snowflake-milliþjónn fyrir aðra Tor-notendur.</string>
     <string name="pref_detect_root_summary">Aðvara í ræsingu ef rótarheimildir eru virkar á þessu tæki</string>
     <string name="pref_detect_root_title">Skynja rótarheimildir</string>
+    <string name="pref_isolate_keep_alive">Halda einangruðum rásum virkum</string>
+    <string name="pref_isolate_keep_alive_summary">Halda virkum einangruðum rásum sem hafa að minnsta kosti eitt virkt streymi SOCKS-auðkenningar</string>
+    <string name="system_vpn_settings">VPN-stillingar Android</string>
+    <string name="app_icon_chooser_label_assistant">Aðstoð</string>
 </resources>
