@@ -284,7 +284,7 @@
     <string name="system_vpn_settings">Android VPN 设置</string>
     <string name="settings_app_icon_chooser_title">应用图标</string>
     <string name="pref_title_camouflage">伪装</string>
-    <string name="pref_camo_subtitle">将 Orbot 伪装其他应用并隐藏关于 Tor 的通知信息。</string>
+    <string name="pref_camo_subtitle">将 Orbot 伪装成其他应用并隐藏关于 Tor 的通知信息。</string>
     <string name="pref_camo_app_select_title">选择伪装主题</string>
     <string name="pref_camo_app_select_subtitle">这将更改 Orbot 图标和标签在您设备上的显示方式</string>
     <string name="settings_app_icon_chooser_description">请选择应用图标和名称，图标和名称将在手机主屏幕和应用抽屉中显示。</string>
