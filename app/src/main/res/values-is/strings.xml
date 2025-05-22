@@ -284,4 +284,5 @@
     <string name="pref_isolate_keep_alive_summary">Halda virkum einangruðum rásum sem hafa að minnsta kosti eitt virkt streymi SOCKS-auðkenningar</string>
     <string name="system_vpn_settings">VPN-stillingar Android</string>
     <string name="app_icon_chooser_label_assistant">Aðstoð</string>
+    <string name="app_icon_chooser_label_paint">Málning</string>
 </resources>

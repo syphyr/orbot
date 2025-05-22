@@ -286,4 +286,5 @@
     <string name="pref_isolate_keep_alive_summary">مدارهای منزوی را زنده نگه دارید که حداقل یک جریان با احراز هویت SOCKS فعال دارند</string>
     <string name="settings_app_icon_chooser_title">نقشک کاره</string>
     <string name="settings_app_icon_chooser_description">یک آیکون و نام برنامه را انتخاب کنید که بر روی صفحه نمایش خانگی و کشو برنامه تلفن شما قابل مشاهده خواهد بود.</string>
+    <string name="app_icon_chooser_label_paint">رنگ</string>
 </resources>
