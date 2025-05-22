@@ -1,4 +1,4 @@
-package org.torproject.android.service.ui
+package org.torproject.android.service
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -6,8 +6,6 @@ import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
 import androidx.annotation.RequiresApi
-import org.torproject.android.service.OrbotService
-import org.torproject.android.service.R
 import org.torproject.android.service.util.Prefs
 
 object Notifications {
@@ -23,12 +21,7 @@ object Notifications {
             context.getString(R.string.app_description)
         else
             "PLACEHOLDER"
-        manager.createNotificationChannel(
-            NotificationChannel(
-                OrbotService.NOTIFICATION_CHANNEL_ID,
-                appName,
-                NotificationManager.IMPORTANCE_LOW
-            ).apply {
+        manager.createNotificationChannel(NotificationChannel(OrbotService.NOTIFICATION_CHANNEL_ID, appName, NotificationManager.IMPORTANCE_LOW).apply {
             description = channelDescription
             enableLights(false)
             enableVibration(false)
