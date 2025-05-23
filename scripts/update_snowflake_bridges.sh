@@ -50,6 +50,6 @@ function fronts_conf {
 
 bridges_conf "meek-azure"
 bridges_conf "snowflake"
-fronts_conf "meek-azure"
-fronts_conf "snowflake"
+##fronts_conf "meek-azure"
+##fronts_conf "snowflake"
 rm pt_config.json
