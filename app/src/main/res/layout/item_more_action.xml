@@ -26,11 +26,15 @@
             app:tint="@color/panel_card_image" />
 
         <TextView
+
             android:id="@+id/tvLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textSize="12sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textAlignment="center"
             android:textStyle="bold"
             android:textColor="@android:color/white" />
 

@@ -280,4 +280,11 @@
     <string name="root_warning">روبوت پیازی تشخیص داده دستگاهتان روت شده که می تواند موجب مشکلات امنیتی شود.</string>
     <string name="pref_detect_root_summary">هشدار در آغاز در صورت به کار افتاده بودن اجازه‌های ریشه روی این افزاره</string>
     <string name="pref_detect_root_title">تشخیص ریشه</string>
+    <string name="pref_enable_rotation_summary">• فعال کردن چرخش دستگاه (requires Restart)</string>
+    <string name="system_vpn_settings">Android VPN تنظیمات</string>
+    <string name="pref_isolate_keep_alive">مدارهای منزوی را زنده نگه دارید</string>
+    <string name="pref_isolate_keep_alive_summary">مدارهای منزوی را زنده نگه دارید که حداقل یک جریان با احراز هویت SOCKS فعال دارند</string>
+    <string name="settings_app_icon_chooser_title">نقشک کاره</string>
+    <string name="settings_app_icon_chooser_description">یک آیکون و نام برنامه را انتخاب کنید که بر روی صفحه نمایش خانگی و کشو برنامه تلفن شما قابل مشاهده خواهد بود.</string>
+    <string name="app_icon_chooser_label_paint">رنگ</string>
 </resources>

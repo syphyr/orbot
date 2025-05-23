@@ -8,7 +8,6 @@ import static org.torproject.android.service.OrbotConstants.*;
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.app.Notification;
-import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -41,6 +40,7 @@ import org.torproject.android.service.circumvention.SnowflakeClient;
 import org.torproject.android.service.circumvention.SnowflakeProxyWrapper;
 import org.torproject.android.service.db.OnionServiceColumns;
 import org.torproject.android.service.db.V3ClientAuthColumns;
+import org.torproject.android.service.ui.Notifications;
 import org.torproject.android.service.util.Bridge;
 import org.torproject.android.service.util.CustomTorResourceInstaller;
 import org.torproject.android.service.util.PowerConnectionReceiver;
@@ -66,7 +66,6 @@ import IPtProxy.Controller;
 import IPtProxy.IPtProxy;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.ServiceCompat;
 import androidx.core.content.ContextCompat;
@@ -80,7 +79,7 @@ public class OrbotService extends VpnService {
 
     public final static String BINARY_TOR_VERSION = TorService.VERSION_NAME;
     static final int NOTIFY_ID = 1, ERROR_NOTIFY_ID = 3;
-    private final static String NOTIFICATION_CHANNEL_ID = "orbot_channel_1";
+    public final static String NOTIFICATION_CHANNEL_ID = "orbot_channel_1";
     public static int mPortSOCKS = -1, mPortHTTP = -1, mPortDns = -1, mPortTrans = -1;
     public static File appBinHome, appCacheHome;
     private final ExecutorService mExecutor = Executors.newCachedThreadPool();
@@ -127,18 +126,6 @@ public class OrbotService extends VpnService {
         if (mOrbotRawEventListener != null) mOrbotRawEventListener.getNodes().clear();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    private void createNotificationChannel() {
-        var mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        var mChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, getString(R.string.app_name), NotificationManager.IMPORTANCE_LOW);
-        mChannel.setDescription(getString(R.string.app_description));
-        mChannel.enableLights(false);
-        mChannel.enableVibration(false);
-        mChannel.setShowBadge(false);
-        mChannel.setLockscreenVisibility(Notification.VISIBILITY_SECRET);
-        mNotificationManager.createNotificationChannel(mChannel);
-    }
-
     @SuppressLint({"NewApi", "RestrictedApi"})
     protected void showToolbarNotification(String notifyMsg, int notifyType, int icon) {
         var intent = getPackageManager().getLaunchIntentForPackage(getPackageName());
@@ -146,36 +133,51 @@ public class OrbotService extends VpnService {
 
         if (mNotifyBuilder == null) {
             mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            mNotifyBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID).setSmallIcon(R.drawable.ic_stat_tor).setContentIntent(pendIntent).setCategory(Notification.CATEGORY_SERVICE);
+            mNotifyBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
+                    .setCategory(Notification.CATEGORY_SERVICE);
         }
 
         mNotifyBuilder.setOngoing(true);
 
-        var title = getString(R.string.status_disabled);
-        if (mCurrentStatus.equals(STATUS_STARTING) || notifyMsg.equals(getString(R.string.status_starting_up)))
-            title = getString(R.string.status_starting_up);
-        else if (mCurrentStatus.equals(STATUS_ON))
-            title = getString(R.string.status_activated);
-
-        mNotifyBuilder.setContentTitle(title);
-
         mNotifyBuilder.mActions.clear(); // clear out any notification actions, if any
-        if (conn != null && mCurrentStatus.equals(STATUS_ON)) { // only add new identity action when there is a connection
-            var pendingIntentNewNym = PendingIntent.getBroadcast(this, 0, new Intent(TorControlCommands.SIGNAL_NEWNYM), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-            mNotifyBuilder.addAction(R.drawable.ic_refresh_white_24dp, getString(R.string.menu_new_identity), pendingIntentNewNym);
-        } else if (mCurrentStatus.equals(STATUS_OFF)) {
-            var pendingIntentConnect = PendingIntent.getBroadcast(this, 0, new Intent(LOCAL_ACTION_NOTIFICATION_START), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-            mNotifyBuilder.addAction(R.drawable.ic_stat_tor, getString(R.string.connect_to_tor), pendingIntentConnect);
-        }
 
-        mNotifyBuilder.setContentText(notifyMsg).setSmallIcon(icon).setTicker(notifyType != NOTIFY_ID ? notifyMsg : null);
+        if (Prefs.isCamoEnabled()) {
+            // basically ignore all parmas and set a simple notification
+            mNotifyBuilder.setContentTitle("PLACEHOLDER")
+                    .setContentText(null)
+                    .setSubText(null)
+                    .setSmallIcon(R.drawable.ic_generic_info)
+                    .setProgress(0, 0, false)
+                    .setContentIntent(null);
+        } else {
+            var title = getString(R.string.status_disabled);
+            if (mCurrentStatus.equals(STATUS_STARTING) || notifyMsg.equals(getString(R.string.status_starting_up)))
+                title = getString(R.string.status_starting_up);
+            else if (mCurrentStatus.equals(STATUS_ON))
+                title = getString(R.string.status_activated);
+            mNotifyBuilder.setSmallIcon(R.drawable.ic_stat_tor)
+                    .setContentIntent(pendIntent)
+                    .setContentTitle(title);
 
-        if (!mCurrentStatus.equals(STATUS_ON)) {
-            mNotifyBuilder.setSubText(null);
-        }
+            if (conn != null && mCurrentStatus.equals(STATUS_ON)) { // only add new identity action when there is a connection
+                var pendingIntentNewNym = PendingIntent.getBroadcast(this, 0, new Intent(TorControlCommands.SIGNAL_NEWNYM), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+                mNotifyBuilder.addAction(R.drawable.ic_refresh_white_24dp, getString(R.string.menu_new_identity), pendingIntentNewNym);
+            } else if (mCurrentStatus.equals(STATUS_OFF)) {
+                var pendingIntentConnect = PendingIntent.getBroadcast(this, 0, new Intent(LOCAL_ACTION_NOTIFICATION_START), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+                mNotifyBuilder.addAction(R.drawable.ic_stat_tor, getString(R.string.connect_to_tor), pendingIntentConnect);
 
-        if (!mCurrentStatus.equals(STATUS_STARTING)) {
-            mNotifyBuilder.setProgress(0, 0, false); // removes progress bar
+                mNotifyBuilder.setContentText(notifyMsg)
+                        .setSmallIcon(icon)
+                        .setTicker(notifyType != NOTIFY_ID ? notifyMsg : null);
+
+                if (!mCurrentStatus.equals(STATUS_ON)) {
+                    mNotifyBuilder.setSubText(null);
+                }
+
+                if (!mCurrentStatus.equals(STATUS_STARTING)) {
+                    mNotifyBuilder.setProgress(0, 0, false); // removes progress bar
+                }
+            }
         }
 
         ServiceCompat.startForeground(this, NOTIFY_ID, mNotifyBuilder.build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED);
@@ -410,7 +412,8 @@ public class OrbotService extends VpnService {
                 mActionBroadcastReceiver = new ActionBroadcastReceiver();
                 ContextCompat.registerReceiver(this, mActionBroadcastReceiver, filter, ContextCompat.RECEIVER_NOT_EXPORTED);
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) createNotificationChannel();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+                    Notifications.createNotificationChannel(this);
 
                 var hasGeoip = new File(appBinHome, GEOIP_ASSET_KEY).exists();
                 var hasGeoip6 = new File(appBinHome, GEOIP6_ASSET_KEY).exists();

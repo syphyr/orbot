@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.serialization)
 }
 apply from: "../commons.gradle"
 
@@ -115,6 +116,7 @@ dependencies {
 
     implementation(libs.android.material)
     implementation(libs.android.volley)
+    implementation(libs.androidx.activity)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.localbroadcast)
     implementation(libs.androidx.navigation.fragment.ktx)
@@ -122,11 +124,14 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.retrofit)
     implementation(libs.rootbeer.lib)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.appiconnamechanger)
 
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.junit.jupiter)
     androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.fastlane.screengrab)
+    androidTestImplementation(libs.androidx.espresso)
+    androidTestImplementation(libs.androidx.rules)
+    androidTestImplementation(libs.androidx.runner)
 }
 
 tasks.register("copyLicenseToAssets", Copy) {

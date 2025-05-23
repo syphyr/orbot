@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Orbot</string>
     <string name="app_description">Orbot është një aplikacion i lirë ndërmjetësish që i bën aplikacionet e tjera ta përdorin internetin në mënyrë më të siguruar. Orbot-i përdor Tor-in për të fshehtëzuar trafikun tuaj Internet dhe mandej e fsheh duke e kaluar përmes një vargu kompjuterash nëpër botë. Tor-i është <em>software</em> i lirë dhe një rrjet i hapët që ju ndihmon të mbroheni nga një formë survejimi rrjetesh e cila kërcënon lirinë dhe privatësinë personale, veprimtarinë dhe marrëdhëniet rezervat në biznesi dhe sigurinë shtetërore, e njohur si analizim trafiku.</string>
-    <string name="menu_settings">Rregullime</string>
+    <string name="menu_settings">Rregullime Orbot-i</string>
     <string name="menu_stop">Ndale</string>
     <string name="menu_about">Mbi</string>
     <string name="main_layout_download">Shkarkim</string>
@@ -78,7 +78,7 @@
     <string name="proxy_ports">Porta Ndërmjetësi</string>
     <string name="smart_connect">Lidhje e Mençur (parazgjedhje)</string>
     <string name="direct_connect">Lidhje e drejtpërdrejtë me Tor-in</string>
-    <string name="snowflake">Snowflake (Origjinali)</string>
+    <string name="snowflake">Snowflake</string>
     <string name="get_a_bridge">Urë nga Tor (Obfs4)</string>
     <string name="custom_bridge">Urë Vetjake</string>
     <string name="connect">Lidhu</string>
@@ -225,7 +225,7 @@
     <string name="pref_transport_summary">Portë te e cila Tor-i ofron Ndërmjetësin e vet Transparent (parazgjedhje: 9040, ose 0 për ta çaktivizuar)</string>
     <string name="pref_torrc_summary">VETËM PËR TË SPROVUARIT: jepni drejtpërsëdrejti rreshta formësimi torrc</string>
     <string name="if_your_mobile_network_actively_blocks_tor_you_can_use_a_tor_bridge_to_access_the_network_another_way_to_get_bridges_is_to_send_an_email_to_bridges_torproject_org_please_note_that_you_must_send_the_email_using_an_address_from_one_of_the_following_email_providers_riseup_gmail_or_yahoo_">Nëse rrjeti juaj celular e bllokon aktivisht Tor-in, mund të përdorni një “Shërbyes Urash”, si një rrugë alternative për hyrje. Përzgjidhni një nga mundësi për të formuar dhe testuar…</string>
-    <string name="backup_service">Shërbim Kopjeruajtje <i>(Kujdes: Kjo Mund T’u Ekspozojë Aplikacioneve të Tjera Formësimin Tuaj të Shërbimit)</i></string>
+    <string name="backup_service">Shërbim Kopjeruajtje (Kujdes: Kjo Mund T’u Ekspozojë Aplikacioneve të Tjera Formësimin Tuaj të Shërbimit)</string>
     <string name="start_tor_again_for_finish_the_process">Riniseni Tor-in që të përfundojë procesi</string>
     <string name="consider_disable_battery_optimizations">Me shërbime të strehuara në funksionim, shihni mundësinë e çaktivizimit të optimizimeve të baterisë</string>
     <string name="pref_disable_ipv4_summary">U thotë daljeve të mos lidhen me adresa IPv4</string>
@@ -260,7 +260,7 @@
     <string name="connection_direct">Drejtpërsëdrejti</string>
     <string name="pref_isolate_port">Izolo porta vendmbërritje</string>
     <string name="asking">PO PYETET…</string>
-    <string name="snowflake_amp">Snowflake (AMP)</string>
+    <string name="snowflake_amp">Snowflake AMP</string>
     <string name="pref_flag_secure_title">Siguri Ekrani</string>
     <string name="root_warning">Orbot-i ka pikasur se është shtënë në dorë kontrolli i pajisjes tuaj, çka mund të shkaktojë probleme sigurie.</string>
     <string name="kindness_config_detail">Formësoni si dhe kur pajisja juaj mund të veprojë si një ndërmjetës Snowflake për përdorues të tjerë të Tor-it.</string>
@@ -280,4 +280,19 @@
     <string name="pref_reduced_connection_padding">“Padding” e reduktuar lidhjeje</string>
     <string name="pref_detect_root_summary">Sinjalizo, gjatë nisjes, nëse në këtë pajisje janë të aktivizuara leje si rrënjë</string>
     <string name="pref_detect_root_title">Pikasje Rrënje</string>
+    <string name="settings_app_icon_chooser_title">Ikonë Aplikacioni</string>
+    <string name="app_icon_chooser_label_assistant">Asistent</string>
+    <string name="system_vpn_settings">Rregullime Android për VPN</string>
+    <string name="pref_enable_rotation_summary">Aktivizo rrotullim pajisjeje (lyp rinisje)</string>
+    <string name="app_icon_chooser_label_night_watch">Parje Natës</string>
+    <string name="app_icon_chooser_label_todo">Për-T’u-Bërë</string>
+    <string name="pref_title_camouflage">Kamuflazh</string>
+    <string name="pref_camo_title">Aktivizoni Kamuflazh</string>
+    <string name="pref_camo_subtitle">Bëjeni Orbot-in të duket si tjetër aplikacion dhe fshihni hollësi njoftimi mbi Tor-in.</string>
+    <string name="pref_isolate_keep_alive_summary">Mbaji gjallë qarqet e izoluar që kanë aktive të paktën një rrjedhë me mirëfilltësim SOCKS</string>
+    <string name="pref_isolate_keep_alive">Mbaji gjallë qarqet e izoluar</string>
+    <string name="pref_camo_app_select_title">Përzgjidhni Temë Kamuflazhi</string>
+    <string name="pref_enable_rotation_title">Rrotullim Pajisjeje</string>
+    <string name="settings_app_icon_chooser_description">Përzgjidhni një ikonë dhe emër aplikacioni, që mund të jenë të dukshëm te skena e kreut dhe sirtari i aplikacioneve të telefonit tuaj.</string>
+    <string name="pref_camo_app_select_subtitle">Kjo do të ndryshojë mënyrën se si duken në pajisjen tuaj ikona dhe etiketa e Orbot-it</string>
 </resources>

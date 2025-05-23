@@ -282,4 +282,18 @@
     <string name="pref_detect_root_title">Root Detection</string>
     <string name="pref_enable_rotation_summary">Enable device rotation (requires restart)</string>
     <string name="pref_enable_rotation_title">Device Rotation</string>
+
+    <string name="settings_app_icon_chooser_title">App Icon</string>
+    <string name="settings_app_icon_chooser_description">Select an app icon and name, which will be visible on your phone\'s home screen and app drawer.</string>
+    <string name="app_icon_chooser_label_night_watch">Night Watch</string>
+    <string name="app_icon_chooser_label_assistant">Assistant</string>
+    <string name="app_icon_chooser_label_paint">Paint</string>
+    <string name="app_icon_chooser_label_tetras">Tetras</string>
+    <string name="app_icon_chooser_label_todo">To-Do</string>
+
+    <string name="pref_title_camouflage">Camouflage</string>
+    <string name="pref_camo_title">Enable Camouflage</string>
+    <string name="pref_camo_subtitle">Make Orbot look like another app and hide notification information about Tor.</string>
+    <string name="pref_camo_app_select_title">Select Camouflage Theme</string>
+    <string name="pref_camo_app_select_subtitle">This will change how Orbot\'s icon and label will appear on your device</string>
 </resources>

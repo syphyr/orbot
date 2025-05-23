@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Orbot</string>
     <string name="app_description">Orbot 是让其他应用更安全地使用互联网的免费代理应用。Orbot 使用 Tor 加密互联网流量，然后通过世界各地一系列计算机跳转来隐藏流量。Tor 是自由软件和开放网络，可帮您抵御称为流量分析的网络监控，网络监控威胁到个人自由和隐私、机密商业活动和关系以及政府安全。</string>
-    <string name="menu_settings">设置</string>
+    <string name="menu_settings">Orbot 设置</string>
     <string name="menu_log">日志</string>
     <string name="menu_stop">停止</string>
     <string name="menu_about">关于</string>
@@ -68,7 +68,7 @@
     <string name="pref_use_expanded_notifications_title">扩展通知</string>
     <string name="set_locale_title">语言</string>
     <string name="pref_disable_network_title">无网络自动休眠</string>
-    <string name="pref_disable_network_summary">没有网络连接时让 Tor 进入休眠状态</string>
+    <string name="pref_disable_network_summary">未连接到互联网时让 Tor 进入休眠状态</string>
     <string name="newnym">您已切换到新的 Tor 身份！</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_socks_summary">Tor 提供 SOCKS 代理的端口（默认值：9050，0 表示禁用）</string>
@@ -101,7 +101,7 @@
     <string name="local_port">本地端口</string>
     <string name="done">完成！</string>
     <string name="copy_address_to_clipboard">复制地址到剪贴板</string>
-    <string name="backup_service">备份服务<i>（警告：这可能会将您的服务配置暴露给其他应用）</i></string>
+    <string name="backup_service">备份服务（警告：这可能会将您的服务配置暴露给其他应用）</string>
     <string name="delete_service">删除服务</string>
     <string name="backup_saved_at_external_storage">备份已保存在外部存储</string>
     <string name="backup_restored">备份已恢复</string>
@@ -112,8 +112,8 @@
     <string name="share_as_qr">以二维码形式分享</string>
     <string name="disable">禁用</string>
     <string name="enable">启用</string>
-    <string name="consider_disable_battery_optimizations">托管服务正在运行，考虑禁用电池优化</string>
-    <string name="consider_enable_battery_optimizations">没有运行托管服务，考虑启用电池优化</string>
+    <string name="consider_disable_battery_optimizations">托管服务正在运行，请考虑禁用电池优化</string>
+    <string name="consider_enable_battery_optimizations">没有运行托管服务，请考虑启用电池优化</string>
     <string name="pref_disable_ipv4">禁用 IPv4 连接</string>
     <string name="app_shortcuts">启用 Tor 的应用</string>
     <string name="bridge_direct_connect">直接连接到 Tor（最佳）</string>
@@ -177,7 +177,7 @@
     <string name="deny">拒绝</string>
     <string name="allow">允许</string>
     <string name="backup_port_exist">错误：一个洋葱服务已在使用端口 %s</string>
-    <string name="license">许可证：</string>
+    <string name="license">许可：</string>
     <string name="version">版本：</string>
     <string name="bridge_snowflake_amp">使用 Snowflake 通过其他 Tor 用户连接（方法 2 - AMP）</string>
     <string name="snowflake_proxy_msg_title">显示连接通知</string>
@@ -220,7 +220,7 @@
     <string name="volunteer_mode_alltime_label">所有时间总计</string>
     <string name="get_a_bridge_subtitle">隐藏您的流量，绕过某些 Tor 屏蔽。</string>
     <string name="volunteer_mode_subtitle_desc">善举模式可让您的设备成为他人的网桥，帮助人们在 Tor 被屏蔽的地方使用 Tor。\n\n• 不会耗尽电池电量\n• 不会减慢网速\n• 只通过 Wi-Fi 运行\n• 可随时关闭</string>
-    <string name="snowflake">Snowflake (Original)</string>
+    <string name="snowflake">Snowflake</string>
     <string name="custom_bridge">自定义网桥</string>
     <string name="smart_connect">智能连接（默认）</string>
     <string name="smart_connect_subtitle">Orbot 尝试通过任何可用的方式连接到 Tor：直接连接、Snowflake、网桥。</string>
@@ -244,7 +244,7 @@
     <string name="action_activate">激活</string>
     <string name="volunteer_status_title">因为有你，\n今天会更好。</string>
     <string name="action_use">使用</string>
-    <string name="no_internet_title">连接到网络</string>
+    <string name="no_internet_title">连接到互联网</string>
     <string name="menu_more">更多</string>
     <string name="connection_direct">直接连接</string>
     <string name="connection_snowflake">Snowflake</string>
@@ -252,20 +252,20 @@
     <string name="setting_padding">填充</string>
     <string name="setting_debug">调试</string>
     <string name="menu_kindness">善举</string>
-    <string name="hide_apps">从网络监控中隐藏应用，在网络屏蔽时获取访问权限。</string>
+    <string name="hide_apps">隐藏应用以免受网络监控，在应用被屏蔽时获取访问权限。</string>
     <string name="pref_isolate_port">隔离目标端口</string>
     <string name="pref_isolate_protocol">隔离客户端协议</string>
     <string name="pref_isolate_protocol_summary">为每个连接协议使用不同的线路</string>
     <string name="pref_isolate_port_summary">为每个目标端口使用不同的线路</string>
     <string name="btn_copy_log">复制日志</string>
     <string name="log_copied">日志已复制</string>
-    <string name="snowflake_amp">Snowflake (AMP)</string>
+    <string name="snowflake_amp">Snowflake AMP</string>
     <string name="kindness_config_detail">配置您的设备如何以及何时为其他 Tor 用户充当 Snowflake 代理。</string>
     <string name="not_sure">不确定吗？</string>
     <string name="ask_tor">询问 Tor</string>
-    <string name="many_ways">有多种方式可以连接 Tor，某些方式可能对您更有效。</string>
+    <string name="many_ways">有很多方式可以连接到 Tor，有些方式可能对您更有效。</string>
     <string name="asking">正在询问…</string>
-    <string name="no_internet_subtitle">使用 Orbot 需要网络连接。</string>
+    <string name="no_internet_subtitle">使用 Orbot 需要连接到互联网。</string>
     <string name="kindness_adjust_title">设置</string>
     <string name="option_only_on_wifi">仅使用 Wi-Fi 时</string>
     <string name="option_only_when_charging">仅在充电时</string>
@@ -274,4 +274,21 @@
     <string name="root_warning">Orbot 检测到您的设备已取得 Root 权限，这可能会导致安全问题。</string>
     <string name="pref_detect_root_summary">如果此设备已启用 Root 权限，则启动时发出警告</string>
     <string name="pref_detect_root_title">Root 检测</string>
+    <string name="pref_isolate_keep_alive">保持隔离线路存活</string>
+    <string name="pref_enable_rotation_title">设备旋转</string>
+    <string name="pref_enable_rotation_summary">启用设备旋转（需要重启）</string>
+    <string name="app_icon_chooser_label_assistant">助理</string>
+    <string name="app_icon_chooser_label_paint">画图</string>
+    <string name="app_icon_chooser_label_night_watch">Night Watch</string>
+    <string name="app_icon_chooser_label_todo">To-Do</string>
+    <string name="system_vpn_settings">Android VPN 设置</string>
+    <string name="settings_app_icon_chooser_title">应用图标</string>
+    <string name="pref_title_camouflage">伪装</string>
+    <string name="pref_camo_subtitle">将 Orbot 伪装成其他应用并隐藏关于 Tor 的通知信息。</string>
+    <string name="pref_camo_app_select_title">选择伪装主题</string>
+    <string name="pref_camo_app_select_subtitle">这将更改 Orbot 图标和标签在您设备上的显示方式</string>
+    <string name="settings_app_icon_chooser_description">请选择应用图标和名称，图标和名称将在手机主屏幕和应用抽屉中显示。</string>
+    <string name="pref_isolate_keep_alive_summary">保持至少有一个启用 SOCKS 身份验证流的隔离线路存活</string>
+    <string name="app_icon_chooser_label_tetras">Tetras</string>
+    <string name="pref_camo_title">启用伪装</string>
 </resources>

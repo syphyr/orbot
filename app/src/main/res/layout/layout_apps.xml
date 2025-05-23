@@ -1,33 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/new_background"
-    android:orientation="vertical"
-    android:duplicateParentState="true"
-    android:paddingTop="140dp"
-    >
+    android:duplicateParentState="true">
 
     <ProgressBar
-        android:indeterminateTint="@color/progress_bar_purple"
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        tools:visibility="visible"
-        android:visibility="gone" />
+        android:indeterminateTint="@color/progress_bar_purple"
+        android:visibility="gone"
+        tools:visibility="visible" />
 
     <GridView
+        android:id="@+id/applistview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginTop="4dp"
         android:layout_marginBottom="4dp"
-        android:id="@+id/applistview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:gravity="center"
         android:horizontalSpacing="5dp"
         android:numColumns="1"
-        android:verticalSpacing="15dp"/>
+        android:verticalSpacing="15dp" />
 
-</LinearLayout>
+</FrameLayout>
