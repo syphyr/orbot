@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Orbot</string>
     <string name="app_description">Orbot е безплатно приложение-посредник, което дава възможност на други приложения да използват интернет по-сигурно. За да шифрова трафика, който се предава интернет Orbot използва Тор, като след това го скрива, препращайки го през няколко компютъра по целия свят. Тор е безплатен софтуер и отворена мрежа, която помага да се предпазите от шпиониране по мрежата, което заплашва свободата и личното пространство, конфиденциални бизнес отношения и връзки, и от вид правителствено следене наречено анализ на трафика.</string>
-    <string name="menu_settings">Настройки</string>
+    <string name="menu_settings">Настройки на Орбот</string>
     <string name="menu_log">Дневник</string>
     <string name="menu_stop">Спиране</string>
     <string name="menu_about">Относно</string>
@@ -147,7 +147,7 @@
     <string name="mebibyte">МБ</string>
     <string name="bridge_snowflake">Свързване чрез други потребители на Тор с помощта на Снежинка (Метод 1 - Fastly)</string>
     <string name="snowflake_proxy_msg_description">Показва известие, когато помагате на някого да заобиколи цензурата</string>
-    <string name="backup_service">Услуга за архивиране <i>(Внимание: така могат да бъдат разкрити настройките на услугата от други приложения)</i></string>
+    <string name="backup_service">Услуга за резервни копия (Внимание: по този начин могат да бъдат разкрити настройките на услугата от други приложения)</string>
     <string name="wizard_details_msg">Orbot е приложение с отворен код, което съдържа Тор, IPtProxy (Obfs4Proxy, Meek, Снежинка), Go-Tun2Socks и LibEvent. Предоставя тунел на ВЧМ, местен мрежов посредник на HTTP (HTTPS само на порт 8118) и посредник на SOCKS (9050) към мрежата на Тор.</string>
     <string name="pref_circuit_padding">Уплътняване на обходите</string>
     <string name="backup_saved_at_external_storage">Резервното копие е запазено във външното хранилище</string>
@@ -273,4 +273,6 @@
     <string name="root_warning">Orbot е установил, достъп до суперпотребителя, което снижава сигурността на устройството.</string>
     <string name="pref_detect_root_title">Наличие на суперпотребител</string>
     <string name="pref_detect_root_summary">Предупреждаване за наличие на достъп до правата на суперпотребителя</string>
+    <string name="system_vpn_settings">Настройки на Андроид за ВЧМ</string>
+    <string name="pref_isolate_keep_alive">Поддържане достъпни на изолираните вериги</string>
 </resources>
