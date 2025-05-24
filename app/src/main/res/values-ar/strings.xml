@@ -295,4 +295,6 @@
     <string name="system_vpn_settings">إعدادات VPN للأندرويد</string>
     <string name="pref_isolate_keep_alive_summary">أبقِ الدوائر المعزولة حية التي لديها تدفق واحد على الأقل مع استيثاق SOCKS نشطة</string>
     <string name="pref_enable_rotation_title">تدوير الجهاز</string>
+    <string name="settings_app_icon_chooser_title">أيقونة التطبيق</string>
+    <string name="app_icon_chooser_label_paint">طلاء</string>
 </resources>
