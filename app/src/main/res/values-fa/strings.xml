@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">روبوت پیازی</string>
     <string name="app_description">روبوت پیازی کارهٔ پیشکار آزادی است که دیگر کاره‌ها را در استفاده امن از اینترنت توانمند می‌کند. روبوت پیازی برای رمزگذاری شدآمد اینترنت‌تان و نهفتنش با عبور از میان دنباله‌ای از رایانه‌ها در سراسر جهان، از تور استفاده می‌کند. تور نرم‌افزار آزاد و شبکه‌ای باز است که به شما در برابر شکلی از نظارت شبکه با نام تجزیهٔ شدآمد که محرمانگی و آزادی فردی، فعّالیت‌های تجاری محرمانه و امنیت ملّی را تهدید می‌کند، یاری می‌رساند.</string>
-    <string name="menu_settings">تنظیمات</string>
+    <string name="menu_settings">تنظیمات روبوت پیازی</string>
     <string name="menu_log">گزارشات</string>
     <string name="menu_stop">توقّف</string>
     <string name="menu_about">درباره</string>
@@ -79,7 +79,7 @@
     <string name="pref_transport_summary">درگاهی که تور پیشکار شفاف را رویش ارائه می‌دهد (پیش‌گزیده: ۹۰۴۰ یا برای از کار انداختن: ۰)</string>
     <string name="pref_transport_dialog">پیکربندی درگاه پیشکار شفاف</string>
     <string name="pref_dnsport_title">درگاه ساناد تور</string>
-    <string name="pref_dnsport_summary">درگاهی که تور ساناد را رویش ارائه می‌دهد (پیش‌گزیده: ۵۴۰۰ یا برای از کار انداختن: ۰)</string>
+    <string name="pref_dnsport_summary">درگاهی که تور ساناد را رویش ارائه می‌دهد (پیش‌گزیده: ۹۰۵۳ یا برای از کار انداختن: ۰)</string>
     <string name="pref_dnsport_dialog">پیکربندی درگاه ساناد</string>
     <string name="pref_torrc_title">پیکربندی سفارشی Torrc</string>
     <string name="pref_torrc_summary">فقط متخصصان: خط‌های پیکربندی torrc را به صورت مستقیم وارد کنید</string>
@@ -99,7 +99,7 @@
     <string name="name">نام</string>
     <string name="done">انجام شد!</string>
     <string name="copy_address_to_clipboard">رونوشت نشانی‌ها در تخته‌گیره</string>
-    <string name="backup_service">خدمت پشتیبان <i>(هشدار: این کار می‌تواند پیکربندی خدمتتان را برای دیگر کاره‌ها افشا کند)</i></string>
+    <string name="backup_service">خدمت پشتیبان (هشدار: این کار می‌تواند پیکربندی خدمتتان را برای دیگر کاره‌ها افشا کند)</string>
     <string name="delete_service">حذف خدمت</string>
     <string name="backup_saved_at_external_storage">پشتیبان در ذخیره‌ساز خارجی ذخیره شد</string>
     <string name="backup_restored">پشتیبان بازگردانده شد</string>
@@ -230,7 +230,7 @@
     <string name="next">بعدی</string>
     <string name="ports_not_set">درگاه تنظیم نشده</string>
     <string name="smart_connect_subtitle">روبوت پیازی تلاش می‌کند از هر راه ممکنی به تور وصل شود: مستقیم، اسنوفلیک و پل.</string>
-    <string name="snowflake">دانه برف (اصل)</string>
+    <string name="snowflake">دانه برفی</string>
     <string name="snowflake_subtitle">وصل شدن از طریق داوطلبان تور. رد شدن از برخی مسدودیت‌های تور.</string>
     <string name="direct_connect_subtitle">بهترین روش وصل شدن به تور. استفاده در صورت مسدود نبودن تور.</string>
     <string name="get_a_bridge_subtitle">پنهان کردن شدآمدتان. رد شدن از برخی مسدودیت‌های تور.</string>
@@ -254,7 +254,7 @@
     <string name="pref_isolate_port_summary">برای هر درگاه مقصد از مدار متفاوتی استفاده کنید</string>
     <string name="pref_isolate_protocol">شیوه‌نامه‌های کلاینت را مجزا کنید</string>
     <string name="pref_isolate_protocol_summary">برای هر شیوه‌نامهٔ اتّصال از مدار متفاوتی استفاده کنید</string>
-    <string name="snowflake_amp">دانه برف (AMP)</string>
+    <string name="snowflake_amp">دانه برفی AMP</string>
     <string name="ask_tor">از تور بپرسید</string>
     <string name="not_sure">مطمئن نیستید؟</string>
     <string name="many_ways">راه‌های زیادی برای اتّصال به تور وجود دارد. برخی ممکن است بهتر از دیگران برای شما کار کنند.</string>
@@ -286,5 +286,15 @@
     <string name="pref_isolate_keep_alive_summary">مدارهای منزوی را زنده نگه دارید که حداقل یک جریان با احراز هویت SOCKS فعال دارند</string>
     <string name="settings_app_icon_chooser_title">نقشک کاره</string>
     <string name="settings_app_icon_chooser_description">یک آیکون و نام برنامه را انتخاب کنید که بر روی صفحه نمایش خانگی و کشو برنامه تلفن شما قابل مشاهده خواهد بود.</string>
-    <string name="app_icon_chooser_label_paint">رنگ</string>
+    <string name="app_icon_chooser_label_paint">نقّاشی</string>
+    <string name="pref_enable_rotation_title">چرخش افزاره</string>
+    <string name="app_icon_chooser_label_assistant">دستیار</string>
+    <string name="app_icon_chooser_label_night_watch">ساعت شبانه</string>
+    <string name="app_icon_chooser_label_tetras">تتراس</string>
+    <string name="app_icon_chooser_label_todo">کارها</string>
+    <string name="pref_title_camouflage">استتار</string>
+    <string name="pref_camo_title">به کارانداختن استتار</string>
+    <string name="pref_camo_subtitle">شبیه کردن روبوت پیازی به کاره‌ای دیگر و نهفتن اطّلاعات آگاهی‌ها دربارهٔ تور.</string>
+    <string name="pref_camo_app_select_title">گزینش زمینهٔ استتار</string>
+    <string name="pref_camo_app_select_subtitle">چگونگی نمایش نقشک و برچسب روبوت پیازی را روی افزاره‌تان تغییر خواهد داد</string>
 </resources>
