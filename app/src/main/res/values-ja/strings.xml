@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Orbot</string>
     <string name="app_description">Orbot は、より安全にインターネットを使用するために他のアプリを強化する無料のプロキシアプリです。Orbotは Tor を使ってインターネットトラフィックを暗号化し、世界中のコンピュータを経由することでトラフィックを隠します。Tor はフリーソフトウェアであり、個人の自由やプライバシーを侵害し、機密のビジネス活動や人間関係のトラフィック解析を行う国家安全保障という名目のネットワーク監視から身を守るためのオープンネットワークです。</string>
-    <string name="menu_settings">設定</string>
+    <string name="menu_settings">Orbot の設定</string>
     <string name="menu_log">履歴</string>
     <string name="menu_stop">停止</string>
     <string name="menu_about">情報</string>
@@ -10,8 +10,8 @@
     <string name="main_layout_upload">アップロード</string>
     <string name="button_about">バージョン情報</string>
     <string name="menu_exit">終了</string>
-    <string name="menu_scan">ブリッジQRをスキャン</string>
-    <string name="menu_share_bridge">ブリッジQRを共有</string>
+    <string name="menu_scan">ブリッジ QR をスキャン</string>
+    <string name="menu_share_bridge">ブリッジ QR を共有</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot は Tor、IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks、LibEvent を含むオープンソースアプリです。Tor ネットワークに入る VPN トンネル、ローカルHTTP接続プロキシ (8118) SOCKSプロキシ (9050) を提供します。</string>
     <!--END Welcome Wizard strings (DJH)-->
@@ -99,7 +99,7 @@
     <string name="name">名前</string>
     <string name="done">完了しました！</string>
     <string name="copy_address_to_clipboard">クリップボードにアドレスをコピー</string>
-    <string name="backup_service">サービスをバックアップ <i> (警告: これは、他のアプリにサービス設定を漏らす可能性があります)</i></string>
+    <string name="backup_service">サービスをバックアップ (警告: これは他のアプリにサービス設定を漏洩する可能性があります)</string>
     <string name="delete_service">サービスを削除</string>
     <string name="backup_saved_at_external_storage">バックアップは外部記憶装置に保存されました</string>
     <string name="backup_restored">バックアップから復元</string>
@@ -229,7 +229,7 @@
     <string name="smart_connect_subtitle">Orbot は直接、Snowflake、ブリッジなど、利用可能なあらゆる方法で Tor に接続しようとします。</string>
     <string name="direct_connect">Tor に直接接続する</string>
     <string name="direct_connect_subtitle">Tor に接続する最良の手段です。Tor がブロックされてないときに使用します。</string>
-    <string name="snowflake">Snowflake (Original)</string>
+    <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Tor のボランティアを介した接続です。一部の Tor ブロッキングを回避できます。</string>
     <string name="get_a_bridge_subtitle">あなたのトラフィックを隠します。一部の Tor ブロッキングを回避できます。</string>
     <string name="custom_bridge">カスタムブリッジ</string>
@@ -256,7 +256,7 @@
     <string name="action_use">使用</string>
     <string name="no_internet_title">インターネットに接続</string>
     <string name="no_internet_subtitle">Orbot を使用するには、インターネット接続が必要です。</string>
-    <string name="snowflake_amp">Snowflake (AMP)</string>
+    <string name="snowflake_amp">Snowflake AMP</string>
     <string name="log_copied">ログをコピーしました</string>
     <string name="volunteer_status_title">今日の方がいい。
 \nあなたのおかげで。</string>
@@ -280,4 +280,9 @@
     <string name="root_warning">Orbot は、デバイスが root 化されていることを検出しました。これにより、セキュリティの問題が発生する可能性があります。</string>
     <string name="pref_detect_root_title">Root 検知</string>
     <string name="pref_detect_root_summary">この端末で root 権限が有効になっている場合、起動時に警告する</string>
+    <string name="system_vpn_settings">Android VPN の設定</string>
+    <string name="pref_isolate_keep_alive">隔離された回線を維持する</string>
+    <string name="pref_isolate_keep_alive_summary">SOCKS 認証が有効なストリームが少なくとも1つある隔離された回線を維持します</string>
+    <string name="pref_enable_rotation_summary">デバイスのローテーションを有効にする (再起動が必要です)</string>
+    <string name="pref_enable_rotation_title">デバイスローテーション</string>
 </resources>
