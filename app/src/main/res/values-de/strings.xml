@@ -280,4 +280,12 @@
     <string name="many_ways">Es gibt viele Wege, Tor zu erreichen. Manche funktionieren vielleicht besser als andere für dich.</string>
     <string name="pref_detect_root_summary">Beim Start warnen, wenn Root-Berechtigungen auf diesem Gerät aktiviert sind</string>
     <string name="pref_detect_root_title">Root-Erkennung</string>
+    <string name="settings_app_icon_chooser_title">App-Symbol</string>
+    <string name="settings_app_icon_chooser_description">Wähle ein App-Symbol und einen Namen, welche auf dem Startbildschirm und in der App-Übersicht deines Gerätes zu sehen sind.</string>
+    <string name="pref_camo_title">Tarnung aktivieren</string>
+    <string name="pref_camo_app_select_title">Aussehen der Tarnung wählen</string>
+    <string name="pref_camo_app_select_subtitle">Ändert Orbots Symbol und Bezeichnung auf deinem Gerät</string>
+    <string name="system_vpn_settings">Android-VPN-Einstellungen</string>
+    <string name="pref_title_camouflage">Tarnung</string>
+    <string name="pref_camo_subtitle">Orbot nach einer anderen App aussehen lassen und Informationen über Tor verbergen.</string>
 </resources>
