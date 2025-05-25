@@ -143,44 +143,52 @@ public class OrbotService extends VpnService {
 
         if (Prefs.isCamoEnabled()) {
             // basically ignore all parmas and set a simple notification
-            mNotifyBuilder.setContentTitle("PLACEHOLDER")
-                    .setContentText(null)
-                    .setSubText(null)
-                    .setSmallIcon(R.drawable.ic_generic_info)
-                    .setProgress(0, 0, false)
-                    .setContentIntent(null);
+            setCamoNotification();
         } else {
-            var title = getString(R.string.status_disabled);
-            if (mCurrentStatus.equals(STATUS_STARTING) || notifyMsg.equals(getString(R.string.status_starting_up)))
-                title = getString(R.string.status_starting_up);
-            else if (mCurrentStatus.equals(STATUS_ON))
-                title = getString(R.string.status_activated);
-            mNotifyBuilder.setSmallIcon(R.drawable.ic_stat_tor)
+            mNotifyBuilder
+                    .setSmallIcon(R.drawable.ic_stat_tor)
+                    .setContentText(notifyMsg)
                     .setContentIntent(pendIntent)
-                    .setContentTitle(title);
-
+                    .setContentTitle(getNotificationTitle());
+            // Tor connection is active
             if (conn != null && mCurrentStatus.equals(STATUS_ON)) { // only add new identity action when there is a connection
+                mNotifyBuilder.setProgress(0, 0, false); // removes progress bar
                 var pendingIntentNewNym = PendingIntent.getBroadcast(this, 0, new Intent(TorControlCommands.SIGNAL_NEWNYM), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
                 mNotifyBuilder.addAction(R.drawable.ic_refresh_white_24dp, getString(R.string.menu_new_identity), pendingIntentNewNym);
-            } else if (mCurrentStatus.equals(STATUS_OFF)) {
+            } // Tor connection is off
+            else if (mCurrentStatus.equals(STATUS_OFF)) {
+
                 var pendingIntentConnect = PendingIntent.getBroadcast(this, 0, new Intent(LOCAL_ACTION_NOTIFICATION_START), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
-                mNotifyBuilder.addAction(R.drawable.ic_stat_tor, getString(R.string.connect_to_tor), pendingIntentConnect);
-
-                mNotifyBuilder.setContentText(notifyMsg)
+                mNotifyBuilder
+                        .addAction(R.drawable.ic_stat_tor, getString(R.string.connect_to_tor), pendingIntentConnect)
+                        .setContentText(notifyMsg)
                         .setSmallIcon(icon)
+                        .setSubText(null)
+                        .setProgress(0, 0, false)
                         .setTicker(notifyType != NOTIFY_ID ? notifyMsg : null);
-
-                if (!mCurrentStatus.equals(STATUS_ON)) {
-                    mNotifyBuilder.setSubText(null);
-                }
-
-                if (!mCurrentStatus.equals(STATUS_STARTING)) {
-                    mNotifyBuilder.setProgress(0, 0, false); // removes progress bar
-                }
             }
         }
 
         ServiceCompat.startForeground(this, NOTIFY_ID, mNotifyBuilder.build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED);
+    }
+
+    private String getNotificationTitle() {
+        var title = getString(R.string.status_disabled);
+        if (mCurrentStatus.equals(STATUS_STARTING)) // || notifyMsg.equals(getString(R.string.status_starting_up)))
+            title = getString(R.string.status_starting_up);
+        else if (mCurrentStatus.equals(STATUS_ON))
+            title = getString(R.string.status_activated);
+        return title;
+    }
+
+    private void setCamoNotification() {
+        mNotifyBuilder
+                .setContentTitle("PLACEHOLDER")
+                .setContentText(null)
+                .setSubText(null)
+                .setSmallIcon(R.drawable.ic_generic_info)
+                .setProgress(0, 0, false)
+                .setContentIntent(null);
     }
 
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -874,7 +882,8 @@ public class OrbotService extends VpnService {
                 var percent = notificationMessage.substring(LOG_NOTICE_BOOTSTRAPPED.length());
                 percent = percent.substring(0, percent.indexOf('%')).trim();
                 localIntent.putExtra(LOCAL_EXTRA_BOOTSTRAP_PERCENT, percent);
-                mNotifyBuilder.setProgress(100, Integer.parseInt(percent), false);
+                var prog = Integer.parseInt(percent);
+                mNotifyBuilder.setProgress(100, prog, false);
                 notificationMessage = notificationMessage.substring(notificationMessage.indexOf(':') + 1).trim();
             }
         }
@@ -1152,6 +1161,7 @@ public class OrbotService extends VpnService {
     }
 
     private class ActionBroadcastReceiver extends BroadcastReceiver {
+        @Override
         public void onReceive(Context context, Intent intent) {
             var action = intent.getAction();
             if (action == null) return;
