@@ -54,6 +54,7 @@ dependencies {
 
     implementation(libs.android.shell)
     implementation(libs.androidx.core)
+    implementation(libs.androidx.appcompat)
     implementation(libs.androidx.localbroadcast)
     implementation(libs.androidx.work)
     implementation(libs.androidx.work.kotlin)
