@@ -60,7 +60,7 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         pMgr = packageManager
-        this.setContentView(R.layout.layout_apps)
+        this.setContentView(R.layout.activity_app_manager)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         listAppsAll = findViewById(R.id.applistview)
         progressBar = findViewById(R.id.progressBar)
