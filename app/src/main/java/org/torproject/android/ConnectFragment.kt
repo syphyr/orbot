@@ -112,6 +112,7 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     private fun stopTorAndVpn() {
         requireContext().sendIntentToService(OrbotConstants.ACTION_STOP)
         requireContext().sendIntentToService(OrbotConstants.ACTION_STOP_VPN)
+        doLayoutOff()
     }
 
     private fun stopAnimations() {
