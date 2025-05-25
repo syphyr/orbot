@@ -5,6 +5,7 @@
     android:id="@+id/hostedServiceCoordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/new_background"
     android:fitsSystemWindows="true"
     tools:context="org.torproject.android.ui.v3onionservice.OnionServiceActivity">
 
@@ -14,9 +15,9 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
+            android:baselineAligned="false"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary" />
+            android:layout_height="?attr/actionBarSize"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 

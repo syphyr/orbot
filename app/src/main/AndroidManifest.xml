@@ -70,19 +70,11 @@
 
         <activity
             android:name=".ui.v3onionservice.OnionServiceActivity"
-            android:label="@string/v3_hosted_services">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".OrbotActivity" />
-        </activity>
+            android:label="@string/v3_hosted_services"/>
 
         <activity
             android:name=".ui.v3onionservice.clientauth.ClientAuthActivity"
-            android:label="@string/v3_client_auth_activity_title">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".OrbotActivity" />
-        </activity>
+            android:label="@string/v3_client_auth_activity_title" />
 
         <provider
             android:name=".ui.v3onionservice.OnionServiceContentProvider"
