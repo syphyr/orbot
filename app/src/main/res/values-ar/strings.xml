@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">اوربوت</string>
     <string name="app_description">اوربوت هو تطبيق الوكيل-البروكسي الحر الذي يمكّن تطبيقات أخرى لاستخدام الإنترنت بأمان أكثر . يُستخدم اوربوت تور لتشفير تحركات مرورك على الإنترنت ، ثم يخفيك ويجعلك وهمي من خلال سلسلة من أجهزة الكمبيوتر في جميع أنحاء العالم . تور هو تطبيق حر وشبكة مفتوحة والتي تساعدك على حماية نفسك من مراقبة الشبكات التي تهدد الحرية الشخصية والخصوصية ، والأنشطة التجارية السرية والعلاقات ، وأمن الدولة والحكومات القمعيّة والتي تستخدم مايعرف باسم تحليل حركة مرور البيانات .</string>
-    <string name="menu_settings">إعدادات</string>
+    <string name="menu_settings">إعدادات اوربوت</string>
     <string name="menu_log">السجل</string>
     <string name="menu_stop">توقف</string>
     <string name="menu_about">حول Orbot</string>
@@ -96,7 +96,7 @@
     <string name="name">الاسم</string>
     <string name="done">تم !</string>
     <string name="copy_address_to_clipboard">نسخ العنوان إلى الحافظة</string>
-    <string name="backup_service">النسخ الإحتياطي للخدمة<i>(تحذير: هذا قد يكشف تضبيط خدمتك لتطبيقات الأخرى)</i></string>
+    <string name="backup_service">النسخ الإحتياطي للخدمة (تحذير: هذا قد يكشف تضبيط خدمتك لتطبيقات الأخرى)</string>
     <string name="delete_service">حذف الخدمة</string>
     <string name="backup_saved_at_external_storage">تمت عملية حفظ النسخة الإحتياطية في ذاكرة التخزين الخارجية</string>
     <string name="backup_restored">تمت استعادة النسخة الإحتياطية</string>
@@ -245,8 +245,8 @@
     <string name="smart_connect_subtitle">يحاول Orbot الاتصال بتور بأي طريقة متاحة: مباشرةً، جسر، Snowflake.</string>
     <string name="direct_connect">اتصال مباشر بتور</string>
     <string name="direct_connect_subtitle">أفضل طريقة للاتصال بتور. استخدم إذا لم يٌحظر تور.</string>
-    <string name="snowflake">Snowflake (الأصل)</string>
-    <string name="snowflake_amp">ندفة الثلج (AMP)</string>
+    <string name="snowflake">Snowflake</string>
+    <string name="snowflake_amp">ندفة الثلج (Snowflake) AMP</string>
     <string name="snowflake_subtitle">يربط من خلال متطوعي تور. يلتف حول بعض حظر تور.</string>
     <string name="get_a_bridge">جسر من تور (Obfs4)</string>
     <string name="get_a_bridge_subtitle">يخفي حركةمرورك. يلتف حول بعض حظر تور.</string>
@@ -280,4 +280,21 @@
     <string name="root_warning">اكتشف Orbot أن جهازك مزوّد بحق الوصول إلى الجذر (rooted)، مما قد يتسبب في حدوث مشكلات أمنية.</string>
     <string name="pref_detect_root_summary">تحذير عند بدء التشغيل إذا فعّلت أذونات الجذر على هذا الجهاز</string>
     <string name="pref_detect_root_title">كشف الجذر</string>
+    <string name="pref_isolate_keep_alive">أبقِ الدوائر المعزولة نشطة</string>
+    <string name="pref_enable_rotation_summary">فعّل تدوير الجهاز (يتطلب إعادة تشغيل)</string>
+    <string name="settings_app_icon_chooser_description">حدّد أيقونة للتطبيق واسمًا، سيكونان ظاهرين على الشاشة الرئيسية لهاتفك ودرج التطبيقات.</string>
+    <string name="app_icon_chooser_label_night_watch">الحارس الليلي</string>
+    <string name="app_icon_chooser_label_assistant">المساعد</string>
+    <string name="app_icon_chooser_label_tetras">تتراس</string>
+    <string name="app_icon_chooser_label_todo">مهام</string>
+    <string name="pref_title_camouflage">تمويه</string>
+    <string name="pref_camo_title">فعّل التمويه</string>
+    <string name="pref_camo_subtitle">اجعل اوربوت يبدو كتطبيق آخر، وأخفِ معلومات الإشعارات حول تور.</string>
+    <string name="pref_camo_app_select_title">اختر سمة التمويه</string>
+    <string name="pref_camo_app_select_subtitle">سيؤدي هذا إلى تغيير كيفية ظهور أيقونة اوربوت وتسميته على جهازك</string>
+    <string name="system_vpn_settings">إعدادات VPN للأندرويد</string>
+    <string name="pref_isolate_keep_alive_summary">أبقِ الدوائر المعزولة حية التي لديها تدفق واحد على الأقل مع استيثاق SOCKS نشطة</string>
+    <string name="pref_enable_rotation_title">تدوير الجهاز</string>
+    <string name="settings_app_icon_chooser_title">أيقونة التطبيق</string>
+    <string name="app_icon_chooser_label_paint">طلاء</string>
 </resources>
