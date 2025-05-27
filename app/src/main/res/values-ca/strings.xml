@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Orbot</string>
     <string name="app_description">L\'Orbot és una aplicació de servidor intermediari gratuïta que capacita a les altres aplicacions per utilitzar internet de forma més segura. L\'Orbot utilitza Tor per xifrar les vostres comunicacions per Internet i ocultar-les fent-les saltar per una sèrie d\'ordinadors repartits per tot el món. Tor és un programari lliure i una xarxa oberta que us ajuda a defensar-vos d\'un tipus de vigilància a la xarxa que amenaça la llibertat personal i la privadesa, activitats empresarials i relacions confidencials i la seguretat en general, coneguda com a anàlisi de trànsit.</string>
-    <string name="menu_settings">Preferències</string>
+    <string name="menu_settings">Preferències de l\'Orbot</string>
     <string name="menu_log">Registre</string>
     <string name="menu_stop">Atura</string>
     <string name="menu_about">Quant a</string>
@@ -99,7 +99,7 @@
     <string name="name">Nom</string>
     <string name="done">Fet!</string>
     <string name="copy_address_to_clipboard">Copia l\'adreça al porta-retalls</string>
-    <string name="backup_service">Servei de còpia de seguretat <i>(Atenció: Això podria exposar la configuració del servei a altres aplicacions)</i></string>
+    <string name="backup_service">Servei de còpia de seguretat (Atenció: Això podria exposar la configuració del servei a altres aplicacions)</string>
     <string name="delete_service">Suprimeix el servei</string>
     <string name="backup_saved_at_external_storage">Còpia de seguretat desada a l\'emmagatzematge extern</string>
     <string name="backup_restored">Còpia de seguretat restaurada</string>
@@ -227,7 +227,7 @@
     <string name="menu_tor_connection">Connexió Tor</string>
     <string name="asking">S\'ESTÀ PREGUNTANT…</string>
     <string name="power_user_description">Per a usuaris familiaritzats amb el Tor. Us permet iniciar l\'Orbot sense l\'opció de la VPN i us mostra els ports SOCKS i HTTP oberts</string>
-    <string name="snowflake_amp">Snowflake (AMP)</string>
+    <string name="snowflake_amp">Snowflake AMP</string>
     <string name="get_bridges_email_request">Sol·licita ponts per correu electrònic</string>
     <string name="menu_kindness">Altruista</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Obre el servidor intermediari en totes les interfícies</string>
@@ -242,7 +242,7 @@
     <string name="menu_app_settings">Configuració de l\'aplicació</string>
     <string name="root_warning">L\'Orbot ha detectat que el vostre dispositiu té desblocats els permisos «root». Això pot causar problemes de seguretat.</string>
     <string name="btn_change_exit">Canvia la sortida</string>
-    <string name="snowflake">Snowflake (original)</string>
+    <string name="snowflake">Snowflake</string>
     <string name="backup_port_exist">Error: Ja hi ha un servei Onion utilitzant el port %s</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Permet accedir al Tor als companys Wi-Fi, als dispositius connectats i a qualsevol que es pugui connectar a la vostra IP</string>
     <string name="get_a_bridge_subtitle">Emmascara el trànsit. Evita algun blocatge del Tor.</string>
@@ -280,4 +280,21 @@
     <string name="configure_header">Configureu la connexió al Tor</string>
     <string name="pref_detect_root_summary">Avisa a l\'inici si els permisos d\'administrador estan activats en aquest dispositiu</string>
     <string name="pref_detect_root_title">Detecció d\'administrador</string>
+    <string name="pref_isolate_keep_alive">Mantén vius els circuits aïllats</string>
+    <string name="pref_isolate_keep_alive_summary">Manté vius els circuits aïllats que tenen almenys una tramesa activa amb autenticació SOCKS</string>
+    <string name="app_icon_chooser_label_tetras">Tetras</string>
+    <string name="system_vpn_settings">Preferències de la VPN d\'Android</string>
+    <string name="pref_enable_rotation_summary">Activa la rotació del dispositiu (cal reiniciar)</string>
+    <string name="pref_enable_rotation_title">Rotació del dispositiu</string>
+    <string name="settings_app_icon_chooser_title">Icona de l\'aplicació</string>
+    <string name="settings_app_icon_chooser_description">Seleccioneu una icona i nom per a l\'aplicació, que es mostrarà a la pàgina d\'inici del dispositiu i al calaix d\'aplicacions.</string>
+    <string name="app_icon_chooser_label_night_watch">Night Watch</string>
+    <string name="app_icon_chooser_label_assistant">Assistant</string>
+    <string name="app_icon_chooser_label_paint">Paint</string>
+    <string name="app_icon_chooser_label_todo">To-Do</string>
+    <string name="pref_title_camouflage">Camuflatge</string>
+    <string name="pref_camo_title">Activa el camuflatge</string>
+    <string name="pref_camo_subtitle">Fes que l\'Orbot es mostri com una altra aplicació i amaga les notificacions sobre el Tor.</string>
+    <string name="pref_camo_app_select_title">Seleccioneu el tema del camuflatge</string>
+    <string name="pref_camo_app_select_subtitle">Canviarà com es mostra la icona i el nom de l\'Orbot al dispositiu</string>
 </resources>
