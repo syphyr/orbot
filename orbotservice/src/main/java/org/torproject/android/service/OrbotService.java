@@ -131,8 +131,10 @@ public class OrbotService extends VpnService {
 
         if (mNotifyBuilder == null) {
             mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-            mNotifyBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID)
-                    .setCategory(Notification.CATEGORY_SERVICE);
+            mNotifyBuilder = new NotificationCompat
+                    .Builder(this, NOTIFICATION_CHANNEL_ID)
+                    .setCategory(Notification.CATEGORY_SERVICE)
+                    .setSmallIcon(R.drawable.ic_stat_tor);
         }
 
         mNotifyBuilder.setOngoing(true);
@@ -143,7 +145,7 @@ public class OrbotService extends VpnService {
             Notifications.configureCamoNotification(mNotifyBuilder);
         } else {
             mNotifyBuilder
-                    .setSmallIcon(R.drawable.ic_stat_tor)
+                    .setSmallIcon(icon)
                     .setContentText(notifyMsg)
                     .setContentIntent(pendIntent)
                     .setContentTitle(getNotificationTitle());
@@ -154,12 +156,10 @@ public class OrbotService extends VpnService {
                 mNotifyBuilder.addAction(R.drawable.ic_refresh_white_24dp, getString(R.string.menu_new_identity), pendingIntentNewNym);
             } // Tor connection is off
             else if (mCurrentStatus.equals(STATUS_OFF)) {
-
                 var pendingIntentConnect = PendingIntent.getBroadcast(this, 0, new Intent(LOCAL_ACTION_NOTIFICATION_START), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
                 mNotifyBuilder
                         .addAction(R.drawable.ic_stat_tor, getString(R.string.connect_to_tor), pendingIntentConnect)
                         .setContentText(notifyMsg)
-                        .setSmallIcon(icon)
                         .setSubText(null)
                         .setProgress(0, 0, false)
                         .setTicker(notifyType != NOTIFY_ID ? notifyMsg : null);
