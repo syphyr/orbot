@@ -58,7 +58,7 @@ import org.json.JSONArray;
 import org.torproject.android.core.DiskUtils;
 import org.torproject.android.core.Languages;
 import org.torproject.android.core.LocaleHelper;
-import org.torproject.android.core.ui.Rotate3dAnimation;
+import org.torproject.android.tv.ui.Rotate3dAnimation;
 import org.torproject.android.core.ui.SettingsPreferencesFragment;
 import org.torproject.android.tv.ui.AppConfigActivity;
 import org.torproject.android.tv.ui.AppManagerActivity;

@@ -1,4 +1,4 @@
-package org.torproject.android.core.ui
+package org.torproject.android.tv.ui
 
 import android.graphics.Camera
 import android.view.animation.Animation
