@@ -6,6 +6,7 @@ import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
 import androidx.annotation.RequiresApi
+import androidx.core.app.NotificationCompat
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.R
 import org.torproject.android.service.util.Prefs
@@ -35,5 +36,16 @@ object Notifications {
             setShowBadge(false)
             lockscreenVisibility = Notification.VISIBILITY_SECRET
         })
+    }
+
+    @JvmStatic
+    fun configureCamoNotification(notifyBuilder: NotificationCompat.Builder) {
+        notifyBuilder
+            .setContentTitle("PLACEHOLDER")
+            .setContentText(null)
+            .setSubText(null)
+            .setSmallIcon(R.drawable.ic_generic_info)
+            .setProgress(0, 0, false)
+            .setContentIntent(null)
     }
 }

@@ -10,6 +10,22 @@ import java.net.Socket
 import java.util.Locale
 
 object Utils {
+
+    @JvmStatic
+    fun checkPortOrAuto(portString: String) : String {
+        if (!portString.equals("auto", ignoreCase = true)) {
+            var isPortUsed = true
+            var port = portString.toInt()
+            while (isPortUsed) {
+                isPortUsed = isPortOpen("127.0.0.1", port, 500)
+                if (isPortUsed)  //the specified port is not available, so find one instead
+                    port++
+            }
+            return port.toString()
+        }
+        return portString
+    }
+
     @JvmStatic
     fun isPortOpen(ip: String?, port: Int, timeout: Int): Boolean {
         try {

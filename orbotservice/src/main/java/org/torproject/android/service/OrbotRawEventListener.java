@@ -1,8 +1,10 @@
 package org.torproject.android.service;
 
 import android.content.Context;
+import android.content.Intent;
 
 import androidx.annotation.NonNull;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import net.freehaven.tor.control.RawEventListener;
 import net.freehaven.tor.control.TorControlCommands;
@@ -71,9 +73,8 @@ public class OrbotRawEventListener implements RawEventListener {
             handleConnectionStatus(payload[1], payload[0]);
         } else if (TorControlCommands.EVENT_DEBUG_MSG.equals(keyword) || TorControlCommands.EVENT_INFO_MSG.equals(keyword) || TorControlCommands.EVENT_NOTICE_MSG.equals(keyword) || TorControlCommands.EVENT_WARN_MSG.equals(keyword) || TorControlCommands.EVENT_ERR_MSG.equals(keyword)) {
             handleDebugMessage(keyword, data);
-        } else {
-            String unrecognized = "Message (" + keyword + "): " + data;
-            mService.logNotice(unrecognized);
+        } else { // unrecognized keyword
+            mService.logNotice("Message (" + keyword + "): " + data);
         }
     }
 
@@ -84,6 +85,7 @@ public class OrbotRawEventListener implements RawEventListener {
         else
             return nf.format(Math.round(((float) ((int) (bitsPerSecond * 100 / 1024 / 1024)) / 100))) + context.getString(R.string.mebibyte_per_second);
     }
+
     private void handleBandwidth(long read, long written) {
         String message = formatBandwidthCount(mService, read) + " ↓ / " + formatBandwidthCount(mService, written) + " ↑";
 
@@ -92,8 +94,12 @@ public class OrbotRawEventListener implements RawEventListener {
 
         mTotalBandwidthWritten += written;
         mTotalBandwidthRead += read;
-
-        mService.sendCallbackBandwidth(written, read, mTotalBandwidthWritten, mTotalBandwidthRead);
+        var bandwidthIntent = new Intent(OrbotConstants.LOCAL_ACTION_BANDWIDTH)
+                .putExtra(OrbotConstants.LOCAL_EXTRA_TOTAL_WRITTEN, mTotalBandwidthWritten)
+                .putExtra(OrbotConstants.LOCAL_EXTRA_TOTAL_READ, mTotalBandwidthRead)
+                .putExtra(OrbotConstants.LOCAL_EXTRA_LAST_WRITTEN, written)
+                .putExtra(OrbotConstants.LOCAL_EXTRA_LAST_READ, read);
+        LocalBroadcastManager.getInstance(mService).sendBroadcast(bandwidthIntent);
     }
 
     private void handleNewDescriptors(String[] descriptors) {
@@ -104,21 +110,21 @@ public class OrbotRawEventListener implements RawEventListener {
     private void handleStreamEventExpandedNotifications(String status, String target, String circuitId, String clientProtocol) {
         if (!status.equals(TorControlCommands.STREAM_EVENT_SUCCEEDED)) return;
         if (!clientProtocol.contains("SOCKS5")) return;
-        int id = Integer.parseInt(circuitId);
+        var id = Integer.parseInt(circuitId);
         if (target.contains(".onion"))
             return; // don't display to users exit node info for onion addresses!
-        ExitNode node = exitNodeMap.get(id);
+        var node = exitNodeMap.get(id);
         if (node != null) {
             if (node.country == null && !node.querying) {
                 node.querying = true;
-                mService.exec(() -> {
+                mService.mExecutor.execute(() -> {
                     try {
                         String[] networkStatus = mService.conn.getInfo("ns/id/" + node.fingerPrint).split(" ");
                         node.ipAddress = networkStatus[6];
-                        String countryCode = mService.conn.getInfo("ip-to-country/" + node.ipAddress).toUpperCase(Locale.getDefault());
+                        var countryCode = mService.conn.getInfo("ip-to-country/" + node.ipAddress).toUpperCase(Locale.getDefault());
                         if (!countryCode.equals(TOR_CONTROLLER_COUNTRY_CODE_UNKNOWN)) {
-                            String emoji = Utils.convertCountryCodeToFlagEmoji(countryCode);
-                            String countryName = new Locale("", countryCode).getDisplayName();
+                            var emoji = Utils.convertCountryCodeToFlagEmoji(countryCode);
+                            var countryName = new Locale("", countryCode).getDisplayName();
                             node.country = emoji + " " + countryName;
                         } else node.country = "";
                         mService.setNotificationSubtext(node.toString());
@@ -139,14 +145,14 @@ public class OrbotRawEventListener implements RawEventListener {
     }
 
     private void handleCircuitStatusExpandedNotifications(String circuitStatus, String circuitId, String path) {
-        int id = Integer.parseInt(circuitId);
+        var id = Integer.parseInt(circuitId);
         switch (circuitStatus) {
             case TorControlCommands.CIRC_EVENT_BUILT -> {
                 if (ignoredInternalCircuits.contains(id))
                     return; // this circuit won't be used by user clients
-                String[] nodes = path.split(",");
-                String exit = nodes[nodes.length - 1];
-                String fingerprint = exit.split("~")[0];
+                var nodes = path.split(",");
+                var exit = nodes[nodes.length - 1];
+                var fingerprint = exit.split("~")[0];
                 exitNodeMap.put(id, new ExitNode(fingerprint));
             }
             case TorControlCommands.CIRC_EVENT_CLOSED -> {
@@ -160,23 +166,15 @@ public class OrbotRawEventListener implements RawEventListener {
     private void handleCircuitStatus(String circuitStatus, String circuitId, String path) {
         if (!Prefs.useDebugLogging()) return;
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("Circuit (");
-        sb.append((circuitId));
-        sb.append(") ");
-        sb.append(circuitStatus);
-        sb.append(": ");
-
-        StringTokenizer st = new StringTokenizer(path, ",");
+        var sb = new StringBuilder("Circuit (" + circuitId + ") " + circuitStatus + ": ");
+        var st = new StringTokenizer(path, ",");
         DebugLoggingNode node;
-
-        boolean isFirstNode = true;
-        int nodeCount = st.countTokens();
+        var isFirstNode = true;
+        var nodeCount = st.countTokens();
 
         while (st.hasMoreTokens()) {
-            String nodePath = st.nextToken();
+            var nodePath = st.nextToken();
             String nodeId = null, nodeName = null;
-
             String[] nodeParts;
 
             if (nodePath.contains("=")) nodeParts = nodePath.split("=");
@@ -214,12 +212,11 @@ public class OrbotRawEventListener implements RawEventListener {
             } else if (circuitStatus.equals(TorControlCommands.CIRC_EVENT_CLOSED)) {
                 hmBuiltNodes.remove(node.id);
             }
-
         }
     }
 
     private void handleConnectionStatus(String status, String unparsedNodeName) {
-        String message = "orConnStatus (" + parseNodeName(unparsedNodeName) + "): " + status;
+        var message = "orConnStatus (" + parseNodeName(unparsedNodeName) + "): " + status;
         mService.debug(message);
     }
 
