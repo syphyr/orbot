@@ -1,19 +1,23 @@
 /* Copyright (c) 2009, Nathan Freitas, Orbot / The Guardian Project - http://openideals.com/guardian */ /* See LICENSE for licensing information */
-package org.torproject.android.core.ui
+package org.torproject.android.ui
 
 import android.app.Activity.RESULT_OK
-import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
-import androidx.annotation.XmlRes
-import androidx.preference.*
+import androidx.preference.CheckBoxPreference
+import androidx.preference.EditTextPreference
+import androidx.preference.ListPreference
+import androidx.preference.Preference
+import androidx.preference.PreferenceCategory
+import androidx.preference.PreferenceFragmentCompat
+import org.torproject.android.R
 import org.torproject.android.core.Languages
-import org.torproject.android.core.R
+import org.torproject.android.core.ui.BaseActivity
 import org.torproject.android.service.util.Prefs
 
-class SettingsPreferencesFragment : PreferenceFragmentCompat() {
+class SettingsPreferenceFragment : PreferenceFragmentCompat() {
     private var prefLocale: ListPreference? = null
 
     private fun initPrefs() {
@@ -74,7 +78,6 @@ class SettingsPreferencesFragment : PreferenceFragmentCompat() {
 
 
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-
         setPreferencesFromResource(R.xml.preferences, rootKey)
         initPrefs()
     }
@@ -100,15 +103,5 @@ class SettingsPreferencesFragment : PreferenceFragmentCompat() {
                 }
             }
         }
-    }
-
-    companion object {
-        private const val BUNDLE_KEY_PREFERENCES_XML = "prefxml"
-
-        @JvmStatic
-        fun createIntent(context: Context?, @XmlRes xmlPrefId: Int): Intent =
-            Intent(context, SettingsPreferencesFragment::class.java).apply {
-                putExtra(BUNDLE_KEY_PREFERENCES_XML, xmlPrefId)
-            }
     }
 }

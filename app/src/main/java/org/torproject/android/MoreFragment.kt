@@ -20,13 +20,13 @@ import androidx.recyclerview.widget.RecyclerView
 import org.torproject.android.OrbotActivity.Companion.REQUEST_CODE_SETTINGS
 import org.torproject.android.OrbotActivity.Companion.REQUEST_VPN_APP_SELECT
 import org.torproject.android.core.sendIntentToService
-import org.torproject.android.core.ui.SettingsActivity
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 import org.torproject.android.ui.AboutDialogFragment
 import org.torproject.android.ui.AppManagerActivity
 import org.torproject.android.ui.MoreActionAdapter
 import org.torproject.android.ui.OrbotMenuAction
+import org.torproject.android.ui.SettingsActivity
 import org.torproject.android.ui.v3onionservice.OnionServiceActivity
 import org.torproject.android.ui.v3onionservice.clientauth.ClientAuthActivity
 

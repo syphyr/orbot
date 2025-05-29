@@ -1,8 +1,9 @@
-package org.torproject.android.core.ui
+package org.torproject.android.tv.ui
 
 import android.os.Bundle
 import android.view.MenuItem
-import org.torproject.android.core.R
+import org.torproject.android.core.ui.BaseActivity
+import org.torproject.android.tv.R
 
 class SettingsActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
