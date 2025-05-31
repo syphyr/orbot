@@ -286,15 +286,9 @@
     <string name="system_vpn_settings">Preferències de la VPN d\'Android</string>
     <string name="pref_enable_rotation_summary">Activa la rotació del dispositiu (cal reiniciar)</string>
     <string name="pref_enable_rotation_title">Rotació del dispositiu</string>
-    <string name="settings_app_icon_chooser_title">Icona de l\'aplicació</string>
-    <string name="settings_app_icon_chooser_description">Seleccioneu una icona i nom per a l\'aplicació, que es mostrarà a la pàgina d\'inici del dispositiu i al calaix d\'aplicacions.</string>
     <string name="app_icon_chooser_label_night_watch">Night Watch</string>
     <string name="app_icon_chooser_label_assistant">Assistant</string>
     <string name="app_icon_chooser_label_paint">Paint</string>
     <string name="app_icon_chooser_label_todo">To-Do</string>
-    <string name="pref_title_camouflage">Camuflatge</string>
     <string name="pref_camo_title">Activa el camuflatge</string>
-    <string name="pref_camo_subtitle">Fes que l\'Orbot es mostri com una altra aplicació i amaga les notificacions sobre el Tor.</string>
-    <string name="pref_camo_app_select_title">Seleccioneu el tema del camuflatge</string>
-    <string name="pref_camo_app_select_subtitle">Canviarà com es mostra la icona i el nom de l\'Orbot al dispositiu</string>
 </resources>

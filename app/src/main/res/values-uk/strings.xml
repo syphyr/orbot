@@ -282,19 +282,13 @@
     <string name="pref_detect_root_title">Виявлення Root</string>
     <string name="system_vpn_settings">Налаштування VPN для Android</string>
     <string name="pref_isolate_keep_alive">Зберігайте ізольовані ланцюги живими</string>
-    <string name="pref_title_camouflage">Камуфляж</string>
     <string name="pref_camo_title">Увімкнути камуфляж</string>
     <string name="pref_enable_rotation_summary">Увімкнути обертання пристрою (потрібне перезавантаження)</string>
     <string name="pref_isolate_keep_alive_summary">Підтримувати активність ізольованих каналів, які мають принаймні один потік з активною SOCKS-автентифікацією</string>
     <string name="app_icon_chooser_label_todo">Справи</string>
     <string name="pref_enable_rotation_title">Обертання пристрою</string>
     <string name="app_icon_chooser_label_night_watch">Нічна варта</string>
-    <string name="settings_app_icon_chooser_title">Значок програми</string>
-    <string name="settings_app_icon_chooser_description">Виберіть значок і назву програми, які будуть відображатися на головному екрані та в панелі програм вашого телефону.</string>
     <string name="app_icon_chooser_label_assistant">Помічник</string>
     <string name="app_icon_chooser_label_paint">Фарба</string>
     <string name="app_icon_chooser_label_tetras">Тетри</string>
-    <string name="pref_camo_subtitle">Зробіть Orbot схожим на окремий додаток та приховуйте інформацію про сповіщення про Tor.</string>
-    <string name="pref_camo_app_select_title">Виберіть тему камуфляжу</string>
-    <string name="pref_camo_app_select_subtitle">Це змінить вигляд значка та мітки Orbot на вашому пристрої</string>
 </resources>

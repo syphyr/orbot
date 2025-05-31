@@ -284,17 +284,11 @@
     <string name="system_vpn_settings">Android VPN تنظیمات</string>
     <string name="pref_isolate_keep_alive">مدارهای منزوی را زنده نگه دارید</string>
     <string name="pref_isolate_keep_alive_summary">مدارهای منزوی را زنده نگه دارید که حداقل یک جریان با احراز هویت SOCKS فعال دارند</string>
-    <string name="settings_app_icon_chooser_title">نقشک کاره</string>
-    <string name="settings_app_icon_chooser_description">یک آیکون و نام برنامه را انتخاب کنید که بر روی صفحه نمایش خانگی و کشو برنامه تلفن شما قابل مشاهده خواهد بود.</string>
     <string name="app_icon_chooser_label_paint">نقّاشی</string>
     <string name="pref_enable_rotation_title">چرخش افزاره</string>
     <string name="app_icon_chooser_label_assistant">دستیار</string>
     <string name="app_icon_chooser_label_night_watch">ساعت شبانه</string>
     <string name="app_icon_chooser_label_tetras">تتراس</string>
     <string name="app_icon_chooser_label_todo">کارها</string>
-    <string name="pref_title_camouflage">استتار</string>
     <string name="pref_camo_title">به کارانداختن استتار</string>
-    <string name="pref_camo_subtitle">شبیه کردن روبوت پیازی به کاره‌ای دیگر و نهفتن اطّلاعات آگاهی‌ها دربارهٔ تور.</string>
-    <string name="pref_camo_app_select_title">گزینش زمینهٔ استتار</string>
-    <string name="pref_camo_app_select_subtitle">چگونگی نمایش نقشک و برچسب روبوت پیازی را روی افزاره‌تان تغییر خواهد داد</string>
 </resources>
