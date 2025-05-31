@@ -108,6 +108,8 @@ public class OnionServiceActivity extends BaseActivity {
         if (item.getItemId() == R.id.menu_restore_backup) {
             Intent readFileIntent = DiskUtils.createReadFileIntent(ZipUtilities.ZIP_MIME_TYPE);
             startActivityForResult(readFileIntent, REQUEST_CODE_READ_ZIP_BACKUP);
+        } else if (item.getItemId() == android.R.id.home) {
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }

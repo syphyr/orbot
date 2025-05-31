@@ -114,6 +114,8 @@ public class ClientAuthActivity extends BaseActivity {
             // unfortunately no good way to filter .auth_private files
             Intent readFileIntent = DiskUtils.createReadFileIntent(CLIENT_AUTH_SAF_MIME_TYPE);
             startActivityForResult(readFileIntent, REQUEST_CODE_READ_ZIP_BACKUP);
+        } else if (item.getItemId() == android.R.id.home) {
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }
