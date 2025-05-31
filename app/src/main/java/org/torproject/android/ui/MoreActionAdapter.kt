@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.widget.ImageViewCompat
 
 import androidx.recyclerview.widget.RecyclerView
 
@@ -29,6 +30,8 @@ class MoreActionAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
+        if (item.removeTint)
+            ImageViewCompat.setImageTintList(holder.icon, null)
         holder.icon.setImageResource(item.imgId)
         holder.label.setText(item.textId)
         holder.itemView.setOnClickListener { item.action() }

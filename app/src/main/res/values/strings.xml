@@ -296,4 +296,7 @@
     <string name="pref_camo_subtitle">Make Orbot look like another app and hide notification information about Tor.</string>
     <string name="pref_camo_app_select_title">Select Camouflage Theme</string>
     <string name="pref_camo_app_select_subtitle">This will change how Orbot\'s icon and label will appear on your device</string>
+
+    <string name="camo_dialog_title" formatted="true">Camouflage as %1$s</string>
+    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot will camouflage itself as the app %1$s. This will hide notification content and change how the app looks on your home screen.\n\nCamouflaging as %2$s will restart Orbot.</string>
 </resources>

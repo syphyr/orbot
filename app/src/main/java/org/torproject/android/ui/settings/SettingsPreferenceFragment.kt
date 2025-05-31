@@ -1,11 +1,12 @@
 /* Copyright (c) 2009, Nathan Freitas, Orbot / The Guardian Project - http://openideals.com/guardian */ /* See LICENSE for licensing information */
-package org.torproject.android.ui
+package org.torproject.android.ui.settings
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
+import androidx.fragment.app.commit
 import androidx.preference.CheckBoxPreference
 import androidx.preference.EditTextPreference
 import androidx.preference.ListPreference
@@ -16,6 +17,7 @@ import org.torproject.android.R
 import org.torproject.android.core.Languages
 import org.torproject.android.core.ui.BaseActivity
 import org.torproject.android.service.util.Prefs
+import org.torproject.android.ui.camo.CamoFragment
 
 class SettingsPreferenceFragment : PreferenceFragmentCompat() {
     private var prefLocale: ListPreference? = null
@@ -63,15 +65,17 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
             }
 
         val prefCamoEnabled = findPreference<CheckBoxPreference>("pref_key_camo_enabled")
-        val prefCamoDialog = findPreference<ListPreference>("pref_key_camo_dialog")
+        val prefCamoDialog = findPreference<Preference>("pref_key_camo_dialog")
         prefCamoEnabled?.onPreferenceChangeListener =
             Preference.OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
                 prefCamoDialog?.isEnabled = newValue as Boolean
                 true
             }
-        prefCamoDialog?.entries
+        prefCamoDialog?.isEnabled = prefCamoEnabled?.isChecked == true
         prefCamoDialog?.onPreferenceClickListener = Preference.OnPreferenceClickListener {
-
+            activity?.supportFragmentManager?.commit {
+                replace(R.id.settings_container, CamoFragment())
+            }
             true
         }
     }
