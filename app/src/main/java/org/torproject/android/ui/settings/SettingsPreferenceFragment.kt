@@ -44,7 +44,7 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
         // kludge for #992
         val categoryNodeConfig = findPreference<Preference>("category_node_config")
         categoryNodeConfig?.title =
-            "${categoryNodeConfig?.title}" + "\n\n" + "${categoryNodeConfig?.summary}"
+            "${categoryNodeConfig.title}" + "\n\n" + "${categoryNodeConfig?.summary}"
         categoryNodeConfig?.summary = null
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -67,6 +67,7 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
         val prefCamoDialog = findPreference<Preference>("pref_key_camo_dialog")
         prefCamoDialog?.onPreferenceClickListener = Preference.OnPreferenceClickListener {
             activity?.supportFragmentManager?.commit {
+                addToBackStack(SettingsActivity.FRAGMENT_TAG)
                 replace(R.id.settings_container, CamoFragment())
             }
             true
