@@ -290,6 +290,9 @@
     <string name="app_icon_chooser_label_paint">Paint</string>
     <string name="app_icon_chooser_label_tetras">Tetras</string>
     <string name="app_icon_chooser_label_todo">To-Do</string>
+    <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
+    <string name="app_icon_chooser_label_birdie">Birdie</string>
+
 
     <string name="pref_title_camouflage">Camouflage</string>
     <string name="pref_camo_title">Enable Camouflage</string>
@@ -298,5 +301,7 @@
     <string name="pref_camo_app_select_subtitle">This will change how Orbot\'s icon and label will appear on your device</string>
 
     <string name="camo_dialog_title" formatted="true">Camouflage as %1$s</string>
-    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot will camouflage itself as the app %1$s. This will hide notification content and change how the app looks on your home screen.\n\nCamouflaging as %2$s will restart Orbot.</string>
+    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot will camouflage itself as the app %1$s. This will hide all notification details about Tor and change how the appearance of Orbot on your home screen.\n\nCamouflaging as %2$s will restart Orbot.</string>
+    <string name="camo_dialog_disable_confirm_msg">Orbot will resume displaying notification information about your Tor connection and will appear as normal on your home screen.\n\nDisabling Camouflage Mode will restart Orbot.</string>
+    <string name="camo_dialog_disable_title">Disable Camouflage Mode</string>
 </resources>
