@@ -1,7 +1,6 @@
 package org.torproject.android.ui.camo
 
 import android.app.AlertDialog
-import android.app.Application
 import android.app.Dialog
 import android.os.Bundle
 import androidx.core.os.bundleOf

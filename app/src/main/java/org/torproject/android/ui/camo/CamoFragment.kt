@@ -11,7 +11,6 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import `in`.myinnos.library.AppIconNameChanger
 import org.torproject.android.R
 import org.torproject.android.core.getKey
 import org.torproject.android.service.util.Prefs
@@ -89,7 +88,7 @@ class CamoFragment : Fragment() {
                 showDialog(imageId, appName)
             }
         }
-        if (isSelected) item.borderColor =
+        if (isSelected) item.backgroundColor =
             ContextCompat.getColor(requireContext(), R.color.panel_card_image)
         return item
     }
@@ -97,7 +96,7 @@ class CamoFragment : Fragment() {
     companion object {
         fun getCamoMapping(context: Context): Map<String?, String> = mapOf<String?, String>(
             context.getString(R.string.app_name) to Prefs.DEFAULT_CAMO_DISABLED_ACTIVITY,
-            context.getString(R.string.app_icon_chooser_label_fit_grit) to "org.torproject.android.FitGrit",
+            context.getString(R.string.app_icon_chooser_label_fit_grit) to "org.torproject.android.main.FitGrit",
             context.getString(R.string.app_icon_chooser_label_night_watch) to "org.torproject.android.main.NightWatch",
             context.getString(R.string.app_icon_chooser_label_assistant) to "org.torproject.android.main.Assistant",
             context.getString(R.string.app_icon_chooser_label_paint) to "org.torproject.android.main.Paint",

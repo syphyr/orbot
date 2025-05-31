@@ -4,6 +4,6 @@ data class OrbotMenuAction(
     val textId: Int,
     val imgId: Int,
     val removeTint: Boolean = false,
-    var borderColor: Int? = null,
+    var backgroundColor: Int? = null,
     val action: () -> Unit
 )

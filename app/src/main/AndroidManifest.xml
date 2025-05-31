@@ -203,7 +203,7 @@
             </intent-filter>
         </activity-alias>
         <activity-alias
-            android:name=".main.Fitgrit"
+            android:name=".main.FitGrit"
             android:enabled="false"
             android:exported="true"
             android:icon="@drawable/ic_camouflage_fitgrit"
