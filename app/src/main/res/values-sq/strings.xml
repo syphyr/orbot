@@ -280,19 +280,13 @@
     <string name="pref_reduced_connection_padding">“Padding” e reduktuar lidhjeje</string>
     <string name="pref_detect_root_summary">Sinjalizo, gjatë nisjes, nëse në këtë pajisje janë të aktivizuara leje si rrënjë</string>
     <string name="pref_detect_root_title">Pikasje Rrënje</string>
-    <string name="settings_app_icon_chooser_title">Ikonë Aplikacioni</string>
     <string name="app_icon_chooser_label_assistant">Asistent</string>
     <string name="system_vpn_settings">Rregullime Android për VPN</string>
     <string name="pref_enable_rotation_summary">Aktivizo rrotullim pajisjeje (lyp rinisje)</string>
     <string name="app_icon_chooser_label_night_watch">Parje Natës</string>
     <string name="app_icon_chooser_label_todo">Për-T’u-Bërë</string>
-    <string name="pref_title_camouflage">Kamuflazh</string>
     <string name="pref_camo_title">Aktivizoni Kamuflazh</string>
-    <string name="pref_camo_subtitle">Bëjeni Orbot-in të duket si tjetër aplikacion dhe fshihni hollësi njoftimi mbi Tor-in.</string>
     <string name="pref_isolate_keep_alive_summary">Mbaji gjallë qarqet e izoluar që kanë aktive të paktën një rrjedhë me mirëfilltësim SOCKS</string>
     <string name="pref_isolate_keep_alive">Mbaji gjallë qarqet e izoluar</string>
-    <string name="pref_camo_app_select_title">Përzgjidhni Temë Kamuflazhi</string>
     <string name="pref_enable_rotation_title">Rrotullim Pajisjeje</string>
-    <string name="settings_app_icon_chooser_description">Përzgjidhni një ikonë dhe emër aplikacioni, që mund të jenë të dukshëm te skena e kreut dhe sirtari i aplikacioneve të telefonit tuaj.</string>
-    <string name="pref_camo_app_select_subtitle">Kjo do të ndryshojë mënyrën se si duken në pajisjen tuaj ikona dhe etiketa e Orbot-it</string>
 </resources>

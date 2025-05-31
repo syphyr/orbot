@@ -285,16 +285,10 @@
     <string name="pref_isolate_keep_alive_summary">SOCKS 認証が有効なストリームが少なくとも1つある隔離された回線を維持します</string>
     <string name="pref_enable_rotation_summary">デバイスのローテーションを有効にする (再起動が必要です)</string>
     <string name="pref_enable_rotation_title">デバイスローテーション</string>
-    <string name="settings_app_icon_chooser_title">アプリのアイコン</string>
-    <string name="settings_app_icon_chooser_description">デバイスのホーム画面とアプリ一覧画面に表示されるアプリのアイコンと名前を選択します。</string>
     <string name="app_icon_chooser_label_night_watch">Night Watch</string>
     <string name="app_icon_chooser_label_assistant">Assistant</string>
     <string name="app_icon_chooser_label_paint">Paint</string>
     <string name="app_icon_chooser_label_tetras">Tetras</string>
     <string name="app_icon_chooser_label_todo">To-Do</string>
-    <string name="pref_title_camouflage">カモフラージュ</string>
     <string name="pref_camo_title">カモフラージュを有効にする</string>
-    <string name="pref_camo_subtitle">Orbot を別のアプリのように見せて、Tor に関する通知情報を隠します。</string>
-    <string name="pref_camo_app_select_title">カモフラージュテーマを選択</string>
-    <string name="pref_camo_app_select_subtitle">これにより、デバイス上での Orbot のアイコンとラベルが変更されます</string>
 </resources>

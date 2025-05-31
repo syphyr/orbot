@@ -278,16 +278,10 @@
     <string name="system_vpn_settings">VPN-stillingar Android</string>
     <string name="app_icon_chooser_label_assistant">Aðstoð</string>
     <string name="app_icon_chooser_label_paint">Málning</string>
-    <string name="pref_camo_subtitle">Láttu Orbot líta út eins og hvert annað forrit og feldu upplýsingar tilkynninga um Tor.</string>
     <string name="app_icon_chooser_label_todo">Verkefnalisti</string>
-    <string name="pref_title_camouflage">Dulargerfi</string>
     <string name="pref_camo_title">Virkja dulargerfi</string>
     <string name="pref_enable_rotation_summary">Virkja snúning tækis (krefst endurræsingar)</string>
     <string name="pref_enable_rotation_title">Snúningur tækis</string>
-    <string name="settings_app_icon_chooser_title">Táknmynd forrits</string>
-    <string name="settings_app_icon_chooser_description">Veldu táknmynd og nafn fyrir forritið, sem munu sjást á upphafsskjá og í forritaskúffu símans.</string>
     <string name="app_icon_chooser_label_night_watch">Næturvakt</string>
     <string name="app_icon_chooser_label_tetras">Tetras</string>
-    <string name="pref_camo_app_select_title">Veldu þema dulargerfis</string>
-    <string name="pref_camo_app_select_subtitle">Þetta mun breyta því hvernig táknmynd Orbot og merking þess mun líta út á tækinu þínu</string>
 </resources>
