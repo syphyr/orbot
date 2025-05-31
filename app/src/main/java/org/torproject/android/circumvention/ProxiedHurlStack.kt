@@ -1,13 +1,14 @@
-/* Copyright (c) 2020, Benjamin Erhart, Orbot / The Guardian Project - https://guardianproject.info */
-/* See LICENSE for licensing information */
-package org.torproject.android.ui.onboarding
+package org.torproject.android.circumvention
 
 import android.util.Log
-
 import com.android.volley.toolbox.HurlStack
-
 import java.io.IOException
-import java.net.*
+import java.net.Authenticator
+import java.net.HttpURLConnection
+import java.net.InetSocketAddress
+import java.net.PasswordAuthentication
+import java.net.Proxy
+import java.net.URL
 
 class ProxiedHurlStack(
     private val mHost: String,
