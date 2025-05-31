@@ -64,14 +64,7 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
                 true
             }
 
-        val prefCamoEnabled = findPreference<CheckBoxPreference>("pref_key_camo_enabled")
         val prefCamoDialog = findPreference<Preference>("pref_key_camo_dialog")
-        prefCamoEnabled?.onPreferenceChangeListener =
-            Preference.OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
-                prefCamoDialog?.isEnabled = newValue as Boolean
-                true
-            }
-        prefCamoDialog?.isEnabled = prefCamoEnabled?.isChecked == true
         prefCamoDialog?.onPreferenceClickListener = Preference.OnPreferenceClickListener {
             activity?.supportFragmentManager?.commit {
                 replace(R.id.settings_container, CamoFragment())

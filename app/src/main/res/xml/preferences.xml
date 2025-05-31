@@ -64,23 +64,12 @@
             android:title="@string/pref_enable_rotation_title"
             app:iconSpaceReserved="false" />
 
-    </PreferenceCategory>
-
-    <PreferenceCategory
-        android:title="@string/pref_title_camouflage"
-        app:iconSpaceReserved="false">
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="pref_key_camo_enabled"
-            android:summary="@string/pref_camo_subtitle"
-            android:title="@string/pref_camo_title"
-            app:iconSpaceReserved="false" />
         <Preference
-            android:enabled="false"
             android:key="pref_key_camo_dialog"
-            android:summary="@string/pref_camo_app_select_subtitle"
-            android:title="@string/pref_camo_app_select_title"
+            android:summary="@string/pref_camo_mode_description"
+            android:title="@string/pref_camo_mode_title"
             app:iconSpaceReserved="false" />
+
     </PreferenceCategory>
 
     <PreferenceCategory

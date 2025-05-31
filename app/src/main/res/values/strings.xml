@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Orbot</string>
-    <string name="app_description">Orbot is a free proxy app that empowers other apps to use the internet more securely. Orbot uses Tor to encrypt your Internet traffic and then hides it by bouncing through a series of computers around the world. Tor is free software and an open network that helps you defend against a form of network surveillance that threatens personal freedom and privacy, confidential business activities and relationships, and state security known as traffic analysis.</string>
     <string name="menu_settings">Orbot Settings</string>
     <string name="system_vpn_settings">Android VPN Settings</string>
     <string name="menu_log">Log</string>
@@ -298,10 +296,13 @@
     <string name="pref_camo_title">Enable Camouflage</string>
     <string name="pref_camo_subtitle">Make Orbot look like another app and hide notification information about Tor.</string>
     <string name="pref_camo_app_select_title">Select Camouflage Theme</string>
-    <string name="pref_camo_app_select_subtitle">This will change how Orbot\'s icon and label will appear on your device</string>
+    <string name="pref_camo_app_select_subtitle">dsfds</string>
 
     <string name="camo_dialog_title" formatted="true">Camouflage as %1$s</string>
     <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot will camouflage itself as the app %1$s. This will hide all notification details about Tor and change how the appearance of Orbot on your home screen.\n\nCamouflaging as %2$s will restart Orbot.</string>
     <string name="camo_dialog_disable_confirm_msg">Orbot will resume displaying notification information about your Tor connection and will appear as normal on your home screen.\n\nDisabling Camouflage Mode will restart Orbot.</string>
     <string name="camo_dialog_disable_title">Disable Camouflage Mode</string>
+
+    <string name="pref_camo_mode_title">Camouflage Mode</string>
+    <string name="pref_camo_mode_description">Disguise how Orbot\'s icon, label and notification text will appear on your device</string>
 </resources>
