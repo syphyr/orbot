@@ -1046,6 +1046,8 @@ public class OrbotService extends VpnService {
                         SnowflakeClient.startWithDomainFronting(mIptProxy);
                     } else if (connectionPathway.equals(Prefs.PATHWAY_SNOWFLAKE_AMP)) {
                         SnowflakeClient.startWithAmpRendezvous(mIptProxy);
+                    } else if (connectionPathway.equals(Prefs.PATHWAY_SNOWFLAKE_SQS)) {
+                        SnowflakeClient.startWithSqsRendezvous(mIptProxy);
                     } else if (connectionPathway.equals(Prefs.PATHWAY_CUSTOM) || Prefs.getPrefSmartTryObfs4() != null) {
                         for (var transport : Bridge.getTransports(getCustomBridges())) {
                             try {

@@ -32,6 +32,7 @@ class ConfigConnectionBottomSheet :
     private lateinit var rbDirect: RadioButton
     private lateinit var rbSnowflake: RadioButton
     private lateinit var rbSnowflakeAmp: RadioButton
+    private lateinit var rbSnowflakeSqs: RadioButton
     private lateinit var rbRequestBridge: RadioButton
     private lateinit var rbCustom: RadioButton
 
@@ -54,25 +55,28 @@ class ConfigConnectionBottomSheet :
         rbDirect = v.findViewById(R.id.rbDirect)
         rbSnowflake = v.findViewById(R.id.rbSnowflake)
         rbSnowflakeAmp = v.findViewById(R.id.rbSnowflakeAmp)
+        rbSnowflakeSqs = v.findViewById(R.id.rbSnowflakeSqs)
         rbRequestBridge = v.findViewById(R.id.rbRequest)
         rbCustom = v.findViewById(R.id.rbCustom)
 
         val tvDirectSubtitle = v.findViewById<View>(R.id.tvDirectSubtitle)
         val tvSnowflakeSubtitle = v.findViewById<View>(R.id.tvSnowflakeSubtitle)
         val tvSnowflakeAmpSubtitle = v.findViewById<View>(R.id.tvSnowflakeAmpSubtitle)
+        val tvSnowflakeSqsSubtitle = v.findViewById<View>(R.id.tvSnowflakeSqsSubtitle)
         val tvRequestSubtitle = v.findViewById<View>(R.id.tvRequestSubtitle)
         val tvCustomSubtitle = v.findViewById<View>(R.id.tvCustomSubtitle)
 
-        val radios = arrayListOf(rbDirect, rbSnowflake, rbSnowflakeAmp, rbRequestBridge, rbCustom)
+        val radios = arrayListOf(rbDirect, rbSnowflake, rbSnowflakeAmp, rbSnowflakeSqs, rbRequestBridge, rbCustom)
         val radioSubtitleMap = mapOf<CompoundButton, View>(
             rbDirect to tvDirectSubtitle,
             rbSnowflake to tvSnowflakeSubtitle,
             rbSnowflakeAmp to tvSnowflakeAmpSubtitle,
+            rbSnowflakeSqs to tvSnowflakeSqsSubtitle,
             rbRequestBridge to tvRequestSubtitle,
             rbCustom to tvCustomSubtitle
         )
         val allSubtitles = arrayListOf(
-            tvDirectSubtitle, tvSnowflakeSubtitle, tvSnowflakeAmpSubtitle, tvRequestSubtitle, tvCustomSubtitle
+            tvDirectSubtitle, tvSnowflakeSubtitle, tvSnowflakeAmpSubtitle, tvSnowflakeSqsSubtitle, tvRequestSubtitle, tvCustomSubtitle
         )
         btnAction = v.findViewById(R.id.btnAction)
         btnAskTor = v.findViewById(R.id.btnAskTor)
@@ -88,6 +92,8 @@ class ConfigConnectionBottomSheet :
             .setOnClickListener { rbSnowflake.isChecked = true }
         v.findViewById<View>(R.id.snowflakeAmpContainer)
             .setOnClickListener { rbSnowflakeAmp.isChecked = true }
+        v.findViewById<View>(R.id.snowflakeSqsContainer)
+            .setOnClickListener { rbSnowflakeSqs.isChecked = true }
         v.findViewById<View>(R.id.requestContainer)
             .setOnClickListener { rbRequestBridge.isChecked = true }
         v.findViewById<View>(R.id.customContainer).setOnClickListener { rbCustom.isChecked = true }
@@ -106,6 +112,12 @@ class ConfigConnectionBottomSheet :
             }
         }
         rbSnowflakeAmp.setOnCheckedChangeListener { buttonView, isChecked ->
+            if (isChecked) {
+                nestedRadioButtonKludgeFunction(buttonView as RadioButton, radios)
+                radioSubtitleMap[buttonView]?.let { onlyShowActiveSubtitle(it, allSubtitles) }
+            }
+        }
+        rbSnowflakeSqs.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked) {
                 nestedRadioButtonKludgeFunction(buttonView as RadioButton, radios)
                 radioSubtitleMap[buttonView]?.let { onlyShowActiveSubtitle(it, allSubtitles) }
@@ -150,6 +162,9 @@ class ConfigConnectionBottomSheet :
             } else if (rbSnowflakeAmp.isChecked) {
                 Prefs.putConnectionPathway(Prefs.PATHWAY_SNOWFLAKE_AMP)
                 closeAndConnect()
+            } else if (rbSnowflakeSqs.isChecked) {
+                Prefs.putConnectionPathway(Prefs.PATHWAY_SNOWFLAKE_SQS)
+                closeAndConnect()
             } else if (rbCustom.isChecked) {
                 CustomBridgeBottomSheet(object : ConnectionHelperCallbacks {
                     override fun tryConnecting() {
@@ -182,6 +197,7 @@ class ConfigConnectionBottomSheet :
         if (pref.equals(Prefs.PATHWAY_CUSTOM)) rbCustom.isChecked = true
         if (pref.equals(Prefs.PATHWAY_SNOWFLAKE)) rbSnowflake.isChecked = true
         if (pref.equals(Prefs.PATHWAY_SNOWFLAKE_AMP)) rbSnowflakeAmp.isChecked = true
+        if (pref.equals(Prefs.PATHWAY_SNOWFLAKE_SQS)) rbSnowflakeSqs.isChecked = true
         if (pref.equals(Prefs.PATHWAY_DIRECT)) rbDirect.isChecked = true
     }
 
