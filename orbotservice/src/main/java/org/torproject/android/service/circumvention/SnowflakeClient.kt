@@ -84,4 +84,17 @@ object SnowflakeClient {
         }
         return brokers
     }
+
+    @JvmStatic
+    fun getLocalBrokersAmp(context: Context) : List<String>{
+        val brokers = ArrayList<String>()
+        try {
+            val reader = BufferedReader(InputStreamReader(context.assets.open("snowflake-brokers-amp")))
+            reader.forEachLine { brokers.add(it) }
+            reader.close()
+        } catch (e: IOException) {
+            Log.e("SnowflakeClient", "$e")
+        }
+        return brokers
+    }
 }
