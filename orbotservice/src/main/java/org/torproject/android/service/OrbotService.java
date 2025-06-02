@@ -871,7 +871,7 @@ public class OrbotService extends VpnService {
             // snowflake or obfs4
             extraLines.append("UseBridges 1\n");
             if (pathway.equals(Prefs.PATHWAY_SNOWFLAKE_AMP) || pathway.equals(Prefs.PATHWAY_SNOWFLAKE_SQS))
-                processSettingsImplSnowflakeAmp(extraLines);
+                processSettingsImplSnowflakeAmpAndSqsModes(extraLines);
             else if (pathway.startsWith(Prefs.PATHWAY_SNOWFLAKE) || Prefs.getPrefSmartTrySnowflake())
                 processSettingsImplSnowflake(extraLines);
             else if (pathway.equals(Prefs.PATHWAY_CUSTOM) || Prefs.getPrefSmartTryObfs4() != null)
@@ -923,7 +923,7 @@ public class OrbotService extends VpnService {
             extraLines.append("Bridge " + bridge + "\n");
     }
 
-    private void processSettingsImplSnowflakeAmp(StringBuffer extraLines) {
+    private void processSettingsImplSnowflakeAmpAndSqsModes(StringBuffer extraLines) {
         extraLines.append(SnowflakeClient.getClientTransportPluginTorrcLine(mIptProxy));
         var brokers = SnowflakeClient.getLocalBrokersAmp(this);
         for (String bridge : brokers)
