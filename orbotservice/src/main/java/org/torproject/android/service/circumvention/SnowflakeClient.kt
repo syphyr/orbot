@@ -47,6 +47,22 @@ object SnowflakeClient {
     }
 
     @JvmStatic
+    fun startWithSqsRendezvous(iPtProxy: Controller) {
+        val stunServers = OrbotService.getCdnFront("snowflake-stun")
+        val sqsqueue = OrbotService.getCdnFront("snowflake-sqsqueue")
+        val sqscreds = OrbotService.getCdnFront("snowflake-sqscreds")
+        try {
+            iPtProxy.snowflakeIceServers = stunServers
+            iPtProxy.snowflakeSqsUrl = sqsqueue
+            iPtProxy.snowflakeSqsCreds = sqscreds
+            iPtProxy.snowflakeMaxPeers = 1
+            iPtProxy.start(IPtProxy.Snowflake, "")
+        } catch (e: Exception) {
+            throw RuntimeException(e)
+        }
+    }
+
+    @JvmStatic
     fun stop(iPtProxy: Controller) {
         iPtProxy.stop(IPtProxy.Snowflake)
     }
@@ -61,6 +77,19 @@ object SnowflakeClient {
         val brokers = ArrayList<String>()
         try {
             val reader = BufferedReader(InputStreamReader(context.assets.open("snowflake-brokers")))
+            reader.forEachLine { brokers.add(it) }
+            reader.close()
+        } catch (e: IOException) {
+            Log.e("SnowflakeClient", "$e")
+        }
+        return brokers
+    }
+
+    @JvmStatic
+    fun getLocalBrokersAmp(context: Context) : List<String>{
+        val brokers = ArrayList<String>()
+        try {
+            val reader = BufferedReader(InputStreamReader(context.assets.open("snowflake-brokers-amp")))
             reader.forEachLine { brokers.add(it) }
             reader.close()
         } catch (e: IOException) {
