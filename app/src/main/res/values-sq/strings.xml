@@ -285,7 +285,6 @@
     <string name="pref_enable_rotation_summary">Aktivizo rrotullim pajisjeje (lyp rinisje)</string>
     <string name="app_icon_chooser_label_night_watch">Parje Natës</string>
     <string name="app_icon_chooser_label_todo">Për-T’u-Bërë</string>
-    <string name="pref_camo_title">Aktivizoni Kamuflazh</string>
     <string name="pref_isolate_keep_alive_summary">Mbaji gjallë qarqet e izoluar që kanë aktive të paktën një rrjedhë me mirëfilltësim SOCKS</string>
     <string name="pref_isolate_keep_alive">Mbaji gjallë qarqet e izoluar</string>
     <string name="pref_enable_rotation_title">Rrotullim Pajisjeje</string>
