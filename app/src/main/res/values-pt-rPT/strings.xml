@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Orbot</string>
     <string name="app_description">Orbot é uma app de proxy livre que capacita outras aplicações a usar a internet com mais segurança. O Orbot usa o Tor para criptografar o seu tráfego na internet e então o esconde \"saltando\" entre uma série de computadores ao redor do mundo. Tor é um software livre e de rede aberta que ajuda a se defender de certas formas de vigilância que ameaçam privacidade e liberdade pessoais, atividades e relações comerciais confidenciais e segurança estatal conhecida como análise de tráfego.</string>
-    <string name="menu_settings">Configurações</string>
+    <string name="menu_settings">Definições do Orbot</string>
     <string name="menu_log">Registo</string>
     <string name="menu_stop">Parar</string>
     <string name="menu_about">Sobre</string>
@@ -107,7 +107,7 @@
     <string name="backup_restored">Backup restaurado</string>
     <string name="backup_saved_at_external_storage">Backup gravado em mídia externa</string>
     <string name="delete_service">Remover Serviço</string>
-    <string name="backup_service">Serviço de Backup <i>(Aviso: Isso pode expor a sua configuração de serviço para as outras apps)</i></string>
+    <string name="backup_service">Serviço de Cópias de Segurança (Aviso: Isto poderá expor a sua configuração do serviço para as outras aplicações)</string>
     <string name="copy_address_to_clipboard">Copiar para a area de transferência</string>
     <string name="onion_port">Porta Onion</string>
     <string name="local_port">Porta Local</string>
@@ -209,7 +209,7 @@
     <string name="volunteer_mode_weekly_label">Total semanal</string>
     <string name="volunteer_mode_alltime_label">Total de todos os períodos</string>
     <string name="title_choose_apps">Escolha as apps</string>
-    <string name="snowflake">Snowflake (Original)</string>
+    <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Conecta-se através de voluntários do Tor. Contorna alguns bloqueios do Tor.</string>
     <string name="get_a_bridge">Ponte do Tor (Obfs4)</string>
     <string name="having_trouble">Tendo problemas</string>
@@ -253,10 +253,10 @@
     <string name="setting_padding">Preenchimento</string>
     <string name="connection_snowflake">Snowflake</string>
     <string name="connection_custom">Personalizado</string>
-    <string name="setting_debug">Debug</string>
+    <string name="setting_debug">Depurar</string>
     <string name="menu_kindness">Bondade</string>
     <string name="menu_more">Mais</string>
-    <string name="hide_apps">Oculte apps do monitoramento da rede e obtenha acesso quando eles estiverem bloqueados.</string>
+    <string name="hide_apps">Oculte as aplicações da monitorização da rede e obtenha acesso quando elas estiverem bloqueadas.</string>
     <string name="pref_isolate_protocol">Isolar os protocolos do cliente</string>
     <string name="no_internet_title">Ligar à Internet</string>
     <string name="kindness_adjust_title">Configurações</string>
@@ -271,13 +271,30 @@
     <string name="no_internet_subtitle">Precisa de uma ligação à Internet para utilizar o Orbot.</string>
     <string name="kindness_config_detail">Configure como e quando seu dispositivo pode atuar como um proxy Snowflake para outros usuários Tor.</string>
     <string name="connection_direct">Direto</string>
-    <string name="pref_flag_secure_summary">Impedir que outras aplicações tirem capturas de ecrã do Orbot</string>
-    <string name="pref_flag_secure_title">Segurança do ecrã</string>
-    <string name="root_warning">O Orbot detectou que o seu dispositivo tem root, e isso pode causar problemas de segurança.</string>
+    <string name="pref_flag_secure_summary">Impedir que as outras aplicações efetuem capturas de ecrã do Orbot</string>
+    <string name="pref_flag_secure_title">Segurança do Ecrã</string>
+    <string name="root_warning">O Orbot detetou que o seu dispositivo foi \'\'rooted\'\', o que pode causar problemas de segurança.</string>
     <string name="pref_isolate_protocol_summary">Utilizar um circuito diferente para cada protocolo de ligação</string>
-    <string name="snowflake_amp">Snowflake (AMP)</string>
+    <string name="snowflake_amp">Snowflake AMP</string>
     <string name="not_sure">Não tem a certeza\?</string>
     <string name="pref_isolate_port_summary">Utilizar um circuito diferente para cada porta de destino</string>
-    <string name="pref_detect_root_summary">Avisar no arranque se permissões de root estão ativadas neste dispositivo</string>
+    <string name="pref_detect_root_summary">Avisar no arranque se as permissões de \'\'root\'\' estiverem ativadas neste dispositivo</string>
     <string name="pref_detect_root_title">Deteção de Root</string>
+    <string name="settings_app_icon_chooser_description">Selecione um ícone e nome da aplicação, que ficarão visíveis no ecrã de início do seu telemóvel e menu de aplicações.</string>
+    <string name="pref_camo_app_select_title">Selecionar Tema Camouflage</string>
+    <string name="pref_isolate_keep_alive_summary">Manter os circuitos isolados vivos que tem pelo menos uma transmissão com a autenticação SOCKS ativa</string>
+    <string name="system_vpn_settings">Definições da VPN Android</string>
+    <string name="pref_isolate_keep_alive">Manter os circuitos isolados vivos</string>
+    <string name="pref_enable_rotation_summary">Ativar rotação do dispositivo (requer reinicialização)</string>
+    <string name="pref_enable_rotation_title">Rotação do Dispositivo</string>
+    <string name="settings_app_icon_chooser_title">Ícone da Aplicação</string>
+    <string name="app_icon_chooser_label_night_watch">Vigilância Noturna</string>
+    <string name="app_icon_chooser_label_assistant">Assistente</string>
+    <string name="app_icon_chooser_label_todo">Tarefas</string>
+    <string name="app_icon_chooser_label_paint">Paint</string>
+    <string name="app_icon_chooser_label_tetras">Tetras</string>
+    <string name="pref_title_camouflage">Camouflage</string>
+    <string name="pref_camo_title">Ativar Camouflage</string>
+    <string name="pref_camo_subtitle">Faça com que o Orbot se pareça com outra aplicação e oculte a informação de notificação sobre o Tor.</string>
+    <string name="pref_camo_app_select_subtitle">Isto irá alterar a forma como o ícone e a etiqueta do Orbot aparecerão no seu dispositivo</string>
 </resources>
