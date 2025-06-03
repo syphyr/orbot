@@ -284,5 +284,4 @@
     <string name="system_vpn_settings">Android VPN 设置</string>
     <string name="pref_isolate_keep_alive_summary">保持至少有一个启用 SOCKS 身份验证流的隔离线路存活</string>
     <string name="app_icon_chooser_label_tetras">Tetras</string>
-    <string name="pref_camo_title">启用伪装</string>
 </resources>

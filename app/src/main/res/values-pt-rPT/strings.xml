@@ -280,21 +280,14 @@
     <string name="pref_isolate_port_summary">Utilizar um circuito diferente para cada porta de destino</string>
     <string name="pref_detect_root_summary">Avisar no arranque se as permissões de \'\'root\'\' estiverem ativadas neste dispositivo</string>
     <string name="pref_detect_root_title">Deteção de Root</string>
-    <string name="settings_app_icon_chooser_description">Selecione um ícone e nome da aplicação, que ficarão visíveis no ecrã de início do seu telemóvel e menu de aplicações.</string>
-    <string name="pref_camo_app_select_title">Selecionar Tema Camouflage</string>
     <string name="pref_isolate_keep_alive_summary">Manter os circuitos isolados vivos que tem pelo menos uma transmissão com a autenticação SOCKS ativa</string>
     <string name="system_vpn_settings">Definições da VPN Android</string>
     <string name="pref_isolate_keep_alive">Manter os circuitos isolados vivos</string>
     <string name="pref_enable_rotation_summary">Ativar rotação do dispositivo (requer reinicialização)</string>
     <string name="pref_enable_rotation_title">Rotação do Dispositivo</string>
-    <string name="settings_app_icon_chooser_title">Ícone da Aplicação</string>
     <string name="app_icon_chooser_label_night_watch">Vigilância Noturna</string>
     <string name="app_icon_chooser_label_assistant">Assistente</string>
     <string name="app_icon_chooser_label_todo">Tarefas</string>
     <string name="app_icon_chooser_label_paint">Paint</string>
     <string name="app_icon_chooser_label_tetras">Tetras</string>
-    <string name="pref_title_camouflage">Camouflage</string>
-    <string name="pref_camo_title">Ativar Camouflage</string>
-    <string name="pref_camo_subtitle">Faça com que o Orbot se pareça com outra aplicação e oculte a informação de notificação sobre o Tor.</string>
-    <string name="pref_camo_app_select_subtitle">Isto irá alterar a forma como o ícone e a etiqueta do Orbot aparecerão no seu dispositivo</string>
 </resources>

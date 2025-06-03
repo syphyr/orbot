@@ -282,7 +282,6 @@
     <string name="pref_detect_root_title">Виявлення Root</string>
     <string name="system_vpn_settings">Налаштування VPN для Android</string>
     <string name="pref_isolate_keep_alive">Зберігайте ізольовані ланцюги живими</string>
-    <string name="pref_camo_title">Увімкнути камуфляж</string>
     <string name="pref_enable_rotation_summary">Увімкнути обертання пристрою (потрібне перезавантаження)</string>
     <string name="pref_isolate_keep_alive_summary">Підтримувати активність ізольованих каналів, які мають принаймні один потік з активною SOCKS-автентифікацією</string>
     <string name="app_icon_chooser_label_todo">Справи</string>

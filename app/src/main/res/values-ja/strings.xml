@@ -290,5 +290,4 @@
     <string name="app_icon_chooser_label_paint">Paint</string>
     <string name="app_icon_chooser_label_tetras">Tetras</string>
     <string name="app_icon_chooser_label_todo">To-Do</string>
-    <string name="pref_camo_title">カモフラージュを有効にする</string>
 </resources>
