@@ -290,4 +290,14 @@
     <string name="app_icon_chooser_label_assistant">Помічник</string>
     <string name="app_icon_chooser_label_paint">Фарба</string>
     <string name="app_icon_chooser_label_tetras">Тетри</string>
+    <string name="snowflake_sqs">Сніжинка SQS</string>
+    <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
+    <string name="app_icon_chooser_label_birdie">Пташка</string>
+    <string name="camo_dialog_title" formatted="true">Камуфляж як %1$s</string>
+    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot замаскується під додаток %1$s. Це приховає всі деталі сповіщень про Tor та змінить вигляд Orbot на головному екрані.\n\nКамуфляж під %2$s перезапустить Orbot.</string>
+    <string name="camo_dialog_disable_confirm_msg">Orbot відновить відображення сповіщень про ваше з’єднання Tor та з’явиться на головному екрані у звичайному режимі.\n\nВимкнення режиму камуфляжу перезапустить Orbot.</string>
+    <string name="camo_dialog_disable_title">Вимкнути режим камуфляжу</string>
+    <string name="pref_camo_mode_title">Режим камуфляжу</string>
+    <string name="pref_camo_mode_description">Замаскуйте, як значок, мітка та текст сповіщення Orbot відображатимуться на вашому пристрої</string>
+    <string name="bridge_snowflake_sqs">Підключення через інших користувачів Tor за допомогою Snowflake (Спосіб 3 - SQS)</string>
 </resources>
