@@ -77,7 +77,7 @@
     <string name="pref_transport_summary">Порт, на който Тор предлага прозрачен сървър за прокси (подразбиран: 9040 или 0 за изключване)</string>
     <string name="pref_transport_dialog">Настройка на порта на прозрачен сървър за прокси</string>
     <string name="pref_dnsport_title">Порт за DNS на Тор</string>
-    <string name="pref_dnsport_summary">Порт, на който Тор предлага услуга за DNS (подразбиран: 9053 или 0 за изключване)</string>
+    <string name="pref_dnsport_summary">Порт, на който Tor предлага услуга за DNS (подразбиран: 9053 или 0 за изключване)</string>
     <string name="pref_dnsport_dialog">Настройка на порта за DNS</string>
     <string name="pref_torrc_title">Потребителски настройки на Torrc</string>
     <string name="pref_torrc_summary">ЗА ЕКСПЕРТИ: въведете редовете с настройки за torrc</string>
@@ -212,7 +212,7 @@
     <string name="volunteer_mode_weekly_label">Общо седмично</string>
     <string name="volunteer_mode_alltime_label">Общо за цялото време</string>
     <string name="smart_connect">Интелигентна връзка (подразбирано)</string>
-    <string name="snowflake">Снежинка (оригинална)</string>
+    <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Връзката се осъществява през доброволци на Тор. Заобикаля някои забрани на Тор.</string>
     <string name="custom_bridge">Потребителски мост</string>
     <string name="connect">Свързване</string>
@@ -244,7 +244,7 @@
     <string name="title_choose_apps">Избор на приложения</string>
     <string name="hide_apps">Скрийте приложенията от наблюдение на мрежата и получете достъп, когато са блокирани.</string>
     <string name="log_copied">Дневникът е копиран</string>
-    <string name="snowflake_amp">Снежинка (AMP)</string>
+    <string name="snowflake_amp">Snowflake AMP</string>
     <string name="action_use">Използване</string>
     <string name="asking">ЗАПИТВАНЕ…</string>
     <string name="no_internet_title">Свързване с интернет</string>
@@ -253,7 +253,7 @@
     <string name="not_sure">Не сте сигурни?</string>
     <string name="ask_tor">Попитайте Тор</string>
     <string name="many_ways">Има много начини за достъп до Тор. Някои може да работят по-добре от други.</string>
-    <string name="kindness_config_detail">Настройте как и кога устройството ви да бъде използвано като посредник на Снежинка за другите потребители на мрежата на Тор.</string>
+    <string name="kindness_config_detail">Настройте как и кога устройството ви да бъде използвано като посредник на Snowflake за другите потребители на мрежата на Тор.</string>
     <string name="pref_isolate_port_summary">Използване на различен обход за всеки порт</string>
     <string name="pref_isolate_protocol">Изолиране на клиентските протоколи</string>
     <string name="pref_isolate_port">Изолиране на целевите портове</string>
@@ -275,4 +275,17 @@
     <string name="pref_detect_root_summary">Предупреждаване за наличие на достъп до правата на суперпотребителя</string>
     <string name="system_vpn_settings">Настройки на Андроид за ВЧМ</string>
     <string name="pref_isolate_keep_alive">Поддържане достъпни на изолираните вериги</string>
+    <string name="snowflake_sqs">Snowflake SQS</string>
+    <string name="bridge_snowflake_sqs">Свързване през потребители на Tor, посредством Snowflake (метод 3 - SQS)</string>
+    <string name="app_icon_chooser_label_assistant">Асистент</string>
+    <string name="pref_enable_rotation_title">Завртане на екрана</string>
+    <string name="app_icon_chooser_label_birdie">Птиче</string>
+    <string name="app_icon_chooser_label_fit_grit">Фитнес</string>
+    <string name="camo_dialog_title" formatted="true">Прикриване като %1$s</string>
+    <string name="app_icon_chooser_label_todo">Задачи</string>
+    <string name="pref_enable_rotation_summary">Завртане на устройството (изисква рестарт)</string>
+    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot ще бъде прикрит като приложението „%1$s“. Това означава скриване на известията на Tor и пиктограмата на началния екран.\n\nПрикриването като %2$s ще рестартира Orbot.</string>
+    <string name="app_icon_chooser_label_night_watch">Нощен пазач</string>
+    <string name="app_icon_chooser_label_tetras">Тетрас</string>
+    <string name="app_icon_chooser_label_paint">Боя</string>
 </resources>

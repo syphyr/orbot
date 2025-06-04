@@ -277,11 +277,21 @@
     <string name="pref_isolate_keep_alive">保持隔离线路存活</string>
     <string name="pref_enable_rotation_title">设备旋转</string>
     <string name="pref_enable_rotation_summary">启用设备旋转（需要重启）</string>
-    <string name="app_icon_chooser_label_assistant">助理</string>
-    <string name="app_icon_chooser_label_paint">画图</string>
+    <string name="app_icon_chooser_label_assistant">Assistant</string>
+    <string name="app_icon_chooser_label_paint">Paint</string>
     <string name="app_icon_chooser_label_night_watch">Night Watch</string>
     <string name="app_icon_chooser_label_todo">To-Do</string>
     <string name="system_vpn_settings">Android VPN 设置</string>
     <string name="pref_isolate_keep_alive_summary">保持至少有一个启用 SOCKS 身份验证流的隔离线路存活</string>
     <string name="app_icon_chooser_label_tetras">Tetras</string>
+    <string name="snowflake_sqs">Snowflake SQS</string>
+    <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
+    <string name="app_icon_chooser_label_birdie">Birdie</string>
+    <string name="camo_dialog_title" formatted="true">伪装成 %1$s</string>
+    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot 将伪装成应用 %1$s。这将隐藏所有关于 Tor 的通知详情，并更改 Orbot 在主屏幕上的显示方式。\n\n伪装成 %2$s 将重启 Orbot。</string>
+    <string name="camo_dialog_disable_title">禁用伪装模式</string>
+    <string name="pref_camo_mode_title">伪装模式</string>
+    <string name="camo_dialog_disable_confirm_msg">Orbot 将恢复显示关于您的 Tor 连接的通知信息，并在主屏幕上正常显示。\n\n禁用伪装模式将重启 Orbot。</string>
+    <string name="pref_camo_mode_description">伪装 Orbot 的图标、标签和通知文本在设备上的显示方式</string>
+    <string name="bridge_snowflake_sqs">使用 Snowflake 通过其他 Tor 用户连接（方法 3 - SQS）</string>
 </resources>
