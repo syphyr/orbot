@@ -287,4 +287,5 @@
     <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot ще бъде прикрит като приложението „%1$s“. Това означава скриване на известията на Tor и пиктограмата на началния екран.\n\nПрикриването като %2$s ще рестартира Orbot.</string>
     <string name="app_icon_chooser_label_night_watch">Нощен пазач</string>
     <string name="app_icon_chooser_label_tetras">Тетрас</string>
+    <string name="app_icon_chooser_label_paint">Боя</string>
 </resources>
