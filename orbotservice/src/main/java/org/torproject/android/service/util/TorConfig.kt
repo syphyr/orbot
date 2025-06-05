@@ -63,14 +63,16 @@ object TorConfig {
             conf.add("ConnectionPadding 1")
         }
 
-        if (prefs?.getBoolean(PREF_REDUCED_CONNECTION_PADDING, true) ?: true) {
+        val reducedConnectionPadding = prefs?.getBoolean(PREF_REDUCED_CONNECTION_PADDING, true) ?: true
+        if (reducedConnectionPadding) {
             conf.add("ReducedConnectionPadding 1")
         }
 
         val circuitPadding = prefs?.getBoolean(PREF_CIRCUIT_PADDING, true) ?: true
         conf.add("CircuitPadding ${if (circuitPadding) "1" else "0"}")
 
-        if (prefs?.getBoolean(PREF_REDUCED_CIRCUIT_PADDING, true) ?: true) {
+        val reducedCircuitPadding = prefs?.getBoolean(PREF_REDUCED_CIRCUIT_PADDING, true) ?: true
+        if (reducedCircuitPadding) {
             conf.add("ReducedCircuitPadding 1")
         }
 
@@ -152,7 +154,8 @@ object TorConfig {
         }
 
         val becomeRelay = prefs?.getBoolean(PREF_OR, false) ?: false
-        if (becomeRelay && transport == Transport.NONE && !reachableAddresses) {
+        if (becomeRelay && transport == Transport.NONE && !reachableAddresses && !reducedConnectionPadding &&
+                !reducedCircuitPadding) {
             val orport = prefs?.getString(PREF_OR_PORT, null) ?: "9001"
             val nickname = prefs?.getString(PREF_OR_NICKNAME, "OrbotRelay")
             conf.add("ORPort $orport")
