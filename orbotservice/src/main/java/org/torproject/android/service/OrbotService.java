@@ -841,6 +841,8 @@ public class OrbotService extends VpnService {
         logNotice(getString(R.string.updating_settings_in_tor_service));
         var prefs = Prefs.getSharedPrefs(getApplicationContext());
         var becomeRelay = prefs.getBoolean(OrbotConstants.PREF_OR, false);
+        var reducedConnectionPadding = prefs.getBoolean(OrbotConstants.PREF_REDUCED_CONNECTION_PADDING, true);
+        var reducedCircuitPadding = prefs.getBoolean(OrbotConstants.PREF_REDUCED_CIRCUIT_PADDING, true);
         var ReachableAddresses = prefs.getBoolean(OrbotConstants.PREF_REACHABLE_ADDRESSES, false);
         var enableStrictNodes = prefs.getBoolean("pref_strict_nodes", false);
         var entranceNodes = prefs.getString("pref_entrance_nodes", "");
@@ -893,7 +895,8 @@ public class OrbotService extends VpnService {
         }
 
         try {
-            if (becomeRelay && (pathway.equals(Prefs.CONNECTION_PATHWAY_DIRECT)) && (!ReachableAddresses)) {
+            if (becomeRelay && (pathway.equals(Prefs.CONNECTION_PATHWAY_DIRECT)) && (!ReachableAddresses) && (!reducedConnectionPadding)
+                    && (!reducedCircuitPadding)) {
                 var ORPort = Integer.parseInt(Objects.requireNonNull(prefs.getString(PREF_OR_PORT, "9001")));
                 var nickname = prefs.getString(PREF_OR_NICKNAME, "Orbot");
                 var dnsFile = writeDNSFile();
@@ -902,6 +905,8 @@ public class OrbotService extends VpnService {
                 extraLines.append("ORPort").append(' ').append(ORPort).append('\n');
                 extraLines.append("Nickname").append(' ').append(nickname).append('\n');
                 extraLines.append("ExitPolicy").append(' ').append("reject *:*").append('\n');
+            } else {
+                Log.e(TAG, "TorService: Unable to start relay. Disable all Bridges, Reachable Addresses, and Reduced Padding.");
             }
 
         } catch (Exception e) {
