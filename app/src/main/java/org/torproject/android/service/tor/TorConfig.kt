@@ -94,7 +94,8 @@ object TorConfig {
             conf.add("ReachableAddresses $reachableAddressesPorts")
         }
 
-        if (Prefs.becomeRelay && transport == Transport.NONE && !Prefs.reachableAddresses) {
+        if (Prefs.becomeRelay && transport == Transport.NONE && !Prefs.reachableAddresses && !Prefs.reducedConnectionPadding &&
+                !Prefs.reducedCircuitPadding) {
             val orport = Prefs.orport ?: "9001"
             val nickname = Prefs.nickname ?: "OrbotRelay"
             conf.add("ORPort $orport")
