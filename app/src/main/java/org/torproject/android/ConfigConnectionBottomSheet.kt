@@ -2,6 +2,7 @@ package org.torproject.android
 
 import IPtProxy.IPtProxy
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.telephony.TelephonyManager
 import android.util.Log
@@ -241,7 +242,7 @@ class ConfigConnectionBottomSheet :
                 } else {
 
                     // Log.d("abc", "settings is $circumventionApiBridges")
-                    circumventionApiBridges?.forEach { b ->
+                    circumventionApiBridges.forEach { b ->
                         //   Log.d("abc", "BRIDGE $b")
                     }
 
@@ -271,7 +272,11 @@ class ConfigConnectionBottomSheet :
         countryCode = tm.networkCountryIso
         if (countryCode != null && countryCode.length == 2) return countryCode.lowercase(Locale.getDefault())
 
-        countryCode = context.resources.configuration.locales[0].country
+        @Suppress("DEPRECATION")
+        countryCode = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+            context.resources.configuration.locales[0].country else
+                context.resources.configuration.locale.country
+
 
         return if (countryCode != null && countryCode.length == 2) countryCode.lowercase(Locale.getDefault()) else "us"
 
@@ -281,7 +286,7 @@ class ConfigConnectionBottomSheet :
         val dLeft = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_green_check)
         btnAskTor.setCompoundDrawablesWithIntrinsicBounds(dLeft, null, null, null)
         circumventionApiBridges?.let {
-            if (it.size == 0) {
+            if (it.isEmpty()) {
                 rbDirect.isChecked = true
                 btnAskTor.text = getString(R.string.connection_direct)
 
