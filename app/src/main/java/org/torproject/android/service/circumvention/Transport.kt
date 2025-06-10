@@ -296,12 +296,6 @@ enum class Transport(val id: String) {
             }
 
             SNOWFLAKE_SQS -> {
-                /* TODO Make sure SQS queue and credentials are up to date in assets/fronts when
-                    re-enabling this feature. also remove android:visibility="gone" from the SQS
-                    container in app project's layout/config_connection_bottom_sheet.xml
-                    */
-                throw RuntimeException("Snowflake SQS Not supported right now https://github.com/guardianproject/orbot-android/issues/1320")
-
                 controller.snowflakeIceServers =
                     BuiltInBridges.getInstance(context)?.snowflake?.firstOrNull()?.ice ?: ""
                 controller.snowflakeBrokerUrl = ""

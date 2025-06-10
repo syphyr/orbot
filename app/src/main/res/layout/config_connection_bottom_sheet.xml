@@ -248,19 +248,13 @@
 
             </LinearLayout>
 
-
-            <!-- TODO
-            Disable Snowflake SQS for the time being as per
-            https://github.com/guardianproject/orbot-android/issues/1320
-            -->
             <LinearLayout
                 android:id="@+id/snowflakeSqsContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
                 android:background="?android:attr/selectableItemBackground"
-                android:orientation="horizontal"
-                android:visibility="gone">
+                android:orientation="horizontal">
 
                 <RadioButton
                     android:id="@+id/rbSnowflakeSqs"
