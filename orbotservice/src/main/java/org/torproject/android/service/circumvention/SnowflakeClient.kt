@@ -46,8 +46,15 @@ object SnowflakeClient {
         }
     }
 
+    @Throws(RuntimeException::class)
     @JvmStatic
     fun startWithSqsRendezvous(iPtProxy: Controller) {
+        /* TODO
+         make sure SQS queue and credentials are up to date in assets/fronts when re-enabling
+         this feature. also remove android:visibility="gone" from the SQS container in
+         app project's layout/config_connection_bottom_sheet.xml
+         */
+        throw RuntimeException("Snowflake SQS Not supported right now https://github.com/guardianproject/orbot-android/issues/1320")
         val stunServers = OrbotService.getCdnFront("snowflake-stun")
         val sqsqueue = OrbotService.getCdnFront("snowflake-sqsqueue")
         val sqscreds = OrbotService.getCdnFront("snowflake-sqscreds")
