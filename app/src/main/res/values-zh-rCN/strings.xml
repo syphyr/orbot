@@ -294,4 +294,10 @@
     <string name="camo_dialog_disable_confirm_msg">Orbot 将恢复显示关于您的 Tor 连接的通知信息，并在主屏幕上正常显示。\n\n禁用伪装模式将重启 Orbot。</string>
     <string name="pref_camo_mode_description">伪装 Orbot 的图标、标签和通知文本在设备上的显示方式</string>
     <string name="bridge_snowflake_sqs">使用 Snowflake 通过其他 Tor 用户连接（方法 3 - SQS）</string>
+    <string name="power_user_mode_permission">高级用户模式需要闹钟和提醒权限</string>
+    <string name="power_user_mode_permission_msg">请允许 Orbot 设置闹钟和提醒以便使用高级用户模式。这实际上不会在您的设备上设置任何闹钟。当 Orbot 未作为系统范围的 VPN 使用时，需要此权限来让系统保持 Orbot 服务运行。</string>
+    <string name="pref_require_password_description">在输入设备密码之前阻止访问 Orbot。这可以与伪装模式结合使用，以帮助隐藏 Orbot 已安装在您的设备上</string>
+    <string name="pref_require_password">设备密码锁</string>
+    <string name="error_no_password_set">请在设备上设置密码以便使用设备密码锁</string>
+    <string name="unlock_app_msg" formatted="true">解锁 %s 需要您的设备密码</string>
 </resources>

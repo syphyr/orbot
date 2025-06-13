@@ -300,4 +300,10 @@
     <string name="pref_camo_mode_title">Режим камуфляжу</string>
     <string name="pref_camo_mode_description">Замаскуйте, як значок, мітка та текст сповіщення Orbot відображатимуться на вашому пристрої</string>
     <string name="bridge_snowflake_sqs">Підключення через інших користувачів Tor за допомогою Snowflake (Спосіб 3 - SQS)</string>
+    <string name="power_user_mode_permission">Сигнали та нагадування. Потрібен дозвіл для режиму досвідченого користувача</string>
+    <string name="power_user_mode_permission_msg">Будь ласка, дозвольте Orbot встановлювати будильники та нагадування, щоб використовувати режим досвідченого користувача. Це фактично не встановить жодних будильників на вашому пристрої. Цей дозвіл потрібен для того, щоб система підтримувала роботу OrbotService, коли Orbot не використовується як VPN для всієї системи.</string>
+    <string name="pref_require_password">Блокування пристрою паролем</string>
+    <string name="pref_require_password_description">Заборонити доступ до Orbot, доки ви не введете пароль свого пристрою. Це можна поєднати з режимом камуфляжу, щоб приховати, що Orbot встановлено на вашому пристрої</string>
+    <string name="error_no_password_set">Будь ласка, встановіть пароль на своєму пристрої, щоб використовувати блокування пристрою паролем</string>
+    <string name="unlock_app_msg" formatted="true">Щоб розблокувати %s, потрібен пароль вашого пристрою</string>
 </resources>
