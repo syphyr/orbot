@@ -201,10 +201,12 @@ class OrbotActivity : BaseActivity() {
 
         Prefs.initWeeklyWorker()
 
-        if (Prefs.detectRoot() && RootBeer(this).isRooted) {
+        if (!rootDetectionShown && Prefs.detectRoot() && RootBeer(this).isRooted) {
             //we found indication of root
             Toast.makeText(applicationContext, getString(R.string.root_warning), Toast.LENGTH_LONG)
                 .show()
+
+            rootDetectionShown = true
         }
     }
 
@@ -391,6 +393,9 @@ class OrbotActivity : BaseActivity() {
         const val REQUEST_CODE_VPN = 1234
         const val REQUEST_CODE_SETTINGS = 2345
         const val REQUEST_VPN_APP_SELECT = 2432
+
+        // Make sure this is only shown once per app-start, not on every device rotation.
+        private var rootDetectionShown = false
     }
 
     fun showLog() {
