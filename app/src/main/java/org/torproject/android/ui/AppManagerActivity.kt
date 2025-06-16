@@ -41,11 +41,10 @@ import androidx.core.content.edit
 import org.torproject.android.core.ui.BaseActivity
 
 class AppManagerActivity : BaseActivity(), View.OnClickListener {
-    inner class TorifiedAppWrapper {
-        var header: String? = null
-        var subheader: String? = null
-        var app: TorifiedApp? = null
-    }
+    inner class TorifiedAppWrapper(
+        var header: String? = null,
+        var subheader: String? = null,
+        var app: TorifiedApp? = null)
 
     private var pMgr: PackageManager? = null
     private var mPrefs: SharedPreferences? = null
@@ -61,7 +60,7 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         pMgr = packageManager
         this.setContentView(R.layout.activity_app_manager)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         listAppsAll = findViewById(R.id.applistview)
         progressBar = findViewById(R.id.progressBar)
 
@@ -119,28 +118,25 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
         if (suggestedApps == null) suggestedApps =
             getApps(this@AppManagerActivity, mPrefs, alSuggested, null)
         val inflater = layoutInflater
+
         // only show suggested apps, text, etc and other apps header if there are any suggested apps installed...
-        if (suggestedApps!!.isNotEmpty()) {
+        if (!suggestedApps.isNullOrEmpty()) {
             val headerSuggested = TorifiedAppWrapper()
             headerSuggested.header = getString(R.string.apps_suggested_title)
             uiList.add(headerSuggested)
             val subheaderSuggested = TorifiedAppWrapper()
             subheaderSuggested.subheader = getString(R.string.app_suggested_subtitle)
             uiList.add(subheaderSuggested)
-            for (app in suggestedApps!!) {
-                val taw = TorifiedAppWrapper()
-                taw.app = app
-                uiList.add(taw)
-            }
+
+            uiList.addAll(suggestedApps?.map { TorifiedAppWrapper(app = it) } ?: emptyList())
+
             val headerAllApps = TorifiedAppWrapper()
             headerAllApps.header = getString(R.string.apps_other_apps)
             uiList.add(headerAllApps)
         }
-        for (app in allApps!!) {
-            val taw = TorifiedAppWrapper()
-            taw.app = app
-            uiList.add(taw)
-        }
+
+        uiList.addAll(allApps?.map { TorifiedAppWrapper(app = it) } ?: emptyList())
+
         adapterAppsAll = object : ArrayAdapter<TorifiedAppWrapper?>(
             this,
             R.layout.layout_apps_item,
@@ -148,61 +144,70 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
             uiList as List<TorifiedAppWrapper?>
         ) {
             override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-                var convertView = convertView
+                var cv = convertView
                 var entry: ListEntry? = null
-                if (convertView == null)
-                    convertView = inflater.inflate(R.layout.layout_apps_item, parent, false)
-                else
-                    entry = convertView.tag as ListEntry
+
+                if (cv == null) {
+                    cv = inflater.inflate(R.layout.layout_apps_item, parent, false)
+                }
+                else {
+                    entry = cv.tag as ListEntry
+                }
 
                 if (entry == null) {
                     // Inflate a new view
                     entry = ListEntry()
-                    entry.container = convertView!!.findViewById(R.id.appContainer)
-                    entry.icon = convertView.findViewById(R.id.itemicon)
-                    entry.box = convertView.findViewById(R.id.itemcheck)
-                    entry.text = convertView.findViewById(R.id.itemtext)
-                    entry.header = convertView.findViewById(R.id.tvHeader)
-                    entry.subheader = convertView.findViewById(R.id.tvSubheader)
-                    convertView.tag = entry
+                    entry.container = cv?.findViewById(R.id.appContainer)
+                    entry.icon = cv?.findViewById(R.id.itemicon)
+                    entry.box = cv?.findViewById(R.id.itemcheck)
+                    entry.text = cv?.findViewById(R.id.itemtext)
+                    entry.header = cv?.findViewById(R.id.tvHeader)
+                    entry.subheader = cv?.findViewById(R.id.tvSubheader)
+                    cv?.tag = entry
                 }
+
                 val taw = uiList[position]
+
                 if (taw.header != null) {
-                    entry.header!!.text = taw.header
-                    entry.header!!.visibility = View.VISIBLE
-                    entry.subheader!!.visibility = View.GONE
-                    entry.container!!.visibility = View.GONE
-                } else if (taw.subheader != null) {
-                    entry.subheader!!.visibility = View.VISIBLE
-                    entry.subheader!!.text = taw.subheader
-                    entry.container!!.visibility = View.GONE
-                    entry.header!!.visibility = View.GONE
-                } else {
+                    entry.header?.text = taw.header
+                    entry.header?.visibility = View.VISIBLE
+                    entry.subheader?.visibility = View.GONE
+                    entry.container?.visibility = View.GONE
+                }
+                else if (taw.subheader != null) {
+                    entry.subheader?.visibility = View.VISIBLE
+                    entry.subheader?.text = taw.subheader
+                    entry.container?.visibility = View.GONE
+                    entry.header?.visibility = View.GONE
+                }
+                else {
                     val app = taw.app
-                    entry.header!!.visibility = View.GONE
-                    entry.subheader!!.visibility = View.GONE
-                    entry.container!!.visibility = View.VISIBLE
-                    if (entry.icon != null) {
+                    entry.header?.visibility = View.GONE
+                    entry.subheader?.visibility = View.GONE
+                    entry.container?.visibility = View.VISIBLE
+
+                    val packageName = app?.packageName
+                    if (entry.icon != null && packageName != null) {
                         try {
-                            entry.icon!!.setImageDrawable(pMgr!!.getApplicationIcon(app!!.packageName))
-                            entry.icon!!.tag = entry.box
-                            entry.icon!!.setOnClickListener(this@AppManagerActivity)
-                        } catch (e: Exception) {
+                            entry.icon?.setImageDrawable(pMgr?.getApplicationIcon(packageName))
+                            entry.icon?.tag = entry.box
+                            entry.icon?.setOnClickListener(this@AppManagerActivity)
+                        }
+                        catch (e: Exception) {
                             e.printStackTrace()
                         }
                     }
-                    if (entry.text != null) {
-                        entry.text!!.text = app!!.name
-                        entry.text!!.tag = entry.box
-                        entry.text!!.setOnClickListener(this@AppManagerActivity)
-                    }
-                    if (entry.box != null) {
-                        entry.box!!.isChecked = app!!.isTorified
-                        entry.box!!.tag = app
-                        entry.box!!.setOnClickListener(this@AppManagerActivity)
-                    }
+
+                    entry.text?.text = app?.name
+                    entry.text?.tag = entry.box
+                    entry.text?.setOnClickListener(this@AppManagerActivity)
+
+                    entry.box?.isChecked = app?.isTorified ?: false
+                    entry.box?.tag = app
+                    entry.box?.setOnClickListener(this@AppManagerActivity)
                 }
-                convertView!!.onFocusChangeListener =
+
+                cv?.onFocusChangeListener =
                     OnFocusChangeListener { v: View, hasFocus: Boolean ->
                         if (hasFocus) v.setBackgroundColor(
                             ContextCompat.getColor(
@@ -217,7 +222,8 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
                             )
                         }
                     }
-                return convertView
+
+                return cv ?: View(context)
             }
         }
     }
@@ -225,23 +231,27 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
     private fun saveAppSettings() {
         val tordApps = StringBuilder()
         val response = Intent()
-        for (tApp in allApps!!) {
+
+        for (tApp in allApps ?: emptyList()) {
             if (tApp.isTorified) {
                 tordApps.append(tApp.packageName)
                 tordApps.append("|")
                 response.putExtra(tApp.packageName, true)
             }
         }
-        for (tApp in suggestedApps!!) {
+
+        for (tApp in suggestedApps ?: emptyList()) {
             if (tApp.isTorified) {
                 tordApps.append(tApp.packageName)
                 tordApps.append("|")
                 response.putExtra(tApp.packageName, true)
             }
         }
-        mPrefs!!.edit {
+
+        mPrefs?.edit {
             putString(OrbotConstants.PREFS_KEY_TORIFIED, tordApps.toString())
         }
+
         setResult(RESULT_OK, response)
     }
 
@@ -285,7 +295,7 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
             filterRemove: List<String>?
         ): ArrayList<TorifiedApp> {
             val pMgr = context.packageManager
-            val tordAppString = prefs!!.getString(OrbotConstants.PREFS_KEY_TORIFIED, "")
+            val tordAppString = prefs?.getString(OrbotConstants.PREFS_KEY_TORIFIED, "")
             val tordApps: Array<String?>
             val st = StringTokenizer(tordAppString, "|")
             tordApps = arrayOfNulls(st.countTokens())
@@ -319,11 +329,10 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
                 val app = TorifiedApp()
                 try {
                     val pInfo = pMgr.getPackageInfo(aInfo.packageName, PackageManager.GET_PERMISSIONS)
-                    if (pInfo?.requestedPermissions != null) {
-                        for (permInfo in pInfo.requestedPermissions!!) {
-                            if (permInfo == Manifest.permission.INTERNET) {
-                                app.usesInternet = true
-                            }
+
+                    for (permInfo in pInfo.requestedPermissions ?: emptyArray()) {
+                        if (permInfo == Manifest.permission.INTERNET) {
+                            app.usesInternet = true
                         }
                     }
                 } catch (e: Exception) {
