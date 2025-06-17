@@ -68,7 +68,7 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
         alSuggested = OrbotConstants.VPN_SUGGESTED_APPS
 
         // TODO https://github.com/guardianproject/orbot-android/issues/1344
-        lockActivityOrientation()
+        //lockActivityOrientation()
     }
 
     override fun onResume() {
