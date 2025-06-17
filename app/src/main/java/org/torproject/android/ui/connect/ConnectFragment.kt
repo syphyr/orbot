@@ -40,8 +40,7 @@ import org.torproject.android.service.OrbotService
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.AppManagerActivity
 import org.torproject.android.ui.OrbotMenuAction
-import org.torproject.android.ui.OrbotMenuActionAdapter
-import org.torproject.android.ui.connect.RequestScheduleExactAlarmDialogFragment
+import org.torproject.android.ui.connect.ConnectMenuActionAdapter
 
 class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     ExitNodeDialogFragment.ExitNodeSelectedCallback {
@@ -181,7 +180,7 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
                     OrbotActivity.Companion.REQUEST_VPN_APP_SELECT
                 )
             })
-        lvConnectedActions.adapter = OrbotMenuActionAdapter(context, listItems)
+        lvConnectedActions.adapter = ConnectMenuActionAdapter(context, listItems)
     }
 
     @Deprecated("Deprecated in Java")

@@ -1,4 +1,4 @@
-package org.torproject.android.ui
+package org.torproject.android.ui.connect
 
 import android.content.Context
 import android.content.Intent
@@ -8,16 +8,22 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.ArrayAdapter
+import android.widget.FrameLayout
+import android.widget.HorizontalScrollView
+import android.widget.ImageView
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.core.net.toUri
 import org.torproject.android.R
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.service.util.Utils
-import java.util.*
-import androidx.core.net.toUri
+import org.torproject.android.ui.OrbotMenuAction
+import java.util.ArrayList
+import java.util.TreeMap
 
-
-class OrbotMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction>) :
+class ConnectMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction>) :
     ArrayAdapter<OrbotMenuAction>(
         context, R.layout.action_list_view, list
     ) {
@@ -120,9 +126,9 @@ class OrbotMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction>)
 
     private fun checkTorStatusUrl(context: Context, pkg: String) {
         val i = Intent().apply {
-            `package` = pkg
-            data = "https://check.torproject.org".toUri()
-            action = Intent.ACTION_VIEW
+            Intent.setPackage = pkg
+            Intent.setData = "https://check.torproject.org".toUri()
+            Intent.setAction = Intent.ACTION_VIEW
         }
         val pm: PackageManager = context.packageManager
         if (i.resolveActivity(pm) != null) context.startActivity(i)
