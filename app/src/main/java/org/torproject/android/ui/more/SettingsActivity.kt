@@ -10,11 +10,11 @@ class SettingsActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_settings)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportFragmentManager
             .beginTransaction()
             .addToBackStack(FRAGMENT_TAG)
-            .add(R.id.settings_container, SettingsPreferenceFragment())
+            .replace(R.id.settings_container, SettingsPreferenceFragment())
             .commit()
     }
 
