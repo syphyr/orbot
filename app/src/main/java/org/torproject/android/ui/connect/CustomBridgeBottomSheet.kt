@@ -67,7 +67,7 @@ class CustomBridgeBottomSheet(private val callbacks: ConnectionHelperCallbacks) 
         btnAction.isEnabled = inputText.isNotEmpty() && isValidBridge(inputText)
 
         if (!isValidBridge(inputText)) {
-            etBridges.error = "Invalid bridge format"
+            etBridges.error = requireContext().getString(R.string.invalid_bridge_format)
         } else {
             etBridges.error = null
         }
