@@ -268,20 +268,19 @@ public class OrbotService extends VpnService {
     }
 
     private void enableSnowflakeProxyNetworkListener() {
-        if (Prefs.limitSnowflakeProxyingWifi() && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            var connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-            connMgr.registerDefaultNetworkCallback(new ConnectivityManager.NetworkCallback() {
-                @Override // update if on wifi
-                public void onAvailable(@NonNull Network network) {
-                    checkNetworkForSnowflakeProxy();
-                }
+        if (!Prefs.limitSnowflakeProxyingWifi()) return;
+        var connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        connMgr.registerDefaultNetworkCallback(new ConnectivityManager.NetworkCallback() {
+            @Override // update if on wifi
+            public void onAvailable(@NonNull Network network) {
+                checkNetworkForSnowflakeProxy();
+            }
 
-                @Override // or if lost
-                public void onLost(@NonNull Network network) {
-                    checkNetworkForSnowflakeProxy();
-                }
-            });
-        }
+            @Override // or if lost
+            public void onLost(@NonNull Network network) {
+                checkNetworkForSnowflakeProxy();
+            }
+        });
     }
 
     public void setHasPower(boolean hasPower) {
@@ -365,10 +364,7 @@ public class OrbotService extends VpnService {
                 appBinHome = getFilesDir();
                 if (!appBinHome.exists()) appBinHome.mkdirs();
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-                    appCacheHome = new File(getDataDir(), DIRECTORY_TOR_DATA);
-                else
-                    appCacheHome = getDir(DIRECTORY_TOR_DATA, Application.MODE_PRIVATE);
+                appCacheHome = new File(getDataDir(), DIRECTORY_TOR_DATA);
 
                 if (!appCacheHome.exists()) appCacheHome.mkdirs();
 

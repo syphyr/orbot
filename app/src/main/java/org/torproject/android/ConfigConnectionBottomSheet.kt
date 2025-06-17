@@ -67,7 +67,14 @@ class ConfigConnectionBottomSheet :
         val tvRequestSubtitle = v.findViewById<View>(R.id.tvRequestSubtitle)
         val tvCustomSubtitle = v.findViewById<View>(R.id.tvCustomSubtitle)
 
-        val radios = arrayListOf(rbDirect, rbSnowflake, rbSnowflakeAmp, rbSnowflakeSqs, rbRequestBridge, rbCustom)
+        val radios = arrayListOf(
+            rbDirect,
+            rbSnowflake,
+            rbSnowflakeAmp,
+            rbSnowflakeSqs,
+            rbRequestBridge,
+            rbCustom
+        )
         val radioSubtitleMap = mapOf<CompoundButton, View>(
             rbDirect to tvDirectSubtitle,
             rbSnowflake to tvSnowflakeSubtitle,
@@ -77,7 +84,12 @@ class ConfigConnectionBottomSheet :
             rbCustom to tvCustomSubtitle
         )
         val allSubtitles = arrayListOf(
-            tvDirectSubtitle, tvSnowflakeSubtitle, tvSnowflakeAmpSubtitle, tvSnowflakeSqsSubtitle, tvRequestSubtitle, tvCustomSubtitle
+            tvDirectSubtitle,
+            tvSnowflakeSubtitle,
+            tvSnowflakeAmpSubtitle,
+            tvSnowflakeSqsSubtitle,
+            tvRequestSubtitle,
+            tvCustomSubtitle
         )
         btnAction = v.findViewById(R.id.btnAction)
         btnAskTor = v.findViewById(R.id.btnAskTor)
@@ -232,31 +244,35 @@ class ConfigConnectionBottomSheet :
 
         val countryCodeValue: String = getDeviceCountryCode(requireContext())
 
-        CircumventionApiManager(proxy.port(IPtProxy.MeekLite)).getSettings(SettingsRequest(countryCodeValue), {
-            it?.let {
-                var circumventionApiBridges = it.settings
-                if (circumventionApiBridges == null) {
-                    //Log.d("abc", "settings is null, we can assume a direct connect is fine ")
-                    rbDirect.isChecked = true
+        CircumventionApiManager(proxy.port(IPtProxy.MeekLite)).getSettings(
+            SettingsRequest(
+                countryCodeValue
+            ), {
+                it?.let {
+                    var circumventionApiBridges = it.settings
+                    if (circumventionApiBridges == null) {
+                        //Log.d("abc", "settings is null, we can assume a direct connect is fine ")
+                        rbDirect.isChecked = true
 
-                } else {
+                    } else {
 
-                    // Log.d("abc", "settings is $circumventionApiBridges")
-                    circumventionApiBridges.forEach { b ->
-                        //   Log.d("abc", "BRIDGE $b")
+                        // Log.d("abc", "settings is $circumventionApiBridges")
+                        circumventionApiBridges.forEach { b ->
+                            //   Log.d("abc", "BRIDGE $b")
+                        }
+
+                        //got bridges, let's set them
+                        setPreferenceForSmartConnect(circumventionApiBridges)
                     }
 
-                    //got bridges, let's set them
-                    setPreferenceForSmartConnect(circumventionApiBridges)
+                    proxy.stop(IPtProxy.MeekLite)
                 }
-
-                proxy.stop(IPtProxy.MeekLite)
-            }
-        }, {
-            // TODO what happens to the app in this case?!
-            Log.e("ConfigConnectBttmSheet", "Couldn't hit circumvention API... $it")
-            Toast.makeText(requireContext(), "Ask Tor was not available", Toast.LENGTH_LONG).show()
-        })
+            }, {
+                // TODO what happens to the app in this case?!
+                Log.e("ConfigConnectBttmSheet", "Couldn't hit circumvention API... $it")
+                Toast.makeText(requireContext(), "Ask Tor was not available", Toast.LENGTH_LONG)
+                    .show()
+            })
     }
 
     private fun getDeviceCountryCode(context: Context): String {
@@ -272,14 +288,9 @@ class ConfigConnectionBottomSheet :
         countryCode = tm.networkCountryIso
         if (countryCode != null && countryCode.length == 2) return countryCode.lowercase(Locale.getDefault())
 
-        @Suppress("DEPRECATION")
-        countryCode = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-            context.resources.configuration.locales[0].country else
-                context.resources.configuration.locale.country
-
+        countryCode = context.resources.configuration.locales[0].country
 
         return if (countryCode != null && countryCode.length == 2) countryCode.lowercase(Locale.getDefault()) else "us"
-
     }
 
     private fun setPreferenceForSmartConnect(circumventionApiBridges: List<Bridges?>?) {

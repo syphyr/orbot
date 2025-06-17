@@ -1,8 +1,6 @@
 package org.torproject.android.core
 
-import android.annotation.TargetApi
 import android.content.Context
-import android.os.Build
 import org.torproject.android.service.util.Prefs
 import java.util.*
 
@@ -23,13 +21,9 @@ object LocaleHelper {
 
     private fun setLocale(context: Context, language: String): Context {
         Prefs.setDefaultLocale(language)
-        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-            updateResources(context, language)
-        else
-            updateResourcesLegacy(context, language)
+        return updateResources(context, language)
     }
 
-    @TargetApi(Build.VERSION_CODES.N)
     private fun updateResources(context: Context, locale: String): Context {
 
         var language = locale
@@ -48,16 +42,5 @@ object LocaleHelper {
         configuration.setLocale(localeObj)
         configuration.setLayoutDirection(localeObj)
         return context.createConfigurationContext(configuration)
-    }
-
-    private fun updateResourcesLegacy(context: Context, language: String): Context {
-        val locale = Locale(language)
-        Locale.setDefault(locale)
-        val resources = context.resources
-        val configuration = resources.configuration
-        configuration.setLocale(locale)
-        configuration.setLayoutDirection(locale)
-        context.createConfigurationContext(configuration)
-        return context
     }
 }
