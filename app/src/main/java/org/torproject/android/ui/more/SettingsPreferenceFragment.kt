@@ -1,5 +1,5 @@
 /* Copyright (c) 2009, Nathan Freitas, Orbot / The Guardian Project - http://openideals.com/guardian */ /* See LICENSE for licensing information */
-package org.torproject.android.ui.settings
+package org.torproject.android.ui.more
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent

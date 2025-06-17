@@ -1,4 +1,4 @@
-package org.torproject.android.ui.settings
+package org.torproject.android.ui.more
 
 import android.os.Bundle
 import android.view.MenuItem

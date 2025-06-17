@@ -61,7 +61,7 @@
         </activity>
 
         <activity
-            android:name=".ui.settings.SettingsActivity"
+            android:name=".ui.more.SettingsActivity"
             android:theme="@style/OrbotActivityTheme" />
 
         <activity
