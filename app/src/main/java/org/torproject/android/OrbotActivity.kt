@@ -6,9 +6,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager
-import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.view.View
@@ -74,23 +72,6 @@ class OrbotActivity : BaseActivity() {
 
         lastSelectedItemId = savedInstanceState?.getInt(KEY_SELECTED_TAB) ?: lastSelectedItemId
         previousReceivedTorStatus = savedInstanceState?.getString(KEY_TOR_STATUS)
-
-        if (!Prefs.enableRotation()) {/* TODO TODO TODO TODO TODO
-            Currently there are a lot of problems with landscape mode and bugs resulting from
-            rotation. To this end, Orbot will be locked into either portrait or landscape
-            if the device is a tablet (whichever the app is set when an activity is created)
-            until these things are fixed. On smaller devices it's just portrait...
-            */
-            val isTablet =
-                resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK >= Configuration.SCREENLAYOUT_SIZE_LARGE
-            requestedOrientation = if (isTablet) {
-                val currentOrientation = resources.configuration.orientation
-                val lockedInOrientation =
-                    if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-                    else ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-                lockedInOrientation
-            } else ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-        }
 
         // programmatically set title to "Orbot" since camo mode will overwrite it here from manifest
         title = getString(R.string.app_name)
