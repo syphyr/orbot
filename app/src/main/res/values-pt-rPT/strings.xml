@@ -290,4 +290,5 @@
     <string name="app_icon_chooser_label_todo">Tarefas</string>
     <string name="app_icon_chooser_label_paint">Paint</string>
     <string name="app_icon_chooser_label_tetras">Tetras</string>
+    <string name="unlock_app_msg" formatted="true">É necessária a palavra-passe do seu dispositivo para desbloquear o dispositivo %s</string>
 </resources>
