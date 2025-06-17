@@ -126,9 +126,9 @@ class ConnectMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction
 
     private fun checkTorStatusUrl(context: Context, pkg: String) {
         val i = Intent().apply {
-            Intent.setPackage = pkg
-            Intent.setData = "https://check.torproject.org".toUri()
-            Intent.setAction = Intent.ACTION_VIEW
+            `package` = pkg
+            data = "https://check.torproject.org".toUri()
+            action = Intent.ACTION_VIEW
         }
         val pm: PackageManager = context.packageManager
         if (i.resolveActivity(pm) != null) context.startActivity(i)
