@@ -1,4 +1,4 @@
-package org.torproject.android.ui.camo
+package org.torproject.android.ui.more.camo
 
 import android.app.AlertDialog
 import android.app.Dialog

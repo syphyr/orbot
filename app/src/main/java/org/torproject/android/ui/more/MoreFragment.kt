@@ -1,4 +1,4 @@
-package org.torproject.android
+package org.torproject.android.ui.more
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
@@ -12,21 +12,18 @@ import android.view.ViewGroup
 import android.view.animation.BounceInterpolator
 import android.widget.ImageView
 import android.widget.TextView
-
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
-import org.torproject.android.OrbotActivity.Companion.REQUEST_CODE_SETTINGS
-import org.torproject.android.OrbotActivity.Companion.REQUEST_VPN_APP_SELECT
+import org.torproject.android.OrbotActivity
+import org.torproject.android.R
 import org.torproject.android.core.sendIntentToService
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
-import org.torproject.android.ui.AboutDialogFragment
+import org.torproject.android.ui.more.AboutDialogFragment
 import org.torproject.android.ui.AppManagerActivity
-import org.torproject.android.ui.MoreActionAdapter
+import org.torproject.android.ui.more.MoreActionAdapter
 import org.torproject.android.ui.OrbotMenuAction
-import org.torproject.android.ui.more.SettingsActivity
 import org.torproject.android.ui.v3onionservice.OnionServiceActivity
 import org.torproject.android.ui.v3onionservice.clientauth.ClientAuthActivity
 
@@ -83,7 +80,8 @@ class MoreFragment : Fragment() {
         val listItems = listOf(
             OrbotMenuAction(R.string.menu_settings, R.drawable.ic_settings_gear) {
                 activity?.startActivityForResult(
-                    Intent(context, SettingsActivity::class.java), REQUEST_CODE_SETTINGS
+                    Intent(context, SettingsActivity::class.java),
+                    OrbotActivity.Companion.REQUEST_CODE_SETTINGS
                 )
             },
             OrbotMenuAction(R.string.system_vpn_settings, R.drawable.ic_vpn_key) {
@@ -95,7 +93,7 @@ class MoreFragment : Fragment() {
             OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
                 activity?.startActivityForResult(
                     Intent(requireActivity(), AppManagerActivity::class.java),
-                    REQUEST_VPN_APP_SELECT
+                    OrbotActivity.Companion.REQUEST_VPN_APP_SELECT
                 )
             },
             OrbotMenuAction(R.string.menu_log, R.drawable.ic_log) { showLog() },
@@ -108,7 +106,7 @@ class MoreFragment : Fragment() {
             OrbotMenuAction(R.string.menu_about, R.drawable.ic_about) {
                 AboutDialogFragment().show(
                     requireActivity().supportFragmentManager,
-                    AboutDialogFragment.TAG
+                    AboutDialogFragment.Companion.TAG
                 )
             },
             OrbotMenuAction(R.string.menu_exit, R.drawable.ic_exit) { doExit() }
@@ -125,7 +123,7 @@ class MoreFragment : Fragment() {
 
             AnimatorSet().apply {
                 playTogether(scaleX, scaleY, rotate)
-                duration = 500
+                setDuration(500)
                 interpolator = BounceInterpolator()
                 start()
             }

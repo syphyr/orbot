@@ -1,5 +1,6 @@
-package org.torproject.android.ui
+package org.torproject.android.ui.more
 
+import IPtProxy.IPtProxy
 import android.app.AlertDialog
 import android.app.Dialog
 import android.graphics.Typeface
@@ -9,17 +10,12 @@ import android.text.Spanned
 import android.text.style.StyleSpan
 import android.view.View
 import android.widget.TextView
-
 import androidx.fragment.app.DialogFragment
-
-import org.torproject.android.R
 import org.torproject.android.BuildConfig
+import org.torproject.android.R
 import org.torproject.android.core.DiskUtils
 import org.torproject.android.service.OrbotService
-
 import java.io.IOException
-
-import IPtProxy.IPtProxy
 
 class AboutDialogFragment : DialogFragment() {
 

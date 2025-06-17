@@ -34,7 +34,7 @@ import org.torproject.android.core.sendIntentToService
 import org.torproject.android.core.ui.BaseActivity
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.util.Prefs
-import org.torproject.android.ui.LogBottomSheet
+import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.android.ui.connect.ConnectFragment
 import org.torproject.android.util.RequirePasswordPrompt
 

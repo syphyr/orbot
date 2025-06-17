@@ -1,4 +1,4 @@
-package org.torproject.android.ui
+package org.torproject.android.ui.more
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,10 +7,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.widget.ImageViewCompat
-
 import androidx.recyclerview.widget.RecyclerView
-
 import org.torproject.android.R
+import org.torproject.android.ui.OrbotMenuAction
 
 class MoreActionAdapter(
     private val items: List<OrbotMenuAction>

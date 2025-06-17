@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_connect" />
     <fragment
         android:id="@+id/moreFragment"
-        android:name="org.torproject.android.MoreFragment"
+        android:name="org.torproject.android.ui.more.MoreFragment"
         android:label="fragment_more"
         tools:layout="@layout/fragment_more" />
     <fragment

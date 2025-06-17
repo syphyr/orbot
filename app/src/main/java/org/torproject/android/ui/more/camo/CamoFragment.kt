@@ -1,4 +1,4 @@
-package org.torproject.android.ui.camo
+package org.torproject.android.ui.more.camo
 
 import android.content.Context
 import android.os.Bundle
@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import org.torproject.android.R
 import org.torproject.android.core.getKey
 import org.torproject.android.service.util.Prefs
-import org.torproject.android.ui.MoreActionAdapter
+import org.torproject.android.ui.more.MoreActionAdapter
 import org.torproject.android.ui.OrbotMenuAction
 import kotlin.String
 

@@ -1,4 +1,4 @@
-package org.torproject.android.ui
+package org.torproject.android.ui.more
 
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -9,10 +9,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-
 import org.torproject.android.R
+import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 
 class LogBottomSheet : OrbotBottomSheetDialogFragment() {
 
