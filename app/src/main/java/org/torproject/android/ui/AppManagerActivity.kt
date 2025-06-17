@@ -229,10 +229,13 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun saveAppSettings() {
+        val allApps = allApps ?: return
+        val suggestedApps = suggestedApps ?: return
+
         val tordApps = StringBuilder()
         val response = Intent()
 
-        for (tApp in allApps ?: emptyList()) {
+        for (tApp in allApps) {
             if (tApp.isTorified) {
                 tordApps.append(tApp.packageName)
                 tordApps.append("|")
@@ -240,7 +243,7 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
             }
         }
 
-        for (tApp in suggestedApps ?: emptyList()) {
+        for (tApp in suggestedApps) {
             if (tApp.isTorified) {
                 tordApps.append(tApp.packageName)
                 tordApps.append("|")
