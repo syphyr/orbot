@@ -99,11 +99,11 @@ object OnionServiceColumns : BaseColumns {
                         File(v3OnionBasePath.absolutePath, path).getCanonicalPath()
                     val hostname = File(v3OnionDirPath, "hostname")
                     if (hostname.exists()) {
-                        val id = onionServices.getInt(idIndex);
-                        domain = Utils.readInputStreamAsString( FileInputStream(hostname)).trim();
-                        val fields = ContentValues();
-                        fields.put(DOMAIN, domain);
-                        contentResolver.update(uri, fields, BaseColumns._ID + "=" + id, null);
+                        val id = onionServices.getInt(idIndex)
+                        domain = Utils.readInputStreamAsString( FileInputStream(hostname)).trim()
+                        val fields = ContentValues()
+                        fields.put(DOMAIN, domain)
+                        contentResolver.update(uri, fields, BaseColumns._ID + "=" + id, null)
                     }
                 }
             }

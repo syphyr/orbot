@@ -52,7 +52,7 @@ object V3ClientAuthColumns : BaseColumns {
                 fos.close()
             }
             if (i > 0)
-                torrc.append("ClientOnionAuthDir " + v3AuthBasePath.getAbsolutePath()).append('\n')
+                torrc.append("ClientOnionAuthDir " + v3AuthBasePath.absolutePath).append('\n')
 
         } catch (e: Exception) {
             Log.e("V3ClientAuthColumns", "error adding v3 client auth...")
