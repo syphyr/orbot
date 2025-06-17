@@ -6,7 +6,6 @@ package org.torproject.android.service;
 import static org.torproject.android.service.OrbotConstants.*;
 
 import android.annotation.SuppressLint;
-import android.app.Application;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
@@ -368,11 +367,8 @@ public class OrbotService extends VpnService {
 
                 if (!appCacheHome.exists()) appCacheHome.mkdirs();
 
-                mV3OnionBasePath = new File(getFilesDir().getAbsolutePath(), ONION_SERVICES_DIR);
-                if (!mV3OnionBasePath.isDirectory()) mV3OnionBasePath.mkdirs();
-
-                mV3AuthBasePath = new File(getFilesDir().getAbsolutePath(), V3_CLIENT_AUTH_DIR);
-                if (!mV3AuthBasePath.isDirectory()) mV3AuthBasePath.mkdirs();
+                mV3OnionBasePath = OnionServiceColumns.createV3OnionDir(this);
+                mV3AuthBasePath = V3ClientAuthColumns.createV3AuthDir(this);
 
                 if (mNotificationManager == null)
                     mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -726,7 +722,7 @@ public class OrbotService extends VpnService {
 
         var serviceIntent = new Intent(this, TorService.class);
         debug("binding tor service");
-        if (Build.VERSION.SDK_INT < 29)
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
             shouldUnbindTorService = bindService(serviceIntent, torServiceConnection, BIND_AUTO_CREATE);
         else
             shouldUnbindTorService = bindService(serviceIntent, BIND_AUTO_CREATE, mExecutor, torServiceConnection);
@@ -920,9 +916,8 @@ public class OrbotService extends VpnService {
     @SuppressLint("DefaultLocale")
     private void processSettingsLyrebird(StringBuffer extraLines) {
         var customBridges = getCustomBridges();
-        for (String transport : Bridge.getTransports(customBridges)) {
+        for (String transport : Bridge.getTransports(customBridges))
             extraLines.append(String.format("ClientTransportPlugin %s socks5 127.0.0.1:%d\n", transport, mIptProxy.port(transport)));
-        }
 
         for (var b : customBridges)
             extraLines.append("Bridge ").append(b).append("\n");
