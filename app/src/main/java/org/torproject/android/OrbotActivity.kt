@@ -75,7 +75,7 @@ class OrbotActivity : BaseActivity() {
         previousReceivedTorStatus = savedInstanceState?.getString(KEY_TOR_STATUS)
 
         if (!Prefs.enableRotation()) {/* TODO TODO TODO TODO TODO
-            Currently there are a lot of problems wiht landscape mode and bugs resulting from
+            Currently there are a lot of problems with landscape mode and bugs resulting from
             rotation. To this end, Orbot will be locked into either portrait or landscape
             if the device is a tablet (whichever the app is set when an activity is created)
             until these things are fixed. On smaller devices it's just portrait...

@@ -7,7 +7,6 @@ import android.content.UriMatcher;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
-import android.provider.BaseColumns;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
