@@ -1,4 +1,4 @@
-package org.torproject.android
+package org.torproject.android.ui.kindness
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.appcompat.widget.SwitchCompat
+import org.torproject.android.R
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 
