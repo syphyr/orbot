@@ -1,4 +1,4 @@
-package org.torproject.android
+package org.torproject.android.ui.connect
 
 import android.content.Context
 

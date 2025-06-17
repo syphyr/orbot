@@ -8,7 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
-import org.torproject.android.CustomBridgeBottomSheet
+import org.torproject.android.ui.connect.CustomBridgeBottomSheet
 import org.torproject.android.R
 import org.torproject.android.core.sendIntentToService
 import org.torproject.android.service.OrbotConstants

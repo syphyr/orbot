@@ -1,8 +1,7 @@
-package org.torproject.android
+package org.torproject.android.ui.connect
 
 import IPtProxy.IPtProxy
 import android.content.Context
-import android.os.Build
 import android.os.Bundle
 import android.telephony.TelephonyManager
 import android.util.Log
@@ -14,6 +13,7 @@ import android.widget.CompoundButton
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
+import org.torproject.android.R
 import org.torproject.android.circumvention.Bridges
 import org.torproject.android.circumvention.CircumventionApiManager
 import org.torproject.android.circumvention.SettingsRequest

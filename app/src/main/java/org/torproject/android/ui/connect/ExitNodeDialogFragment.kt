@@ -1,9 +1,10 @@
-package org.torproject.android
+package org.torproject.android.ui.connect
 
 import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
+import org.torproject.android.R
 import org.torproject.android.service.util.Utils
 import java.text.Collator
 import java.util.*

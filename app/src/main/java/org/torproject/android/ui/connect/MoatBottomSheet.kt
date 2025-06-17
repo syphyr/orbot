@@ -1,4 +1,4 @@
-package org.torproject.android
+package org.torproject.android.ui.connect
 
 import IPtProxy.Controller
 import IPtProxy.IPtProxy.MeekLite
@@ -23,6 +23,7 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import org.json.JSONException
 import org.json.JSONObject
+import org.torproject.android.R
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment

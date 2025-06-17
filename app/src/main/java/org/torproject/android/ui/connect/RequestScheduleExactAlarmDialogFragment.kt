@@ -1,4 +1,4 @@
-package org.torproject.android.ui
+package org.torproject.android.ui.connect
 
 import android.app.Dialog
 import android.content.DialogInterface
@@ -22,10 +22,10 @@ class RequestScheduleExactAlarmDialogFragment : DialogFragment() {
                 android.R.string.cancel,
                 DialogInterface.OnClickListener { dialog: DialogInterface?, which: Int -> dialog!!.cancel() })
             .setPositiveButton(
-                android.R.string.yes,
+                android.R.string.ok,
                 DialogInterface.OnClickListener { dialog: DialogInterface?, which: Int ->
                     val intent = Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM).apply {
-                        data = Uri.fromParts("package", requireContext().packageName, null)
+                        setData(Uri.fromParts("package", requireContext().packageName, null))
                     }
                     startActivity(intent)
                     dismiss()

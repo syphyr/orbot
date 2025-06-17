@@ -1,4 +1,4 @@
-package org.torproject.android
+package org.torproject.android.ui.connect
 
 import android.os.Bundle
 import android.text.Editable
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import org.torproject.android.R
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 

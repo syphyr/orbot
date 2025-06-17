@@ -1,4 +1,4 @@
-package org.torproject.android
+package org.torproject.android.ui.connect
 
 import android.app.AlarmManager
 import android.content.Context
@@ -17,7 +17,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.*
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.ListView
+import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -25,11 +29,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-
 import kotlinx.coroutines.launch
-
 import net.freehaven.tor.control.TorControlCommands
-
+import org.torproject.android.OrbotActivity
+import org.torproject.android.R
 import org.torproject.android.core.putNotSystem
 import org.torproject.android.core.sendIntentToService
 import org.torproject.android.service.OrbotConstants
@@ -38,7 +41,7 @@ import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.AppManagerActivity
 import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.android.ui.OrbotMenuActionAdapter
-import org.torproject.android.ui.RequestScheduleExactAlarmDialogFragment
+import org.torproject.android.ui.connect.RequestScheduleExactAlarmDialogFragment
 
 class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     ExitNodeDialogFragment.ExitNodeSelectedCallback {
@@ -137,7 +140,7 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     fun startTorAndVpn() {
         val vpnIntent = VpnService.prepare(requireActivity())?.putNotSystem()
         if (vpnIntent != null && (!Prefs.isPowerUserMode())) {
-            startActivityForResult(vpnIntent, OrbotActivity.REQUEST_CODE_VPN)
+            startActivityForResult(vpnIntent, OrbotActivity.Companion.REQUEST_CODE_VPN)
         } else { // either the vpn permission hasn't been granted or we are in power user mode
             Prefs.putUseVpn(!Prefs.isPowerUserMode())
             if (Prefs.isPowerUserMode()) {
@@ -175,7 +178,7 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
             OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
                 startActivityForResult(
                     Intent(requireActivity(), AppManagerActivity::class.java),
-                    OrbotActivity.REQUEST_VPN_APP_SELECT
+                    OrbotActivity.Companion.REQUEST_VPN_APP_SELECT
                 )
             })
         lvConnectedActions.adapter = OrbotMenuActionAdapter(context, listItems)
@@ -184,11 +187,11 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == OrbotActivity.REQUEST_CODE_VPN && resultCode == AppCompatActivity.RESULT_OK) {
+        if (requestCode == OrbotActivity.Companion.REQUEST_CODE_VPN && resultCode == AppCompatActivity.RESULT_OK) {
             startTorAndVpn()
-        } else if (requestCode == OrbotActivity.REQUEST_CODE_SETTINGS && resultCode == AppCompatActivity.RESULT_OK) {
+        } else if (requestCode == OrbotActivity.Companion.REQUEST_CODE_SETTINGS && resultCode == AppCompatActivity.RESULT_OK) {
             // todo respond to language change extra data here...
-        } else if (requestCode == OrbotActivity.REQUEST_VPN_APP_SELECT && resultCode == AppCompatActivity.RESULT_OK) {
+        } else if (requestCode == OrbotActivity.Companion.REQUEST_VPN_APP_SELECT && resultCode == AppCompatActivity.RESULT_OK) {
             requireContext().sendIntentToService(OrbotConstants.ACTION_RESTART_VPN) // is this enough todo?
             refreshMenuList(requireContext())
         }
@@ -349,7 +352,7 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
 
 
     private fun openConfigureTorConnection() =
-        ConfigConnectionBottomSheet.newInstance(this)
+        ConfigConnectionBottomSheet.Companion.newInstance(this)
             .show(
                 requireActivity().supportFragmentManager, OrbotActivity::class.java.simpleName
             )
