@@ -148,7 +148,7 @@ public class OrbotService extends VpnService {
                     .setSmallIcon(icon)
                     .setContentText(notifyMsg)
                     .setContentIntent(pendIntent)
-                    .setContentTitle(getNotificationTitle());
+                    .setContentTitle(Notifications.getNotificationTitleForStatus(this, mCurrentStatus));
             // Tor connection is active
             if (conn != null && mCurrentStatus.equals(STATUS_ON)) { // only add new identity action when there is a connection
                 mNotifyBuilder.setProgress(0, 0, false); // removes progress bar
@@ -166,15 +166,6 @@ public class OrbotService extends VpnService {
             }
         }
         ServiceCompat.startForeground(this, NOTIFY_ID, mNotifyBuilder.build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED);
-    }
-
-    private String getNotificationTitle() {
-        var title = getString(R.string.status_disabled);
-        if (mCurrentStatus.equals(STATUS_STARTING)) // || notifyMsg.equals(getString(R.string.status_starting_up)))
-            title = getString(R.string.status_starting_up);
-        else if (mCurrentStatus.equals(STATUS_ON))
-            title = getString(R.string.status_activated);
-        return title;
     }
 
     public int onStartCommand(Intent intent, int flags, int startId) {

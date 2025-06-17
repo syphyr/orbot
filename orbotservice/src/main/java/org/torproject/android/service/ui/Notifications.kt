@@ -10,6 +10,7 @@ import androidx.core.app.NotificationCompat
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.R
 import org.torproject.android.service.util.Prefs
+import org.torproject.jni.TorService
 
 object Notifications {
     @JvmStatic
@@ -47,5 +48,14 @@ object Notifications {
             .setSmallIcon(R.drawable.ic_generic_info)
             .setProgress(0, 0, false)
             .setContentIntent(null)
+    }
+
+    @JvmStatic
+    fun getNotificationTitleForStatus(context: Context, torStatus: String) : String {
+        if (torStatus == TorService.STATUS_STARTING)
+            return context.getString(R.string.status_starting_up)
+        else if (torStatus == TorService.STATUS_ON)
+            return context.getString(R.string.status_activated)
+        return context.getString(R.string.status_disabled)
     }
 }
