@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Orbot</string>
     <string name="app_description">Orbot este o aplicaţie gratuită de proxy care permite altor aplicaţii să folosească internetul în siguranţă. Orbot foloseşte Tor pentru a cripta traficul de internet după care îl ascunde printr-o serie de calculatoare din întreaga lume. Tor este un program gratuit si o reţea deschisă care te ajută să te aperi de monitorizarea reţelelor, lucru care ameninţă libertatea personală şi intimitatea, activităţi confidenţiale legate de afaceri si relaţii personale şi de analiza traficului.</string>
-    <string name="menu_settings">Setări</string>
+    <string name="menu_settings">Setări Orbot</string>
     <string name="menu_log">log</string>
     <string name="menu_stop">Stop</string>
     <string name="menu_about">Despre</string>
@@ -132,7 +132,7 @@
     <string name="v3_backup_key">Cheia de autorizare a clientului de backup</string>
     <string name="pref_isolate_protocol_summary">Utilizați un circuit diferit pentru fiecare protocol de conectare</string>
     <string name="consider_disable_battery_optimizations">Serviciile găzduite rulează, luați în considerare dezactivarea optimizărilor bateriei</string>
-    <string name="backup_service">Serviciul de backup <i>(Atenție: Acest lucru ar putea expune configurația serviciului dvs. altor aplicații)</i></string>
+    <string name="backup_service">Serviciul de backup (Atenție: Acest lucru ar putea expune configurația serviciului dvs. altor aplicații)</string>
     <string name="pref_isolate_port">Izolarea porturilor de destinație</string>
     <string name="no_internet_subtitle">Aveți nevoie de o conexiune la internet pentru a utiliza Orbot.</string>
     <string name="pref_prefer_ipv6">Preferați conexiunile IPv6</string>
@@ -177,7 +177,7 @@
     <string name="btn_use_custom_bridge">Utilizați punte personalizată</string>
     <string name="drawer_close">Închide</string>
     <string name="proxy_ports">Porturi proxy</string>
-    <string name="snowflake_amp">Snowflake (AMP)</string>
+    <string name="snowflake_amp">Snowflake AMP</string>
     <string name="get_a_bridge">Punte de la Tor (Obfs4)</string>
     <string name="asking">CERERE…</string>
     <string name="no_internet_title">Conectare la internet</string>
@@ -237,7 +237,7 @@
     <string name="kindness_adjust_title">Setări</string>
     <string name="snowflake_subtitle">Se conectează prin intermediul voluntarilor Tor. Ocolește unele blocaje Tor.</string>
     <string name="secure_your_connection_title">Gata de conectare</string>
-    <string name="snowflake">Fulg de zăpadă (original)</string>
+    <string name="snowflake">Snowflake</string>
     <string name="log_copied">Jurnalul a fost copiat</string>
     <string name="bridges_obtained_connecting">Punți obținute! Se conectează la Tor…</string>
     <string name="custom_bridge_description">O punte personalizată este oferită de cineva cunoscut. Întrebați în cadrul rețelelor și organizațiilor de încredere să vedeți dacă cineva găzduiește una.</string>
@@ -280,4 +280,24 @@
     <string name="root_warning">Orbot a detectat că dispozitivul dvs. este deblocat (root), ceea ce poate cauza probleme de securitate.</string>
     <string name="pref_detect_root_summary">Avertizează la pornire dacă permisiunile root sunt activate pe acest dispozitiv</string>
     <string name="pref_detect_root_title">Detectare root</string>
+    <string name="power_user_mode_permission">Permisiunea de alarmă și memento necesară pentru modul de utilizare Expert</string>
+    <string name="power_user_mode_permission_msg">Vă rugăm să permiteți Orbot să seteze alarme și memento-uri pentru a utiliza modul de utilizare Expert. Acest lucru nu va seta de fapt nici o alarmă pe dispozitiv. Această permisiune este necesară pentru ca sistemul să păstreze serviciul Orbot în funcțiune atunci când Orbot nu este folosit ca un VPN la nivel de sistem.</string>
+    <string name="pref_require_password">Parola blocare dispozitiv</string>
+    <string name="pref_require_password_description">Previne accesul la Orbot până când introduceți parola dispozitivului. Acest lucru poate fi combinat cu modul de camuflaj pentru a ajuta la ascunderea faptului că Orbot este instalat pe dispozitivul dvs</string>
+    <string name="error_no_password_set">Vă rugăm să setați o parolă pe dispozitiv pentru a utiliza modul parolat</string>
+    <string name="unlock_app_msg" formatted="true">Este necesară parola dispozitivului pentru a debloca %s</string>
+    <string name="bridge_snowflake_sqs">Conectați-vă prin intermediul altor utilizatori Tor folosind Snowflake (Metoda 3 - SQS)</string>
+    <string name="snowflake_sqs">Snowflake SQS</string>
+    <string name="camo_dialog_title" formatted="true">Camuflează ca %1$s</string>
+    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot se va camufla ca aplicația %1$s. Acest lucru va ascunde toate detaliile de notificare despre Tor și va schimba aspectul lui Orbot pe ecranul de pornire.\n\nCamuflare ca %2$s va reporni Orbot.</string>
+    <string name="camo_dialog_disable_confirm_msg">Orbot va relua afișarea informațiilor de notificare despre conexiunea Tor și va apărea în mod normal pe ecranul de pornire.\n\nDezactivarea modului de camuflare va reporni Orbot.</string>
+    <string name="camo_dialog_disable_title">Dezactivare mod de camuflaj</string>
+    <string name="pref_camo_mode_title">Mod de camuflaj</string>
+    <string name="pref_camo_mode_description">Deghizați cum va apărea pictograma, eticheta și textul de notificare al lui Orbot pe dispozitiv</string>
+    <string name="system_vpn_settings">Setări VPN Android</string>
+    <string name="pref_isolate_keep_alive">Păstrează circuitele izolate active</string>
+    <string name="pref_isolate_keep_alive_summary">Păstrează circuitele izolate active dacă au cel puțin un flux cu autentificare SOCKS activ</string>
+    <string name="pref_enable_rotation_summary">Activează rotația dispozitivului (necesită repornire)</string>
+    <string name="pref_enable_rotation_title">Rotație dispozitiv</string>
+    <string name="app_icon_chooser_label_assistant">Asistent</string>
 </resources>
