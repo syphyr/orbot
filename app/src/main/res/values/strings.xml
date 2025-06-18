@@ -309,4 +309,5 @@
     <string name="unlock_app_msg" formatted="true">Your device password is needed to unlock %s</string>
 
     <string name="invalid_bridge_format">Invalid bridge format</string>
+    <string name="error_asking_tor_for_bridges">Error asking Tor how to connect</string>
 </resources>

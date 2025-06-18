@@ -46,6 +46,8 @@ class ConfigConnectionBottomSheet :
                 this.callbacks = callbacks
             }
         }
+
+        const val TAG = "ConfigConnectionBttmSheet"
     }
 
     override fun onCreateView(
@@ -228,14 +230,14 @@ class ConfigConnectionBottomSheet :
         val proxy = OrbotService.getIptProxyController(context)
         proxy.start(IPtProxy.MeekLite, null)
 
-        val pUsername =
-            "url=" + OrbotService.getCdnFront("moat-url") + ";front=" + OrbotService.getCdnFront("moat-front")
+        val moatUrl = OrbotService.getCdnFront("moat-url")
+        val front = OrbotService.getCdnFront("moat-front")
+
+        val pUsername = "url=$moatUrl;front=$front"
         val pPassword = "\u0000"
 
-        //    Log.d(getClass().getSimpleName(), String.format("mHost=%s, mPort=%d, mUsername=%s, mPassword=%s", mHost, mPort, mUsername, mPassword))
         val authenticator: Authenticator = object : Authenticator() {
             override fun getPasswordAuthentication(): PasswordAuthentication {
-                Log.d(javaClass.simpleName, "getPasswordAuthentication!")
                 return PasswordAuthentication(pUsername, pPassword.toCharArray())
             }
         }
@@ -243,7 +245,6 @@ class ConfigConnectionBottomSheet :
         Authenticator.setDefault(authenticator)
 
         val countryCodeValue: String = getDeviceCountryCode(requireContext())
-
         CircumventionApiManager(proxy.port(IPtProxy.MeekLite)).getSettings(
             SettingsRequest(
                 countryCodeValue
@@ -251,27 +252,24 @@ class ConfigConnectionBottomSheet :
                 it?.let {
                     var circumventionApiBridges = it.settings
                     if (circumventionApiBridges == null) {
-                        //Log.d("abc", "settings is null, we can assume a direct connect is fine ")
                         rbDirect.isChecked = true
 
-                    } else {
-
-                        // Log.d("abc", "settings is $circumventionApiBridges")
-                        circumventionApiBridges.forEach { b ->
-                            //   Log.d("abc", "BRIDGE $b")
-                        }
-
-                        //got bridges, let's set them
+                    } else { // got bridges
                         setPreferenceForSmartConnect(circumventionApiBridges)
                     }
 
                     proxy.stop(IPtProxy.MeekLite)
                 }
             }, {
-                // TODO what happens to the app in this case?!
-                Log.e("ConfigConnectBttmSheet", "Couldn't hit circumvention API... $it")
-                Toast.makeText(requireContext(), "Ask Tor was not available", Toast.LENGTH_LONG)
-                    .show()
+                Log.wtf(TAG, "Couldn't hit circumvention API... $it")
+                if (isVisible) {
+                    Toast.makeText(
+                        requireContext(),
+                        R.string.error_asking_tor_for_bridges,
+                        Toast.LENGTH_LONG
+                    )
+                        .show()
+                }
             })
     }
 
@@ -294,27 +292,34 @@ class ConfigConnectionBottomSheet :
     }
 
     private fun setPreferenceForSmartConnect(circumventionApiBridges: List<Bridges?>?) {
-        val dLeft = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_green_check)
-        btnAskTor.setCompoundDrawablesWithIntrinsicBounds(dLeft, null, null, null)
+        if (isVisible) {
+            val dLeft = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_green_check)
+            btnAskTor.setCompoundDrawablesWithIntrinsicBounds(dLeft, null, null, null)
+        }
         circumventionApiBridges?.let {
             if (it.isEmpty()) {
-                rbDirect.isChecked = true
-                btnAskTor.text = getString(R.string.connection_direct)
-
+                if (isVisible) {
+                    rbDirect.isChecked = true
+                    btnAskTor.text = getString(R.string.connection_direct)
+                }
+                Prefs.putConnectionPathway(Prefs.PATHWAY_DIRECT)
                 return
             }
             val b = it[0]!!.bridges
             when (b.type) {
                 CircumventionApiManager.BRIDGE_TYPE_SNOWFLAKE -> {
                     Prefs.putConnectionPathway(Prefs.PATHWAY_SNOWFLAKE)
-                    rbSnowflake.isChecked = true
-                    btnAskTor.text = getString(R.string.connection_snowflake)
+                    if (isVisible) {
+                        rbSnowflake.isChecked = true
+                        btnAskTor.text = getString(R.string.connection_snowflake)
+                    }
                 }
 
                 CircumventionApiManager.BRIDGE_TYPE_OBFS4 -> {
-                    rbCustom.isChecked = true
-                    btnAskTor.text = getString(R.string.connection_custom)
-
+                    if (isVisible) {
+                        rbCustom.isChecked = true
+                        btnAskTor.text = getString(R.string.connection_custom)
+                    }
                     var bridgeStrings = ""
                     b.bridge_strings!!.forEach { bridgeString ->
                         bridgeStrings += "$bridgeString\n"
@@ -324,7 +329,9 @@ class ConfigConnectionBottomSheet :
                 }
 
                 else -> {
-                    rbDirect.isChecked = true
+                    if (isVisible) {
+                        rbDirect.isChecked = true
+                    }
                 }
             }
         }
