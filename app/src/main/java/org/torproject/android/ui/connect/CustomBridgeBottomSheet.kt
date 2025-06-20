@@ -1,5 +1,7 @@
 package org.torproject.android.ui.connect
 
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -8,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+
 import org.torproject.android.R
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
@@ -64,7 +67,16 @@ class CustomBridgeBottomSheet(private val callbacks: ConnectionHelperCallbacks) 
 
     private fun updateUi() {
         val inputText = etBridges.text.toString()
-        btnAction.isEnabled = inputText.isNotEmpty() && isValidBridge(inputText)
+        val isValid = inputText.isNotEmpty() && isValidBridge(inputText)
+
+        btnAction.isEnabled = isValid
+        btnAction.backgroundTintList = ColorStateList.valueOf(
+            if (isValid) {
+                requireContext().getColor(R.color.orbot_btn_enabled_purple)
+            } else {
+                Color.DKGRAY
+            }
+        )
 
         if (!isValidBridge(inputText)) {
             etBridges.error = requireContext().getString(R.string.invalid_bridge_format)
