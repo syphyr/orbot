@@ -1,6 +1,8 @@
 package org.torproject.android.ui.connect
 
 import android.app.AlertDialog
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -116,7 +118,16 @@ class CustomBridgeBottomSheet(private val callbacks: ConnectionHelperCallbacks) 
 
     private fun updateUi() {
         val inputText = binding.etBridges.text.toString()
-        binding.btnAction.isEnabled = inputText.isNotEmpty() && isValidBridge(inputText)
+        val isValid = inputText.isNotEmpty() && isValidBridge(inputText)
+
+        binding.btnAction.isEnabled = isValid
+        binding.btnAction.backgroundTintList = ColorStateList.valueOf(
+            if (isValid) {
+                requireContext().getColor(R.color.orbot_btn_enabled_purple)
+            } else {
+                Color.DKGRAY
+            }
+        )
 
         if (!isValidBridge(inputText)) {
             binding.etBridges.error = requireContext().getString(R.string.invalid_bridge_format)
