@@ -2,7 +2,7 @@
 
 <img width="" src="./app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" alt="Orbot" align="center"/>
 
-# Orbot
+# <a href="https://orbot.app" target="_blank">Orbot</a>
 
 ### Android Onion Routing Robot
 
