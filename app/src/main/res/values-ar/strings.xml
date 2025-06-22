@@ -23,11 +23,11 @@
     <!--Permissions screen-->
     <!--TipsAndTricks screen-->
     <!--Transparent Proxy screen-->
-    <string name="pref_node_configuration">تكوين نقطة الاتصال</string>
+    <string name="pref_node_configuration">تضبيط العُقدة</string>
     <string name="pref_node_configuration_summary">هذه الإعدادات متقدمة و قد تقلل من حماية هويتك</string>
-    <string name="pref_entrance_node">نقاط الدخول</string>
+    <string name="pref_entrance_node">عُقد الدخول</string>
     <string name="pref_entrance_node_summary">بصمات، اسماء مستعارة، البلدان و العناوين لأول نقطة اتصال</string>
-    <string name="pref_entrance_node_dialog">أدخل نقاط الدخول</string>
+    <string name="pref_entrance_node_dialog">أدخل عُقد الدخول</string>
     <string name="pref_allow_background_starts_title">إسمح بألبدأ في الخلفية</string>
     <string name="pref_allow_background_starts_summary">إسمح لأي تطبيق بأن يُخبِر اوربت بأن يفعل تور مع الخدمات المرتبطة به</string>
     <string name="pref_proxy_title">وسيط الشبكة الصادرة (اختياري)</string>
@@ -47,13 +47,13 @@
     <string name="pref_proxy_password_summary">كلمة سر الوسيط (اختياري)</string>
     <string name="pref_proxy_password_dialog">ادخل كلمة سر الوسيط</string>
     <string name="error">خطأ</string>
-    <string name="exit_nodes">نقاط الخروج</string>
+    <string name="exit_nodes">عُقد الخروج</string>
     <string name="fingerprints_nicks_countries_and_addresses_for_the_last_hop">البصمات، الاسماء المستعارة، البلدان و العناوين لآخر نقطة اتصال</string>
-    <string name="enter_exit_nodes">أدخل نقاط الخروج</string>
-    <string name="exclude_nodes">استثني النقاط</string>
+    <string name="enter_exit_nodes">أدخل عُقد الخروج</string>
+    <string name="exclude_nodes">استبعاد العُقد</string>
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">بصمات، الأسماء المستعارة، البلدان و العناوين ليتم استثنائها</string>
-    <string name="enter_exclude_nodes">أدخل النقاط المستثناه</string>
-    <string name="strict_nodes">النقاط المشددة</string>
+    <string name="enter_exclude_nodes">أدخل استبعاد العُقد</string>
+    <string name="strict_nodes">العُقد المشددة</string>
     <string name="bridges">الجسور</string>
     <string name="use_bridges">استخدم الجسور</string>
     <string name="reachable_addresses">العناوين التي يمكن الوصول إليها</string>
@@ -64,7 +64,7 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">شغل سجل الـdebug ( للمراجعة يجب استخدام adb أو LogCat)</string>
     <string name="project_home">الشاشة الرئيسية للمشروع:</string>
     <string name="third_party_software">برامج من الطرف الثالث:</string>
-    <string name="pref_use_expanded_notifications">اعرض في الإشعارات الدولة وعنوان IP الخاص بعقدة خروجك عند توفرها</string>
+    <string name="pref_use_expanded_notifications">اعرض في الإشعارات الدولة وعنوان IP الخاص بعُقدة خروجك عند توفرها</string>
     <string name="pref_use_expanded_notifications_title">تنبيه موسّع</string>
     <string name="set_locale_title">اللغة</string>
     <string name="pref_disable_network_title">لاتوجد شبكة نوم-آلي</string>
@@ -151,7 +151,7 @@
     <string name="license">الرخصة:</string>
     <string name="mebibyte">م.بايت</string>
     <string name="wizard_details_msg">Orbot هو تطبيق مفتوح المصدر يحتوي على تور و IPtProxy (Obfs4Proxy و Meek و Snowflake) و Go-Tun2Socks و LibEvent. يوفر نفق VPN ووسيط HTTP محلي (HTTPS فقط على المنفذ 8118) ووسيط SOCKS (9050) في شبكة تور.</string>
-    <string name="strict_nodes_description">تعامل مع إعدادات استبعاد العقد كشرط لبناء جميع المسار. قد يؤدي هذا إلى تعطيل الوظيفة إذا لم يكن بالإمكان إنشاء مسار باستخدام إعدادات استبعاد العقد.</string>
+    <string name="strict_nodes_description">تعامل مع إعدادات استبعاد العُقد كشرط لبناء جميع المسار. قد يؤدي هذا إلى تعطيل الوظيفة إذا لم يكن بالإمكان إنشاء مسار باستخدام إعدادات استبعاد العُقد.</string>
     <string name="testing_tor_direct_success">نجاح. اتصال تور جيد!</string>
     <string name="app_services">خدمات التطبيق</string>
     <string name="paste_bridges">ألصق الجسور</string>
@@ -228,7 +228,7 @@
     <string name="pref_circuit_padding">حشوة المسار</string>
     <string name="pref_isolate_protocol">عزل بروتوكولات العميل</string>
     <string name="pref_isolate_protocol_summary">استخدم مسار مختلف لكل بروتوكول توصيل</string>
-    <string name="pref_circuit_padding_summary">تفعيل حشو المسار للدفاع ضد بعض أشكال تحليل حركة المرور</string>
+    <string name="pref_circuit_padding_summary">فعِّل حشو المسار للدفاع ضد بعض أشكال تحليل حركة المرور</string>
     <string name="pref_isolate_port_summary">استخدم مسار مختلف لكل منفذ وجهة</string>
     <string name="pref_disable_ipv4">تعطيل اتصالات IPv4</string>
     <string name="pref_disable_ipv4_summary">يخبر المخارج بعدم الاتصال بعناوين IPv4</string>
@@ -280,14 +280,14 @@
     <string name="root_warning">اكتشف Orbot أن جهازك مزوّد بحق الوصول إلى الجذر (rooted)، مما قد يتسبب في حدوث مشكلات أمنية.</string>
     <string name="pref_detect_root_summary">تحذير عند بدء التشغيل إذا فعّلت أذونات الجذر على هذا الجهاز</string>
     <string name="pref_detect_root_title">كشف الجذر</string>
-    <string name="pref_isolate_keep_alive">أبقِ الدوائر المعزولة نشطة</string>
+    <string name="pref_isolate_keep_alive">أبقِ المسارات المعزولة حية</string>
     <string name="pref_enable_rotation_summary">فعّل تدوير الجهاز (يتطلب إعادة تشغيل)</string>
     <string name="app_icon_chooser_label_night_watch">الحارس الليلي</string>
     <string name="app_icon_chooser_label_assistant">المساعد</string>
     <string name="app_icon_chooser_label_tetras">تتراس</string>
     <string name="app_icon_chooser_label_todo">مهام</string>
     <string name="system_vpn_settings">إعدادات VPN للأندرويد</string>
-    <string name="pref_isolate_keep_alive_summary">أبقِ الدوائر المعزولة حية التي لديها تدفق واحد على الأقل مع استيثاق SOCKS نشطة</string>
+    <string name="pref_isolate_keep_alive_summary">أبقِ المسارات المعزولة حية التي لديها تدفق واحد على الأقل مع استيثاق SOCKS نشطة</string>
     <string name="pref_enable_rotation_title">تدوير الجهاز</string>
     <string name="app_icon_chooser_label_paint">طلاء</string>
     <string name="bridge_snowflake_sqs">الاتصال من خلال مستخدمي تور الآخرين باستخدام Snowflake (الطريقة 3 - SQS)</string>
@@ -306,4 +306,6 @@
     <string name="pref_require_password">قفل كلمة سر الجهاز</string>
     <string name="error_no_password_set">الرجاء تعيين كلمة سر على جهازك لاستخدام قفل كلمة سر الجهاز</string>
     <string name="unlock_app_msg" formatted="true">كلمة سر جهازك مطلوبة لفتح %s</string>
+    <string name="invalid_bridge_format">تنسيق الجسر غير صالح</string>
+    <string name="error_asking_tor_for_bridges">خطأ في طلب كيفية الاتصال بتور</string>
 </resources>
