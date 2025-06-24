@@ -58,4 +58,11 @@ object Notifications {
             return context.getString(R.string.status_activated)
         return context.getString(R.string.status_disabled)
     }
+
+    @JvmStatic
+    fun getVpnSessionName(context: Context) : String {
+        return if (Prefs.isCamoEnabled()) {
+            Prefs.getCamoAppDisplayName()
+        } else context.getString(R.string.orbot_vpn)
+    }
 }
