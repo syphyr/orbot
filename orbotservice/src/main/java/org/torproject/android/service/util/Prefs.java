@@ -13,7 +13,6 @@ import java.util.concurrent.TimeUnit;
 
 public class Prefs {
 
-    private final static String PREF_BRIDGES_ENABLED = "pref_bridges_enabled";
     private final static String PREF_BRIDGES_LIST = "pref_bridges_list";
     private final static String PREF_DEFAULT_LOCALE = "pref_default_locale";
     private final static String PREF_DETECT_ROOT = "pref_detect_root";
@@ -106,18 +105,9 @@ public class Prefs {
         putBoolean(PREF_HOST_ONION_SERVICES, value);
     }
 
-    public static boolean bridgesEnabled() {
-        //if phone is in Farsi, enable bridges by default
-        boolean bridgesEnabledDefault = Locale.getDefault().getLanguage().equals("fa");
-        return prefs.getBoolean(PREF_BRIDGES_ENABLED, bridgesEnabledDefault);
-    }
-
-    public static void putBridgesEnabled(boolean value) {
-        putBoolean(PREF_BRIDGES_ENABLED, value);
-    }
-
     public static String getBridgesList() {
         // historically we did a check for Farsi here, and returned a different value
+        // perhaps include hardcoded obfs4 defaults here for cold-start use case
         return prefs.getString(PREF_BRIDGES_LIST, "");
     }
 
