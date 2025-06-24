@@ -35,6 +35,7 @@ class CamoConfirmationDialogFragment : DialogFragment() {
                     .disableNames(disabledNames)
                     .build()
                     .setNow()
+                activity?.finishAffinity()
             }
             .create()
     }
