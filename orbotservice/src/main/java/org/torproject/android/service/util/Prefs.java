@@ -214,8 +214,8 @@ public class Prefs {
     }
 
     public static String getConnectionPathway() {
-        // TODO lots of migration work need to be done here when users upgrade to orbot 17 !!!
-        return prefs.getString(PREF_CONNECTION_PATHWAY, PATHWAY_SMART);
+        // TODO since smart pathway was never fully implemented, default to DIRECT
+        return prefs.getString(PREF_CONNECTION_PATHWAY, PATHWAY_DIRECT);
     }
 
     public static void putConnectionPathway(String pathway) {

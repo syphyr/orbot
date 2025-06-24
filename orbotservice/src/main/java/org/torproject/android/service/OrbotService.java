@@ -591,7 +591,7 @@ public class OrbotService extends VpnService {
         new Handler(Looper.getMainLooper()).postDelayed(() -> {
             Log.d(TAG, "timed out mCurrentStatus=" + mCurrentStatus);
             if (!mCurrentStatus.equals(STATUS_ON)) {
-                Log.d(TAG, "stopping tor...");
+                Log.d(TAG, "tor isn't on");
                 if (Prefs.getPrefSmartTrySnowflake()) {
                     Log.d(TAG, "trying snowflake didnt work");
                     clearEphemeralSmartConnectionSettings();
