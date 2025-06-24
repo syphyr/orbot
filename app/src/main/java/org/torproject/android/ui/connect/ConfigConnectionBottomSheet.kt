@@ -267,8 +267,8 @@ class ConfigConnectionBottomSheet :
                         requireContext(),
                         R.string.error_asking_tor_for_bridges,
                         Toast.LENGTH_LONG
-                    )
-                        .show()
+                    ).show()
+                    proxy.stop(IPtProxy.MeekLite)
                 }
             })
     }
