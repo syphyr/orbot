@@ -40,7 +40,6 @@ import org.torproject.android.service.OrbotService
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.AppManagerActivity
 import org.torproject.android.ui.OrbotMenuAction
-import org.torproject.android.ui.connect.ConnectMenuActionAdapter
 
 class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     ExitNodeDialogFragment.ExitNodeSelectedCallback {
@@ -273,20 +272,20 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
             visibility = View.VISIBLE
 
             var connectStr = ""
-            when (Prefs.getConnectionPathway()) {
-                Prefs.PATHWAY_DIRECT -> connectStr =
+            when (Prefs.getTorConnectionPathway()) {
+                Prefs.CONNECTION_PATHWAY_DIRECT -> connectStr =
                     context.getString(R.string.action_use) + ' ' + getString(R.string.direct_connect)
 
-                Prefs.PATHWAY_SNOWFLAKE -> connectStr =
+                Prefs.CONNECTION_PATHWAY_SNOWFLAKE -> connectStr =
                     context.getString(R.string.action_use) + ' ' + getString(R.string.snowflake)
 
-                Prefs.PATHWAY_SNOWFLAKE_AMP -> connectStr =
+                Prefs.CONNECTION_PATHWAY_SNOWFLAKE_AMP -> connectStr =
                     context.getString(R.string.action_use) + ' ' + getString(R.string.snowflake_amp)
 
-                Prefs.PATHWAY_SNOWFLAKE_SQS -> connectStr =
+                Prefs.CONNECTION_PATHWAY_SNOWFLAKE_SQS -> connectStr =
                     context.getString(R.string.action_use) + ' ' + getString(R.string.snowflake_sqs)
 
-                Prefs.PATHWAY_CUSTOM -> connectStr =
+                Prefs.CONNECTION_PATHWAY_OBFS4 -> connectStr =
                     context.getString(R.string.action_use) + ' ' + getString(R.string.custom_bridge)
             }
 

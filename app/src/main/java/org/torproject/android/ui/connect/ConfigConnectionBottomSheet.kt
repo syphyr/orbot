@@ -163,27 +163,27 @@ class ConfigConnectionBottomSheet :
             if (rbRequestBridge.isChecked) {
                 MoatBottomSheet(object : ConnectionHelperCallbacks {
                     override fun tryConnecting() {
-                        Prefs.putConnectionPathway(Prefs.PATHWAY_CUSTOM)
+                        Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_OBFS4)
                         rbCustom.isChecked = true
                         closeAndConnect()
                     }
                 }).show(requireActivity().supportFragmentManager, MoatBottomSheet.TAG)
             } else if (rbDirect.isChecked) {
-                Prefs.putConnectionPathway(Prefs.PATHWAY_DIRECT)
+                Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_DIRECT)
                 closeAndConnect()
             } else if (rbSnowflake.isChecked) {
-                Prefs.putConnectionPathway(Prefs.PATHWAY_SNOWFLAKE)
+                Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_SNOWFLAKE)
                 closeAndConnect()
             } else if (rbSnowflakeAmp.isChecked) {
-                Prefs.putConnectionPathway(Prefs.PATHWAY_SNOWFLAKE_AMP)
+                Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_SNOWFLAKE_AMP)
                 closeAndConnect()
             } else if (rbSnowflakeSqs.isChecked) {
-                Prefs.putConnectionPathway(Prefs.PATHWAY_SNOWFLAKE_SQS)
+                Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_SNOWFLAKE_SQS)
                 closeAndConnect()
             } else if (rbCustom.isChecked) {
                 CustomBridgeBottomSheet(object : ConnectionHelperCallbacks {
                     override fun tryConnecting() {
-                        Prefs.putConnectionPathway(Prefs.PATHWAY_CUSTOM)
+                        Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_OBFS4)
                         closeAndConnect()
                     }
                 }).show(requireActivity().supportFragmentManager, CustomBridgeBottomSheet.TAG)
@@ -208,12 +208,12 @@ class ConfigConnectionBottomSheet :
     }
 
     private fun selectRadioButtonFromPreference() {
-        val pref = Prefs.getConnectionPathway()
-        if (pref.equals(Prefs.PATHWAY_CUSTOM)) rbCustom.isChecked = true
-        if (pref.equals(Prefs.PATHWAY_SNOWFLAKE)) rbSnowflake.isChecked = true
-        if (pref.equals(Prefs.PATHWAY_SNOWFLAKE_AMP)) rbSnowflakeAmp.isChecked = true
-        if (pref.equals(Prefs.PATHWAY_SNOWFLAKE_SQS)) rbSnowflakeSqs.isChecked = true
-        if (pref.equals(Prefs.PATHWAY_DIRECT)) rbDirect.isChecked = true
+        val pref = Prefs.getTorConnectionPathway()
+        if (pref.equals(Prefs.CONNECTION_PATHWAY_OBFS4)) rbCustom.isChecked = true
+        if (pref.equals(Prefs.CONNECTION_PATHWAY_SNOWFLAKE)) rbSnowflake.isChecked = true
+        if (pref.equals(Prefs.CONNECTION_PATHWAY_SNOWFLAKE_AMP)) rbSnowflakeAmp.isChecked = true
+        if (pref.equals(Prefs.CONNECTION_PATHWAY_SNOWFLAKE_SQS)) rbSnowflakeSqs.isChecked = true
+        if (pref.equals(Prefs.CONNECTION_PATHWAY_DIRECT)) rbDirect.isChecked = true
     }
 
     private fun askTor() {
@@ -302,13 +302,13 @@ class ConfigConnectionBottomSheet :
                     rbDirect.isChecked = true
                     btnAskTor.text = getString(R.string.connection_direct)
                 }
-                Prefs.putConnectionPathway(Prefs.PATHWAY_DIRECT)
+                Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_DIRECT)
                 return
             }
             val b = it[0]!!.bridges
             when (b.type) {
                 CircumventionApiManager.BRIDGE_TYPE_SNOWFLAKE -> {
-                    Prefs.putConnectionPathway(Prefs.PATHWAY_SNOWFLAKE)
+                    Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_SNOWFLAKE)
                     if (isVisible) {
                         rbSnowflake.isChecked = true
                         btnAskTor.text = getString(R.string.connection_snowflake)
@@ -325,7 +325,7 @@ class ConfigConnectionBottomSheet :
                         bridgeStrings += "$bridgeString\n"
                     }
                     Prefs.setBridgesList(bridgeStrings)
-                    Prefs.putConnectionPathway(Prefs.PATHWAY_CUSTOM)
+                    Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_OBFS4)
                 }
 
                 else -> {

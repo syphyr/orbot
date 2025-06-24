@@ -196,7 +196,7 @@ class MoatBottomSheet(private val callbacks: ConnectionHelperCallbacks) :
     }
 
     private fun onBridgeRequestSuccess(bridges: String) {
-        Prefs.putConnectionPathway(Prefs.PATHWAY_CUSTOM)
+        Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_OBFS4)
         Prefs.setBridgesList(bridges)
         closeAllSheets()
         callbacks.tryConnecting()

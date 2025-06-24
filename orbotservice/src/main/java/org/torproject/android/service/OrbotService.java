@@ -218,12 +218,12 @@ public class OrbotService extends VpnService {
         debug("stopTorAsync");
 
         if (showNotification) sendCallbackLogMessage(getString(R.string.status_shutting_down));
-        var connectionPathway = Prefs.getConnectionPathway();
+        var connectionPathway = Prefs.getTorConnectionPathway();
         // todo this needs to handle a lot of different cases that haven't been defined yet
         // todo particularly this is true for the smart connection case...
-        if (connectionPathway.startsWith(Prefs.PATHWAY_SNOWFLAKE) || Prefs.getPrefSmartTrySnowflake()) {
+        if (connectionPathway.startsWith(Prefs.CONNECTION_PATHWAY_SNOWFLAKE) || Prefs.getPrefSmartTrySnowflake()) {
             SnowflakeClient.stop(mIptProxy);
-        } else if (connectionPathway.equals(Prefs.PATHWAY_CUSTOM) || Prefs.getPrefSmartTryObfs4() != null) {
+        } else if (connectionPathway.equals(Prefs.CONNECTION_PATHWAY_OBFS4) || Prefs.getPrefSmartTryObfs4() != null) {
             mIptProxy.stop(IPtProxy.MeekLite);
             mIptProxy.stop(IPtProxy.Obfs4);
             mIptProxy.stop(IPtProxy.Webtunnel);
@@ -565,7 +565,7 @@ public class OrbotService extends VpnService {
             mNotifyBuilder.setProgress(100, 0, false);
             showToolbarNotification("", NOTIFY_ID, R.drawable.ic_stat_tor);
 
-            if (Prefs.getConnectionPathway().equals(Prefs.PATHWAY_SMART))
+            if (Prefs.getTorConnectionPathway().equals(Prefs.CONNECTION_PATHWAY_SMART))
                 smartConnectionPathwayStartTor();
 
             startTorService();
@@ -610,9 +610,9 @@ public class OrbotService extends VpnService {
                 if (obfs4 != null) {
                     // set these obfs4 bridges
                     Prefs.setBridgesList(obfs4);
-                    Prefs.putConnectionPathway(Prefs.PATHWAY_CUSTOM);
+                    Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_OBFS4);
                 } else if (Prefs.getPrefSmartTrySnowflake()) {
-                    Prefs.putConnectionPathway(Prefs.PATHWAY_SNOWFLAKE); // set snowflake
+                    Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_SNOWFLAKE); // set snowflake
                 }
                 clearEphemeralSmartConnectionSettings();
             }
@@ -844,20 +844,20 @@ public class OrbotService extends VpnService {
         var entranceNodes = prefs.getString("pref_entrance_nodes", "");
         var exitNodes = prefs.getString("pref_exit_nodes", "");
         var excludeNodes = prefs.getString("pref_exclude_nodes", "");
-        String pathway = Prefs.getConnectionPathway();
+        String pathway = Prefs.getTorConnectionPathway();
 
-        if (pathway.equals(Prefs.PATHWAY_SMART)) {
+        if (pathway.equals(Prefs.CONNECTION_PATHWAY_SMART)) {
             // todo for now ...
-        } else if (pathway.equals(Prefs.PATHWAY_DIRECT)) {
+        } else if (pathway.equals(Prefs.CONNECTION_PATHWAY_DIRECT)) {
             processSettingsImplDirectPathway(extraLines);
         } else {
             // snowflake or obfs4
             extraLines.append("UseBridges 1\n");
-            if (pathway.equals(Prefs.PATHWAY_SNOWFLAKE_AMP) || pathway.equals(Prefs.PATHWAY_SNOWFLAKE_SQS))
+            if (pathway.equals(Prefs.CONNECTION_PATHWAY_SNOWFLAKE_AMP) || pathway.equals(Prefs.CONNECTION_PATHWAY_SNOWFLAKE_SQS))
                 processSettingsImplSnowflakeAmpAndSqsModes(extraLines);
-            else if (pathway.startsWith(Prefs.PATHWAY_SNOWFLAKE) || Prefs.getPrefSmartTrySnowflake())
+            else if (pathway.startsWith(Prefs.CONNECTION_PATHWAY_SNOWFLAKE) || Prefs.getPrefSmartTrySnowflake())
                 processSettingsImplSnowflake(extraLines);
-            else if (pathway.equals(Prefs.PATHWAY_CUSTOM) || Prefs.getPrefSmartTryObfs4() != null)
+            else if (pathway.equals(Prefs.CONNECTION_PATHWAY_OBFS4) || Prefs.getPrefSmartTryObfs4() != null)
                 processSettingsLyrebird(extraLines);
         }
         var fileGeoIP = new File(appBinHome, GEOIP_ASSET_KEY);
@@ -915,7 +915,7 @@ public class OrbotService extends VpnService {
 
     @SuppressLint("DefaultLocale")
     private void processSettingsLyrebird(StringBuffer extraLines) {
-        var customBridges = getCustomBridges();
+        var customBridges = getConfiguredObfs4Bridges();
         for (String transport : Bridge.getTransports(customBridges))
             extraLines.append(String.format("ClientTransportPlugin %s socks5 127.0.0.1:%d\n", transport, mIptProxy.port(transport)));
 
@@ -923,9 +923,9 @@ public class OrbotService extends VpnService {
             extraLines.append("Bridge ").append(b).append("\n");
     }
 
-    private List<Bridge> getCustomBridges() {
+    private List<Bridge> getConfiguredObfs4Bridges() {
         return Bridge.parseBridges(
-                Prefs.getConnectionPathway().equals(Prefs.PATHWAY_CUSTOM)
+                Prefs.getTorConnectionPathway().equals(Prefs.CONNECTION_PATHWAY_OBFS4)
                         ? Prefs.getBridgesList()
                         : Prefs.getPrefSmartTryObfs4());
     }
@@ -1032,15 +1032,15 @@ public class OrbotService extends VpnService {
             if (TextUtils.isEmpty(action)) return;
             switch (action) {
                 case ACTION_START -> {
-                    var connectionPathway = Prefs.getConnectionPathway();
-                    if (connectionPathway.equals(Prefs.PATHWAY_SNOWFLAKE) || Prefs.getPrefSmartTrySnowflake()) {
+                    var connectionPathway = Prefs.getTorConnectionPathway();
+                    if (connectionPathway.equals(Prefs.CONNECTION_PATHWAY_SNOWFLAKE) || Prefs.getPrefSmartTrySnowflake()) {
                         SnowflakeClient.startWithDomainFronting(mIptProxy);
-                    } else if (connectionPathway.equals(Prefs.PATHWAY_SNOWFLAKE_AMP)) {
+                    } else if (connectionPathway.equals(Prefs.CONNECTION_PATHWAY_SNOWFLAKE_AMP)) {
                         SnowflakeClient.startWithAmpRendezvous(mIptProxy);
-                    } else if (connectionPathway.equals(Prefs.PATHWAY_SNOWFLAKE_SQS)) {
+                    } else if (connectionPathway.equals(Prefs.CONNECTION_PATHWAY_SNOWFLAKE_SQS)) {
                         SnowflakeClient.startWithSqsRendezvous(mIptProxy);
-                    } else if (connectionPathway.equals(Prefs.PATHWAY_CUSTOM) || Prefs.getPrefSmartTryObfs4() != null) {
-                        for (var transport : Bridge.getTransports(getCustomBridges())) {
+                    } else if (connectionPathway.equals(Prefs.CONNECTION_PATHWAY_OBFS4) || Prefs.getPrefSmartTryObfs4() != null) {
+                        for (var transport : Bridge.getTransports(getConfiguredObfs4Bridges())) {
                             try {
                                 mIptProxy.start(transport, "");
                             } catch (Exception e) {

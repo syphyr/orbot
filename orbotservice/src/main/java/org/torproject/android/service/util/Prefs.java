@@ -8,8 +8,12 @@ import androidx.work.ExistingPeriodicWorkPolicy;
 import androidx.work.PeriodicWorkRequest;
 import androidx.work.WorkManager;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
+
+import IPtProxy.Controller;
 
 public class Prefs {
 
@@ -45,9 +49,41 @@ public class Prefs {
     private static final String PREF_REQUIRE_PASSWORD = "pref_require_password";
 
     private static final String PREF_CONNECTION_PATHWAY = "pref_connection_pathway";
-    public static final String PATHWAY_SMART = "smart", PATHWAY_DIRECT = "direct",
-        PATHWAY_SNOWFLAKE = "snowflake", PATHWAY_SNOWFLAKE_AMP = "snowflake_amp",
-        PATHWAY_SNOWFLAKE_SQS = "snowflake_sqs", PATHWAY_CUSTOM = "custom";
+    public static final String CONNECTION_PATHWAY_SMART = "smart";
+    /**
+     * Represents a direct connection to tor with no bridges
+     */
+    public static final String CONNECTION_PATHWAY_DIRECT = "direct";
+    /**
+     * Tor connection with snowflake, settable from ConfigConnectionBottomSheet
+     */
+    public static final String CONNECTION_PATHWAY_SNOWFLAKE = "snowflake";
+    /**
+     * Tor connection with snowflake using AMP brokers,
+     * settable from ConfigConnectionBottomSheet
+     */
+    public static final String CONNECTION_PATHWAY_SNOWFLAKE_AMP = "snowflake_amp";
+    /**
+     * Use AMP brokers and start snowflake with SQS Rendezvous. Currently no way to
+     * set SQS setting in app, if you force it, a runtime exception is thrown in
+     * {@link org.torproject.android.service.circumvention.SnowflakeClient#startWithSqsRendezvous(Controller)}
+     */
+    public static final String CONNECTION_PATHWAY_SNOWFLAKE_SQS = "snowflake_sqs";
+    /**
+     * Start lyrebird with obfs4 bridges stored in @{link {@link #getBridgesList()}}
+     * This can be set in manually via the CustomBridgeBottomSheet. This is also currently
+     * set when the user "Gets a bridge from tor" successfully in ConfigConnectionBottomSheet.
+     */
+    public static final String CONNECTION_PATHWAY_OBFS4 = "custom";
+
+    private static final List<String> SUPPORTED_PATHWAYS = Arrays.asList(new String[]{
+            CONNECTION_PATHWAY_SMART,
+            CONNECTION_PATHWAY_DIRECT,
+            CONNECTION_PATHWAY_OBFS4,
+            CONNECTION_PATHWAY_SNOWFLAKE,
+            CONNECTION_PATHWAY_SNOWFLAKE_AMP,
+            CONNECTION_PATHWAY_SNOWFLAKE_SQS
+    });
 
     public static final String PREF_SECURE_WINDOW_FLAG = "pref_flag_secure";
 
@@ -62,9 +98,11 @@ public class Prefs {
     }
 
     private static final String PREF_REINSTALL_GEOIP = "pref_geoip";
+
     public static boolean isGeoIpReinstallNeeded() {
         return prefs.getBoolean(PREF_REINSTALL_GEOIP, true);
     }
+
     public static void setIsGeoIpReinstallNeeded(boolean reinstallNeeded) {
         putBoolean(PREF_REINSTALL_GEOIP, reinstallNeeded);
     }
@@ -76,7 +114,7 @@ public class Prefs {
 
     }
 
-    public static void initWeeklyWorker () {
+    public static void initWeeklyWorker() {
         PeriodicWorkRequest.Builder myWorkBuilder =
                 new PeriodicWorkRequest.Builder(PrefsWeeklyWorker.class, 7, TimeUnit.DAYS);
 
@@ -97,7 +135,7 @@ public class Prefs {
         prefs.edit().putString(key, value).apply();
     }
 
-    public static boolean hostOnionServicesEnabled () {
+    public static boolean hostOnionServicesEnabled() {
         return prefs.getBoolean(PREF_HOST_ONION_SERVICES, true);
     }
 
@@ -123,36 +161,36 @@ public class Prefs {
         putString(PREF_DEFAULT_LOCALE, value);
     }
 
-    public static boolean detectRoot () {
-        return prefs.getBoolean(PREF_DETECT_ROOT,true);
+    public static boolean detectRoot() {
+        return prefs.getBoolean(PREF_DETECT_ROOT, true);
     }
 
-    public static boolean beSnowflakeProxy () {
-        return prefs.getBoolean(PREF_BE_A_SNOWFLAKE,false);
+    public static boolean beSnowflakeProxy() {
+        return prefs.getBoolean(PREF_BE_A_SNOWFLAKE, false);
     }
 
     public static boolean showSnowflakeProxyMessage() {
         return prefs.getBoolean(PREF_SHOW_SNOWFLAKE_MSG, false);
     }
 
-    public static void setBeSnowflakeProxy (boolean beSnowflakeProxy) {
-        putBoolean(PREF_BE_A_SNOWFLAKE,beSnowflakeProxy);
+    public static void setBeSnowflakeProxy(boolean beSnowflakeProxy) {
+        putBoolean(PREF_BE_A_SNOWFLAKE, beSnowflakeProxy);
     }
 
-    public static void setBeSnowflakeProxyLimitWifi (boolean beSnowflakeProxy) {
-        putBoolean(PREF_BE_A_SNOWFLAKE_LIMIT_WIFI,beSnowflakeProxy);
+    public static void setBeSnowflakeProxyLimitWifi(boolean beSnowflakeProxy) {
+        putBoolean(PREF_BE_A_SNOWFLAKE_LIMIT_WIFI, beSnowflakeProxy);
     }
 
-    public static void setBeSnowflakeProxyLimitCharging (boolean beSnowflakeProxy) {
-        putBoolean(PREF_BE_A_SNOWFLAKE_LIMIT_CHARGING,beSnowflakeProxy);
+    public static void setBeSnowflakeProxyLimitCharging(boolean beSnowflakeProxy) {
+        putBoolean(PREF_BE_A_SNOWFLAKE_LIMIT_CHARGING, beSnowflakeProxy);
     }
 
-    public static boolean limitSnowflakeProxyingWifi () {
-        return prefs.getBoolean(PREF_BE_A_SNOWFLAKE_LIMIT_WIFI,false);
+    public static boolean limitSnowflakeProxyingWifi() {
+        return prefs.getBoolean(PREF_BE_A_SNOWFLAKE_LIMIT_WIFI, false);
     }
 
-    public static boolean limitSnowflakeProxyingCharging () {
-        return prefs.getBoolean(PREF_BE_A_SNOWFLAKE_LIMIT_CHARGING,false);
+    public static boolean limitSnowflakeProxyingCharging() {
+        return prefs.getBoolean(PREF_BE_A_SNOWFLAKE_LIMIT_CHARGING, false);
     }
 
     public static boolean useDebugLogging() {
@@ -196,29 +234,45 @@ public class Prefs {
     }
 
     public static SharedPreferences getSharedPrefs(Context context) {
-     //   return context.getSharedPreferences(OrbotConstants.PREF_TOR_SHARED_PREFS, Context.MODE_MULTI_PROCESS);
+        //   return context.getSharedPreferences(OrbotConstants.PREF_TOR_SHARED_PREFS, Context.MODE_MULTI_PROCESS);
         return PreferenceManager.getDefaultSharedPreferences(context);
     }
 
-    public static int getSnowflakesServed () { return prefs.getInt(PREF_SNOWFLAKES_SERVED_COUNT,0);}
-    public static int getSnowflakesServedWeekly () { return prefs.getInt(PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY,0);}
-
-    public static void addSnowflakeServed () {
-        putInt(PREF_SNOWFLAKES_SERVED_COUNT,getSnowflakesServed()+1);
-        putInt(PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY,getSnowflakesServedWeekly()+1);
+    public static int getSnowflakesServed() {
+        return prefs.getInt(PREF_SNOWFLAKES_SERVED_COUNT, 0);
     }
 
-    public static void resetSnowflakesServedWeekly () {
-        putInt(PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY,0);
+    public static int getSnowflakesServedWeekly() {
+        return prefs.getInt(PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY, 0);
+    }
+
+    public static void addSnowflakeServed() {
+        putInt(PREF_SNOWFLAKES_SERVED_COUNT, getSnowflakesServed() + 1);
+        putInt(PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY, getSnowflakesServedWeekly() + 1);
+    }
+
+    public static void resetSnowflakesServedWeekly() {
+        putInt(PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY, 0);
 
     }
 
-    public static String getConnectionPathway() {
+    /**
+     * @see #SUPPORTED_PATHWAYS
+     * @return how Orbot is configured to attempt to connect to Tor
+     */
+    public static String getTorConnectionPathway() {
         // TODO since smart pathway was never fully implemented, default to DIRECT
-        return prefs.getString(PREF_CONNECTION_PATHWAY, PATHWAY_DIRECT);
+        return prefs.getString(PREF_CONNECTION_PATHWAY, CONNECTION_PATHWAY_DIRECT);
     }
 
-    public static void putConnectionPathway(String pathway) {
+    /**
+     * Set how Orbot should initialize a tor connection (direct, with a PT, etc)
+     * @param pathway @see {@link #SUPPORTED_PATHWAYS}
+     */
+    public static void setTorConnectionPathway(String pathway) {
+        if (!SUPPORTED_PATHWAYS.contains(pathway)) {
+            throw new RuntimeException("Invalid pathway " + pathway + " - must be one of " + SUPPORTED_PATHWAYS.toString());
+        }
         putString(PREF_CONNECTION_PATHWAY, pathway);
     }
 
@@ -242,11 +296,11 @@ public class Prefs {
         return prefs.getBoolean(PREF_POWER_USER_MODE, false);
     }
 
-    public static void setSecureWindow (boolean isFlagSecure) {
+    public static void setSecureWindow(boolean isFlagSecure) {
         putBoolean(PREF_SECURE_WINDOW_FLAG, isFlagSecure);
     }
 
-    public static boolean isSecureWindow () {
+    public static boolean isSecureWindow() {
         return prefs.getBoolean(PREF_SECURE_WINDOW_FLAG, true);
     }
 
