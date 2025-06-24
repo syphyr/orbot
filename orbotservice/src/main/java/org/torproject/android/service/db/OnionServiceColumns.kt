@@ -2,6 +2,7 @@ package org.torproject.android.service.db
 
 import android.content.ContentValues
 import android.content.Context
+import android.content.ContextWrapper
 import android.net.Uri
 import android.provider.BaseColumns
 import android.text.TextUtils
@@ -11,6 +12,7 @@ import java.io.File
 import java.io.FileInputStream
 import java.util.UUID
 import androidx.core.net.toUri
+import org.torproject.android.service.OrbotConstants
 
 object OnionServiceColumns : BaseColumns {
     const val NAME: String = "name"
@@ -40,19 +42,19 @@ object OnionServiceColumns : BaseColumns {
             )
             if (onionServices == null) return
             while (onionServices.moveToNext()) {
-                val id_index = onionServices.getColumnIndex(BaseColumns._ID)
-                val port_index = onionServices.getColumnIndex(PORT)
-                val onion_port_index = onionServices.getColumnIndex(ONION_PORT)
-                val path_index = onionServices.getColumnIndex(PATH)
-                val domain_index = onionServices.getColumnIndex(DOMAIN)
+                val idIndex = onionServices.getColumnIndex(BaseColumns._ID)
+                val portIndex = onionServices.getColumnIndex(PORT)
+                val onionPortIndex = onionServices.getColumnIndex(ONION_PORT)
+                val pathIndex = onionServices.getColumnIndex(PATH)
+                val domainIndex = onionServices.getColumnIndex(DOMAIN)
                 // Ensure that we have all the indexes before trying to use them
-                if (id_index < 0 || port_index < 0 || onion_port_index < 0 || path_index < 0 || domain_index < 0) continue
+                if (idIndex < 0 || portIndex < 0 || onionPortIndex < 0 || pathIndex < 0 || domainIndex < 0) continue
 
-                val id = onionServices.getInt(id_index)
-                val localPort = onionServices.getInt(port_index)
-                val onionPort = onionServices.getInt(onion_port_index)
-                var path = onionServices.getString(path_index)
-                val domain = onionServices.getString(domain_index)
+                val id = onionServices.getInt(idIndex)
+                val localPort = onionServices.getInt(portIndex)
+                val onionPort = onionServices.getInt(onionPortIndex)
+                var path = onionServices.getString(pathIndex)
+                val domain = onionServices.getString(domainIndex)
                 if (path == null) {
                     path = "v3"
                     if (domain == null) path += UUID.randomUUID().toString()
@@ -86,22 +88,22 @@ object OnionServiceColumns : BaseColumns {
         val onionServices = contentResolver.query(uri, null, null, null, null) ?: return
         try {
             while (onionServices.moveToNext()) {
-                val domain_index = onionServices.getColumnIndex(DOMAIN)
-                val path_index = onionServices.getColumnIndex(PATH)
-                val id_index = onionServices.getColumnIndex(BaseColumns._ID)
-                if (domain_index < 0 || path_index < 0 || id_index < 0) continue
-                var domain = onionServices.getString(domain_index)
+                val domainIndex = onionServices.getColumnIndex(DOMAIN)
+                val pathIndex = onionServices.getColumnIndex(PATH)
+                val idIndex = onionServices.getColumnIndex(BaseColumns._ID)
+                if (domainIndex < 0 || pathIndex < 0 || idIndex < 0) continue
+                var domain = onionServices.getString(domainIndex)
                 if (domain == null || TextUtils.isEmpty(domain)) {
-                    val path = onionServices.getString(path_index)
+                    val path = onionServices.getString(pathIndex)
                     val v3OnionDirPath: String =
                         File(v3OnionBasePath.absolutePath, path).getCanonicalPath()
                     val hostname = File(v3OnionDirPath, "hostname")
                     if (hostname.exists()) {
-                        val id = onionServices.getInt(id_index);
-                        domain = Utils.readInputStreamAsString( FileInputStream(hostname)).trim();
-                        val fields = ContentValues();
-                        fields.put(DOMAIN, domain);
-                        contentResolver.update(uri, fields, BaseColumns._ID + "=" + id, null);
+                        val id = onionServices.getInt(idIndex)
+                        domain = Utils.readInputStreamAsString( FileInputStream(hostname)).trim()
+                        val fields = ContentValues()
+                        fields.put(DOMAIN, domain)
+                        contentResolver.update(uri, fields, BaseColumns._ID + "=" + id, null)
                     }
                 }
             }
@@ -110,6 +112,13 @@ object OnionServiceColumns : BaseColumns {
         } finally {
             onionServices.close()
         }
+    }
+
+    @JvmStatic
+    fun createV3OnionDir(contextWrapper: ContextWrapper): File {
+        var basePath = File(contextWrapper.filesDir.absolutePath, OrbotConstants.ONION_SERVICES_DIR)
+        if (!basePath.isDirectory) basePath.mkdirs()
+        return basePath
     }
 
     private fun getContentUri(context: Context) : Uri {

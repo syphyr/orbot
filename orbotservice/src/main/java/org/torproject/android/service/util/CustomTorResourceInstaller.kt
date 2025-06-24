@@ -32,11 +32,11 @@ class CustomTorResourceInstaller(private val context: Context, private val insta
         @Throws(IOException::class)
         private fun streamToFile(stm: InputStream, outFile: File) {
             val buffer = ByteArray(1024)
-            var bytecount: Int
+            var byteCount: Int
             val stmOut: OutputStream = FileOutputStream(outFile.absolutePath, false)
 
-            while ((stm.read(buffer).also { bytecount = it }) > 0) {
-                stmOut.write(buffer, 0, bytecount)
+            while ((stm.read(buffer).also { byteCount = it }) > 0) {
+                stmOut.write(buffer, 0, byteCount)
             }
 
             stmOut.close()

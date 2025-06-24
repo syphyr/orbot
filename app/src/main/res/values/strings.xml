@@ -307,4 +307,7 @@
     <string name="pref_require_password_description">Prevent access to Orbot until you enter your device\'s password. This can be combined with Camouflage Mode to help hide that Orbot is installed on your device</string>
     <string name="error_no_password_set">Please set a password on your device in order to use Device Password Lock </string>
     <string name="unlock_app_msg" formatted="true">Your device password is needed to unlock %s</string>
+
+    <string name="invalid_bridge_format">Invalid bridge format</string>
+    <string name="error_asking_tor_for_bridges">Error asking Tor how to connect</string>
 </resources>

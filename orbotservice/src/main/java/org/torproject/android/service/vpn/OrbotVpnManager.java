@@ -42,6 +42,7 @@ import org.pcap4j.packet.namednumber.UdpPort;
 import org.torproject.android.service.OrbotConstants;
 import org.torproject.android.service.OrbotService;
 import org.torproject.android.service.R;
+import org.torproject.android.service.ui.Notifications;
 import org.torproject.android.service.util.Prefs;
 
 import java.io.DataOutputStream;
@@ -58,7 +59,6 @@ import IPtProxy.PacketFlow;
 public class OrbotVpnManager implements Handler.Callback {
     private static final String TAG = "OrbotVpnManager";
     boolean isStarted = false;
-    private final static String mSessionName = "OrbotVPN";
     private ParcelFileDescriptor mInterface;
     private int mTorSocks = -1;
     private int mTorDns = -1;
@@ -170,8 +170,8 @@ public class OrbotVpnManager implements Handler.Callback {
             builder.addAddress(virtualGateway, 24)
                     .addRoute(defaultRoute, 0)
                     .addRoute(FAKE_DNS, 32)
-                    .addDnsServer(FAKE_DNS) //just setting a value here so DNS is captured by TUN interface
-                    .setSession(mService.getString(R.string.orbot_vpn));
+                     .addDnsServer(FAKE_DNS) //just setting a value here so DNS is captured by TUN interface
+                    .setSession(Notifications.getVpnSessionName(mService));
 
             //handle ipv6
             builder.addAddress("fdfe:dcba:9876::1", 126);
@@ -196,7 +196,7 @@ public class OrbotVpnManager implements Handler.Callback {
 
             }
 
-            builder.setSession(mSessionName)
+            builder
                     .setConfigureIntent(null) // previously this was set to a null member variable
                     .setBlocking(true);
 
@@ -254,8 +254,8 @@ public class OrbotVpnManager implements Handler.Callback {
                                         mExec.execute(new RequestPacketHandler(ipPacket, pFlow, mDnsResolver));
                                     else //noinspection StatementWithEmptyBody
                                         if (isPacketICMP(ipPacket)) {
-                                        //do nothing, drop!
-                                    } else IPtProxy.inputPacket(pdata);
+                                            //do nothing, drop!
+                                        } else IPtProxy.inputPacket(pdata);
                                 }
                             } catch (IllegalRawDataException e) {
                                 Log.e(TAG, e.getLocalizedMessage());
@@ -315,7 +315,9 @@ public class OrbotVpnManager implements Handler.Callback {
         }
     }
 
-    /** @noinspection BooleanMethodIsAlwaysInverted*/
+    /**
+     * @noinspection BooleanMethodIsAlwaysInverted
+     */
     public boolean isStarted() {
         return isStarted;
     }

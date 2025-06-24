@@ -532,10 +532,11 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
 
     }
 
+
+
     private void setNewBridges(String newBridgeValue) {
 
         Prefs.setBridgesList(newBridgeValue); //set the string to a preference
-        Prefs.putBridgesEnabled(true);
 
         setResult(RESULT_OK);
         enableBridges();
@@ -623,11 +624,9 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
     }
 
     private void enableBridges() {
-        Prefs.putBridgesEnabled(true);
-
         if (STATUS_ON.equals(torStatus)) {
             String bridgeList = Prefs.getBridgesList();
-            if (bridgeList != null && !bridgeList.isEmpty()) {
+            if (!bridgeList.isEmpty()) {
                 requestTorRereadConfig();
             }
         }

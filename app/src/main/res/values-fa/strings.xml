@@ -162,7 +162,7 @@
     <string name="request_bridges_from_torproject">درخواست پل از torproject.org</string>
     <string name="in_a_browser">در مرورگر، به %s رفته و روی Get Bridges &gt; Just Give Me Bridges بزنید!</string>
     <string name="use_custom_bridges">استفاده از پل‌های سفارشی</string>
-    <string name="bridge_snowflake">وصل شدن از طریق دیگر کاربران تور با استفاده از اسنوفلیک (روش ۱ -فستلی)</string>
+    <string name="bridge_snowflake">وصل شدن از طریق دیگر کاربران تور با استفاده از دانه‌برفی (روش ۱ -فستلی)</string>
     <string name="testing_tor_direct_success">پیروزی. اتّصال تور خوب است!</string>
     <string name="testing_tor_direct">آزمودن اتّصال به تور…</string>
     <string name="pref_disable_ipv4_summary">اعلام وصل نشدن به نشانی‌های IPv4 به خروجی‌ها</string>
@@ -178,7 +178,7 @@
     <string name="request_bridges">درخواست پل</string>
     <string name="refresh_apps">تازه‌سازی کاره‌ها</string>
     <string name="captcha">کپچا</string>
-    <string name="bridge_snowflake_amp">وصل شدن از طریق دیگر کاربران تور با استفاده از اسنوفلیک (روش ۲ -AMP)</string>
+    <string name="bridge_snowflake_amp">وصل شدن از طریق دیگر کاربران تور با استفاده از دانه‌برفی (روش ۲ -AMP)</string>
     <string name="snowflake_proxy_msg_description">نمایش یک پیام هنگامی که شما به کسی در عبور از سانسور کمک می‌کنید</string>
     <string name="snowflake_proxy_msg_title">نمایش آگاهی اتّصال</string>
     <string name="solve_captcha_instruction">برای درخواست پل، کپچا را حل کنید.</string>
@@ -229,7 +229,7 @@
     <string name="custom_bridge">پل شخصی</string>
     <string name="next">بعدی</string>
     <string name="ports_not_set">درگاه تنظیم نشده</string>
-    <string name="smart_connect_subtitle">روبوت پیازی تلاش می‌کند از هر راه ممکنی به تور وصل شود: مستقیم، اسنوفلیک و پل.</string>
+    <string name="smart_connect_subtitle">روبوت پیازی تلاش می‌کند از هر راه ممکنی به تور وصل شود: مستقیم، دانه برفی و پل.</string>
     <string name="snowflake">دانه برفی</string>
     <string name="snowflake_subtitle">وصل شدن از طریق داوطلبان تور. رد شدن از برخی مسدودیت‌های تور.</string>
     <string name="direct_connect_subtitle">بهترین روش وصل شدن به تور. استفاده در صورت مسدود نبودن تور.</string>
@@ -290,4 +290,13 @@
     <string name="app_icon_chooser_label_night_watch">ساعت شبانه</string>
     <string name="app_icon_chooser_label_tetras">تتراس</string>
     <string name="app_icon_chooser_label_todo">کارها</string>
+    <string name="bridge_snowflake_sqs">وصل شدن از طریق دیگر کاربران تور با استفاده از دانه‌برفی (روش ۳ -SQS)</string>
+    <string name="snowflake_sqs">دانه برفی SQS</string>
+    <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
+    <string name="app_icon_chooser_label_birdie">پرنده</string>
+    <string name="camo_dialog_title" formatted="true">استتار به عنوان %1$s</string>
+    <string name="camo_dialog_disable_confirm_msg">روبوت پیازی نمایش دادن اطّلاعات آگاهی دربارهٔ اتّصال تورتان را از سر گرفته به شکل معمولی روی صفحهٔ خانگیتان نمایش داده خواهد شد.\n\nاز کا رانداختن حالت استتار روبوت پیازی را دوباره آغاز خواهد کرد.</string>
+    <string name="camo_dialog_disable_title">از کار انداختن حالت استتار</string>
+    <string name="pref_camo_mode_title">حالت استتار</string>
+    <string name="camo_dialog_enable_confirm_msg" formatted="true">روبوت پیازی خودش را به شکل کارهٔ %1$s استتار می‌کند. این کار همهٔ آگاهی‌ها و جزییات دربارهٔ تور را نهفته و چگونگی ظاهر شدن روبوت پیازی را روی صفحهٔ خانگیتان تغییر خواهد داد.\n\nاستتار کردن به عنوان %2$s روبوت پیازی را دوباره آغاز خواهد کرد.</string>
 </resources>
