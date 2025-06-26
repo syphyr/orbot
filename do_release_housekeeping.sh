@@ -6,5 +6,4 @@ BASE=$(dirname "$0")
 sh "$BASE/libs/build-geoip-jar.sh"
 
 # Update built-in bridges.
-cd scripts || exit
-./update_snowflake_bridges.sh
+sh "$BASE/scripts/update-bridges.sh"
