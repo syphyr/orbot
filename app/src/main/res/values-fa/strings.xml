@@ -292,11 +292,20 @@
     <string name="app_icon_chooser_label_todo">کارها</string>
     <string name="bridge_snowflake_sqs">وصل شدن از طریق دیگر کاربران تور با استفاده از دانه‌برفی (روش ۳ -SQS)</string>
     <string name="snowflake_sqs">دانه برفی SQS</string>
-    <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
+    <string name="app_icon_chooser_label_fit_grit">فیت‌گریت</string>
     <string name="app_icon_chooser_label_birdie">پرنده</string>
     <string name="camo_dialog_title" formatted="true">استتار به عنوان %1$s</string>
     <string name="camo_dialog_disable_confirm_msg">روبوت پیازی نمایش دادن اطّلاعات آگاهی دربارهٔ اتّصال تورتان را از سر گرفته به شکل معمولی روی صفحهٔ خانگیتان نمایش داده خواهد شد.\n\nاز کا رانداختن حالت استتار روبوت پیازی را دوباره آغاز خواهد کرد.</string>
     <string name="camo_dialog_disable_title">از کار انداختن حالت استتار</string>
     <string name="pref_camo_mode_title">حالت استتار</string>
     <string name="camo_dialog_enable_confirm_msg" formatted="true">روبوت پیازی خودش را به شکل کارهٔ %1$s استتار می‌کند. این کار همهٔ آگاهی‌ها و جزییات دربارهٔ تور را نهفته و چگونگی ظاهر شدن روبوت پیازی را روی صفحهٔ خانگیتان تغییر خواهد داد.\n\nاستتار کردن به عنوان %2$s روبوت پیازی را دوباره آغاز خواهد کرد.</string>
+    <string name="power_user_mode_permission">نیازمند اجازهٔ هشدارها و یادآوری‌ها برای حالت کاربر حرفه‌ای</string>
+    <string name="power_user_mode_permission_msg">لطفاً برای استفاده از حالت کاربر حرفه‌ای به روبوت پیازی اجازه دهید هشدار و یادآوری تنظیم کند. این برنامه واقعاً هیچ هشداری روی افزاره‌تان تنظیم نخواهد کرد. این اجازه برای در حال اجرا نگه داشتن خدمت روبوت پیازی هنگامی که به عنوان وی‌پی‌ان سراسری استفاده نمی‌شود لازم است.</string>
+    <string name="pref_require_password">قفل گذرواژهٔ افزاره</string>
+    <string name="pref_require_password_description">پیشگیری از دسترسی به روبوت پیازی تا زمان ورود گذرواژهٔ افزاره‌تان. این ویژگی می‌تواند با حالت استتار ترکیب شده تا نصب بودن روبوت پیازی روی افزاره‌تان را پنهان کند</string>
+    <string name="error_no_password_set">لطفاً برای استفاده از قفل گذرواژهٔ افزاره گذرواژه‌ای روی افزاره‌تان تنظیم کنید</string>
+    <string name="unlock_app_msg" formatted="true">قفل‌گشایی %s نیازمند گذرواژهٔ افزاره‌تان است</string>
+    <string name="pref_camo_mode_description">تغییر چگونگی نمایش متن آگاهی، عنوان و نقشک روبوت پیازی روی افزاره‌تان</string>
+    <string name="error_asking_tor_for_bridges">خطا در پرسیدن چگونگی وصل شدن از تور</string>
+    <string name="invalid_bridge_format">قالب پل نامعتبر</string>
 </resources>
