@@ -1,5 +1,5 @@
 # update geoip files from tor
-cd libs
+cd libs || exit
 ./build-geoip-jar.sh
-cd ../scripts
+cd ../scripts || exit
 ./update_snowflake_bridges.sh
