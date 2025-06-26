@@ -1,3 +1,9 @@
+#!/usr/bin/env sh
+
+BASE=$(dirname "$0")
+
+cd "$BASE" || exit
+
 rm -rf geoip.jar assets
 
 mkdir assets
