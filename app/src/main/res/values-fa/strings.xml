@@ -226,7 +226,6 @@
     <string name="smart_connect">اتّصال هوشمند (پیش‌گزیده)</string>
     <string name="direct_connect">اتّصال مستقیم به تور</string>
     <string name="get_a_bridge">پل از تور (Obfs4)</string>
-    <string name="custom_bridge">پل شخصی</string>
     <string name="next">بعدی</string>
     <string name="ports_not_set">درگاه تنظیم نشده</string>
     <string name="smart_connect_subtitle">روبوت پیازی تلاش می‌کند از هر راه ممکنی به تور وصل شود: مستقیم، دانه برفی و پل.</string>
@@ -234,12 +233,10 @@
     <string name="snowflake_subtitle">وصل شدن از طریق داوطلبان تور. رد شدن از برخی مسدودیت‌های تور.</string>
     <string name="direct_connect_subtitle">بهترین روش وصل شدن به تور. استفاده در صورت مسدود نبودن تور.</string>
     <string name="get_a_bridge_subtitle">پنهان کردن شدآمدتان. رد شدن از برخی مسدودیت‌های تور.</string>
-    <string name="custom_bridge_subtitle">بیش‌ترین احتمال برای وصل نگه داشتنتان به تور در صورت انسداد شدید. نیازمند یک نشانی پل از کسی که اطمینان دارید.</string>
     <string name="having_trouble">مشکل دارید</string>
     <string name="having_trouble_subtitle">در ادامه برای استفاده از یک پل تور تلاش می‌کنیم، ولی نیازمند کمکتانیم</string>
     <string name="bridges_obtained_connecting">پل‌ها گرفته شدند! وصل شدن به تور…</string>
     <string name="incorrect_solution">روش نادرست</string>
-    <string name="custom_bridge_description">یک پل شخصی به دست فردی که می‌شناسید فراهم شده. در سازمان‌ها و شبکه‌های مورد اطمینانتان بپرسید که کسی پلی میزبانی می‌کند یا نه.</string>
     <string name="power_user_mode">حالت کاربری قدرتمند</string>
     <string name="action_activate">فعّال کردن</string>
     <string name="volunteer_status_title">به لطفتان امروز

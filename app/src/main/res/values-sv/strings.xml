@@ -234,7 +234,6 @@
     <string name="smart_connect_subtitle">Orbot försöker ansluta till Tor på alla möjliga sätt: Direkt, Snowflake, Bridge.</string>
     <string name="snowflake">Snowflake (original)</string>
     <string name="get_a_bridge_subtitle">Döljer din trafik. Tar sig runt vissa Tor-blockeringar.</string>
-    <string name="custom_bridge">Anpassad bro</string>
     <string name="direct_connect_subtitle">Det bästa sättet att ansluta till Tor. Använd om Tor inte är blockerad.</string>
     <string name="get_a_bridge">Bro från Tor (Obfs4)</string>
     <string name="solve_captcha">Lös Captcha</string>
@@ -245,10 +244,8 @@
     <string name="pref_isolate_protocol_summary">Använd en annan krets för varje anslutningsprotokoll</string>
     <string name="snowflake_subtitle">Anslutningar genom Tor-volontärer. Tar sig runt vissa Tor-blockeringar.</string>
     <string name="log_copied">Logg kopierad</string>
-    <string name="custom_bridge_subtitle">Det är mest troligt att du kan hålla dig ansluten om Tor är blockerad. Kräver en broadress från någon du litar på.</string>
     <string name="next">Nästa</string>
     <string name="incorrect_solution">Felaktig lösning</string>
-    <string name="custom_bridge_description">En skräddarsydd bro tillhandahålls av någon du känner. Fråga i dina betrodda nätverk och organisationer om det finns någon som är värd för en sådan.</string>
     <string name="ports_not_set">Portar inte inställda</string>
     <string name="volunteer_mode_subtitle_desc">Med läget för vänlighet kan din enhet bli en bro för andra. Det hjälper människor att använda Tor på platser där det är blockerat.
 \n

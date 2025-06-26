@@ -206,11 +206,8 @@
     <string name="trying_to_connect_title">Yhdistetään…</string>
     <string name="secure_your_connection_subtitle">Piilota sovelluksia verkkoseurannalta ja käytä estettyjä palveluita.</string>
     <string name="btn_use_custom_bridge">Käytä omaa siltaa</string>
-    <string name="custom_bridge_description">Itse määritettäviä siltoja saat lähteistä, joihin luotat. Tiedustele niitä tuntemistasi verkostoista ja organisaatioista.</string>
     <string name="proxy_ports">Välityspalvelimen portit</string>
-    <string name="custom_bridge_subtitle">Todennäköisin säilyttämään yhteytesi, mikäli Tor on vahvasti estetty. Tarvitset sillan osoitteen luotettavasta lähteestä.</string>
     <string name="get_a_bridge_subtitle">Piilottaa tietoliikenteesi. Kiertää jotkin Tor-estot.</string>
-    <string name="custom_bridge">Oma silta</string>
     <string name="power_user_description">Kokeneille Tor-käyttäjille. Mahdollistaa Orbotin käynnistyksen ilman VPN-asetusta ja näyttää avoimet SOCKS- ja HTTP-portit.</string>
     <string name="power_user_mode">Tehokäyttäjätila</string>
     <string name="action_activate">Aktivoi</string>

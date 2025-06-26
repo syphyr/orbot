@@ -214,7 +214,6 @@
     <string name="configure_header">あなたの Tor 接続を構成する</string>
     <string name="next">次へ</string>
     <string name="bridges_obtained_connecting">ブリッジを獲得しました！ Tor に接続しています…</string>
-    <string name="custom_bridge_description">カスタムブリッジは、あなたが知っている誰かによって提供されます。信頼できるネットワークや組織内で、誰かがカスタムブリッジをホストしていないか尋ねてみてください。</string>
     <string name="volunteer_mode_title">他の人の Tor への
 \n接続を支援する</string>
     <string name="volunteer_mode_subtitle_desc">Kindness Mode は、あなたのデバイスが他の人のためのブリッジになることを可能にします。Tor がブロックされている場所でも使えるようにします。
@@ -232,8 +231,6 @@
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Tor のボランティアを介した接続です。一部の Tor ブロッキングを回避できます。</string>
     <string name="get_a_bridge_subtitle">あなたのトラフィックを隠します。一部の Tor ブロッキングを回避できます。</string>
-    <string name="custom_bridge">カスタムブリッジ</string>
-    <string name="custom_bridge_subtitle">Tor が厳格にブロックされている場合、このオプションが接続を維持できる可能性が最も高いです。信頼できる人からのブリッジアドレスが必要です。</string>
     <string name="get_a_bridge">Tor からのブリッジ (Obfs4)</string>
     <string name="connect">接続</string>
     <string name="solve_captcha">Captcha を解く</string>

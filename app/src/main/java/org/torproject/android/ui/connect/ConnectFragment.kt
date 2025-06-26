@@ -286,7 +286,7 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
                     context.getString(R.string.action_use) + ' ' + getString(R.string.snowflake_sqs)
 
                 Prefs.CONNECTION_PATHWAY_OBFS4 -> connectStr =
-                    context.getString(R.string.action_use) + ' ' + getString(R.string.custom_bridge)
+                    context.getString(R.string.action_use) + ' ' + getString(R.string.custom_bridges)
             }
 
             text = when {

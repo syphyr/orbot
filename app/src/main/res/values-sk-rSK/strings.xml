@@ -240,7 +240,6 @@
     <string name="pref_isolate_protocol">Izolácia klientskych protokolov</string>
     <string name="pref_isolate_protocol_summary">Pre každý pripojovací protokol použite iný obvod</string>
     <string name="bridges_obtained_connecting">Získané mosty! Pripájam k Tor…</string>
-    <string name="custom_bridge_description">Vlastný most poskytuje niekto, koho poznáte. Opýtajte sa vo svojich dôveryhodných sieťach a organizáciách, či ho niekto nehostuje.</string>
     <string name="having_trouble">Ťažkosti</string>
     <string name="volunteer_mode_subtitle_desc">Režim láskavosti umožňuje, aby sa vaše zariadenie stalo mostom pre ostatných. Pomáha ľuďom používať Tor na miestach, kde je blokovaný.
 \n
@@ -262,8 +261,6 @@
     <string name="snowflake_subtitle">Spája sa prostredníctvom dobrovoľníkov Tor. Obchádza niektoré blokovania Tor.</string>
     <string name="get_a_bridge">Most z Tor (Obfs4)</string>
     <string name="get_a_bridge_subtitle">Skrýva vašu návštevnosť. Obchádza niektoré blokovania Tor.</string>
-    <string name="custom_bridge">Vlastný mostík</string>
-    <string name="custom_bridge_subtitle">S najväčšou pravdepodobnosťou vás udrží v spojení, ak je Tor výrazne blokovaný. Vyžaduje adresu mosta od niekoho, komu dôverujete.</string>
     <string name="solve_captcha">Vyriešiť Captcha</string>
     <string name="hide_apps">Skryte aplikácie pred monitorovaním siete a získajte k nim prístup, keď sú blokované.</string>
     <string name="log_copied">Záznam skopírovaný</string>

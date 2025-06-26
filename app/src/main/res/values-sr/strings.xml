@@ -190,7 +190,6 @@
     <string name="menu_help_others">Помози другима</string>
     <string name="menu_header_learn">Сазнај више</string>
     <string name="smart_connect">Паметно повезивање (подразумевано)</string>
-    <string name="custom_bridge_subtitle">Највероватније ће вас одржати повезаним ако је Тор озбиљно блокиран. Захтева адресу моста од некога коме верујете.</string>
     <string name="kindness_adjust_title">Подешавања</string>
     <string name="connection_snowflake">Snowflake</string>
     <string name="pref_flag_secure_title">Безбедност екрана</string>
@@ -226,7 +225,6 @@
     <string name="bridge_snowflake">Повежи се преко других Тор корисника користећи Snowflake (Метод 1 - Fastly)</string>
     <string name="strict_nodes_description">Третирај подешавања за искључивање чворова као захтев за изградњу свих кола. Ово може прекинути функционалност ако није могуће генерисати кола са вашим подешавањима за искључивање чворова.</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Дозволи Wi-Fi корисницима, уређајима повезаним преко tethering-а и свима који могу да се повежу на твој IP, да приступе Тору</string>
-    <string name="custom_bridge">Прилагођени мост</string>
     <string name="having_trouble">Имате проблема</string>
     <string name="v3_onion">.onion домен</string>
     <string name="v3_key_hash">x25519 приватни кључ у Base32</string>
@@ -268,7 +266,6 @@
     <string name="btn_change_exit">Промени излаз</string>
     <string name="captcha_title">Обавести нас да си човек</string>
     <string name="menu_tor_connection">Тор веза</string>
-    <string name="custom_bridge_description">Прилагођени мост обезбеђује неко кога познајете. Питајте унутар својих поузданих мрежа и организација да видите да ли неко хостује један.</string>
     <string name="having_trouble_subtitle">Можемо покушати са Тор мостом следеће, али ће нам требати ваша помоћ</string>
     <string name="power_user_mode">Режим за напредне кориснике</string>
     <string name="power_user_description">За кориснике који су упознати са Тор-ом. Омогућава вам да покренете Orbot без VPN подешавања и приказује отворене SOCKS и HTTP портове</string>

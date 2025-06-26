@@ -115,7 +115,6 @@
     <string name="volunteer_mode_weekly_label">Weekly Total</string>
     <string name="full_device_vpn">Full Device VPN</string>
     <string name="volunteer_mode_label">Kindness Mode</string>
-    <string name="custom_bridge_description">A custom bridge is provided by someone you know. Ask within your trusted networks and organizations to see if anyone is hosting one.</string>
     <string name="solve_captcha_instruction">Solve the CAPTCHA to request bridges.</string>
     <string name="custom_bridges">Custom Bridges</string>
     <string name="use_custom_bridges">Use Custom Bridges</string>
@@ -137,8 +136,6 @@
     <string name="snowflake_subtitle">Connects through Tor volunteers. Gets around some Tor blocking.</string>
     <string name="get_a_bridge">Bridge from Tor (Obfs4)</string>
     <string name="get_a_bridge_subtitle">Cloaks your traffic. Gets around some Tor blocking.</string>
-    <string name="custom_bridge">Custom Bridge</string>
-    <string name="custom_bridge_subtitle">Most likely to keep you connected if Tor is severely blocked. Requires a bridge address from someone you trust.</string>
     <string name="connect">Connect</string>
     <string name="next">Next</string>
     <string name="solve_captcha">Solve Captcha</string>

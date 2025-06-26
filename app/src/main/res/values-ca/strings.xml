@@ -163,7 +163,6 @@
     <string name="mebibyte">MiB</string>
     <string name="custom_bridges">Ponts personalitzats</string>
     <string name="volunteer_mode_alltime_label">Total global</string>
-    <string name="custom_bridge_description">Un pont personalitzat és aportat per algú que coneixeu. Demaneu en les xarxes i organitzacions de confiança per a veure si algú n\'allotja cap.</string>
     <string name="proxy_ports">Ports proxy</string>
     <string name="pref_circuit_padding">Farciment del circuit</string>
     <string name="no_internet_subtitle">Us cal una connexió a internet per a utilitzar l\'Orbot.</string>
@@ -185,7 +184,6 @@
     <string name="ask_tor">Pregunteu al Tor</string>
     <string name="pref_http_dialog">Configuració del port HTTP</string>
     <string name="solve_captcha">Resoleu el Captcha</string>
-    <string name="custom_bridge">Pont personalitzat</string>
     <string name="menu_help_others">Ajudeu els altres</string>
     <string name="power_user_mode">Mode d\'usuari avançat</string>
     <string name="btn_choose_apps">Trieu aplicacions</string>
@@ -201,7 +199,6 @@
     <string name="pref_isolate_protocol">Aïlla els protocols de client</string>
     <string name="secure_your_connection_subtitle">Oculteu les aplicacions al rastreig de la xarxa i obteniu-ne accés quan són blocades.</string>
     <string name="enter_characters_from_image">Introduïu el text de sobre</string>
-    <string name="custom_bridge_subtitle">És molt probable que us mantingui connectat si el Tor pateix un blocatge sever. Requereix l\'adreça d\'un pont d\'algú en qui confieu.</string>
     <string name="paste_bridges">Enganxa els ponts</string>
     <string name="volunteer_mode_weekly_label">Total setmanal</string>
     <string name="request_bridges">Sol·licita ponts</string>

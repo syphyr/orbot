@@ -105,7 +105,6 @@
     <string name="menu_help_others">Օգնել այլոց</string>
     <string name="direct_connect">Tor-ին ուղիղ միացում</string>
     <string name="direct_connect_subtitle">Tor-ին միանալու լավագույն ձևը: Օգտագործեք եթե Tor-ն արգելափակված չէ:</string>
-    <string name="custom_bridge">Հարմարեցված կամուրջ</string>
     <string name="snowflake">Snowflake (բնօրինակ ձև)</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="bridges_obtained_connecting">Կամուրջները ստացվեցի՜ն: Միացվում է tor-ին…</string>

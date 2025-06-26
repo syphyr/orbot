@@ -223,14 +223,11 @@ atl oquitlapatic</string>
     <string name="snowflake_subtitle">Mocentilili itechpa palehuianimeh ipan Tor. Quipalehui ahmo quitzacuitia in Tor. </string>
     <string name="get_a_bridge">Quipiaz ce cuauhpanco ipan Tor (Obfs4)</string>
     <string name="get_a_bridge_subtitle">Quixpachoa miec panoliztli. Quipalehui ahmo tzacuiliztli ipan Tor.</string>
-    <string name="custom_bridge">Neuhyantica cuauhpanco</string>
-    <string name="custom_bridge_subtitle">Niman melahuac huel quimocentilnemi intla Tor cenca quitzacuiltia. Monequi ce chantia cuauhpanco ac cualtlacatl.</string>
     <string name="connect">Xitencui</string>
     <string name="next">Occe</string>
     <string name="solve_captcha">Quinanquilia Captcha</string>
     <string name="incorrect_solution">Ahcualli nanquiliztli</string>
     <string name="bridges_obtained_connecting">¡Cuauhpanco tlein oquipix! Quicentilia ihtic Tor…</string>
-    <string name="custom_bridge_description">Ac tlein ticmatiz quinmaca ce neuhyantica cuahpanco. Xictlatlanili ipan matlatl ihuan cahualli motlacanechicol inic moquitta intla ac quichantia cente. </string>
     <string name="having_trouble">Otipixtaya ihuihuicayotica</string>
     <string name="having_trouble_subtitle">Tiyahue timaniliz ce Tortzalantli, yehce timonequih mopalehuia</string>
     <string name="power_user_mode">Tlamatini yuhcayotl</string>

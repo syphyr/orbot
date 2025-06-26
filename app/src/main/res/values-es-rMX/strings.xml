@@ -99,8 +99,6 @@
 \n
 \n• Lo puedes detener en cualquier momento</string>
     <string name="direct_connect_subtitle">La mejor manera de conectarse a Tor. Usar si Tor no está bloqueado.</string>
-    <string name="custom_bridge_subtitle">Lo más probable es que te mantenga conectade si Tor está severamente bloqueado. Requiere una dirección puente de alguien de confianza.</string>
-    <string name="custom_bridge_description">Un puente personalizado lo proporciona alguien que tu conoces. Pregunta dentro de tus redes y organizaciones de confianza para ver si alguien está alojando uno.</string>
     <string name="app_suggested_subtitle">Orbot funciona mejor con aplicaciones de mensajería y redes sociales.</string>
     <string name="log_copied">Registro copiado</string>
     <string name="apps_other_apps">Otras aplicaciones</string>
@@ -236,7 +234,6 @@
     <string name="snowflake_subtitle">Se conecta a través de los voluntarios de Tor. Evita algunos bloqueos de Tor.</string>
     <string name="get_a_bridge">Puente de Tor (Obfs4)</string>
     <string name="get_a_bridge_subtitle">Encubre tu tráfico. Evita algunos bloqueos de Tor.</string>
-    <string name="custom_bridge">Puente Personalizado</string>
     <string name="connect">Conectar</string>
     <string name="next">Siguiente</string>
     <string name="solve_captcha">Resolver CAPTCHA</string>

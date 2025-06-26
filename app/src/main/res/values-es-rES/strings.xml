@@ -232,15 +232,12 @@
     <string name="direct_connect">Conexión directa a Tor</string>
     <string name="snowflake">Snowflake</string>
     <string name="get_a_bridge_subtitle">Encubre su tráfico. Evita algunos bloqueos de Tor.</string>
-    <string name="custom_bridge">Puente Personalizado</string>
-    <string name="custom_bridge_subtitle">Lo más probable es que te mantenga conectado si Tor está severamente bloqueado. Requiere una dirección puente de alguien de confianza.</string>
     <string name="connect">Conectar</string>
     <string name="next">Conectarse</string>
     <string name="solve_captcha">Resolver Captcha</string>
     <string name="ports_not_set">Puertos no configurados</string>
     <string name="incorrect_solution">Solución incorrecta</string>
     <string name="bridges_obtained_connecting">¡Puentes obtenidos! Conectando a tor…</string>
-    <string name="custom_bridge_description">Un puente personalizado lo proporciona alguien que usted conoce. Pregunte dentro de sus redes y organizaciones de confianza para ver si alguien está alojando uno.</string>
     <string name="having_trouble">¿Tienes problemas\?</string>
     <string name="having_trouble_subtitle">Podemos probar un puente Tor a continuación, pero necesitaremos su ayuda.</string>
     <string name="power_user_mode">Modo de usuario avanzado</string>

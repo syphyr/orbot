@@ -218,7 +218,6 @@
     <string name="direct_connect">Conexão direta com o Tor</string>
     <string name="snowflake">Snowflake (Original)</string>
     <string name="get_a_bridge">Ponte do Tor (Obfs4)</string>
-    <string name="custom_bridge">Ponte personalizada</string>
     <string name="connect">Conectar</string>
     <string name="next">Próximo</string>
     <string name="proxy_ports">Portas do proxy</string>
@@ -233,11 +232,9 @@
     <string name="direct_connect_subtitle">A melhor maneira de se conectar ao Tor. Use caso o Tor não esteja bloqueado.</string>
     <string name="get_a_bridge_subtitle">Oculta o seu tráfego. Contorna alguns bloqueios do Tor.</string>
     <string name="snowflake_subtitle">Conecta-se através de voluntários do Tor. Contorna alguns bloqueios do Tor.</string>
-    <string name="custom_bridge_subtitle">O mais provável é mantê-lo conectado caso o Tor esteja totalmente bloqueado. Requer um endereço de ponte de alguém que você confie.</string>
     <string name="solve_captcha">Resolver o captcha</string>
     <string name="incorrect_solution">Solução incorreta</string>
     <string name="bridges_obtained_connecting">Pontes obtidas! Conectando-se ao tor…</string>
-    <string name="custom_bridge_description">Uma ponte personalizada foi fornecida por alguém que você conhece. Pergunte em suas redes e organizações confiáveis para ver se alguém está hospedando um.</string>
     <string name="having_trouble_subtitle">Podemos tentar uma ponte Tor em seguida, mas precisaremos da sua ajuda</string>
     <string name="having_trouble">Tendo problemas</string>
     <string name="power_user_description">Para usuários familiarizados com Tor. Permite que você inicie o Orbot sem a configuração VPN e mostra as portas SOCKS e HTTP que estejam abertas</string>

@@ -237,14 +237,19 @@
     <string name="snowflake_subtitle">Connects through Tor volunteers. Gets around some Tor blocking.</string>
     <string name="get_a_bridge">Bridge from Tor (Obfs4)</string>
     <string name="get_a_bridge_subtitle">Cloaks your traffic. Gets around some Tor blocking.</string>
-    <string name="custom_bridge">Custom Bridge</string>
-    <string name="custom_bridge_subtitle">Most likely to keep you connected if Tor is severely blocked. Requires a bridge address from someone you trust.</string>
+    <string name="bridges_via_telegram">Bridges from Tor (obfs4) via Telegram</string>
+    <string name="bridges_via_telegram_subtitle">Likely to keep you connected if Tor is severely blocked. Using this method will launch the Tor Bot Telegram channel. Tap \'Start\' or write \'%1$s\' in the chat to get bridge addresses.</string>
+    <string name="bridges_via_email">Bridges from Tor (obfs4) via Email</string>
+    <string name="bridges_via_email_subtitle">Cloaks your traffic. Gets around some Tor blocking. Requires an email sent from a Gmail or Riseup account.</string>
+    <string name="bridge_meek_azure" translatable="false">Meek Azure</string>
+    <string name="bridge_meek_azure_subtitle">Cloaks your traffic. Gets around some Tor blocking. May be very slow.</string>
+    <string name="custom_bridges_subtitle">Ask within your trusted networks and organizations to see if anyone is hosting a bridge. If not, a friend can get bridges for you.</string>
     <string name="connect">Connect</string>
     <string name="next">Next</string>
     <string name="solve_captcha">Solve Captcha</string>
     <string name="incorrect_solution">Incorrect Solution</string>
     <string name="bridges_obtained_connecting">Bridges obtained! Connecting to tor…</string>
-    <string name="custom_bridge_description">A custom bridge is provided by someone you know. Ask within your trusted networks and organizations to see if anyone is hosting one.</string>
+    <string name="custom_bridges_description">Paste the bridge addresses you receive below. Or scan the QR code to add them. Friends can get bridges for you at %1$s.</string>
     <string name="having_trouble">Having trouble</string>
     <string name="having_trouble_subtitle">We can try a Tor bridge next but will need your help</string>
     <string name="power_user_mode">Power User Mode</string>
@@ -310,4 +315,5 @@
 
     <string name="invalid_bridge_format">Invalid bridge format</string>
     <string name="error_asking_tor_for_bridges">Error asking Tor how to connect</string>
+    <string name="enter_bridge_address">Enter bridge address</string>
 </resources>

@@ -213,8 +213,6 @@
     <string name="volunteer_mode_alltime_label">Итого за всё время</string>
     <string name="snowflake">Snowflake (оригинал)</string>
     <string name="get_a_bridge_subtitle">Маскировка вашего трафика. Обходит некоторые блокировки Tor.</string>
-    <string name="custom_bridge_subtitle">Скорее всего, это поможет сохранить подключение, даже если Tor будет жёстко заблокирован. Требуется адрес моста от кого-то, кому вы доверяете.</string>
-    <string name="custom_bridge">Пользовательский мост</string>
     <string name="connect">Подключить</string>
     <string name="next">Далее</string>
     <string name="solve_captcha">Решить капчу</string>
@@ -239,7 +237,6 @@
     <string name="bridges_obtained_connecting">Мосты получены! Подключение к Tor…</string>
     <string name="having_trouble">Есть проблема</string>
     <string name="having_trouble_subtitle">В следующий раз можно попробовать использовать мост Tor, но понадобится ваша помощь</string>
-    <string name="custom_bridge_description">Пользовательский мост предоставляется кем-то из ваших знакомых. Спросите в своих доверенных сетях и организациях, нет ли у кого-нибудь такого моста.</string>
     <string name="power_user_mode">Режим опытного пользователя</string>
     <string name="volunteer_status_title">Мир стал лучше
 \nблагодаря вам.</string>

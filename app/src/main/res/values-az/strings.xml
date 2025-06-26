@@ -214,7 +214,6 @@
     <string name="volunteer_mode_label">Xeyirxahlıq rejimi</string>
     <string name="hide_apps">Tətbiqləri şəbəkə monitorinqindən gizlədin və bloklandıqda giriş əldə edin.</string>
     <string name="volunteer_mode_alltime_label">Bütün Zamanların Cəmi</string>
-    <string name="custom_bridge_description">Xüsusi körpü tanıdığınız biri tərəfindən təmin edilir. Etibarlı şəbəkələrinizdə və təşkilatlarınızdan kiminsə birinə ev sahibliyi edib-etmədiyini öyrənmək üçün soruşun.</string>
     <string name="proxy_ports">Proksi Portlar</string>
     <string name="msg_try_something_else">Başqa bir şey cəhd edin</string>
     <string name="not_sure">Əmin deyilsiniz?</string>
@@ -228,12 +227,10 @@
 \n• İstənilən vaxt söndürülə bilər</string>
     <string name="ports_not_set">Portlar Ayarlanmayıb</string>
     <string name="solve_captcha">Captcha həll edin</string>
-    <string name="custom_bridge">Xüsusi körpü</string>
     <string name="menu_help_others">Başqalarına kömək edin</string>
     <string name="power_user_mode">Güc istifadəçi rejimi</string>
     <string name="smart_connect">Smart Connect (defolt)</string>
     <string name="apps_other_apps">Digər Proqramlar</string>
-    <string name="custom_bridge_subtitle">Tor ciddi şəkildə bloklanırsa, çox güman ki, sizi əlaqə saxlayacaq. Etibar etdiyiniz şəxsdən körpü ünvanı tələb edir.</string>
     <string name="volunteer_mode_weekly_label">Həftəlik Cəmi</string>
     <string name="apps_suggested_title">Təklif olunan proqramlar</string>
     <string name="log_copied">Qeyd kopyalandı</string>

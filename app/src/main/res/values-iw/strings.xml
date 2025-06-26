@@ -184,7 +184,6 @@
     <string name="pref_circuit_padding_summary">אפשר להפעיל ריפוד מעגל כדי להגן מפני מגוון צורות של ניתוח תעבורה</string>
     <string name="pref_reduced_circuit_padding">ריפוד מעגל מופחת</string>
     <string name="volunteer_mode_alltime_label">סיכום לכל הזמן</string>
-    <string name="custom_bridge_description">גשר מותאם אישית מסופק על ידי גופים שמוכרים לך. כדאי לבקש מתוך הרשתות והארגונים המהימנים שלך כדי לראות אם מישהו מארח אחד.</string>
     <string name="proxy_ports">פתחות מתווך</string>
     <string name="no_internet_subtitle">צריך חיבור לאינטרנט כדי להשתמש ב־Orbot.</string>
     <string name="not_sure">בספק\?</string>
@@ -201,7 +200,6 @@
     <string name="ports_not_set">לא מוגדרות פתחות</string>
     <string name="ask_tor">לשאול את Tor</string>
     <string name="solve_captcha">יש לפתור את ה־Captcha</string>
-    <string name="custom_bridge">גשר מותאם אישית</string>
     <string name="menu_help_others">סיוע לאחרים</string>
     <string name="consider_disable_battery_optimizations">שירותים מתארחים פועלים, כדאי להשבית את מיטוב הסוללה</string>
     <string name="power_user_mode">מצב משתמש פיכח</string>
@@ -215,7 +213,6 @@
     <string name="snowflake_proxy_msg_title">הצגת הודעת חיבור</string>
     <string name="secure_your_connection_subtitle">הסתרת יישומונים מניטור רשת וקבלת גישה כשהן חסומות.</string>
     <string name="enter_characters_from_image">נא למלא טקסט למעלה</string>
-    <string name="custom_bridge_subtitle">סביר להניח שישאיר אותך מחובר אם Tor נחסם קשות. דורש כתובת גשר מגוף מהימן.</string>
     <string name="paste_bridges">הדבקת גשרים</string>
     <string name="volunteer_mode_weekly_label">סיכום שבועי</string>
     <string name="request_bridges">בקשת גשרים</string>

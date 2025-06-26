@@ -200,7 +200,6 @@
     <string name="menu_more">Mer</string>
     <string name="trying_to_connect_title">Kobler til…</string>
     <string name="volunteer_mode_alltime_label">Total gjennom tidene</string>
-    <string name="custom_bridge_description">En tilpasset bro leveres av noen du kjenner. Spør i de nettverkene og organisasjonene du stoler på, for å se om noen er vertskap for en.</string>
     <string name="proxy_ports">Proxy-porter</string>
     <string name="no_internet_subtitle">Du trenger en internettforbindelse for å bruke Orbot.</string>
     <string name="msg_try_something_else">Prøv noe annet</string>
@@ -218,7 +217,6 @@
     <string name="no_thx">Nei takk</string>
     <string name="ask_tor">Spør Tor</string>
     <string name="solve_captcha">Løs Captcha</string>
-    <string name="custom_bridge">Tilpasset bro</string>
     <string name="menu_help_others">Hjelp andre</string>
     <string name="power_user_mode">Strømbrukermodus</string>
     <string name="btn_choose_apps">Velg apper</string>
@@ -230,7 +228,6 @@
     <string name="pref_isolate_port_summary">Bruk en annen krets for hver destinasjonsport</string>
     <string name="pref_isolate_protocol">Isolere klientprotokoller</string>
     <string name="secure_your_connection_subtitle">Skjul apper fra nettverksovervåking og få tilgang når de er blokkert.</string>
-    <string name="custom_bridge_subtitle">Det er mest sannsynlig at du kan holde deg tilkoblet hvis Tor er sterkt blokkert. Krever en broadresse fra noen du stoler på.</string>
     <string name="volunteer_mode_weekly_label">Ukentlig Totalt</string>
     <string name="kindness_adjust_title">Juster når den går…</string>
     <string name="apps_suggested_title">Foreslåtte apper</string>

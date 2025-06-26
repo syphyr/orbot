@@ -152,7 +152,6 @@
     <string name="snowflake_subtitle">Menghubungkan melalui sukarelawan Tor. Melewati beberapa pemblokiran Tor.</string>
     <string name="get_a_bridge">Jembatan dari Tor (Obfs4)</string>
     <string name="get_a_bridge_subtitle">Menyembunyikan lalu lintas Anda. Melewati beberapa pemblokiran Tor.</string>
-    <string name="custom_bridge">Jembatan Khusus</string>
     <string name="connect">Hubungkan</string>
     <string name="next">Lanjutkan</string>
     <string name="solve_captcha">Selesaikan Captcha</string>
@@ -214,7 +213,6 @@
 \n• Hanya bisa berjalan dengan wifi
 \n
 \n• Dapat dimatikan kapan pun</string>
-    <string name="custom_bridge_subtitle">Kemungkinan untuk membuat Anda tetap terhubung jika kebanyakan Tor diblokir. Membutuhkan alamat jembatan dari seseorang yang Anda percaya.</string>
     <string name="confirm">Konfirmasi</string>
     <string name="v3_backup_key_warning">Peringatan: Ini dapat membocorkan kunci Anda ke aplikasi lain</string>
     <string name="delete_service">Hapus Layanan</string>
@@ -249,7 +247,6 @@
     <string name="refresh_captcha">Muat ulang CAPTCHA</string>
     <string name="incorrect_solution">Solusi Tidak Benar</string>
     <string name="bridges_obtained_connecting">Jembatan didapatkan! Menghubungkan ke tor…</string>
-    <string name="custom_bridge_description">Sebuah jembatan khusus disediakan oleh seseorang yang Anda tahu. Tanya dalam jaringan dan organisasi terpercaya Anda jika seseorang menyediakan sebuah jembatan.</string>
     <string name="having_trouble">Mengalami masalah</string>
     <string name="having_trouble_subtitle">Kami bisa mencoba sebuah jembatan Tor berikut tetapi akan membutuhkan bantuan Anda</string>
     <string name="hide_apps">Sembunyikan aplikasi dari pemantauan jaringan dan dapatkan akses ketika mereka diblokir.</string>

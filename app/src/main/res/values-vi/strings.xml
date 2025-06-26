@@ -232,7 +232,6 @@
     <string name="proxy_ports">Các cổng Proxy</string>
     <string name="no_thx">Không cảm ơn</string>
     <string name="bridges_obtained_connecting">Đã kiếm được cầu Bridge rồi! Đang kết nối tới Tor…</string>
-    <string name="custom_bridge_description">Một cầu Bridge tuỳ chỉnh được cung cấp bởi ai đó mà bạn quen biết. Hãy hỏi xung quanh các mạng lưới quan hệ và tổ chức đáng tin cậy của bạn để xem nếu có ai đó đang host một cái.</string>
     <string name="power_user_description">Đối với những người dùng đã quen thuộc với Tor. Cho phép bạn khởi động Orbot mà không cần cài đặt VPN và hiển thị các cổng SOCKS và HTTP mở khả dụng</string>
     <string name="volunteer_mode_label">Chế độ thân thiện</string>
     <string name="direct_connect_subtitle">Cách tốt nhất để kết nối tới Tor. Sử dụng nếu như Tor không bị chặn.</string>
@@ -241,8 +240,6 @@
     <string name="smart_connect_subtitle">Orbot thực hiện việc kết nối đến Tor thông qua bất kỳ cách khả dụng nào: Trực tiếp, Snowflake, cầu nối Bridge.</string>
     <string name="direct_connect">Kết nối Trực tiếp đến Tor</string>
     <string name="get_a_bridge_subtitle">Che chắn, trùm khoác lưu lượng traffic của bạn lại. Vượt qua một số những sự kiểm duyệt hoặc chặn Tor.</string>
-    <string name="custom_bridge">Cầu Bridge tuỳ chỉnh</string>
-    <string name="custom_bridge_subtitle">Rất có thể để giữ cho bạn được kết nối nếu như Tor bị chặn một cách mạnh mẽ, tàn khốc. Yêu cầu một địa chỉ cầu Bridge từ ai đó mà bạn tin tưởng.</string>
     <string name="volunteer_mode">Chế độ Thân thiện</string>
     <string name="snowflake_proxy_msg_title">Hiển thị Thông báo Kết nối</string>
     <string name="snowflake_proxy_msg_description">Hiển thị một tin nhắn khi bạn giúp đỡ ai đó vượt qua kiểm duyệt</string>

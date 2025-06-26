@@ -242,7 +242,6 @@
 \n• Deluje lahko samo prek Wi-Fi-ja
 \n• Kadar koli ga je mogoče izklopiti</string>
     <string name="smart_connect_subtitle">Orbot se poskuša povezati s Torom prek katerega koli razpoložljivega načina: neposredno, snažinka, most.</string>
-    <string name="custom_bridge_description">Most po meri zagotovi nekdo, ki ga poznate. Povprašajte v svojih zaupanja vrednih omrežjih in organizacijah, ali jih kdo gosti.</string>
     <string name="log_copied">Dnevnik kopiran</string>
     <string name="no_internet_title">Povežite se z internetom</string>
     <string name="kindness_config_detail">Konfigurirajte, kako in kdaj lahko vaša naprava deluje kot proksi snežinka za druge uporabnike Tora.</string>
@@ -251,7 +250,6 @@
     <string name="direct_connect">Neposredna povezava s Torom</string>
     <string name="ports_not_set">Vrata niso nastavljena</string>
     <string name="hide_apps">Skrijte aplikacije pred nadzorom omrežja in pridobite dostop, ko so blokirane.</string>
-    <string name="custom_bridge_subtitle">Najverjetneje da boste ostali povezani, če je Tor močno blokiran. Zahteva naslov mosta nekoga, ki mu zaupate.</string>
     <string name="solve_captcha">Rešite Captcha</string>
     <string name="incorrect_solution">Napačna rešitev</string>
     <string name="bridges_obtained_connecting">Mostovi pridobljeni! Povezovanje s Torom …</string>
@@ -268,7 +266,6 @@
     <string name="pref_flag_secure_summary">Preprečite drugim aplikacijam snemanje posnetkov zaslona Orbota</string>
     <string name="pref_flag_secure_title">Varnost zaslona</string>
     <string name="snowflake">Snežinka (originalno)</string>
-    <string name="custom_bridge">Most po meri</string>
     <string name="proxy_ports">Proksi vrata</string>
     <string name="volunteer_mode_weekly_label">Skupaj tedensko</string>
     <string name="volunteer_mode_alltime_label">Skupaj vseh časov</string>

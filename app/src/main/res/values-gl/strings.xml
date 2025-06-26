@@ -245,7 +245,6 @@
 \n• Pode apagarse en calquer momento</string>
     <string name="direct_connect">Conexión directa con Tor</string>
     <string name="get_a_bridge_subtitle">Oculta o tráfico. Evita algúns bloqueos de Tor.</string>
-    <string name="custom_bridge">Ponte persoalizada</string>
     <string name="ports_not_set">Portos non configurados</string>
     <string name="volunteer_mode_title">Axude a outros
 \na conectarse a Tor</string>

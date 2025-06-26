@@ -13,6 +13,7 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 
 import kotlinx.serialization.json.Json
+import org.torproject.android.Constants
 
 import java.net.InetSocketAddress
 import java.net.Proxy
@@ -48,7 +49,7 @@ object ServiceBuilder {
 
         val contentType = "application/json".toMediaType()
         val retrofit = Retrofit.Builder()
-            .baseUrl("https://bridges.torproject.org/moat/circumvention/")
+            .baseUrl(Constants.bridgesUri.buildUpon().path("/moat/circumvention/").build().toString())
             .addConverterFactory(json.asConverterFactory(contentType))
             .client(client)
             .build()
