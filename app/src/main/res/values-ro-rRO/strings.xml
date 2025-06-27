@@ -161,7 +161,6 @@
     <string name="app_services">Servicii de aplicații</string>
     <string name="refresh_apps">Aplicații de reîmprospătare</string>
     <string name="request_bridges">Solicită punți</string>
-    <string name="enter_characters_from_image">Introduceți textul de mai sus</string>
     <string name="custom_bridges">Punți personalizate</string>
     <string name="configure_custom_bridges">Configurarea punților personalizate</string>
     <string name="paste_bridges">Lipire adrese punți</string>
@@ -178,7 +177,6 @@
     <string name="drawer_close">Închide</string>
     <string name="proxy_ports">Porturi proxy</string>
     <string name="snowflake_amp">Snowflake AMP</string>
-    <string name="get_a_bridge">Punte de la Tor (Obfs4)</string>
     <string name="asking">CERERE…</string>
     <string name="no_internet_title">Conectare la internet</string>
     <string name="kindness_config_detail">Configurați cum și când dispozitivul dvs. poate acționa ca proxy Snowflake pentru alți utilizatori Tor.</string>
@@ -231,7 +229,6 @@
     <string name="in_a_browser">Într-un browser, vizitați %s și atingeți Get Bridges &gt; Just Give Me Bridges!</string>
     <string name="smart_connect_subtitle">Orbot încearcă să se conecteze la Tor prin orice modalitate disponibilă: Direct, Snowflake, Punte.</string>
     <string name="smart_connect">Conectare inteligentă (implicită)</string>
-    <string name="get_a_bridge_subtitle">Camuflează traficul. Ocolește unele blocaje Tor.</string>
     <string name="kindness_adjust_title">Setări</string>
     <string name="snowflake_subtitle">Se conectează prin intermediul voluntarilor Tor. Ocolește unele blocaje Tor.</string>
     <string name="secure_your_connection_title">Gata de conectare</string>
@@ -262,7 +259,6 @@
     <string name="volunteer_status_title">Astăzi este mai bine
 \ndatorită vouă.</string>
     <string name="next">Următorul</string>
-    <string name="solve_captcha">Rezolvă Captcha</string>
     <string name="connection_direct">Direct</string>
     <string name="connection_snowflake">Snowflake</string>
     <string name="connection_custom">Personalizat</string>

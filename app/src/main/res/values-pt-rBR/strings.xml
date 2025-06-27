@@ -156,7 +156,6 @@
     <string name="pref_reduced_circuit_padding">Preenchimento reduzido do circuito</string>
     <string name="pref_circuit_padding_summary">Ative o preenchimento do circuito para se defender contra algumas formas de análise de tráfego</string>
     <string name="pref_circuit_padding">Preenchimento do circuito</string>
-    <string name="enter_characters_from_image">Digite o texto acima</string>
     <string name="captcha">Captcha</string>
     <string name="solve_captcha_instruction">Para solicitar pontes resolva o CAPTCHA.</string>
     <string name="request_bridges">Solicitar Pontes</string>
@@ -217,7 +216,6 @@
     <string name="drawer_close">Fechar</string>
     <string name="direct_connect">Conexão direta com o Tor</string>
     <string name="snowflake">Snowflake (Original)</string>
-    <string name="get_a_bridge">Ponte do Tor (Obfs4)</string>
     <string name="connect">Conectar</string>
     <string name="next">Próximo</string>
     <string name="proxy_ports">Portas do proxy</string>
@@ -230,9 +228,7 @@
     <string name="smart_connect">Conexão inteligente (padrão)</string>
     <string name="smart_connect_subtitle">O Orbot tenta se conectar ao Tor por qualquer meio disponível: Direto, Snowflake, Ponte.</string>
     <string name="direct_connect_subtitle">A melhor maneira de se conectar ao Tor. Use caso o Tor não esteja bloqueado.</string>
-    <string name="get_a_bridge_subtitle">Oculta o seu tráfego. Contorna alguns bloqueios do Tor.</string>
     <string name="snowflake_subtitle">Conecta-se através de voluntários do Tor. Contorna alguns bloqueios do Tor.</string>
-    <string name="solve_captcha">Resolver o captcha</string>
     <string name="incorrect_solution">Solução incorreta</string>
     <string name="bridges_obtained_connecting">Pontes obtidas! Conectando-se ao tor…</string>
     <string name="having_trouble_subtitle">Podemos tentar uma ponte Tor em seguida, mas precisaremos da sua ajuda</string>

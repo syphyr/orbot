@@ -169,7 +169,6 @@
     <string name="pref_disable_ipv4">Απενεργοποίηση συνδέσεων IPv4</string>
     <string name="testing_tor_direct_success">Επιτυχία. Η σύνδεση Tor είναι καλή!</string>
     <string name="request_bridges">Αίτημα Γέφυρες</string>
-    <string name="enter_characters_from_image">Πληκτρολογήστε το παραπάνω κείμενο</string>
     <string name="request_bridges_from_torproject">Αίτημα Γέφυρες από torproject.org</string>
     <string name="custom_bridges">Προσαρμοσμένες γέφυρες</string>
     <string name="configure_custom_bridges">Διαμόρφωση προσαρμοσμένων γεφυρών</string>
@@ -223,7 +222,6 @@
     <string name="smart_connect">Smart Connect (προεπιλογή)</string>
     <string name="connect">Συνδέστε το</string>
     <string name="next">Επόμενο</string>
-    <string name="solve_captcha">Επίλυση Captcha</string>
     <string name="incorrect_solution">Λανθασμένη λύση</string>
     <string name="bridges_obtained_connecting">Έγινε λήψη των γεφυρών! Σύνδεση στο tor…</string>
     <string name="title_choose_apps">Επιλέξτε εφαρμογές</string>
@@ -244,8 +242,6 @@
     <string name="app_suggested_subtitle">Το Orbot λειτουργεί καλύτερα με εφαρμογές ανταλλαγής μηνυμάτων και μέσων κοινωνικής δικτύωσης.</string>
     <string name="apps_suggested_title">Προτεινόμενες εφαρμογές</string>
     <string name="snowflake_subtitle">Συνδέεται μέσω εθελοντών του Tor. Παρακάμπτει κάποιο μπλοκάρισμα του Tor.</string>
-    <string name="get_a_bridge">Γέφυρα από Tor (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Αποκρύπτει την κυκλοφορία σας. Παρακάμπτει κάποιο μπλοκάρισμα του Tor.</string>
     <string name="smart_connect_subtitle">Το Orbot προσπαθεί να συνδεθεί στο Tor με οποιονδήποτε διαθέσιμο τρόπο: Snowflake, Bridge.</string>
     <string name="volunteer_mode_subtitle_desc">Η λειτουργία \"Ευγένεια\" επιτρέπει στη συσκευή σας να γίνει γέφυρα για τους άλλους. Βοηθάει τους ανθρώπους να χρησιμοποιούν το Tor σε μέρη όπου είναι μπλοκαρισμένο.
 \n

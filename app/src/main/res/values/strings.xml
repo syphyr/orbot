@@ -177,7 +177,6 @@
     <string name="refresh_captcha">Refresh CAPTCHA</string>
     <string name="solve_captcha_instruction">Solve the CAPTCHA to request bridges.</string>
     <string name="captcha">Captcha</string>
-    <string name="enter_characters_from_image">Enter text above</string>
     <!-- BridgeWizardActivity -->
     <string name="request_bridges_from_torproject">Request Bridges from torproject.org</string>
     <string name="custom_bridges">Custom Bridges</string>
@@ -246,7 +245,6 @@
     <string name="custom_bridges_subtitle">Ask within your trusted networks and organizations to see if anyone is hosting a bridge. If not, a friend can get bridges for you.</string>
     <string name="connect">Connect</string>
     <string name="next">Next</string>
-    <string name="solve_captcha">Solve Captcha</string>
     <string name="incorrect_solution">Incorrect Solution</string>
     <string name="bridges_obtained_connecting">Bridges obtained! Connecting to tor…</string>
     <string name="custom_bridges_description">Paste the bridge addresses you receive below. Or scan the QR code to add them. Friends can get bridges for you at %1$s.</string>

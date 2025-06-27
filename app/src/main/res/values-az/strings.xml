@@ -131,7 +131,6 @@
     <string name="pref_isolate_dest">Təyinat ünvanlarını təcrid edin</string>
     <string name="bridge_direct_connect">Birbaşa Tor-a qoşulun (Ən yaxşı)</string>
     <string name="pref_isolate_protocol">Müştəri protokollarını təcrid edin</string>
-    <string name="enter_characters_from_image">Yuxarıda mətn daxil edin</string>
     <string name="request_bridges">Körpülər tələb edin</string>
     <string name="pref_circuit_padding_summary">Trafik təhlilinin bəzi formalarından müdafiə etmək üçün dövrə doldurmanı aktiv edin</string>
     <string name="full_device_vpn">Tam Cihaz VPN</string>
@@ -226,7 +225,6 @@
 \n• Yalnız wifi üzərində işləyə bilər
 \n• İstənilən vaxt söndürülə bilər</string>
     <string name="ports_not_set">Portlar Ayarlanmayıb</string>
-    <string name="solve_captcha">Captcha həll edin</string>
     <string name="menu_help_others">Başqalarına kömək edin</string>
     <string name="power_user_mode">Güc istifadəçi rejimi</string>
     <string name="smart_connect">Smart Connect (defolt)</string>
@@ -245,13 +243,11 @@
     <string name="btn_use_custom_bridge">Xüsusi körpüdən istifadə edin</string>
     <string name="menu_app_settings">Tətbiq Parametrləri</string>
     <string name="snowflake">Snowflake (Orijinal)</string>
-    <string name="get_a_bridge_subtitle">Trafikinizi gizlədir. Bəzi Tor bloklamalarının ətrafında olur.</string>
     <string name="smart_connect_subtitle">Orbot Tor-a istənilən yolla qoşulmağa çalışır: Direct, Snowflake, Bridge.</string>
     <string name="incorrect_solution">Yanlış Həll</string>
     <string name="bridges_obtained_connecting">Körpülər alındı! tor-a qoşulur…</string>
     <string name="app_suggested_subtitle">Orbot mesajlaşma və sosial media proqramları ilə ən yaxşı şəkildə işləyir.</string>
     <string name="title_choose_apps">Proqramları seçin</string>
-    <string name="get_a_bridge">Tordan körpü (Obfs4)</string>
     <string name="msg_taking_too_long">Görünür, bu çox uzun çəkir</string>
     <string name="volunteer_mode_title">Başqalarına kömək edin
 \nTor-a qoşulun</string>

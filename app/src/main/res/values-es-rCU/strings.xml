@@ -67,7 +67,6 @@
     <string name="menu_new_identity">Nueva identidad</string>
     <string name="snowflake_proxy_msg_title">Mostrar notificación de conexión</string>
     <string name="refresh_captcha">Refrescar CAPTCHA</string>
-    <string name="enter_characters_from_image">Introduzca el texto de arriba</string>
     <string name="smart_connect_subtitle">Orbot intentará conectarse a Tor a través de cualquier manera disponible: Directo, Snowflake, Puente.</string>
     <string name="direct_connect">Conexión directa a Tor</string>
     <string name="many_ways">Hay muchas maneras de llegar a Tor. Algunas pueden funcionar mejor que otras para ti.</string>
@@ -231,11 +230,8 @@
     <string name="snowflake">Snowflake (Original)</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="snowflake_subtitle">Conectarse a través de voluntarios de Tor. Evita algunas formas de bloqueo de Tor.</string>
-    <string name="get_a_bridge">Puente de Tor (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Enmascarar el tráfico. Evita algunas formas de bloqueo de Tor.</string>
     <string name="connect">Conectar</string>
     <string name="next">Siguiente</string>
-    <string name="solve_captcha">Resolver Captcha</string>
     <string name="incorrect_solution">Solución incorrecta</string>
     <string name="having_trouble">Teniendo problemas</string>
     <string name="having_trouble_subtitle">Podemos probar un puente de Tor, pero necesitaremos tu ayuda</string>

@@ -149,7 +149,6 @@
     <string name="configure_custom_bridges">Stilla sérsniðnar brýr</string>
     <string name="custom_bridges">Sérsniðnar brýr</string>
     <string name="request_bridges_from_torproject">Biðja um brýr frá torproject.org</string>
-    <string name="enter_characters_from_image">Settu inn textann hér fyrir ofan</string>
     <string name="captcha">CAPTCHA-mennskupróf</string>
     <string name="solve_captcha_instruction">Leystu CAPTCHA-þraut til að biðja um brýr.</string>
     <string name="refresh_captcha">Endurlesa CAPTCHA</string>
@@ -221,11 +220,8 @@
     <string name="smart_connect_subtitle">Orbot reynir að tengjast við Tor með öllum tiltækum ráðum: Beint, með Snowflake, með brúm.</string>
     <string name="direct_connect_subtitle">Besta leiðin til að tengjast við Tor. Notist ef ekki er lokað á Tor.</string>
     <string name="snowflake_subtitle">Tengist í gegnum Tor-sjálfboðaliða. Kemst framhjá sumum hindrunum gagnvart Tor.</string>
-    <string name="get_a_bridge">Brú frá Tor (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Stíflar netið þitt. Kemst framhjá sumum hindrunum gagnvart Tor.</string>
     <string name="connect">Tengjast</string>
     <string name="next">Næsta</string>
-    <string name="solve_captcha">Leystu CAPTCHA-þraut</string>
     <string name="strict_nodes_description">Meðhöndla útilokaða punkta sem forsendu við byggingu allra rása. Þetta gæti skemmt fyrir virkni ef ekki er hægt að byggja upp neinar rásir út frá stillingum útilokaðra punkta.</string>
     <string name="incorrect_solution">Röng lausn</string>
     <string name="having_trouble">Eru vandamál</string>

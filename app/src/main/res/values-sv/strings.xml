@@ -190,7 +190,6 @@
     <string name="request_bridges">Begär broar</string>
     <string name="refresh_captcha">Uppdatera CAPTCHA</string>
     <string name="solve_captcha_instruction">Lös CAPTCHA för att begära broar.</string>
-    <string name="enter_characters_from_image">Ange texten ovan</string>
     <string name="request_bridges_from_torproject">Begär broar från torproject.org</string>
     <string name="custom_bridges">Anpassade broar</string>
     <string name="configure_custom_bridges">Konfigurera anpassade broar</string>
@@ -233,10 +232,7 @@
     <string name="smart_connect">Smart Connect (standard)</string>
     <string name="smart_connect_subtitle">Orbot försöker ansluta till Tor på alla möjliga sätt: Direkt, Snowflake, Bridge.</string>
     <string name="snowflake">Snowflake (original)</string>
-    <string name="get_a_bridge_subtitle">Döljer din trafik. Tar sig runt vissa Tor-blockeringar.</string>
     <string name="direct_connect_subtitle">Det bästa sättet att ansluta till Tor. Använd om Tor inte är blockerad.</string>
-    <string name="get_a_bridge">Bro från Tor (Obfs4)</string>
-    <string name="solve_captcha">Lös Captcha</string>
     <string name="pref_isolate_port_summary">Använd en annan krets för varje destinationsport</string>
     <string name="not_sure">Är du inte säker\?</string>
     <string name="pref_isolate_protocol">Isolera klientprotokoll</string>

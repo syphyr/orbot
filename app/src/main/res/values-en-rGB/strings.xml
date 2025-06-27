@@ -134,11 +134,8 @@
     <string name="direct_connect_subtitle">The best way to connect to Tor. Use if Tor is not blocked.</string>
     <string name="snowflake">Snowflake (Original)</string>
     <string name="snowflake_subtitle">Connects through Tor volunteers. Gets around some Tor blocking.</string>
-    <string name="get_a_bridge">Bridge from Tor (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Cloaks your traffic. Gets around some Tor blocking.</string>
     <string name="connect">Connect</string>
     <string name="next">Next</string>
-    <string name="solve_captcha">Solve Captcha</string>
     <string name="pref_node_configuration">Node Configuration</string>
     <string name="volunteer_mode">Kindness Mode</string>
     <string name="secure_your_connection_title">Ready to connect</string>
@@ -197,7 +194,6 @@
     <string name="request_bridges">Request Bridges</string>
     <string name="refresh_captcha">Refresh CAPTCHA</string>
     <string name="captcha">Captcha</string>
-    <string name="enter_characters_from_image">Enter text above</string>
     <string name="request_bridges_from_torproject">Request Bridges from torproject.org</string>
     <string name="configure_custom_bridges">Configure Custom Bridges</string>
     <string name="snowflake_proxy_msg_description">Show a message when you help someone circumvent censorship</string>

@@ -141,7 +141,6 @@
     <string name="configure_custom_bridges">Configurer des ponts personnalisés</string>
     <string name="custom_bridges">Ponts personnalisés</string>
     <string name="request_bridges_from_torproject">Demander des ponts de torproject.org</string>
-    <string name="enter_characters_from_image">Saisissez les texte au-dessus</string>
     <string name="captcha">Captcha</string>
     <string name="solve_captcha_instruction">Pour demander des ponts, résolvez le captcha.</string>
     <string name="refresh_captcha">Actualiser le captcha</string>
@@ -200,11 +199,8 @@
     <string name="direct_connect_subtitle">La meilleure façon de se connecter à Tor. Utiliser si Tor n’est pas bloqué.</string>
     <string name="snowflake">Snowflake (Originale)</string>
     <string name="snowflake_subtitle">Se connecte par l’intermédiaire de bénévoles Tor. Permet de contourner certains blocages de Tor.</string>
-    <string name="get_a_bridge">Pont de Tor (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Masque votre trafic. Contourne certains blocages de Tor.</string>
     <string name="connect">Se connecter</string>
     <string name="next">Suivant</string>
-    <string name="solve_captcha">Résoudre captcha</string>
     <string name="connected_title">Connecté</string>
     <string name="btn_start_vpn">Démarrer le RPV</string>
     <string name="volunteer_mode_subtitle">Aider les autres à se connecter</string>

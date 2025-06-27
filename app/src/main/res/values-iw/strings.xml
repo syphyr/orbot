@@ -199,7 +199,6 @@
 \n• ניתן לכבות אותו בכל עת</string>
     <string name="ports_not_set">לא מוגדרות פתחות</string>
     <string name="ask_tor">לשאול את Tor</string>
-    <string name="solve_captcha">יש לפתור את ה־Captcha</string>
     <string name="menu_help_others">סיוע לאחרים</string>
     <string name="consider_disable_battery_optimizations">שירותים מתארחים פועלים, כדאי להשבית את מיטוב הסוללה</string>
     <string name="power_user_mode">מצב משתמש פיכח</string>
@@ -212,7 +211,6 @@
     <string name="hide_apps">הסתרת יישומונים מניטור רשת וקבלת גישה כשהן חסומות.</string>
     <string name="snowflake_proxy_msg_title">הצגת הודעת חיבור</string>
     <string name="secure_your_connection_subtitle">הסתרת יישומונים מניטור רשת וקבלת גישה כשהן חסומות.</string>
-    <string name="enter_characters_from_image">נא למלא טקסט למעלה</string>
     <string name="paste_bridges">הדבקת גשרים</string>
     <string name="volunteer_mode_weekly_label">סיכום שבועי</string>
     <string name="request_bridges">בקשת גשרים</string>
@@ -247,7 +245,6 @@
     <string name="btn_change_exit">החלפת פתחה</string>
     <string name="snowflake">Snowflake (מקורי)</string>
     <string name="backup_port_exist">שגיאה: שירות Onion כבר משתמש בפתחה %s</string>
-    <string name="get_a_bridge_subtitle">הסוואת התנועה שלך. מעקף חלק מחסימות Tor.</string>
     <string name="snowflake_proxy_msg_description">להציג הודעה כשעזרת למישהו לעקוף את הצנזורה</string>
     <string name="kindness_config_detail">הגדרת כיצד ומתי המכשיר שלך יוכל לפעול כמתווך של Snowflake לטובת משתמשי Tor אחרים.</string>
     <string name="smart_connect_subtitle">אורבוט מנסה להתחבר ל־Tor בכל דרך זמינה: ישירה, Snowflake, גשר.</string>
@@ -262,7 +259,6 @@
     <string name="strict_nodes_description">התייחסות להגדרות החרגה של צמתים כדרישה לבניית כל המעגלים. זה עלול לשבור את הפעילות אם לא ניתן ליצור מעגלים עם הגדרות החרגת הצמתים שנקבעו.</string>
     <string name="app_suggested_subtitle">Orbot עובד הכי טוב עם יישומוני הודעות ומדיה חברתית.</string>
     <string name="configure_custom_bridges">הגדרת גשרים מותאמים אישית</string>
-    <string name="get_a_bridge">גשר מ־Tor‏ (Obfs4)</string>
     <string name="secure_your_connection_title">מוכן להתחבר</string>
     <string name="volunteer_mode_title">סיוע לאחרים
 \nלהתחבר ל־Tor</string>

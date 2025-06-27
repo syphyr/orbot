@@ -138,7 +138,6 @@
     <string name="configure_custom_bridges">Määritä omat sillat</string>
     <string name="custom_bridges">Omat sillat</string>
     <string name="request_bridges_from_torproject">Pyydä siltoja torproject.org-sivustolta</string>
-    <string name="enter_characters_from_image">Syötä yllä oleva teksti</string>
     <string name="captcha">Captcha</string>
     <string name="solve_captcha_instruction">Ratkaise CAPTCHA pyytääksesi siltoja.</string>
     <string name="refresh_captcha">Päivitä CAPTCHA</string>
@@ -207,7 +206,6 @@
     <string name="secure_your_connection_subtitle">Piilota sovelluksia verkkoseurannalta ja käytä estettyjä palveluita.</string>
     <string name="btn_use_custom_bridge">Käytä omaa siltaa</string>
     <string name="proxy_ports">Välityspalvelimen portit</string>
-    <string name="get_a_bridge_subtitle">Piilottaa tietoliikenteesi. Kiertää jotkin Tor-estot.</string>
     <string name="power_user_description">Kokeneille Tor-käyttäjille. Mahdollistaa Orbotin käynnistyksen ilman VPN-asetusta ja näyttää avoimet SOCKS- ja HTTP-portit.</string>
     <string name="power_user_mode">Tehokäyttäjätila</string>
     <string name="action_activate">Aktivoi</string>
@@ -229,10 +227,8 @@
     <string name="direct_connect_subtitle">Paras Tor-yhteyden muodostustapa. Käytä, jos Tor-verkkoa ei ole estetty.</string>
     <string name="snowflake">Snowflake (alkuperäinen)</string>
     <string name="snowflake_subtitle">Muodostaa Tor-yhteyden vapaaehtoisten välityksellä. Kiertää joitakin Tor-estoja.</string>
-    <string name="get_a_bridge">Silta Torilta (obfs4)</string>
     <string name="connect">Yhdistä</string>
     <string name="next">Seuraava</string>
-    <string name="solve_captcha">Ratkaise CAPTCHA</string>
     <string name="ports_not_set">Portteja ei ole määritetty</string>
     <string name="volunteer_mode_subtitle_desc">Ystävällisyystila tekee laitteestasi sillan muille. Se auttaa muita käyttämään Toria paikoissa, joissa se on estetty.
 \n

@@ -149,7 +149,6 @@
     <string name="configure_custom_bridges">Özel Köprüleri Yapılandır</string>
     <string name="custom_bridges">Özel Köprüler</string>
     <string name="request_bridges_from_torproject">torproject.org\'dan Köprü İste</string>
-    <string name="enter_characters_from_image">Yukarıdaki metni girin</string>
     <string name="captcha">CAPTCHA</string>
     <string name="solve_captcha_instruction">Köprü istemek için CAPTCHA\'yı çözün.</string>
     <string name="refresh_captcha">CAPTCHA\'yı Yenile</string>
@@ -215,11 +214,8 @@
     <string name="direct_connect">Tor\'a Doğrudan Bağlantı</string>
     <string name="direct_connect_subtitle">Tor\'a bağlanmanın en iyi yolu. Tor engelli değilse kullanın.</string>
     <string name="snowflake_subtitle">Tor gönüllüleri aracılığıyla bağlanır. Bazı Tor engellemelerini aşar.</string>
-    <string name="get_a_bridge">Tor\'dan Köprü (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Trafiğinizi gizler. Bazı Tor engellemelerini aşar.</string>
     <string name="connect">Bağlan</string>
     <string name="next">Sonraki</string>
-    <string name="solve_captcha">Captcha Çöz</string>
     <string name="volunteer_mode_weekly_label">Haftalık Toplam</string>
     <string name="configure_header">Tor Bağlantınızı Yapılandırın</string>
     <string name="proxy_ports">Vekil Bağlantı Noktaları</string>

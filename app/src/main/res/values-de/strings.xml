@@ -150,7 +150,6 @@
     <string name="configure_custom_bridges">Konfiguriere personalisierte Brücken</string>
     <string name="custom_bridges">Personalisierte Brücken</string>
     <string name="request_bridges_from_torproject">Brücken von torproject.org anfordern</string>
-    <string name="enter_characters_from_image">Text oben eingeben</string>
     <string name="captcha">CAPTCHA</string>
     <string name="solve_captcha_instruction">Löse das CAPTCHA, um Brücken anzufordern.</string>
     <string name="refresh_captcha">CAPTCHA erneuern</string>
@@ -214,11 +213,8 @@
     <string name="direct_connect_subtitle">Der beste Weg, sich mit Tor zu verbinden. Benutze ihn, wenn Tor nicht blockiert wird.</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Verbindet sich durch Tor-Freiwillige. Umgeht einige Tor-Blockierungen.</string>
-    <string name="get_a_bridge">Tor-Brücke (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Tarnt deinen Datenverkehr. Umgeht einige Tor-Blockierungen.</string>
     <string name="connect">Verbinden</string>
     <string name="next">Weiter</string>
-    <string name="solve_captcha">Captcha auflösen</string>
     <string name="ports_not_set">Ports nicht eingestellt</string>
     <string name="volunteer_mode">Freundlichkeitsmodus</string>
     <string name="secure_your_connection_subtitle">Verstecke Apps vor der Netzwerküberwachung und erhalte Zugriff, wenn sie blockiert sind.</string>

@@ -75,7 +75,6 @@
     <string name="request_bridges">Köprüleri Soraň</string>
     <string name="refresh_captcha">CAPTCHA Täzele</string>
     <string name="captcha">Captcha</string>
-    <string name="enter_characters_from_image">Ýokardaky teksti giriziň</string>
     <string name="request_bridges_from_torproject">torproject.org-dan köprini talap ediň</string>
     <string name="custom_bridges">Ýörite Köpriler</string>
     <string name="paste_bridges">Köprileri Salyň</string>
@@ -135,10 +134,8 @@
     <string name="bridge_cloud">Bulut serwerleriniň üsti bilen birikdiriň</string>
     <string name="set_locale_title">Dil</string>
     <string name="snowflake_subtitle">Tor meýletinçileriniň üsti bilen birikýär. Käbir Tor bloklaryndan geçýär.</string>
-    <string name="solve_captcha">Captcha-ny çöz</string>
     <string name="bridges_obtained_connecting">Köpriler alyndy! Tor-a birikdirilýär…</string>
     <string name="pref_flag_secure_title">Ekranyň howpsuzlygy</string>
-    <string name="get_a_bridge_subtitle">Trafigiňizi gizleýär. Käbir Tor bloklaryndan geçýär.</string>
     <string name="incorrect_solution">Nädogry çözgüt</string>
     <string name="connect">Birikdir</string>
     <string name="local_port">Ýerli Port</string>
@@ -261,7 +258,6 @@
     <string name="kindness_config_detail">Enjamyňyzyň beýleki Tor ulanyjylary üçin nädip we haçan Snowflake proksi bolup biljekdigini sazlaň.</string>
     <string name="setting_padding">Ýassyklama</string>
     <string name="setting_debug">Düzediş</string>
-    <string name="get_a_bridge">Tor arkaly (Obfs4) köprisi</string>
     <string name="connection_custom">Ýörite</string>
     <string name="volunteer_mode_subtitle_desc">Sypaýçylyk ülňi enjamyňyzy beýlekiler üçin köpri bolmaga mümkinçilik berýär. Adamlara Tor-uň petiklenen ýerlerinde ulanmagyna kömek edýär.
 \n

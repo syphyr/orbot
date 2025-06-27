@@ -127,7 +127,6 @@
     <string name="license">Lisensi:</string>
     <string name="bridge_cloud">Hubungkan melalui server awan</string>
     <string name="solve_captcha_instruction">Selesaikan CAPTCHA untuk meminta jembatan.</string>
-    <string name="enter_characters_from_image">Masukkan teks di atas</string>
     <string name="request_bridges_from_torproject">Minta Jembatan dari torproject.org</string>
     <string name="in_a_browser">Dalam sebuah peramban, kunjungi %s dan ketuk Get Bridgs &gt; Just Give Me Bridges!</string>
     <string name="paste_bridges">Tempelkan Jembatan</string>
@@ -150,11 +149,8 @@
     <string name="direct_connect_subtitle">Cara yang terbaik untuk menghubungkan ke Tor. Gunakan jika Tor tidak diblokir.</string>
     <string name="snowflake">Snowflake (Asli)</string>
     <string name="snowflake_subtitle">Menghubungkan melalui sukarelawan Tor. Melewati beberapa pemblokiran Tor.</string>
-    <string name="get_a_bridge">Jembatan dari Tor (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Menyembunyikan lalu lintas Anda. Melewati beberapa pemblokiran Tor.</string>
     <string name="connect">Hubungkan</string>
     <string name="next">Lanjutkan</string>
-    <string name="solve_captcha">Selesaikan Captcha</string>
     <string name="ports_not_set">Porta Tidak Ditetapkan</string>
     <string name="secure_your_connection_title">Siap untuk menghubungkan</string>
     <string name="connected_title">Terhubung</string>

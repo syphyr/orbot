@@ -189,7 +189,6 @@
     <string name="refresh_captcha">Actualizar CAPTCHA</string>
     <string name="solve_captcha_instruction">Resuelve el CAPTCHA para solicitar puentes.</string>
     <string name="captcha">Captcha</string>
-    <string name="enter_characters_from_image">Ingrese el texto arriba</string>
     <string name="custom_bridges">Puentes personalizados</string>
     <string name="configure_custom_bridges">Configurar puentes personalizados</string>
     <string name="in_a_browser">En un navegador, visita %s y toca Obtener puentes &gt; ¡Solo dame puentes!</string>
@@ -232,11 +231,8 @@
     <string name="snowflake">Snowflake (Original)</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="snowflake_subtitle">Se conecta a través de los voluntarios de Tor. Evita algunos bloqueos de Tor.</string>
-    <string name="get_a_bridge">Puente de Tor (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Encubre tu tráfico. Evita algunos bloqueos de Tor.</string>
     <string name="connect">Conectar</string>
     <string name="next">Siguiente</string>
-    <string name="solve_captcha">Resolver CAPTCHA</string>
     <string name="incorrect_solution">Solución incorrecta</string>
     <string name="bridges_obtained_connecting">¡Puentes obtenidos! Conectando a tor…</string>
     <string name="having_trouble">Estas teniendo problemas</string>

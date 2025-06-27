@@ -169,7 +169,6 @@
     <string name="pref_reduced_circuit_padding">کاهش لایه‌گذاری مدار</string>
     <string name="pref_reduced_circuit_padding_summary">استفاده از الگوریتم‌های لایه‌گذاری با سربار پایین‌تر برای کاهش مصرف باتری و داده</string>
     <string name="custom_bridges">پل‌های سفارشی</string>
-    <string name="enter_characters_from_image">ورود متن بالا</string>
     <string name="use_qr_code">استفاده از رمز QR</string>
     <string name="paste_bridges">چسباندن پل‌ها</string>
     <string name="configure_custom_bridges">پیکربندی پل‌های سفارشی</string>
@@ -207,7 +206,6 @@
     <string name="btn_use_custom_bridge">استفاده از پل سفارشی</string>
     <string name="strict_nodes_description">تنظیمات گره‌های مستثنی را به عنوان یک الزام برای ساخت همه مدارها در نظر بگیرید. در صورتی که هیچ مداری با تنظیمات گره‌های مستثنی شما ایجاد نشود، ممکن است عملکرد را از بین ببرد.</string>
     <string name="connect">وصل شدن</string>
-    <string name="solve_captcha">حل کپچا</string>
     <string name="volunteer_mode_title">کمک به دیگران در
 \nوصل شدن به تور</string>
     <string name="volunteer_mode_subtitle_desc">حالت مهربانی می‌گذارد افزاره‌تان پلی برای دیگران باشد‌. این کار به استفادهٔ افراد در جاهایی که تور مسدود شده کمک می‌کند.
@@ -225,14 +223,12 @@
     <string name="volunteer_mode_alltime_label">مجموع تمامی زمان‌ها</string>
     <string name="smart_connect">اتّصال هوشمند (پیش‌گزیده)</string>
     <string name="direct_connect">اتّصال مستقیم به تور</string>
-    <string name="get_a_bridge">پل از تور (Obfs4)</string>
     <string name="next">بعدی</string>
     <string name="ports_not_set">درگاه تنظیم نشده</string>
     <string name="smart_connect_subtitle">روبوت پیازی تلاش می‌کند از هر راه ممکنی به تور وصل شود: مستقیم، دانه برفی و پل.</string>
     <string name="snowflake">دانه برفی</string>
     <string name="snowflake_subtitle">وصل شدن از طریق داوطلبان تور. رد شدن از برخی مسدودیت‌های تور.</string>
     <string name="direct_connect_subtitle">بهترین روش وصل شدن به تور. استفاده در صورت مسدود نبودن تور.</string>
-    <string name="get_a_bridge_subtitle">پنهان کردن شدآمدتان. رد شدن از برخی مسدودیت‌های تور.</string>
     <string name="having_trouble">مشکل دارید</string>
     <string name="having_trouble_subtitle">در ادامه برای استفاده از یک پل تور تلاش می‌کنیم، ولی نیازمند کمکتانیم</string>
     <string name="bridges_obtained_connecting">پل‌ها گرفته شدند! وصل شدن به تور…</string>

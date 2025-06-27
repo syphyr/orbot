@@ -198,7 +198,6 @@
     <string name="app_services">Servizos da app</string>
     <string name="refresh_captcha">Actualice o CAPTCHA</string>
     <string name="captcha">Captcha</string>
-    <string name="enter_characters_from_image">Escriba o texto de enriba</string>
     <string name="request_bridges_from_torproject">Solicitar pontes do torproject.org</string>
     <string name="custom_bridges">Pontes persoalizadas</string>
     <string name="configure_custom_bridges">Configurar as pontes persoalizadas</string>
@@ -223,7 +222,6 @@
     <string name="btn_configure">Escoller como conectarse</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="snowflake_subtitle">Conectarse a través de voluntarios de Tor. Evita algúns bloqueos.</string>
-    <string name="get_a_bridge">Ponte de Tor (Obfs4)</string>
     <string name="no_internet_subtitle">Precísase conexión a Internet para utilizar Orbot.</string>
     <string name="btn_tor_off">Desconectar Tor</string>
     <string name="no_thx">Non, grazas</string>
@@ -244,7 +242,6 @@
 \n
 \n• Pode apagarse en calquer momento</string>
     <string name="direct_connect">Conexión directa con Tor</string>
-    <string name="get_a_bridge_subtitle">Oculta o tráfico. Evita algúns bloqueos de Tor.</string>
     <string name="ports_not_set">Portos non configurados</string>
     <string name="volunteer_mode_title">Axude a outros
 \na conectarse a Tor</string>

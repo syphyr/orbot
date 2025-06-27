@@ -105,7 +105,6 @@
     <string name="project_home">Projekt Domov:</string>
     <string name="get_bridges_email">E-pošta</string>
     <string name="share_as_qr">Delite kot QR</string>
-    <string name="enter_characters_from_image">Vnesite zgornje besedilo</string>
     <string name="custom_bridges">Mostovi po meri</string>
     <string name="configure_custom_bridges">Konfiguracija mostov po meri</string>
     <string name="use_custom_bridges">Uporaba mostov po meri</string>
@@ -250,7 +249,6 @@
     <string name="direct_connect">Neposredna povezava s Torom</string>
     <string name="ports_not_set">Vrata niso nastavljena</string>
     <string name="hide_apps">Skrijte aplikacije pred nadzorom omrežja in pridobite dostop, ko so blokirane.</string>
-    <string name="solve_captcha">Rešite Captcha</string>
     <string name="incorrect_solution">Napačna rešitev</string>
     <string name="bridges_obtained_connecting">Mostovi pridobljeni! Povezovanje s Torom …</string>
     <string name="having_trouble_subtitle">Naslednjič lahko poskusimo s Torovim mostom, vendar bomo potrebovali vašo pomoč</string>
@@ -273,6 +271,4 @@
     <string name="direct_connect_subtitle">Najboljši način povezave s Torom. Uporabite če Tor ni blokiran.</string>
     <string name="snowflake_amp">Snežinka (AMP)</string>
     <string name="snowflake_subtitle">Povezuje se prek Torovih prostovoljcev. Zaobide nekaj Torovih preprek.</string>
-    <string name="get_a_bridge">Most it Tora (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Prikrije vaš promet. Zaobide nekaj Torovih preprek.</string>
 </resources>

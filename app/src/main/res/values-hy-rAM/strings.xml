@@ -55,7 +55,6 @@
     <string name="secure_your_connection_title">Պատրաստ է միացման</string>
     <string name="btn_use_custom_bridge">Օգտվել հարմարեցրած կամուրջից</string>
     <string name="smart_connect">Խելացի միացում (լռելայն)</string>
-    <string name="get_a_bridge">Կամուրջ Tor-ից (Obfs4)</string>
     <string name="volunteer_status_title">Այսօր ավելի լավ է
 \nՁեր շնորհիվ:</string>
     <string name="not_sure">Վստահ չե՞ք</string>

@@ -184,7 +184,6 @@
     <string name="refresh_captcha">Värskenda CAPTCHA</string>
     <string name="solve_captcha_instruction">Sildade taotlemiseks lahendage CAPTCHA.</string>
     <string name="captcha">Captcha</string>
-    <string name="enter_characters_from_image">Sisestage ülaltoodud tekst</string>
     <string name="custom_bridges">Kohandatud sillad</string>
     <string name="configure_custom_bridges">Kohandatud sildade konfigureerimine</string>
     <string name="in_a_browser">Külastage brauseris %s ja koputage nuppu Get Bridges &gt; Just Give Me Bridges!</string>
@@ -219,11 +218,9 @@
     <string name="volunteer_mode_alltime_label">Kordi läbi aegade</string>
     <string name="smart_connect_subtitle">Orbot üritab luua ühendust Toriga igal võimalikul viisil: Direct, Snowflake, Bridge.</string>
     <string name="snowflake_subtitle">Ühendab Tori vabatahtlike kaudu. Saab ümber mõnest Tor\'i blokeeringust.</string>
-    <string name="get_a_bridge_subtitle">Varjab teie liiklust. Saab ümber mõnest Tor\'i blokeeringust.</string>
     <string name="direct_connect">Otsene ühendus Toriga</string>
     <string name="connect">Ühendage</string>
     <string name="next">Järgmine</string>
-    <string name="solve_captcha">Lahendage Captcha</string>
     <string name="apps_suggested_title">Soovitatavad rakendused</string>
     <string name="pref_isolate_port">Eraldada sihtkoha sadamad</string>
     <string name="pref_isolate_port_summary">Kasutage iga sihtkoha jaoks erinevat vooluahelat</string>
@@ -259,7 +256,6 @@
     <string name="ask_tor">Küsi Torilt</string>
     <string name="snowflake">Lumehelbeke (originaal)</string>
     <string name="snowflake_amp">Lumehelbeke (AMP)</string>
-    <string name="get_a_bridge">Tori sild (Obfs4)</string>
     <string name="not_sure">Ei ole kindel\?</string>
     <string name="action_use">Kasutage</string>
     <string name="connection_direct">Otse</string>

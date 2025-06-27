@@ -129,7 +129,6 @@
     <string name="pref_socks_summary">துறைமுகம் அந்த டோர் அதன் சாக்ச் ப்ராக்சியை வழங்குகிறது (இயல்புநிலை: முடக்க 9050 அல்லது 0)</string>
     <string name="pref_socks_dialog">சாக்ச் துறைமுகம் கட்டமைப்பு</string>
     <string name="pref_http_title">Tor http</string>
-    <string name="enter_characters_from_image">மேலே உரையை உள்ளிடவும்</string>
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">கைரேகைகள், நிக்ச், நாடுகள் மற்றும் முகவரிகள் விலக்க</string>
     <string name="enter_exclude_nodes">முனைகளை விலக்கவும்</string>
     <string name="strict_nodes">கண்டிப்பான முனைகள்</string>
@@ -147,7 +146,6 @@
     <string name="direct_connect_subtitle">TOR உடன் இணைக்க சிறந்த வழி. டோர் தடுக்கப்படாவிட்டால் பயன்படுத்தவும்.</string>
     <string name="snowflake_amp">ச்னோஃப்ளேக் (ஆம்ப்)</string>
     <string name="snowflake_subtitle">டோர் தன்னார்வலர்கள் மூலம் இணைகிறது. தடுப்பதற்காக யாரையாவது சுற்றி வருக.</string>
-    <string name="get_a_bridge">TOR (OBFS4) இலிருந்து பாலம்</string>
     <string name="pref_proxy_title">வெளிச்செல்லும் பிணையம் பதிலாள் (விரும்பினால்)</string>
     <string name="pref_proxy_type_dialog">பதிலாள் வகையை உள்ளிடவும்</string>
     <string name="pref_proxy_host_title">வெளிச்செல்லும் பதிலாள் புரவலன்</string>
@@ -255,8 +253,6 @@
     <string name="menu_help_others">மற்றவர்களுக்கு உதவுங்கள்</string>
     <string name="menu_app_settings">பயன்பாட்டு அமைப்புகள்</string>
     <string name="smart_connect_subtitle">ஆர்போட் எந்த வகையிலும் TOR உடன் இணைக்க முயற்சிக்கிறது: நேரடி, ச்னோஃப்ளேக், பாலம்.</string>
-    <string name="get_a_bridge_subtitle">உங்கள் போக்குவரத்தை மூடுகிறது. சில டோர் தடுப்புகளைச் சுற்றி வருகிறது.</string>
-    <string name="solve_captcha">கேப்ட்சாவை தீர்க்கவும்</string>
     <string name="bridges_obtained_connecting">பெறப்பட்ட பாலங்கள்! டோருடன் இணைகிறது…</string>
     <string name="having_trouble_subtitle">நாங்கள் அடுத்து ஒரு டோர் பாலத்தை முயற்சி செய்யலாம், ஆனால் உங்கள் உதவி தேவைப்படும்</string>
     <string name="volunteer_status_title">இன்று சிறந்தது\n நீங்கள் காரணமாக.</string>

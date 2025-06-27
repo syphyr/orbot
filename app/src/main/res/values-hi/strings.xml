@@ -194,7 +194,6 @@
 \n• ये सिर्फ वाईफाई पे चलेगा
 \n• ये कभी भी बंद किया जा सकता है</string>
     <string name="proxy_ports">प्रॉक्सी पोर्ट</string>
-    <string name="solve_captcha">कैप्चा सुलझाएं</string>
     <string name="no_internet_title">इंटरनेट से जुड़ें</string>
     <string name="kindness_adjust_title">चलते हुए अपनेआप बदलें…</string>
     <string name="kindness_config_detail">सेट करें कि आपका डिवाइस दूसरे टॉर यूज़रों के लिए कब स्नोफ्लेक्स प्रॉक्सी के तरह काम कर सकता है।</string>
@@ -233,13 +232,10 @@
     <string name="volunteer_mode_subtitle">दूसरों को जुड़ने में मदद करें</string>
     <string name="bridge_snowflake_amp">स्नोफ्लेक से दूसरे टॉर यूज़र से होके जुड़ें (दूसरा तरीका: एएमपी)</string>
     <string name="direct_connect_subtitle">टॉर से जुड़ने का सबसे अच्छा तरीका। टॉर के ब्लॉक होने पे इस्तेमाल करें।</string>
-    <string name="get_a_bridge_subtitle">आपके ट्रैफिक को छुपाता है। कुछ टॉर ब्लॉक को बायपास करता है।</string>
     <string name="solve_captcha_instruction">ब्रिज मांगने के लिए कैप्चा सुलझाएं।</string>
     <string name="captcha">कैप्चा</string>
-    <string name="enter_characters_from_image">ऊपर दिया गया चीज़ लिखें</string>
     <string name="use_qr_code">क्यूआर कोड इस्तेमाल करें</string>
     <string name="configure_header">अपने टॉर कनेक्शन को सेट करें</string>
-    <string name="get_a_bridge">टॉर से ब्रिज (ओबीएफएस4)</string>
     <string name="snowflake_subtitle">टॉर समाज से होके जुड़ें। कुछ टॉर ब्लॉक को बायपास करता है।</string>
     <string name="volunteer_mode">मेहरबानी मोड</string>
     <string name="btn_configure">जुड़ने का तरीका चुनें</string>

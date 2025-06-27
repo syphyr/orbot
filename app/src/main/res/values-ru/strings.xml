@@ -149,7 +149,6 @@
     <string name="configure_custom_bridges">Настройка пользовательских мостов</string>
     <string name="custom_bridges">Пользовательские мосты</string>
     <string name="request_bridges_from_torproject">Запросить мосты с сайта torproject.org</string>
-    <string name="enter_characters_from_image">Введите текст, который указан выше</string>
     <string name="captcha">Captcha</string>
     <string name="solve_captcha_instruction">Решите CAPTCHA, чтобы запросить мосты.</string>
     <string name="refresh_captcha">Обновить CAPTCHA</string>
@@ -212,10 +211,8 @@
     <string name="volunteer_mode_weekly_label">Итого за неделю</string>
     <string name="volunteer_mode_alltime_label">Итого за всё время</string>
     <string name="snowflake">Snowflake (оригинал)</string>
-    <string name="get_a_bridge_subtitle">Маскировка вашего трафика. Обходит некоторые блокировки Tor.</string>
     <string name="connect">Подключить</string>
     <string name="next">Далее</string>
-    <string name="solve_captcha">Решить капчу</string>
     <string name="snowflake_subtitle">Подключение через добровольцев Tor. Обходит некоторые блокировки Tor.</string>
     <string name="direct_connect_subtitle">Лучший способ подключения к Tor. Используйте, если Tor не заблокирован.</string>
     <string name="configure_header">Настройте своё подключение к Tor</string>
@@ -231,7 +228,6 @@
 \n• Он может работать только через Wi-Fi
 \n• Его можно отключить в любое время</string>
     <string name="smart_connect">Умное подключение (по умолчанию)</string>
-    <string name="get_a_bridge">Мост от Tor (Obfs4)</string>
     <string name="direct_connect">Прямое подключение к Tor</string>
     <string name="incorrect_solution">Неправильное решение</string>
     <string name="bridges_obtained_connecting">Мосты получены! Подключение к Tor…</string>

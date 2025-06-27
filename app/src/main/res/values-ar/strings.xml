@@ -185,7 +185,6 @@
     <string name="pref_reduced_connection_padding">حشوة اتصال منخفضة</string>
     <string name="refresh_captcha">أنعِش كابتشا (CAPTCHA)</string>
     <string name="solve_captcha_instruction">حِل CAPTCHA لطلب الجسور.</string>
-    <string name="enter_characters_from_image">أدخل النص أعلاه</string>
     <string name="request_bridges_from_torproject">طلب جسور من torproject.org</string>
     <string name="custom_bridges">جسور مخصّصة</string>
     <string name="configure_custom_bridges">تضبيط الجسور المخصّصة</string>
@@ -246,9 +245,6 @@
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_amp">ندفة الثلج (Snowflake) AMP</string>
     <string name="snowflake_subtitle">يربط من خلال متطوعي تور. يلتف حول بعض حظر تور.</string>
-    <string name="get_a_bridge">جسر من تور (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">يخفي حركةمرورك. يلتف حول بعض حظر تور.</string>
-    <string name="solve_captcha">حِل Captcha</string>
     <string name="incorrect_solution">حل غير صحيح</string>
     <string name="bridges_obtained_connecting">حصلت على الجسور! جارِ الاتصال بـتور…</string>
     <string name="having_trouble">لديك مشكلة</string>

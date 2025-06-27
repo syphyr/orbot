@@ -204,24 +204,6 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
         }
     }
 
-    private fun doLayoutForCircumventionApi() {
-        // TODO prompt user to request bridge over MOAT
-        progressBar.progress = 0
-        tvTitle.text = getString(R.string.having_trouble)
-        tvSubtitle.text = getString(R.string.having_trouble_subtitle)
-        tvSubtitle.visibility = View.VISIBLE
-        btnStartVpn.text = getString(R.string.solve_captcha)
-        btnStartVpn.setOnClickListener {
-            MoatBottomSheet(this).show(
-                requireActivity().supportFragmentManager, "CircumventionFailed"
-            )
-        }
-        tvConfigure.text = getString(android.R.string.cancel)
-        tvConfigure.setOnClickListener {
-            doLayoutOff()
-        }
-    }
-
 
     private fun doLayoutNoInternet() {
 

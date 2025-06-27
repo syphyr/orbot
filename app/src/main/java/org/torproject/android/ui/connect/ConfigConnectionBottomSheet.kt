@@ -119,14 +119,9 @@ class ConfigConnectionBottomSheet :
         selectRadioButtonFromPreference()
 
         binding.btnAction.setOnClickListener {
-            if (binding.rbRequest.isChecked) {
-                MoatBottomSheet(object : ConnectionHelperCallbacks {
-                    override fun tryConnecting() {
-                        Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_OBFS4)
-                        binding.rbCustom.isChecked = true
-                        closeAndConnect()
-                    }
-                }).show(requireActivity().supportFragmentManager, MoatBottomSheet.TAG)
+            if (binding.rbObfs4.isChecked) {
+                Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_OBFS4)
+                closeAndConnect()
             } else if (binding.rbDirect.isChecked) {
                 Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_DIRECT)
                 closeAndConnect()

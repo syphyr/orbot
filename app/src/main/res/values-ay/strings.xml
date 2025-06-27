@@ -150,7 +150,6 @@
     <string name="msg_try_something_else">Yaqha yant\'am</string>
     <string name="request_bridges">Chakanak mayiña</string>
     <string name="custom_bridges">Maynichat chakanaka</string>
-    <string name="enter_characters_from_image">Nayrïr qillqa qillqantam</string>
     <string name="request_bridges_from_torproject">torproject.org ukar chakanak mayiña</string>
     <string name="configure_custom_bridges">Maynichat chakanak mayjt\'ayaña</string>
     <string name="use_qr_code">QR chimpu apnaqaña</string>
@@ -196,8 +195,6 @@
     <string name="ports_not_set">Waythapiwjanakax janiw mayjt\'ayatäkiti</string>
     <string name="proxy_ports">Proxy waythapiwja</string>
     <string name="connect">Waythapiyaña</string>
-    <string name="get_a_bridge">Tor ukan chakapa (Obfs4)</string>
-    <string name="solve_captcha">Captcha askichaña</string>
     <string name="secure_your_connection_title">Waythapiñataki puchtuki</string>
     <string name="volunteer_mode">Yanapt\'asiña uka</string>
     <string name="btn_change_exit">Mistuñ mayjt\'ayaña</string>
@@ -255,7 +252,6 @@
     <string name="strict_nodes_description">Ajllinukut mayjt\'ayañ yant\'am sirkuytunak utjayañatak mayiwjama. Ajllinukutax janitï mayjt\'atakaspax lurawx suyt\'ayaspawa.</string>
     <string name="pref_prefer_ipv6_summary">IPu6 wakiskir mistuñ thakhinak uñt\'ayaña</string>
     <string name="hide_apps">Llikankir uñakipat aplikasyunanak imantam ukat kunawsatï jark\'antatäkan ukha mantam.</string>
-    <string name="get_a_bridge_subtitle">Yatiy thakhim imanti. Janiw Torar yaqhip jark\'antaykiti.</string>
     <string name="btn_choose_apps">Aplikasyunanak ajllt\'ama</string>
     <string name="refresh_apps">Aplikasyunanak jichhaptayaña</string>
     <string name="pref_circuit_padding">Sirkuytu phuqhacha</string>
