@@ -1,11 +1,7 @@
 package org.torproject.android.ui.connect
 
-import IPtProxy.IPtProxy
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.telephony.TelephonyManager
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,20 +9,19 @@ import android.widget.CompoundButton
 import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.net.toUri
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.torproject.android.Constants
 import org.torproject.android.R
-import org.torproject.android.circumvention.Bridges
-import org.torproject.android.circumvention.CircumventionApiManager
-import org.torproject.android.circumvention.SettingsRequest
 import org.torproject.android.databinding.ConfigConnectionBottomSheetBinding
-import org.torproject.android.service.OrbotService
+import org.torproject.android.service.circumvention.AutoConf
+import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
-import java.io.File
-import java.net.Authenticator
-import java.net.PasswordAuthentication
-import java.util.Locale
-import androidx.core.net.toUri
-import org.torproject.android.Constants
 
 class ConfigConnectionBottomSheet :
     OrbotBottomSheetDialogFragment(), CompoundButton.OnCheckedChangeListener {
@@ -45,8 +40,6 @@ class ConfigConnectionBottomSheet :
                 this.callbacks = callbacks
             }
         }
-
-        const val TAG = "ConfigConnectionBttmSheet"
     }
 
     override fun onCreateView(
@@ -60,7 +53,7 @@ class ConfigConnectionBottomSheet :
             binding.rbSnowflakeAmp,
             binding.rbSnowflakeSqs,
             binding.rbTelegram,
-            binding.rbRequest,
+            binding.rbObfs4,
             binding.rbEmail,
             binding.rbMeek,
             binding.rbCustom
@@ -71,7 +64,7 @@ class ConfigConnectionBottomSheet :
             binding.rbSnowflakeAmp to binding.tvSnowflakeAmpSubtitle,
             binding.rbSnowflakeSqs to binding.tvSnowflakeSqsSubtitle,
             binding.rbTelegram to binding.tvTelegramSubtitle,
-            binding.rbRequest to binding.tvRequestSubtitle,
+            binding.rbObfs4 to binding.tvObfs4Subtitle,
             binding.rbEmail to binding.tvEmailSubtitle,
             binding.rbMeek to binding.tvMeekSubtitle,
             binding.rbCustom to binding.tvCustomSubtitle
@@ -82,7 +75,7 @@ class ConfigConnectionBottomSheet :
             binding.tvSnowflakeAmpSubtitle,
             binding.tvSnowflakeSqsSubtitle,
             binding.tvTelegramSubtitle,
-            binding.tvRequestSubtitle,
+            binding.tvObfs4Subtitle,
             binding.tvEmailSubtitle,
             binding.tvMeekSubtitle,
             binding.tvCustomSubtitle
@@ -98,7 +91,7 @@ class ConfigConnectionBottomSheet :
         binding.snowflakeAmpContainer.setOnClickListener { binding.rbSnowflakeAmp.isChecked = true }
         binding.snowflakeSqsContainer.setOnClickListener { binding.rbSnowflakeSqs.isChecked = true }
         binding.telegramContainer.setOnClickListener { binding.rbTelegram.isChecked = true }
-        binding.requestContainer.setOnClickListener { binding.rbRequest.isChecked = true }
+        binding.obfs4Container.setOnClickListener { binding.rbObfs4.isChecked = true }
         binding.emailContainer.setOnClickListener { binding.rbEmail.isChecked = true }
         binding.meekContainer.setOnClickListener { binding.rbMeek.isChecked = true }
         binding.customContainer.setOnClickListener { binding.rbCustom.isChecked = true }
@@ -109,7 +102,7 @@ class ConfigConnectionBottomSheet :
         binding.rbSnowflakeAmp.setOnCheckedChangeListener(this)
         binding.rbSnowflakeSqs.setOnCheckedChangeListener(this)
         binding.rbTelegram.setOnCheckedChangeListener(this)
-        binding.rbRequest.setOnCheckedChangeListener(this)
+        binding.rbObfs4.setOnCheckedChangeListener(this)
         binding.rbEmail.setOnCheckedChangeListener(this)
         binding.rbMeek.setOnCheckedChangeListener(this)
         binding.rbCustom.setOnCheckedChangeListener(this)
@@ -139,7 +132,7 @@ class ConfigConnectionBottomSheet :
                 startActivity(i)
             } else if (binding.rbEmail.isChecked) {
                 val i = Intent(Intent.ACTION_SENDTO)
-                i.setData("mailto:${Constants.emailRecipient}".toUri())
+                i.data = "mailto:${Constants.emailRecipient}".toUri()
                 i.putExtra(Intent.EXTRA_SUBJECT, Constants.emailSubjectAndBody)
                 i.putExtra(Intent.EXTRA_TEXT, Constants.emailSubjectAndBody)
 
@@ -165,6 +158,25 @@ class ConfigConnectionBottomSheet :
         return binding.root
     }
 
+    override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+        if (isChecked) {
+            for (radio in radios) {
+                if (radio != buttonView) radio.isChecked = false
+            }
+
+            radioSubtitleMap[buttonView]?.let {
+                for (subtitle in allSubtitles) {
+                    subtitle.visibility = if (subtitle == it) View.VISIBLE else View.GONE
+                }
+            }
+        }
+
+        binding.btnAction.text = when (buttonView) {
+            binding.rbTelegram, binding.rbEmail, binding.rbCustom -> getString(R.string.next)
+            else -> getString(R.string.connect)
+        }
+    }
+
     private fun closeAndConnect() {
         closeAllSheets()
         callbacks?.tryConnecting()
@@ -180,141 +192,82 @@ class ConfigConnectionBottomSheet :
     }
 
     private fun askTor() {
+        updateAskTorBt(getString(R.string.asking), R.drawable.ic_faq)
 
-        val dLeft = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_faq)
-        binding.btnAskTor.text = getString(R.string.asking)
-        binding.btnAskTor.setCompoundDrawablesWithIntrinsicBounds(dLeft, null, null, null)
+        lifecycleScope.launch(Dispatchers.IO) {
+            val context = context ?: return@launch
 
-        val fileCacheDir = File(requireActivity().cacheDir, "pt")
-        if (!fileCacheDir.exists()) {
-            fileCacheDir.mkdir()
-        }
+            try {
+                val conf = AutoConf.`do`(context, cannotConnectWithoutPt = true)
 
-        val proxy = OrbotService.getIptProxyController(context)
-        proxy.start(IPtProxy.MeekLite, null)
+                withContext(Dispatchers.Main) {
+                    if (conf == null) {
+                        updateAskTorBt()
 
-        val moatUrl = OrbotService.getCdnFront("moat-url")
-        val front = OrbotService.getCdnFront("moat-front")
+                        Toast.makeText(context, R.string.error_asking_tor_for_bridges, Toast.LENGTH_LONG)
+                            .show()
 
-        val pUsername = "url=$moatUrl;front=$front"
-        val pPassword = "\u0000"
+                        return@withContext
+                    }
 
-        val authenticator: Authenticator = object : Authenticator() {
-            override fun getPasswordAuthentication(): PasswordAuthentication {
-                return PasswordAuthentication(pUsername, pPassword.toCharArray())
+                    updateAskTorBt(conf.first.toString(), R.drawable.ic_green_check)
+
+                    Prefs.setTorConnectionPathway(conf.first.id)
+
+                    when (conf.first) {
+                        Transport.NONE -> {
+                            binding.rbDirect.isChecked = true
+                        }
+                        Transport.MEEK_AZURE -> {
+                            binding.rbMeek.isChecked = true
+                        }
+                        Transport.OBFS4 -> {
+                            binding.rbObfs4.isChecked = true
+                        }
+                        Transport.SNOWFLAKE -> {
+                            binding.rbSnowflake.isChecked = true
+                        }
+                        Transport.SNOWFLAKE_AMP -> {
+                            binding.rbSnowflakeAmp.isChecked = true
+                        }
+                        Transport.SNOWFLAKE_SQS -> {
+                            binding.rbSnowflakeSqs.isChecked = true
+                        }
+                        Transport.WEBTUNNEL -> {
+                            binding.rbDirect.isChecked = true // TODO
+                        }
+                        Transport.CUSTOM -> {
+                            binding.rbCustom.isChecked = true
+                            Prefs.setBridgesList(conf.second.joinToString("\n"))
+                        }
+                    }
+
+                    delay(5 * 1000)
+                    updateAskTorBt()
+                }
             }
-        }
+            catch(e: Throwable) {
+                withContext(Dispatchers.Main) {
+                    updateAskTorBt()
 
-        Authenticator.setDefault(authenticator)
-
-        val countryCodeValue: String = getDeviceCountryCode(requireContext())
-        CircumventionApiManager(proxy.port(IPtProxy.MeekLite)).getSettings(
-            SettingsRequest(
-                countryCodeValue
-            ), {
-                it?.let {
-                    val circumventionApiBridges = it.settings
-                    if (circumventionApiBridges == null) {
-                        binding.rbDirect.isChecked = true
-                    } else { // got bridges
-                        setPreferenceForSmartConnect(circumventionApiBridges)
-                    }
-
-                    proxy.stop(IPtProxy.MeekLite)
-                }
-            }, {
-                Log.wtf(TAG, "Couldn't hit circumvention API... $it")
-                if (isVisible) {
-                    Toast.makeText(
-                        requireContext(),
-                        R.string.error_asking_tor_for_bridges,
-                        Toast.LENGTH_LONG
-                    ).show()
-                    proxy.stop(IPtProxy.MeekLite)
-                }
-            })
-    }
-
-    private fun getDeviceCountryCode(context: Context): String {
-        var countryCode: String?
-
-        // Try to get country code from TelephonyManager service
-        val tm = context.getSystemService(Context.TELEPHONY_SERVICE) as TelephonyManager
-
-        // Query first getSimCountryIso()
-        countryCode = tm.simCountryIso
-        if (countryCode != null && countryCode.length == 2) return countryCode.lowercase(Locale.getDefault())
-
-        countryCode = tm.networkCountryIso
-        if (countryCode != null && countryCode.length == 2) return countryCode.lowercase(Locale.getDefault())
-
-        countryCode = context.resources.configuration.locales[0].country
-
-        return if (countryCode != null && countryCode.length == 2) countryCode.lowercase(Locale.getDefault()) else "us"
-    }
-
-    private fun setPreferenceForSmartConnect(circumventionApiBridges: List<Bridges?>?) {
-        if (isVisible) {
-            val dLeft = AppCompatResources.getDrawable(requireContext(), R.drawable.ic_green_check)
-            binding.btnAskTor.setCompoundDrawablesWithIntrinsicBounds(dLeft, null, null, null)
-        }
-        circumventionApiBridges?.let {
-            if (it.isEmpty()) {
-                if (isVisible) {
-                    binding.rbDirect.isChecked = true
-                    binding.btnAskTor.text = getString(R.string.connection_direct)
-                }
-                Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_DIRECT)
-                return
-            }
-            val b = it[0]!!.bridges
-            when (b.type) {
-                CircumventionApiManager.BRIDGE_TYPE_SNOWFLAKE -> {
-                    Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_SNOWFLAKE)
-                    if (isVisible) {
-                        binding.rbSnowflake.isChecked = true
-                        binding.btnAskTor.text = getString(R.string.connection_snowflake)
-                    }
-                }
-
-                CircumventionApiManager.BRIDGE_TYPE_OBFS4 -> {
-                    if (isVisible) {
-                        binding.rbCustom.isChecked = true
-                        binding.btnAskTor.text = getString(R.string.connection_custom)
-                    }
-                    var bridgeStrings = ""
-                    b.bridge_strings!!.forEach { bridgeString ->
-                        bridgeStrings += "$bridgeString\n"
-                    }
-                    Prefs.setBridgesList(bridgeStrings)
-                    Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_OBFS4)
-                }
-
-                else -> {
-                    if (isVisible) {
-                        binding.rbDirect.isChecked = true
-                    }
+                    Toast.makeText(context, e.localizedMessage, Toast.LENGTH_LONG)
+                        .show()
                 }
             }
         }
     }
 
-    override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
-        if (isChecked) {
-            for (radio in radios) {
-                if (radio != buttonView) radio.isChecked = false
-            }
+    private fun updateAskTorBt(text: CharSequence = getString(R.string.ask_tor), drawableId: Int? = null) {
+        val context = context ?: return
 
-            radioSubtitleMap[buttonView]?.let {
-                for (subtitle in allSubtitles) {
-                    subtitle.visibility = if (subtitle == it) View.VISIBLE else View.GONE
-                }
-            }
+        if (drawableId != null) {
+            val image = AppCompatResources.getDrawable(context, drawableId)
+            binding.btnAskTor.setCompoundDrawablesWithIntrinsicBounds(image, null, null, null)
+        }
+        else {
+            binding.btnAskTor.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null)
         }
 
-        binding.btnAction.text = when (buttonView) {
-            binding.rbTelegram, binding.rbRequest, binding.rbEmail, binding.rbCustom -> getString(R.string.next)
-            else -> getString(R.string.connect)
-        }
+        binding.btnAskTor.text = text
     }
 }

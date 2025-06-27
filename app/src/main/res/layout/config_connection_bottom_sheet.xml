@@ -264,7 +264,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/requestContainer"
+                android:id="@+id/obfs4Container"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
@@ -272,7 +272,7 @@
                 android:orientation="horizontal">
 
                 <RadioButton
-                    android:id="@+id/rbRequest"
+                    android:id="@+id/rbObfs4"
                     style="@style/BottomSheetRadio"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -286,12 +286,12 @@
 
                     <TextView
                         style="@style/BottomSheetRadioHeader"
-                        android:text="@string/get_a_bridge" />
+                        android:text="@string/built_in_bridges_obfs4" />
 
                     <TextView
-                        android:id="@+id/tvRequestSubtitle"
+                        android:id="@+id/tvObfs4Subtitle"
                         style="@style/BottomSheetTextView"
-                        android:text="@string/get_a_bridge_subtitle"
+                        android:text="@string/built_in_bridges_obfs4_subtitle"
                         android:visibility="gone" />
                 </LinearLayout>
 

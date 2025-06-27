@@ -1,8 +1,16 @@
 package org.torproject.android.service.util
 
+import kotlinx.serialization.KSerializer
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.descriptors.PrimitiveKind
+import kotlinx.serialization.descriptors.PrimitiveSerialDescriptor
+import kotlinx.serialization.encoding.Decoder
+import kotlinx.serialization.encoding.Encoder
+
 /**
  * Parser for bridge lines.
  */
+@Serializable(with = BridgeAsStringSerializer::class)
 @Suppress("MemberVisibilityCanBePrivate", "unused")
 class Bridge(var raw: String) {
 
@@ -81,5 +89,18 @@ class Bridge(var raw: String) {
         fun getTransports(bridges: List<Bridge>): Set<String> {
             return bridges.mapNotNull { it.transport }.toSet()
         }
+    }
+}
+
+object BridgeAsStringSerializer : KSerializer<Bridge> {
+    override val descriptor = PrimitiveSerialDescriptor(Bridge.javaClass.canonicalName!!,
+        PrimitiveKind.STRING)
+
+    override fun serialize(encoder: Encoder, value: Bridge) {
+        encoder.encodeString(value.raw)
+    }
+
+    override fun deserialize(decoder: Decoder): Bridge {
+        return Bridge(decoder.decodeString())
     }
 }

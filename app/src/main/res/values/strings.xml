@@ -234,8 +234,6 @@
     <string name="snowflake_amp">Snowflake AMP</string>
     <string name="snowflake_sqs">Snowflake SQS</string>
     <string name="snowflake_subtitle">Connects through Tor volunteers. Gets around some Tor blocking.</string>
-    <string name="get_a_bridge">Bridge from Tor (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Cloaks your traffic. Gets around some Tor blocking.</string>
     <string name="bridges_via_telegram">Bridges from Tor (obfs4) via Telegram</string>
     <string name="bridges_via_telegram_subtitle">Likely to keep you connected if Tor is severely blocked. Using this method will launch the Tor Bot Telegram channel. Tap \'Start\' or write \'%1$s\' in the chat to get bridge addresses.</string>
     <string name="bridges_via_email">Bridges from Tor (obfs4) via Email</string>
@@ -314,4 +312,6 @@
     <string name="invalid_bridge_format">Invalid bridge format</string>
     <string name="error_asking_tor_for_bridges">Error asking Tor how to connect</string>
     <string name="enter_bridge_address">Enter bridge address</string>
+    <string name="built_in_bridges_obfs4">Built-in Bridges (obfs4)</string>
+    <string name="built_in_bridges_obfs4_subtitle">Cloaks your traffic. Gets around some Tor blocking. Good if you\'re on public WiFi, but in a country where Tor isn\'t blocked.</string>
 </resources>
