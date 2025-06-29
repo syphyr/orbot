@@ -57,7 +57,6 @@ configurations {
 
 dependencies {
     implementation(project(":appcore"))
-    implementation(project(":intentintegrator"))
     implementation(project(":orbotservice"))
 
     implementation(libs.android.material)
