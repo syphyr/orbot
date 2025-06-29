@@ -20,9 +20,7 @@ import org.torproject.android.R
 import org.torproject.android.core.sendIntentToService
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
-import org.torproject.android.ui.more.AboutDialogFragment
 import org.torproject.android.ui.AppManagerActivity
-import org.torproject.android.ui.more.MoreActionAdapter
 import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.android.ui.v3onionservice.OnionServiceActivity
 import org.torproject.android.ui.v3onionservice.clientauth.ClientAuthActivity
