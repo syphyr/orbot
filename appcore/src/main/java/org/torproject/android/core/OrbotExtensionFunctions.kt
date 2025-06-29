@@ -2,8 +2,6 @@ package org.torproject.android.core
 
 import android.content.Context
 import android.content.Intent
-import android.widget.Toast
-import androidx.annotation.StringRes
 
 import androidx.core.content.ContextCompat
 
@@ -43,12 +41,6 @@ fun Context.sendIntentToService(action: String) =
             this.action = action
         }
     )
-
-fun Context.showToast(msg: CharSequence) =
-    Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
-
-fun Context.showToast(@StringRes msgId: Int) =
-    Toast.makeText(this, msgId, Toast.LENGTH_LONG).show()
 
 /**
  * Returns the first key corresponding to the given [value], or `null`

@@ -11,7 +11,6 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.WindowInsetsController
-import android.widget.*
 
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
@@ -28,12 +27,12 @@ import androidx.navigation.ui.setupWithNavController
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scottyab.rootbeer.RootBeer
-import org.torproject.android.core.showToast
 
 import org.torproject.android.core.sendIntentToService
 import org.torproject.android.core.ui.BaseActivity
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.util.Prefs
+import org.torproject.android.service.util.Utils.showToast
 import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.android.ui.connect.ConnectViewModel
 import org.torproject.android.util.DeviceAuthenticationPrompt
@@ -184,8 +183,7 @@ class OrbotActivity : BaseActivity() {
 
         if (!rootDetectionShown && Prefs.detectRoot() && RootBeer(this).isRooted) {
             //we found indication of root
-            Toast.makeText(applicationContext, getString(R.string.root_warning), Toast.LENGTH_LONG)
-                .show()
+            applicationContext.showToast(getString(R.string.root_warning))
 
             rootDetectionShown = true
         }

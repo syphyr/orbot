@@ -1,6 +1,9 @@
 /* Copyright (c) 2009, Nathan Freitas, Orbot / The Guardian Project - http://openideals.com/guardian */ /* See LICENSE for licensing information */
 package org.torproject.android.service.util
 
+import android.content.Context
+import android.widget.Toast
+import androidx.annotation.StringRes
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStream
@@ -66,4 +69,12 @@ object Utils {
         val secondChar = Character.codePointAt(uppercaseCC, 1) - asciiOffset + flagOffset
         return String(Character.toChars(firstChar)) + String(Character.toChars(secondChar))
     }
+
+
+    fun Context.showToast(msg: CharSequence) =
+        Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+
+    fun Context.showToast(@StringRes msgId: Int) =
+        Toast.makeText(this, msgId, Toast.LENGTH_LONG).show()
+
 }
