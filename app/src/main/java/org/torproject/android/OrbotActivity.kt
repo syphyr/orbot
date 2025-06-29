@@ -28,7 +28,7 @@ import androidx.navigation.ui.setupWithNavController
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scottyab.rootbeer.RootBeer
-import org.torproject.android.core.makeToast
+import org.torproject.android.core.showToast
 
 import org.torproject.android.core.sendIntentToService
 import org.torproject.android.core.ui.BaseActivity
@@ -327,7 +327,7 @@ class OrbotActivity : BaseActivity() {
                     finish() // user presses back, just close
                 } else if (errorCode == BiometricPrompt.ERROR_HW_UNAVAILABLE) {
                     // we set this flag when Orbot *can't* authenticate, ie no password or unsupported device
-                    makeToast(errorMsg) // String set in RequirePasswordPrompt.kt
+                    showToast(errorMsg) // String set in RequirePasswordPrompt.kt
                     rootLayout?.visibility = View.VISIBLE
                 }
             }

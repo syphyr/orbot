@@ -44,10 +44,10 @@ fun Context.sendIntentToService(action: String) =
         }
     )
 
-fun Context.makeToast(msg: CharSequence) =
+fun Context.showToast(msg: CharSequence) =
     Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
 
-fun Context.makeToast(@StringRes msgId: Int) =
+fun Context.showToast(@StringRes msgId: Int) =
     Toast.makeText(this, msgId, Toast.LENGTH_LONG).show()
 
 /**
