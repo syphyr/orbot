@@ -138,6 +138,7 @@ enum class Transport(val id: String) {
             SNOWFLAKE_AMP -> {
                 BuiltInBridges.getInstance(context)?.snowflake?.forEach {
                     val builder = Bridge.Builder(it)
+                    builder.ip = "192.0.2.5"
                     builder.url = ampBroker
                     builder.fronts = ampFronts.toMutableSet()
 
@@ -147,6 +148,7 @@ enum class Transport(val id: String) {
             SNOWFLAKE_SQS -> {
                 BuiltInBridges.getInstance(context)?.snowflake?.forEach {
                     val builder = Bridge.Builder(it)
+                    builder.ip = "192.0.2.6"
                     builder.url = null
                     builder.fronts.clear()
 

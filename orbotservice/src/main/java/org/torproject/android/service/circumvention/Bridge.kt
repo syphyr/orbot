@@ -15,13 +15,12 @@ import kotlinx.serialization.encoding.Encoder
 class Bridge(var raw: String) {
 
     class Builder(
-        transport: String,
-        ip: String,
-        port: Int,
-        fingerprint1: String
+        var transport: String,
+        var ip: String,
+        var port: Int,
+        var fingerprint1: String
     ) {
 
-        val pieces = listOf(transport, "$ip:$port", fingerprint1)
         var fingerprint2: String? = null
         var url: String? = null
         var fronts = mutableSetOf<String>()
@@ -33,8 +32,7 @@ class Bridge(var raw: String) {
 
 
         constructor(bridge: Bridge) : this(bridge.transport ?: "", bridge.ip ?: "", bridge.port ?: 0, bridge.fingerprint1 ?: "") {
-            if (pieces.firstOrNull().isNullOrEmpty() || pieces.getOrNull(1).isNullOrEmpty() ||
-                pieces.getOrNull(2).isNullOrEmpty())
+            if (transport.isEmpty() || ip.isEmpty() || port < 1 ||fingerprint1.isEmpty())
             {
                 throw RuntimeException("Tried to create Bridge.Builder with invalid bridge!")
             }
@@ -54,8 +52,7 @@ class Bridge(var raw: String) {
         }
 
         fun build(): Bridge {
-            var params = mutableListOf<String>()
-            params.addAll(pieces)
+            var params = mutableListOf(transport, "$ip:$port", fingerprint1)
 
             fingerprint2?.let {
                 if (it.isNotEmpty()) params.add("fingerprint=$it")
