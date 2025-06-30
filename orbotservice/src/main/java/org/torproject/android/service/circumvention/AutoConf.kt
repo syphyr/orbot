@@ -2,7 +2,6 @@ package org.torproject.android.service.circumvention
 
 import IPtProxy.IPtProxy
 import android.content.Context
-import org.torproject.android.service.OrbotService
 import org.torproject.android.service.util.Bridge
 import java.net.Authenticator
 import java.net.PasswordAuthentication
@@ -25,16 +24,14 @@ object AutoConf {
     suspend fun `do`(context: Context, country: String? = null, cannotConnectWithoutPt: Boolean = false): Pair<Transport, List<String>>? {
         var cannotConnectWithoutPt = cannotConnectWithoutPt
 
-        val controller = OrbotService.getIptProxyController(context)
-
         val done = fun(conf: Pair<Transport, List<String>>?): Pair<Transport, List<String>>? {
-            controller.stop(IPtProxy.MeekLite)
+            Transport.controller.stop(IPtProxy.MeekLite)
             Authenticator.setDefault(null)
 
             return conf
         }
 
-        controller.start(IPtProxy.MeekLite, null)
+        Transport.controller.start(IPtProxy.MeekLite, null)
 
         val authenticator = object : Authenticator() {
             override fun getPasswordAuthentication(): PasswordAuthentication? {
@@ -44,7 +41,7 @@ object AutoConf {
 
         Authenticator.setDefault(authenticator)
 
-        val api = MoatApi.getInstance(controller.port(IPtProxy.MeekLite).toInt())
+        val api = MoatApi.getInstance(Transport.controller.port(IPtProxy.MeekLite).toInt())
 
         // First, update built-ins.
         if (BuiltInBridges.isOutdated(context)) {

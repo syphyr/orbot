@@ -57,9 +57,6 @@ import java.util.StringTokenizer;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import IPtProxy.Controller;
-import IPtProxy.IPtProxy;
-
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.ServiceCompat;
@@ -93,16 +90,6 @@ public class OrbotService extends VpnService {
     private PowerConnectionReceiver mPowerReceiver;
 
     private boolean mHasPower = false, mHasWifi = false;
-
-    private static Controller mIptProxy = null;
-
-    public static synchronized Controller getIptProxyController(Context context) {
-        if (mIptProxy == null && context != null) {
-            mIptProxy = IPtProxy.newController(context.getCacheDir().getPath(), true, false, "INFO", (s, e) ->
-                    Log.e(TAG, "IPtProxy Error", e));
-        }
-        return mIptProxy;
-    }
 
     public void debug(String msg) {
         Log.d(TAG, msg);
@@ -217,7 +204,7 @@ public class OrbotService extends VpnService {
 
         if (showNotification) sendCallbackLogMessage(getString(R.string.status_shutting_down));
 
-        Prefs.getTorConnectionPathway().stop(this);
+        Prefs.getTorConnectionPathway().stop();
 
         stopTor();
 
@@ -346,7 +333,7 @@ public class OrbotService extends VpnService {
     public void onCreate() {
         super.onCreate();
         configLanguage();
-        getIptProxyController(this);
+        Transport.setStateLocation(getCacheDir().getPath());
 
         try {
             try {

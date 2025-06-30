@@ -1,10 +1,10 @@
 package org.torproject.android.service.circumvention
 
+import IPtProxy.Controller
 import IPtProxy.IPtProxy
 import IPtProxy.OnTransportStopped
 import android.content.Context
 import android.util.Log
-import org.torproject.android.service.OrbotService
 import org.torproject.android.service.util.Bridge
 import org.torproject.android.service.util.Prefs
 
@@ -44,13 +44,12 @@ enum class Transport(val id: String) {
     CUSTOM("custom");
 
     companion object {
+        @JvmStatic
         var stateLocation = ""
 
-        // For an unknown reason, this crashes with a Golang error.
-        // Use OrbotService IPProxy.Controller for now.
-//        val controller: Controller by lazy {
-//            Controller(stateLocation, true, false, "INFO", statusCollector)
-//        }
+        val controller: Controller by lazy {
+            Controller(stateLocation, true, false, "INFO", statusCollector)
+        }
 
         fun fromId(id: String): Transport {
             return when (id) {
@@ -69,7 +68,13 @@ enum class Transport(val id: String) {
             override fun stopped(name: String?, exception: Exception?) {
                 if (name == null) return
 
-                Log.e(Transport::class.toString(), "$name stopped: ${exception?.localizedMessage}")
+                if (exception != null) {
+                    Log.e(Transport::class.toString(),
+                        "$name stopped: ${exception.localizedMessage}")
+                }
+                else {
+                    Log.d(Transport::class.toString(), "$name stopped.")
+                }
             }
         }
 
@@ -97,14 +102,14 @@ enum class Transport(val id: String) {
             }
         }
 
-    fun getPort(context: Context): Long {
-        val transport = transportNames.firstOrNull() ?: return 0
+    val port: Long
+        get() {
+            val transport = transportNames.firstOrNull() ?: return 0
 
-        return OrbotService.getIptProxyController(context).port(transport)
-    }
+            return controller.port(transport)
+        }
 
     fun getTorConfig(context: Context): String {
-        val controller = OrbotService.getIptProxyController(context)
         val result = StringBuilder()
 
         for (transport in transportNames) {
@@ -165,8 +170,6 @@ enum class Transport(val id: String) {
     }
 
     fun start(context: Context) {
-        val controller = OrbotService.getIptProxyController(context)
-
         when (this) {
             SNOWFLAKE -> {
                 val snowflake = BuiltInBridges.getInstance(context)?.snowflake?.firstOrNull()
@@ -213,9 +216,7 @@ enum class Transport(val id: String) {
         }
     }
 
-    fun stop(context: Context) {
-        val controller = OrbotService.getIptProxyController(context)
-
+    fun stop() {
         for (transport in transportNames) {
             controller.stop(transport)
         }
