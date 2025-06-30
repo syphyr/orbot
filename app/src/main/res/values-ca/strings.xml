@@ -292,4 +292,12 @@
     <string name="camo_dialog_enable_confirm_msg" formatted="true">L\'Orbot es camuflarà com a l\'aplicació %1$s. Això amagarà tots els detalls de les notificacions sobre el Tor i canviarà l\'aparença de l\'Orbot a la pantalla d\'inici.\n\nCamuflar-se com a %2$s reiniciarà l\'Orbot.</string>
     <string name="camo_dialog_disable_confirm_msg">L\'Orbot tornarà a mostrar la informació sobre les notificacions de la connexió Tor i apareixerà de manera normal a la pantalla d\'inici.\n\nDesactivar el mode de camuflatge reiniciarà l\'Orbot.</string>
     <string name="pref_camo_mode_description">Disfressa com apareixen al vostre dispositiu la icona, el nom i les notificacions de l\'Orbot</string>
+    <string name="power_user_mode_permission">Calen permisos d\'alarmes i recordatoris per al mode Power User</string>
+    <string name="power_user_mode_permission_msg">Permeteu a l\'Orbot establir alarmes i recordatoris per a poder usar el mode Power User. Això no establirà cap alarma real. Cal aquest permís perquè el sistema mantingui l\'OrbotService actiu quan l\'Orbot no s\'estigui utilitzant com a una VPN a escala de tot el sistema.</string>
+    <string name="pref_require_password">Blocatge amb la contrasenya del dispositiu</string>
+    <string name="error_no_password_set">Establiu una contrasenya al dispositiu per a poder usar el Blocatge amb la contrasenya del dispositiu</string>
+    <string name="unlock_app_msg" formatted="true">Cal la contrasenya del dispositiu per a desblocar %s</string>
+    <string name="pref_require_password_description">Prevé l\'accés a l\'Orbot fins que introduïu la contrasenya del dispositiu. Això es pot combinar amb el mode camuflatge per ajudar a amagar l\'Orbot al dispositiu</string>
+    <string name="error_asking_tor_for_bridges">Error en demanar al Tor com connectar</string>
+    <string name="invalid_bridge_format">Format del pont no vàlid</string>
 </resources>

@@ -4,11 +4,11 @@ import IPtProxy.SnowflakeClientConnected
 import IPtProxy.SnowflakeProxy
 import android.content.Context
 import android.os.Handler
-import android.widget.Toast
 import org.torproject.android.service.OrbotConstants.ONION_EMOJI
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.R
 import org.torproject.android.service.util.Prefs
+import org.torproject.android.service.util.Utils.showToast
 import java.security.SecureRandom
 
 class SnowflakeProxyWrapper(private val context: Context) {
@@ -42,7 +42,7 @@ class SnowflakeProxyWrapper(private val context: Context) {
         if (Prefs.showSnowflakeProxyMessage()) {
             val message = context.getString(R.string.log_notice_snowflake_proxy_enabled)
             Handler(context.mainLooper).post {
-                Toast.makeText(context.applicationContext, message, Toast.LENGTH_LONG).show()
+                context.applicationContext.showToast(message)
             }
         }
     }
@@ -56,11 +56,7 @@ class SnowflakeProxyWrapper(private val context: Context) {
         if (Prefs.showSnowflakeProxyMessage()) {
             val message = context.getString(R.string.log_notice_snowflake_proxy_disabled)
             Handler(context.mainLooper).post {
-                Toast.makeText(
-                    context.applicationContext,
-                    message,
-                    Toast.LENGTH_LONG
-                ).show()
+                context.applicationContext.showToast(message)
             }
         }
     }
@@ -68,13 +64,13 @@ class SnowflakeProxyWrapper(private val context: Context) {
     private fun onConnected() {
         Prefs.addSnowflakeServed()
         if (!Prefs.showSnowflakeProxyMessage()) return
-        val message: String = String.format(context.getString(R.string.snowflake_proxy_client_connected_msg), ONION_EMOJI, ONION_EMOJI)
+        val message: String = String.format(
+            context.getString(R.string.snowflake_proxy_client_connected_msg),
+            ONION_EMOJI,
+            ONION_EMOJI
+        )
         Handler(context.mainLooper).post {
-            Toast.makeText(
-                context.applicationContext,
-                message,
-                Toast.LENGTH_LONG
-            ).show()
+            context.applicationContext.showToast(message)
         }
 
     }

@@ -48,8 +48,6 @@ import androidx.palette.graphics.Palette;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
 import com.jetradarmobile.snowfall.SnowfallView;
 
 import net.freehaven.tor.control.TorControlCommands;

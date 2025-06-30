@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.zxing.integration.android;
+package org.torproject.android.tv;
 
 import java.util.Arrays;
 import java.util.Collection;

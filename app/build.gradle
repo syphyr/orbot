@@ -71,7 +71,7 @@ android {
         fullperm {
             dimension "free"
             applicationId "org.torproject.android"
-            versionCode 1742200100
+            versionCode 1750300100
             versionName getVersionName()
             archivesBaseName = "Orbot-${versionName}"
         }
@@ -112,7 +112,6 @@ dependencies {
     // Use locally built ipt_proxy+go_tun2socks
     implementation(project(":OrbotLib"))
     implementation(project(":appcore"))
-    implementation(project(":intentintegrator"))
     implementation(project(":orbotservice"))
 
     implementation(libs.android.material)
