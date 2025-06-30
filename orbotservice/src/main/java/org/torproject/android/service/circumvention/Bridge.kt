@@ -27,6 +27,7 @@ class Bridge(var raw: String) {
         var cert: String? = null
         var iatMode: String? = null
         var ice: String? = null
+        var utls: String? = null
         var utlsImitate: String? = null
         var ver: String? = null
 
@@ -47,6 +48,7 @@ class Bridge(var raw: String) {
             cert = bridge.cert
             iatMode = bridge.iatMode
             ice = bridge.ice
+            utls = bridge.utls
             utlsImitate = bridge.utlsImitate
             ver = bridge.ver
         }
@@ -76,6 +78,10 @@ class Bridge(var raw: String) {
 
             ice?.let {
                 if (it.isNotEmpty()) params.add("ice=$it")
+            }
+
+            utls?.let {
+                if (it.isNotEmpty()) params.add("utls=$it")
             }
 
             utlsImitate?.let {
@@ -134,6 +140,10 @@ class Bridge(var raw: String) {
 
     val ice
         get() = rawPieces.firstOrNull { it.startsWith("ice=") }
+            ?.split("=")?.lastOrNull()
+
+    val utls
+        get() = rawPieces.firstOrNull { it.startsWith("utls=") }
             ?.split("=")?.lastOrNull()
 
     val utlsImitate
