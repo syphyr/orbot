@@ -36,6 +36,7 @@ import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.android.ui.connect.ConnectViewModel
 import org.torproject.android.util.RequirePasswordPrompt
+import java.util.Locale
 
 class OrbotActivity : BaseActivity() {
 
@@ -257,7 +258,7 @@ class OrbotActivity : BaseActivity() {
         if (requestCode == REQUEST_CODE_VPN && resultCode == RESULT_OK) {
             connectViewModel.triggerStartTorAndVpn()
         } else if (requestCode == REQUEST_CODE_SETTINGS && resultCode == RESULT_OK) {
-            Prefs.setDefaultLocale(data?.getStringExtra("locale"))
+            Prefs.defaultLocale = data?.getStringExtra("locale") ?: Locale.getDefault().language
             sendIntentToService(OrbotConstants.ACTION_LOCAL_LOCALE_SET)
             (application as OrbotApp).setLocale()
             finish()

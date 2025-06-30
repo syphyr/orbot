@@ -113,19 +113,19 @@ class ConfigConnectionBottomSheet :
 
         binding.btnAction.setOnClickListener {
             if (binding.rbObfs4.isChecked) {
-                Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_OBFS4)
+                Prefs.torConnectionPathway = Transport.OBFS4
                 closeAndConnect()
             } else if (binding.rbDirect.isChecked) {
-                Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_DIRECT)
+                Prefs.torConnectionPathway = Transport.NONE
                 closeAndConnect()
             } else if (binding.rbSnowflake.isChecked) {
-                Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_SNOWFLAKE)
+                Prefs.torConnectionPathway = Transport.SNOWFLAKE
                 closeAndConnect()
             } else if (binding.rbSnowflakeAmp.isChecked) {
-                Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_SNOWFLAKE_AMP)
+                Prefs.torConnectionPathway = Transport.SNOWFLAKE_AMP
                 closeAndConnect()
             } else if (binding.rbSnowflakeSqs.isChecked) {
-                Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_SNOWFLAKE_SQS)
+                Prefs.torConnectionPathway = Transport.SNOWFLAKE_SQS
                 closeAndConnect()
             } else if (binding.rbTelegram.isChecked) {
                 val i = Intent(Intent.ACTION_VIEW, Constants.telegramBot)
@@ -142,13 +142,15 @@ class ConfigConnectionBottomSheet :
                     startActivity(i)
                 }
             }
-
-            // TODO: Finish Meek Azure support.
+            else if (binding.rbMeek.isChecked) {
+                Prefs.torConnectionPathway = Transport.MEEK_AZURE
+                closeAndConnect()
+            }
 
             if (binding.rbTelegram.isChecked || binding.rbEmail.isChecked || binding.rbCustom.isChecked) {
                 CustomBridgeBottomSheet(object : ConnectionHelperCallbacks {
                     override fun tryConnecting() {
-                        Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_OBFS4)
+                        Prefs.torConnectionPathway = Transport.CUSTOM
                         closeAndConnect()
                     }
                 }).show(requireActivity().supportFragmentManager, CustomBridgeBottomSheet.TAG)
@@ -183,12 +185,16 @@ class ConfigConnectionBottomSheet :
     }
 
     private fun selectRadioButtonFromPreference() {
-        val pref = Prefs.getTorConnectionPathway()
-        if (pref.equals(Prefs.CONNECTION_PATHWAY_OBFS4)) binding.rbCustom.isChecked = true
-        if (pref.equals(Prefs.CONNECTION_PATHWAY_SNOWFLAKE)) binding.rbSnowflake.isChecked = true
-        if (pref.equals(Prefs.CONNECTION_PATHWAY_SNOWFLAKE_AMP)) binding.rbSnowflakeAmp.isChecked = true
-        if (pref.equals(Prefs.CONNECTION_PATHWAY_SNOWFLAKE_SQS)) binding.rbSnowflakeSqs.isChecked = true
-        if (pref.equals(Prefs.CONNECTION_PATHWAY_DIRECT)) binding.rbDirect.isChecked = true
+        when (Prefs.torConnectionPathway) {
+            Transport.NONE -> binding.rbDirect.isChecked = true
+            Transport.MEEK_AZURE -> binding.rbMeek.isChecked = true
+            Transport.OBFS4 -> binding.rbObfs4.isChecked = true
+            Transport.SNOWFLAKE -> binding.rbSnowflake.isChecked = true
+            Transport.SNOWFLAKE_AMP -> binding.rbSnowflakeAmp.isChecked = true
+            Transport.SNOWFLAKE_SQS -> binding.rbSnowflakeSqs.isChecked = true
+            Transport.WEBTUNNEL -> TODO() // This should currently not happen, there's no default Webtunnel bridges advertised, yet.
+            Transport.CUSTOM -> binding.rbCustom.isChecked = true
+        }
     }
 
     private fun askTor() {
@@ -212,7 +218,11 @@ class ConfigConnectionBottomSheet :
 
                     updateAskTorBt(conf.first.toString(), R.drawable.ic_green_check)
 
-                    Prefs.setTorConnectionPathway(conf.first.id)
+                    Prefs.torConnectionPathway = conf.first
+
+                    val customBridges = Prefs.bridgesList?.split("\n")?.toMutableSet() ?: mutableSetOf()
+                    customBridges.addAll(conf.second)
+                    Prefs.bridgesList = customBridges.joinToString("\n")
 
                     when (conf.first) {
                         Transport.NONE -> {
@@ -233,12 +243,9 @@ class ConfigConnectionBottomSheet :
                         Transport.SNOWFLAKE_SQS -> {
                             binding.rbSnowflakeSqs.isChecked = true
                         }
-                        Transport.WEBTUNNEL -> {
-                            binding.rbDirect.isChecked = true // TODO
-                        }
+                        Transport.WEBTUNNEL -> TODO() // This should currently not happen, there's no default Webtunnel bridges advertised, yet.
                         Transport.CUSTOM -> {
                             binding.rbCustom.isChecked = true
-                            Prefs.setBridgesList(conf.second.joinToString("\n"))
                         }
                     }
 

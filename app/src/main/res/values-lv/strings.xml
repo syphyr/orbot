@@ -243,7 +243,6 @@
     <string name="log_copied">Nokopēts žurnāls</string>
     <string name="btn_copy_log">Kopēt žurnālu</string>
     <string name="setting_padding">Polsterējums</string>
-    <string name="action_use">Izmantojiet</string>
     <string name="option_only_on_wifi">Tikai izmantojot Wifi</string>
     <string name="having_trouble_subtitle">Mēs varam izmēģināt Tor tiltu nākamo, bet mums būs nepieciešama jūsu palīdzība</string>
     <string name="having_trouble">Grūtības</string>

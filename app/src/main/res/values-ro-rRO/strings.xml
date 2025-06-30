@@ -245,7 +245,6 @@
     <string name="not_sure">Nu sunteți siguri\?</string>
     <string name="ask_tor">Adresați-vă Tor</string>
     <string name="many_ways">Există mai multe modalități de a vă conecta la Tor. Unele pot funcționa mai bine decât altele pentru dumneavoastră.</string>
-    <string name="action_use">Utilizați</string>
     <string name="snowflake_proxy_msg_title">Afișați notificarea de conectare</string>
     <string name="volunteer_mode">Modul Bunătate</string>
     <string name="incorrect_solution">Soluție incorectă</string>

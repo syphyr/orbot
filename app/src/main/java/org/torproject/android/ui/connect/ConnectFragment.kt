@@ -37,6 +37,7 @@ import org.torproject.android.core.putNotSystem
 import org.torproject.android.core.sendIntentToService
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
+import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.AppManagerActivity
 import org.torproject.android.ui.OrbotMenuAction
@@ -106,7 +107,7 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
             progressBar = it.findViewById(R.id.progressBar)
             lvConnectedActions = it.findViewById(R.id.lvConnected)
 
-            if (Prefs.isPowerUserMode()) {
+            if (Prefs.isPowerUserMode) {
                 btnStartVpn.text = getString(R.string.connect)
             }
 
@@ -146,11 +147,11 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
 
     fun startTorAndVpn() {
         val vpnIntent = VpnService.prepare(requireActivity())?.putNotSystem()
-        if (vpnIntent != null && (!Prefs.isPowerUserMode())) {
+        if (vpnIntent != null && (!Prefs.isPowerUserMode)) {
             startActivityForResult(vpnIntent, OrbotActivity.Companion.REQUEST_CODE_VPN)
         } else { // either the vpn permission hasn't been granted or we are in power user mode
-            Prefs.putUseVpn(!Prefs.isPowerUserMode())
-            if (Prefs.isPowerUserMode()) {
+            Prefs.putUseVpn(!Prefs.isPowerUserMode)
+            if (Prefs.isPowerUserMode) {
                 // android 14 awkwardly needs this permission to be explicitly granted to use the
                 // FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED permission without grabbing a VPN Intent
                 val alarmManager = requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
@@ -180,7 +181,7 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
                 OrbotMenuAction(R.string.btn_change_exit, 0) { openExitNodeDialog() },
                 OrbotMenuAction(R.string.btn_refresh, R.drawable.ic_refresh) { sendNewnymSignal() },
                 OrbotMenuAction(R.string.btn_tor_off, R.drawable.ic_power) { stopTorAndVpn() })
-        if (!Prefs.isPowerUserMode()) listItems.add(
+        if (!Prefs.isPowerUserMode) listItems.add(
             0,
             OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
                 startActivityForResult(
@@ -253,26 +254,19 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
         with(btnStartVpn) {
             visibility = View.VISIBLE
 
-            var connectStr = ""
-            when (Prefs.getTorConnectionPathway()) {
-                Prefs.CONNECTION_PATHWAY_DIRECT -> connectStr =
-                    context.getString(R.string.action_use) + ' ' + getString(R.string.direct_connect)
-
-                Prefs.CONNECTION_PATHWAY_SNOWFLAKE -> connectStr =
-                    context.getString(R.string.action_use) + ' ' + getString(R.string.snowflake)
-
-                Prefs.CONNECTION_PATHWAY_SNOWFLAKE_AMP -> connectStr =
-                    context.getString(R.string.action_use) + ' ' + getString(R.string.snowflake_amp)
-
-                Prefs.CONNECTION_PATHWAY_SNOWFLAKE_SQS -> connectStr =
-                    context.getString(R.string.action_use) + ' ' + getString(R.string.snowflake_sqs)
-
-                Prefs.CONNECTION_PATHWAY_OBFS4 -> connectStr =
-                    context.getString(R.string.action_use) + ' ' + getString(R.string.custom_bridges)
+            val connectStr = when (Prefs.torConnectionPathway) {
+                Transport.NONE -> getString(R.string.action_use_, getString(R.string.direct_connect))
+                Transport.MEEK_AZURE -> getString(R.string.action_use_, getString(R.string.bridge_meek_azure))
+                Transport.OBFS4 -> getString(R.string.action_use_, getString(R.string.built_in_bridges_obfs4))
+                Transport.SNOWFLAKE -> getString(R.string.action_use_, getString(R.string.snowflake))
+                Transport.SNOWFLAKE_AMP -> getString(R.string.action_use_, getString(R.string.snowflake_amp))
+                Transport.SNOWFLAKE_SQS -> getString(R.string.action_use_, getString(R.string.snowflake_sqs))
+                Transport.WEBTUNNEL -> getString(R.string.action_use_, Transport.WEBTUNNEL.id)
+                Transport.CUSTOM -> getString(R.string.action_use_, getString(R.string.custom_bridges))
             }
 
             text = when {
-                Prefs.isPowerUserMode() -> getString(R.string.connect)
+                Prefs.isPowerUserMode -> getString(R.string.connect)
                 connectStr.isEmpty() -> SpannableStringBuilder()
                     .append(
                         getString(R.string.btn_start_vpn),
@@ -354,7 +348,7 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     override fun onExitNodeSelected(countryCode: String, displayCountryName: String) {
 
         //tor format expects "{" for country code
-        Prefs.setExitNodes("{$countryCode}")
+        Prefs.exitNodes = "{$countryCode}"
 
         requireContext().sendIntentToService(
             Intent(

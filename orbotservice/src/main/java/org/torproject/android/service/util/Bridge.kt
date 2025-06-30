@@ -14,6 +14,85 @@ import kotlinx.serialization.encoding.Encoder
 @Suppress("MemberVisibilityCanBePrivate", "unused")
 class Bridge(var raw: String) {
 
+    class Builder(
+        transport: String,
+        ip: String,
+        port: Int,
+        fingerprint1: String
+    ) {
+
+        val pieces = listOf(transport, "$ip:$port", fingerprint1)
+        var fingerprint2: String? = null
+        var url: String? = null
+        var fronts = mutableSetOf<String>()
+        var cert: String? = null
+        var iatMode: String? = null
+        var ice: String? = null
+        var utlsImitate: String? = null
+        var ver: String? = null
+
+
+        constructor(bridge: Bridge) : this(bridge.transport ?: "", bridge.ip ?: "", bridge.port ?: 0, bridge.fingerprint1 ?: "") {
+            if (pieces.firstOrNull().isNullOrEmpty() || pieces.getOrNull(1).isNullOrEmpty() ||
+                pieces.getOrNull(2).isNullOrEmpty())
+            {
+                throw RuntimeException("Tried to create Bridge.Builder with invalid bridge!")
+            }
+
+            fingerprint2 = bridge.fingerprint2
+
+            url = bridge.url
+
+            bridge.front?.let { fronts.add(it) }
+            bridge.fronts?.let { fronts.addAll(it) }
+
+            cert = bridge.cert
+            iatMode = bridge.iatMode
+            ice = bridge.ice
+            utlsImitate = bridge.utlsImitate
+            ver = bridge.ver
+        }
+
+        fun build(): Bridge {
+            var params = mutableListOf<String>()
+            params.addAll(pieces)
+
+            fingerprint2?.let {
+                if (it.isNotEmpty()) params.add("fingerprint=$it")
+            }
+
+            url?.let {
+                if (it.isNotEmpty()) params.add("url=$it")
+            }
+
+            fronts.filter { it.isNotEmpty() }.let {
+                if (it.isNotEmpty()) params.add("fronts=${it.joinToString(",")}")
+            }
+
+            cert?.let {
+                if (it.isNotEmpty()) params.add("cert=$it")
+            }
+
+            iatMode?.let {
+                if (it.isNotEmpty()) params.add("iat-mode=$it")
+            }
+
+            ice?.let {
+                if (it.isNotEmpty()) params.add("ice=$it")
+            }
+
+            utlsImitate?.let {
+                if (it.isNotEmpty()) params.add("utls-imitate=$it")
+            }
+
+            ver?.let {
+                if (it.isNotEmpty()) params.add("ver=$it")
+            }
+
+            return Bridge(params.joinToString(" "))
+        }
+    }
+
     val rawPieces
         get() = raw.split(" ")
 

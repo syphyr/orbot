@@ -157,7 +157,6 @@
     <string name="log_copied">Log Göçürildi</string>
     <string name="not_sure">Anyk bilmeýänizmi?</string>
     <string name="ask_tor">Tor-dan Sora</string>
-    <string name="action_use">Ulan</string>
     <string name="asking">SORAÝAR…</string>
     <string name="no_internet_title">Internede baglan</string>
     <string name="no_internet_subtitle">Orbot ulanmak üçin internet birikmesi gerek.</string>

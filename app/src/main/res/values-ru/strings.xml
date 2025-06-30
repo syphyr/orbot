@@ -248,7 +248,6 @@
     <string name="many_ways">Есть много способов добраться до Tor. Некоторые из них могут сработать у вас лучше, чем другие.</string>
     <string name="not_sure">Не уверены\?</string>
     <string name="ask_tor">Спросить у Tor</string>
-    <string name="action_use">Использовать</string>
     <string name="asking">ЗАПРОС…</string>
     <string name="no_internet_title">Подключиться к интернету</string>
     <string name="no_internet_subtitle">Для использования Orbot необходимо подключение к интернету.</string>

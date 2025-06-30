@@ -10,7 +10,7 @@ import org.torproject.android.service.util.Prefs
 class RequirePasswordPrompt {
     companion object {
         fun openPrompt(activity: FragmentActivity, callback: BiometricPrompt.AuthenticationCallback) {
-            val appName = if (Prefs.isCamoEnabled()) Prefs.getCamoAppDisplayName() else activity.getString(
+            val appName = if (Prefs.isCamoEnabled) Prefs.camoAppDisplayName ?: "" else activity.getString(
                 R.string.app_name)
             val promptInfo = BiometricPrompt.PromptInfo.Builder()
                 .setConfirmationRequired(true)

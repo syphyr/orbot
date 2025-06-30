@@ -247,7 +247,6 @@
     <string name="connection_snowflake">„Snowflake“</string>
     <string name="connection_custom">Pasirinktinis</string>
     <string name="setting_debug">Derinimas</string>
-    <string name="action_use">Naudoti</string>
     <string name="no_internet_title">Prisijunkite prie interneto</string>
     <string name="no_internet_subtitle">Norint naudotis \"Orbot\", reikia interneto ryšio.</string>
     <string name="not_sure">Nesate tikri\?</string>

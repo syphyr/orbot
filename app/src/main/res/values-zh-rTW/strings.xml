@@ -143,7 +143,6 @@
     <string name="connection_snowflake">Snowflake</string>
     <string name="connection_custom">自訂</string>
     <string name="menu_header_learn">深入瞭解</string>
-    <string name="action_use">使用</string>
     <string name="mebibyte">MiB</string>
     <string name="trying_to_connect_title">連線中…</string>
     <string name="action_activate">啟用</string>

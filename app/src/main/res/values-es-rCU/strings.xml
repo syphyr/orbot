@@ -247,7 +247,6 @@
     <string name="log_copied">Historial copiado</string>
     <string name="not_sure">¿No está seguro?</string>
     <string name="ask_tor">Preguntar a Tor</string>
-    <string name="action_use">Usar</string>
     <string name="asking">PIDIENDO…</string>
     <string name="no_internet_title">Conectar a internet</string>
     <string name="no_internet_subtitle">Necesitas una conexión a internet para usar Orbot.</string>

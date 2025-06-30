@@ -1,31 +1,68 @@
 package org.torproject.android.service.circumvention
 
-import IPtProxy.Controller
 import IPtProxy.IPtProxy
 import IPtProxy.OnTransportStopped
+import android.content.Context
 import android.util.Log
+import org.torproject.android.service.OrbotService
 import org.torproject.android.service.util.Bridge
 import org.torproject.android.service.util.Prefs
-import java.lang.Exception
 
 enum class Transport(val id: String) {
 
-    NONE(Prefs.CONNECTION_PATHWAY_DIRECT),
-    MEEK_AZURE(""), // TODO
-    OBFS4(Prefs.CONNECTION_PATHWAY_OBFS4),
-    SNOWFLAKE(Prefs.CONNECTION_PATHWAY_SNOWFLAKE),
-    SNOWFLAKE_AMP(Prefs.CONNECTION_PATHWAY_SNOWFLAKE_AMP),
-    SNOWFLAKE_SQS(Prefs.CONNECTION_PATHWAY_SNOWFLAKE_SQS),
-    WEBTUNNEL(""), // TODO
-    CUSTOM(""); // TODO
+    /**
+     * Represents a direct connection to Tor with no bridges.
+     */
+    NONE("direct"),
+
+    MEEK_AZURE("meek"),
+    OBFS4("obfs4"),
+
+    /**
+     * Tor connection with Snowflake, settable from ConfigConnectionBottomSheet.
+     */
+    SNOWFLAKE("snowflake"),
+
+    /**
+     * Tor connection with Snowflake using AMP brokers, settable from ConfigConnectionBottomSheet.
+     */
+    SNOWFLAKE_AMP("snowflake_amp"),
+
+    /**
+     * Use AMP brokers and start Snowflake with SQS rendezvous. Currently no way to
+     * set SQS setting in app, if you force it, a runtime exception is thrown in
+     * {@link org.torproject.android.service.circumvention.SnowflakeClient#startWithSqsRendezvous(Controller)}
+     */
+    SNOWFLAKE_SQS("snowflake_sqs"),
+
+    WEBTUNNEL("webtunnel"),
+
+    /**
+     * Start lyrebird with obfs4 bridges stored in @{link {@link #getBridgesList()}}
+     * This can be set in manually via the CustomBridgeBottomSheet.
+     */
+    CUSTOM("custom");
 
     companion object {
-        var customBridges = emptyList<String>()
-
         var stateLocation = ""
 
-        val controller: Controller by lazy {
-            Controller(stateLocation, true, false, "INFO", statusCollector)
+        // For an unknown reason, this crashes with a Golang error.
+        // Use OrbotService IPProxy.Controller for now.
+//        val controller: Controller by lazy {
+//            Controller(stateLocation, true, false, "INFO", statusCollector)
+//        }
+
+        fun fromId(id: String): Transport {
+            return when (id) {
+                MEEK_AZURE.id -> MEEK_AZURE
+                OBFS4.id -> OBFS4
+                SNOWFLAKE.id -> SNOWFLAKE
+                SNOWFLAKE_AMP.id -> SNOWFLAKE_AMP
+                SNOWFLAKE_SQS.id -> SNOWFLAKE_SQS
+                WEBTUNNEL.id -> WEBTUNNEL
+                CUSTOM.id -> CUSTOM
+                else -> NONE
+            }
         }
 
         private val statusCollector = object : OnTransportStopped {
@@ -55,22 +92,84 @@ enum class Transport(val id: String) {
                 MEEK_AZURE -> setOf(IPtProxy.MeekLite)
                 OBFS4 -> setOf(IPtProxy.Obfs4)
                 WEBTUNNEL -> setOf(IPtProxy.Webtunnel)
-                CUSTOM -> customBridges.mapNotNull { Bridge(it).transport }.toSet()
+                CUSTOM -> Prefs.bridgesList?.split("\n")?.mapNotNull { Bridge(it).transport }?.toSet() ?: emptySet()
                 else -> setOf(IPtProxy.Snowflake)
             }
         }
 
-    val port: Long
-        get() {
-            val transport = transportNames.firstOrNull() ?: return 0
+    fun getPort(context: Context): Long {
+        val transport = transportNames.firstOrNull() ?: return 0
 
-            return controller.port(transport)
+        return OrbotService.getIptProxyController(context).port(transport)
+    }
+
+    fun getTorConfig(context: Context): String {
+        val controller = OrbotService.getIptProxyController(context)
+        val result = StringBuilder()
+
+        for (transport in transportNames) {
+            result.append("ClientTransportPlugin $transport socks5 127.0.0.1:${controller.port(transport)}\n")
         }
 
-    fun start() {
+        when (this) {
+            NONE -> Unit
+            MEEK_AZURE -> {
+                BuiltInBridges.getInstance(context)?.meekAzure?.forEach {
+                    result.append("Bridge ${it.raw}\n")
+                }
+            }
+            OBFS4 -> {
+                BuiltInBridges.getInstance(context)?.obfs4?.forEach {
+                    result.append("Bridge ${it.raw}\n")
+                }
+            }
+            SNOWFLAKE -> {
+                BuiltInBridges.getInstance(context)?.snowflake?.forEach {
+                    val builder = Bridge.Builder(it)
+                    builder.fronts.addAll(addFronts)
+
+                    result.append("Bridge ${builder.build().raw}\n")
+                }
+            }
+            SNOWFLAKE_AMP -> {
+                BuiltInBridges.getInstance(context)?.snowflake?.forEach {
+                    val builder = Bridge.Builder(it)
+                    builder.url = ampBroker
+                    builder.fronts = ampFronts.toMutableSet()
+
+                    result.append("Bridge ${builder.build().raw}\n")
+                }
+            }
+            SNOWFLAKE_SQS -> {
+                BuiltInBridges.getInstance(context)?.snowflake?.forEach {
+                    val builder = Bridge.Builder(it)
+                    builder.url = null
+                    builder.fronts.clear()
+
+                    result.append("Bridge ${builder.build().raw}\n")
+                }
+            }
+            WEBTUNNEL -> {
+                BuiltInBridges.getInstance(context)?.webtunnel?.forEach {
+                    result.append("Bridge ${it.raw}\n")
+                }
+            }
+            CUSTOM -> {
+                Prefs.bridgesList?.split("\n")?.forEach {
+                    result.append("Bridge ${it}\n")
+                }
+            }
+        }
+
+        return result.toString()
+    }
+
+    fun start(context: Context) {
+        val controller = OrbotService.getIptProxyController(context)
+
         when (this) {
             SNOWFLAKE -> {
-                val snowflake = BuiltInBridges.getInstance()?.snowflake?.firstOrNull()
+                val snowflake = BuiltInBridges.getInstance(context)?.snowflake?.firstOrNull()
 
                 // Seems more reliable in certain countries than the currently advertised one.
                 val fronts = addFronts.toMutableSet()
@@ -85,7 +184,7 @@ enum class Transport(val id: String) {
                 controller.snowflakeSqsCreds = ""
             }
             SNOWFLAKE_AMP -> {
-                controller.snowflakeIceServers = BuiltInBridges.getInstance()?.snowflake?.firstOrNull()?.ice ?: ""
+                controller.snowflakeIceServers = BuiltInBridges.getInstance(context)?.snowflake?.firstOrNull()?.ice ?: ""
                 controller.snowflakeBrokerUrl = ampBroker
                 controller.snowflakeFrontDomains = ampFronts.joinToString(",")
                 controller.snowflakeAmpCacheUrl = ampCache
@@ -93,7 +192,13 @@ enum class Transport(val id: String) {
                 controller.snowflakeSqsCreds = ""
             }
             SNOWFLAKE_SQS -> {
-                controller.snowflakeIceServers = BuiltInBridges.getInstance()?.snowflake?.firstOrNull()?.ice ?: ""
+                /* TODO Make sure SQS queue and credentials are up to date in assets/fronts when
+                    re-enabling this feature. also remove android:visibility="gone" from the SQS
+                    container in app project's layout/config_connection_bottom_sheet.xml
+                    */
+                throw RuntimeException("Snowflake SQS Not supported right now https://github.com/guardianproject/orbot-android/issues/1320")
+
+                controller.snowflakeIceServers = BuiltInBridges.getInstance(context)?.snowflake?.firstOrNull()?.ice ?: ""
                 controller.snowflakeBrokerUrl = ""
                 controller.snowflakeFrontDomains = ""
                 controller.snowflakeAmpCacheUrl = ""
@@ -108,7 +213,9 @@ enum class Transport(val id: String) {
         }
     }
 
-    fun stop() {
+    fun stop(context: Context) {
+        val controller = OrbotService.getIptProxyController(context)
+
         for (transport in transportNames) {
             controller.stop(transport)
         }

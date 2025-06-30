@@ -230,7 +230,6 @@
     <string name="btn_configure">Choisir le mode de connexion</string>
     <string name="proxy_ports">Ports proxy</string>
     <string name="volunteer_mode_weekly_label">Total hebdomadaire</string>
-    <string name="action_use">Utilisation</string>
     <string name="ask_tor">Demander à Tor</string>
     <string name="no_internet_subtitle">Vous avez besoin d\'une connexion internet pour utiliser Orbot.</string>
     <string name="kindness_adjust_title">Paramètres</string>

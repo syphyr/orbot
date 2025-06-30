@@ -147,7 +147,6 @@
     <string name="no_thx">لا شكرًا</string>
     <string name="menu_header_features">المزايا</string>
     <string name="connection_custom">مخصّص</string>
-    <string name="action_use">استخدام</string>
     <string name="license">الرخصة:</string>
     <string name="mebibyte">م.بايت</string>
     <string name="wizard_details_msg">Orbot هو تطبيق مفتوح المصدر يحتوي على تور و IPtProxy (Obfs4Proxy و Meek و Snowflake) و Go-Tun2Socks و LibEvent. يوفر نفق VPN ووسيط HTTP محلي (HTTPS فقط على المنفذ 8118) ووسيط SOCKS (9050) في شبكة تور.</string>

@@ -220,7 +220,6 @@
     <string name="btn_copy_log">העתקת יומן</string>
     <string name="btn_configure">נא לבחור איך להתחבר</string>
     <string name="request_bridges_from_torproject">בקשת גשרים מ־torproject.org</string>
-    <string name="action_use">להשתמש</string>
     <string name="option_only_on_wifi">רק דרך Wifi</string>
     <string name="consider_enable_battery_optimizations">אין שירותים מתארחים פועלים, כדאי לאפשר מיטובי סוללה</string>
     <string name="refresh_captcha">רענון ה־CAPTCHA</string>

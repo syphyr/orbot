@@ -232,7 +232,6 @@
     <string name="pref_flag_secure_title">Pantalla jark\'aqäwi</string>
     <string name="many_ways">Tor ukarux kunaymantuqit waythapiyasispa. Yaqhipanakax yaqhanakat sipan kusa jumatak irnaqi.</string>
     <string name="kindness_config_detail">Yaqha Tor apnaqirinakatakix kunjama ukat kunawsas tispusitiwumax Snowflake proxy ukjam tukuspa uk mayjt\'ayam.</string>
-    <string name="action_use">Apnaqaña</string>
     <string name="solve_captcha_instruction">Chakanak mayiñatakix CAPTCHA askicham.</string>
     <string name="bridge_snowflake_amp">Snowflake apnaqas yaqha Tor apnaqirinaktuq mantaña (Thakhi 2 )</string>
     <string name="no_internet_subtitle">Orbot apnaqañatakix Internet ukanïñamawa.</string>

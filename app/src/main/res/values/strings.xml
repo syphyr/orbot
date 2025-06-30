@@ -262,7 +262,7 @@
     <string name="not_sure">Not sure?</string>
     <string name="ask_tor">Ask Tor</string>
     <string name="many_ways">There are many ways to reach Tor. Some may work better than others for you.</string>
-    <string name="action_use">Use</string>
+    <string name="action_use_">Use %1$s</string>
     <string name="asking">ASKING…</string>
     <string name="no_internet_title">Connect to internet</string>
     <string name="no_internet_subtitle">You need an internet connection to use Orbot.</string>

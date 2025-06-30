@@ -140,7 +140,6 @@
     <string name="no_thx">No, gràcies</string>
     <string name="menu_faq">Preguntes freqüents</string>
     <string name="menu_header_learn">Més informació</string>
-    <string name="action_use">Utilitza</string>
     <string name="connection_direct">Directe</string>
     <string name="connection_snowflake">Snowflake</string>
     <string name="connection_custom">Personalitzat</string>

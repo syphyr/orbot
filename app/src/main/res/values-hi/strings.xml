@@ -161,7 +161,6 @@
     <string name="version">संस्करण:</string>
     <string name="allow">इजाज़त दें</string>
     <string name="deny">मना करें</string>
-    <string name="action_use">इस्तेमाल करें</string>
     <string name="kibibyte">केबी</string>
     <string name="connected_title">जुड़े हुए</string>
     <string name="trying_to_connect_title">जुड़ रहे…</string>

@@ -151,7 +151,6 @@
     <string name="confirm">Confirmar</string>
     <string name="trying_to_connect_title">Conectando…</string>
     <string name="btn_refresh">Refrescar</string>
-    <string name="action_use">Utilizar</string>
     <string name="menu_header_features">Funcións</string>
     <string name="v3_hosted_services">Servizos de cebola aloxados</string>
     <string name="pref_http_dialog">Config do porto HTTP</string>

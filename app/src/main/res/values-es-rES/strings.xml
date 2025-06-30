@@ -250,7 +250,6 @@
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="not_sure">¿No estas segura\?</string>
     <string name="many_ways">Hay muchas formas de conectarse a Tor. Algunas pueden funcionar mejor que otras para ti.</string>
-    <string name="action_use">Uso</string>
     <string name="asking">PREGUNTANDO…</string>
     <string name="no_internet_title">Conectarse a Internet</string>
     <string name="no_internet_subtitle">Necesitas estar conectado a Internet para usar Orbot.</string>

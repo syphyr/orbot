@@ -230,7 +230,6 @@
     <string name="not_sure">Δεν είστε σίγουροι\?</string>
     <string name="ask_tor">Ρωτήστε τον Tor</string>
     <string name="many_ways">Υπάρχουν πολλοί τρόποι για να φτάσετε στην Tor. Μερικοί μπορεί να λειτουργούν καλύτερα από άλλους για εσάς.</string>
-    <string name="action_use">Χρήση</string>
     <string name="asking">ΕΡΩΤΗΣΗ…</string>
     <string name="no_internet_title">Σύνδεση στο διαδίκτυο</string>
     <string name="no_internet_subtitle">Χρειάζεστε σύνδεση στο διαδίκτυο για να χρησιμοποιήσετε το Orbot.</string>

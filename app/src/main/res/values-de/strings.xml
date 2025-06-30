@@ -248,7 +248,6 @@
     <string name="connection_direct">Direkt</string>
     <string name="connection_snowflake">Snowflake</string>
     <string name="connection_custom">Benutzerdefiniert</string>
-    <string name="action_use">Verwenden</string>
     <string name="no_internet_title">Mit dem Internet verbinden</string>
     <string name="setting_padding">Rahmenabstand</string>
     <string name="setting_debug">Debug</string>

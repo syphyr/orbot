@@ -249,7 +249,6 @@
     <string name="not_sure">¿No estás segure\?</string>
     <string name="ask_tor">Preguntale a Tor</string>
     <string name="many_ways">Hay muchas formas de conectarse a Tor. Algunas pueden funcionar mejor que otros para ti.</string>
-    <string name="action_use">Usar</string>
     <string name="asking">PREGUNTANDO…</string>
     <string name="no_internet_subtitle">Necesitas una conexión a Internet para usar Orbot.</string>
     <string name="kindness_adjust_title">Ajustar cuando se ejecuta…</string>

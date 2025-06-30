@@ -193,7 +193,6 @@
     <string name="connection_snowflake">Snowflake</string>
     <string name="connection_custom">Egendefinert</string>
     <string name="next">Neste</string>
-    <string name="action_use">Bruk</string>
     <string name="setting_padding">Spaltefyll</string>
     <string name="setting_debug">Feilsøking</string>
     <string name="menu_more">Mer</string>

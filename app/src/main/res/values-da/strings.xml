@@ -205,7 +205,6 @@
     <string name="pref_connection_padding">Polstring af forbindelsen</string>
     <string name="trouble_connecting">Har du problemer med at oprette forbindelse\?</string>
     <string name="request_bridges_from_torproject">Anmodning om broer fra torproject.org</string>
-    <string name="action_use">Brug</string>
     <string name="menu_more">Mere</string>
     <string name="connection_direct">Direkte</string>
     <string name="connection_snowflake">Snowflake</string>

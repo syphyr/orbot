@@ -249,7 +249,6 @@
     <string name="kindness_config_detail">Configure como e quando o seu dispositivo pode atuar como um proxy Snowflake para outros usuários do Tor.</string>
     <string name="many_ways">Existem muitas maneiras de chegar ao Tor. Alguns podem funcionar melhor do que outros para você.</string>
     <string name="ask_tor">Pergunte ao Tor</string>
-    <string name="action_use">Usar</string>
     <string name="asking">PEDIDO…</string>
     <string name="no_internet_title">Conectar à internet</string>
     <string name="kindness_adjust_title">Configurações</string>

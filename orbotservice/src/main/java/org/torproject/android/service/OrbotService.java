@@ -33,12 +33,11 @@ import net.freehaven.tor.control.TorControlCommands;
 import net.freehaven.tor.control.TorControlConnection;
 
 import org.torproject.android.service.circumvention.ContentDeliveryNetworkFronts;
-import org.torproject.android.service.circumvention.SnowflakeClient;
 import org.torproject.android.service.circumvention.SnowflakeProxyWrapper;
+import org.torproject.android.service.circumvention.Transport;
 import org.torproject.android.service.db.OnionServiceColumns;
 import org.torproject.android.service.db.V3ClientAuthColumns;
 import org.torproject.android.service.ui.Notifications;
-import org.torproject.android.service.util.Bridge;
 import org.torproject.android.service.util.CustomTorResourceInstaller;
 import org.torproject.android.service.util.PowerConnectionReceiver;
 import org.torproject.android.service.util.Prefs;
@@ -53,7 +52,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.StringTokenizer;
 import java.util.concurrent.ExecutorService;
@@ -99,8 +97,8 @@ public class OrbotService extends VpnService {
     private static Controller mIptProxy = null;
 
     public static synchronized Controller getIptProxyController(Context context) {
-        if (mIptProxy == null) {
-            mIptProxy = IPtProxy.newController(context.getCacheDir().getPath(), true, false, "DEBUG", (s, e) ->
+        if (mIptProxy == null && context != null) {
+            mIptProxy = IPtProxy.newController(context.getCacheDir().getPath(), true, false, "INFO", (s, e) ->
                     Log.e(TAG, "IPtProxy Error", e));
         }
         return mIptProxy;
@@ -218,16 +216,9 @@ public class OrbotService extends VpnService {
         debug("stopTorAsync");
 
         if (showNotification) sendCallbackLogMessage(getString(R.string.status_shutting_down));
-        var connectionPathway = Prefs.getTorConnectionPathway();
-        // todo this needs to handle a lot of different cases that haven't been defined yet
-        // todo particularly this is true for the smart connection case...
-        if (connectionPathway.startsWith(Prefs.CONNECTION_PATHWAY_SNOWFLAKE) || Prefs.getPrefSmartTrySnowflake()) {
-            SnowflakeClient.stop(mIptProxy);
-        } else if (connectionPathway.equals(Prefs.CONNECTION_PATHWAY_OBFS4) || Prefs.getPrefSmartTryObfs4() != null) {
-            mIptProxy.stop(IPtProxy.MeekLite);
-            mIptProxy.stop(IPtProxy.Obfs4);
-            mIptProxy.stop(IPtProxy.Webtunnel);
-        }
+
+        Prefs.getTorConnectionPathway().stop(this);
+
         stopTor();
 
         //stop the foreground priority and make sure to remove the persistent notification
@@ -393,7 +384,7 @@ public class OrbotService extends VpnService {
                     try {
                         Log.d(TAG, "Installing geoip files...");
                         new CustomTorResourceInstaller(this, appBinHome).installGeoIP();
-                        Prefs.setIsGeoIpReinstallNeeded(false);
+                        Prefs.setGeoIpReinstallNeeded(false);
                     } catch (IOException io) { // user has < 10MB free space on disk...
                         Log.e(TAG, "Error installing geoip files", io);
                     }
@@ -565,6 +556,7 @@ public class OrbotService extends VpnService {
             mNotifyBuilder.setProgress(100, 0, false);
             showToolbarNotification("", NOTIFY_ID, R.drawable.ic_stat_tor);
 
+            // TODO
             if (Prefs.getTorConnectionPathway().equals(Prefs.CONNECTION_PATHWAY_SMART))
                 smartConnectionPathwayStartTor();
 
@@ -610,9 +602,9 @@ public class OrbotService extends VpnService {
                 if (obfs4 != null) {
                     // set these obfs4 bridges
                     Prefs.setBridgesList(obfs4);
-                    Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_OBFS4);
+                    Prefs.setTorConnectionPathway(Transport.CUSTOM);
                 } else if (Prefs.getPrefSmartTrySnowflake()) {
-                    Prefs.setTorConnectionPathway(Prefs.CONNECTION_PATHWAY_SNOWFLAKE); // set snowflake
+                    Prefs.setTorConnectionPathway(Transport.SNOWFLAKE); // set snowflake
                 }
                 clearEphemeralSmartConnectionSettings();
             }
@@ -844,22 +836,17 @@ public class OrbotService extends VpnService {
         var entranceNodes = prefs.getString("pref_entrance_nodes", "");
         var exitNodes = prefs.getString("pref_exit_nodes", "");
         var excludeNodes = prefs.getString("pref_exclude_nodes", "");
-        String pathway = Prefs.getTorConnectionPathway();
+        var transport = Prefs.getTorConnectionPathway();
 
-        if (pathway.equals(Prefs.CONNECTION_PATHWAY_SMART)) {
+        if (transport.equals(Prefs.CONNECTION_PATHWAY_SMART)) {
             // todo for now ...
-        } else if (pathway.equals(Prefs.CONNECTION_PATHWAY_DIRECT)) {
+        } else if (transport.equals(Transport.NONE)) {
             processSettingsImplDirectPathway(extraLines);
         } else {
-            // snowflake or obfs4
             extraLines.append("UseBridges 1\n");
-            if (pathway.equals(Prefs.CONNECTION_PATHWAY_SNOWFLAKE_AMP) || pathway.equals(Prefs.CONNECTION_PATHWAY_SNOWFLAKE_SQS))
-                processSettingsImplSnowflakeAmpAndSqsModes(extraLines);
-            else if (pathway.startsWith(Prefs.CONNECTION_PATHWAY_SNOWFLAKE) || Prefs.getPrefSmartTrySnowflake())
-                processSettingsImplSnowflake(extraLines);
-            else if (pathway.equals(Prefs.CONNECTION_PATHWAY_OBFS4) || Prefs.getPrefSmartTryObfs4() != null)
-                processSettingsLyrebird(extraLines);
+            extraLines.append(transport.getTorConfig(this));
         }
+
         var fileGeoIP = new File(appBinHome, GEOIP_ASSET_KEY);
         var fileGeoIP6 = new File(appBinHome, GEOIP6_ASSET_KEY);
 
@@ -897,37 +884,6 @@ public class OrbotService extends VpnService {
         }
 
         return extraLines;
-    }
-
-    private void processSettingsImplSnowflake(StringBuffer extraLines) {
-        extraLines.append(SnowflakeClient.getClientTransportPluginTorrcLine(mIptProxy));
-        var brokers = SnowflakeClient.getLocalBrokers(this);
-        for (String bridge : brokers)
-            extraLines.append("Bridge " + bridge + "\n");
-    }
-
-    private void processSettingsImplSnowflakeAmpAndSqsModes(StringBuffer extraLines) {
-        extraLines.append(SnowflakeClient.getClientTransportPluginTorrcLine(mIptProxy));
-        var brokers = SnowflakeClient.getLocalBrokersAmp(this);
-        for (String bridge : brokers)
-            extraLines.append("Bridge " + bridge + "\n");
-    }
-
-    @SuppressLint("DefaultLocale")
-    private void processSettingsLyrebird(StringBuffer extraLines) {
-        var customBridges = getConfiguredObfs4Bridges();
-        for (String transport : Bridge.getTransports(customBridges))
-            extraLines.append(String.format("ClientTransportPlugin %s socks5 127.0.0.1:%d\n", transport, mIptProxy.port(transport)));
-
-        for (var b : customBridges)
-            extraLines.append("Bridge ").append(b).append("\n");
-    }
-
-    private List<Bridge> getConfiguredObfs4Bridges() {
-        return Bridge.parseBridges(
-                Prefs.getTorConnectionPathway().equals(Prefs.CONNECTION_PATHWAY_OBFS4)
-                        ? Prefs.getBridgesList()
-                        : Prefs.getPrefSmartTryObfs4());
     }
 
     private void processSettingsImplDirectPathway(StringBuffer extraLines) {
@@ -1032,22 +988,9 @@ public class OrbotService extends VpnService {
             if (TextUtils.isEmpty(action)) return;
             switch (action) {
                 case ACTION_START -> {
-                    var connectionPathway = Prefs.getTorConnectionPathway();
-                    if (connectionPathway.equals(Prefs.CONNECTION_PATHWAY_SNOWFLAKE) || Prefs.getPrefSmartTrySnowflake()) {
-                        SnowflakeClient.startWithDomainFronting(mIptProxy);
-                    } else if (connectionPathway.equals(Prefs.CONNECTION_PATHWAY_SNOWFLAKE_AMP)) {
-                        SnowflakeClient.startWithAmpRendezvous(mIptProxy);
-                    } else if (connectionPathway.equals(Prefs.CONNECTION_PATHWAY_SNOWFLAKE_SQS)) {
-                        SnowflakeClient.startWithSqsRendezvous(mIptProxy);
-                    } else if (connectionPathway.equals(Prefs.CONNECTION_PATHWAY_OBFS4) || Prefs.getPrefSmartTryObfs4() != null) {
-                        for (var transport : Bridge.getTransports(getConfiguredObfs4Bridges())) {
-                            try {
-                                mIptProxy.start(transport, "");
-                            } catch (Exception e) {
-                                throw new RuntimeException(e);
-                            }
-                        }
-                    }
+                    var transport = Prefs.getTorConnectionPathway();
+                    transport.start(OrbotService.this);
+
                     startTor();
                     replyWithStatus(mIntent);
                     if (Prefs.useVpn()) {

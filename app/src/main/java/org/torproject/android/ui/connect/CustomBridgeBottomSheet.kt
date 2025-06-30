@@ -43,14 +43,14 @@ class CustomBridgeBottomSheet(private val callbacks: ConnectionHelperCallbacks) 
         binding.tvCancel.setOnClickListener { dismiss() }
 
         binding.btnAction.setOnClickListener {
-            Prefs.setBridgesList(binding.etBridges.text.toString())
+            Prefs.bridgesList = binding.etBridges.text.toString()
             closeAllSheets()
             callbacks.tryConnecting()
         }
 
         configureMultilineEditTextScrollEvent(binding.etBridges)
 
-        var bridges = Prefs.getBridgesList()
+        var bridges = Prefs.bridgesList ?: ""
         if (!bridges.contains(bridgeStatement)) bridges = ""
         binding.etBridges.setText(bridges)
 

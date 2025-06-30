@@ -81,7 +81,6 @@
     <string name="having_trouble">சிக்கல் உள்ளது</string>
     <string name="power_user_mode">பவர் பயனர் பயன்முறை</string>
     <string name="power_user_description">டோர் நன்கு அறிந்த பயனர்களுக்கு. VPN அமைப்பு இல்லாமல் ஆர்போட் தொடங்க உங்களை அனுமதிக்கிறது மற்றும் திறந்த சாக்ச் மற்றும் HTTP போர்ட்களைக் காட்டுகிறது</string>
-    <string name="action_use">பயன்படுத்தவும்</string>
     <string name="asking">கேட்கிறது…</string>
     <string name="kindness_adjust_title">அமைப்புகள்</string>
     <string name="app_suggested_subtitle">செய்தி மற்றும் சமூக ஊடக பயன்பாடுகளுடன் ஆர்போட் சிறப்பாக செயல்படுகிறது.</string>
