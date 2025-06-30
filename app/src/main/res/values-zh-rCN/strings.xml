@@ -296,10 +296,14 @@
     <string name="bridge_snowflake_sqs">使用 Snowflake 通过其他 Tor 用户连接（方法 3 - SQS）</string>
     <string name="power_user_mode_permission">高级用户模式需要闹钟和提醒权限</string>
     <string name="power_user_mode_permission_msg">请允许 Orbot 设置闹钟和提醒以便使用高级用户模式。这实际上不会在您的设备上设置任何闹钟。当 Orbot 未作为系统范围的 VPN 使用时，需要此权限来让系统保持 Orbot 服务运行。</string>
-    <string name="pref_require_password_description">在输入设备密码之前阻止访问 Orbot。这可以与伪装模式结合使用，以帮助隐藏 Orbot 已安装在您的设备上</string>
-    <string name="pref_require_password">设备密码锁</string>
-    <string name="error_no_password_set">请在设备上设置密码以便使用设备密码锁</string>
-    <string name="unlock_app_msg" formatted="true">解锁 %s 需要您的设备密码</string>
+    <string name="pref_require_password_description">在您输入设备密码或指纹进行身份验证之前阻止访问 Orbot。这可以与伪装模式结合使用，以帮助隐藏设备上安装的 Orbot</string>
+    <string name="pref_require_password">Orbot 身份验证</string>
+    <string name="error_no_password_set">请确保您的设备安全，以便使用 Orbot 身份验证</string>
+    <string name="unlock_app_msg" formatted="true">请解锁您的设备以便使用 %s</string>
     <string name="invalid_bridge_format">网桥格式无效</string>
     <string name="error_asking_tor_for_bridges">询问 Tor 如何连接时出错</string>
+    <string name="device_lock_unsupported">您的设备不支持 Orbot 身份验证</string>
+    <string name="device_lock_security_update_needed">您必须为您的设备下载 Android 安全更新，以便使用 Orbot 身份验证</string>
+    <string name="pref_password_only_no_biometric">不允许 Orbot 身份验证的生物识别</string>
+    <string name="pref_password_only_no_biometric_description">即使在您的设备上配置了指纹或人脸解锁等生物识别身份验证，此选项也会强制 Orbot 身份验证只要求使用设备密码。</string>
 </resources>
