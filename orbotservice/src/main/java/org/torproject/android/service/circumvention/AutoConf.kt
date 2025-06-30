@@ -63,6 +63,7 @@ object AutoConf {
                 cannotConnectWithoutPt = true
             }
             else {
+                done(null)
                 throw error
             }
         }
