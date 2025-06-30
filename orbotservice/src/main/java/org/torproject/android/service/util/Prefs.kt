@@ -28,6 +28,7 @@ object Prefs {
     private const val PREF_BE_A_SNOWFLAKE_LIMIT_WIFI = "pref_be_a_snowflake_limit_wifi"
     private const val PREF_BE_A_SNOWFLAKE_LIMIT_CHARGING = "pref_be_a_snowflake_limit_charing"
 
+    private const val PREF_USE_SMART_CONNECT = "pref_use_smart_connect"
     private const val PREF_SMART_TRY_SNOWFLAKE = "pref_smart_try_snowflake"
     private const val PREF_SMART_TRY_OBFS4 = "pref_smart_try_obfs"
     private const val PREF_POWER_USER_MODE = "pref_power_user"
@@ -46,7 +47,6 @@ object Prefs {
     private const val PREF_DISALLOW_BIOMETRIC_AUTH = "pref_auth_no_biometrics"
 
     private const val PREF_CONNECTION_PATHWAY = "pref_connection_pathway"
-    const val CONNECTION_PATHWAY_SMART: String = "smart"
 
     const val PREF_SECURE_WINDOW_FLAG: String = "pref_flag_secure"
 
@@ -215,31 +215,26 @@ object Prefs {
         /**
          * @return How Orbot is configured to attempt to connect to Tor
          */
-        get() =// TODO since smart pathway was never fully implemented, default to DIRECT
-            Transport.fromId(prefs?.getString(PREF_CONNECTION_PATHWAY, Transport.NONE.id) ?: Transport.NONE.id)
+        get() = Transport.fromId(prefs?.getString(PREF_CONNECTION_PATHWAY, Transport.NONE.id) ?: Transport.NONE.id)
         /**
          * Set how Orbot should initialize a tor connection (direct, with a PT, etc)
-         * @param pathway @see
          */
         set(value) = putString(PREF_CONNECTION_PATHWAY, value.id)
 
     @JvmStatic
-    fun putPrefSmartTrySnowflake(trySnowflake: Boolean) {
-        putBoolean(PREF_SMART_TRY_SNOWFLAKE, trySnowflake)
-    }
+    var useSmartConnect: Boolean
+        get() = prefs?.getBoolean(PREF_USE_SMART_CONNECT, false) ?: false
+        set(value) = putBoolean(PREF_USE_SMART_CONNECT, value)
 
     @JvmStatic
-    val prefSmartTrySnowflake: Boolean
+    var prefSmartTrySnowflake: Boolean
         get() = prefs?.getBoolean(PREF_SMART_TRY_SNOWFLAKE, false) ?: false
+        set(value) = putBoolean(PREF_SMART_TRY_SNOWFLAKE, value)
 
     @JvmStatic
-    fun putPrefSmartTryObfs4(bridges: String?) {
-        putString(PREF_SMART_TRY_OBFS4, bridges)
-    }
-
-    @JvmStatic
-    val prefSmartTryObfs4: String?
+    var prefSmartTryObfs4: String?
         get() = prefs?.getString(PREF_SMART_TRY_OBFS4, null)
+        set(value) = putString(PREF_SMART_TRY_OBFS4, value)
 
     val isPowerUserMode: Boolean
         get() = prefs?.getBoolean(PREF_POWER_USER_MODE, false) ?: false

@@ -41,7 +41,7 @@ import org.torproject.android.service.ui.Notifications;
 import org.torproject.android.service.util.CustomTorResourceInstaller;
 import org.torproject.android.service.util.PowerConnectionReceiver;
 import org.torproject.android.service.util.Prefs;
-import org.torproject.android.service.util.Utils;
+import org.torproject.android.service.util.TorConfig;
 import org.torproject.android.service.vpn.OrbotVpnManager;
 import org.torproject.jni.TorService;
 
@@ -412,89 +412,14 @@ public class OrbotService extends VpnService {
     }
 
     private File updateTorrcCustomFile() throws IOException {
-        var prefs = Prefs.getSharedPrefs(getApplicationContext());
-        var extraLines = new StringBuffer("RunAsDaemon 0\n")
-                .append("AvoidDiskWrites 1\n");
-
-        var socksPortPref = prefs.getString(PREF_SOCKS, SOCKS_PROXY_PORT_DEFAULT);
-        if (socksPortPref.indexOf(':') != -1) socksPortPref = socksPortPref.split(":")[1];
-        socksPortPref = Utils.checkPortOrAuto(socksPortPref);
-
-        var httpPortPref = prefs.getString(PREF_HTTP, HTTP_PROXY_PORT_DEFAULT);
-        if (httpPortPref.indexOf(':') != -1) httpPortPref = httpPortPref.split(":")[1];
-        httpPortPref = Utils.checkPortOrAuto(httpPortPref);
-
-        var isolate = "";
-        if (prefs.getBoolean(PREF_ISOLATE_DEST, false))
-            isolate += " IsolateDestAddr ";
-        if (prefs.getBoolean(PREF_ISOLATE_PORT, false))
-            isolate += " IsolateDestPort ";
-        if (prefs.getBoolean(PREF_ISOLATE_PROTOCOL, false))
-            isolate += " IsolateClientProtocol ";
-        if (prefs.getBoolean(PREF_ISOLATE_KEEP_ALIVE, false))
-            isolate += " KeepAliveIsolateSOCKSAuth ";
-
-        var ipv6Pref = "";
-        if (prefs.getBoolean(PREF_PREFER_IPV6, true))
-            ipv6Pref += " IPv6Traffic PreferIPv6 ";
-
-        if (prefs.getBoolean(PREF_DISABLE_IPV4, false))
-            ipv6Pref += " IPv6Traffic NoIPv4Traffic ";
-
-        if (!Prefs.openProxyOnAllInterfaces()) {
-            extraLines.append("SOCKSPort " + socksPortPref + ipv6Pref + isolate + "\n");
-        } else {
-            extraLines
-                    .append("SOCKSPort 0.0.0.0:" + socksPortPref + ipv6Pref + isolate + "\n")
-                    .append("SocksPolicy accept *:*\n");
-        }
-        extraLines
-                .append("SafeSocks 0\n")
-                .append("TestSocks 0\n")
-                .append("HTTPTunnelPort " + httpPortPref + isolate + "\n");
-
-        if (prefs.getBoolean(PREF_CONNECTION_PADDING, false))
-            extraLines.append("ConnectionPadding 1\n");
-
-
-        if (prefs.getBoolean(PREF_REDUCED_CONNECTION_PADDING, true))
-            extraLines.append("ReducedConnectionPadding 1\n");
-
-
-        if (prefs.getBoolean(PREF_CIRCUIT_PADDING, true))
-            extraLines.append("CircuitPadding 1\n");
-        else
-            extraLines.append("CircuitPadding 0\n");
-
-        if (prefs.getBoolean(PREF_REDUCED_CIRCUIT_PADDING, true))
-            extraLines.append("ReducedCircuitPadding 1\n");
-
-        var transPort = prefs.getString(PREF_TRANSPORT, String.valueOf(TOR_TRANSPROXY_PORT_DEFAULT));
-        var dnsPort = prefs.getString(PREF_DNSPORT, String.valueOf(TOR_DNS_PORT_DEFAULT));
-
-        extraLines.append("TransPort " + Utils.checkPortOrAuto(transPort) + isolate + "\n")
-                .append("DNSPort " + Utils.checkPortOrAuto(dnsPort) + isolate + "\n")
-                .append("VirtualAddrNetwork 10.192.0.0/10\n")
-                .append("AutomapHostsOnResolve 1\n")
-                .append("DormantClientTimeout 10 minutes\n")
-                .append("DormantCanceledByStartup 1\n")
-                .append("DisableNetwork 0\n");
-
-        if (Prefs.useDebugLogging()) {
-            extraLines.append("Log debug syslog\n")
-                    .append("SafeLogging 0\n");
-        }
-
-        extraLines = processSettingsImpl(extraLines);
-        if (extraLines == null) return null;
-
-        extraLines.append("\n" + prefs.getString("pref_custom_torrc", "") + "\n");
+        var conf = TorConfig.build(this, new File(appBinHome, GEOIP_ASSET_KEY),
+                new File(appBinHome, GEOIP6_ASSET_KEY));
 
         logNotice(getString(R.string.log_notice_updating_torrc));
-        debug("torrc.custom=\n" + extraLines);
+        debug("torrc.custom=\n" + conf);
 
         var fileTorRcCustom = TorService.getTorrc(this);
-        updateTorConfigCustom(fileTorRcCustom, extraLines.toString(), false);
+        updateTorConfigCustom(fileTorRcCustom, conf, false);
         return fileTorRcCustom;
     }
 
@@ -544,8 +469,9 @@ public class OrbotService extends VpnService {
             showToolbarNotification("", NOTIFY_ID, R.drawable.ic_stat_tor);
 
             // TODO
-            if (Prefs.getTorConnectionPathway().equals(Prefs.CONNECTION_PATHWAY_SMART))
+            if (Prefs.getUseSmartConnect()) {
                 smartConnectionPathwayStartTor();
+            }
 
             startTorService();
             showTorServiceErrorMsg = true;
@@ -599,8 +525,8 @@ public class OrbotService extends VpnService {
     }
 
     private void clearEphemeralSmartConnectionSettings() {
-        Prefs.putPrefSmartTryObfs4(null);
-        Prefs.putPrefSmartTrySnowflake(false);
+        Prefs.setPrefSmartTryObfs4(null);
+        Prefs.setPrefSmartTrySnowflake(false);
     }
 
     private void sendSmartStatusToActivity(String status) {
@@ -739,7 +665,9 @@ public class OrbotService extends VpnService {
                 confDns = st.nextToken().split(":")[1];
                 confDns = confDns.substring(0, confDns.length() - 1);
                 mPortDns = Integer.parseInt(confDns);
-                Prefs.getSharedPrefs(getApplicationContext()).edit().putInt(PREFS_DNS_PORT, mPortDns).apply();
+
+                var prefs = Prefs.getSharedPrefs(getApplicationContext());
+                if (prefs != null) prefs.edit().putInt(PREFS_DNS_PORT, mPortDns).apply();
             }
 
             var confTrans = conn.getInfo("net/listeners/trans");
@@ -813,90 +741,6 @@ public class OrbotService extends VpnService {
         var intent = new Intent(LOCAL_ACTION_PORTS).putExtra(EXTRA_SOCKS_PROXY_PORT, socksPort).putExtra(EXTRA_HTTP_PROXY_PORT, httpPort).putExtra(EXTRA_DNS_PORT, dnsPort).putExtra(EXTRA_TRANS_PORT, transPort);
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
         if (Prefs.useVpn() && mVpnManager != null) mVpnManager.handleIntent(new Builder(), intent);
-    }
-
-    private StringBuffer processSettingsImpl(StringBuffer extraLines) throws IOException {
-        logNotice(getString(R.string.updating_settings_in_tor_service));
-        var prefs = Prefs.getSharedPrefs(getApplicationContext());
-        var ReachableAddresses = prefs.getBoolean(OrbotConstants.PREF_REACHABLE_ADDRESSES, false);
-        var enableStrictNodes = prefs.getBoolean("pref_strict_nodes", false);
-        var entranceNodes = prefs.getString("pref_entrance_nodes", "");
-        var exitNodes = prefs.getString("pref_exit_nodes", "");
-        var excludeNodes = prefs.getString("pref_exclude_nodes", "");
-        var transport = Prefs.getTorConnectionPathway();
-
-        if (transport.equals(Prefs.CONNECTION_PATHWAY_SMART)) {
-            // todo for now ...
-        } else if (transport.equals(Transport.NONE)) {
-            processSettingsImplDirectPathway(extraLines);
-        } else {
-            extraLines.append("UseBridges 1\n");
-            extraLines.append(transport.getTorConfig(this));
-        }
-
-        var fileGeoIP = new File(appBinHome, GEOIP_ASSET_KEY);
-        var fileGeoIP6 = new File(appBinHome, GEOIP6_ASSET_KEY);
-
-        if (fileGeoIP.exists()) { // only apply geoip if it exists
-            extraLines.append("GeoIPFile " + fileGeoIP.getCanonicalPath() + "\n")
-                    .append("GeoIPv6File " + fileGeoIP6.getCanonicalPath() + "\n");
-        }
-
-        if (!TextUtils.isEmpty(entranceNodes))
-            extraLines.append("EntryNodes " + entranceNodes + "\n");
-
-        if (!TextUtils.isEmpty(exitNodes))
-            extraLines.append("ExitNodes " + exitNodes + "\n");
-
-        if (!TextUtils.isEmpty(excludeNodes))
-            extraLines.append("ExcludeNodes " + excludeNodes + "\n");
-
-        extraLines.append("StrictNodes ").append(enableStrictNodes ? "1\n" : "0\n");
-
-        try {
-            if (ReachableAddresses) {
-                var ReachableAddressesPorts = prefs.getString(PREF_REACHABLE_ADDRESSES_PORTS, "*:80,*:443");
-                extraLines.append("ReachableAddresses " + ReachableAddressesPorts + "\n");
-            }
-
-        } catch (Exception e) {
-            showToolbarNotification(getString(R.string.your_reachableaddresses_settings_caused_an_exception_), ERROR_NOTIFY_ID, R.drawable.ic_stat_notifyerr);
-            return null;
-        }
-
-        if (Prefs.hostOnionServicesEnabled()) {
-            // add any needed client authorization and hosted onion service config lines to torrc
-            V3ClientAuthColumns.addClientAuthToTorrc(extraLines, this, mV3AuthBasePath);
-            OnionServiceColumns.addV3OnionServicesToTorrc(extraLines, this, mV3OnionBasePath);
-        }
-
-        return extraLines;
-    }
-
-    private void processSettingsImplDirectPathway(StringBuffer extraLines) {
-        var prefs = Prefs.getSharedPrefs(getApplicationContext());
-        extraLines.append("UseBridges 0\n");
-        if (Prefs.useVpn()) return;
-        //set the proxy here if we aren't using a bridge
-        var proxyType = prefs.getString("pref_proxy_type", null);
-        if (proxyType != null && !proxyType.isEmpty()) {
-            var proxyHost = prefs.getString("pref_proxy_host", null);
-            var proxyPort = prefs.getString("pref_proxy_port", null);
-            var proxyUser = prefs.getString("pref_proxy_username", null);
-            var proxyPass = prefs.getString("pref_proxy_password", null);
-
-            if ((proxyHost != null && !proxyHost.isEmpty()) && (proxyPort != null && !proxyPort.isEmpty())) {
-                extraLines.append(proxyType).append("Proxy " + proxyHost + ":" + proxyPort + "\n");
-
-                if (proxyUser != null && proxyPass != null) {
-                    if (proxyType.equalsIgnoreCase("socks5")) {
-                        extraLines.append("Socks5ProxyUsername " + proxyUser + "\n")
-                                .append("Socks5ProxyPassword " + proxyPass + "\n");
-                    } else
-                        extraLines.append(proxyType).append(" ProxyAuthenticator " + proxyUser + ":" + proxyPort + "\n");
-                }
-            }
-        }
     }
 
     void showBandwidthNotification(String message, boolean isActiveTransfer) {

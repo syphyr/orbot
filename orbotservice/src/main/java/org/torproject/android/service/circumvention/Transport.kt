@@ -108,23 +108,23 @@ enum class Transport(val id: String) {
             return controller.port(transport)
         }
 
-    fun getTorConfig(context: Context): String {
-        val result = StringBuilder()
+    fun getTorConfig(context: Context): List<String> {
+        val result = mutableListOf<String>()
 
         for (transport in transportNames) {
-            result.append("ClientTransportPlugin $transport socks5 127.0.0.1:${controller.port(transport)}\n")
+            result.add("ClientTransportPlugin $transport socks5 127.0.0.1:${controller.port(transport)}")
         }
 
         when (this) {
             NONE -> Unit
             MEEK_AZURE -> {
                 BuiltInBridges.getInstance(context)?.meekAzure?.forEach {
-                    result.append("Bridge ${it.raw}\n")
+                    result.add("Bridge ${it.raw}")
                 }
             }
             OBFS4 -> {
                 BuiltInBridges.getInstance(context)?.obfs4?.forEach {
-                    result.append("Bridge ${it.raw}\n")
+                    result.add("Bridge ${it.raw}")
                 }
             }
             SNOWFLAKE -> {
@@ -132,7 +132,7 @@ enum class Transport(val id: String) {
                     val builder = Bridge.Builder(it)
                     builder.fronts.addAll(addFronts)
 
-                    result.append("Bridge ${builder.build().raw}\n")
+                    result.add("Bridge ${builder.build().raw}")
                 }
             }
             SNOWFLAKE_AMP -> {
@@ -141,7 +141,7 @@ enum class Transport(val id: String) {
                     builder.url = ampBroker
                     builder.fronts = ampFronts.toMutableSet()
 
-                    result.append("Bridge ${builder.build().raw}\n")
+                    result.add("Bridge ${builder.build().raw}")
                 }
             }
             SNOWFLAKE_SQS -> {
@@ -150,22 +150,22 @@ enum class Transport(val id: String) {
                     builder.url = null
                     builder.fronts.clear()
 
-                    result.append("Bridge ${builder.build().raw}\n")
+                    result.add("Bridge ${builder.build().raw}")
                 }
             }
             WEBTUNNEL -> {
                 BuiltInBridges.getInstance(context)?.webtunnel?.forEach {
-                    result.append("Bridge ${it.raw}\n")
+                    result.add("Bridge ${it.raw}")
                 }
             }
             CUSTOM -> {
                 Prefs.bridgesList?.split("\n")?.forEach {
-                    result.append("Bridge ${it}\n")
+                    result.add("Bridge ${it}")
                 }
             }
         }
 
-        return result.toString()
+        return result
     }
 
     fun start(context: Context) {
