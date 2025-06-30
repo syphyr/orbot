@@ -5,7 +5,6 @@ import android.icu.util.Calendar
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
-import org.torproject.android.service.util.Bridge
 import java.io.File
 
 @Serializable

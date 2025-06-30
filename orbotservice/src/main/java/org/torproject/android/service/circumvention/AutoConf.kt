@@ -2,7 +2,6 @@ package org.torproject.android.service.circumvention
 
 import IPtProxy.IPtProxy
 import android.content.Context
-import org.torproject.android.service.util.Bridge
 import java.net.Authenticator
 import java.net.PasswordAuthentication
 

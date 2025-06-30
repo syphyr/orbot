@@ -1,4 +1,4 @@
-package org.torproject.android.service.util
+package org.torproject.android.service.circumvention
 
 import kotlinx.serialization.KSerializer
 import kotlinx.serialization.Serializable
