@@ -15,9 +15,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import org.torproject.android.Constants
 import org.torproject.android.R
 import org.torproject.android.databinding.ConfigConnectionBottomSheetBinding
+import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.AutoConf
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.util.Prefs
@@ -128,13 +128,13 @@ class ConfigConnectionBottomSheet :
                 Prefs.torConnectionPathway = Transport.SNOWFLAKE_SQS
                 closeAndConnect()
             } else if (binding.rbTelegram.isChecked) {
-                val i = Intent(Intent.ACTION_VIEW, Constants.telegramBot)
+                val i = Intent(Intent.ACTION_VIEW, OrbotConstants.GET_BRIDES_TELEGRAM_BOT)
                 startActivity(i)
             } else if (binding.rbEmail.isChecked) {
                 val i = Intent(Intent.ACTION_SENDTO)
-                i.data = "mailto:${Constants.emailRecipient}".toUri()
-                i.putExtra(Intent.EXTRA_SUBJECT, Constants.emailSubjectAndBody)
-                i.putExtra(Intent.EXTRA_TEXT, Constants.emailSubjectAndBody)
+                i.data = "mailto:${OrbotConstants.GET_BRIDES_EMAIL_RECIPIENT}".toUri()
+                i.putExtra(Intent.EXTRA_SUBJECT, OrbotConstants.GET_BRIDES_EMAIL_SUBJECT_AND_BODY)
+                i.putExtra(Intent.EXTRA_TEXT, OrbotConstants.GET_BRIDES_EMAIL_SUBJECT_AND_BODY)
 
                 val pm = activity?.packageManager ?: return@setOnClickListener
 

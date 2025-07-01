@@ -6,9 +6,9 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import org.torproject.android.Constants
 import org.torproject.android.R
 import org.torproject.android.databinding.CustomBridgeBottomSheetBinding
+import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 
@@ -36,7 +36,7 @@ class CustomBridgeBottomSheet(private val callbacks: ConnectionHelperCallbacks) 
     ): View {
         binding = CustomBridgeBottomSheetBinding.inflate(inflater, container, false)
 
-        val uri = Constants.bridgesUri.buildUpon()
+        val uri = OrbotConstants.GET_BRIDES_BRIDGES_URI.buildUpon()
         uri.path("/options")
         binding.tvCustomBridgeSubHeader.text = getString(R.string.custom_bridges_description, uri.build().toString())
 
