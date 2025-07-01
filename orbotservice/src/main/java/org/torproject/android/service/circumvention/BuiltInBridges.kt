@@ -1,11 +1,11 @@
 package org.torproject.android.service.circumvention
 
 import android.content.Context
-import android.icu.util.Calendar
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import java.io.File
+import java.util.Calendar
 
 @Serializable
 data class BuiltInBridges(
