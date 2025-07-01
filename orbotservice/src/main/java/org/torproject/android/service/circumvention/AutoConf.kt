@@ -20,7 +20,11 @@ object AutoConf {
      *
      * @throws MoatApi.MoatError or maybe other IO exceptions.
      */
-    suspend fun `do`(context: Context, country: String? = null, cannotConnectWithoutPt: Boolean = false): Pair<Transport, List<String>>? {
+    suspend fun `do`(
+        context: Context,
+        country: String? = null,
+        cannotConnectWithoutPt: Boolean = false
+    ): Pair<Transport, List<String>>? {
         var cannotConnectWithoutPt = cannotConnectWithoutPt
 
         val done = fun(conf: Pair<Transport, List<String>>?): Pair<Transport, List<String>>? {
@@ -61,8 +65,7 @@ object AutoConf {
             if (error.code == 404 /* Needs transport, but not the available ones */
                 || error.code == 406 /* no country from IP address */) {
                 cannotConnectWithoutPt = true
-            }
-            else {
+            } else {
                 done(null)
                 throw error
             }
@@ -99,7 +102,10 @@ object AutoConf {
      *
      * @param settings: The settings from the Moat server.
      */
-    private fun extract(context: Context, settings: List<MoatApi.Setting>?): Pair<Transport, List<String>>? {
+    private fun extract(
+        context: Context,
+        settings: List<MoatApi.Setting>?
+    ): Pair<Transport, List<String>>? {
         var transport: Transport? = null
         var customBridges = mutableListOf<String>()
 
@@ -114,8 +120,7 @@ object AutoConf {
                 }
 
                 if (transport == null) transport = Transport.SNOWFLAKE
-            }
-            else if (setting.bridge.type == "obfs4") {
+            } else if (setting.bridge.type == "obfs4") {
                 if (setting.bridge.source == "builtin") {
                     val bridges = setting.bridge.bridges
 
@@ -125,14 +130,12 @@ object AutoConf {
                     }
 
                     if (transport == null) transport = Transport.OBFS4
-                }
-                else if (!setting.bridge.bridges.isNullOrEmpty()) {
+                } else if (!setting.bridge.bridges.isNullOrEmpty()) {
                     customBridges.addAll(setting.bridge.bridges)
 
                     if (transport == null) transport = Transport.CUSTOM
                 }
-            }
-            else if (setting.bridge.type == "webtunnel") {
+            } else if (setting.bridge.type == "webtunnel") {
                 if (setting.bridge.source == "builtin") {
                     val bridges = setting.bridge.bridges
 
@@ -142,8 +145,7 @@ object AutoConf {
                     }
 
                     if (transport == null) transport = Transport.WEBTUNNEL
-                }
-                else if (!setting.bridge.bridges.isNullOrEmpty()) {
+                } else if (!setting.bridge.bridges.isNullOrEmpty()) {
                     customBridges.addAll(setting.bridge.bridges)
 
                     if (transport == null) transport = Transport.CUSTOM
