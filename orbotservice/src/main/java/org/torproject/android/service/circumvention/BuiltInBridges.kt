@@ -55,6 +55,9 @@ data class BuiltInBridges(
             return instance
         }
 
+        /**
+         * We consider stored updated-bridges.json file to be outdated after 2 days.
+         */
         fun isOutdated(context: Context): Boolean {
             val lastModified = try {
                 getUpdateFile(context).lastModified()
