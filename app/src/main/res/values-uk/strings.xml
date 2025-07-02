@@ -302,10 +302,14 @@
     <string name="bridge_snowflake_sqs">Підключення через інших користувачів Tor за допомогою Snowflake (Спосіб 3 - SQS)</string>
     <string name="power_user_mode_permission">Сигнали та нагадування. Потрібен дозвіл для режиму досвідченого користувача</string>
     <string name="power_user_mode_permission_msg">Будь ласка, дозвольте Orbot встановлювати будильники та нагадування, щоб використовувати режим досвідченого користувача. Це фактично не встановить жодних будильників на вашому пристрої. Цей дозвіл потрібен для того, щоб система підтримувала роботу OrbotService, коли Orbot не використовується як VPN для всієї системи.</string>
-    <string name="pref_require_password">Блокування пристрою паролем</string>
-    <string name="pref_require_password_description">Заборонити доступ до Orbot, доки ви не введете пароль свого пристрою. Це можна поєднати з режимом камуфляжу, щоб приховати, що Orbot встановлено на вашому пристрої</string>
-    <string name="error_no_password_set">Будь ласка, встановіть пароль на своєму пристрої, щоб використовувати блокування пристрою паролем</string>
-    <string name="unlock_app_msg" formatted="true">Щоб розблокувати %s, потрібен пароль вашого пристрою</string>
+    <string name="pref_require_password">Аутентифікація орбота</string>
+    <string name="pref_require_password_description">Запобігайте доступу до ORBOT, поки ви не є автентифікацією, ввівши пароль пристрою або відбиток пальців. Це можна поєднати з режимом камуфляжу, щоб допомогти приховати, що ORBOT встановлений на вашому пристрої</string>
+    <string name="error_no_password_set">Будь ласка, закріпіть свій пристрій, щоб використовувати автентифікацію ORBOT</string>
+    <string name="unlock_app_msg" formatted="true">Будь ласка, розблокуйте свій пристрій, щоб використовувати %s</string>
     <string name="invalid_bridge_format">Недійсний формат мосту</string>
     <string name="error_asking_tor_for_bridges">Помилка під час запиту Tor про підключення</string>
+    <string name="device_lock_unsupported">Аутентифікація Orbot не підтримується на вашому пристрої</string>
+    <string name="device_lock_security_update_needed">Ви повинні завантажити оновлення безпеки Android для свого пристрою, щоб використовувати автентифікацію Orbot</string>
+    <string name="pref_password_only_no_biometric">Заборонити біометрику для аутентифікації ORBOT</string>
+    <string name="pref_password_only_no_biometric_description">Це змушує аутентифікацію орбота вимагати лише пароля вашого пристрою, навіть якщо біометрична автентифікація, наприклад, відбитки пальців або розблокування обличчя, налаштована на вашому пристрої.</string>
 </resources>
