@@ -302,10 +302,14 @@
     <string name="camo_dialog_disable_confirm_msg">سيستأنف اوربوت عرض معلومات الإشعارات حول اتصال تور الخاص بك وسيظهر بشكل طبيعي على شاشتك الرئيسية.\n\nسيؤدي تعطيل وضع التنكر إلى إعادة تشغيل اوربوت.</string>
     <string name="power_user_mode_permission">مطلوب إذن التنبيهات والتذكيرات لوضع المستخدم المتقدم</string>
     <string name="power_user_mode_permission_msg">الرجاء السماح لـ Orbot بضبط التنبيهات والتذكيرات لاستخدام وضع المستخدم المتقدم. لن يؤدي هذا فعليًا إلى ضبط أي تنبيهات على جهازك. هذه الصلاحية مطلوبة لجعل النظام يحافظ على تشغيل OrbotService عندما لا يتم استخدام Orbot كشبكة VPN على مستوى النظام.</string>
-    <string name="pref_require_password_description">امنع الوصول إلى Orbot حتى تُدخل كلمة سر جهازك. يمكن دمج هذا مع وضع التنكر للمساعدة في إخفاء أن Orbot مثبت على جهازك</string>
-    <string name="pref_require_password">قفل كلمة سر الجهاز</string>
-    <string name="error_no_password_set">الرجاء تعيين كلمة سر على جهازك لاستخدام قفل كلمة سر الجهاز</string>
-    <string name="unlock_app_msg" formatted="true">كلمة سر جهازك مطلوبة لفتح %s</string>
+    <string name="pref_require_password_description">امنع الوصول إلى Orbot حتى توثّق من خلال إدخال كلمة سر جهازك أو بصمة إصبعك. يمكن دمج هذا مع وضع التنكر للمساعدة في إخفاء أن Orbot مثبت على جهازك</string>
+    <string name="pref_require_password">استيثاق Orbot</string>
+    <string name="error_no_password_set">الرجاء تأمين جهازك من أجل استخدام استيثاق Orbot</string>
+    <string name="unlock_app_msg" formatted="true">الرجاء فتح جهازك لاستخدام %s</string>
     <string name="invalid_bridge_format">تنسيق الجسر غير صالح</string>
     <string name="error_asking_tor_for_bridges">خطأ في طلب كيفية الاتصال بتور</string>
+    <string name="device_lock_unsupported">استيثاق Orbot غير مدعوم على جهازك</string>
+    <string name="device_lock_security_update_needed">يجب عليك تنزيل تحديثات أمان أندرويد لجهازك لتتمكن من استخدام استيثاق Orbot</string>
+    <string name="pref_password_only_no_biometric">عدم السماح بالقياسات الحيوية لاستيثاق Orbot</string>
+    <string name="pref_password_only_no_biometric_description">هذا يجبر استيثاق Orbot على طلب كلمة سر جهازك فقط حتى لو ضُبط استيثاق البيومتري، مثل بصمة الإصبع أو فتح القفل بالوجه، على جهازك.</string>
 </resources>
