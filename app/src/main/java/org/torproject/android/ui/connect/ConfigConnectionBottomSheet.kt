@@ -113,19 +113,24 @@ class ConfigConnectionBottomSheet :
 
         binding.btnAction.setOnClickListener {
             if (binding.rbObfs4.isChecked) {
-                Prefs.torConnectionPathway = Transport.OBFS4
+                Prefs.transport = Transport.OBFS4
+                Prefs.smartConnect = false
                 closeAndConnect()
             } else if (binding.rbDirect.isChecked) {
-                Prefs.torConnectionPathway = Transport.NONE
+                Prefs.transport = Transport.NONE
+                Prefs.smartConnect = false
                 closeAndConnect()
             } else if (binding.rbSnowflake.isChecked) {
-                Prefs.torConnectionPathway = Transport.SNOWFLAKE
+                Prefs.transport = Transport.SNOWFLAKE
+                Prefs.smartConnect = false
                 closeAndConnect()
             } else if (binding.rbSnowflakeAmp.isChecked) {
-                Prefs.torConnectionPathway = Transport.SNOWFLAKE_AMP
+                Prefs.transport = Transport.SNOWFLAKE_AMP
+                Prefs.smartConnect = false
                 closeAndConnect()
             } else if (binding.rbSnowflakeSqs.isChecked) {
-                Prefs.torConnectionPathway = Transport.SNOWFLAKE_SQS
+                Prefs.transport = Transport.SNOWFLAKE_SQS
+                Prefs.smartConnect = false
                 closeAndConnect()
             } else if (binding.rbTelegram.isChecked) {
                 val i = Intent(Intent.ACTION_VIEW, OrbotConstants.GET_BRIDES_TELEGRAM_BOT)
@@ -143,14 +148,16 @@ class ConfigConnectionBottomSheet :
                 }
             }
             else if (binding.rbMeek.isChecked) {
-                Prefs.torConnectionPathway = Transport.MEEK_AZURE
+                Prefs.transport = Transport.MEEK_AZURE
+                Prefs.smartConnect = false
                 closeAndConnect()
             }
 
             if (binding.rbTelegram.isChecked || binding.rbEmail.isChecked || binding.rbCustom.isChecked) {
                 CustomBridgeBottomSheet(object : ConnectionHelperCallbacks {
                     override fun tryConnecting() {
-                        Prefs.torConnectionPathway = Transport.CUSTOM
+                        Prefs.transport = Transport.CUSTOM
+                        Prefs.smartConnect = false
                         closeAndConnect()
                     }
                 }).show(requireActivity().supportFragmentManager, CustomBridgeBottomSheet.TAG)
@@ -185,7 +192,7 @@ class ConfigConnectionBottomSheet :
     }
 
     private fun selectRadioButtonFromPreference() {
-        when (Prefs.torConnectionPathway) {
+        when (Prefs.transport) {
             Transport.NONE -> binding.rbDirect.isChecked = true
             Transport.MEEK_AZURE -> binding.rbMeek.isChecked = true
             Transport.OBFS4 -> binding.rbObfs4.isChecked = true
@@ -218,7 +225,8 @@ class ConfigConnectionBottomSheet :
 
                     updateAskTorBt(conf.first.toString(), R.drawable.ic_green_check)
 
-                    Prefs.torConnectionPathway = conf.first
+                    Prefs.transport = conf.first
+                    Prefs.smartConnect = false
 
                     val customBridges = Prefs.bridgesList?.split("\n")?.toMutableSet() ?: mutableSetOf()
                     customBridges.addAll(conf.second)

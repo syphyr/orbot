@@ -172,10 +172,6 @@ class OrbotActivity : BaseActivity() {
             registerReceiver(
                 orbotServiceBroadcastReceiver, IntentFilter(OrbotConstants.LOCAL_ACTION_PORTS)
             )
-            registerReceiver(
-                orbotServiceBroadcastReceiver,
-                IntentFilter(OrbotConstants.LOCAL_ACTION_SMART_CONNECT_EVENT)
-            )
         }
 
         requestNotificationPermission()

@@ -231,9 +231,9 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
         binding.tvSubtitle.text = getString(R.string.secure_your_connection_subtitle)
 
         binding.swSmartConnect.visibility = View.VISIBLE
-        binding.swSmartConnect.isChecked = Prefs.useSmartConnect
+        binding.swSmartConnect.isChecked = Prefs.smartConnect
         binding.swSmartConnect.setOnCheckedChangeListener { _, value ->
-            Prefs.useSmartConnect = value
+            Prefs.smartConnect = value
             doLayoutOff()
         }
 
@@ -247,11 +247,11 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
 
             val connectStr: String
 
-            if (Prefs.useSmartConnect) {
+            if (Prefs.smartConnect) {
                 connectStr = getString(R.string.action_use_, getString(R.string.smart_connect))
             }
             else {
-                connectStr = when (Prefs.torConnectionPathway) {
+                connectStr = when (Prefs.transport) {
                     Transport.NONE -> getString(R.string.action_use_, getString(R.string.direct_connect))
                     Transport.MEEK_AZURE -> getString(R.string.action_use_, getString(R.string.bridge_meek_azure))
                     Transport.OBFS4 -> getString(R.string.action_use_, getString(R.string.built_in_bridges_obfs4))

@@ -121,10 +121,6 @@ object OrbotConstants {
     const val LOCAL_ACTION_PORTS = "ports"
     const val LOCAL_ACTION_V3_NAMES_UPDATED = "V3_NAMES_UPDATED"
     const val LOCAL_ACTION_NOTIFICATION_START = "notification_start"
-    const val LOCAL_ACTION_SMART_CONNECT_EVENT = "smart"
-    const val LOCAL_EXTRA_SMART_STATUS = "status"
-    const val SMART_STATUS_NO_DIRECT = "no_direct"
-    const val SMART_STATUS_CIRCUMVENTION_ATTEMPT_FAILED = "bad_attempt_suggestion"
 
 
     /**

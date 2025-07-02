@@ -33,6 +33,7 @@ import net.freehaven.tor.control.TorControlCommands;
 import net.freehaven.tor.control.TorControlConnection;
 
 import org.torproject.android.service.circumvention.ContentDeliveryNetworkFronts;
+import org.torproject.android.service.circumvention.SmartConnect;
 import org.torproject.android.service.circumvention.SnowflakeProxyWrapper;
 import org.torproject.android.service.circumvention.Transport;
 import org.torproject.android.service.db.OnionServiceColumns;
@@ -62,6 +63,8 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.ServiceCompat;
 import androidx.core.content.ContextCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+
+import kotlin.Unit;
 
 /**
  * @noinspection CallToPrintStackTrace
@@ -204,7 +207,7 @@ public class OrbotService extends VpnService {
 
         if (showNotification) sendCallbackLogMessage(getString(R.string.status_shutting_down));
 
-        Prefs.getTorConnectionPathway().stop();
+        Prefs.getTransport().stop();
 
         stopTor();
 
@@ -459,23 +462,35 @@ public class OrbotService extends VpnService {
 
     // The entire process for starting tor and related services is run from this method.
     private void startTor() {
-        try {
-            if (torServiceConnection != null && conn != null) {
-                sendCallbackLogMessage(getString(R.string.log_notice_ignoring_start_request));
-                showConnectedToTorNetworkNotification();
-                return;
+        if (torServiceConnection != null && conn != null) {
+            sendCallbackLogMessage(getString(R.string.log_notice_ignoring_start_request));
+            showConnectedToTorNetworkNotification();
+            return;
+        }
+        mNotifyBuilder.setProgress(100, 0, false);
+        showToolbarNotification("", NOTIFY_ID, R.drawable.ic_stat_tor);
+
+        SmartConnect.handle(this, () -> {
+            try {
+                startTorService();
+                showTorServiceErrorMsg = true;
             }
-            mNotifyBuilder.setProgress(100, 0, false);
-            showToolbarNotification("", NOTIFY_ID, R.drawable.ic_stat_tor);
-
-            // TODO
-            if (Prefs.getUseSmartConnect()) {
-                smartConnectionPathwayStartTor();
+            catch (Exception e) {
+                return e;
             }
 
-            startTorService();
-            showTorServiceErrorMsg = true;
+            return null;
+        }, (Exception e) -> {
+            if (e != null) {
+                logNotice(getString(R.string.unable_to_start_tor) + " " + e.getLocalizedMessage());
+                stopTorOnError(e.getLocalizedMessage());
+            }
+            else {
+                stopTorAsync(true);
+            }
 
+            return Unit.INSTANCE;
+        }, () -> {
             if (Prefs.hostOnionServicesEnabled()) {
                 try {
                     updateV3OnionNames();
@@ -483,57 +498,10 @@ public class OrbotService extends VpnService {
                     logNotice(getString(R.string.log_notice_unable_to_update_onions));
                 }
             }
-        } catch (Exception e) {
-            logNotice(getString(R.string.unable_to_start_tor) + " " + e.getLocalizedMessage());
-            stopTorOnError(e.getLocalizedMessage());
-        }
+
+            return Unit.INSTANCE;
+        });
     }
-
-    static int TRIES_DELETE = 0;
-
-    private void smartConnectionPathwayStartTor() {
-        Log.d(TAG, "timing out in " + 150000 + "ms");
-        new Handler(Looper.getMainLooper()).postDelayed(() -> {
-            Log.d(TAG, "timed out mCurrentStatus=" + mCurrentStatus);
-            if (!mCurrentStatus.equals(STATUS_ON)) {
-                Log.d(TAG, "tor isn't on");
-                if (Prefs.getPrefSmartTrySnowflake()) {
-                    Log.d(TAG, "trying snowflake didnt work");
-                    clearEphemeralSmartConnectionSettings();
-                    sendSmartStatusToActivity(SMART_STATUS_CIRCUMVENTION_ATTEMPT_FAILED);
-                } else if (Prefs.getPrefSmartTryObfs4() != null) {
-                    Log.d(TAG, "trying obfs4 didnt work");
-                    clearEphemeralSmartConnectionSettings();
-                    sendSmartStatusToActivity(SMART_STATUS_CIRCUMVENTION_ATTEMPT_FAILED);
-                } else {
-                    sendSmartStatusToActivity(SMART_STATUS_NO_DIRECT);
-                }
-                stopTorAsync(true);
-            } else {
-                // tor was connected in the allotted time
-                var obfs4 = Prefs.getPrefSmartTryObfs4();
-                if (obfs4 != null) {
-                    // set these obfs4 bridges
-                    Prefs.setBridgesList(obfs4);
-                    Prefs.setTorConnectionPathway(Transport.CUSTOM);
-                } else if (Prefs.getPrefSmartTrySnowflake()) {
-                    Prefs.setTorConnectionPathway(Transport.SNOWFLAKE); // set snowflake
-                }
-                clearEphemeralSmartConnectionSettings();
-            }
-        }, ((TRIES_DELETE++) != 2) ? 15000 : 10000);
-    }
-
-    private void clearEphemeralSmartConnectionSettings() {
-        Prefs.setPrefSmartTryObfs4(null);
-        Prefs.setPrefSmartTrySnowflake(false);
-    }
-
-    private void sendSmartStatusToActivity(String status) {
-        var intent = new Intent(LOCAL_ACTION_SMART_CONNECT_EVENT).putExtra(LOCAL_EXTRA_SMART_STATUS, status);
-        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
-    }
-
 
     private void updateV3OnionNames() {
         OnionServiceColumns.updateV3OnionNames(this, mV3OnionBasePath);
@@ -729,6 +697,7 @@ public class OrbotService extends VpnService {
                 percent = percent.substring(0, percent.indexOf('%')).trim();
                 localIntent.putExtra(LOCAL_EXTRA_BOOTSTRAP_PERCENT, percent);
                 var prog = Integer.parseInt(percent);
+                SmartConnect.updateProgress(prog);
                 mNotifyBuilder.setProgress(100, prog, false);
                 notificationMessage = notificationMessage.substring(notificationMessage.indexOf(':') + 1).trim();
             }
@@ -819,7 +788,7 @@ public class OrbotService extends VpnService {
             if (TextUtils.isEmpty(action)) return;
             switch (action) {
                 case ACTION_START -> {
-                    var transport = Prefs.getTorConnectionPathway();
+                    var transport = Prefs.getTransport();
                     transport.start(OrbotService.this);
 
                     startTor();

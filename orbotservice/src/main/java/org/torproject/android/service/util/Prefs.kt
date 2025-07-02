@@ -29,8 +29,8 @@ object Prefs {
     private const val PREF_BE_A_SNOWFLAKE_LIMIT_CHARGING = "pref_be_a_snowflake_limit_charing"
 
     private const val PREF_USE_SMART_CONNECT = "pref_use_smart_connect"
-    private const val PREF_SMART_TRY_SNOWFLAKE = "pref_smart_try_snowflake"
-    private const val PREF_SMART_TRY_OBFS4 = "pref_smart_try_obfs"
+    private const val PREF_SMART_CONNECT_TIMEOUT = "pref_smart_connect_timeout"
+
     private const val PREF_POWER_USER_MODE = "pref_power_user"
 
 
@@ -106,7 +106,7 @@ object Prefs {
 
     @JvmStatic
     var defaultLocale: String
-        get() = prefs?.getString(PREF_DEFAULT_LOCALE, Locale.getDefault().language) ?: Locale.getDefault().language
+        get() = prefs?.getString(PREF_DEFAULT_LOCALE, null) ?: Locale.getDefault().language
         set(value) = putString(PREF_DEFAULT_LOCALE, value)
 
     fun detectRoot(): Boolean {
@@ -184,7 +184,7 @@ object Prefs {
 
     @JvmStatic
     var exitNodes: String?
-        get() = prefs?.getString(PREF_EXIT_NODES, "")
+        get() = prefs?.getString(PREF_EXIT_NODES, null)
         set(country) {
             putString(PREF_EXIT_NODES, country)
         }
@@ -211,30 +211,23 @@ object Prefs {
     }
 
     @JvmStatic
-    var torConnectionPathway: Transport
+    var transport: Transport
         /**
          * @return How Orbot is configured to attempt to connect to Tor
          */
-        get() = Transport.fromId(prefs?.getString(PREF_CONNECTION_PATHWAY, Transport.NONE.id) ?: Transport.NONE.id)
+        get() = Transport.fromId(prefs?.getString(PREF_CONNECTION_PATHWAY, null) ?: Transport.NONE.id)
         /**
          * Set how Orbot should initialize a tor connection (direct, with a PT, etc)
          */
         set(value) = putString(PREF_CONNECTION_PATHWAY, value.id)
 
-    @JvmStatic
-    var useSmartConnect: Boolean
+    var smartConnect: Boolean
         get() = prefs?.getBoolean(PREF_USE_SMART_CONNECT, false) ?: false
         set(value) = putBoolean(PREF_USE_SMART_CONNECT, value)
 
-    @JvmStatic
-    var prefSmartTrySnowflake: Boolean
-        get() = prefs?.getBoolean(PREF_SMART_TRY_SNOWFLAKE, false) ?: false
-        set(value) = putBoolean(PREF_SMART_TRY_SNOWFLAKE, value)
-
-    @JvmStatic
-    var prefSmartTryObfs4: String?
-        get() = prefs?.getString(PREF_SMART_TRY_OBFS4, null)
-        set(value) = putString(PREF_SMART_TRY_OBFS4, value)
+    var smartConnectTimeout: Int
+        get() = prefs?.getInt(PREF_SMART_CONNECT_TIMEOUT, 30) ?: 30
+        set(value) = putInt(PREF_SMART_CONNECT_TIMEOUT, value)
 
     val isPowerUserMode: Boolean
         get() = prefs?.getBoolean(PREF_POWER_USER_MODE, false) ?: false
@@ -248,18 +241,12 @@ object Prefs {
     @JvmStatic
     val isCamoEnabled: Boolean
         get() {
-            val app: String = prefs?.getString(
-                PREF_CAMO_APP_PACKAGE,
-                DEFAULT_CAMO_DISABLED_ACTIVITY
-            ) ?: ""
+            val app = prefs?.getString(PREF_CAMO_APP_PACKAGE, DEFAULT_CAMO_DISABLED_ACTIVITY) ?: ""
             return app != DEFAULT_CAMO_DISABLED_ACTIVITY
         }
 
     val selectedCamoApp: String
-        get() = prefs?.getString(
-            PREF_CAMO_APP_PACKAGE,
-            DEFAULT_CAMO_DISABLED_ACTIVITY
-        ) ?: ""
+        get() = prefs?.getString(PREF_CAMO_APP_PACKAGE, DEFAULT_CAMO_DISABLED_ACTIVITY) ?: ""
 
     fun setCamoAppPackage(packageName: String?) {
         putString(PREF_CAMO_APP_PACKAGE, packageName)

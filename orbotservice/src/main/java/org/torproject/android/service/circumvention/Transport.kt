@@ -170,6 +170,9 @@ enum class Transport(val id: String) {
         return result
     }
 
+    /**
+     * @throws Exception if the transport cannot be initialized or if it couldn't bind a port for listening.
+     */
     fun start(context: Context) {
         when (this) {
             SNOWFLAKE -> {

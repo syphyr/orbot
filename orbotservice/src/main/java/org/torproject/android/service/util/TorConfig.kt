@@ -86,7 +86,7 @@ object TorConfig {
             conf.add("SafeLogging 0")
         }
 
-        val transport = Prefs.torConnectionPathway
+        val transport = Prefs.transport
 
         if (transport == Transport.NONE) {
             conf.add("UseBridges 0")
