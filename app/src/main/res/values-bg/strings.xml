@@ -294,11 +294,15 @@
     <string name="pref_camo_mode_description">Дегизиране на пиктограмата, етикета и текста на известието на Orbot</string>
     <string name="pref_isolate_keep_alive_summary">Поддържа изолираните вериги, които имат най-малко един удостоверен през SOCKS поток</string>
     <string name="power_user_mode_permission">Режимът на опитен потребител изисква разрешение за будилници и напомняния</string>
-    <string name="unlock_app_msg" formatted="true">За отключване на %s е необходима паролата на устройството</string>
-    <string name="pref_require_password">Отключване с паролата на устройството</string>
-    <string name="error_no_password_set">За да използвате Отключване с паролата на устройството задайте парола на устройството</string>
+    <string name="unlock_app_msg" formatted="true">За да използвате %s тключете устройството</string>
+    <string name="pref_require_password">Удостоверяване на Orbot</string>
+    <string name="error_no_password_set">За да удостоверите Orbot задайте парола на устройството</string>
     <string name="power_user_mode_permission_msg">Дайте разрешение на Orbot да съзадава будилници и напомняния, за да използвате режима на опитния потребител. Няма да бъдат създадени будилници на устройство. Разрешението е необходимо, за да може системата да поддържа OrbotService в работен режим, когато Orbot не се използва като системна услуга за ВЧМ.</string>
-    <string name="pref_require_password_description">Предотвратяване на достъпа до Orbot, докато не въведете паролата на устройството. Настройката може да бъде комбинирана с режим Камуфлаж, за да скриете, че приложението Orbot е инсталирано на устройството</string>
+    <string name="pref_require_password_description">Предотвратяване на достъпа до Orbot, докато не се удостоверите като въведете паролата на устройството или чрез отпечатък. Настройката може да бъде комбинирана с режим Камуфлаж, за да скриете, че приложението Orbot е инсталирано на устройството</string>
     <string name="error_asking_tor_for_bridges">Грешка при запитване на Tor за начина на свързване</string>
     <string name="invalid_bridge_format">Неприемлив формат на мост</string>
+    <string name="device_lock_unsupported">Устройството не поддържа удостоверяване на Orbot</string>
+    <string name="device_lock_security_update_needed">За да използвате удостоверяване на Orbot трябва да изтеглите обновяванията за сигурност на Андроид</string>
+    <string name="pref_password_only_no_biometric">Изключване на биометрично удостоверяване на Orbot</string>
+    <string name="pref_password_only_no_biometric_description">Налага удостоверяването на Orbot да бъде само с парола, независимо от наличието на настроени биометрични способи за отключване на устройството.</string>
 </resources>
