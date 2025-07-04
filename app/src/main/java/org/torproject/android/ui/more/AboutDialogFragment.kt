@@ -34,6 +34,11 @@ class AboutDialogFragment : DialogFragment() {
         versionName?.text = VERSION
 
         binding.tvTor.text = getString(R.string.tor_url, TorService.VERSION_NAME)
+        binding.tvEvent.text = getString(R.string.event_url, TorService.libeventVersion())
+        binding.tvOpenssl.text = getString(R.string.openssl_url, TorService.opensslVersion())
+        binding.tvZlib.text = getString(R.string.zlib_url, TorService.zlibVersion())
+        binding.tvZstd.text = getString(R.string.zstd_url, TorService.zstdVersion())
+        binding.tvLzma.text = getString(R.string.lzma_url, TorService.lzmaVersion())
         binding.tvObfs4.text =
             getString(R.string.obfs4_url, IPtProxy.lyrebirdVersion().substringAfter('-'))
         binding.tvSnowflake.text = getString(R.string.snowflake_url, IPtProxy.snowflakeVersion())
