@@ -72,7 +72,11 @@
     <string name="tor_url" translatable="false">Tor v%s: https://www.torproject.org</string>
     <string name="obfs4_url" translatable="false">Lyrebird v%s: https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/lyrebird</string>
     <string name="snowflake_url" translatable="false">Snowflake v%s: https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/snowflake</string>
-    <string name="openssl_url" translatable="false">OpenSSL: http://www.openssl.org</string>
+    <string name="event_url" translatable="false">libEvent v%s: https://github.com/libevent/libevent</string>
+    <string name="openssl_url" translatable="false">OpenSSL v%s: http://www.openssl.org</string>
+    <string name="zlib_url" translatable="false">Zlib v%s: https://github.com/madler/zlib</string>
+    <string name="zstd_url" translatable="false">Zstd v%s: https://github.com/facebook/zstd</string>
+    <string name="lzma_url" translatable="false">Lzma v%s: https://github.com/tukaani-project/xz</string>
     <string name="third_party_software">3rd-Party-Software: </string>
     <string name="version">Version:</string>
     <string name="license">License:</string>
