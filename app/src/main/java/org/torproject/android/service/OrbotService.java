@@ -61,6 +61,11 @@ import kotlin.Unit;
 public class OrbotService extends VpnService {
 
     public final static String BINARY_TOR_VERSION = TorService.VERSION_NAME;
+    public final static String EVENT_VERSION = TorService.libeventVersion();
+    public final static String OPENSSL_VERSION = TorService.opensslVersion();
+    public final static String ZLIB_VERSION = TorService.zlibVersion();
+    public final static String ZSTD_VERSION = TorService.zstdVersion();
+    public final static String LZMA_VERSION = TorService.lzmaVersion();
     static final int NOTIFY_ID = 1, ERROR_NOTIFY_ID = 3;
     public static int mPortSOCKS = -1, mPortHTTP = -1, mPortDns = -1, mPortTrans = -1;
     public static File appBinHome, appCacheHome;
