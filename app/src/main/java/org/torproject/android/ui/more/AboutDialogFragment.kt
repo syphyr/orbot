@@ -38,6 +38,21 @@ class AboutDialogFragment : DialogFragment() {
         val tvTor = view.findViewById<TextView>(R.id.tvTor)
         tvTor.text = getString(R.string.tor_url, OrbotService.BINARY_TOR_VERSION)
 
+        val tvEvent = view.findViewById<TextView>(R.id.tvEvent)
+        tvEvent.text = getString(R.string.event_url, OrbotService.EVENT_VERSION)
+
+        val tvOpenssl = view.findViewById<TextView>(R.id.tvOpenssl)
+        tvOpenssl.text = getString(R.string.openssl_url, OrbotService.OPENSSL_VERSION)
+
+        val tvZlib = view.findViewById<TextView>(R.id.tvZlib)
+        tvZlib.text = getString(R.string.zlib_url, OrbotService.ZLIB_VERSION)
+
+        val tvZstd = view.findViewById<TextView>(R.id.tvZstd)
+        tvZstd.text = getString(R.string.zstd_url, OrbotService.ZSTD_VERSION)
+
+        val tvLzma = view.findViewById<TextView>(R.id.tvLzma)
+        tvLzma.text = getString(R.string.lzma_url, OrbotService.LZMA_VERSION)
+
         val tvObfs4 = view.findViewById<TextView>(R.id.tvObfs4)
         tvObfs4.text = getString(R.string.obfs4_url, IPtProxy.lyrebirdVersion())
 
