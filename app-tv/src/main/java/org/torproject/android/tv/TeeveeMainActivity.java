@@ -71,6 +71,8 @@ import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Locale;
 import java.util.StringTokenizer;
 
@@ -534,7 +536,7 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
 
     private void setNewBridges(String newBridgeValue) {
 
-        Prefs.setBridgesList(newBridgeValue); //set the string to a preference
+        Prefs.setBridgesList(Collections.singletonList(newBridgeValue)); //set the string to a preference
 
         setResult(RESULT_OK);
         enableBridges();
@@ -623,7 +625,7 @@ public class TeeveeMainActivity extends Activity implements OnLongClickListener 
 
     private void enableBridges() {
         if (STATUS_ON.equals(torStatus)) {
-            String bridgeList = Prefs.getBridgesList();
+            List<String> bridgeList = Prefs.getBridgesList();
             if (!bridgeList.isEmpty()) {
                 requestTorRereadConfig();
             }
