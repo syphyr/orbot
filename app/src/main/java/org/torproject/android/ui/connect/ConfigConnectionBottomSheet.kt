@@ -265,7 +265,9 @@ class ConfigConnectionBottomSheet :
                 withContext(Dispatchers.Main) {
                     updateAskTorBt()
 
-                    Toast.makeText(context, e.localizedMessage, Toast.LENGTH_LONG)
+                    Toast.makeText(context,
+                        "${getString(R.string.error_asking_tor_for_bridges)}\n${e.localizedMessage}",
+                        Toast.LENGTH_LONG)
                         .show()
                 }
             }
