@@ -228,9 +228,9 @@ class ConfigConnectionBottomSheet :
                     Prefs.transport = conf.first
                     Prefs.smartConnect = false
 
-                    val customBridges = Prefs.bridgesList?.split("\n")?.toMutableSet() ?: mutableSetOf()
+                    val customBridges = Prefs.bridgesList.toMutableSet()
                     customBridges.addAll(conf.second)
-                    Prefs.bridgesList = customBridges.joinToString("\n")
+                    Prefs.bridgesList = customBridges.toList()
 
                     when (conf.first) {
                         Transport.NONE -> {

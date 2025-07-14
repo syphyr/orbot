@@ -96,7 +96,12 @@ enum class Transport(val id: String) {
                 MEEK_AZURE -> setOf(IPtProxy.MeekLite)
                 OBFS4 -> setOf(IPtProxy.Obfs4)
                 WEBTUNNEL -> setOf(IPtProxy.Webtunnel)
-                CUSTOM -> Prefs.bridgesList?.split("\n")?.mapNotNull { Bridge(it).transport }?.toSet() ?: emptySet()
+                CUSTOM -> {
+                    Prefs.bridgesList
+                        .mapNotNull { Bridge(it).transport }
+                        .filter { it.isNotBlank() }
+                        .toSet()
+                }
                 else -> setOf(IPtProxy.Snowflake)
             }
         }
@@ -161,8 +166,8 @@ enum class Transport(val id: String) {
                 }
             }
             CUSTOM -> {
-                Prefs.bridgesList?.split("\n")?.forEach {
-                    result.add("Bridge ${it}")
+                Prefs.bridgesList.forEach {
+                    result.add("Bridge $it")
                 }
             }
         }

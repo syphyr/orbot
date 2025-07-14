@@ -100,9 +100,18 @@ object Prefs {
     }
 
     @JvmStatic
-    var bridgesList: String?
-        get() = prefs?.getString(PREF_BRIDGES_LIST, null)
-        set(value) = putString(PREF_BRIDGES_LIST, value)
+    var bridgesList: List<String>
+        get() {
+            return prefs?.getString(PREF_BRIDGES_LIST, null)
+                ?.split("\n")
+                ?.filter { it.isNotBlank() }
+                ?.map { it.trim() }
+                ?: emptyList()
+        }
+        set(value) {
+            putString(PREF_BRIDGES_LIST,
+                value.filter { it.isNotBlank() }.joinToString("\n") { it.trim() })
+        }
 
     @JvmStatic
     var defaultLocale: String

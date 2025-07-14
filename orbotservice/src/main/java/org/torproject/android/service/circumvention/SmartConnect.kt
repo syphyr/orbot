@@ -45,7 +45,7 @@ object SmartConnect {
 
             conf?.second?.let {
                 if (it.isNotEmpty()) {
-                    Prefs.bridgesList = it.joinToString("\n")
+                    Prefs.bridgesList = it
                 }
             }
 
