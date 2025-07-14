@@ -807,6 +807,8 @@ public class OrbotService extends VpnService {
                 }
                 case ACTION_STOP -> {
                     var userIsQuittingOrbot = mIntent.getBooleanExtra(ACTION_STOP_FOREGROUND_TASK, false);
+                    // When user cancels connecting, make sure, the SmartConnect timer is also cancelled.
+                    SmartConnect.cancel();
                     stopTorAsync(!userIsQuittingOrbot);
                 }
                 case ACTION_UPDATE_ONION_NAMES -> updateV3OnionNames();
@@ -823,6 +825,8 @@ public class OrbotService extends VpnService {
                         sendCallbackPorts(mPortSOCKS, mPortHTTP, mPortDns, mPortTrans);
                 }
                 case ACTION_STOP_VPN -> {
+                    // When user cancels connecting, make sure, the SmartConnect timer is also cancelled.
+                    SmartConnect.cancel();
                     if (mVpnManager != null) mVpnManager.handleIntent(new Builder(), mIntent);
                 }
                 case ACTION_RESTART_VPN -> {
@@ -876,6 +880,13 @@ public class OrbotService extends VpnService {
                     if (STATUS_OFF.equals(mCurrentStatus)) {
                         showToolbarNotification(getString(R.string.open_orbot_to_connect_to_tor), NOTIFY_ID, R.drawable.ic_stat_tor);
                     }
+
+                    // Make sure, Smart Connect finishes successfully, even when, for some reason,
+                    // progress isn't received up to 100.
+                    if (STATUS_ON.equals(mCurrentStatus)) {
+                        SmartConnect.updateProgress(100);
+                    }
+
                     var localStatus = new Intent(LOCAL_ACTION_STATUS).putExtra(EXTRA_STATUS, mCurrentStatus);
                     LocalBroadcastManager.getInstance(OrbotService.this).sendBroadcast(localStatus); // update the activity with what's new
                 }

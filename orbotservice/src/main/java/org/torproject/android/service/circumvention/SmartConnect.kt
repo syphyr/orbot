@@ -102,7 +102,7 @@ object SmartConnect {
                             Transport.SNOWFLAKE, Transport.SNOWFLAKE_AMP,Transport.SNOWFLAKE_SQS -> {
                                 Prefs.transport.stop()
 
-                                Prefs.transport = if (!Prefs.bridgesList.isNullOrEmpty()) {
+                                Prefs.transport = if (Prefs.bridgesList.isNotEmpty()) {
                                     Transport.CUSTOM
                                 }
                                 else {
@@ -160,12 +160,18 @@ object SmartConnect {
         }
     }
 
+    @JvmStatic
+    fun cancel() {
+        stopConnectionGuard()
+    }
+
     private fun connectionAlive() {
         connectionTimeout = TimeSource.Monotonic.markNow() + Prefs.smartConnectTimeout.seconds
     }
 
     private fun stopConnectionGuard() {
         connectionGuard?.cancel()
+        connectionGuard?.purge()
         connectionGuard = null
     }
 }
