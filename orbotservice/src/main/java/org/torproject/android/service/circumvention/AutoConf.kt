@@ -46,9 +46,13 @@ object AutoConf {
 
         val api = MoatApi.getInstance(Transport.controller.port(IPtProxy.MeekLite).toInt())
 
-        // First, update built-ins.
+        // First, try updating built-ins.
         if (BuiltInBridges.isOutdated(context)) {
-            val bridges = api.builtin()
+            val bridges = try {
+                api.builtin()
+            } catch (_ : Throwable) {
+                BuiltInBridges()
+            }
 
             if (!bridges.empty) {
                 bridges.store(context)
@@ -58,16 +62,21 @@ object AutoConf {
             }
         }
 
-        var response = api.settings(MoatApi.SettingsRequest(country))
+        var response = try {
+            api.settings(MoatApi.SettingsRequest(country))
+        }
+        catch (exception : Throwable) {
+            done(null)
+            throw exception
+        }
 
-        val error = response.errors?.firstOrNull()
-        if (error != null) {
-            if (error.code == 404 /* Needs transport, but not the available ones */
-                || error.code == 406 /* no country from IP address */) {
+        response.errors?.firstOrNull()?.let {
+            if (it.code == 404 /* Needs transport, but not the available ones */
+                || it.code == 406 /* no country from IP address */) {
                 cannotConnectWithoutPt = true
             } else {
                 done(null)
-                throw error
+                throw it
             }
         }
 
@@ -83,7 +92,14 @@ object AutoConf {
         if (conf != null) return done(conf)
 
         // If we couldn't understand that answer or it was empty, try the default settings.
-        response = api.defaults()
+        response = try {
+            api.defaults()
+        }
+        catch (exception: Throwable) {
+            done(null)
+            throw exception
+        }
+
         conf = extract(context, response.settings)
 
         return done(conf)
