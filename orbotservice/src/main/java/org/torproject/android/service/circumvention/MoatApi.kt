@@ -18,13 +18,13 @@ interface MoatApi {
     companion object {
         private const val URL = "https://bridges.torproject.org/moat/circumvention/"
 
+        val json = Json {
+            ignoreUnknownKeys = true
+        }
+
         fun getInstance(proxyPort: Int): MoatApi {
             val proxy = Proxy(Proxy.Type.SOCKS, InetSocketAddress("127.0.0.1", proxyPort))
             val client = OkHttpClient.Builder().proxy(proxy).build()
-
-            val json = Json {
-                ignoreUnknownKeys = true
-            }
 
             return Retrofit.Builder()
                 .baseUrl(URL)

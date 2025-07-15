@@ -1,14 +1,18 @@
 package org.torproject.android.ui.connect
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
+import com.google.zxing.integration.android.IntentIntegrator
 import org.torproject.android.R
 import org.torproject.android.databinding.CustomBridgeBottomSheetBinding
 import org.torproject.android.service.OrbotConstants
+import org.torproject.android.service.circumvention.MoatApi
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 
@@ -30,6 +34,37 @@ class CustomBridgeBottomSheet(private val callbacks: ConnectionHelperCallbacks) 
 
     private lateinit var binding: CustomBridgeBottomSheetBinding
 
+    private val qrScanResultLauncher = registerForActivityResult(StartActivityForResult()) { result ->
+        val scanResult = IntentIntegrator.parseActivityResult(result.resultCode, result.data)
+
+        if (scanResult != null) {
+            val current = binding.etBridges.text?.split("\n")?.toMutableList() ?: mutableListOf()
+
+            var contents = scanResult.contents ?: ""
+
+            if (contents.isBlank()) {
+                val raw = scanResult.rawBytes
+
+                if (raw != null && raw.isNotEmpty()) {
+                    contents = String(raw)
+                }
+            }
+
+            val bridges = try {
+                MoatApi.json.decodeFromString(contents)
+            }
+            catch (_: Throwable) {
+                emptyList<String>()
+            }
+
+            current.addAll(bridges)
+
+            binding.etBridges.setText(current.joinToString("\n"))
+        }
+    }
+
+    private var dialog: AlertDialog? = null
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -39,6 +74,13 @@ class CustomBridgeBottomSheet(private val callbacks: ConnectionHelperCallbacks) 
         val uri = OrbotConstants.GET_BRIDES_BRIDGES_URI.buildUpon()
         uri.path("/options")
         binding.tvCustomBridgeSubHeader.text = getString(R.string.custom_bridges_description, uri.build().toString())
+
+        binding.btnScan.setOnClickListener {
+            val activity = this@CustomBridgeBottomSheet.activity ?: return@setOnClickListener
+
+            val i = IntentIntegrator(activity)
+            dialog = i.initiateScan(IntentIntegrator.QR_CODE_TYPES, qrScanResultLauncher)
+        }
 
         binding.tvCancel.setOnClickListener { dismiss() }
 
@@ -64,6 +106,12 @@ class CustomBridgeBottomSheet(private val callbacks: ConnectionHelperCallbacks) 
 
         updateUi()
         return binding.root
+    }
+
+    override fun onPause() {
+        dialog?.dismiss()
+
+        super.onPause()
     }
 
     private fun updateUi() {

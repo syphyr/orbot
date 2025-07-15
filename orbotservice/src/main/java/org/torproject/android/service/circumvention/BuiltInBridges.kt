@@ -77,12 +77,9 @@ data class BuiltInBridges(
             return File(context.cacheDir, UPDATE_FILE_NAME)
         }
 
-        @Suppress("JSON_FORMAT_REDUNDANT")
         private fun read(json: String): BuiltInBridges? {
             return try {
-                Json {
-                    ignoreUnknownKeys = true
-                }.decodeFromString(json)
+                MoatApi.json.decodeFromString(json)
             } catch (_: Throwable) {
                 null
             }

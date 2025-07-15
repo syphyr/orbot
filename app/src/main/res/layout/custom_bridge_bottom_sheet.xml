@@ -55,6 +55,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCustomBridgeSubHeader" />
 
+    <ImageButton
+        android:id="@+id/btnScan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/btn_shape_round"
+        android:contentDescription="@string/scan_qr_code"
+        android:padding="10dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/qrcode_viewfinder"
+        app:backgroundTint="@color/orbot_btn_enabled_purple"
+        app:layout_constraintBottom_toTopOf="@id/mainGuideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@android:color/white" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/mainGuideline"
         android:layout_width="wrap_content"
