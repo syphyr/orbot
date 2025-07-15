@@ -294,8 +294,14 @@
     <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot はアプリ %1$s にカモフラージュします。これにより、Tor に関するすべての通知の詳細が非表示になり、ホーム画面での Orbot の外観が変わります。\n\n%2$s にカモフラージュすると Orbot が再起動します。</string>
     <string name="power_user_mode_permission">パワーユーザーモードにはアラームとリマインダーの許可が必要です</string>
     <string name="power_user_mode_permission_msg">パワーユーザーモードを使用するには、Orbot がアラームとリマインダーを設定できるようにしてください。これにより、実際にデバイスにアラームが設定されることはありません。この権限は、Orbot がシステム全体の VPN として使用されていないときに、システムが OrbotService を実行し続けるために必要です。</string>
-    <string name="pref_require_password">デバイスパスワードロック</string>
-    <string name="pref_require_password_description">デバイスのパスワードを入力するまで Orbot にアクセスできないようにします。これをカモフラージュモードと組み合わせることで、Orbot がデバイスにインストールされていることを隠すことができます。</string>
-    <string name="error_no_password_set">デバイスパスワードロックを使用するには、デバイスにパスワードを設定してください</string>
-    <string name="unlock_app_msg" formatted="true">%s のロックを解除するにはデバイスのパスワードが必要です</string>
+    <string name="pref_require_password">Orbot 認証</string>
+    <string name="pref_require_password_description">デバイスのパスワードまたは指紋を入力して認証するまで Orbot にアクセスできないようにします。これをカモフラージュモードと組み合わせることで、Orbot がデバイスにインストールされていることを隠すことができます。</string>
+    <string name="error_no_password_set">Orbot 認証を使用するためにはデバイスのセキュリティ保護が必要です</string>
+    <string name="unlock_app_msg" formatted="true">%s を使用するにはデバイスのロックを解除してください</string>
+    <string name="device_lock_unsupported">お使いのデバイスでは Orbot 認証がサポートされていません</string>
+    <string name="device_lock_security_update_needed">Orbot 認証を使用するには、Android のセキュリティアップデートをダウンロードする必要があります</string>
+    <string name="invalid_bridge_format">無効なブリッジフォーマット</string>
+    <string name="error_asking_tor_for_bridges">Tor への接続方法の確認中にエラーが発生しました</string>
+    <string name="pref_password_only_no_biometric">Orbot 認証の際に生体認証を許可しない</string>
+    <string name="pref_password_only_no_biometric_description">これにより、指紋認証や顔認証などの生体認証がデバイスに設定されている場合でも、Orbot 認証はデバイスのパスワードのみしか許可しないようになります。</string>
 </resources>
