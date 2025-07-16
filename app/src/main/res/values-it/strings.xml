@@ -275,4 +275,31 @@
     <string name="pref_circuit_padding_summary">Attiva il riempimento del circuito in difesa contro alcune forme di analisi del traffico</string>
     <string name="pref_detect_root_summary">Avvisa all\'avvio se l\'autorizzazione root è attiva in questo dispositivo</string>
     <string name="pref_detect_root_title">Rilevazione root</string>
+    <string name="system_vpn_settings">Impostazioni VPN di Android</string>
+    <string name="pref_isolate_keep_alive">Tieni in vita i circuiti isolati</string>
+    <string name="pref_isolate_keep_alive_summary">Tieni in vita i circuiti isolati che hanno almeno un flusso con autenticazione SOCKS attiva</string>
+    <string name="bridge_snowflake_sqs">Connetti tramite altri utenti Tor usando Snowflake (Metodo 3 - SQS)</string>
+    <string name="snowflake_sqs">Snowflake SQS</string>
+    <string name="pref_enable_rotation_summary">Attiva rotazione dispositivi (richiede un riavvio)</string>
+    <string name="pref_enable_rotation_title">Rotazione dispositivi</string>
+    <string name="app_icon_chooser_label_assistant">Assistente</string>
+    <string name="app_icon_chooser_label_todo">Da fare</string>
+    <string name="camo_dialog_title" formatted="true">Camuffa come %1$s</string>
+    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot si camufferà come l\'app %1$s. Ciò nasconderà tutti i dettagli di notifica di Tor e cambierà l\'aspetto di Orbot nella schermata iniziale.\n\nIl camuffamento come %2$s riavvierà Orbot.</string>
+    <string name="camo_dialog_disable_confirm_msg">Orbot riprenderà la visualizzazione delle informazioni di notifica sulla tua connessione Tor e apparirà come normale nella schermata iniziale.\n\nLa disattivazione della modalità camuffamento riavvierà Orbot.</string>
+    <string name="camo_dialog_disable_title">Disattiva la modalità camuffamento</string>
+    <string name="pref_camo_mode_title">Modalità camuffamento</string>
+    <string name="pref_camo_mode_description">Maschera come apparirà sul dispositivo l\'icona, l\'etichetta e il testo di notifica di Orbot</string>
+    <string name="power_user_mode_permission">Necessaria l\'autorizzazione Allarmi &amp; Promemoria per la modalità Utente esperto</string>
+    <string name="power_user_mode_permission_msg">Consenti a Orbot di impostare allarmi e promemoria per potere usare la modalità utente esperto. Ciò non imposterà alcun allarme sul dispositivo. Questa autorizzazione è necessaria affinché il sistema mantenga il servizio Orbot in esecuzione quando Orbot non viene usato come VPN a livello di sistema.</string>
+    <string name="pref_require_password">Autenticazione di Orbot</string>
+    <string name="pref_require_password_description">Previeni l\'accesso a Orbot fino a quando non ci si autentica inserendo la password del dispositivo o l\'impronta digitale. Ciò può essere combinato con la modalità camuffamento per aiutare a nascondere che Orbot sia installato sul dispositivo</string>
+    <string name="error_no_password_set">Si prega di proteggere il dispositivo per usare l\'autenticazione di Orbot</string>
+    <string name="device_lock_unsupported">L\'autenticazione di Orbot non è supportata sul tuo dispositivo</string>
+    <string name="device_lock_security_update_needed">Devi scaricare gli aggiornamenti di sicurezza di Android per il tuo dispositivo, per potere usare l\'autenticazione Orbot</string>
+    <string name="invalid_bridge_format">Formato bridge non valido</string>
+    <string name="error_asking_tor_for_bridges">Errore chiedendo a Tor come connettersi</string>
+    <string name="unlock_app_msg" formatted="true">Sblocca il dispositivo per usare %s</string>
+    <string name="pref_password_only_no_biometric">Vieta i dati biometrici per l\'autenticazione di Orbot</string>
+    <string name="pref_password_only_no_biometric_description">Ciò costringe l\'autenticazione di Orbot a richiedere solo la password del dispositivo anche se l\'autenticazione biometrica, come l\'impronta digitale o lo sblocco facciale, è configurata sul dispositivo.</string>
 </resources>
