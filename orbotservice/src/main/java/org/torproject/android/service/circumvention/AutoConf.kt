@@ -44,7 +44,7 @@ object AutoConf {
 
         Authenticator.setDefault(authenticator)
 
-        val api = MoatApi.getInstance(Transport.controller.port(IPtProxy.MeekLite).toInt())
+        val api = MoatApi.getInstance(context, Transport.controller.port(IPtProxy.MeekLite).toInt())
 
         // First, try updating built-ins.
         if (BuiltInBridges.isOutdated(context)) {
