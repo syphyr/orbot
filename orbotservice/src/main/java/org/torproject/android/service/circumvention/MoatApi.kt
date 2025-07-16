@@ -1,5 +1,8 @@
+@file:Suppress("unused")
+
 package org.torproject.android.service.circumvention
 
+import android.content.Context
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
@@ -12,6 +15,13 @@ import retrofit2.http.GET
 import retrofit2.http.POST
 import java.net.InetSocketAddress
 import java.net.Proxy
+import java.security.KeyStore
+import java.security.cert.Certificate
+import java.security.cert.CertificateFactory
+import javax.net.ssl.SSLContext
+import javax.net.ssl.SSLSocketFactory
+import javax.net.ssl.TrustManagerFactory
+import javax.net.ssl.X509TrustManager
 
 interface MoatApi {
 
@@ -22,14 +32,53 @@ interface MoatApi {
             ignoreUnknownKeys = true
         }
 
-        fun getInstance(proxyPort: Int): MoatApi {
+        fun getInstance(context: Context, proxyPort: Int): MoatApi {
             val proxy = Proxy(Proxy.Type.SOCKS, InetSocketAddress("127.0.0.1", proxyPort))
-            val client = OkHttpClient.Builder().proxy(proxy).build()
+
+            val filename = "ISRG Root X1.cer"
+            var trustManager: X509TrustManager? = null
+            var socketFactory: SSLSocketFactory? = null
+
+            try {
+                val cert: Certificate?
+
+                context.assets.open(filename).use {
+                    cert = CertificateFactory.getInstance("X.509")?.generateCertificate(it)
+                }
+
+                val keystore = KeyStore.getInstance(KeyStore.getDefaultType())
+                keystore?.load(null, null)
+                keystore?.setCertificateEntry(filename, cert)
+
+                val tmf = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm())
+                tmf?.init(keystore)
+                trustManager = tmf?.trustManagers?.firstOrNull() as? X509TrustManager
+
+                val sslContext = SSLContext.getInstance("TLS")
+                sslContext?.init(null, arrayOf(trustManager), null)
+
+                socketFactory = sslContext?.socketFactory
+            }
+            catch (_: Throwable) {
+                // Ignored. If anything goes wrong with reading the certificate,
+                // creating the keystore or the trust manager, we just try to use
+                // Android's default keystore and hope for the best. (Which is really ok
+                // on later Android SDKs.
+            }
+
+            val clientBuilder = OkHttpClient.Builder().proxy(proxy)
+
+            // Fix for API 24, 25: Moat uses Let's Encrypt for TLS certs, but old Androids
+            // don't have the ISRG Root X1 certificate in their keystore, which Let's Encrypt
+            // uses.
+            if (socketFactory != null && trustManager != null) {
+                clientBuilder.sslSocketFactory(socketFactory, trustManager)
+            }
 
             return Retrofit.Builder()
                 .baseUrl(URL)
                 .addConverterFactory(json.asConverterFactory("application/vnd.api+json".toMediaType()))
-                .client(client)
+                .client(clientBuilder.build())
                 .build()
                 .create(MoatApi::class.java)
         }
