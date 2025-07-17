@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Orbot</string>
+    <string name="app_name">โออาร์บอท</string>
     <string name="app_description">Orbot คือแอปพร็อกซีฟรีที่ช่วยเพิ่มประสิทธิภาพให้กับแอปอื่นๆ ให้สามารถใช้งานอินเตอร์เน็ตได้อย่างปลอดภัยมากขึ้น Orbot ใช้ Tor ในการเข้ารหัสการรับส่งข้อมูลทางอินเตอร์เน็ตของคุณและทำการซ่อนข้อมูลโดยการสะท้อนการเชื่อมต่อผ่านกลุ่มของเครื่องคอมพิวเตอร์ทั่วโลก Tor เป็นซอฟท์แวร์ฟรีและเป็นเครือข่ายแบบเปิดที่ช่วยปกป้องคุณจากการสอดส่องเครือข่ายที่คุกคามอิสรภาพและความเป็นส่วนตัวของผู้คน รักษาความลับทางธุรกิจและความสัมพันธ์ และการสร้างความปลอดภัยจากการวิเคราะห์การรับส่งข้อมูล</string>
-    <string name="menu_settings">การตั้งค่า</string>
+    <string name="menu_settings">การตั้งค่าโออาร์บอท</string>
     <string name="menu_log">บันทึก</string>
     <string name="menu_stop">หยุด</string>
     <string name="menu_about">เกี่ยวกับ</string>
@@ -161,4 +161,5 @@
     <string name="connect">เชื่อมต่อ</string>
     <string name="next">ต่อไป</string>
     <string name="connection_snowflake">เกล็ดหิมะ</string>
+    <string name="system_vpn_settings">การตั้งค่า VPN ของแอนดรอยด์</string>
 </resources>
