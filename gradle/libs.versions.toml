@@ -1,5 +1,5 @@
 [versions]
-agp = "8.10.1"
+agp = "8.11.1"
 android-material = "1.12.0"
 android-shell = "1.0.0"
 android-snowfall = "1.2.1"
