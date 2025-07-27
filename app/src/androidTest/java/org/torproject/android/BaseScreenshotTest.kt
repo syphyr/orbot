@@ -14,11 +14,9 @@ import androidx.test.rule.GrantPermissionRule
 import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
-import org.junit.Before
 import org.junit.Rule
 import org.junit.runner.RunWith
-import tools.fastlane.screengrab.Screengrab
-import tools.fastlane.screengrab.UiAutomatorScreenshotStrategy
+import tools.fastlane.screengrab.locale.LocaleTestRule
 
 
 @LargeTest
@@ -31,6 +29,9 @@ abstract class BaseScreenshotTest {
     fun ViewInteraction.isVisible() = getViewAssertion(ViewMatchers.Visibility.VISIBLE)
 
     fun ViewInteraction.isInvisible() = getViewAssertion(ViewMatchers.Visibility.INVISIBLE)
+
+    @Rule @JvmField
+    val localeTestRule = LocaleTestRule()
 
     // all tests need this for OrbotService's notification
     @get:Rule
