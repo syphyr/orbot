@@ -1,20 +1,13 @@
 package org.torproject.android
 
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.viewmodel.viewModelFactory
-import androidx.navigation.NavHost
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.torproject.android.service.OrbotConstants
 import org.torproject.android.ui.connect.ConnectFragment
-import org.torproject.android.ui.connect.ConnectUiState
-import org.torproject.android.ui.connect.ConnectViewModel
 import tools.fastlane.screengrab.Screengrab
-import tools.fastlane.screengrab.locale.LocaleTestRule
 
 class ScreenshotConnected : BaseScreenshotTest() {
     @get:Rule

@@ -10,7 +10,6 @@ import org.hamcrest.Matchers.allOf
 import org.junit.Rule
 import org.junit.Test
 import tools.fastlane.screengrab.Screengrab
-import tools.fastlane.screengrab.locale.LocaleTestRule
 
 class ScreenshotMoreFragment : BaseScreenshotTest() {
     @get:Rule

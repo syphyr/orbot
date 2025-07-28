@@ -1,11 +1,8 @@
 package org.torproject.android
 
-import android.app.Activity
 import android.content.Context
-import android.util.Log
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.assertion.ViewAssertions
@@ -20,10 +17,8 @@ import org.hamcrest.TypeSafeMatcher
 import org.junit.Before
 import org.junit.Rule
 import org.junit.runner.RunWith
-import org.torproject.android.core.LocaleHelper
 import org.torproject.android.service.util.Prefs
 import tools.fastlane.screengrab.locale.LocaleTestRule
-import tools.fastlane.screengrab.locale.LocaleUtil
 
 
 @LargeTest
@@ -73,10 +68,6 @@ abstract class BaseScreenshotTest {
     fun setPrefs(){
         Prefs.setContext(getContext())
         Prefs.isSecureWindow = false
-
-        Prefs.defaultLocale = LocaleUtil.getTestLocale()
-        Log.wtf("abc", Prefs.defaultLocale)
-        LocaleHelper.onAttach(getContext()!!)
     }
 
     open fun getContext(): Context? {

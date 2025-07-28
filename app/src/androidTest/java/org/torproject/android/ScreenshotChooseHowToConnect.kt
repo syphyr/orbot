@@ -8,7 +8,6 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import org.junit.Rule
 import org.junit.Test
 import tools.fastlane.screengrab.Screengrab
-import tools.fastlane.screengrab.locale.LocaleTestRule
 
 class ScreenshotChooseHowToConnect : BaseScreenshotTest() {
 

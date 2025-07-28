@@ -1,13 +1,13 @@
 # remove the leading '#' to uncomment lines
 
-app_package_name('org.torproject.android')
+app_package_name('org.torproject.android.debug')
 # use_tests_in_packages(['org.torproject.android.debug.tests'])
 
 # app_apk_path('path/to/your/app.apk')
 # tests_apk_path('path/to/your/tests.apk')
 
 locales([
-	'en-US', 'fr-CA', 'es-MX', 'de', 'fa', 'ar', 'he' 
+	'en-US', 'fr-CA', 'es-MX', 'de-DE', 'fa', 'ar', 'he' 
 ])
 
 # clear all previously generated screenshots in your local output directory before creating new ones

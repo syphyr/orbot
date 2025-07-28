@@ -4,11 +4,7 @@
     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-
     <!-- Allows changing locales -->
     <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
-
-    <!-- grant run time permission for foreground service explicitly that normally user grants -->
-    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
 
 </manifest>
