@@ -1,6 +1,9 @@
 package org.torproject.android.core
 
 import android.content.Context
+import android.os.Build
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 import org.torproject.android.service.util.Prefs
 import java.util.*
 
@@ -20,23 +23,26 @@ object LocaleHelper {
     fun onAttach(context: Context): Context = setLocale(context, Prefs.defaultLocale)
 
     private fun setLocale(context: Context, language: String): Context {
-        Prefs.defaultLocale =language
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            return context
+        }
+        Prefs.defaultLocale = language
         return updateResources(context, language)
     }
 
     private fun updateResources(context: Context, locale: String): Context {
 
+        AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(locale))
         var language = locale
         var region = ""
 
-        if (language.contains("_"))
-        {
+        if (language.contains("_")) {
             val parts = locale.split("_")
             language = parts[0]
             region = parts[1]
         }
 
-        val localeObj = Locale(language,region)
+        val localeObj = Locale(language, region)
         Locale.setDefault(localeObj)
         val configuration = context.resources.configuration
         configuration.setLocale(localeObj)

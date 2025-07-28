@@ -17,6 +17,7 @@ androidx-work = "2.10.2"
 guardian-jtorctl = "0.4.5.7"
 junit-jupiter = "5.13.4"
 navigation-fragment-ktx = "2.9.2"
+orchestrator = "1.5.1"
 retrofit = "3.0.0"
 rootbeer-lib = "0.1.1"
 tor-android = "0.4.8.17"
@@ -44,6 +45,7 @@ androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "a
 androidx-localbroadcast = { group = "androidx.localbroadcastmanager", name = "localbroadcastmanager", version.ref = "androidx-localbroadcast" }
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation-fragment-ktx" }
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigation-fragment-ktx" }
+androidx-orchestrator = { module = "androidx.test:orchestrator", version.ref = "orchestrator" }
 androidx-preference = { module = "androidx.preference:preference", version.ref = "androidx-preference" }
 androidx-rules = { group = "androidx.test", name = "rules", version.ref = "androidx-rules" }
 androidx-runner = { group = "androidx.test", name = "runner", version.ref = "androidx-runner" }

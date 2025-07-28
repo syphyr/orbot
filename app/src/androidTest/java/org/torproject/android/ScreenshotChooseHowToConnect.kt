@@ -8,16 +8,18 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import org.junit.Rule
 import org.junit.Test
 import tools.fastlane.screengrab.Screengrab
+import tools.fastlane.screengrab.locale.LocaleTestRule
 
 class ScreenshotChooseHowToConnect : BaseScreenshotTest() {
 
     @get:Rule
     var mActivityScenarioRule = ActivityScenarioRule(OrbotActivity::class.java)
 
+
     @Test
-    fun openOrbotUnconnectedTest() {
+    fun screenshotChooseHowToConnect() {
         onView(withId(R.id.tvConfigure)).perform(click())
         onView(withId(R.id.rbDirect)).isVisible()
-        Screengrab.screenshot("choose_how_to_connect")
+        Screengrab.screenshot("B-choose-how")
     }
 }

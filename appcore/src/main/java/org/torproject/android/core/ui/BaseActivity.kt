@@ -3,6 +3,7 @@ package org.torproject.android.core.ui
 import android.content.Context
 import android.content.pm.ActivityInfo
 import android.content.res.Configuration
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.WindowManager
@@ -31,24 +32,29 @@ open class BaseActivity : AppCompatActivity() {
             if the device is a tablet (whichever the app is set when an activity is created)
             until these things are fixed. On smaller devices it's just portrait...
             */
-            val isTablet =
-                resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK >= Configuration.SCREENLAYOUT_SIZE_LARGE
-            requestedOrientation = if (isTablet) {
-                val currentOrientation = resources.configuration.orientation
-                val lockedInOrientation =
-                    if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
-                    else ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
-                lockedInOrientation
-            } else ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        val isTablet =
+            resources.configuration.screenLayout and Configuration.SCREENLAYOUT_SIZE_MASK >= Configuration.SCREENLAYOUT_SIZE_LARGE
+        requestedOrientation = if (isTablet) {
+            val currentOrientation = resources.configuration.orientation
+            val lockedInOrientation =
+                if (currentOrientation == Configuration.ORIENTATION_LANDSCAPE) ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE
+                else ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+            lockedInOrientation
+        } else ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
     }
 
     // we need this for on the fly locale changes, especially for supported locales
-    override fun attachBaseContext(newBase: Context) =
-        super.attachBaseContext(LocaleHelper.onAttach(newBase))
+    override fun attachBaseContext(newBase: Context) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            super.attachBaseContext(newBase)
+        } else
+            super.attachBaseContext(LocaleHelper.onAttach(newBase))
+    }
 
     override fun onResume() {
         super.onResume()
-        LocaleHelper.onAttach(this)
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
+            LocaleHelper.onAttach(this)
         resetSecureFlags()
     }
 

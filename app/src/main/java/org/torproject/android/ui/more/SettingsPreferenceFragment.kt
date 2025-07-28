@@ -5,7 +5,10 @@ import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.os.LocaleList
 import android.view.inputmethod.EditorInfo
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 import androidx.fragment.app.commit
 import androidx.preference.CheckBoxPreference
 import androidx.preference.EditTextPreference
@@ -16,6 +19,7 @@ import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import org.torproject.android.R
 import org.torproject.android.core.Languages
+import org.torproject.android.core.LocaleHelper
 import org.torproject.android.core.ui.BaseActivity
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.more.camo.CamoFragment
@@ -34,9 +38,15 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
         prefLocale?.onPreferenceChangeListener =
             OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
                 val language = newValue as String?
-                val intentResult = Intent()
-                intentResult.putExtra("locale", language)
-                requireActivity().setResult(RESULT_OK, intentResult)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    val newLocale = LocaleListCompat.forLanguageTags(language)
+                    AppCompatDelegate.setApplicationLocales(newLocale)
+                } else {
+                    val intentResult = Intent()
+                    intentResult.putExtra("locale", language)
+                    requireActivity().setResult(RESULT_OK, intentResult)
+
+                }
                 requireActivity().finish()
                 false
             }

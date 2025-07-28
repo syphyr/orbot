@@ -36,8 +36,6 @@ default_platform(:android)
       )
     end
 
-=begin
-platform :android do
   desc "Upload the app store metadata"
   lane :metadata do
     supply(
@@ -70,6 +68,4 @@ lane :beta do
     upload_to_play_store(track: 'beta')
 
   # ...
-end
-=end
 end

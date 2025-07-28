@@ -17,7 +17,7 @@ class ScreenshotSettings : BaseScreenshotTest() {
     var mActivityScenarioRule = ActivityScenarioRule(SettingsActivity::class.java)
 
     @Before
-    fun foo() {
+    fun setupSettings() {
         mActivityScenarioRule.scenario.onActivity { activity ->
             val frag = activity.supportFragmentManager.fragments[0] as SettingsPreferenceFragment
 
@@ -32,12 +32,17 @@ class ScreenshotSettings : BaseScreenshotTest() {
             frag.findPreference<CheckBoxPreference>("pref_require_password")!!.isChecked = true
             frag.findPreference<CheckBoxPreference>("pref_auth_no_biometrics")!!.isEnabled = true
         }
+        Thread.sleep(500)
     }
 
     @Test
     fun screenshotSettings() {
         onView(withId(R.id.settings_container)).isVisible()
-        Screengrab.screenshot("settings_screen")
+        Screengrab.screenshot("E-settings_screen")
+        mActivityScenarioRule.scenario.onActivity { activity ->
+            val frag = activity.supportFragmentManager.fragments[0] as SettingsPreferenceFragment
+            frag.findPreference<CheckBoxPreference>("pref_require_password")!!.isChecked = false
+        }
     }
 
 }
