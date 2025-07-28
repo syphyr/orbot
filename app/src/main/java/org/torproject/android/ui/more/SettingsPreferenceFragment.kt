@@ -39,15 +39,15 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
             OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
                 val language = newValue as String?
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    Prefs.defaultLocale = newValue ?: ""
                     val newLocale = LocaleListCompat.forLanguageTags(language)
                     AppCompatDelegate.setApplicationLocales(newLocale)
                 } else {
                     val intentResult = Intent()
                     intentResult.putExtra("locale", language)
                     requireActivity().setResult(RESULT_OK, intentResult)
-
+                    requireActivity().finish()
                 }
-                requireActivity().finish()
                 false
             }
 
