@@ -140,8 +140,6 @@
     <string name="menu_header_features">Магчымасці</string>
     <string name="menu_faq">ПіА</string>
     <string name="menu_header_learn">Даведацца больш</string>
-    <string name="drawer_open">Адкрыць</string>
-    <string name="drawer_close">Закрыць</string>
     <string name="connect">Злучэнне</string>
     <string name="next">Наступны</string>
     <string name="connection_snowflake">Snowflake</string>

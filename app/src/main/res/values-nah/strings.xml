@@ -199,8 +199,6 @@ atl oquitlapatic</string>
     <string name="btn_use_custom_bridge">Quichihua neuhyantica cuauhpanco</string>
     <string name="msg_taking_too_long">Inon moneltoca ocachi tlahca </string>
     <string name="msg_try_something_else">Xiquehecoa cequi ocachi</string>
-    <string name="drawer_open">Tlapoa</string>
-    <string name="drawer_close">Tlaltzacua</string>
     <string name="proxy_ports">Proxy tzalantli</string>
     <string name="ports_not_set">Tzalantli ahmo moachtohuia</string>
     <string name="volunteer_mode_title">Quipalehui occequintin/ahmo quicentia Tor</string>

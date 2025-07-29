@@ -199,8 +199,6 @@
     <string name="request_bridges_from_torproject">Zahtevajte mostove iz torproject.org</string>
     <string name="bridge_snowflake">Povežite se prek drugih uporabnikov omrežja Tor z uporabo storitve Snowflake (metoda 1)</string>
     <string name="in_a_browser">V brskalniku obiščite %s in tapnite Get Bridges &gt; Just Give Me Bridges!</string>
-    <string name="drawer_open">Odpri</string>
-    <string name="drawer_close">Zapri</string>
     <string name="next">Naprej</string>
     <string name="title_choose_apps">Izberi aplikacije</string>
     <string name="connection_direct">Neposredno</string>

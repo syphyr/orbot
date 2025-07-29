@@ -43,6 +43,4 @@
     <string name="btn_refresh">रीफ्रेश</string>
     <string name="menu_header_features">वैशिष्ट्ये</string>
     <string name="set_locale_title">भाषा</string>
-    <string name="drawer_open">उघडा</string>
-    <string name="drawer_close">बंद करा</string>
 </resources>

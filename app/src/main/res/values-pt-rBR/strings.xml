@@ -206,8 +206,6 @@
 \n• Não desacelera a sua internet
 \n• Só funciona via wi-fi
 \n• Pode ser desligado a qualquer momento</string>
-    <string name="drawer_open">Abrir</string>
-    <string name="drawer_close">Fechar</string>
     <string name="direct_connect">Conexão direta com o Tor</string>
     <string name="snowflake">Snowflake (Original)</string>
     <string name="connect">Conectar</string>

@@ -202,8 +202,6 @@
     <string name="direct_connect_subtitle">La mejor manera de conectarse a Tor. Usar si Tor no está bloqueado.</string>
     <string name="snowflake_subtitle">Se conecta a través de los voluntarios de Tor. Evita algunos bloqueos de Tor.</string>
     <string name="configure_header">Configura tu conexión Tor</string>
-    <string name="drawer_open">Abrir</string>
-    <string name="drawer_close">Cerrar</string>
     <string name="proxy_ports">Puerto de Proxy</string>
     <string name="volunteer_mode_title">Ayudar a otros
 \nconectarse a Tor</string>

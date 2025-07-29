@@ -201,9 +201,7 @@
     <string name="captcha_title">让我们知道您是真人</string>
     <string name="connect">连接</string>
     <string name="configure_header">配置 Tor 连接</string>
-    <string name="drawer_close">关闭</string>
     <string name="proxy_ports">代理端口</string>
-    <string name="drawer_open">打开</string>
     <string name="volunteer_mode_label">善举模式</string>
     <string name="volunteer_mode_weekly_label">一周总计</string>
     <string name="volunteer_mode_title">帮助他人

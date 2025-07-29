@@ -91,11 +91,9 @@
     <string name="enable">İşə sal</string>
     <string name="allow">İcazə ver</string>
     <string name="version">Versiya:</string>
-    <string name="drawer_close">Bağla</string>
     <string name="action_activate">Aktivləşdir</string>
     <string name="btn_refresh">Yenilə</string>
     <string name="menu_faq">FAQ</string>
-    <string name="drawer_open">Aç</string>
     <string name="trying_to_connect_title">Qoşulur…</string>
     <string name="setting_debug">Sazlama</string>
     <string name="menu_more">Daha çox</string>

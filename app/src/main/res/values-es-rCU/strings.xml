@@ -204,8 +204,6 @@
     <string name="btn_use_custom_bridge">Usar puente personalizado</string>
     <string name="msg_taking_too_long">Está tardando más de lo normal</string>
     <string name="msg_try_something_else">Prueba otra cosa</string>
-    <string name="drawer_open">Abrir</string>
-    <string name="drawer_close">Cerrar</string>
     <string name="proxy_ports">Puertos del Proxy</string>
     <string name="ports_not_set">Puertos no definidos</string>
     <string name="volunteer_mode_title">Ayudar a otros

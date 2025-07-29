@@ -130,7 +130,6 @@
     <string name="menu_header_features">Berezitasunak</string>
     <string name="menu_faq">FAQ</string>
     <string name="menu_header_learn">Ikasi gehiago</string>
-    <string name="drawer_open">Ireki</string>
     <string name="mebibyte">MiB</string>
     <string name="confirm">Berretsi</string>
     <string name="connect">Konektatu</string>
@@ -140,7 +139,6 @@
     <string name="connection_custom">Custom</string>
     <string name="connected_title">Konektatuta</string>
     <string name="btn_refresh">Birkargatu</string>
-    <string name="drawer_close">Itxi</string>
     <string name="no_internet_title">Konektatu internetera</string>
     <string name="allow">Baimendu</string>
     <string name="deny">Ukatu</string>

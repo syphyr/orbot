@@ -199,8 +199,6 @@
     <string name="menu_help_others">Допоможіть іншим</string>
     <string name="menu_header_learn">Докладніше</string>
     <string name="btn_use_custom_bridge">Використовувати власний міст</string>
-    <string name="drawer_open">Відкрити</string>
-    <string name="drawer_close">Закрити</string>
     <string name="snowflake">Сніжинка</string>
     <string name="ports_not_set">Порти не налаштовані</string>
     <string name="configure_header">Налаштуйте з\'єднання Tor</string>

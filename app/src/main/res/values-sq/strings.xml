@@ -68,8 +68,6 @@
     <string name="use_custom_bridges">Përdorni Ura Vetjake</string>
     <string name="paste_bridges">Ngjitni Ura</string>
     <string name="secure_your_connection_title">Gati që të lidheni</string>
-    <string name="drawer_open">Hape</string>
-    <string name="drawer_close">Mbylle</string>
     <string name="proxy_ports">Porta Ndërmjetësi</string>
     <string name="smart_connect">Lidhje e Mençur (parazgjedhje)</string>
     <string name="direct_connect">Lidhje e drejtpërdrejtë me Tor-in</string>

@@ -238,8 +238,6 @@
     <string name="configure_header">Tor-ühenduse konfigureerimine</string>
     <string name="smart_connect">Nutikas ühendus (vaikimisi)</string>
     <string name="direct_connect_subtitle">Parim viis Toriga ühendumiseks. Kasutage, kui Tor ei ole blokeeritud.</string>
-    <string name="drawer_open">Ava</string>
-    <string name="drawer_close">Sulge</string>
     <string name="proxy_ports">Proksi pordid</string>
     <string name="volunteer_mode_subtitle_desc">Sõbralikkuse režiim võimaldab sinu seadmel olla teiste jaoks sillaks. See aitab inimestel kasutada Tori kohtades, kus see on blokeeritud.
 \n

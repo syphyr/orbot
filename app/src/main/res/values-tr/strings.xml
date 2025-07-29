@@ -199,9 +199,7 @@
     <string name="menu_header_features">Özellikler</string>
     <string name="captcha_title">İnsan olduğunuzu bize gösterin</string>
     <string name="menu_faq">SSS</string>
-    <string name="drawer_open">Aç</string>
-    <string name="drawer_close">Kapat</string>
-    <string name="volunteer_mode_title">Başkalarının Tor\'a 
+    <string name="volunteer_mode_title">Başkalarının Tor\'a
 \nbağlanmasına yardımcı olun</string>
     <string name="volunteer_mode_alltime_label">Tüm Zamanlar Toplamı</string>
     <string name="smart_connect">Akıllı Bağlan (öntanımlı)</string>

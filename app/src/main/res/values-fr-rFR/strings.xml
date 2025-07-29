@@ -176,8 +176,6 @@
     <string name="apps_suggested_title">Applications suggérées</string>
     <string name="apps_other_apps">Autres applications</string>
     <string name="configure_header">Configurer vôtre connexion TOR</string>
-    <string name="drawer_open">Ouvrir</string>
-    <string name="drawer_close">Fermer</string>
     <string name="volunteer_mode_title">Aidez les autres
 \nà se connecter à Tor</string>
     <string name="volunteer_mode_alltime_label">Total de tous les temps</string>

@@ -210,8 +210,6 @@
     <string name="snowflake_subtitle">Подключение через добровольцев Tor. Обходит некоторые блокировки Tor.</string>
     <string name="direct_connect_subtitle">Лучший способ подключения к Tor. Используйте, если Tor не заблокирован.</string>
     <string name="configure_header">Настройте своё подключение к Tor</string>
-    <string name="drawer_open">Открыть</string>
-    <string name="drawer_close">Закрыть</string>
     <string name="proxy_ports">Порты прокси</string>
     <string name="ports_not_set">Порты не указаны</string>
     <string name="smart_connect_subtitle">Orbot пытается подключиться к Tor любым доступным способом: напрямую, через Snowflake, через мост.</string>

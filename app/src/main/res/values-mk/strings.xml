@@ -134,7 +134,6 @@
     <string name="trying_to_connect_title">Се поврзува…</string>
     <string name="menu_faq">FAQ</string>
     <string name="menu_header_learn">Научи повеќе</string>
-    <string name="drawer_close">Затвори</string>
     <string name="next">Следно</string>
     <string name="setting_debug">Дебагирање</string>
     <string name="version">Verzija:</string>
@@ -146,5 +145,4 @@
     <string name="btn_refresh">Osvezi</string>
     <string name="menu_header_features">Карактеристики</string>
     <string name="connect">Поврзи</string>
-    <string name="drawer_open">Отвори</string>
 </resources>

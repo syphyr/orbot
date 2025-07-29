@@ -209,8 +209,6 @@
     <string name="btn_use_custom_bridge">Use Custom Bridge</string>
     <string name="msg_taking_too_long">This seems to be taking too long</string>
     <string name="msg_try_something_else">Try something else</string>
-    <string name="drawer_open">Open</string>
-    <string name="drawer_close">Close</string>
     <string name="proxy_ports">Proxy Ports</string>
     <string name="globe" translatable="false">🌎</string>
     <string name="ports_not_set">Ports Not Set</string>

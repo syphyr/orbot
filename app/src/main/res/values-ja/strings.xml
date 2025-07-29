@@ -199,8 +199,6 @@
     <string name="strict_nodes_description">除外ノードの設定は、すべての回路を構築するための要件として扱われます。このため、除外ノードの設定で回路を生成できない場合、根本的な機能が停止することがあります。</string>
     <string name="mebibyte">MiB</string>
     <string name="request_bridges_from_torproject">torproject.org からブリッジをリクエストする</string>
-    <string name="drawer_open">開く</string>
-    <string name="drawer_close">閉じる</string>
     <string name="proxy_ports">プロキシのポート</string>
     <string name="volunteer_mode_label">Kindness Mode</string>
     <string name="ports_not_set">ポート設定していません</string>

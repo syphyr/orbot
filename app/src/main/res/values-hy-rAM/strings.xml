@@ -17,7 +17,6 @@
     <string name="name">Անուն</string>
     <string name="menu_faq">ՀՏՀ</string>
     <string name="menu_header_learn">Իմանալ ավելին</string>
-    <string name="drawer_close">Փակել</string>
     <string name="action_activate">Գործածել</string>
     <string name="title_choose_apps">Ընտրել ափփեր</string>
     <string name="allow">Թույլատրել</string>
@@ -47,7 +46,6 @@
     <string name="trying_to_connect_title">Միացում…</string>
     <string name="menu_header_features">Հատկություններ</string>
     <string name="menu_tor_connection">Tor միացում</string>
-    <string name="drawer_open">Բացել</string>
     <string name="connect">Միանալ</string>
     <string name="testing_tor_direct">Փորձվում է միացումը Tor-ին.…</string>
     <string name="testing_tor_direct_success">Հաջողվեց: Tor-ի միացումը լա՜վն է:</string>

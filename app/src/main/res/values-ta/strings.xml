@@ -51,12 +51,10 @@
     <string name="trying_to_connect_title">இணைக்கிறது…</string>
     <string name="btn_refresh">புதுப்பி</string>
     <string name="menu_header_features">அம்சங்கள்</string>
-    <string name="drawer_open">திற</string>
     <string name="setting_debug">வழுநீக்கு</string>
     <string name="menu_new_identity">புதிய அடையாளம்</string>
     <string name="confirm">உறுதிப்படுத்தவும்</string>
     <string name="menu_hidden_services">Onion சேவைகள்</string>
-    <string name="drawer_close">மூடுங்கள்</string>
     <string name="next">அடுத்தது</string>
     <string name="pref_isolate_port_summary">ஒவ்வொரு இலக்கு துறைமுகத்திற்கும் வெவ்வேறு சுற்று பயன்படுத்தவும்</string>
     <string name="pref_isolate_protocol">கிளையன்ட் நெறிமுறைகளை தனிமைப்படுத்தவும்</string>

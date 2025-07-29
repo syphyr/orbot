@@ -142,8 +142,6 @@
     <string name="setting_debug">Hibakeresés</string>
     <string name="menu_more">Több</string>
     <string name="version">Verzió:</string>
-    <string name="drawer_open">Megnyitás</string>
-    <string name="drawer_close">Bezár</string>
     <string name="connect">Kapcsolódás</string>
     <string name="next">Következő</string>
     <string name="btn_refresh">Frissítés</string>

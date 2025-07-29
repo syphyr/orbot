@@ -199,8 +199,6 @@
     <string name="create_a_backup_first">Najprv vytvorte zálohu</string>
     <string name="secure_your_connection_title">Pripravené na pripojenie</string>
     <string name="btn_configure">Vyberte si spôsob pripojenia</string>
-    <string name="drawer_open">Otvoriť</string>
-    <string name="drawer_close">Zatvoriť</string>
     <string name="connect">Pripojiť</string>
     <string name="title_choose_apps">Vybrať aplikácie</string>
     <string name="connection_snowflake">Snowflake</string>

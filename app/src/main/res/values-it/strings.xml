@@ -182,14 +182,12 @@
     <string name="setting_padding">Riempimento (padding)</string>
     <string name="menu_kindness">Altruismo</string>
     <string name="menu_more">Altro</string>
-    <string name="drawer_open">Apri</string>
     <string name="connected_title">Connesso</string>
     <string name="version">Versione:</string>
     <string name="title_choose_apps">Scegli le app</string>
     <string name="action_activate">Attiva</string>
     <string name="menu_faq">FAQ</string>
     <string name="menu_header_learn">Maggiori informazioni</string>
-    <string name="drawer_close">Chiudi</string>
     <string name="pref_isolate_port">Isola le porte di destinazione</string>
     <string name="pref_isolate_port_summary">Usa un circuito diverso per ogni porta di destinazione</string>
     <string name="apps_other_apps">Altre app</string>

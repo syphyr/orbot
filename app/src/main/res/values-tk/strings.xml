@@ -193,7 +193,6 @@
     <string name="pref_detect_root_summary">Bu enjam kökli bolsa, başlangyçda duýduryş beriň</string>
     <string name="restart_orbot_to_use_this_bridge_">Üýtgeşmeleriň güýje girmegi üçin Orbot-ny täzeden açyň</string>
     <string name="volunteer_mode_label">Hoşniýetlilik Tertibi</string>
-    <string name="drawer_close">Ýap</string>
     <string name="app_description">Orbot, beýleki programmalara interneti has ygtybarly ulanmaga mümkinçilik berýän mugt proksi serwer programmasydyr. Tor arkaly, Orbot internet trafigiňizi şifrleýär we dünýäniň dürli kompýuterlerinden geçirip gizleýär. Tor, şahsy erkinligiňize we maglumatlaryňyza, gizlin iş amallaryna we gatnaşyklaryňyza, döwlet howpsuzlygy we traffigiň derňewi diýlip atlandyrylýan tor gözegçiliginden goraýan mugt programma üpjünçiligi we açyk ulgamdyr.</string>
     <string name="wizard_details_msg">Orbot; Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks we LibEvent gurluşlaryny öz içine alýan açyk çeşme programmasy. Tor network birikmek üçin ýerli HTTP proksi (8118) we SOCKS proksi (9050) üpjün edýär.</string>
     <string name="pref_proxy_type_summary">Proksi serwerinde ulanmak üçin tor protokollary: HTTP, HTTPS, SOCKS4, SOCKS5</string>
@@ -245,7 +244,6 @@
     <string name="proxy_ports">Proksi Portlar</string>
     <string name="strict_nodes_description">Aýrylan düwünleriň sazlamalaryny ähli zynjyrlary gurmak üçin talap hökmünde görüň. Sazlamalaryňyz bilen hiç hili zynjyr döredilip bilinmese, bu işlemegi bozup biler.</string>
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Düzediş ýazgysyny işjeňleşdiriň (görmek üçin adb ýa-da aLogCat talap eder)</string>
-    <string name="drawer_open">Açyk</string>
     <string name="if_your_mobile_network_actively_blocks_tor_you_can_use_a_tor_bridge_to_access_the_network_another_way_to_get_bridges_is_to_send_an_email_to_bridges_torproject_org_please_note_that_you_must_send_the_email_using_an_address_from_one_of_the_following_email_providers_riseup_gmail_or_yahoo_">Jübi ulgamyňyzda Tor ulanylyşy işjeň ýagdaýda petiklenýän bolsa, Tor girmek üçin \'Köpri Serweri\' ulanyp bilersiňiz. Sazlamak we synap görmek üçin aşakdaky opsiýalardan birini saýlaň…</string>
     <string name="power_user_description">Tor bilen tanyş ulanyjylar üçin. Orbot-a VPN sazlamasyz başlamaga mümkinçilik berýär we açyk SOCKS we HTTP portlaryny görkezýär</string>
     <string name="kindness_config_detail">Enjamyňyzyň beýleki Tor ulanyjylary üçin nädip we haçan Snowflake proksi bolup biljekdigini sazlaň.</string>

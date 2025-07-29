@@ -29,7 +29,6 @@
     <string name="setting_debug">ਡੀ-ਬੱਗ</string>
     <string name="license">ਲਸੰਸ:</string>
     <string name="connect">ਕੁਨੈਕਟ ਕਰੋ</string>
-    <string name="drawer_open">ਖੋਲ੍ਹੋ</string>
     <string name="pref_general_group">ਸਧਾਰਨ</string>
     <string name="btn_refresh">ਤਾਜ਼ਾ ਕਰੋ</string>
     <string name="menu_stop">ਰੁੱਕੋ</string>
@@ -37,7 +36,6 @@
     <string name="bridges">ਪੁੱਲ ਬਨ੍ਹਨਾ</string>
     <string name="allow">ਮਨਜ਼ੂਰ</string>
     <string name="hidden_services">ਓਨਿਅਨ ਸ਼ੇਵਾਵਾਂ</string>
-    <string name="drawer_close">ਬੰਦ ਕਰੋ</string>
     <string name="next">ਅਗਲਾ</string>
     <string name="menu_more">ਹੋਰ</string>
     <string name="get_bridges_email">Email</string>

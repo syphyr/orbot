@@ -173,7 +173,6 @@
     <string name="version">Phiên bản:</string>
     <string name="license">Giấy phép:</string>
     <string name="btn_refresh">Làm mới lại</string>
-    <string name="drawer_close">Đóng</string>
     <string name="menu_kindness">Thân Thiện</string>
     <string name="connection_direct">Nhắn riêng trực tiếp</string>
     <string name="connection_snowflake">Snowflake</string>
@@ -184,7 +183,6 @@
     <string name="menu_tor_connection">Kết nối Tor</string>
     <string name="menu_faq">FAQ</string>
     <string name="menu_header_learn">Tìm hiểu thêm</string>
-    <string name="drawer_open">Mở</string>
     <string name="action_activate">Kích hoạt</string>
     <string name="title_choose_apps">Chọn app ứng dụng</string>
     <string name="setting_debug">Gỡ lỗi Bug</string>

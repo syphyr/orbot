@@ -210,8 +210,6 @@
     <string name="menu_faq">Preguntas Frecuentes</string>
     <string name="msg_taking_too_long">Esto parece estar tomando demasiado tiempo</string>
     <string name="msg_try_something_else">Intenta algo distinto</string>
-    <string name="drawer_open">Abierto</string>
-    <string name="drawer_close">Cerrar</string>
     <string name="proxy_ports">Puertos Proxy</string>
     <string name="ports_not_set">Puertos no establecidos</string>
     <string name="volunteer_mode_title">Ayuda a otres

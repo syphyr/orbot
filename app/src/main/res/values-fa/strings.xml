@@ -209,8 +209,6 @@
 \n- می‌تواند فقط روی وای‌فای اجرا شود
 \n- می‌تواند هر زمانی خاموش شود</string>
     <string name="configure_header">پیکربندی اتّصال تورتان</string>
-    <string name="drawer_open">گشودن</string>
-    <string name="drawer_close">بستن</string>
     <string name="proxy_ports">درگاه‌های پیشکار</string>
     <string name="volunteer_mode_label">حالت مهربانی</string>
     <string name="volunteer_mode_weekly_label">مجموع هفتگی</string>

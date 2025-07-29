@@ -131,8 +131,6 @@
     <string name="snowflake_proxy_msg_title">Tampilkan Notifikasi Koneksi</string>
     <string name="snowflake_proxy_msg_description">Tampilkan pesan ketika Anda membantu seseorang melewati sensor</string>
     <string name="configure_header">Konfigurasi Koneksi Tor Anda</string>
-    <string name="drawer_open">Buka</string>
-    <string name="drawer_close">Tutup</string>
     <string name="proxy_ports">Porta Proksi</string>
     <string name="volunteer_mode_title">Bantu orang lain
 \nmenghubung ke Tor</string>

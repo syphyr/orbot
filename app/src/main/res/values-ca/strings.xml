@@ -148,8 +148,6 @@
     <string name="setting_debug">Depuració</string>
     <string name="menu_more">Més</string>
     <string name="confirm">Confirma</string>
-    <string name="drawer_open">Obre</string>
-    <string name="drawer_close">Tanca</string>
     <string name="connect">Connecta</string>
     <string name="next">Següent</string>
     <string name="trying_to_connect_title">S\'està connectant…</string>

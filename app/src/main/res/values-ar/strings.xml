@@ -119,8 +119,6 @@
     <string name="vpn_disabled">الـ VPN مُعطّل</string>
     <string name="menu_tor_connection">اتصال تور</string>
     <string name="menu_header_learn">معرفة المزيد</string>
-    <string name="drawer_open">افتح</string>
-    <string name="drawer_close">أغلق</string>
     <string name="action_activate">نشّط</string>
     <string name="title_choose_apps">اختر تطبيقات</string>
     <string name="setting_debug">تنقيح</string>

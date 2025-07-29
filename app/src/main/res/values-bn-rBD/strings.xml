@@ -48,6 +48,4 @@
     <string name="hidden_services">ওনিওন সেবা</string>
     <string name="get_bridges_email">ইমেইল</string>
     <string name="menu_header_features">বৈশিষ্ট্যসমূহ</string>
-    <string name="drawer_open">খুলো</string>
-    <string name="drawer_close">বন্ধ করুন</string>
 </resources>

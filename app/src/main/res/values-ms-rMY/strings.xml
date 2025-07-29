@@ -71,7 +71,6 @@
     <string name="menu_new_identity">Identiti Baharu</string>
     <string name="trying_to_connect_title">Menyambung…</string>
     <string name="menu_header_learn">Ketahui Lebih Lanjut</string>
-    <string name="drawer_close">Tutup</string>
     <string name="next">Seterusnya</string>
     <string name="connection_snowflake">Snowflake</string>
     <string name="connection_custom">Suai</string>
@@ -79,7 +78,6 @@
     <string name="menu_header_features">Fitur</string>
     <string name="setting_debug">Nyahpepijat</string>
     <string name="menu_more">Lagi</string>
-    <string name="drawer_open">Buka</string>
     <string name="connected_title">Bersambung</string>
     <string name="menu_faq">FAQ</string>
     <string name="disable">Lumpuhkan</string>

@@ -153,8 +153,6 @@
     <string name="action_activate">Activeren</string>
     <string name="setting_padding">Vulling</string>
     <string name="setting_debug">Foutopsporing</string>
-    <string name="drawer_open">Openingstijden</string>
-    <string name="drawer_close">Sluiten</string>
     <string name="next">Volgende</string>
     <string name="version">Versie:</string>
     <string name="license">Licentie:</string>

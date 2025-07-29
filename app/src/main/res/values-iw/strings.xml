@@ -124,7 +124,6 @@
     <string name="refresh_apps">רענון יישומונים</string>
     <string name="connected_title">יש חיבור</string>
     <string name="menu_tor_connection">חיבור Tor</string>
-    <string name="drawer_close">סגירה</string>
     <string name="next">הבא</string>
     <string name="no_internet_title">התחברות לאינטרנט</string>
     <string name="allow">התרה</string>
@@ -158,7 +157,6 @@
     <string name="menu_more">עוד</string>
     <string name="setting_debug">ניפוי שגיאות</string>
     <string name="connection_snowflake">Snowflake</string>
-    <string name="drawer_open">פתיחה</string>
     <string name="action_activate">הפעלה</string>
     <string name="version">גרסה:</string>
     <string name="captcha_title">נרצה לדעת שמדובר בבן אדם</string>

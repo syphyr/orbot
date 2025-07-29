@@ -80,7 +80,6 @@
     <string name="title_choose_apps">Elegir aplicaciones</string>
     <string name="connection_custom">Personalizado</string>
     <string name="menu_faq">Preguntas Frecuentes</string>
-    <string name="drawer_open">Abrir</string>
     <string name="connect">Conectar</string>
     <string name="next">Siguiente</string>
     <string name="allow">Permitir</string>
@@ -89,7 +88,6 @@
     <string name="menu_more">Más</string>
     <string name="version">Versión:</string>
     <string name="license">Licencia:</string>
-    <string name="drawer_close">Cerrar</string>
     <string name="enable">Habilitar</string>
     <string name="hidden_services">Servicios Onion</string>
     <string name="confirm">Confirmar</string>

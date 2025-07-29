@@ -152,8 +152,6 @@
     <string name="action_activate">चालू करें</string>
     <string name="title_choose_apps">ऐप चुनें</string>
     <string name="menu_more">और</string>
-    <string name="drawer_open">खोलें</string>
-    <string name="drawer_close">बंद करें</string>
     <string name="connect">जुड़ें</string>
     <string name="next">अगला</string>
     <string name="version">संस्करण:</string>

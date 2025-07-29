@@ -147,8 +147,6 @@
     <string name="menu_header_features">คุณลักษณะ</string>
     <string name="menu_faq">FAQ</string>
     <string name="menu_header_learn">เรียนรู้เพิ่มเติม</string>
-    <string name="drawer_open">เปิด</string>
-    <string name="drawer_close">ปิด</string>
     <string name="connection_custom">กำหนดเอง</string>
     <string name="title_choose_apps">เลือกโปรแกรม</string>
     <string name="action_activate">เปิดใช้งาน</string>

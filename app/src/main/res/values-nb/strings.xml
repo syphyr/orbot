@@ -177,8 +177,6 @@
     <string name="menu_header_features">Funksjoner</string>
     <string name="menu_faq">O-S-S</string>
     <string name="menu_header_learn">Lær mer</string>
-    <string name="drawer_open">Åpne</string>
-    <string name="drawer_close">Lukk</string>
     <string name="connect">Koble til</string>
     <string name="action_activate">Aktiver</string>
     <string name="title_choose_apps">Velg programmer</string>

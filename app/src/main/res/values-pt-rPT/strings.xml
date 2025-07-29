@@ -206,8 +206,6 @@
     <string name="snowflake_subtitle">Conecta-se através de voluntários do Tor. Contorna alguns bloqueios do Tor.</string>
     <string name="having_trouble">Tendo problemas</string>
     <string name="configure_header">Configure a sua conexão Tor</string>
-    <string name="drawer_open">Abrir</string>
-    <string name="drawer_close">Fechar</string>
     <string name="proxy_ports">Portas do proxy</string>
     <string name="ports_not_set">Portas não definidas</string>
     <string name="volunteer_mode_title">Ajude outros

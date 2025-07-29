@@ -168,7 +168,6 @@
     <string name="menu_faq">Întrebări frecvente</string>
     <string name="menu_header_learn">Află mai multe</string>
     <string name="btn_use_custom_bridge">Utilizați punte personalizată</string>
-    <string name="drawer_close">Închide</string>
     <string name="proxy_ports">Porturi proxy</string>
     <string name="snowflake_amp">Snowflake AMP</string>
     <string name="asking">CERERE…</string>
@@ -184,7 +183,6 @@
     <string name="v3_delete_client_authorization_confirm">Ștergeți autorizația clientului</string>
     <string name="v3_backup_name_hint">Nume fișier de rezervă…</string>
     <string name="v3_import_auth_private">Importați .auth_private</string>
-    <string name="drawer_open">Deschide</string>
     <string name="volunteer_mode_title">Ajutați-i pe alții
 \nsă se conecteze la Tor</string>
     <string name="volunteer_mode_label">Modul Bunătate</string>

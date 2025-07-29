@@ -107,8 +107,6 @@
     <string name="setting_debug">Ladit</string>
     <string name="menu_more">Více</string>
     <string name="confirm">Potvrdit</string>
-    <string name="drawer_open">Otevřít</string>
-    <string name="drawer_close">Zavřít</string>
     <string name="connected_title">Připojeno</string>
     <string name="enable">Povolit</string>
     <string name="allow">Povolit</string>
