@@ -304,4 +304,10 @@
     <string name="device_lock_security_update_needed">Ви повинні завантажити оновлення безпеки Android для свого пристрою, щоб використовувати автентифікацію Orbot</string>
     <string name="pref_password_only_no_biometric">Заборонити біометрику для аутентифікації ORBOT</string>
     <string name="pref_password_only_no_biometric_description">Це змушує аутентифікацію орбота вимагати лише пароля вашого пристрою, навіть якщо біометрична автентифікація, наприклад, відбитки пальців або розблокування обличчя, налаштована на вашому пристрої.</string>
+    <string name="bridges_via_telegram">Мости з Tor (obfs4) через Telegram</string>
+    <string name="bridges_via_telegram_subtitle">Ймовірно, це допоможе вам залишатися на зв\'язку, якщо Tor серйозно заблоковано. Використання цього методу запустить Telegram-канал Tor Bot. Натисніть «Пуск» або напишіть «%1$s» у чаті, щоб отримати адреси мосту.</string>
+    <string name="bridges_via_email">Мости з Tor (obfs4) через електронну пошту</string>
+    <string name="bridges_via_email_subtitle">Маскує ваш трафік. Обходить деякі блокування Tor. Потрібно, щоб електронний лист був надісланий з облікового запису Gmail або Riseup.</string>
+    <string name="bridge_meek_azure_subtitle">Маскує ваш трафік. Обходить деякі блокування Tor. Може бути дуже повільним.</string>
+    <string name="custom_bridges_subtitle">Запитайте у своїх надійних мережах та організаціях, чи хтось пропонує міст. Якщо ні, друг може його вам розмістити.</string>
 </resources>
