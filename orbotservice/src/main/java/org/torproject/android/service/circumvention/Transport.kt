@@ -77,6 +77,8 @@ enum class Transport(val id: String) {
             }
         }
 
+        private val validCustomTransport = Regex("(obfs4|meek_lite|webtunnel)")
+
         /**
          * Seems more reliable in certain countries than the currently advertised one.
          */
@@ -99,7 +101,7 @@ enum class Transport(val id: String) {
                 CUSTOM -> {
                     Prefs.bridgesList
                         .mapNotNull { Bridge(it).transport }
-                        .filter { it.isNotBlank() }
+                        .filter { it.isNotBlank() && it.matches(validCustomTransport) }
                         .toSet()
                 }
                 else -> setOf(IPtProxy.Snowflake)
