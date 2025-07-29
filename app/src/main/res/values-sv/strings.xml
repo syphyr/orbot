@@ -174,7 +174,6 @@
     <string name="version">Version:</string>
     <string name="license">Licens:</string>
     <string name="deny">Förneka</string>
-    <string name="captcha">Captcha</string>
     <string name="paste_bridges">Klistra in broar</string>
     <string name="bridge_snowflake_amp">Anslut via andra Tor-användare med Snowflake (metod 2)</string>
     <string name="snowflake_proxy_msg_title">Visa meddelande om anslutning</string>
@@ -187,9 +186,6 @@
     <string name="confirm">Bekräfta</string>
     <string name="pref_circuit_padding_summary">Aktivera kretsstoppning för att skydda sig mot vissa former av trafikanalys</string>
     <string name="pref_reduced_circuit_padding_summary">Använd algoritmer för utfyllnad med lägre overhead för att minska data- och batterianvändningen</string>
-    <string name="request_bridges">Begär broar</string>
-    <string name="refresh_captcha">Uppdatera CAPTCHA</string>
-    <string name="solve_captcha_instruction">Lös CAPTCHA för att begära broar.</string>
     <string name="request_bridges_from_torproject">Begär broar från torproject.org</string>
     <string name="custom_bridges">Anpassade broar</string>
     <string name="configure_custom_bridges">Konfigurera anpassade broar</string>

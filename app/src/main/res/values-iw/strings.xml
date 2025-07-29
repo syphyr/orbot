@@ -213,7 +213,6 @@
     <string name="secure_your_connection_subtitle">הסתרת יישומונים מניטור רשת וקבלת גישה כשהן חסומות.</string>
     <string name="paste_bridges">הדבקת גשרים</string>
     <string name="volunteer_mode_weekly_label">סיכום שבועי</string>
-    <string name="request_bridges">בקשת גשרים</string>
     <string name="kindness_adjust_title">הגדרות</string>
     <string name="apps_suggested_title">יישומונים מוצעים</string>
     <string name="log_copied">יומן הועתק</string>
@@ -222,7 +221,6 @@
     <string name="request_bridges_from_torproject">בקשת גשרים מ־torproject.org</string>
     <string name="option_only_on_wifi">רק דרך Wifi</string>
     <string name="consider_enable_battery_optimizations">אין שירותים מתארחים פועלים, כדאי לאפשר מיטובי סוללה</string>
-    <string name="refresh_captcha">רענון ה־CAPTCHA</string>
     <string name="testing_tor_direct">החיבור ל־Tor נבדק…</string>
     <string name="bridge_snowflake">התחברות דרך משתמשי Tor אחרים באמצעות Snowflake (שיטה 1 - Fastly)</string>
     <string name="having_trouble_subtitle">אפשר לנסות גשר Tor בשלב הבא אבל נזדקק לעזרתך</string>
@@ -235,7 +233,6 @@
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="get_bridges_email_request">בקשת גשרים באמצעות דוא״ל</string>
     <string name="menu_kindness">חסד</string>
-    <string name="solve_captcha_instruction">יש לפתור את ה־CAPTCHA כדי לבקש גשרים.</string>
     <string name="v3_import_auth_private">ייבוא ‎.auth_private</string>
     <string name="use_qr_code">שימוש בקוד QR</string>
     <string name="pref_flag_secure_title">אבטחת מסך</string>
@@ -262,7 +259,6 @@
     <string name="volunteer_mode_title">סיוע לאחרים
 \nלהתחבר ל־Tor</string>
     <string name="v3_delete_client_authorization_confirm">מחיקת הרשאת הלקוח</string>
-    <string name="captcha">Captcha</string>
     <string name="pref_flag_secure_summary">למנוע מיישומונים אחרים לצלם את Orbot</string>
     <string name="direct_connect_subtitle">הדרך הטובה ביותר להתחבר ל־Tor. אפשר להשתמש אם Tor לא חסום.</string>
     <string name="volunteer_status_title">היום טוב יותר

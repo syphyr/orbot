@@ -165,10 +165,6 @@
     <string name="configure_custom_bridges">Configura bridge personalizzati</string>
     <string name="custom_bridges">Bridge personalizzati</string>
     <string name="request_bridges_from_torproject">Richiedi i bridge da torproject.org</string>
-    <string name="captcha">Captcha</string>
-    <string name="solve_captcha_instruction">Risolvi il CAPTCHA per richiedere i bridge.</string>
-    <string name="refresh_captcha">Ricarica CAPTCHA</string>
-    <string name="request_bridges">Richiedi bridge</string>
     <string name="testing_tor_direct_success">Completato. La connessione è buona!</string>
     <string name="testing_tor_direct">Test della connessione a Tor…</string>
     <string name="license">Licenza:</string>

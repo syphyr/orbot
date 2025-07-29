@@ -29,7 +29,6 @@
     <string name="mebibyte">MiB</string>
     <string name="get_bridges_email_request">Zahtevek za mostove prek e-pošte</string>
     <string name="v3_hosted_services">Gostovane čebulne storitve</string>
-    <string name="solve_captcha_instruction">Rešite CAPTCHA in zahtevajte mostove.</string>
     <string name="use_qr_code">Uporaba kode QR</string>
     <string name="v3_backup_key_warning">Opozorilo: To lahko razkrije vaš ključ drugim aplikacijam</string>
     <string name="pref_proxy_username_summary">Uporabniško ime posrednika (neobvezno)</string>
@@ -171,8 +170,6 @@
     <string name="user_services">Storitve za uporabnike</string>
     <string name="app_services">Storitve aplikacij</string>
     <string name="refresh_apps">Osvežitev aplikacij</string>
-    <string name="refresh_captcha">Osveži CAPTCHA</string>
-    <string name="captcha">Captcha</string>
     <string name="bridge_snowflake_amp">Povežite se prek drugih uporabnikov omrežja Tor z uporabo storitve Snowflake (metoda 2)</string>
     <string name="snowflake_proxy_msg_description">Pokaži sporočilo, ko pomagaš nekomu zaobiti cenzuro</string>
     <string name="pref_proxy_port_dialog">Vnesite vrata posredniškega strežnika</string>
@@ -203,7 +200,6 @@
     <string name="pref_reduced_connection_padding_summary">Prej zapre relejne povezave in pošlje manj polnilnih paketov, da zmanjša porabo podatkov in baterije</string>
     <string name="request_bridges_from_torproject">Zahtevajte mostove iz torproject.org</string>
     <string name="bridge_snowflake">Povežite se prek drugih uporabnikov omrežja Tor z uporabo storitve Snowflake (metoda 1)</string>
-    <string name="request_bridges">Zahteva Mostovi</string>
     <string name="in_a_browser">V brskalniku obiščite %s in tapnite Get Bridges &gt; Just Give Me Bridges!</string>
     <string name="drawer_open">Odpri</string>
     <string name="drawer_close">Zapri</string>

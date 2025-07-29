@@ -149,10 +149,6 @@
     <string name="configure_custom_bridges">Özel Köprüleri Yapılandır</string>
     <string name="custom_bridges">Özel Köprüler</string>
     <string name="request_bridges_from_torproject">torproject.org\'dan Köprü İste</string>
-    <string name="captcha">CAPTCHA</string>
-    <string name="solve_captcha_instruction">Köprü istemek için CAPTCHA\'yı çözün.</string>
-    <string name="refresh_captcha">CAPTCHA\'yı Yenile</string>
-    <string name="request_bridges">Köprü İste</string>
     <string name="testing_tor_direct_success">Başarılı. Tor bağlantısı iyi!</string>
     <string name="testing_tor_direct">Tor bağlantısı test ediliyor…</string>
     <string name="pref_reduced_circuit_padding_summary">Veri ve pil kullanımını azaltmak için daha hafif yastıklama algoritmaları kullanın</string>

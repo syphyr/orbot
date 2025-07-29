@@ -146,7 +146,6 @@
     <string name="connection_snowflake">Snowflake</string>
     <string name="connection_custom">Aangepast</string>
     <string name="custom_bridges">Aangepaste Bruggen</string>
-    <string name="captcha">Captcha</string>
     <string name="user_services">Diensten van de gebruiker</string>
     <string name="no_thx">Nee, bedankt</string>
     <string name="menu_faq">FAQ</string>

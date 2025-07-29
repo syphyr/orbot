@@ -162,10 +162,6 @@ Notificaciones ampliadas</string>
     <string name="app_services">App yuwe’s kajiyu’jnxi </string>
     <string name="refresh_apps">Appetx miikhpuuse’j</string>
     <!--MoatActivity-->
-  <string name="request_bridges">Wehtx pẽhy</string>
-    <string name="refresh_captcha">CAPTCHA’s miikhpuuse’j</string>
-    <string name="solve_captcha_instruction">CAPTCHA’s mpaas wehtx pẽywa’</string>
-    <string name="captcha">Captcha</string>
     <!--BridgeWizardActivity-->
   <string name="request_bridges_from_torproject">Wehtxi’ ayte mpẽhy torproject.org </string>
     <string name="custom_bridges">Idx weh.</string>

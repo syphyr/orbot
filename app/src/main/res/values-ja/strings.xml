@@ -177,10 +177,6 @@
     <string name="pref_circuit_padding">サーキットパディング</string>
     <string name="pref_circuit_padding_summary">いくつかの形式のトラフィック解析から防御するために、サーキットパディングを有効にします</string>
     <string name="pref_reduced_circuit_padding_summary">データと電池の消費量を減らすために、低い追加処理パディングアルゴリズムを使います</string>
-    <string name="request_bridges">ブリッジを要求する</string>
-    <string name="refresh_captcha">CAPTCHA を更新する</string>
-    <string name="solve_captcha_instruction">ブリッジをリクエストするには CAPTCHA を解いてください。</string>
-    <string name="captcha">Captcha</string>
     <string name="paste_bridges">ブリッジを貼り付け</string>
     <string name="configure_custom_bridges">カスタムブリッジの設定</string>
     <string name="use_qr_code">QR コードを使用</string>

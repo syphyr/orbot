@@ -163,10 +163,6 @@ Trek tamaramikwane  asha mar</string>
   <string name="app_services">Maram purukuntrapelɵyu chine purupelɵ</string>
   <string name="refresh_apps">Katɵyu tamara pɵnsrɵp maram purukuntrapelan</string>
   <!--MoatActivity-->
-  <string name="request_bridges">Piuntsik teiklan miamik</string>
-  <string name="refresh_captcha">CAPTCHAn srɵilɵ tamaramik</string>
-  <string name="solve_captcha_instruction">CAPTCHAn tamar, piuntsik teiklan miamikpe</string>
-  <string name="captcha">CAPTCHA</string>
   <!--BridgeWizardActivity-->
   <string name="request_bridges_from_torproject">torproject.org piuntsik teilkan miamik</string>
   <string name="custom_bridges">Neteelɵ Piuntsikmera </string>

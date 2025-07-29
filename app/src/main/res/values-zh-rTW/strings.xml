@@ -153,7 +153,6 @@
     <string name="menu_new_identity">新的識別身分</string>
     <string name="drawer_open">開啟</string>
     <string name="drawer_close">關閉</string>
-    <string name="captcha">Captcha</string>
     <string name="v3_client_auth_activity_title">客戶端驗證</string>
     <string name="custom_bridges">自定橋接器</string>
     <string name="connected_title">已連線</string>
@@ -163,7 +162,6 @@
     <string name="pref_http_title">Tor HTTP</string>
     <string name="get_bridges_email_request">透過電子郵件請求橋接</string>
     <string name="pref_prefer_ipv6">首選 IPv6 連接</string>
-    <string name="request_bridges">請求橋接</string>
     <string name="use_qr_code">使用 QR 圖碼</string>
     <string name="pref_open_proxy_on_all_interfaces_title">在所有接口上開啟代理</string>
     <string name="v3_import_auth_private">匯入 .auth_private</string>
@@ -177,7 +175,6 @@
     <string name="snowflake_proxy_msg_description">當你幫助某人規避審查時顯示訊息</string>
     <string name="strict_nodes_description">將「排除節點」設定視為建構所有迴路的要求。如果因為你的「排除節點」設定而無法產生任何迴路，這可能會破壞功能。</string>
     <string name="app_services">應用程式服務</string>
-    <string name="solve_captcha_instruction">解決 CAPTCHA 以請求橋接。</string>
     <string name="pref_http_dialog">HTTP 連接埠配置</string>
     <string name="v3_delete_client_authorization_confirm">刪除用戶軟體驗證</string>
     <string name="v3_backup_name_hint">備份檔案名稱…</string>
@@ -193,7 +190,6 @@
     <string name="testing_tor_direct">測試與 Tor 的連接…</string>
     <string name="user_services">使用者服務</string>
     <string name="refresh_apps">重新整理應用程式</string>
-    <string name="refresh_captcha">重新整理 CAPTCHA</string>
     <string name="request_bridges_from_torproject">從 torproject.org 請求橋接</string>
     <string name="configure_custom_bridges">配置自訂橋接</string>
     <string name="use_custom_bridges">使用自訂橋接</string>

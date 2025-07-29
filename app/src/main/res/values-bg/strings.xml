@@ -129,7 +129,6 @@
     <string name="vpn_disabled">ВЧМ е изключена</string>
     <string name="user_services">Услуги на потребителя</string>
     <string name="app_services">Услуги на приложения</string>
-    <string name="request_bridges">Заявяване на мостове</string>
     <string name="request_bridges_from_torproject">Заявка за мостове от torproject.org</string>
     <string name="use_qr_code">Използване на код за QR</string>
     <string name="get_bridges_email_request">Поискайте мостове по електронна поща</string>
@@ -167,9 +166,6 @@
     <string name="pref_reduced_circuit_padding">Намалено уплътняване на обходите</string>
     <string name="pref_reduced_circuit_padding_summary">За да се намали разхода на трафик и батерия се използват по-леки алгоритми</string>
     <string name="refresh_apps">Обновяване на приложения</string>
-    <string name="captcha">CAPTCHA</string>
-    <string name="refresh_captcha">Презареждане на CAPTCHA</string>
-    <string name="solve_captcha_instruction">За да заявите мостове решете тази CAPTCHA.</string>
     <string name="use_custom_bridges">Използване на потребителски мостове</string>
     <string name="configure_custom_bridges">Настройка на потребителски мостове</string>
     <string name="custom_bridges">Потребителски мостове</string>

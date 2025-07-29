@@ -36,10 +36,6 @@
     <string name="user_services">Shërbime përdoruesi</string>
     <string name="app_services">Shërbime aplikacionesh</string>
     <string name="refresh_apps">Rifresko Aplikacionet</string>
-    <string name="request_bridges">Kërkoni Ura</string>
-    <string name="refresh_captcha">Rifresko CAPTCHA-n</string>
-    <string name="solve_captcha_instruction">Që të kërkoni ura, zgjidhni CAPTCHA-n.</string>
-    <string name="captcha"/>
     <string name="snowflake_proxy_msg_title">Shfaq Njoftim Lidhjeje</string>
     <string name="connected_title">I lidhur</string>
     <string name="configure_header">Formësoni Lidhjen tuaj Tor</string>

@@ -115,7 +115,6 @@
     <string name="volunteer_mode_weekly_label">Weekly Total</string>
     <string name="full_device_vpn">Full Device VPN</string>
     <string name="volunteer_mode_label">Kindness Mode</string>
-    <string name="solve_captcha_instruction">Solve the CAPTCHA to request bridges.</string>
     <string name="custom_bridges">Custom Bridges</string>
     <string name="use_custom_bridges">Use Custom Bridges</string>
     <string name="use_qr_code">Use QR Code</string>
@@ -191,9 +190,6 @@
     <string name="pref_circuit_padding">Circuit padding</string>
     <string name="pref_circuit_padding_summary">Enable circuit padding to defend against some forms of traffic analysis</string>
     <string name="pref_reduced_circuit_padding_summary">Use lower overhead padding algorithms to reduce data and battery usage</string>
-    <string name="request_bridges">Request Bridges</string>
-    <string name="refresh_captcha">Refresh CAPTCHA</string>
-    <string name="captcha">Captcha</string>
     <string name="request_bridges_from_torproject">Request Bridges from torproject.org</string>
     <string name="configure_custom_bridges">Configure Custom Bridges</string>
     <string name="snowflake_proxy_msg_description">Show a message when you help someone circumvent censorship</string>

@@ -172,16 +172,11 @@
     <string name="user_services">User services</string>
     <string name="app_services">App services</string>
     <string name="refresh_apps">Refresh Apps</string>
-    <!-- MoatActivity -->
-    <string name="request_bridges">Request Bridges</string>
-    <string name="refresh_captcha">Refresh CAPTCHA</string>
-    <string name="solve_captcha_instruction">Solve the CAPTCHA to request bridges.</string>
-    <string name="captcha">Captcha</string>
-    <!-- BridgeWizardActivity -->
+    <!-- CustomBridgesFragment -->
     <string name="request_bridges_from_torproject">Request Bridges from torproject.org</string>
     <string name="custom_bridges">Custom Bridges</string>
     <string name="configure_custom_bridges">Configure Custom Bridges</string>
-    <!-- CustomBridgesFragment -->
+
     <string name="use_custom_bridges">Use Custom Bridges</string>
     <string name="in_a_browser">In a browser, visit %s and tap "Get Bridges" &gt; "Just Give Me Bridges!"</string>
     <string name="paste_bridges">Paste Bridges</string>

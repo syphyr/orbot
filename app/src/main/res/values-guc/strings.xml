@@ -160,10 +160,6 @@
   <string name="app_services">süpülajatü tü aplicaciones</string>
   <string name="refresh_apps">akumajia süchukua tü aplicacionekat</string>
   <!--MoatActivity-->
-  <string name="request_bridges">achuntia sülatia</string>
-  <string name="refresh_captcha">anoütia CAPTCHA</string>
-  <string name="solve_captcha_instruction">painja tü CAPTCHA süpüla achuntia sülatia.</string>
-  <string name="captcha">Captcha</string>
   <!--BridgeWizardActivity-->
   <string name="request_bridges_from_torproject">püchunta sülatia sünainje torproject.org</string>
   <string name="custom_bridges">sülatia wanewaii</string>

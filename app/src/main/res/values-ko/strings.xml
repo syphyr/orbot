@@ -97,7 +97,6 @@
     <string name="menu_hidden_services">Onion 서비스</string>
     <string name="done">완료!</string>
     <string name="menu_new_identity">새 ID</string>
-    <string name="captcha">캡챠</string>
     <string name="trying_to_connect_title">접속중…</string>
     <string name="menu_header_features">기능</string>
     <string name="menu_tor_connection">Tor 연결</string>

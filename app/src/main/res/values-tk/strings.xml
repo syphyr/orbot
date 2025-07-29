@@ -72,9 +72,6 @@
     <string name="user_services">Ulanyjy hyzmatlary</string>
     <string name="app_services">Programma hyzmatlary</string>
     <string name="refresh_apps">Programmalary täzeläň</string>
-    <string name="request_bridges">Köprüleri Soraň</string>
-    <string name="refresh_captcha">CAPTCHA Täzele</string>
-    <string name="captcha">Captcha</string>
     <string name="request_bridges_from_torproject">torproject.org-dan köprini talap ediň</string>
     <string name="custom_bridges">Ýörite Köpriler</string>
     <string name="paste_bridges">Köprileri Salyň</string>
@@ -141,7 +138,6 @@
     <string name="local_port">Ýerli Port</string>
     <string name="onion_port">Onion Porty</string>
     <string name="start_tor_again_for_finish_the_process">Amaly tamamlamak üçin Tor-y täzeden açyň</string>
-    <string name="solve_captcha_instruction">Köprileri soramak üçin CAPTCHA çözüň.</string>
     <string name="bridge_snowflake_amp">“Snowflake” (2-nji usul - AMP) ulanyp, beýleki Tor ulanyjylarynyň üsti bilen birikdiriň</string>
     <string name="menu_app_settings">Programma sazlamalary</string>
     <string name="having_trouble">Meseleler ýüze çykdy</string>

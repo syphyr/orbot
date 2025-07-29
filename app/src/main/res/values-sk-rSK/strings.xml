@@ -156,9 +156,6 @@
     <string name="user_services">Služby pre používateľov</string>
     <string name="app_services">Služby aplikácie</string>
     <string name="refresh_apps">Aplikácie Refresh</string>
-    <string name="request_bridges">Žiadosť o mosty</string>
-    <string name="refresh_captcha">Obnoviť CAPTCHA</string>
-    <string name="captcha">Captcha</string>
     <string name="request_bridges_from_torproject">Žiadosť o mosty z torproject.org</string>
     <string name="paste_bridges">Vložiť mosty</string>
     <string name="bridge_snowflake_amp">Pripojenie prostredníctvom iných používateľov Tor pomocou aplikácie Snowflake (metóda 2)</string>
@@ -203,7 +200,6 @@
     <string name="done">Hotovo!</string>
     <string name="create_a_backup_first">Najprv vytvorte zálohu</string>
     <string name="secure_your_connection_title">Pripravené na pripojenie</string>
-    <string name="solve_captcha_instruction">Vyriešte CAPTCHA a požiadajte o mosty.</string>
     <string name="btn_configure">Vyberte si spôsob pripojenia</string>
     <string name="drawer_open">Otvoriť</string>
     <string name="drawer_close">Zatvoriť</string>

@@ -69,8 +69,6 @@
     <string name="bridge_direct_connect">நேரடியாக TOR உடன் இணைக்கவும் (சிறந்தது)</string>
     <string name="app_services">பயன்பாட்டு சேவைகள்</string>
     <string name="refresh_apps">பயன்பாடுகளைப் புதுப்பிக்கவும்</string>
-    <string name="refresh_captcha">கேப்ட்சாவை புதுப்பிக்கவும்</string>
-    <string name="captcha">கேப்ட்சா</string>
     <string name="btn_configure">எவ்வாறு இணைப்பது என்பதைத் தேர்வுசெய்க</string>
     <string name="configure_header">உங்கள் TOR இணைப்பை உள்ளமைக்கவும்</string>
     <string name="volunteer_mode_subtitle">மற்றவர்கள் இணைக்க உதவுங்கள்</string>
@@ -235,8 +233,6 @@
     <string name="testing_tor_direct_success">வெற்றி. டோர் இணைப்பு நல்லது!</string>
     <string name="bridge_cloud">முகில் சேவையகங்கள் மூலம் இணைக்கவும்</string>
     <string name="user_services">பயனர் சேவைகள்</string>
-    <string name="request_bridges">பாலங்கள் கோருங்கள்</string>
-    <string name="solve_captcha_instruction">பாலங்களை கோர கேப்ட்சாவை தீர்க்கவும்.</string>
     <string name="request_bridges_from_torproject">Torproject.org இலிருந்து பாலங்களை கோருங்கள்</string>
     <string name="configure_custom_bridges">தனிப்பயன் பாலங்களை உள்ளமைக்கவும்</string>
     <string name="use_custom_bridges">தனிப்பயன் பாலங்களைப் பயன்படுத்தவும்</string>

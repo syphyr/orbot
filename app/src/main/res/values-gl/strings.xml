@@ -181,7 +181,6 @@
     <string name="volunteer_mode_alltime_label">Total de todo o tempo</string>
     <string name="smart_connect">Conexión intelixente (default)</string>
     <string name="volunteer_mode">Modo bondade</string>
-    <string name="request_bridges">Solicitar pontes</string>
     <string name="refresh_apps">Actualizar apps</string>
     <string name="use_qr_code">Utilizar código QR</string>
     <string name="pref_isolate_port_summary">Utilizar un circuito diferente para cada porto de destino</string>
@@ -195,8 +194,6 @@
     <string name="pref_disable_ipv4">Desactivar conexións IPv4</string>
     <string name="user_services">Servizos do usuario</string>
     <string name="app_services">Servizos da app</string>
-    <string name="refresh_captcha">Actualice o CAPTCHA</string>
-    <string name="captcha">Captcha</string>
     <string name="request_bridges_from_torproject">Solicitar pontes do torproject.org</string>
     <string name="custom_bridges">Pontes persoalizadas</string>
     <string name="configure_custom_bridges">Configurar as pontes persoalizadas</string>
@@ -227,7 +224,6 @@
     <string name="menu_tor_connection">Conexión Tor</string>
     <string name="captcha_title">Comprobemos que eres humano</string>
     <string name="pref_circuit_padding_summary">Activar o recheo do circuito para defenderse contra algunhas formas de análise de tráfico</string>
-    <string name="solve_captcha_instruction">Resolva o CAPTCHA para solicitar pontes.</string>
     <string name="use_custom_bridges">Utilizar pontes persoalizadas</string>
     <string name="configure_header">Configura a túa conexión Tor</string>
     <string name="volunteer_mode_subtitle_desc">O modo bondade permite o uso do teu dispositivo coma ponte para outros. Axuda á xente a utilizar Tor en lugares onde está bloqueado.

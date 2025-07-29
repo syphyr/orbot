@@ -141,10 +141,6 @@
     <string name="configure_custom_bridges">Configurer des ponts personnalisés</string>
     <string name="custom_bridges">Ponts personnalisés</string>
     <string name="request_bridges_from_torproject">Demander des ponts de torproject.org</string>
-    <string name="captcha">Captcha</string>
-    <string name="solve_captcha_instruction">Pour demander des ponts, résolvez le captcha.</string>
-    <string name="refresh_captcha">Actualiser le captcha</string>
-    <string name="request_bridges">Demander des ponts</string>
     <string name="testing_tor_direct_success">C’est réussi. La connexion à Tor est bonne</string>
     <string name="testing_tor_direct">Essai de connexion à Tor…</string>
     <string name="pref_reduced_circuit_padding_summary">Use des algorithmes de bourrage supplémentaire plus faible afin de réduire l’utilisation des données et de la pile</string>

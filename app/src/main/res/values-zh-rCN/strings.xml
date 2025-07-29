@@ -149,10 +149,6 @@
     <string name="configure_custom_bridges">配置自定义网桥</string>
     <string name="custom_bridges">自定义网桥</string>
     <string name="request_bridges_from_torproject">从 torproject.org 请求网桥</string>
-    <string name="captcha">验证码</string>
-    <string name="solve_captcha_instruction">解决验证码来请求网桥。</string>
-    <string name="refresh_captcha">刷新验证码</string>
-    <string name="request_bridges">请求网桥</string>
     <string name="testing_tor_direct_success">成功。Tor 连接良好！</string>
     <string name="testing_tor_direct">正在测试与 Tor 的连接…</string>
     <string name="pref_reduced_circuit_padding_summary">使用开销较低的填充算法以减少数据和电池用量</string>

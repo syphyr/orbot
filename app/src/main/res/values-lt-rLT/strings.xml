@@ -30,7 +30,6 @@
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Pirštų atspaudai, slapyvardžiai, šalys ir adresai, kurių nereikia traukti</string>
     <string name="v3_key_hash">x25519 privatus raktas Base32</string>
     <string name="bridge_snowflake">Prisijungimas per kitus „Tor“ naudotojus naudojant „Snowflake“ (1 būdas)</string>
-    <string name="solve_captcha_instruction">Išspręskite CAPTCHA, kad galėtumėte prašyti tiltų.</string>
     <string name="ports_reachable_behind_a_restrictive_firewall">Prievadai, pasiekiami už ribojančiosios ugniasienės</string>
     <string name="testing_tor_direct_success">Sėkmė. „Tor“ jungtis yra gera!</string>
     <string name="bridge_direct_connect">Prisijungti tiesiogiai prie „Tor“ (geriausia)</string>
@@ -88,8 +87,6 @@
     <string name="v3_backup_name_hint">Atsarginės kopijos failo pavadinimas…</string>
     <string name="paste_bridges">Įklijuoti tiltus</string>
     <string name="custom_bridges">Pasirinktiniai tiltai</string>
-    <string name="refresh_captcha">Atnaujinti CAPTCHA</string>
-    <string name="request_bridges">Prašyti tiltų</string>
     <string name="pref_circuit_padding">Grandinės užpildymas</string>
     <string name="refresh_apps">Atnaujinti programėles</string>
     <string name="app_services">Programėlių paslaugos</string>
@@ -130,7 +127,6 @@
     <string name="confirm">Patvirtinti</string>
     <string name="deny">Drausti</string>
     <string name="allow">Leisti</string>
-    <string name="captcha">Captcha</string>
     <string name="mebibyte">MiB</string>
     <string name="kibibyte">KiB</string>
     <string name="please_restart_Orbot_to_enable_the_changes">Paleiskite „Orbot“ iš naujo, kad įgalintumėte pakeitimus</string>

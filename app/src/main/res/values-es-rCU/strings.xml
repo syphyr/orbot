@@ -66,7 +66,6 @@
     <string name="app_shortcuts">Aplicaciones que pasan por Tor</string>
     <string name="menu_new_identity">Nueva identidad</string>
     <string name="snowflake_proxy_msg_title">Mostrar notificación de conexión</string>
-    <string name="refresh_captcha">Refrescar CAPTCHA</string>
     <string name="smart_connect_subtitle">Orbot intentará conectarse a Tor a través de cualquier manera disponible: Directo, Snowflake, Puente.</string>
     <string name="direct_connect">Conexión directa a Tor</string>
     <string name="many_ways">Hay muchas maneras de llegar a Tor. Algunas pueden funcionar mejor que otras para ti.</string>
@@ -174,9 +173,6 @@
     <string name="user_services">Servicios de usuario</string>
     <string name="app_services">Servicios de aplicaciones</string>
     <string name="refresh_apps">Refrescar aplicaciones</string>
-    <string name="request_bridges">Solicitar puentes</string>
-    <string name="solve_captcha_instruction">Resolver el CAPTCHA para solicitar puentes.</string>
-    <string name="captcha">Captcha</string>
     <string name="custom_bridges">Puentes personalizados</string>
     <string name="configure_custom_bridges">Configurar puentes personalizados</string>
     <string name="use_custom_bridges">Utilizar puentes personalizados</string>

@@ -174,7 +174,6 @@
     <string name="v3_key_hash">Klucz prywatny x25519 w Base32</string>
     <string name="v3_backup_name_hint">Nazwa pliku kopii zapasowej…</string>
     <string name="v3_delete_client_authorization_confirm">Usuń autoryzację klienta</string>
-    <string name="captcha">Captcha</string>
     <string name="configure_header">Skonfiguruj swoje połączenie Tor</string>
     <string name="bridge_snowflake">Połącz się przez innych użytkowników sieci Tor za pomocą Snowflake (Metoda 2 - Szybko)</string>
     <string name="proxy_ports">Porty proxy</string>
@@ -216,14 +215,11 @@
     <string name="pref_circuit_padding_summary">Włącz wypełnianie obwodu, aby bronić się przed niektórymi formami analizy ruchu</string>
     <string name="pref_reduced_circuit_padding">Zmniejszone wypełnienie obwodu</string>
     <string name="pref_reduced_circuit_padding_summary">Użyj algorytmów wypełniania o niższym nakładzie, aby zmniejszyć zużycie danych i baterii</string>
-    <string name="request_bridges">Poproś o mostki</string>
     <string name="use_qr_code">Użyj kodu QR</string>
     <string name="paste_bridges">Wklej mostki</string>
     <string name="use_custom_bridges">Użyj mostków niestandardowych</string>
     <string name="in_a_browser">Za pomocą przeglądarki, odwiedź stronę %s i stuknij opcję Get Bridges &gt; Just Give Me Bridges!</string>
     <string name="configure_custom_bridges">Skonfiguruj niestandardowe mostki</string>
-    <string name="solve_captcha_instruction">Rozwiąż CAPTCHA, aby poprosić o mostki.</string>
-    <string name="refresh_captcha">Odśwież CAPTCHA</string>
     <string name="bridge_snowflake_amp">Połącz się przez innych użytkowników sieci Tor za pomocą Snowflake (Metoda 2 - AMP)</string>
     <string name="strict_nodes_description">Traktuj ustawienia wykluczonych węzłów jako wymóg dla budowania wszystkich obwodów. Może to spowodować przerwanie funkcjonalności, jeśli żadne obwody nie będą mogły być wygenerowane z twoimi ustawieniami wykluczonych węzłów.</string>
     <string name="confirm">Potwierdź</string>

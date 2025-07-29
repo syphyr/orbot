@@ -138,10 +138,6 @@
     <string name="configure_custom_bridges">Määritä omat sillat</string>
     <string name="custom_bridges">Omat sillat</string>
     <string name="request_bridges_from_torproject">Pyydä siltoja torproject.org-sivustolta</string>
-    <string name="captcha">Captcha</string>
-    <string name="solve_captcha_instruction">Ratkaise CAPTCHA pyytääksesi siltoja.</string>
-    <string name="refresh_captcha">Päivitä CAPTCHA</string>
-    <string name="request_bridges">Pyydä siltoja</string>
     <string name="refresh_apps">Päivitä sovellukset</string>
     <string name="app_services">Sovelluspalvelut</string>
     <string name="user_services">Käyttäjäpalvelut</string>

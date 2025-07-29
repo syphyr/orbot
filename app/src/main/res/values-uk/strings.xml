@@ -149,10 +149,6 @@
     <string name="configure_custom_bridges">Сконфігурувати користувацькі мости</string>
     <string name="custom_bridges">Користувацькі мости</string>
     <string name="request_bridges_from_torproject">Запит мостів від torproject.org</string>
-    <string name="captcha">Captcha</string>
-    <string name="solve_captcha_instruction">Розв\'яжіть CAPTCHA для запиту мостів.</string>
-    <string name="refresh_captcha">Оновити CAPTCHA</string>
-    <string name="request_bridges">Запит мостів</string>
     <string name="testing_tor_direct_success">Успішно. З\'єднання Tor хороше!</string>
     <string name="testing_tor_direct">Перевірка з\'єднання з Tor…</string>
     <string name="get_bridges_email_request">Запитати мости електронною поштою</string>

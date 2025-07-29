@@ -141,7 +141,6 @@
     <string name="next">التالي</string>
     <string name="menu_faq">أسئلة</string>
     <string name="version">الإصدار:</string>
-    <string name="captcha">كلمة التحقق</string>
     <string name="deny">ارفض</string>
     <string name="connected_title">متصل</string>
     <string name="no_thx">لا شكرًا</string>
@@ -182,8 +181,6 @@
     <string name="pref_connection_padding">حشوة الاتصال</string>
     <string name="pref_connection_padding_summary">يعمل دائمًا على تفعيل حشو الاتصال للدفاع ضد بعض أشكال تحليل حركة المرور. الافتراضي: تلقائي</string>
     <string name="pref_reduced_connection_padding">حشوة اتصال منخفضة</string>
-    <string name="refresh_captcha">أنعِش كابتشا (CAPTCHA)</string>
-    <string name="solve_captcha_instruction">حِل CAPTCHA لطلب الجسور.</string>
     <string name="request_bridges_from_torproject">طلب جسور من torproject.org</string>
     <string name="custom_bridges">جسور مخصّصة</string>
     <string name="configure_custom_bridges">تضبيط الجسور المخصّصة</string>
@@ -202,7 +199,6 @@
     <string name="pref_prefer_ipv6">تفضيل اتصالات IPv6</string>
     <string name="pref_prefer_ipv6_summary">يخبر المخارج أن عناوين IPv6 مفضلة</string>
     <string name="refresh_apps">أنعِش التطبيقات</string>
-    <string name="request_bridges">طلب جسور</string>
     <string name="secure_your_connection_subtitle">إخفاء التطبيقات من مراقبة الشبكة والوصول إليها عندما يتم حظرها.</string>
     <string name="btn_start_vpn">ابدأ VPN</string>
     <string name="btn_tor_off">أوقف تشغيل تور</string>

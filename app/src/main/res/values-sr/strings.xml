@@ -249,10 +249,6 @@
     <string name="pref_prefer_ipv6_summary">Обавештава излазе да су IPv6 адресе префериране</string>
     <string name="pref_isolate_port_summary">Користите различит круг за сваки одредишни порт</string>
     <string name="pref_isolate_protocol">Изоловање клијентских протокола</string>
-    <string name="request_bridges">Затражи мостове</string>
-    <string name="refresh_captcha">Освежи CAPTCHA</string>
-    <string name="solve_captcha_instruction">Реши CAPTCHA да би затражио мостове.</string>
-    <string name="captcha">Captcha</string>
     <string name="custom_bridges">Прилагођени мостови</string>
     <string name="in_a_browser">У прегледачу, посети %s и кликни на Get Bridges &gt; Just Give Me Bridges!</string>
     <string name="paste_bridges">Налепи мостове</string>

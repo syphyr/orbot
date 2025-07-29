@@ -129,7 +129,6 @@
     <string name="full_device_vpn">Πλήρης Συσκευή VPN</string>
     <string name="vpn_disabled">Το VPN απενεργοποιήθηκε</string>
     <string name="allow">Επιτρέψτε το</string>
-    <string name="refresh_captcha">Ανανέωση CAPTCHA</string>
     <string name="kibibyte">KiB</string>
     <string name="mebibyte">MiB</string>
     <string name="version">Έκδοση:</string>
@@ -168,7 +167,6 @@
     <string name="pref_reduced_circuit_padding">Μειωμένο μαξιλάρι κυκλώματος</string>
     <string name="pref_disable_ipv4">Απενεργοποίηση συνδέσεων IPv4</string>
     <string name="testing_tor_direct_success">Επιτυχία. Η σύνδεση Tor είναι καλή!</string>
-    <string name="request_bridges">Αίτημα Γέφυρες</string>
     <string name="request_bridges_from_torproject">Αίτημα Γέφυρες από torproject.org</string>
     <string name="custom_bridges">Προσαρμοσμένες γέφυρες</string>
     <string name="configure_custom_bridges">Διαμόρφωση προσαρμοσμένων γεφυρών</string>
@@ -192,8 +190,6 @@
     <string name="pref_disable_ipv4_summary">Λέει στις εξόδους να μην συνδέονται σε διευθύνσεις IPv4</string>
     <string name="app_services">Υπηρεσίες εφαρμογών</string>
     <string name="refresh_apps">Ανανέωση εφαρμογών</string>
-    <string name="solve_captcha_instruction">Λύστε το CAPTCHA για να ζητήσετε γέφυρες.</string>
-    <string name="captcha">Captcha</string>
     <string name="strict_nodes_description">Αντιμετωπίστε τις ρυθμίσεις Exclude Nodes ως απαίτηση για την κατασκευή όλων των κυκλωμάτων. Αυτό μπορεί να διαταράξει τη λειτουργικότητα εάν δεν είναι δυνατή η δημιουργία κυκλωμάτων με τις ρυθμίσεις σας Exclude Nodes.</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Άνοιγμα διακομιστή μεσολάβησης σε όλες τις διασυνδέσεις</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Επιτρέψτε σε ομότιμους χρήστες Wi-Fi, συνδεδεμένες συσκευές και οποιονδήποτε άλλον μπορεί να συνδεθεί στην IP σας, να έχει πρόσβαση στο Tor</string>

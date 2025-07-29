@@ -150,10 +150,6 @@
     <string name="use_custom_bridges">Bruk egendefinerte broer</string>
     <string name="configure_custom_bridges">Sett opp egendefinerte broer</string>
     <string name="custom_bridges">Egendefinerte broer</string>
-    <string name="captcha">CAPTCHA</string>
-    <string name="solve_captcha_instruction">Løs CAPTCHA-en for å forespørre broer</string>
-    <string name="refresh_captcha">Gjenoppfrisk CAPTCHA</string>
-    <string name="request_bridges">Forespør broer</string>
     <string name="testing_tor_direct_success">Tor-tilkoblingen fungerer.</string>
     <string name="testing_tor_direct">Tester tilkobling til Tor …</string>
     <string name="pref_reduced_circuit_padding">Redusert utfylling av kretser</string>

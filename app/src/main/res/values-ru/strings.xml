@@ -149,10 +149,6 @@
     <string name="configure_custom_bridges">Настройка пользовательских мостов</string>
     <string name="custom_bridges">Пользовательские мосты</string>
     <string name="request_bridges_from_torproject">Запросить мосты с сайта torproject.org</string>
-    <string name="captcha">Captcha</string>
-    <string name="solve_captcha_instruction">Решите CAPTCHA, чтобы запросить мосты.</string>
-    <string name="refresh_captcha">Обновить CAPTCHA</string>
-    <string name="request_bridges">Запросить мосты</string>
     <string name="testing_tor_direct_success">Успешно. Соединение с Tor установлено!</string>
     <string name="testing_tor_direct">Проверка подключения к Tor…</string>
     <string name="pref_reduced_circuit_padding_summary">Использовать алгоритмы заполнения с меньшими расходами, чтобы уменьшить расход данных и батареи</string>

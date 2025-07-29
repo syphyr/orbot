@@ -144,7 +144,6 @@
     <string name="allow">Permitir</string>
     <string name="deny">Denegar</string>
     <string name="pref_circuit_padding">Relleno de circuito</string>
-    <string name="request_bridges">Solicitar puentes</string>
     <string name="version">Versión:</string>
     <string name="license">Licencia:</string>
     <string name="v3_hosted_services">Servicios alojados en la Cebolla</string>
@@ -194,9 +193,6 @@
     <string name="v3_backup_name_hint">Copia de seguridad del nombre del archivo…</string>
     <string name="v3_import_auth_private">Importar .auth_private</string>
     <string name="confirm">Confirmar</string>
-    <string name="refresh_captcha">Actualizar CAPTCHA</string>
-    <string name="solve_captcha_instruction">Resuelva el CAPTCHA para solicitar puentes.</string>
-    <string name="captcha">Captcha</string>
     <string name="request_bridges_from_torproject">Solicitar puentes a torproject.org</string>
     <string name="v3_onion">Dominio .onion</string>
     <string name="strict_nodes_description">Trate la configuración de los Nodos Excluidos como un requisito para construir todos los circuitos. Esto puede romper la funcionalidad si no se pueden generar circuitos con su configuración de Nodos Excluidos.</string>

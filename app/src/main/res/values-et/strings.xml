@@ -181,9 +181,6 @@
     <string name="user_services">Kasutajate teenused</string>
     <string name="app_services">Rakendusteenused</string>
     <string name="refresh_apps">Värskenda rakendusi</string>
-    <string name="refresh_captcha">Värskenda CAPTCHA</string>
-    <string name="solve_captcha_instruction">Sildade taotlemiseks lahendage CAPTCHA.</string>
-    <string name="captcha">Captcha</string>
     <string name="custom_bridges">Kohandatud sillad</string>
     <string name="configure_custom_bridges">Kohandatud sildade konfigureerimine</string>
     <string name="in_a_browser">Külastage brauseris %s ja koputage nuppu Get Bridges &gt; Just Give Me Bridges!</string>
@@ -193,7 +190,6 @@
     <string name="snowflake_proxy_msg_title">Näita ühenduse teadet</string>
     <string name="snowflake_proxy_msg_description">Näita sõnumit, kui aitad kedagi tsensuurist kõrvale hoida</string>
     <string name="pref_disable_ipv4_summary">Ütleb väljumistele, et nad ei ühenduksid IPv4-aadressidega</string>
-    <string name="request_bridges">Taotlus Sillad</string>
     <string name="request_bridges_from_torproject">Taotlus Bridges alates torproject.org</string>
     <string name="menu_app_settings">Rakenduse seaded</string>
     <string name="pref_socks_summary">Port, millel Tor pakub oma SOCKS proxy\'d (vaikimisi: 9050 või 0, et keelata)</string>

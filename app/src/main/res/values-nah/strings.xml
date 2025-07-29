@@ -163,10 +163,6 @@ atl oquitlapatic</string>
     <string name="app_services">Tetlayecoltiliztli tepoztlatlatquitl</string>
     <string name="refresh_apps">Papatia tepoztlatlatquitl</string>
     <!--MoatActivity-->
-    <string name="request_bridges">Quitlani in cuauhpanco</string>
-    <string name="refresh_captcha">Papatia CAPTCHA</string>
-    <string name="solve_captcha_instruction">In CAPTCHA Ticneltia inic quintlani in cuauhpanco</string>
-    <string name="captcha">Ichtacatl</string>
     <!--BridgeWizardActivity-->
     <string name="request_bridges_from_torproject">Ipan torprojet.org xictlani in cuauhpanco</string>
     <string name="custom_bridges">Neuhyantica cuauhpanco</string>

@@ -173,14 +173,10 @@
     <string name="paste_bridges">چسباندن پل‌ها</string>
     <string name="configure_custom_bridges">پیکربندی پل‌های سفارشی</string>
     <string name="pref_prefer_ipv6_summary">اعلام ترجیح نشانی‌های IPv6 به خروجی‌ها</string>
-    <string name="refresh_captcha">نوسازی کپچا</string>
-    <string name="request_bridges">درخواست پل</string>
     <string name="refresh_apps">تازه‌سازی کاره‌ها</string>
-    <string name="captcha">کپچا</string>
     <string name="bridge_snowflake_amp">وصل شدن از طریق دیگر کاربران تور با استفاده از دانه‌برفی (روش ۲ -AMP)</string>
     <string name="snowflake_proxy_msg_description">نمایش یک پیام هنگامی که شما به کسی در عبور از سانسور کمک می‌کنید</string>
     <string name="snowflake_proxy_msg_title">نمایش آگاهی اتّصال</string>
-    <string name="solve_captcha_instruction">برای درخواست پل، کپچا را حل کنید.</string>
     <string name="secure_your_connection_title">آمادهٔ وصل شدن</string>
     <string name="btn_start_vpn">آغاز وی‌پی‌ان</string>
     <string name="btn_configure">نحوهٔ اتّصال را انتخاب کنید</string>

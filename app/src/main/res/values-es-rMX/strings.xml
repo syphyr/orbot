@@ -185,10 +185,6 @@
     <string name="user_services">Servicios de Usuario</string>
     <string name="app_services">Servicios de aplicaciones</string>
     <string name="refresh_apps">Actualizar aplicaciones</string>
-    <string name="request_bridges">Solicitar Puentes</string>
-    <string name="refresh_captcha">Actualizar CAPTCHA</string>
-    <string name="solve_captcha_instruction">Resuelve el CAPTCHA para solicitar puentes.</string>
-    <string name="captcha">Captcha</string>
     <string name="custom_bridges">Puentes personalizados</string>
     <string name="configure_custom_bridges">Configurar puentes personalizados</string>
     <string name="in_a_browser">En un navegador, visita %s y toca Obtener puentes &gt; ¡Solo dame puentes!</string>

@@ -150,10 +150,6 @@
     <string name="configure_custom_bridges">Konfiguriere personalisierte Brücken</string>
     <string name="custom_bridges">Personalisierte Brücken</string>
     <string name="request_bridges_from_torproject">Brücken von torproject.org anfordern</string>
-    <string name="captcha">CAPTCHA</string>
-    <string name="solve_captcha_instruction">Löse das CAPTCHA, um Brücken anzufordern.</string>
-    <string name="refresh_captcha">CAPTCHA erneuern</string>
-    <string name="request_bridges">Brücken anfordern</string>
     <string name="testing_tor_direct">Verbindung zu Tor wird getestet …</string>
     <string name="testing_tor_direct_success">Erfolgreich. Gute Verbindung mit Tor!</string>
     <string name="v3_import_auth_private">.auth_private importieren</string>
