@@ -5,7 +5,6 @@ import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.os.LocaleList
 import android.view.inputmethod.EditorInfo
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
@@ -18,9 +17,8 @@ import androidx.preference.Preference.OnPreferenceChangeListener
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import org.torproject.android.R
-import org.torproject.android.core.Languages
-import org.torproject.android.core.LocaleHelper
-import org.torproject.android.core.ui.BaseActivity
+import org.torproject.android.localization.Languages
+import org.torproject.android.ui.core.BaseActivity
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.more.camo.CamoFragment
 

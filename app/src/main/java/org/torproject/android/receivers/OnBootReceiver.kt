@@ -1,14 +1,14 @@
-package org.torproject.android.core
+package org.torproject.android.receivers
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.service.util.putNotSystem
+import java.lang.RuntimeException
 
 class OnBootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
@@ -23,7 +23,7 @@ class OnBootReceiver : BroadcastReceiver() {
                 startService(context)
                 sReceivedBoot = true
             }
-        } catch (re: java.lang.RuntimeException) {
+        } catch (re: RuntimeException) {
             //catch this to avoid malicious launches as document Cure53 Audit: ORB-01-009 WP1/2: Orbot DoS via exported activity (High)
         }
     }
@@ -38,7 +38,7 @@ class OnBootReceiver : BroadcastReceiver() {
             else {
                 context.startService(intent)
             }
-        } catch (re: java.lang.RuntimeException) {
+        } catch (re: RuntimeException) {
             //catch this to avoid malicious launches as document Cure53 Audit: ORB-01-009 WP1/2: Orbot DoS via exported activity (High)
         }
     }

@@ -1,4 +1,4 @@
-package org.torproject.android.core
+package org.torproject.android.localization
 
 import android.content.Context
 import android.os.Build

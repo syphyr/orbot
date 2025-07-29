@@ -1,4 +1,4 @@
-package org.torproject.android.core
+package org.torproject.android.localization
 
 import android.annotation.SuppressLint
 import android.app.Activity
