@@ -122,8 +122,6 @@
     <string name="exit_nodes">Išėjimo mazgai</string>
     <string name="pref_entrance_node">Įėjimo mazgai</string>
     <string name="pref_node_configuration">Mazgo konfigūracija</string>
-    <string name="menu_share_bridge">Dalintis BridgeQR</string>
-    <string name="menu_scan">Skenuoti BridgeQR</string>
     <string name="confirm">Patvirtinti</string>
     <string name="deny">Drausti</string>
     <string name="allow">Leisti</string>

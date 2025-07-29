@@ -95,8 +95,6 @@
     <string name="menu_tor_connection">Tor Birikmesi</string>
     <string name="menu_help_others">Başgalaryna kömek ediň</string>
     <string name="root_warning">Orbot, enjamyňyzyň kök urandygyny (root), howpsuzlyk meselelerine sebäp bolup biljekdigini anyklady.</string>
-    <string name="menu_scan">BridgeQR-i skanirle</string>
-    <string name="menu_share_bridge">BridgeQR paýlaşyň</string>
     <string name="pref_proxy_host_dialog">Proksi Hostyny Giriziň</string>
     <string name="pref_proxy_port_title">Çykýan Proksi Porty</string>
     <string name="pref_proxy_port_summary">Proksi Serwer Porty</string>

@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Téléversement</string>
     <string name="button_about">À propos</string>
     <string name="menu_exit">Fermer</string>
-    <string name="menu_scan">Balayer le code QR d’un pont</string>
-    <string name="menu_share_bridge">Partager le code QR d’un pont</string>
     <string name="pref_general_group">Général</string>
     <string name="pref_start_boot_title">Démarrer Orbot à l’amorçage</string>
     <string name="pref_start_boot_summary">Démarrer Orbot automatiquement et se connecter à Tor lors de l’amorçage de votre appareil Android</string>

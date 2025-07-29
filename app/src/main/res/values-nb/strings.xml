@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Opplasting</string>
     <string name="button_about">Om</string>
     <string name="menu_exit">Avslutt</string>
-    <string name="menu_scan">Skann BridgeQR</string>
-    <string name="menu_share_bridge">Del BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Generelt</string>

@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Nahrát</string>
     <string name="button_about">O aplikaci</string>
     <string name="menu_exit">Konec</string>
-    <string name="menu_scan">Skenovat BridgeQR</string>
-    <string name="menu_share_bridge">Sdílet BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Obecné</string>

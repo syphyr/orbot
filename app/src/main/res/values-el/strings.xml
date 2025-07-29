@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Αποστολή</string>
     <string name="button_about">Σχετικά</string>
     <string name="menu_exit">Έξοδος</string>
-    <string name="menu_scan">Σάρωση BridgeQR</string>
-    <string name="menu_share_bridge">Κοινή χρήση BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Το Orbot είναι μια εφαρμογή ανοιχτού κώδικα που περιέχει τα Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks και LibEvent. Παρέχει ένα δίαυλο VPN, έναν τοπικό διακομιστή μεσολάβησης HTTP Connect (HTTPS μόνο στη θύρα 8118) και έναν διακομιστή μεσολάβησης SOCKS (9050) στο δίκτυο Tor.</string>
     <!--END Welcome Wizard strings (DJH)-->

@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Wysyłanie</string>
     <string name="button_about">O programie</string>
     <string name="menu_exit">Wyjście</string>
-    <string name="menu_scan">Skanuj kod QR mostka</string>
-    <string name="menu_share_bridge">Udostępnij kod QR mostka</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Ogólne</string>

@@ -57,7 +57,6 @@
     <string name="enable">Galluogi</string>
     <string name="app_description">Mae Orbot yn ap dirprwy rhad ac am ddim sy\'n grymuso apiau eraill i ddefnyddio\'r rhyngrwyd yn fwy diogel. Mae Orbot yn defnyddio Tor i amgryptio eich traffig Rhyngrwyd ac yna\'n ei guddio trwy bownsio trwy gyfres o gyfrifiaduron ledled y byd. Mae Tor yn feddalwedd am ddim ac yn rhwydwaith agored sy\'n eich helpu i amddiffyn yn erbyn math o wyliadwriaeth rhwydwaith sy\'n bygwth rhyddid personol a phreifatrwydd, gweithgareddau busnes cyfrinachol a pherthnasoedd, a diogelwch y wladwriaeth a elwir yn ddadansoddiad traffig.</string>
     <string name="pref_proxy_port_dialog">Rhowch borthladd dirprwy</string>
-    <string name="menu_scan">Sganio BridgeQR</string>
     <string name="pref_proxy_host_summary">Enw gwesteiwr Gweinydd Dirprwy</string>
     <string name="pref_proxy_type_dialog">Rhowch Math o Ddirprwy</string>
     <string name="pref_allow_background_starts_title">Caniatáu Cychwyn Cefndir</string>
@@ -77,7 +76,6 @@
     <string name="pref_proxy_title">Dirprwy Rhwydwaith Allanol (Dewisol)</string>
     <string name="pref_proxy_host_title">Gwesteiwr Procsi Allan</string>
     <string name="pref_start_boot_title">Dechreuwch Orbot ar Boot</string>
-    <string name="menu_share_bridge">Rhannu BridgeQR</string>
     <string name="pref_proxy_username_summary">Enw defnyddiwr dirprwy (Dewisol)</string>
     <string name="pref_proxy_username_title">Enw Defnyddiwr Procsi Allan</string>
     <string name="pref_proxy_password_title">Cyfrinair Procsi Allan</string>

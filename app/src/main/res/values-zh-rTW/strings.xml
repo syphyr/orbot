@@ -10,8 +10,6 @@
     <string name="main_layout_upload">上傳</string>
     <string name="button_about">關於</string>
     <string name="menu_exit">離開</string>
-    <string name="menu_scan">掃描網橋 QR 碼</string>
-    <string name="menu_share_bridge">分享網橋 QR 碼</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot 是一個開源應用程式，包含 Tor、IPtProxy（Obfs4Proxy、Meek、Snowflake）、Go-Tun2Socks 和 LibEvent。它提供了一個 VPN 隧道、一個本地 HTTP 連接代理（HTTPS 僅在連接埠 8118 上）和一個 SOCKS 代理（9050）進入 Tor 網路。</string>
     <!--END Welcome Wizard strings (DJH)-->

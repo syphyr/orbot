@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Отпремање</string>
     <string name="button_about">О нама</string>
     <string name="menu_exit">Излаз</string>
-    <string name="menu_scan">Скенирај BridgeQR</string>
-    <string name="menu_share_bridge">Подели BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Орбот је апликација отвореног кода која садржи Тор, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks и LibEvent. Омогућава локални HTTP proxy (8118) и SOCKS proxy (9050) у Тор мрежу. Орбот такође има могућност да на рутованом уређају шаље сав интернет саобраћај преко Тор-а.</string>
     <!--END Welcome Wizard strings (DJH)-->

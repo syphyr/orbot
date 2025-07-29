@@ -10,8 +10,6 @@
     <string name="main_layout_upload">アップロード</string>
     <string name="button_about">バージョン情報</string>
     <string name="menu_exit">終了</string>
-    <string name="menu_scan">ブリッジ QR をスキャン</string>
-    <string name="menu_share_bridge">ブリッジ QR を共有</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot は Tor、IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks、LibEvent を含むオープンソースアプリです。Tor ネットワークに入る VPN トンネル、ローカルHTTP接続プロキシ (8118) SOCKSプロキシ (9050) を提供します。</string>
     <!--END Welcome Wizard strings (DJH)-->

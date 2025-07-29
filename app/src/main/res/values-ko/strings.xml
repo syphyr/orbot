@@ -10,8 +10,6 @@
     <string name="main_layout_upload">업로드</string>
     <string name="button_about">정보</string>
     <string name="menu_exit">종료</string>
-    <string name="menu_scan">브릿지 QR코드 스캔하기</string>
-    <string name="menu_share_bridge">브릿지 QR코드 공유하기</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">일반</string>

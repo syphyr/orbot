@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Enviar</string>
     <string name="button_about">Sobre</string>
     <string name="menu_exit">Sair</string>
-    <string name="menu_scan">Digitalizar BridgeQR</string>
-    <string name="menu_share_bridge">Compartilhar BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Geral</string>

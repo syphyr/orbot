@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Lähetys</string>
     <string name="button_about">Tietoja</string>
     <string name="menu_exit">Sulje</string>
-    <string name="menu_scan">Lue sillan QR-koodi</string>
-    <string name="menu_share_bridge">Jaa sillan QR-koodi</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Yleiset</string>

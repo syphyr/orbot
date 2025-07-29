@@ -65,8 +65,6 @@
     <string name="use_custom_bridges">Օգտագործել հարմարեցված կամուրջները</string>
     <string name="volunteer_mode_title">Օգնեք ուրիշներին
 \nմիանալ Tor-ին</string>
-    <string name="menu_share_bridge">Տարածել BridgeQR-ը</string>
-    <string name="menu_scan">Ծրել BridgeQR-ը</string>
     <string name="pref_proxy_host_title">Արտագնա փոխանորդի հյուրընկալ</string>
     <string name="pref_proxy_port_summary">Փոխանորդ սերվերի մատույցը</string>
     <string name="pref_proxy_port_title">Արտագնա փոխանորդի մատույց</string>

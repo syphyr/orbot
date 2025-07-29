@@ -74,8 +74,6 @@
     <string name="btn_use_custom_bridge">Uporaba mostu po meri</string>
     <string name="msg_taking_too_long">Zdi se, da to traja predolgo</string>
     <string name="msg_try_something_else">Poskusite kaj drugega</string>
-    <string name="menu_scan">Skeniranje BridgeQR</string>
-    <string name="menu_share_bridge">Skupna raba BridgeQR</string>
     <string name="pref_start_boot_summary">Samodejno zaženite Orbot in povežite Tor, ko se naprava s sistemom Android zažene</string>
     <string name="pref_entrance_node">Vstopna vozlišča</string>
     <string name="pref_entrance_node_dialog">Vstopite v vstopna vozlišča</string>

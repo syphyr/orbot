@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Apkataña</string>
     <string name="button_about">Juk\'ampi</string>
     <string name="menu_exit">Mistuña</string>
-    <string name="menu_scan">Chaka QR waruqaña</string>
-    <string name="menu_share_bridge">Chaka QR ch\'iqiyaña</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot aplikasyunax inakiwa, kawknïriti Tor IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks ukat LibEvent ukaniwa. Tor llikanx mä VPN tunila, mä akankir proxy HTTP Connect (8118 waythapiwja ukanaki HTTPS) ukat mä SOCKS proxy (9050) churi.</string>
     <!--END Welcome Wizard strings (DJH)-->

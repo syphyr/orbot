@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Slanje</string>
     <string name="button_about">Informacije</string>
     <string name="menu_exit">Izlaz</string>
-    <string name="menu_scan">Skeniraj BridgeQR</string>
-    <string name="menu_share_bridge">Podijeli BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Općenito</string>

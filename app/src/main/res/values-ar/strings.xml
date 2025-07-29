@@ -10,8 +10,6 @@
     <string name="main_layout_upload">رفع</string>
     <string name="button_about">حول</string>
     <string name="menu_exit">خروج</string>
-    <string name="menu_scan">فحص QR الجسر</string>
-    <string name="menu_share_bridge">مشاركة QR الجسر</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">عام</string>

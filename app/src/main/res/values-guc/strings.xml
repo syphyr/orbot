@@ -10,8 +10,6 @@
   <string name="main_layout_upload">Alika\'a </string>
   <string name="button_about">Jautoupuna</string>
   <string name="menu_exit">Ajuitia</string>
-  <string name="menu_scan">Ayakuajirrawua pata\'a     QR </string>
-  <string name="menu_share_bridge">Ana\'apajirrawua pata\'a QR</string>
   <string name="wizard_details_msg">Orbot jia wane ayataya  kalúús Tor,PtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks y LibEvent. apus  wopúú VPN, un proxy HTTP Connect local (HTTPS jumuiwuaya\'a 8118) je wanee proxy SOCKS (9050) julúú atalaya Tor.</string>
   <string name="pref_general_group">Jupushu\'aa.</string>
   <string name="pref_start_boot_title">Achüwuaja Orbot juttianain.</string>

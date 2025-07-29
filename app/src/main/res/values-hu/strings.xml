@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Feltöltés</string>
     <string name="button_about">Névjegy</string>
     <string name="menu_exit">Kilépés</string>
-    <string name="menu_scan">BridgeQR szkennelése</string>
-    <string name="menu_share_bridge">BridgeQR megosztása</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Az Orbot egy nyilt forráskódú alkalmazás ami Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, és LibEvent alkalmazásokat tartalmaz. Helyi  HTTP proxyt (8118) és  SOCKS proxyt (9050) biztosít a Tor hálózatba. Az Orbot továbbá képes arra, hogy rootolt eszközön a teljes internet forgalmat keresztül küldje a Tor-on.</string>
     <!--END Welcome Wizard strings (DJH)-->

@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Yükle</string>
     <string name="button_about">Hakkında</string>
     <string name="menu_exit">Çıkış</string>
-    <string name="menu_scan">QR kodu tara</string>
-    <string name="menu_share_bridge">QR kodu paylaş</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot; Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, LibEvent yapılarını kapsayan açık kaynaklı bir uygulamadır. Tor ağına bağlanmak için bir yerel HTTP vekil sunucu (sadece 8118 portunu kullanır) ve bir SOCKS vekil sunucu (9050) sağlar.</string>
     <!--END Welcome Wizard strings (DJH)-->

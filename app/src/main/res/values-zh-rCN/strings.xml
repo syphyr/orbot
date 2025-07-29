@@ -10,8 +10,6 @@
     <string name="main_layout_upload">上传</string>
     <string name="button_about">关于</string>
     <string name="menu_exit">退出</string>
-    <string name="menu_scan">扫描网桥二维码</string>
-    <string name="menu_share_bridge">分享网桥二维码</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">常规</string>

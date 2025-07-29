@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Вивантаження</string>
     <string name="button_about">Про застосунок</string>
     <string name="menu_exit">Вихід</string>
-    <string name="menu_scan">Сканувати BridgeQR</string>
-    <string name="menu_share_bridge">Поділитися BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot — це застосунок з відкритим кодом, що містить Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, LibEvent. Він забезпечує локальний HTTP-проксі (8118) та проксі SOCKS (9050) у мережу Tor.</string>
     <!--END Welcome Wizard strings (DJH)-->

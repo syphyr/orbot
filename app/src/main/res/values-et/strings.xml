@@ -82,8 +82,6 @@
     <string name="backup_service">Varundusteenus <i>(hoiatus: see võib teie teenuse konfiguratsiooni teistele rakendustele paljastada)</i></string>
     <string name="pref_isolate_dest">Eraldada sihtkoha aadressid</string>
     <string name="pref_prefer_ipv6">Eelistab IPv6 ühendusi</string>
-    <string name="menu_scan">Skaneeri BridgeQR</string>
-    <string name="menu_share_bridge">Jaga BridgeQR</string>
     <string name="share_as_qr">Jaga kui QR</string>
     <string name="app_shortcuts">Tor-toega rakendused</string>
     <string name="pref_allow_background_starts_title">Luba käivitusi taustal</string>

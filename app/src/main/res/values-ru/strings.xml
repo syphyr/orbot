@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Отправка</string>
     <string name="button_about">О приложении</string>
     <string name="menu_exit">Выход</string>
-    <string name="menu_scan">Сканировать QR-код моста</string>
-    <string name="menu_share_bridge">Поделиться QR-кодом моста</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot — это приложение с открытым исходным кодом, которое содержит Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks и LibEvent. Оно обеспечивает VPN-туннель, локальный прокси HTTP Connect (HTTPS только на порту 8118) и SOCKS-прокси (9050) в сеть Tor.</string>
     <!--END Welcome Wizard strings (DJH)-->

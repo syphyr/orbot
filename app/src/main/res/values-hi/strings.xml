@@ -10,8 +10,6 @@
     <string name="main_layout_upload">अपलोड</string>
     <string name="button_about">हमारे बारे में</string>
     <string name="menu_exit">निकलें</string>
-    <string name="menu_scan">ब्रिजक्यूआर स्कैन करें</string>
-    <string name="menu_share_bridge">ब्रिजक्यूआर शेयर करें</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">ऑरबॉट एक आज़ाद स्रोत ऐप है जिसमें टॉर, आईपीटीप्रॉक्सी (ओबीएफएस4प्रॉक्सी, मीक, स्नोफ्लेक), गो-टन2सॉक्स, और लिबइवेंट शामिल हैं। ये एक वीपीएन टनल देता है, टॉर नेटवर्क में जाने के लिए एक स्थानिय एचटीटीपी कनेक्ट प्रॉक्सी (एचटीटीपीएस सिर्फ 8118 पोर्ट पे) और एक सॉक्स प्रॉक्सी (9050)।</string>
     <!--END Welcome Wizard strings (DJH)-->

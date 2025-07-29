@@ -11,8 +11,6 @@
   <string name="main_layout_upload">Neera pasrɵp</string>
   <string name="button_about">Ikwan wamɵrɵsrɵpik</string>
   <string name="menu_exit">Wepiamik</string>
-  <string name="menu_scan">QRyu kutri asamik</string>
-  <string name="menu_share_bridge">BridgeQwan purɵramik</string>
   <string name="wizard_details_msg">Orbotpe mayaelai kɵn, ikpe møi eshkailø tøkaik køn Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks and LibEvent. Kan VPN kelichai purɵrɵpik, kan Proxy HTTP (HTTPS puerto 8118yutɵ kepintrapik) srape kan proxy SOCKS (9050) Toryu kelichapik.</string>
   <string name="pref_general_group">Mayaelai</string>
   <string name="pref_start_boot_title">Orbotwan kurɵptɵ pɵlpasramik</string>

@@ -110,8 +110,6 @@
     <string name="main_layout_upload">Subir</string>
     <string name="button_about">Acerca de</string>
     <string name="menu_exit">Salir</string>
-    <string name="menu_scan">Escaner Código QR</string>
-    <string name="menu_share_bridge">Compartir el Código QR del Puente</string>
     <string name="pref_general_group">Información General</string>
     <string name="pref_start_boot_title">Iniciar Orbot en el arranque</string>
     <string name="pref_start_boot_summary">Inicia automáticamente Orbot y conecta Tor cuando arranques tu dispositivo Android</string>

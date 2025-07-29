@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Tải lên</string>
     <string name="button_about">Giới thiệu</string>
     <string name="menu_exit">Thoát</string>
-    <string name="menu_scan">Quét mã BridgeQR</string>
-    <string name="menu_share_bridge">Chia sẻ mã BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Tổng quan</string>

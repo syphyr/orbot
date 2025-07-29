@@ -10,8 +10,6 @@
     <string name="main_layout_upload">பதிவேற்று</string>
     <string name="button_about">பற்றி </string>
     <string name="menu_exit">வெளியேறு</string>
-    <string name="menu_scan">ஸ்கேன் BridgeQR</string>
-    <string name="menu_share_bridge">BridgeQR பகிர்ந்திடு</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">பொது</string>

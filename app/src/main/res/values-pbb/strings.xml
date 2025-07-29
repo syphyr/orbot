@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Mkaateka’j </string>
     <string name="button_about">Naa yuwete’</string>
     <string name="menu_exit">Kase’jnxi</string>
-    <string name="menu_scan"> Naa BridgeQR ew mtheg </string>
-    <string name="menu_share_bridge">Naa BridgeQR mtxuhde</string>
     <string name="wizard_details_msg">ORBOTa’ wala selpiisa’, naa çaam wejxa’tx ji’phpa’ka: Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks ki’ LibEvent. Paaç jxkhẽwwa’ja’ teeçx weh VPNek ũsu’, teeçx proxy HTTP Connect local (HTTPS, naa’ 8118 vxitxteçxaa) ki’ TORte’ teeçx proxy SOCKS (9050)</string>
     <string name="pref_general_group">Jxukaynas </string>
     <string name="pref_start_boot_title">Puukiweçxa’, ORBOTa’s mtakh</string>

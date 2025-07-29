@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Incarcă</string>
     <string name="button_about">Despre</string>
     <string name="menu_exit">Ieşire</string>
-    <string name="menu_scan">Scanează BridgeQR</string>
-    <string name="menu_share_bridge">Distribuie BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">General</string>

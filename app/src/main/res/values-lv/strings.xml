@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Augšupielāde</string>
     <string name="button_about">Par</string>
     <string name="menu_exit">Iziet</string>
-    <string name="menu_scan">Skenēt BridgeQR</string>
-    <string name="menu_share_bridge">Koplietot BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Vispārīgi</string>

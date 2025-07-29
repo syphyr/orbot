@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Изпратено</string>
     <string name="button_about">Относно</string>
     <string name="menu_exit">Изход</string>
-    <string name="menu_scan">Сканиране на QR на мост</string>
-    <string name="menu_share_bridge">Споделяне на QR на мост</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Общи</string>

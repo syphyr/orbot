@@ -76,8 +76,6 @@
     <string name="allow">Permitter</string>
     <string name="hidden_services">Servicios onion</string>
     <string name="done">Facite!</string>
-    <string name="menu_scan">Scannar BridgeQR</string>
-    <string name="menu_share_bridge">Compartir BridgeQR</string>
     <string name="kindness_adjust_title">Parametros</string>
     <string name="custom_bridges">Pontes personalisate</string>
     <string name="secure_your_connection_title">Preste pro connecter</string>
