@@ -1,4 +1,4 @@
-package org.torproject.android.service.util
+package org.torproject.android.service.tor
 
 import android.content.Context
 import org.torproject.android.service.OrbotConstants
@@ -44,4 +44,3 @@ class CustomTorResourceInstaller(private val context: Context, private val insta
         }
     }
 }
-

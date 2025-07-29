@@ -1,9 +1,10 @@
-package org.torproject.android.service.util
+package org.torproject.android.service.receivers
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import org.torproject.android.service.OrbotService
+import org.torproject.android.service.util.Prefs
 
 class PowerConnectionReceiver(private val mService: OrbotService) : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {

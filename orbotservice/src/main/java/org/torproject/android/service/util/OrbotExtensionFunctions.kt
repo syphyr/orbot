@@ -1,7 +1,9 @@
-package org.torproject.android.core
+package org.torproject.android.service.util
 
 import android.content.Context
 import android.content.Intent
+import android.widget.Toast
+import androidx.annotation.StringRes
 
 import androidx.core.content.ContextCompat
 
@@ -51,3 +53,9 @@ fun Context.sendIntentToService(action: String) =
  */
 fun <K, V> Map<K, V>.getKey(value: V) =
     entries.firstOrNull { it.value == value }?.key
+
+fun Context.showToast(msg: CharSequence) =
+    Toast.makeText(this, msg, Toast.LENGTH_LONG).show()
+
+fun Context.showToast(@StringRes msgId: Int) =
+    Toast.makeText(this, msgId, Toast.LENGTH_LONG).show()

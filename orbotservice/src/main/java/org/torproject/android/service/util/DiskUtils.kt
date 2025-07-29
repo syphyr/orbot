@@ -1,4 +1,4 @@
-package org.torproject.android.core
+package org.torproject.android.service.util
 
 import android.content.ContentResolver
 import android.content.Context
@@ -7,6 +7,7 @@ import android.net.Uri
 import java.io.BufferedReader
 import java.io.File
 import java.io.IOException
+import java.io.InputStream
 import java.io.InputStreamReader
 
 object DiskUtils {
@@ -51,6 +52,25 @@ object DiskUtils {
         val contents = directory.listFiles()
         contents?.forEach { recursivelyDeleteDirectory(it) }
         return directory.delete()
+    }
+
+    @JvmStatic
+    fun readInputStreamAsString(stream: InputStream?): String {
+        var line: String?
+        val out = StringBuilder()
+
+        try {
+            val reader = BufferedReader(InputStreamReader(stream))
+
+            while ((reader.readLine().also { line = it }) != null) {
+                out.append(line)
+                out.append('\n')
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+
+        return out.toString()
     }
 
 }

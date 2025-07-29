@@ -8,6 +8,7 @@ import android.os.Build
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.util.Prefs
+import org.torproject.android.service.util.putNotSystem
 
 class OnBootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {

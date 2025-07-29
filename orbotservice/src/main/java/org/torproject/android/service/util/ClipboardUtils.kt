@@ -1,4 +1,4 @@
-package org.torproject.android.core
+package org.torproject.android.service.util
 
 import android.content.ClipData
 import android.content.ClipboardManager

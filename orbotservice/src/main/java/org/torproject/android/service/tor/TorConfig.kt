@@ -1,30 +1,13 @@
-package org.torproject.android.service.util
+package org.torproject.android.service.tor
 
 import android.content.ContextWrapper
 import android.content.SharedPreferences
-import org.torproject.android.service.OrbotConstants.HTTP_PROXY_PORT_DEFAULT
-import org.torproject.android.service.OrbotConstants.PREF_CIRCUIT_PADDING
-import org.torproject.android.service.OrbotConstants.PREF_CONNECTION_PADDING
-import org.torproject.android.service.OrbotConstants.PREF_DISABLE_IPV4
-import org.torproject.android.service.OrbotConstants.PREF_DNSPORT
-import org.torproject.android.service.OrbotConstants.PREF_HTTP
-import org.torproject.android.service.OrbotConstants.PREF_ISOLATE_DEST
-import org.torproject.android.service.OrbotConstants.PREF_ISOLATE_KEEP_ALIVE
-import org.torproject.android.service.OrbotConstants.PREF_ISOLATE_PORT
-import org.torproject.android.service.OrbotConstants.PREF_ISOLATE_PROTOCOL
-import org.torproject.android.service.OrbotConstants.PREF_PREFER_IPV6
-import org.torproject.android.service.OrbotConstants.PREF_REACHABLE_ADDRESSES
-import org.torproject.android.service.OrbotConstants.PREF_REACHABLE_ADDRESSES_PORTS
-import org.torproject.android.service.OrbotConstants.PREF_REDUCED_CIRCUIT_PADDING
-import org.torproject.android.service.OrbotConstants.PREF_REDUCED_CONNECTION_PADDING
-import org.torproject.android.service.OrbotConstants.PREF_SOCKS
-import org.torproject.android.service.OrbotConstants.PREF_TRANSPORT
-import org.torproject.android.service.OrbotConstants.SOCKS_PROXY_PORT_DEFAULT
-import org.torproject.android.service.OrbotConstants.TOR_DNS_PORT_DEFAULT
-import org.torproject.android.service.OrbotConstants.TOR_TRANSPROXY_PORT_DEFAULT
+import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.db.OnionServiceColumns
 import org.torproject.android.service.db.V3ClientAuthColumns
+import org.torproject.android.service.util.NetworkUtils
+import org.torproject.android.service.util.Prefs
 import java.io.File
 
 object TorConfig {
@@ -38,8 +21,8 @@ object TorConfig {
 
         val prefs = Prefs.getSharedPrefs(context)
 
-        var socksPortPref = getPort(prefs?.getString(PREF_SOCKS, null) ?: SOCKS_PROXY_PORT_DEFAULT)
-        var httpPortPref = getPort(prefs?.getString(PREF_HTTP, null) ?: HTTP_PROXY_PORT_DEFAULT)
+        var socksPortPref = getPort(prefs?.getString(OrbotConstants.PREF_SOCKS, null) ?: OrbotConstants.SOCKS_PROXY_PORT_DEFAULT)
+        var httpPortPref = getPort(prefs?.getString(OrbotConstants.PREF_HTTP, null) ?: OrbotConstants.HTTP_PROXY_PORT_DEFAULT)
 
         val isolate = getIsolation(prefs)
         val ipv6Pref = getIpv6(prefs)
@@ -55,26 +38,26 @@ object TorConfig {
         conf.add("TestSocks 0")
         conf.add("HTTPTunnelPort $httpPortPref $isolate")
 
-        if (prefs?.getBoolean(PREF_CONNECTION_PADDING, false) ?: false) {
+        if (prefs?.getBoolean(OrbotConstants.PREF_CONNECTION_PADDING, false) ?: false) {
             conf.add("ConnectionPadding 1")
         }
 
-        if (prefs?.getBoolean(PREF_REDUCED_CONNECTION_PADDING, true) ?: true) {
+        if (prefs?.getBoolean(OrbotConstants.PREF_REDUCED_CONNECTION_PADDING, true) ?: true) {
             conf.add("ReducedConnectionPadding 1")
         }
 
-        val circuitPadding = prefs?.getBoolean(PREF_CIRCUIT_PADDING, true) ?: true
+        val circuitPadding = prefs?.getBoolean(OrbotConstants.PREF_CIRCUIT_PADDING, true) ?: true
         conf.add("CircuitPadding ${if (circuitPadding) "1" else "0"}")
 
-        if (prefs?.getBoolean(PREF_REDUCED_CIRCUIT_PADDING, true) ?: true) {
+        if (prefs?.getBoolean(OrbotConstants.PREF_REDUCED_CIRCUIT_PADDING, true) ?: true) {
             conf.add("ReducedCircuitPadding 1")
         }
 
-        val transPort = prefs?.getString(PREF_TRANSPORT, null) ?: TOR_TRANSPROXY_PORT_DEFAULT.toString()
-        val dnsPort = prefs?.getString(PREF_DNSPORT, null) ?: TOR_DNS_PORT_DEFAULT.toString()
+        val transPort = prefs?.getString(OrbotConstants.PREF_TRANSPORT, null) ?: OrbotConstants.TOR_TRANSPROXY_PORT_DEFAULT.toString()
+        val dnsPort = prefs?.getString(OrbotConstants.PREF_DNSPORT, null) ?: OrbotConstants.TOR_DNS_PORT_DEFAULT.toString()
 
-        conf.add("TransPort ${Utils.checkPortOrAuto(transPort)} $isolate")
-        conf.add("DNSPort ${Utils.checkPortOrAuto(dnsPort)} $isolate")
+        conf.add("TransPort ${NetworkUtils.checkPortOrAuto(transPort)} $isolate")
+        conf.add("DNSPort ${NetworkUtils.checkPortOrAuto(dnsPort)} $isolate")
         conf.add("VirtualAddrNetwork 10.192.0.0/10")
         conf.add("AutomapHostsOnResolve 1")
         conf.add("DormantClientTimeout 10 minutes")
@@ -141,8 +124,8 @@ object TorConfig {
         val enableStrictNodes = prefs?.getBoolean("pref_strict_nodes", false) ?: false
         conf.add("StrictNodes ${if (enableStrictNodes) "1" else "0"}")
 
-        if (prefs?.getBoolean(PREF_REACHABLE_ADDRESSES, false) ?: false) {
-            val reachableAddressesPorts = prefs.getString(PREF_REACHABLE_ADDRESSES_PORTS, null) ?: "*:80,*:443"
+        if (prefs?.getBoolean(OrbotConstants.PREF_REACHABLE_ADDRESSES, false) ?: false) {
+            val reachableAddressesPorts = prefs.getString(OrbotConstants.PREF_REACHABLE_ADDRESSES_PORTS, null) ?: "*:80,*:443"
             conf.add("ReachableAddresses $reachableAddressesPorts")
         }
 
@@ -170,23 +153,23 @@ object TorConfig {
 
         if (port.indexOf(':') != -1) port = port.split(":").toTypedArray()[1]
 
-        return Utils.checkPortOrAuto(port)
+        return NetworkUtils.checkPortOrAuto(port)
     }
 
     @Suppress("NullableBooleanElvis")
     private fun getIsolation(prefs: SharedPreferences?): String {
         val isolate = mutableListOf<String>()
 
-        if (prefs?.getBoolean(PREF_ISOLATE_DEST, false) ?: false) {
+        if (prefs?.getBoolean(OrbotConstants.PREF_ISOLATE_DEST, false) ?: false) {
             isolate.add("IsolateDestAddr")
         }
-        if (prefs?.getBoolean(PREF_ISOLATE_PORT, false) ?: false) {
+        if (prefs?.getBoolean(OrbotConstants.PREF_ISOLATE_PORT, false) ?: false) {
             isolate.add("IsolateDestPort")
         }
-        if (prefs?.getBoolean(PREF_ISOLATE_PROTOCOL, false) ?: false) {
+        if (prefs?.getBoolean(OrbotConstants.PREF_ISOLATE_PROTOCOL, false) ?: false) {
             isolate.add("IsolateClientProtocol")
         }
-        if (prefs?.getBoolean(PREF_ISOLATE_KEEP_ALIVE, false) ?: false) {
+        if (prefs?.getBoolean(OrbotConstants.PREF_ISOLATE_KEEP_ALIVE, false) ?: false) {
             isolate.add("KeepAliveIsolateSOCKSAuth")
         }
 
@@ -197,12 +180,12 @@ object TorConfig {
     private fun getIpv6(prefs: SharedPreferences?): String {
         val ipv6Pref = mutableSetOf<String>()
 
-        if (prefs?.getBoolean(PREF_PREFER_IPV6, true) ?: true) {
+        if (prefs?.getBoolean(OrbotConstants.PREF_PREFER_IPV6, true) ?: true) {
             ipv6Pref.add("IPv6Traffic")
             ipv6Pref.add("PreferIPv6")
         }
 
-        if (prefs?.getBoolean(PREF_DISABLE_IPV4, false) ?: false) {
+        if (prefs?.getBoolean(OrbotConstants.PREF_DISABLE_IPV4, false) ?: false) {
             ipv6Pref.add("IPv6Traffic")
             ipv6Pref.add("NoIPv4Traffic")
         }

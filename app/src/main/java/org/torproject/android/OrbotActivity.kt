@@ -28,11 +28,11 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scottyab.rootbeer.RootBeer
 
-import org.torproject.android.core.sendIntentToService
+import org.torproject.android.service.util.sendIntentToService
 import org.torproject.android.core.ui.BaseActivity
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.util.Prefs
-import org.torproject.android.service.util.Utils.showToast
+import org.torproject.android.service.util.showToast
 import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.android.ui.connect.ConnectViewModel
 import org.torproject.android.util.DeviceAuthenticationPrompt
