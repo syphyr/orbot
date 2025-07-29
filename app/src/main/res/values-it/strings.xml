@@ -245,9 +245,6 @@
     <string name="direct_connect_subtitle">Il modo migliore per connettersi a Tor. Usalo se Tor non viene bloccato.</string>
     <string name="snowflake">Snowflake (originale)</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
-    <string name="get_a_bridge_subtitle">Occulta il tuo traffico. Aggira qualche blocco di Tor.</string>
-    <string name="custom_bridge">Bridge personalizzati</string>
-    <string name="custom_bridge_subtitle">È probabile che ti mantenga connesso se Tor viene bloccato attivamente. Richiede un indirizzo bridge da qualcuno di cui ti fidi.</string>
     <string name="having_trouble_subtitle">Possiamo provare un bridge Tor, ma ci servirà il tuo aiuto</string>
     <string name="power_user_description">Per gli utenti familiari con Tor. Consente di avviare Orbot senza l\'impostazione VPN e mostra le porte SOCKS e HTTP aperte</string>
     <string name="volunteer_status_title">Un giorno migliore
