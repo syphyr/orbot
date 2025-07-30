@@ -296,4 +296,17 @@
     <string name="device_lock_security_update_needed">يجب عليك تنزيل تحديثات أمان أندرويد لجهازك لتتمكن من استخدام استيثاق Orbot</string>
     <string name="pref_password_only_no_biometric">عدم السماح بالقياسات الحيوية لاستيثاق Orbot</string>
     <string name="pref_password_only_no_biometric_description">هذا يجبر استيثاق Orbot على طلب كلمة سر جهازك فقط حتى لو ضُبط استيثاق البيومتري، مثل بصمة الإصبع أو فتح القفل بالوجه، على جهازك.</string>
+    <string name="bridges_via_telegram">جسور تور (obfs4) عبر تيليجرام</string>
+    <string name="bridges_via_telegram_subtitle">من المحتمل أن يبقيك متصلاً إذا كان تور محظورًا بشدة. سيؤدي استخدام هذه الطريقة إلى تشغيل قناة Tor Bot على تيليجرام. اضغط على \"ابدأ\" أو اكتب \"%1$s\" في الدردشة للحصول على عناوين الجسور.</string>
+    <string name="bridges_via_email">جسور تور (obfs4) عبر البريد الإلكتروني</string>
+    <string name="bridges_via_email_subtitle">يخفي حركة بياناتك. يتجاوز بعض حجب تور. يتطلب إرسال بريد إلكتروني من حساب Gmail أو Riseup.</string>
+    <string name="bridge_meek_azure_subtitle">يخفي حركة بياناتك. يتجاوز بعض حجب تور. قد يكون بطيئًا جدًا.</string>
+    <string name="custom_bridges_subtitle">اسأل داخل شبكاتك ومنظماتك الموثوقة لمعرفة ما إذا كان أي شخص يستضيف جسرًا. إذا لم يكن كذلك، يمكن لصديق الحصول على الجسور لك.</string>
+    <string name="custom_bridges_description">ألصق عناوين الجسور التي تتلقاها أدناه. أو امسح رمز QR لإضافته. يمكن للأصدقاء الحصول على جسور لك في %1$s.</string>
+    <string name="action_use_">استخدم %1$s</string>
+    <string name="built_in_bridges_obfs4">الجسور المضمّنة (obfs4)</string>
+    <string name="built_in_bridges_obfs4_subtitle">يخفي حركة بياناتك. يتجاوز بعض حجب تور. جيد إذا كنت تستخدم شبكة واي فاي عامة، ولكن في بلد لا يتم فيه حجب تور.</string>
+    <string name="run_smart_connect_">شغل الاتصال الذكي لإيجاد أفضل طريقة</string>
+    <string name="enter_bridge_address">أدخل عنوان الجسر</string>
+    <string name="scan_qr_code">امسح رمز QR</string>
 </resources>

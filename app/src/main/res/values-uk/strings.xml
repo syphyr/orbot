@@ -302,4 +302,11 @@
     <string name="bridges_via_email_subtitle">Маскує ваш трафік. Обходить деякі блокування Tor. Потрібно, щоб електронний лист був надісланий з облікового запису Gmail або Riseup.</string>
     <string name="bridge_meek_azure_subtitle">Маскує ваш трафік. Обходить деякі блокування Tor. Може бути дуже повільним.</string>
     <string name="custom_bridges_subtitle">Запитайте у своїх надійних мережах та організаціях, чи хтось пропонує міст. Якщо ні, друг може його вам розмістити.</string>
+    <string name="custom_bridges_description">Вставте нижче отримані адреси мостів. Або проскануйте QR-код, щоб додати їх. Друзі можуть отримати мости для вас на %1$s.</string>
+    <string name="action_use_">Використання %1$s</string>
+    <string name="enter_bridge_address">Введіть адресу мосту</string>
+    <string name="built_in_bridges_obfs4">Вбудовані мости (obfs4)</string>
+    <string name="built_in_bridges_obfs4_subtitle">Маскує ваш трафік. Допомагає обійти блокування Tor. Добре, якщо ви користуєтеся публічним Wi-Fi, але в країні, де Tor не заблоковано.</string>
+    <string name="run_smart_connect_">Запустіть Smart Connect, щоб знайти найкращий шлях</string>
+    <string name="scan_qr_code">Відскануйте QR-код</string>
 </resources>

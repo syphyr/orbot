@@ -290,4 +290,17 @@
     <string name="device_lock_security_update_needed">您必须为您的设备下载 Android 安全更新，以便使用 Orbot 身份验证</string>
     <string name="pref_password_only_no_biometric">不允许 Orbot 身份验证的生物识别</string>
     <string name="pref_password_only_no_biometric_description">即使在您的设备上配置了指纹或人脸解锁等生物识别身份验证，此选项也会强制 Orbot 身份验证只要求使用设备密码。</string>
+    <string name="action_use_">使用 %1$s</string>
+    <string name="enter_bridge_address">输入网桥地址</string>
+    <string name="scan_qr_code">扫描二维码</string>
+    <string name="built_in_bridges_obfs4">内置 obfs4 网桥</string>
+    <string name="bridges_via_telegram">通过 Telegram 获取 obfs4 网桥</string>
+    <string name="bridges_via_email">通过电子邮件获取 obfs4 网桥</string>
+    <string name="bridges_via_telegram_subtitle">如果 Tor 被严重屏蔽，此方法可能会让您保持连接。使用此方法将启动 Tor Bot Telegram 频道。点击“开始”或在聊天中输入“%1$s”即可获取网桥地址。</string>
+    <string name="bridges_via_email_subtitle">伪装您的流量，绕过某些 Tor 屏蔽。需要使用 Gmail 或 Riseup 账号发送邮件。</string>
+    <string name="bridge_meek_azure_subtitle">伪装您的流量，绕过某些 Tor 屏蔽。速度可能非常慢。</string>
+    <string name="custom_bridges_subtitle">在可信网络和组织内询问是否有人托管网桥。如果没有，您可以让朋友帮您获取网桥。</string>
+    <string name="custom_bridges_description">将收到的网桥地址粘贴到下方，或扫描二维码添加。朋友可以通过 %1$s 帮您获取网桥。</string>
+    <string name="built_in_bridges_obfs4_subtitle">伪装您的流量，绕过某些 Tor 屏蔽。如果您使用的是公共 Wi-Fi，但所在国家/地区没有屏蔽 Tor，这种方法效果很好。</string>
+    <string name="run_smart_connect_">运行智能连接以查找最佳方式</string>
 </resources>

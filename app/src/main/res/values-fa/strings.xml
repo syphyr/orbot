@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Orbot</string>
-    <string name="app_description">Orbot یک برنامه پراکسی رایگان است که به سایر برنامه‌ها امکان می‌دهد از اینترنت به‌صورت امن‌تر استفاده کنند. Orbot از شبکه Tor برای رمزنگاری ترافیک اینترنت شما استفاده می‌کند و سپس با عبور از چندین کامپیوتر در سراسر جهان آن را مخفی می‌کند. Tor یک نرم‌افزار رایگان و شبکه‌ای باز است که به شما کمک می‌کند در برابر نوعی نظارت شبکه‌ای به نام تحلیل ترافیک که آزادی و حریم خصوصی شخصی، فعالیت‌ها و روابط تجاری محرمانه و امنیت دولت را تهدید می‌کند، دفاع کنید.</string>
-    <string name="menu_settings">تنظیمات Orbot</string>
+    <string name="app_name">روبوت پیازی</string>
+    <string name="app_description">روبوت پیازی کارهٔ پیشکار آزادی است که دیگر کاره‌ها را در استفاده امن از اینترنت توانمند می‌کند. روبوت پیازی برای رمزگذاری شدآمد اینترنت‌تان و نهفتنش با عبور از میان دنباله‌ای از رایانه‌ها در سراسر جهان، از تور استفاده می‌کند. تور نرم‌افزار آزاد و شبکه‌ای باز است که به شما در برابر شکلی از نظارت شبکه با نام تجزیهٔ شدآمد که محرمانگی و آزادی فردی، فعّالیت‌های تجاری محرمانه و امنیت ملّی را تهدید می‌کند، یاری می‌رساند.</string>
+    <string name="menu_settings">تنظیمات روبوت پیازی</string>
     <string name="menu_log">گزارشات</string>
     <string name="menu_stop">توقّف</string>
     <string name="menu_about">درباره</string>
@@ -285,15 +285,28 @@
     <string name="camo_dialog_enable_confirm_msg" formatted="true">روبوت پیازی خودش را به شکل کارهٔ %1$s استتار می‌کند. این کار همهٔ آگاهی‌ها و جزییات دربارهٔ تور را نهفته و چگونگی ظاهر شدن روبوت پیازی را روی صفحهٔ خانگیتان تغییر خواهد داد.\n\nاستتار کردن به عنوان %2$s روبوت پیازی را دوباره آغاز خواهد کرد.</string>
     <string name="power_user_mode_permission">نیازمند اجازهٔ هشدارها و یادآوری‌ها برای حالت کاربر حرفه‌ای</string>
     <string name="power_user_mode_permission_msg">لطفاً برای استفاده از حالت کاربر حرفه‌ای به روبوت پیازی اجازه دهید هشدار و یادآوری تنظیم کند. این برنامه واقعاً هیچ هشداری روی افزاره‌تان تنظیم نخواهد کرد. این اجازه برای در حال اجرا نگه داشتن خدمت روبوت پیازی هنگامی که به عنوان وی‌پی‌ان سراسری استفاده نمی‌شود لازم است.</string>
-    <string name="pref_require_password">قفل گذرواژهٔ افزاره</string>
-    <string name="pref_require_password_description">پیشگیری از دسترسی به روبوت پیازی تا زمان ورود گذرواژهٔ افزاره‌تان. این ویژگی می‌تواند با حالت استتار ترکیب شده تا نصب بودن روبوت پیازی روی افزاره‌تان را پنهان کند</string>
-    <string name="error_no_password_set">لطفاً برای استفاده از قفل گذرواژهٔ افزاره گذرواژه‌ای روی افزاره‌تان تنظیم کنید</string>
-    <string name="unlock_app_msg" formatted="true">قفل‌گشایی %s نیازمند گذرواژهٔ افزاره‌تان است</string>
+    <string name="pref_require_password">هویت‌سنجی روبوت پیازی</string>
+    <string name="pref_require_password_description">پیشگیری از دسترسی به روبوت پیازی تا هویت‌سنجیتان با ورود گذرواژهٔ افزاره. این ویژگی می‌تواند با حالت استتار ترکیب شده تا نصب بودن روبوت پیازی روی افزاره‌تان را پنهان کند</string>
+    <string name="error_no_password_set">لطفاً برای استفاده از هویت‌سنجی روبوت پیازی افزاره‌تان را امن کنید</string>
+    <string name="unlock_app_msg" formatted="true">لطفاً برای استفاده از %s قفل افزاره‌تان را بگشایید</string>
     <string name="pref_camo_mode_description">تغییر چگونگی نمایش متن آگاهی، عنوان و نقشک روبوت پیازی روی افزاره‌تان</string>
     <string name="error_asking_tor_for_bridges">خطا در پرسیدن چگونگی وصل شدن از تور</string>
     <string name="invalid_bridge_format">قالب پل نامعتبر</string>
-    <string name="device_lock_unsupported">احراز هویت Orbot در دستگاه شما پشتیبانی نمی‌شود</string>
-    <string name="device_lock_security_update_needed">برای استفاده از احراز هویت Orbot باید به‌روزرسانی‌های امنیتی اندروید را برای دستگاه خود دانلود کنید</string>
-    <string name="pref_password_only_no_biometric">برای احراز هویت Orbot استفاده از بیومتریک را ممنوع کنید</string>
-    <string name="pref_password_only_no_biometric_description">این گزینه باعث می‌شود احراز هویت Orbot فقط به رمز عبور دستگاه نیاز داشته باشد، حتی اگر احراز هویت بیومتریک مانند اثر انگشت یا تشخیص چهره در دستگاه شما فعال باشد.</string>
+    <string name="device_lock_unsupported">هویت‌سنجی روبوت پیازی روی افزاره‌تان پشتیبانی نمی‌شود</string>
+    <string name="device_lock_security_update_needed">برای استفاده از هویت‌سنجی روبوت پیازی باید به‌روز رسانی‌های امنیتی اندروید را برای افزاره‌تان بار بگیرید</string>
+    <string name="pref_password_only_no_biometric">برداشتن اجازهٔ زیست‌سنجی برای روبوت پیازی</string>
+    <string name="pref_password_only_no_biometric_description">این کار هویت‌سنجی روبوت پیازی را وادار می‌کند تنها گذرواژهٔ افزاره‌تان را بخواهد حتا اگر زیست‌سنجی‌ای چون اثر انگشت یا قفل‌گشایی چهره روی افزاره‌تان پیکربندی شده باشد.</string>
+    <string name="enter_bridge_address">ورود نشانی پل</string>
+    <string name="built_in_bridges_obfs4">پل توکار (obfs4)</string>
+    <string name="bridges_via_telegram">پل‌های تور (obfs4) با تلگرام</string>
+    <string name="bridges_via_telegram_subtitle">احتمال وصل کردنتان در صورت مسدود بودن شدید تور. استفاده از این روش کانال تاگرام روبوت تور را اجرا خواهد کرد. زدن روی «شروع» یا نوشتن %1$s در گپ برای گرفتن نشانی‌های پل.</string>
+    <string name="bridges_via_email">پل‌های تور (obfs4) با رایانامه</string>
+    <string name="bridges_via_email_subtitle">مخفی کردن شدآمدتان. دور زدن برخی مسدودیت‌های تور. نیازمند فرستادن رایانامه‌ای از حساب جی‌میل یا رایزآپ.</string>
+    <string name="bridge_meek_azure_subtitle">مخفی کردن شدآمدتان. دور زدن برخی مسدودیت‌های تور. امکان کند بودن.</string>
+    <string name="custom_bridges_subtitle">پرسش از شبکه‌ها و سازمان‌های مورد اعتمادتان برای این که ببینید کسی پلی میزبانی می‌کند یا نه. در غیر این صورت دوستی می‌تواند پل‌ها را برایتان بگیرد.</string>
+    <string name="custom_bridges_description">جایگذاری نشانی‌های پلی که گرفته‌اید در زیر. یا پویش کد پاس برای افزودنشان. دوستان می‌توانند از %1$s برایتان پل بگیرند.</string>
+    <string name="action_use_">استفاده از %1$s</string>
+    <string name="built_in_bridges_obfs4_subtitle">مخفی کردن شدآمدتان. دور زدن برخی مسدودیت‌های تور. مناسب برای وای‌فای‌های عمومی؛ ولی اگ در کشوری نباشید که تور را مسدود کرده.</string>
+    <string name="run_smart_connect_">اجرای اتّصال هوشمند برای یافتن بهترین راه</string>
+    <string name="scan_qr_code">پویش کد پاس</string>
 </resources>
