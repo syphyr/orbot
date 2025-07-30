@@ -299,11 +299,14 @@
     <string name="device_lock_security_update_needed">Aby móc korzystać z uwierzytelniania Orbota, musisz pobrać aktualizacje zabezpieczeń systemu Android dla swojego urządzenia</string>
     <string name="invalid_bridge_format">Nieprawidłowy format mostka</string>
     <string name="error_asking_tor_for_bridges">Błąd podczas pytania o połączenie z siecią Tor</string>
-    <string name="enter_bridge_address">Wprowadź adres mostka</string>
+    <string name="enter_bridge_address">Wpisz adres mostka</string>
     <string name="built_in_bridges_obfs4">Wbudowane mostki (obfs4)</string>
     <string name="built_in_bridges_obfs4_subtitle">Maskuje ruch. Omija niektóre blokady sieci Tor. Przydatne, jeśli korzystasz z publicznej sieci Wi-Fi, ale w kraju, gdzie sieć Tor nie jest blokowana.</string>
     <string name="unlock_app_msg" formatted="true">Odblokuj urządzenie, aby móc korzystać z %s</string>
     <string name="pref_password_only_no_biometric">Nie zezwalaj na biometrię w uwierzytelnianiu Orbota</string>
     <string name="pref_password_only_no_biometric_description">Wymusza to na uwierzytelnianiu Orbota żądanie podania jedynie hasła urządzenia, nawet jeśli na urządzeniu skonfigurowano uwierzytelnianie biometryczne, takie jak odcisk palca lub odblokowywanie twarzą.</string>
     <string name="run_smart_connect_">Uruchom inteligentne połączenie, aby znaleźć najlepszy sposób</string>
+    <string name="app_icon_chooser_label_assistant">Asystent</string>
+    <string name="app_icon_chooser_label_paint">Farba</string>
+    <string name="scan_qr_code">Zeskanuj kod QR</string>
 </resources>
