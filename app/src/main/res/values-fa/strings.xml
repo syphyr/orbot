@@ -296,4 +296,5 @@
     <string name="device_lock_security_update_needed">برای استفاده از احراز هویت Orbot باید به‌روزرسانی‌های امنیتی اندروید را برای دستگاه خود دانلود کنید</string>
     <string name="pref_password_only_no_biometric">برای احراز هویت Orbot استفاده از بیومتریک را ممنوع کنید</string>
     <string name="pref_password_only_no_biometric_description">این گزینه باعث می‌شود احراز هویت Orbot فقط به رمز عبور دستگاه نیاز داشته باشد، حتی اگر احراز هویت بیومتریک مانند اثر انگشت یا تشخیص چهره در دستگاه شما فعال باشد.</string>
+    <string name="enter_bridge_address">نشانی پل را وارد کنید</string>
 </resources>

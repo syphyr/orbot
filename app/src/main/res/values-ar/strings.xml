@@ -307,4 +307,6 @@
     <string name="built_in_bridges_obfs4">الجسور المضمّنة (obfs4)</string>
     <string name="built_in_bridges_obfs4_subtitle">يخفي حركة بياناتك. يتجاوز بعض حجب تور. جيد إذا كنت تستخدم شبكة واي فاي عامة، ولكن في بلد لا يتم فيه حجب تور.</string>
     <string name="run_smart_connect_">شغل الاتصال الذكي لإيجاد أفضل طريقة</string>
+    <string name="enter_bridge_address">أدخل عنوان الجسر</string>
+    <string name="scan_qr_code">امسح رمز QR</string>
 </resources>
