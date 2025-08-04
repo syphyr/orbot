@@ -7,7 +7,7 @@ app_package_name('org.torproject.android.debug')
 # tests_apk_path('path/to/your/tests.apk')
 
 locales([
-	'en-US', 'fr-CA', 'es-MX', 'de-DE', 'fa', 'ar', 'he' 
+	'en-US', 'fr-FR', 'es-MX', 'de-DE', 'fa', 'ar', 'he' 
 ])
 
 # clear all previously generated screenshots in your local output directory before creating new ones
