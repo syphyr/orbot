@@ -8,7 +8,7 @@ import org.torproject.android.service.OrbotConstants.ONION_EMOJI
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.R
 import org.torproject.android.service.util.Prefs
-import org.torproject.android.service.util.Utils.showToast
+import org.torproject.android.service.util.showToast
 import java.security.SecureRandom
 
 class SnowflakeProxyWrapper(private val context: Context) {

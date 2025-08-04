@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Tải lên</string>
     <string name="button_about">Giới thiệu</string>
     <string name="menu_exit">Thoát</string>
-    <string name="menu_scan">Quét mã BridgeQR</string>
-    <string name="menu_share_bridge">Chia sẻ mã BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Tổng quan</string>
@@ -107,7 +105,6 @@
     <string name="configure_custom_bridges">Thiết lập cầu nối tuỳ chỉnh</string>
     <string name="custom_bridges">Cầu nối tuỳ chỉnh</string>
     <string name="request_bridges_from_torproject">Yêu cầu các cầu Bridge từ torproject.org</string>
-    <string name="captcha">Captcha</string>
     <string name="pref_reduced_connection_padding_summary">Đóng các kết nối chuyển tiếp sớm hơn và gửi ít gói đặt khoảng cách hơn để giảm sử dụng dữ liệu và pin</string>
     <string name="pref_reduced_connection_padding">Giảm khoảng cách kết nối</string>
     <string name="pref_connection_padding_summary">Luôn bật đặt khoảng cách cho kết nối để phòng vệ chống lại một số dạng phân tích lưu lượng. Mặc định: tự động</string>
@@ -168,9 +165,6 @@
     <string name="bridge_direct_connect">Kết nối trực tiếp đến Tor (Tốt nhất)</string>
     <string name="testing_tor_direct_success">Thành công. Kết nối đến Tor tốt rồi!</string>
     <string name="testing_tor_direct">Đang thử nghiệm kết nối đến Tor…</string>
-    <string name="request_bridges">Yêu cầu các cầu Bridge</string>
-    <string name="solve_captcha_instruction">Giải CAPTCHA để yêu cầu các cầu Bridge.</string>
-    <string name="refresh_captcha">Làm mới lại CAPTCHA</string>
     <string name="if_your_mobile_network_actively_blocks_tor_you_can_use_a_tor_bridge_to_access_the_network_another_way_to_get_bridges_is_to_send_an_email_to_bridges_torproject_org_please_note_that_you_must_send_the_email_using_an_address_from_one_of_the_following_email_providers_riseup_gmail_or_yahoo_">Nếu mạng di động của bạn chặn Tor một cách chủ động, bạn có thể sử dụng một \'Máy chủ cầu nối\' làm một cách thay thế để vào. Chọn một trong số các tuỳ chọn để thiết lập và thử nghiệm…</string>
     <string name="hidden_services">Dịch vụ Onion</string>
     <string name="vpn_default_world">Toàn cầu (Tự động)</string>
@@ -179,7 +173,6 @@
     <string name="version">Phiên bản:</string>
     <string name="license">Giấy phép:</string>
     <string name="btn_refresh">Làm mới lại</string>
-    <string name="drawer_close">Đóng</string>
     <string name="menu_kindness">Thân Thiện</string>
     <string name="connection_direct">Nhắn riêng trực tiếp</string>
     <string name="connection_snowflake">Snowflake</string>
@@ -190,7 +183,6 @@
     <string name="menu_tor_connection">Kết nối Tor</string>
     <string name="menu_faq">FAQ</string>
     <string name="menu_header_learn">Tìm hiểu thêm</string>
-    <string name="drawer_open">Mở</string>
     <string name="action_activate">Kích hoạt</string>
     <string name="title_choose_apps">Chọn app ứng dụng</string>
     <string name="setting_debug">Gỡ lỗi Bug</string>

@@ -10,8 +10,6 @@
     <string name="main_layout_upload">업로드</string>
     <string name="button_about">정보</string>
     <string name="menu_exit">종료</string>
-    <string name="menu_scan">브릿지 QR코드 스캔하기</string>
-    <string name="menu_share_bridge">브릿지 QR코드 공유하기</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">일반</string>
@@ -97,14 +95,11 @@
     <string name="menu_hidden_services">Onion 서비스</string>
     <string name="done">완료!</string>
     <string name="menu_new_identity">새 ID</string>
-    <string name="captcha">캡챠</string>
     <string name="trying_to_connect_title">접속중…</string>
     <string name="menu_header_features">기능</string>
     <string name="menu_tor_connection">Tor 연결</string>
     <string name="menu_faq">FAQ</string>
     <string name="menu_header_learn">더 알아보기</string>
-    <string name="drawer_open">열기</string>
-    <string name="drawer_close">닫기</string>
     <string name="connect">연결</string>
     <string name="next">다음</string>
     <string name="menu_more">더 보기</string>

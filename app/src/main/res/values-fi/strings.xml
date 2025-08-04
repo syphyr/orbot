@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Lähetys</string>
     <string name="button_about">Tietoja</string>
     <string name="menu_exit">Sulje</string>
-    <string name="menu_scan">Lue sillan QR-koodi</string>
-    <string name="menu_share_bridge">Jaa sillan QR-koodi</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Yleiset</string>
@@ -138,10 +136,6 @@
     <string name="configure_custom_bridges">Määritä omat sillat</string>
     <string name="custom_bridges">Omat sillat</string>
     <string name="request_bridges_from_torproject">Pyydä siltoja torproject.org-sivustolta</string>
-    <string name="captcha">Captcha</string>
-    <string name="solve_captcha_instruction">Ratkaise CAPTCHA pyytääksesi siltoja.</string>
-    <string name="refresh_captcha">Päivitä CAPTCHA</string>
-    <string name="request_bridges">Pyydä siltoja</string>
     <string name="refresh_apps">Päivitä sovellukset</string>
     <string name="app_services">Sovelluspalvelut</string>
     <string name="user_services">Käyttäjäpalvelut</string>
@@ -215,8 +209,6 @@
     <string name="apps_other_apps">Muut sovellukset</string>
     <string name="apps_suggested_title">Ehdotetut sovellukset</string>
     <string name="configure_header">Määritä Tor-yhteytesi</string>
-    <string name="drawer_open">Avaa</string>
-    <string name="drawer_close">Sulje</string>
     <string name="volunteer_mode_label">Ystävällisyystila</string>
     <string name="volunteer_mode_weekly_label">Viikottainen kokonaismäärä</string>
     <string name="volunteer_mode_alltime_label">Kaikkien aikojen kokonaismäärä</string>

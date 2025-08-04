@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Téléversement</string>
     <string name="button_about">À propos</string>
     <string name="menu_exit">Fermer</string>
-    <string name="menu_scan">Balayer le code QR d’un pont</string>
-    <string name="menu_share_bridge">Partager le code QR d’un pont</string>
     <string name="pref_general_group">Général</string>
     <string name="pref_start_boot_title">Démarrer Orbot à l’amorçage</string>
     <string name="pref_start_boot_summary">Démarrer Orbot automatiquement et se connecter à Tor lors de l’amorçage de votre appareil Android</string>
@@ -141,10 +139,6 @@
     <string name="configure_custom_bridges">Configurer des ponts personnalisés</string>
     <string name="custom_bridges">Ponts personnalisés</string>
     <string name="request_bridges_from_torproject">Demander des ponts de torproject.org</string>
-    <string name="captcha">Captcha</string>
-    <string name="solve_captcha_instruction">Pour demander des ponts, résolvez le captcha.</string>
-    <string name="refresh_captcha">Actualiser le captcha</string>
-    <string name="request_bridges">Demander des ponts</string>
     <string name="testing_tor_direct_success">C’est réussi. La connexion à Tor est bonne</string>
     <string name="testing_tor_direct">Essai de connexion à Tor…</string>
     <string name="pref_reduced_circuit_padding_summary">Use des algorithmes de bourrage supplémentaire plus faible afin de réduire l’utilisation des données et de la pile</string>
@@ -182,8 +176,6 @@
     <string name="apps_suggested_title">Applications suggérées</string>
     <string name="apps_other_apps">Autres applications</string>
     <string name="configure_header">Configurer vôtre connexion TOR</string>
-    <string name="drawer_open">Ouvrir</string>
-    <string name="drawer_close">Fermer</string>
     <string name="volunteer_mode_title">Aidez les autres
 \nà se connecter à Tor</string>
     <string name="volunteer_mode_alltime_label">Total de tous les temps</string>
@@ -264,4 +256,8 @@
     <string name="root_warning">Orbot a détecté que votre appareil est rooté, ce qui peut entraîner des problèmes de sécurité.</string>
     <string name="pref_detect_root_summary">Avertir au démarrage si les droits d\'accès root sont activés sur cet appareil</string>
     <string name="pref_detect_root_title">Détection root</string>
+
+    <string name="pref_enable_rotation_summary">Activer rotation de l\'appareil (nécessite de le redémarrer)</string>
+    <string name="pref_enable_rotation_title">Rotation de l\'appareil</string>
+    <string name="pref_camo_mode_title">Mode Camouflage</string>
 </resources>

@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Orbot</string>
     <string name="app_description">Orbot è un\'app proxy libera che permette ad altre app di accedere a internet in modo più sicuro. Orbot usa Tor per cifrare il traffico internet e poi lo nasconde facendolo rimbalzare attraverso una serie di computer nel mondo. Tor è un software libero e una rete aperta che aiuta a difendersi da una forma di sorveglianza che minaccia libertà e privacy personale, le attività e le relazioni commerciali riservate e la sicurezza dello Stato, nota come analisi del traffico.</string>
-    <string name="menu_settings">Impostazioni</string>
+    <string name="menu_settings">Impostazioni di Orbot</string>
     <string name="menu_log">Registro (log)</string>
     <string name="menu_stop">Ferma</string>
     <string name="menu_about">Informazioni</string>
@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Upload</string>
     <string name="button_about">Informazioni</string>
     <string name="menu_exit">Esci</string>
-    <string name="menu_scan">Scansiona BridgeQR</string>
-    <string name="menu_share_bridge">Condividi BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot è un\'applicazione open source che contiene Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks e LibEvent. Fornisce un tunnel VPN, un proxy HTTP locale (solo HTTPS su porta 8118) e un proxy SOCKS (9050) per la rete Tor.</string>
     <!--END Welcome Wizard strings (DJH)-->
@@ -99,7 +97,7 @@
     <string name="name">Nome</string>
     <string name="done">Fatto!</string>
     <string name="copy_address_to_clipboard">Copia l\'indirizzo negli appunti</string>
-    <string name="backup_service">Servizio di backup <i>(Attenzione: ciò può esporre la configurazione del tuo servizio ad altre app)</i></string>
+    <string name="backup_service">Servizio di backup (Attenzione: ciò può esporre la configurazione del tuo servizio ad altre app)</string>
     <string name="delete_service">Elimina il servizio</string>
     <string name="backup_saved_at_external_storage">Backup salvato nell\'archiviazione esterna</string>
     <string name="backup_restored">Backup ripristinato</string>
@@ -165,10 +163,6 @@
     <string name="configure_custom_bridges">Configura bridge personalizzati</string>
     <string name="custom_bridges">Bridge personalizzati</string>
     <string name="request_bridges_from_torproject">Richiedi i bridge da torproject.org</string>
-    <string name="captcha">Captcha</string>
-    <string name="solve_captcha_instruction">Risolvi il CAPTCHA per richiedere i bridge.</string>
-    <string name="refresh_captcha">Ricarica CAPTCHA</string>
-    <string name="request_bridges">Richiedi bridge</string>
     <string name="testing_tor_direct_success">Completato. La connessione è buona!</string>
     <string name="testing_tor_direct">Test della connessione a Tor…</string>
     <string name="license">Licenza:</string>
@@ -188,14 +182,12 @@
     <string name="setting_padding">Riempimento (padding)</string>
     <string name="menu_kindness">Altruismo</string>
     <string name="menu_more">Altro</string>
-    <string name="drawer_open">Apri</string>
     <string name="connected_title">Connesso</string>
     <string name="version">Versione:</string>
     <string name="title_choose_apps">Scegli le app</string>
     <string name="action_activate">Attiva</string>
     <string name="menu_faq">FAQ</string>
     <string name="menu_header_learn">Maggiori informazioni</string>
-    <string name="drawer_close">Chiudi</string>
     <string name="pref_isolate_port">Isola le porte di destinazione</string>
     <string name="pref_isolate_port_summary">Usa un circuito diverso per ogni porta di destinazione</string>
     <string name="apps_other_apps">Altre app</string>
@@ -272,4 +264,31 @@
     <string name="pref_circuit_padding_summary">Attiva il riempimento del circuito in difesa contro alcune forme di analisi del traffico</string>
     <string name="pref_detect_root_summary">Avvisa all\'avvio se l\'autorizzazione root è attiva in questo dispositivo</string>
     <string name="pref_detect_root_title">Rilevazione root</string>
+    <string name="system_vpn_settings">Impostazioni VPN di Android</string>
+    <string name="pref_isolate_keep_alive">Tieni in vita i circuiti isolati</string>
+    <string name="pref_isolate_keep_alive_summary">Tieni in vita i circuiti isolati che hanno almeno un flusso con autenticazione SOCKS attiva</string>
+    <string name="bridge_snowflake_sqs">Connetti tramite altri utenti Tor usando Snowflake (Metodo 3 - SQS)</string>
+    <string name="snowflake_sqs">Snowflake SQS</string>
+    <string name="pref_enable_rotation_summary">Attiva rotazione dispositivi (richiede un riavvio)</string>
+    <string name="pref_enable_rotation_title">Rotazione dispositivi</string>
+    <string name="app_icon_chooser_label_assistant">Assistente</string>
+    <string name="app_icon_chooser_label_todo">Da fare</string>
+    <string name="camo_dialog_title" formatted="true">Camuffa come %1$s</string>
+    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot si camufferà come l\'app %1$s. Ciò nasconderà tutti i dettagli di notifica di Tor e cambierà l\'aspetto di Orbot nella schermata iniziale.\n\nIl camuffamento come %2$s riavvierà Orbot.</string>
+    <string name="camo_dialog_disable_confirm_msg">Orbot riprenderà la visualizzazione delle informazioni di notifica sulla tua connessione Tor e apparirà come normale nella schermata iniziale.\n\nLa disattivazione della modalità camuffamento riavvierà Orbot.</string>
+    <string name="camo_dialog_disable_title">Disattiva la modalità camuffamento</string>
+    <string name="pref_camo_mode_title">Modalità camuffamento</string>
+    <string name="pref_camo_mode_description">Maschera come apparirà sul dispositivo l\'icona, l\'etichetta e il testo di notifica di Orbot</string>
+    <string name="power_user_mode_permission">Necessaria l\'autorizzazione Allarmi &amp; Promemoria per la modalità Utente esperto</string>
+    <string name="power_user_mode_permission_msg">Consenti a Orbot di impostare allarmi e promemoria per potere usare la modalità utente esperto. Ciò non imposterà alcun allarme sul dispositivo. Questa autorizzazione è necessaria affinché il sistema mantenga il servizio Orbot in esecuzione quando Orbot non viene usato come VPN a livello di sistema.</string>
+    <string name="pref_require_password">Autenticazione di Orbot</string>
+    <string name="pref_require_password_description">Previeni l\'accesso a Orbot fino a quando non ci si autentica inserendo la password del dispositivo o l\'impronta digitale. Ciò può essere combinato con la modalità camuffamento per aiutare a nascondere che Orbot sia installato sul dispositivo</string>
+    <string name="error_no_password_set">Si prega di proteggere il dispositivo per usare l\'autenticazione di Orbot</string>
+    <string name="device_lock_unsupported">L\'autenticazione di Orbot non è supportata sul tuo dispositivo</string>
+    <string name="device_lock_security_update_needed">Devi scaricare gli aggiornamenti di sicurezza di Android per il tuo dispositivo, per potere usare l\'autenticazione Orbot</string>
+    <string name="invalid_bridge_format">Formato bridge non valido</string>
+    <string name="error_asking_tor_for_bridges">Errore chiedendo a Tor come connettersi</string>
+    <string name="unlock_app_msg" formatted="true">Sblocca il dispositivo per usare %s</string>
+    <string name="pref_password_only_no_biometric">Vieta i dati biometrici per l\'autenticazione di Orbot</string>
+    <string name="pref_password_only_no_biometric_description">Ciò costringe l\'autenticazione di Orbot a richiedere solo la password del dispositivo anche se l\'autenticazione biometrica, come l\'impronta digitale o lo sblocco facciale, è configurata sul dispositivo.</string>
 </resources>

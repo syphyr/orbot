@@ -11,8 +11,6 @@
     <string name="main_layout_upload">Upload</string>
     <string name="button_about">About</string>
     <string name="menu_exit">Exit</string>
-    <string name="menu_scan">Scan BridgeQR</string>
-    <string name="menu_share_bridge">Share BridgeQR</string>
     <string name="wizard_details_msg">Orbot is an open-source application that contains Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks and LibEvent. It provides a VPN tunnel, a local HTTP Connect proxy (HTTPS only on port 8118) and a SOCKS proxy (9050) into the Tor network.</string>
     <string name="pref_general_group">General</string>
     <string name="pref_start_boot_title">Start Orbot on Boot</string>
@@ -172,16 +170,11 @@
     <string name="user_services">User services</string>
     <string name="app_services">App services</string>
     <string name="refresh_apps">Refresh Apps</string>
-    <!-- MoatActivity -->
-    <string name="request_bridges">Request Bridges</string>
-    <string name="refresh_captcha">Refresh CAPTCHA</string>
-    <string name="solve_captcha_instruction">Solve the CAPTCHA to request bridges.</string>
-    <string name="captcha">Captcha</string>
-    <!-- BridgeWizardActivity -->
+    <!-- CustomBridgesFragment -->
     <string name="request_bridges_from_torproject">Request Bridges from torproject.org</string>
     <string name="custom_bridges">Custom Bridges</string>
     <string name="configure_custom_bridges">Configure Custom Bridges</string>
-    <!-- CustomBridgesFragment -->
+
     <string name="use_custom_bridges">Use Custom Bridges</string>
     <string name="in_a_browser">In a browser, visit %s and tap "Get Bridges" &gt; "Just Give Me Bridges!"</string>
     <string name="paste_bridges">Paste Bridges</string>
@@ -216,8 +209,6 @@
     <string name="btn_use_custom_bridge">Use Custom Bridge</string>
     <string name="msg_taking_too_long">This seems to be taking too long</string>
     <string name="msg_try_something_else">Try something else</string>
-    <string name="drawer_open">Open</string>
-    <string name="drawer_close">Close</string>
     <string name="proxy_ports">Proxy Ports</string>
     <string name="globe" translatable="false">🌎</string>
     <string name="ports_not_set">Ports Not Set</string>

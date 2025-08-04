@@ -11,8 +11,6 @@
   <string name="main_layout_upload">Neera pasrɵp</string>
   <string name="button_about">Ikwan wamɵrɵsrɵpik</string>
   <string name="menu_exit">Wepiamik</string>
-  <string name="menu_scan">QRyu kutri asamik</string>
-  <string name="menu_share_bridge">BridgeQwan purɵramik</string>
   <string name="wizard_details_msg">Orbotpe mayaelai kɵn, ikpe møi eshkailø tøkaik køn Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks and LibEvent. Kan VPN kelichai purɵrɵpik, kan Proxy HTTP (HTTPS puerto 8118yutɵ kepintrapik) srape kan proxy SOCKS (9050) Toryu kelichapik.</string>
   <string name="pref_general_group">Mayaelai</string>
   <string name="pref_start_boot_title">Orbotwan kurɵptɵ pɵlpasramik</string>
@@ -163,10 +161,6 @@ Trek tamaramikwane  asha mar</string>
   <string name="app_services">Maram purukuntrapelɵyu chine purupelɵ</string>
   <string name="refresh_apps">Katɵyu tamara pɵnsrɵp maram purukuntrapelan</string>
   <!--MoatActivity-->
-  <string name="request_bridges">Piuntsik teiklan miamik</string>
-  <string name="refresh_captcha">CAPTCHAn srɵilɵ tamaramik</string>
-  <string name="solve_captcha_instruction">CAPTCHAn tamar, piuntsik teiklan miamikpe</string>
-  <string name="captcha">CAPTCHA</string>
   <!--BridgeWizardActivity-->
   <string name="request_bridges_from_torproject">torproject.org piuntsik teilkan miamik</string>
   <string name="custom_bridges">Neteelɵ Piuntsikmera </string>
@@ -205,8 +199,6 @@ Trek tamaramikwane  asha mar</string>
   <string name="btn_use_custom_bridge">Piuntsik meran kan kan isuimei tamarik tɵka maramik</string>
   <string name="msg_taking_too_long">Ikpe purɵ yana sratrap pasran</string>
   <string name="msg_try_something_else">Srɵilɵtɵ aship puramun</string>
-  <string name="drawer_open">Kurɵp</string>
-  <string name="drawer_close">Kasramik </string>
   <string name="proxy_ports">Proxy wam srɵl mera </string>
   <string name="ports_not_set">Wam srɵlmera tamarikmelɵ kɵn</string>
   <string name="volunteer_mode_title">Katɵkanelan purukumik wan ketlitsamikyu</string>

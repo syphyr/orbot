@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Yükle</string>
     <string name="button_about">Hakkında</string>
     <string name="menu_exit">Çıkış</string>
-    <string name="menu_scan">QR kodu tara</string>
-    <string name="menu_share_bridge">QR kodu paylaş</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot; Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, LibEvent yapılarını kapsayan açık kaynaklı bir uygulamadır. Tor ağına bağlanmak için bir yerel HTTP vekil sunucu (sadece 8118 portunu kullanır) ve bir SOCKS vekil sunucu (9050) sağlar.</string>
     <!--END Welcome Wizard strings (DJH)-->
@@ -149,10 +147,6 @@
     <string name="configure_custom_bridges">Özel Köprüleri Yapılandır</string>
     <string name="custom_bridges">Özel Köprüler</string>
     <string name="request_bridges_from_torproject">torproject.org\'dan Köprü İste</string>
-    <string name="captcha">CAPTCHA</string>
-    <string name="solve_captcha_instruction">Köprü istemek için CAPTCHA\'yı çözün.</string>
-    <string name="refresh_captcha">CAPTCHA\'yı Yenile</string>
-    <string name="request_bridges">Köprü İste</string>
     <string name="testing_tor_direct_success">Başarılı. Tor bağlantısı iyi!</string>
     <string name="testing_tor_direct">Tor bağlantısı test ediliyor…</string>
     <string name="pref_reduced_circuit_padding_summary">Veri ve pil kullanımını azaltmak için daha hafif yastıklama algoritmaları kullanın</string>
@@ -205,9 +199,7 @@
     <string name="menu_header_features">Özellikler</string>
     <string name="captcha_title">İnsan olduğunuzu bize gösterin</string>
     <string name="menu_faq">SSS</string>
-    <string name="drawer_open">Aç</string>
-    <string name="drawer_close">Kapat</string>
-    <string name="volunteer_mode_title">Başkalarının Tor\'a 
+    <string name="volunteer_mode_title">Başkalarının Tor\'a
 \nbağlanmasına yardımcı olun</string>
     <string name="volunteer_mode_alltime_label">Tüm Zamanlar Toplamı</string>
     <string name="smart_connect">Akıllı Bağlan (öntanımlı)</string>

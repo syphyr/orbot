@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Upload</string>
     <string name="button_about">Over</string>
     <string name="menu_exit">Sluiten</string>
-    <string name="menu_scan">BridgeQR scannen</string>
-    <string name="menu_share_bridge">BridgeQR delen</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot is een openbronapplicatie die Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, en LibEvent bevat. Het creëert een lokale HTTP-proxy (8118) en een SOCKS-proxy (9050) naar het Tor-netwerk. Orbot heeft ook de mogelijkheid om al het internetverkeer over het Tor-netwerk te sturen.</string>
     <!--END Welcome Wizard strings (DJH)-->
@@ -146,7 +144,6 @@
     <string name="connection_snowflake">Snowflake</string>
     <string name="connection_custom">Aangepast</string>
     <string name="custom_bridges">Aangepaste Bruggen</string>
-    <string name="captcha">Captcha</string>
     <string name="user_services">Diensten van de gebruiker</string>
     <string name="no_thx">Nee, bedankt</string>
     <string name="menu_faq">FAQ</string>
@@ -156,8 +153,6 @@
     <string name="action_activate">Activeren</string>
     <string name="setting_padding">Vulling</string>
     <string name="setting_debug">Foutopsporing</string>
-    <string name="drawer_open">Openingstijden</string>
-    <string name="drawer_close">Sluiten</string>
     <string name="next">Volgende</string>
     <string name="version">Versie:</string>
     <string name="license">Licentie:</string>

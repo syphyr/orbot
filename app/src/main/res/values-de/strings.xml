@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Hochladen</string>
     <string name="button_about">Über</string>
     <string name="menu_exit">Beenden</string>
-    <string name="menu_scan">BrückenQR scannen</string>
-    <string name="menu_share_bridge">BrückenQR teilen</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot ist eine quelloffene Anwendung, die Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, und LibEvent enthält. Es stellt einen lokalen HTTP-Proxy (Port: 8118) und einen SOCKS-Proxy (Port: 9050) in das Tor-Netzwerk bereit.</string>
     <!--END Welcome Wizard strings (DJH)-->
@@ -150,10 +148,6 @@
     <string name="configure_custom_bridges">Konfiguriere personalisierte Brücken</string>
     <string name="custom_bridges">Personalisierte Brücken</string>
     <string name="request_bridges_from_torproject">Brücken von torproject.org anfordern</string>
-    <string name="captcha">CAPTCHA</string>
-    <string name="solve_captcha_instruction">Löse das CAPTCHA, um Brücken anzufordern.</string>
-    <string name="refresh_captcha">CAPTCHA erneuern</string>
-    <string name="request_bridges">Brücken anfordern</string>
     <string name="testing_tor_direct">Verbindung zu Tor wird getestet …</string>
     <string name="testing_tor_direct_success">Erfolgreich. Gute Verbindung mit Tor!</string>
     <string name="v3_import_auth_private">.auth_private importieren</string>
@@ -199,8 +193,6 @@
     <string name="app_suggested_subtitle">Orbot funktioniert am besten mit Messaging- und Social-Media-Apps.</string>
     <string name="apps_other_apps">Andere Apps</string>
     <string name="configure_header">Konfiguriere deine Tor-Verbindung</string>
-    <string name="drawer_open">Öffnen</string>
-    <string name="drawer_close">Schließen</string>
     <string name="proxy_ports">Proxy-Anschlüsse</string>
     <string name="volunteer_mode_title">Anderen helfen,
 \nsich mit Tor zu verbinden</string>

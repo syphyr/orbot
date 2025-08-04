@@ -110,8 +110,6 @@
     <string name="main_layout_upload">Subir</string>
     <string name="button_about">Acerca de</string>
     <string name="menu_exit">Salir</string>
-    <string name="menu_scan">Escaner Código QR</string>
-    <string name="menu_share_bridge">Compartir el Código QR del Puente</string>
     <string name="pref_general_group">Información General</string>
     <string name="pref_start_boot_title">Iniciar Orbot en el arranque</string>
     <string name="pref_start_boot_summary">Inicia automáticamente Orbot y conecta Tor cuando arranques tu dispositivo Android</string>
@@ -185,10 +183,6 @@
     <string name="user_services">Servicios de Usuario</string>
     <string name="app_services">Servicios de aplicaciones</string>
     <string name="refresh_apps">Actualizar aplicaciones</string>
-    <string name="request_bridges">Solicitar Puentes</string>
-    <string name="refresh_captcha">Actualizar CAPTCHA</string>
-    <string name="solve_captcha_instruction">Resuelve el CAPTCHA para solicitar puentes.</string>
-    <string name="captcha">Captcha</string>
     <string name="custom_bridges">Puentes personalizados</string>
     <string name="configure_custom_bridges">Configurar puentes personalizados</string>
     <string name="in_a_browser">En un navegador, visita %s y toca Obtener puentes &gt; ¡Solo dame puentes!</string>
@@ -216,8 +210,6 @@
     <string name="menu_faq">Preguntas Frecuentes</string>
     <string name="msg_taking_too_long">Esto parece estar tomando demasiado tiempo</string>
     <string name="msg_try_something_else">Intenta algo distinto</string>
-    <string name="drawer_open">Abierto</string>
-    <string name="drawer_close">Cerrar</string>
     <string name="proxy_ports">Puertos Proxy</string>
     <string name="ports_not_set">Puertos no establecidos</string>
     <string name="volunteer_mode_title">Ayuda a otres

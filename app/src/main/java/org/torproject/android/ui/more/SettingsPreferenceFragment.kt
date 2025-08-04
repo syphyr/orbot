@@ -6,6 +6,8 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.core.os.LocaleListCompat
 import androidx.fragment.app.commit
 import androidx.preference.CheckBoxPreference
 import androidx.preference.EditTextPreference
@@ -15,8 +17,8 @@ import androidx.preference.Preference.OnPreferenceChangeListener
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import org.torproject.android.R
-import org.torproject.android.core.Languages
-import org.torproject.android.core.ui.BaseActivity
+import org.torproject.android.localization.Languages
+import org.torproject.android.ui.core.BaseActivity
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.more.camo.CamoFragment
 
@@ -32,12 +34,18 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
         prefLocale?.entryValues = languages?.supportedLocales
         prefLocale?.value = Prefs.defaultLocale
         prefLocale?.onPreferenceChangeListener =
-            Preference.OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
+            OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
                 val language = newValue as String?
-                val intentResult = Intent()
-                intentResult.putExtra("locale", language)
-                requireActivity().setResult(RESULT_OK, intentResult)
-                requireActivity().finish()
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                    Prefs.defaultLocale = newValue ?: ""
+                    val newLocale = LocaleListCompat.forLanguageTags(language)
+                    AppCompatDelegate.setApplicationLocales(newLocale)
+                } else {
+                    val intentResult = Intent()
+                    intentResult.putExtra("locale", language)
+                    requireActivity().setResult(RESULT_OK, intentResult)
+                    requireActivity().finish()
+                }
                 false
             }
 
@@ -57,7 +65,7 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
 
         val prefFlagSecure = findPreference<CheckBoxPreference>("pref_flag_secure")
         prefFlagSecure?.onPreferenceChangeListener =
-            Preference.OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
+            OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
 
                 Prefs.isSecureWindow = newValue as Boolean
                 (activity as BaseActivity).resetSecureFlags()
@@ -80,16 +88,11 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
             prefPasswordNoBiometrics?.isVisible = false
         } else {
             prefPasswordNoBiometrics?.isEnabled = prefOrbotAuthentication?.isChecked == true
-            prefOrbotAuthentication?.onPreferenceChangeListener = object : OnPreferenceChangeListener {
-                override fun onPreferenceChange(
-                    preference: Preference,
-                    newValue: Any?
-                ): Boolean {
-                    val b = newValue as Boolean
-                    prefPasswordNoBiometrics?.isEnabled = newValue
-                    return true
+            prefOrbotAuthentication?.onPreferenceChangeListener =
+                OnPreferenceChangeListener { preference, newValue ->
+                    prefPasswordNoBiometrics?.isEnabled = newValue as Boolean
+                    true
                 }
-            }
         }
     }
 

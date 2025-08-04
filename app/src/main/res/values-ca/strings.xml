@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Pujada</string>
     <string name="button_about">Quant a</string>
     <string name="menu_exit">Surt</string>
-    <string name="menu_scan">Escaneja el BridgeQR</string>
-    <string name="menu_share_bridge">Comparteix el BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">L\'Orbot és una aplicació de codi obert que conté Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, i LibEvent. Proporciona un proxy HTTP local (8118) i un proxy SOCKS (9050) a la xarxa Tor. En dispositius root, l\'Orbot també té la capacitat d\'enviar tot el trànsit d\'Internet a través de Tor.</string>
     <!--END Welcome Wizard strings (DJH)-->
@@ -150,8 +148,6 @@
     <string name="setting_debug">Depuració</string>
     <string name="menu_more">Més</string>
     <string name="confirm">Confirma</string>
-    <string name="drawer_open">Obre</string>
-    <string name="drawer_close">Tanca</string>
     <string name="connect">Connecta</string>
     <string name="next">Següent</string>
     <string name="trying_to_connect_title">S\'està connectant…</string>
@@ -198,7 +194,6 @@
     <string name="secure_your_connection_subtitle">Oculteu les aplicacions al rastreig de la xarxa i obteniu-ne accés quan són blocades.</string>
     <string name="paste_bridges">Enganxa els ponts</string>
     <string name="volunteer_mode_weekly_label">Total setmanal</string>
-    <string name="request_bridges">Sol·licita ponts</string>
     <string name="kindness_adjust_title">Paràmetres</string>
     <string name="apps_suggested_title">Aplicacions suggerides</string>
     <string name="pref_circuit_padding_summary">Activa el farciment del circuit per a defensar-se d\'algunes formes d\'anàlisis de trànsit</string>
@@ -209,7 +204,6 @@
     <string name="btn_configure">Trieu el tipus de connexió</string>
     <string name="request_bridges_from_torproject">Sol·licita ponts de torproject.org</string>
     <string name="option_only_on_wifi">Només amb Wi-Fi</string>
-    <string name="refresh_captcha">Refresca el CAPTCHA</string>
     <string name="testing_tor_direct">S\'està comprovant la connexió al Tor…</string>
     <string name="bridge_snowflake">Connecta a través d\'altres usuaris del Tor mitjançant l\'Snowflake (Mètode 1 - Més ràpid)</string>
     <string name="having_trouble_subtitle">Podem provar amb un pont Tor, però ens caldrà la vostra ajuda</string>
@@ -225,7 +219,6 @@
     <string name="get_bridges_email_request">Sol·licita ponts per correu electrònic</string>
     <string name="menu_kindness">Altruista</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Obre el servidor intermediari en totes les interfícies</string>
-    <string name="solve_captcha_instruction">Resoleu el CAPTCHA per a sol·licitar ponts.</string>
     <string name="v3_import_auth_private">Importa .auth_private</string>
     <string name="btn_use_custom_bridge">Utilitza un pont personalitzat</string>
     <string name="pref_prefer_ipv6_summary">Indica a les sortides que es prefereixen adreces IPv6</string>
@@ -260,7 +253,6 @@
 \na connectar-se al Tor</string>
     <string name="v3_delete_client_authorization_confirm">Suprimeix l\'autorització del client</string>
     <string name="pref_http_summary">Port al qual el Tor ofereix el seu servidor intermediari HTTP (per defecte: 8118, o 0 per a desactivar)</string>
-    <string name="captcha">Captcha</string>
     <string name="pref_flag_secure_summary">Impedeix que altres aplicacions facin captures de pantalla de l\'Orbot</string>
     <string name="direct_connect_subtitle">La millor manera de connectar-se al Tor. Utilitzeu-la si el Tor no és blocat.</string>
     <string name="volunteer_status_title">L\'avui és millor

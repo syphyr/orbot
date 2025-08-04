@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Igoera</string>
     <string name="button_about">Honi buruz</string>
     <string name="menu_exit">Irten</string>
-    <string name="menu_scan">Eskaneatu BridgeQR</string>
-    <string name="menu_share_bridge">Partekatu BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, eta LibEvent dituen kode irekiko aplikazio bat da Orbot. Tor sarera sartzeko HTTP proxya (8118) eta SOCKS proxya (9050) eskaintzen ditu. Rooteatutako gailuetan Orbot-ek interneteko trafiko guztia Tor bidez bidali dezake baita ere.</string>
     <!--END Welcome Wizard strings (DJH)-->
@@ -132,7 +130,6 @@
     <string name="menu_header_features">Berezitasunak</string>
     <string name="menu_faq">FAQ</string>
     <string name="menu_header_learn">Ikasi gehiago</string>
-    <string name="drawer_open">Ireki</string>
     <string name="mebibyte">MiB</string>
     <string name="confirm">Berretsi</string>
     <string name="connect">Konektatu</string>
@@ -142,7 +139,6 @@
     <string name="connection_custom">Custom</string>
     <string name="connected_title">Konektatuta</string>
     <string name="btn_refresh">Birkargatu</string>
-    <string name="drawer_close">Itxi</string>
     <string name="no_internet_title">Konektatu internetera</string>
     <string name="allow">Baimendu</string>
     <string name="deny">Ukatu</string>

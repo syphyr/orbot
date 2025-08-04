@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Αποστολή</string>
     <string name="button_about">Σχετικά</string>
     <string name="menu_exit">Έξοδος</string>
-    <string name="menu_scan">Σάρωση BridgeQR</string>
-    <string name="menu_share_bridge">Κοινή χρήση BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Το Orbot είναι μια εφαρμογή ανοιχτού κώδικα που περιέχει τα Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks και LibEvent. Παρέχει ένα δίαυλο VPN, έναν τοπικό διακομιστή μεσολάβησης HTTP Connect (HTTPS μόνο στη θύρα 8118) και έναν διακομιστή μεσολάβησης SOCKS (9050) στο δίκτυο Tor.</string>
     <!--END Welcome Wizard strings (DJH)-->
@@ -129,7 +127,6 @@
     <string name="full_device_vpn">Πλήρης Συσκευή VPN</string>
     <string name="vpn_disabled">Το VPN απενεργοποιήθηκε</string>
     <string name="allow">Επιτρέψτε το</string>
-    <string name="refresh_captcha">Ανανέωση CAPTCHA</string>
     <string name="kibibyte">KiB</string>
     <string name="mebibyte">MiB</string>
     <string name="version">Έκδοση:</string>
@@ -168,7 +165,6 @@
     <string name="pref_reduced_circuit_padding">Μειωμένο μαξιλάρι κυκλώματος</string>
     <string name="pref_disable_ipv4">Απενεργοποίηση συνδέσεων IPv4</string>
     <string name="testing_tor_direct_success">Επιτυχία. Η σύνδεση Tor είναι καλή!</string>
-    <string name="request_bridges">Αίτημα Γέφυρες</string>
     <string name="request_bridges_from_torproject">Αίτημα Γέφυρες από torproject.org</string>
     <string name="custom_bridges">Προσαρμοσμένες γέφυρες</string>
     <string name="configure_custom_bridges">Διαμόρφωση προσαρμοσμένων γεφυρών</string>
@@ -192,8 +188,6 @@
     <string name="pref_disable_ipv4_summary">Λέει στις εξόδους να μην συνδέονται σε διευθύνσεις IPv4</string>
     <string name="app_services">Υπηρεσίες εφαρμογών</string>
     <string name="refresh_apps">Ανανέωση εφαρμογών</string>
-    <string name="solve_captcha_instruction">Λύστε το CAPTCHA για να ζητήσετε γέφυρες.</string>
-    <string name="captcha">Captcha</string>
     <string name="strict_nodes_description">Αντιμετωπίστε τις ρυθμίσεις Exclude Nodes ως απαίτηση για την κατασκευή όλων των κυκλωμάτων. Αυτό μπορεί να διαταράξει τη λειτουργικότητα εάν δεν είναι δυνατή η δημιουργία κυκλωμάτων με τις ρυθμίσεις σας Exclude Nodes.</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Άνοιγμα διακομιστή μεσολάβησης σε όλες τις διασυνδέσεις</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Επιτρέψτε σε ομότιμους χρήστες Wi-Fi, συνδεδεμένες συσκευές και οποιονδήποτε άλλον μπορεί να συνδεθεί στην IP σας, να έχει πρόσβαση στο Tor</string>
@@ -212,8 +206,6 @@
     <string name="proxy_ports">Θύρες διακομιστή μεσολάβησης</string>
     <string name="pref_isolate_port_summary">Χρήση διαφορετικού κυκλώματος για κάθε θύρα προορισμού</string>
     <string name="pref_isolate_protocol">Απομόνωση πρωτοκόλλων πελάτη</string>
-    <string name="drawer_open">Ανοίξτε το</string>
-    <string name="drawer_close">Κλείσιμο</string>
     <string name="volunteer_mode_title">Βοηθήστε τους άλλους
 \nσυνδεθείτε στο Tor</string>
     <string name="volunteer_mode_label">Λειτουργία καλοσύνης</string>

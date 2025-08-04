@@ -10,8 +10,6 @@
     <string name="main_layout_upload">رفع</string>
     <string name="button_about">حول</string>
     <string name="menu_exit">خروج</string>
-    <string name="menu_scan">فحص QR الجسر</string>
-    <string name="menu_share_bridge">مشاركة QR الجسر</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">عام</string>
@@ -121,8 +119,6 @@
     <string name="vpn_disabled">الـ VPN مُعطّل</string>
     <string name="menu_tor_connection">اتصال تور</string>
     <string name="menu_header_learn">معرفة المزيد</string>
-    <string name="drawer_open">افتح</string>
-    <string name="drawer_close">أغلق</string>
     <string name="action_activate">نشّط</string>
     <string name="title_choose_apps">اختر تطبيقات</string>
     <string name="setting_debug">تنقيح</string>
@@ -141,7 +137,6 @@
     <string name="next">التالي</string>
     <string name="menu_faq">أسئلة</string>
     <string name="version">الإصدار:</string>
-    <string name="captcha">كلمة التحقق</string>
     <string name="deny">ارفض</string>
     <string name="connected_title">متصل</string>
     <string name="no_thx">لا شكرًا</string>
@@ -182,8 +177,6 @@
     <string name="pref_connection_padding">حشوة الاتصال</string>
     <string name="pref_connection_padding_summary">يعمل دائمًا على تفعيل حشو الاتصال للدفاع ضد بعض أشكال تحليل حركة المرور. الافتراضي: تلقائي</string>
     <string name="pref_reduced_connection_padding">حشوة اتصال منخفضة</string>
-    <string name="refresh_captcha">أنعِش كابتشا (CAPTCHA)</string>
-    <string name="solve_captcha_instruction">حِل CAPTCHA لطلب الجسور.</string>
     <string name="request_bridges_from_torproject">طلب جسور من torproject.org</string>
     <string name="custom_bridges">جسور مخصّصة</string>
     <string name="configure_custom_bridges">تضبيط الجسور المخصّصة</string>
@@ -202,7 +195,6 @@
     <string name="pref_prefer_ipv6">تفضيل اتصالات IPv6</string>
     <string name="pref_prefer_ipv6_summary">يخبر المخارج أن عناوين IPv6 مفضلة</string>
     <string name="refresh_apps">أنعِش التطبيقات</string>
-    <string name="request_bridges">طلب جسور</string>
     <string name="secure_your_connection_subtitle">إخفاء التطبيقات من مراقبة الشبكة والوصول إليها عندما يتم حظرها.</string>
     <string name="btn_start_vpn">ابدأ VPN</string>
     <string name="btn_tor_off">أوقف تشغيل تور</string>
@@ -304,4 +296,17 @@
     <string name="device_lock_security_update_needed">يجب عليك تنزيل تحديثات أمان أندرويد لجهازك لتتمكن من استخدام استيثاق Orbot</string>
     <string name="pref_password_only_no_biometric">عدم السماح بالقياسات الحيوية لاستيثاق Orbot</string>
     <string name="pref_password_only_no_biometric_description">هذا يجبر استيثاق Orbot على طلب كلمة سر جهازك فقط حتى لو ضُبط استيثاق البيومتري، مثل بصمة الإصبع أو فتح القفل بالوجه، على جهازك.</string>
+    <string name="bridges_via_telegram">جسور تور (obfs4) عبر تيليجرام</string>
+    <string name="bridges_via_telegram_subtitle">من المحتمل أن يبقيك متصلاً إذا كان تور محظورًا بشدة. سيؤدي استخدام هذه الطريقة إلى تشغيل قناة Tor Bot على تيليجرام. اضغط على \"ابدأ\" أو اكتب \"%1$s\" في الدردشة للحصول على عناوين الجسور.</string>
+    <string name="bridges_via_email">جسور تور (obfs4) عبر البريد الإلكتروني</string>
+    <string name="bridges_via_email_subtitle">يخفي حركة بياناتك. يتجاوز بعض حجب تور. يتطلب إرسال بريد إلكتروني من حساب Gmail أو Riseup.</string>
+    <string name="bridge_meek_azure_subtitle">يخفي حركة بياناتك. يتجاوز بعض حجب تور. قد يكون بطيئًا جدًا.</string>
+    <string name="custom_bridges_subtitle">اسأل داخل شبكاتك ومنظماتك الموثوقة لمعرفة ما إذا كان أي شخص يستضيف جسرًا. إذا لم يكن كذلك، يمكن لصديق الحصول على الجسور لك.</string>
+    <string name="custom_bridges_description">ألصق عناوين الجسور التي تتلقاها أدناه. أو امسح رمز QR لإضافته. يمكن للأصدقاء الحصول على جسور لك في %1$s.</string>
+    <string name="action_use_">استخدم %1$s</string>
+    <string name="built_in_bridges_obfs4">الجسور المضمّنة (obfs4)</string>
+    <string name="built_in_bridges_obfs4_subtitle">يخفي حركة بياناتك. يتجاوز بعض حجب تور. جيد إذا كنت تستخدم شبكة واي فاي عامة، ولكن في بلد لا يتم فيه حجب تور.</string>
+    <string name="run_smart_connect_">شغل الاتصال الذكي لإيجاد أفضل طريقة</string>
+    <string name="enter_bridge_address">أدخل عنوان الجسر</string>
+    <string name="scan_qr_code">امسح رمز QR</string>
 </resources>

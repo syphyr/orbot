@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Send gögn</string>
     <string name="button_about">Um hugbúnaðinn</string>
     <string name="menu_exit">Hætta</string>
-    <string name="menu_scan">Skanna BridgeQR</string>
-    <string name="menu_share_bridge">Deila BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot er opinn og frjáls hugbúnaður sem inniheldur Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, og LibEvent. Það sér um að útbúa staðværan HTTP-milliþjón (8118) og SOCKS-milliþjón (9050) inn á Tor-netið.</string>
     <!--END Welcome Wizard strings (DJH)-->
@@ -149,10 +147,6 @@
     <string name="configure_custom_bridges">Stilla sérsniðnar brýr</string>
     <string name="custom_bridges">Sérsniðnar brýr</string>
     <string name="request_bridges_from_torproject">Biðja um brýr frá torproject.org</string>
-    <string name="captcha">CAPTCHA-mennskupróf</string>
-    <string name="solve_captcha_instruction">Leystu CAPTCHA-þraut til að biðja um brýr.</string>
-    <string name="refresh_captcha">Endurlesa CAPTCHA</string>
-    <string name="request_bridges">Biðja um brýr</string>
     <string name="pref_reduced_circuit_padding_summary">Nota umfangsminni reiknirit við bólstrun (padding) svo gagnamagn og rafhlöðunotkun sé sem minnst</string>
     <string name="pref_reduced_circuit_padding">Minnkuð bólstrun rásar (padding)</string>
     <string name="pref_circuit_padding_summary">Virkjar alltaf bólstrun rásar (padding) til varnar gegn ákveðnum gerðum umferðargreiningar</string>
@@ -182,8 +176,6 @@
     <string name="snowflake_proxy_msg_title">Birta tilkynningu um tengingu</string>
     <string name="snowflake_proxy_msg_description">Birta skilaboð þegar þú hjálpar einhverjum að komast framhjá ritskoðun</string>
     <string name="configure_header">Stilla Tor-tenginguna þína</string>
-    <string name="drawer_open">Opna</string>
-    <string name="drawer_close">Loka</string>
     <string name="ports_not_set">Gáttir ekki stilltar</string>
     <string name="volunteer_mode">Vænleikahamur</string>
     <string name="connected_title">Tengt</string>

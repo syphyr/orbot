@@ -5,8 +5,8 @@ import android.content.res.Configuration
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
-import org.torproject.android.core.Languages
-import org.torproject.android.core.LocaleHelper
+import org.torproject.android.localization.Languages
+import org.torproject.android.localization.LocaleHelper
 import org.torproject.android.service.util.Prefs
 
 import java.util.Locale

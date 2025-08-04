@@ -7,12 +7,12 @@ import android.net.Uri
 import android.provider.BaseColumns
 import android.text.TextUtils
 import android.util.Log
-import org.torproject.android.service.util.Utils
 import java.io.File
 import java.io.FileInputStream
 import java.util.UUID
 import androidx.core.net.toUri
 import org.torproject.android.service.OrbotConstants
+import org.torproject.android.service.util.DiskUtils
 
 object OnionServiceColumns : BaseColumns {
     const val NAME: String = "name"
@@ -100,7 +100,7 @@ object OnionServiceColumns : BaseColumns {
                     val hostname = File(v3OnionDirPath, "hostname")
                     if (hostname.exists()) {
                         val id = onionServices.getInt(idIndex)
-                        domain = Utils.readInputStreamAsString( FileInputStream(hostname)).trim()
+                        domain = DiskUtils.readInputStreamAsString( FileInputStream(hostname)).trim()
                         val fields = ContentValues()
                         fields.put(DOMAIN, domain)
                         contentResolver.update(uri, fields, BaseColumns._ID + "=" + id, null)

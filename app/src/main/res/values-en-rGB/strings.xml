@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Upload</string>
     <string name="button_about">About</string>
     <string name="menu_exit">Exit</string>
-    <string name="menu_scan">Scan BridgeQR</string>
-    <string name="menu_share_bridge">Share BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot is an open-source application that contains Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks and LibEvent. It provides a VPN tunnel, a local HTTP Connect proxy (HTTPS only on port 8118) and a SOCKS proxy (9050) into the Tor network.</string>
     <!--END Welcome Wizard strings (DJH)-->
@@ -115,14 +113,11 @@
     <string name="volunteer_mode_weekly_label">Weekly Total</string>
     <string name="full_device_vpn">Full Device VPN</string>
     <string name="volunteer_mode_label">Kindness Mode</string>
-    <string name="solve_captcha_instruction">Solve the CAPTCHA to request bridges.</string>
     <string name="custom_bridges">Custom Bridges</string>
     <string name="use_custom_bridges">Use Custom Bridges</string>
     <string name="use_qr_code">Use QR Code</string>
     <string name="snowflake_proxy_msg_title">Show Connection Notification</string>
     <string name="configure_header">Configure your Tor Connection</string>
-    <string name="drawer_open">Open</string>
-    <string name="drawer_close">Close</string>
     <string name="proxy_ports">Proxy Ports</string>
     <string name="ports_not_set">Ports Not Set</string>
     <string name="volunteer_mode_title">Help others\nconnect to Tor</string>
@@ -191,9 +186,6 @@
     <string name="pref_circuit_padding">Circuit padding</string>
     <string name="pref_circuit_padding_summary">Enable circuit padding to defend against some forms of traffic analysis</string>
     <string name="pref_reduced_circuit_padding_summary">Use lower overhead padding algorithms to reduce data and battery usage</string>
-    <string name="request_bridges">Request Bridges</string>
-    <string name="refresh_captcha">Refresh CAPTCHA</string>
-    <string name="captcha">Captcha</string>
     <string name="request_bridges_from_torproject">Request Bridges from torproject.org</string>
     <string name="configure_custom_bridges">Configure Custom Bridges</string>
     <string name="snowflake_proxy_msg_description">Show a message when you help someone circumvent censorship</string>

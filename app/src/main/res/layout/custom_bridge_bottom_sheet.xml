@@ -38,7 +38,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCustomBridgeHeader" />
 
-    <org.torproject.android.core.ui.NoPersonalizedLearningEditText
+    <org.torproject.android.ui.core.NoPersonalizedLearningEditText
         android:id="@+id/etBridges"
         android:layout_width="match_parent"
         android:layout_height="0dp"

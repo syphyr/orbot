@@ -36,10 +36,6 @@
     <string name="user_services">Shërbime përdoruesi</string>
     <string name="app_services">Shërbime aplikacionesh</string>
     <string name="refresh_apps">Rifresko Aplikacionet</string>
-    <string name="request_bridges">Kërkoni Ura</string>
-    <string name="refresh_captcha">Rifresko CAPTCHA-n</string>
-    <string name="solve_captcha_instruction">Që të kërkoni ura, zgjidhni CAPTCHA-n.</string>
-    <string name="captcha"/>
     <string name="snowflake_proxy_msg_title">Shfaq Njoftim Lidhjeje</string>
     <string name="connected_title">I lidhur</string>
     <string name="configure_header">Formësoni Lidhjen tuaj Tor</string>
@@ -72,8 +68,6 @@
     <string name="use_custom_bridges">Përdorni Ura Vetjake</string>
     <string name="paste_bridges">Ngjitni Ura</string>
     <string name="secure_your_connection_title">Gati që të lidheni</string>
-    <string name="drawer_open">Hape</string>
-    <string name="drawer_close">Mbylle</string>
     <string name="proxy_ports">Porta Ndërmjetësi</string>
     <string name="smart_connect">Lidhje e Mençur (parazgjedhje)</string>
     <string name="direct_connect">Lidhje e drejtpërdrejtë me Tor-in</string>
@@ -98,7 +92,6 @@
     <string name="menu_faq">PBR</string>
     <string name="menu_log">Regjistër</string>
     <string name="main_layout_upload">Ngarkim</string>
-    <string name="menu_scan">Skanoni BridgeQR</string>
     <string name="wizard_details_msg">Orbot-i është një aplikacion me burim të hapët, që përmban Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks dhe LibEvent.AI furnizon një tunel VPN, një ndërmjetës vendor HTTP Connect (HTTPS vetëm në portën 8118) dhe një ndërmjetës SOCKS (9050) te rrjeti Tor.</string>
     <string name="pref_node_configuration">Formësim Nyjesh</string>
     <string name="pref_node_configuration_summary">Këto janë rregullime të thelluara që mund të reduktojnë anonimitetin tuaj</string>
@@ -256,7 +249,6 @@
     <string name="pref_flag_secure_title">Siguri Ekrani</string>
     <string name="root_warning">Orbot-i ka pikasur se është shtënë në dorë kontrolli i pajisjes tuaj, çka mund të shkaktojë probleme sigurie.</string>
     <string name="kindness_config_detail">Formësoni si dhe kur pajisja juaj mund të veprojë si një ndërmjetës Snowflake për përdorues të tjerë të Tor-it.</string>
-    <string name="menu_share_bridge">Ndani me të tjerët BridgeQR</string>
     <string name="pref_isolate_protocol_summary">Përdorni një qark të ndryshëm për çdo protokoll lidhjeje</string>
     <string name="pref_reduced_connection_padding_summary">I mbyll më herët lidhjet me relenë dhe dërgon më pak pakete “padding”, për të zvogëluar përdorim të dhënash dhe baterie</string>
     <string name="pref_flag_secure_summary">Pengo aplikacione të tjerë të bëjnë foto ekrani të Orbot-it</string>

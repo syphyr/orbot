@@ -29,8 +29,6 @@
     <string name="trying_to_connect_title">ချိတ်ဆက်နေသည်…</string>
     <string name="btn_refresh">ပြန်စပါ</string>
     <string name="menu_header_learn">ထပ်မံလေ့လာမယ်</string>
-    <string name="drawer_open">Open</string>
-    <string name="drawer_close">ပိတ်ပါ</string>
     <string name="connect">ချိတ်ဆက်မယ်</string>
     <string name="next">ရှေ့ဆက်ရန်</string>
     <string name="action_activate">Activate</string>

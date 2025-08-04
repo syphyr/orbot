@@ -10,8 +10,6 @@
     <string name="main_layout_upload">上传</string>
     <string name="button_about">关于</string>
     <string name="menu_exit">退出</string>
-    <string name="menu_scan">扫描网桥二维码</string>
-    <string name="menu_share_bridge">分享网桥二维码</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">常规</string>
@@ -149,10 +147,6 @@
     <string name="configure_custom_bridges">配置自定义网桥</string>
     <string name="custom_bridges">自定义网桥</string>
     <string name="request_bridges_from_torproject">从 torproject.org 请求网桥</string>
-    <string name="captcha">验证码</string>
-    <string name="solve_captcha_instruction">解决验证码来请求网桥。</string>
-    <string name="refresh_captcha">刷新验证码</string>
-    <string name="request_bridges">请求网桥</string>
     <string name="testing_tor_direct_success">成功。Tor 连接良好！</string>
     <string name="testing_tor_direct">正在测试与 Tor 的连接…</string>
     <string name="pref_reduced_circuit_padding_summary">使用开销较低的填充算法以减少数据和电池用量</string>
@@ -207,9 +201,7 @@
     <string name="captcha_title">让我们知道您是真人</string>
     <string name="connect">连接</string>
     <string name="configure_header">配置 Tor 连接</string>
-    <string name="drawer_close">关闭</string>
     <string name="proxy_ports">代理端口</string>
-    <string name="drawer_open">打开</string>
     <string name="volunteer_mode_label">善举模式</string>
     <string name="volunteer_mode_weekly_label">一周总计</string>
     <string name="volunteer_mode_title">帮助他人
@@ -298,4 +290,17 @@
     <string name="device_lock_security_update_needed">您必须为您的设备下载 Android 安全更新，以便使用 Orbot 身份验证</string>
     <string name="pref_password_only_no_biometric">不允许 Orbot 身份验证的生物识别</string>
     <string name="pref_password_only_no_biometric_description">即使在您的设备上配置了指纹或人脸解锁等生物识别身份验证，此选项也会强制 Orbot 身份验证只要求使用设备密码。</string>
+    <string name="action_use_">使用 %1$s</string>
+    <string name="enter_bridge_address">输入网桥地址</string>
+    <string name="scan_qr_code">扫描二维码</string>
+    <string name="built_in_bridges_obfs4">内置 obfs4 网桥</string>
+    <string name="bridges_via_telegram">通过 Telegram 获取 obfs4 网桥</string>
+    <string name="bridges_via_email">通过电子邮件获取 obfs4 网桥</string>
+    <string name="bridges_via_telegram_subtitle">如果 Tor 被严重屏蔽，此方法可能会让您保持连接。使用此方法将启动 Tor Bot Telegram 频道。点击“开始”或在聊天中输入“%1$s”即可获取网桥地址。</string>
+    <string name="bridges_via_email_subtitle">伪装您的流量，绕过某些 Tor 屏蔽。需要使用 Gmail 或 Riseup 账号发送邮件。</string>
+    <string name="bridge_meek_azure_subtitle">伪装您的流量，绕过某些 Tor 屏蔽。速度可能非常慢。</string>
+    <string name="custom_bridges_subtitle">在可信网络和组织内询问是否有人托管网桥。如果没有，您可以让朋友帮您获取网桥。</string>
+    <string name="custom_bridges_description">将收到的网桥地址粘贴到下方，或扫描二维码添加。朋友可以通过 %1$s 帮您获取网桥。</string>
+    <string name="built_in_bridges_obfs4_subtitle">伪装您的流量，绕过某些 Tor 屏蔽。如果您使用的是公共 Wi-Fi，但所在国家/地区没有屏蔽 Tor，这种方法效果很好。</string>
+    <string name="run_smart_connect_">运行智能连接以查找最佳方式</string>
 </resources>

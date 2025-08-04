@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Apkataña</string>
     <string name="button_about">Juk\'ampi</string>
     <string name="menu_exit">Mistuña</string>
-    <string name="menu_scan">Chaka QR waruqaña</string>
-    <string name="menu_share_bridge">Chaka QR ch\'iqiyaña</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot aplikasyunax inakiwa, kawknïriti Tor IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks ukat LibEvent ukaniwa. Tor llikanx mä VPN tunila, mä akankir proxy HTTP Connect (8118 waythapiwja ukanaki HTTPS) ukat mä SOCKS proxy (9050) churi.</string>
     <!--END Welcome Wizard strings (DJH)-->
@@ -138,7 +136,6 @@
     <string name="kibibyte">KiB</string>
     <string name="mebibyte">MiB</string>
     <string name="confirm">Walikiw saña</string>
-    <string name="drawer_open">Jist\'araña</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="snowflake">Snowflake</string>
     <string name="bridges_obtained_connecting">¡Chakanakax jikxatatawa! Tor ukar waythapiskiwa…</string>
@@ -148,14 +145,11 @@
     <string name="trying_to_connect_title">Waythapiskiwa…</string>
     <string name="menu_help_others">Yaqhanakar yanapt\'aña</string>
     <string name="msg_try_something_else">Yaqha yant\'am</string>
-    <string name="request_bridges">Chakanak mayiña</string>
     <string name="custom_bridges">Maynichat chakanaka</string>
     <string name="request_bridges_from_torproject">torproject.org ukar chakanak mayiña</string>
     <string name="configure_custom_bridges">Maynichat chakanak mayjt\'ayaña</string>
     <string name="use_qr_code">QR chimpu apnaqaña</string>
     <string name="license">Lisinsya:</string>
-    <string name="refresh_captcha">CAPTCHA jichhaptayaña</string>
-    <string name="captcha">Captcha</string>
     <string name="in_a_browser">Mä thaqhirinxa, %s ukar mantam ukat Chakanak jikxataña limt\'am &gt; ¡Chakanakak churita!</string>
     <string name="btn_start_vpn">VPN qalltaña</string>
     <string name="connected_title">Waythapita</string>
@@ -163,7 +157,6 @@
     <string name="no_thx">Janiw walikïskiwa</string>
     <string name="menu_header_learn">Juk\'amp yatiyäwi</string>
     <string name="btn_use_custom_bridge">Maynichat chaka apnaqaña</string>
-    <string name="drawer_close">Jist\'antaña</string>
     <string name="volunteer_mode_weekly_label">Simanan taqpacha</string>
     <string name="connection_custom">Maynichata</string>
     <string name="use_custom_bridges">Maynichat chakanak apnaqaña</string>
@@ -232,7 +225,6 @@
     <string name="pref_flag_secure_title">Pantalla jark\'aqäwi</string>
     <string name="many_ways">Tor ukarux kunaymantuqit waythapiyasispa. Yaqhipanakax yaqhanakat sipan kusa jumatak irnaqi.</string>
     <string name="kindness_config_detail">Yaqha Tor apnaqirinakatakix kunjama ukat kunawsas tispusitiwumax Snowflake proxy ukjam tukuspa uk mayjt\'ayam.</string>
-    <string name="solve_captcha_instruction">Chakanak mayiñatakix CAPTCHA askicham.</string>
     <string name="bridge_snowflake_amp">Snowflake apnaqas yaqha Tor apnaqirinaktuq mantaña (Thakhi 2 )</string>
     <string name="no_internet_subtitle">Orbot apnaqañatakix Internet ukanïñamawa.</string>
     <string name="v3_delete_client_authorization_confirm">Apnaqirir iyawsañ pichsuña</string>

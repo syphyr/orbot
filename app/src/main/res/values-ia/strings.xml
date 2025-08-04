@@ -21,8 +21,6 @@
     <string name="menu_faq">FAQ</string>
     <string name="btn_refresh">Actualisar</string>
     <string name="menu_header_features">Functionalitates</string>
-    <string name="drawer_open">Aperir</string>
-    <string name="drawer_close">Clauder</string>
     <string name="enable">Activar</string>
     <string name="menu_stop">Stoppar</string>
     <string name="main_layout_download">Discarga</string>
@@ -76,10 +74,7 @@
     <string name="allow">Permitter</string>
     <string name="hidden_services">Servicios onion</string>
     <string name="done">Facite!</string>
-    <string name="menu_scan">Scannar BridgeQR</string>
-    <string name="menu_share_bridge">Compartir BridgeQR</string>
     <string name="kindness_adjust_title">Parametros</string>
-    <string name="refresh_captcha">Actualisar le CAPTCHA</string>
     <string name="custom_bridges">Pontes personalisate</string>
     <string name="secure_your_connection_title">Preste pro connecter</string>
     <string name="snowflake_proxy_msg_title">Monstrar notification de connexion</string>
@@ -114,7 +109,6 @@
     <string name="user_services">Servicios de usator</string>
     <string name="app_services">Servicios de application</string>
     <string name="refresh_apps">Actualisar le applicationes</string>
-    <string name="captcha">Captcha</string>
     <string name="configure_header">Configurar tu connexion a Tor</string>
     <string name="paste_bridges">Collar pontes</string>
     <string name="pref_entrance_node_dialog">Insere le nodos de entrata</string>

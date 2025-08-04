@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Mkaateka’j </string>
     <string name="button_about">Naa yuwete’</string>
     <string name="menu_exit">Kase’jnxi</string>
-    <string name="menu_scan"> Naa BridgeQR ew mtheg </string>
-    <string name="menu_share_bridge">Naa BridgeQR mtxuhde</string>
     <string name="wizard_details_msg">ORBOTa’ wala selpiisa’, naa çaam wejxa’tx ji’phpa’ka: Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks ki’ LibEvent. Paaç jxkhẽwwa’ja’ teeçx weh VPNek ũsu’, teeçx proxy HTTP Connect local (HTTPS, naa’ 8118 vxitxteçxaa) ki’ TORte’ teeçx proxy SOCKS (9050)</string>
     <string name="pref_general_group">Jxukaynas </string>
     <string name="pref_start_boot_title">Puukiweçxa’, ORBOTa’s mtakh</string>
@@ -162,10 +160,6 @@ Notificaciones ampliadas</string>
     <string name="app_services">App yuwe’s kajiyu’jnxi </string>
     <string name="refresh_apps">Appetx miikhpuuse’j</string>
     <!--MoatActivity-->
-  <string name="request_bridges">Wehtx pẽhy</string>
-    <string name="refresh_captcha">CAPTCHA’s miikhpuuse’j</string>
-    <string name="solve_captcha_instruction">CAPTCHA’s mpaas wehtx pẽywa’</string>
-    <string name="captcha">Captcha</string>
     <!--BridgeWizardActivity-->
   <string name="request_bridges_from_torproject">Wehtxi’ ayte mpẽhy torproject.org </string>
     <string name="custom_bridges">Idx weh.</string>
@@ -204,8 +198,6 @@ Notificaciones ampliadas</string>
     <string name="btn_use_custom_bridge">Idx weha’s kseelpi’j</string>
     <string name="msg_taking_too_long">Na’ seena’ jxtheyũçna’ thegu’k</string>
     <string name="msg_try_something_else">Vxite ki’ miisa</string>
-    <string name="drawer_open">Phadenxi</string>
-    <string name="drawer_close">Aphnxi</string>
     <string name="proxy_ports">Proxy vxitx</string>
     <string name="ports_not_set">Vxitxkwetx phuuse’jnximee</string>
     <string name="volunteer_mode_title">Vxitetx mpu’çxh Torte açya’ ewuukan</string>

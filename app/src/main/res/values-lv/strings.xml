@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Augšupielāde</string>
     <string name="button_about">Par</string>
     <string name="menu_exit">Iziet</string>
-    <string name="menu_scan">Skenēt BridgeQR</string>
-    <string name="menu_share_bridge">Koplietot BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Vispārīgi</string>
@@ -134,7 +132,6 @@
     <string name="pref_disable_ipv4">IPv4 savienojumu atspējošana</string>
     <string name="pref_circuit_padding_summary">Iespēja izmantot ķēžu polsterēšanu, lai aizsargātos pret dažiem datplūsmas analīzes veidiem</string>
     <string name="pref_prefer_ipv6">Priekšroka IPv6 savienojumiem</string>
-    <string name="captcha">Captcha</string>
     <string name="request_bridges_from_torproject">Pieprasīt tiltus no torproject.org</string>
     <string name="custom_bridges">Pielāgotie tilti</string>
     <string name="configure_custom_bridges">Pielāgotu tiltu konfigurēšana</string>
@@ -187,9 +184,6 @@
     <string name="user_services">Lietotāju pakalpojumi</string>
     <string name="app_services">Lietotņu pakalpojumi</string>
     <string name="refresh_apps">Atsvaidzināšanas programmas</string>
-    <string name="request_bridges">Pieprasīt tiltus</string>
-    <string name="refresh_captcha">Atsvaidzināt CAPTCHA</string>
-    <string name="solve_captcha_instruction">Atrisiniet CAPTCHA, lai pieprasītu tiltus.</string>
     <string name="pref_reduced_connection_padding_summary">ātrāk slēdz retranslatoru savienojumus un nosūta mazāk pakešu ar pildījumu, lai samazinātu datu un akumulatora patēriņu</string>
     <string name="if_your_mobile_network_actively_blocks_tor_you_can_use_a_tor_bridge_to_access_the_network_another_way_to_get_bridges_is_to_send_an_email_to_bridges_torproject_org_please_note_that_you_must_send_the_email_using_an_address_from_one_of_the_following_email_providers_riseup_gmail_or_yahoo_">Ja jūsu mobilais tīkls aktīvi bloķē Tor, varat izmantot \"tilta serveri\" kā alternatīvu piekļuves iespēju. Izvēlieties vienu no iespējām, lai konfigurētu un pārbaudītu…</string>
     <string name="backup_service">Rezerves kopēšanas pakalpojums <i>(Brīdinājums: tas var atklāt jūsu pakalpojuma konfigurāciju citām lietojumprogrammām)</i></string>
@@ -205,14 +199,12 @@
     <string name="trying_to_connect_title">Savienošana…</string>
     <string name="menu_faq">FAQ</string>
     <string name="menu_header_learn">Uzzināt vairāk</string>
-    <string name="drawer_open">Atvērt</string>
     <string name="connection_snowflake">Snowflake</string>
     <string name="connection_custom">Pielāgots</string>
     <string name="action_activate">Atjaunot</string>
     <string name="title_choose_apps">Izvēlēties lietotnes</string>
     <string name="setting_debug">Atkļūdot</string>
     <string name="menu_more">Vairāk</string>
-    <string name="drawer_close">Aizvērt</string>
     <string name="connect">Veidot savienojumu</string>
     <string name="next">Nākamais</string>
     <string name="volunteer_mode_alltime_label">Visu laiku Kopā</string>

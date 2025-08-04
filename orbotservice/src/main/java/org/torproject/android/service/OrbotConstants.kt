@@ -178,7 +178,7 @@ object OrbotConstants {
         "com.facebook.orca",
         "com.facebook.mlite",
         "com.brave.browser",
-        "org.mozilla.focus",
+        "org.mozilla.focus"
     )
 
     const val ONION_EMOJI: String = "\uD83E\uDDC5"

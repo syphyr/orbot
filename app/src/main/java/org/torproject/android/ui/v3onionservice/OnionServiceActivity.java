@@ -21,8 +21,8 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.torproject.android.R;
-import org.torproject.android.core.DiskUtils;
-import org.torproject.android.core.ui.BaseActivity;
+import org.torproject.android.service.util.DiskUtils;
+import org.torproject.android.ui.core.BaseActivity;
 import org.torproject.android.service.db.OnionServiceColumns;
 
 public class OnionServiceActivity extends BaseActivity {

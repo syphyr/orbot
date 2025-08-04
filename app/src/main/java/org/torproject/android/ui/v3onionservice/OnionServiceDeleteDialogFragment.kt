@@ -10,7 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 
 import org.torproject.android.R
-import org.torproject.android.core.DiskUtils.recursivelyDeleteDirectory
+import org.torproject.android.service.util.DiskUtils.recursivelyDeleteDirectory
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.db.OnionServiceColumns
 

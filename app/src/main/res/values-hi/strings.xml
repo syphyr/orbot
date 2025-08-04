@@ -10,8 +10,6 @@
     <string name="main_layout_upload">अपलोड</string>
     <string name="button_about">हमारे बारे में</string>
     <string name="menu_exit">निकलें</string>
-    <string name="menu_scan">ब्रिजक्यूआर स्कैन करें</string>
-    <string name="menu_share_bridge">ब्रिजक्यूआर शेयर करें</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">ऑरबॉट एक आज़ाद स्रोत ऐप है जिसमें टॉर, आईपीटीप्रॉक्सी (ओबीएफएस4प्रॉक्सी, मीक, स्नोफ्लेक), गो-टन2सॉक्स, और लिबइवेंट शामिल हैं। ये एक वीपीएन टनल देता है, टॉर नेटवर्क में जाने के लिए एक स्थानिय एचटीटीपी कनेक्ट प्रॉक्सी (एचटीटीपीएस सिर्फ 8118 पोर्ट पे) और एक सॉक्स प्रॉक्सी (9050)।</string>
     <!--END Welcome Wizard strings (DJH)-->
@@ -154,8 +152,6 @@
     <string name="action_activate">चालू करें</string>
     <string name="title_choose_apps">ऐप चुनें</string>
     <string name="menu_more">और</string>
-    <string name="drawer_open">खोलें</string>
-    <string name="drawer_close">बंद करें</string>
     <string name="connect">जुड़ें</string>
     <string name="next">अगला</string>
     <string name="version">संस्करण:</string>
@@ -231,8 +227,6 @@
     <string name="volunteer_mode_subtitle">दूसरों को जुड़ने में मदद करें</string>
     <string name="bridge_snowflake_amp">स्नोफ्लेक से दूसरे टॉर यूज़र से होके जुड़ें (दूसरा तरीका: एएमपी)</string>
     <string name="direct_connect_subtitle">टॉर से जुड़ने का सबसे अच्छा तरीका। टॉर के ब्लॉक होने पे इस्तेमाल करें।</string>
-    <string name="solve_captcha_instruction">ब्रिज मांगने के लिए कैप्चा सुलझाएं।</string>
-    <string name="captcha">कैप्चा</string>
     <string name="use_qr_code">क्यूआर कोड इस्तेमाल करें</string>
     <string name="configure_header">अपने टॉर कनेक्शन को सेट करें</string>
     <string name="snowflake_subtitle">टॉर समाज से होके जुड़ें। कुछ टॉर ब्लॉक को बायपास करता है।</string>
@@ -241,7 +235,6 @@
     <string name="pref_reduced_circuit_padding">कम सर्किट पैडिंग</string>
     <string name="pref_reduced_circuit_padding_summary">डाटा और बैट्री खप्त कम करने के लिए कम ओवरहैड पैडिंग अलगोरिदम इस्तेमाल करता है</string>
     <string name="testing_tor_direct">टॉर कनेक्शन चेक कर रहे…</string>
-    <string name="request_bridges">ब्रिज मांगें</string>
     <string name="custom_bridges">कस्टम ब्रिज</string>
     <string name="configure_custom_bridges">कस्टम ब्रिज बदलें</string>
     <string name="use_custom_bridges">कस्टम ब्रिज इस्तेमाल करें</string>
@@ -268,6 +261,5 @@
     <string name="captcha_title">खुद के इंसान होने का सबूत दें</string>
     <string name="paste_bridges">ब्रिज डालें</string>
     <string name="btn_start_vpn">वीपीएन शुरू करें</string>
-    <string name="refresh_captcha">कैप्चा रीफ्रेश करें</string>
     <string name="strict_nodes_description">सभी सर्किटों के निर्माण के लिए बहिष्कृत नोड्स सेटिंग्स को एक आवश्यकता के रूप में मानें। यदि आपकी बहिष्कृत नोड्स सेटिंग्स के साथ कोई सर्किट उत्पन्न नहीं हो पाता है तो यह कार्यक्षमता को तोड़ सकता है।</string>
 </resources>

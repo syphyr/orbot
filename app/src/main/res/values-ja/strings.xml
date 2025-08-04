@@ -10,8 +10,6 @@
     <string name="main_layout_upload">アップロード</string>
     <string name="button_about">バージョン情報</string>
     <string name="menu_exit">終了</string>
-    <string name="menu_scan">ブリッジ QR をスキャン</string>
-    <string name="menu_share_bridge">ブリッジ QR を共有</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot は Tor、IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks、LibEvent を含むオープンソースアプリです。Tor ネットワークに入る VPN トンネル、ローカルHTTP接続プロキシ (8118) SOCKSプロキシ (9050) を提供します。</string>
     <!--END Welcome Wizard strings (DJH)-->
@@ -177,10 +175,6 @@
     <string name="pref_circuit_padding">サーキットパディング</string>
     <string name="pref_circuit_padding_summary">いくつかの形式のトラフィック解析から防御するために、サーキットパディングを有効にします</string>
     <string name="pref_reduced_circuit_padding_summary">データと電池の消費量を減らすために、低い追加処理パディングアルゴリズムを使います</string>
-    <string name="request_bridges">ブリッジを要求する</string>
-    <string name="refresh_captcha">CAPTCHA を更新する</string>
-    <string name="solve_captcha_instruction">ブリッジをリクエストするには CAPTCHA を解いてください。</string>
-    <string name="captcha">Captcha</string>
     <string name="paste_bridges">ブリッジを貼り付け</string>
     <string name="configure_custom_bridges">カスタムブリッジの設定</string>
     <string name="use_qr_code">QR コードを使用</string>
@@ -205,8 +199,6 @@
     <string name="strict_nodes_description">除外ノードの設定は、すべての回路を構築するための要件として扱われます。このため、除外ノードの設定で回路を生成できない場合、根本的な機能が停止することがあります。</string>
     <string name="mebibyte">MiB</string>
     <string name="request_bridges_from_torproject">torproject.org からブリッジをリクエストする</string>
-    <string name="drawer_open">開く</string>
-    <string name="drawer_close">閉じる</string>
     <string name="proxy_ports">プロキシのポート</string>
     <string name="volunteer_mode_label">Kindness Mode</string>
     <string name="ports_not_set">ポート設定していません</string>
@@ -304,4 +296,17 @@
     <string name="error_asking_tor_for_bridges">Tor への接続方法の確認中にエラーが発生しました</string>
     <string name="pref_password_only_no_biometric">Orbot 認証の際に生体認証を許可しない</string>
     <string name="pref_password_only_no_biometric_description">これにより、指紋認証や顔認証などの生体認証がデバイスに設定されている場合でも、Orbot 認証はデバイスのパスワードのみしか許可しないようになります。</string>
+    <string name="bridges_via_telegram">Telegram 経由の Tor (obfs4) からのブリッジ</string>
+    <string name="bridges_via_email">メール経由の Tor (obfs4) からのブリッジ</string>
+    <string name="bridges_via_telegram_subtitle">Tor が厳しく検閲されている場合でも、接続を維持できる可能性があります。この方法を使用すると、Tor Bot Telegram チャンネルが起動します。チャットで「Start」をタップするか、「%1$s」と入力すると、ブリッジアドレスを取得できます。</string>
+    <string name="bridges_via_email_subtitle">トラフィックをカモフラージュします。一部の Tor ブロックを回避します。Gmail または Riseup アカウントからメールを送信する必要があります。</string>
+    <string name="bridge_meek_azure_subtitle">トラフィックをカモフラージュします。一部の Tor ブロックを回避します。非常に遅い可能性があります。</string>
+    <string name="custom_bridges_subtitle">信頼できる人脈や組織内に尋ねて、ブリッジを運用している人がいないかご確認ください。もしいない場合は、友人がブリッジを用意してくれるかもしれません。</string>
+    <string name="custom_bridges_description">受け取ったブリッジアドレスを以下に貼り付けます。または、QR コードをスキャンして追加することもできます。友達は %1$s であなたにブリッジを提供できます。</string>
+    <string name="action_use_">%1$s を使う</string>
+    <string name="built_in_bridges_obfs4">内蔵ブリッジ (obfs4)</string>
+    <string name="built_in_bridges_obfs4_subtitle">トラフィックをカモフラージュします。一部の Tor ブロックを回避します。公衆 WiFi を使っていても、Tor がブロックされていない国では問題ありません。</string>
+    <string name="run_smart_connect_">Smart Connect を実行して最適な方法を見つける</string>
+    <string name="scan_qr_code">QR コードをスキャン</string>
+    <string name="enter_bridge_address">ブリッジアドレスを入力する</string>
 </resources>

@@ -71,7 +71,6 @@
     <string name="enable">Aktivigi</string>
     <string name="btn_refresh">Aktualigi</string>
     <string name="menu_header_features">Funkcioj</string>
-    <string name="drawer_open">Komenci</string>
     <string name="menu_faq">oftaj demandoj</string>
     <string name="menu_header_learn">Lerni plu</string>
     <string name="next">Sekven</string>
@@ -83,6 +82,5 @@
     <string name="disable">Malŝalti</string>
     <string name="confirm">Konfirmi</string>
     <string name="menu_new_identity">Nova idento</string>
-    <string name="drawer_close">Fermi</string>
     <string name="version">Versio:</string>
 </resources>

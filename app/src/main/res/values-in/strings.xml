@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Unggah</string>
     <string name="button_about">Tentang</string>
     <string name="menu_exit">Keluar</string>
-    <string name="menu_scan">Pindai BridgeQR</string>
-    <string name="menu_share_bridge">Bagikan BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Umum</string>
@@ -87,7 +85,6 @@
     <string name="get_bridges_email">Email</string>
     <string name="send_email">Kirim Email</string>
     <string name="please_restart_Orbot_to_enable_the_changes">Silakan start ulang Orbot untuk mengaktifkan perubahan</string>
-    <string name="captcha">Captcha</string>
     <string name="done">Beres!</string>
     <string name="name">Nama</string>
     <string name="menu_hidden_services">Perkhidmatan Onion</string>
@@ -126,7 +123,6 @@
     <string name="version">Versi:</string>
     <string name="license">Lisensi:</string>
     <string name="bridge_cloud">Hubungkan melalui server awan</string>
-    <string name="solve_captcha_instruction">Selesaikan CAPTCHA untuk meminta jembatan.</string>
     <string name="request_bridges_from_torproject">Minta Jembatan dari torproject.org</string>
     <string name="in_a_browser">Dalam sebuah peramban, kunjungi %s dan ketuk Get Bridgs &gt; Just Give Me Bridges!</string>
     <string name="paste_bridges">Tempelkan Jembatan</string>
@@ -135,8 +131,6 @@
     <string name="snowflake_proxy_msg_title">Tampilkan Notifikasi Koneksi</string>
     <string name="snowflake_proxy_msg_description">Tampilkan pesan ketika Anda membantu seseorang melewati sensor</string>
     <string name="configure_header">Konfigurasi Koneksi Tor Anda</string>
-    <string name="drawer_open">Buka</string>
-    <string name="drawer_close">Tutup</string>
     <string name="proxy_ports">Porta Proksi</string>
     <string name="volunteer_mode_title">Bantu orang lain
 \nmenghubung ke Tor</string>
@@ -180,7 +174,6 @@
     <string name="bridge_direct_connect">Hubungkan langsung ke Tor (terbaik)</string>
     <string name="bridge_community">Hubungkan melalui server komunitas</string>
     <string name="user_services">Layanan pengguna</string>
-    <string name="request_bridges">Minta Jembatan</string>
     <string name="app_services">Layanan aplikasi</string>
     <string name="refresh_apps">Muat Ulang Aplikasi</string>
     <string name="custom_bridges">Jembatan Khusu</string>
@@ -240,7 +233,6 @@
     <string name="pref_prefer_ipv6_summary">Menggunakan nodus keluar bahwa alamat IPv6 lebih disukai</string>
     <string name="testing_tor_direct">Menguji koneksi ke Tor…</string>
     <string name="testing_tor_direct_success">Berhasil. Koneksi Tor baik!</string>
-    <string name="refresh_captcha">Muat ulang CAPTCHA</string>
     <string name="incorrect_solution">Solusi Tidak Benar</string>
     <string name="bridges_obtained_connecting">Jembatan didapatkan! Menghubungkan ke tor…</string>
     <string name="having_trouble">Mengalami masalah</string>

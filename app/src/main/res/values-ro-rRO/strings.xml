@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Incarcă</string>
     <string name="button_about">Despre</string>
     <string name="menu_exit">Ieşire</string>
-    <string name="menu_scan">Scanează BridgeQR</string>
-    <string name="menu_share_bridge">Distribuie BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">General</string>
@@ -113,8 +111,6 @@
     <string name="pref_prefer_ipv6_summary">Spune ieșirilor că sunt preferate adresele IPv6</string>
     <string name="pref_disable_ipv4">Dezactivați conexiunile IPv4</string>
     <string name="testing_tor_direct">Testarea conexiunii la Tor…</string>
-    <string name="refresh_captcha">Actualizați CAPTCHA</string>
-    <string name="captcha">Captcha</string>
     <string name="request_bridges_from_torproject">Cereți punți de la torproject.org</string>
     <string name="use_custom_bridges">Utilizați punți personalizate</string>
     <string name="bridge_snowflake">Conectați-vă prin intermediul altor utilizatori Tor folosind Snowflake (Metoda 1 - Fastly)</string>
@@ -142,7 +138,6 @@
     <string name="captcha_title">Spune-ne că ești om</string>
     <string name="menu_tor_connection">Conexiunea Tor</string>
     <string name="bridge_cloud">Conectare prin intermediul serverelor cloud</string>
-    <string name="solve_captcha_instruction">Rezolvați CAPTCHA pentru a solicita punți.</string>
     <string name="volunteer_mode_subtitle_desc">Modul Bunătate permite dispozitivului dvs. să fie o punte de legătură pentru ceilalți. Ajută oamenii să folosească Tor în locurile în care acesta este blocat.
 \n
 \n• Nu vă va consuma bateria
@@ -160,7 +155,6 @@
     <string name="user_services">Servicii pentru utilizatori</string>
     <string name="app_services">Servicii de aplicații</string>
     <string name="refresh_apps">Aplicații de reîmprospătare</string>
-    <string name="request_bridges">Solicită punți</string>
     <string name="custom_bridges">Punți personalizate</string>
     <string name="configure_custom_bridges">Configurarea punților personalizate</string>
     <string name="paste_bridges">Lipire adrese punți</string>
@@ -174,7 +168,6 @@
     <string name="menu_faq">Întrebări frecvente</string>
     <string name="menu_header_learn">Află mai multe</string>
     <string name="btn_use_custom_bridge">Utilizați punte personalizată</string>
-    <string name="drawer_close">Închide</string>
     <string name="proxy_ports">Porturi proxy</string>
     <string name="snowflake_amp">Snowflake AMP</string>
     <string name="asking">CERERE…</string>
@@ -190,7 +183,6 @@
     <string name="v3_delete_client_authorization_confirm">Ștergeți autorizația clientului</string>
     <string name="v3_backup_name_hint">Nume fișier de rezervă…</string>
     <string name="v3_import_auth_private">Importați .auth_private</string>
-    <string name="drawer_open">Deschide</string>
     <string name="volunteer_mode_title">Ajutați-i pe alții
 \nsă se conecteze la Tor</string>
     <string name="volunteer_mode_label">Modul Bunătate</string>

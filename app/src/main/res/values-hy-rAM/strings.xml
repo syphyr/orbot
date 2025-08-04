@@ -17,7 +17,6 @@
     <string name="name">Անուն</string>
     <string name="menu_faq">ՀՏՀ</string>
     <string name="menu_header_learn">Իմանալ ավելին</string>
-    <string name="drawer_close">Փակել</string>
     <string name="action_activate">Գործածել</string>
     <string name="title_choose_apps">Ընտրել ափփեր</string>
     <string name="allow">Թույլատրել</string>
@@ -47,7 +46,6 @@
     <string name="trying_to_connect_title">Միացում…</string>
     <string name="menu_header_features">Հատկություններ</string>
     <string name="menu_tor_connection">Tor միացում</string>
-    <string name="drawer_open">Բացել</string>
     <string name="connect">Միանալ</string>
     <string name="testing_tor_direct">Փորձվում է միացումը Tor-ին.…</string>
     <string name="testing_tor_direct_success">Հաջողվեց: Tor-ի միացումը լա՜վն է:</string>
@@ -65,8 +63,6 @@
     <string name="use_custom_bridges">Օգտագործել հարմարեցված կամուրջները</string>
     <string name="volunteer_mode_title">Օգնեք ուրիշներին
 \nմիանալ Tor-ին</string>
-    <string name="menu_share_bridge">Տարածել BridgeQR-ը</string>
-    <string name="menu_scan">Ծրել BridgeQR-ը</string>
     <string name="pref_proxy_host_title">Արտագնա փոխանորդի հյուրընկալ</string>
     <string name="pref_proxy_port_summary">Փոխանորդ սերվերի մատույցը</string>
     <string name="pref_proxy_port_title">Արտագնա փոխանորդի մատույց</string>
@@ -81,7 +77,6 @@
     <string name="pref_socks_summary">Մատույցը, որով Tor-ն առաջարկում է իր «SOCKS» փոխանորդը (լռելայնը՝ 9050 կամ 0՝ կարողազրկման համար)</string>
     <string name="service_type">Ծառայության տեսակ</string>
     <string name="bridge_direct_connect">Միանալ ուղղակիորեն Tor-ին (լավագույնը)</string>
-    <string name="request_bridges">Պահանջել կամուրջներ</string>
     <string name="configure_custom_bridges">Կարգավորել հարմարեցված կամուրջները</string>
     <string name="pref_http_dialog">«HTTP» մատույցի կարգավորում</string>
     <string name="pref_transport_title">Tor TransProxy մատույց</string>

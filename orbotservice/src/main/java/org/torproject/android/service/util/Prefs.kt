@@ -8,6 +8,7 @@ import android.preference.PreferenceManager
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
+import org.torproject.android.service.circumvention.ResetSnowflakesServedWeeklyWorker
 import org.torproject.android.service.circumvention.Transport
 import java.util.Locale
 import java.util.concurrent.TimeUnit
@@ -70,7 +71,7 @@ object Prefs {
 
     fun initWeeklyWorker() {
         val myWorkBuilder =
-            PeriodicWorkRequest.Builder(PrefsWeeklyWorker::class.java, 7, TimeUnit.DAYS)
+            PeriodicWorkRequest.Builder(ResetSnowflakesServedWeeklyWorker::class.java, 7, TimeUnit.DAYS)
 
         val myWork = myWorkBuilder.build()
         WorkManager.getInstance()

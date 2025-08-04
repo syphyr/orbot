@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Отпремање</string>
     <string name="button_about">О нама</string>
     <string name="menu_exit">Излаз</string>
-    <string name="menu_scan">Скенирај BridgeQR</string>
-    <string name="menu_share_bridge">Подели BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Орбот је апликација отвореног кода која садржи Тор, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks и LibEvent. Омогућава локални HTTP proxy (8118) и SOCKS proxy (9050) у Тор мрежу. Орбот такође има могућност да на рутованом уређају шаље сав интернет саобраћај преко Тор-а.</string>
     <!--END Welcome Wizard strings (DJH)-->
@@ -132,8 +130,6 @@
     <string name="action_activate">Активирај</string>
     <string name="setting_debug">Исправљање грешака</string>
     <string name="menu_more">Више</string>
-    <string name="drawer_open">Отвори</string>
-    <string name="drawer_close">Затвори</string>
     <string name="connect">Повежи се</string>
     <string name="next">Даље</string>
     <string name="menu_faq">ЧПП</string>
@@ -249,10 +245,6 @@
     <string name="pref_prefer_ipv6_summary">Обавештава излазе да су IPv6 адресе префериране</string>
     <string name="pref_isolate_port_summary">Користите различит круг за сваки одредишни порт</string>
     <string name="pref_isolate_protocol">Изоловање клијентских протокола</string>
-    <string name="request_bridges">Затражи мостове</string>
-    <string name="refresh_captcha">Освежи CAPTCHA</string>
-    <string name="solve_captcha_instruction">Реши CAPTCHA да би затражио мостове.</string>
-    <string name="captcha">Captcha</string>
     <string name="custom_bridges">Прилагођени мостови</string>
     <string name="in_a_browser">У прегледачу, посети %s и кликни на Get Bridges &gt; Just Give Me Bridges!</string>
     <string name="paste_bridges">Налепи мостове</string>
