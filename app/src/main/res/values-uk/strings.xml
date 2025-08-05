@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Вивантаження</string>
     <string name="button_about">Про застосунок</string>
     <string name="menu_exit">Вихід</string>
-    <string name="menu_scan">Сканувати BridgeQR</string>
-    <string name="menu_share_bridge">Поділитися BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot — це застосунок з відкритим кодом, що містить Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, LibEvent. Він забезпечує локальний HTTP-проксі (8118) та проксі SOCKS (9050) у мережу Tor.</string>
     <!--END Welcome Wizard strings (DJH)-->
@@ -149,11 +147,6 @@
     <string name="configure_custom_bridges">Сконфігурувати користувацькі мости</string>
     <string name="custom_bridges">Користувацькі мости</string>
     <string name="request_bridges_from_torproject">Запит мостів від torproject.org</string>
-    <string name="enter_characters_from_image">Введіть вказаний вище текст</string>
-    <string name="captcha">Captcha</string>
-    <string name="solve_captcha_instruction">Розв\'яжіть CAPTCHA для запиту мостів.</string>
-    <string name="refresh_captcha">Оновити CAPTCHA</string>
-    <string name="request_bridges">Запит мостів</string>
     <string name="testing_tor_direct_success">Успішно. З\'єднання Tor хороше!</string>
     <string name="testing_tor_direct">Перевірка з\'єднання з Tor…</string>
     <string name="get_bridges_email_request">Запитати мости електронною поштою</string>
@@ -206,8 +199,6 @@
     <string name="menu_help_others">Допоможіть іншим</string>
     <string name="menu_header_learn">Докладніше</string>
     <string name="btn_use_custom_bridge">Використовувати власний міст</string>
-    <string name="drawer_open">Відкрити</string>
-    <string name="drawer_close">Закрити</string>
     <string name="snowflake">Сніжинка</string>
     <string name="ports_not_set">Порти не налаштовані</string>
     <string name="configure_header">Налаштуйте з\'єднання Tor</string>
@@ -221,7 +212,6 @@
     <string name="proxy_ports">Порти проксі</string>
     <string name="volunteer_mode_label">Режим доброти</string>
     <string name="volunteer_mode_weekly_label">Усього за тиждень</string>
-    <string name="custom_bridge">Користувацький міст</string>
     <string name="next">Далі</string>
     <string name="volunteer_mode_title">Допомагайте іншим
 \nпід\'єднуватися до Tor</string>
@@ -230,16 +220,11 @@
     <string name="smart_connect_subtitle">Orbot намагається під\'єднатися до Tor будь-яким доступним способом: Безпосередньо, через Snowflake, через міст.</string>
     <string name="direct_connect">Безпосереднє з\'єднання з Tor</string>
     <string name="snowflake_subtitle">З\'єднання через волонтерів Tor. Обходить деякі блокування Tor.</string>
-    <string name="get_a_bridge">Міст з Tor (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Маскує ваш трафік. Обходить деякі блокування Tor.</string>
-    <string name="custom_bridge_subtitle">Швидше за все, допоможе з\'єднуватися, якщо Tor суворо заблокований. Потрібна адреса мосту від людини, якій ви довіряєте.</string>
     <string name="connect">Під\'єднати</string>
-    <string name="solve_captcha">Розв\'язати Captcha</string>
     <string name="incorrect_solution">Неправильне рішення</string>
     <string name="bridges_obtained_connecting">Мости отримано! Під\'єднання до tor…</string>
     <string name="having_trouble">Виникли проблеми</string>
     <string name="having_trouble_subtitle">Далі ми можемо спробувати Tor-міст, але нам знадобиться ваша допомога</string>
-    <string name="custom_bridge_description">Спеціальний міст надається кимось із тих, кого ви знаєте. Поцікавтеся у ваших довірених мережах та організаціях, чи не розміщує хтось такий міст.</string>
     <string name="power_user_mode">Режим досвідченого користувача</string>
     <string name="action_activate">Активувати</string>
     <string name="volunteer_status_title">Сьогодення краще
@@ -251,7 +236,6 @@
     <string name="apps_other_apps">Інші застосунки</string>
     <string name="hide_apps">Приховуйте застосунки від моніторингу мережі та отримуйте доступ, коли вони заблоковані.</string>
     <string name="log_copied">Журнал скопійовано</string>
-    <string name="action_use">Використати</string>
     <string name="many_ways">Існує багато способів отримати доступ до Tor. Деякі з них можуть працювати для вас краще, ніж інші.</string>
     <string name="no_internet_title">Підключення до Інтернету</string>
     <string name="snowflake_amp">Сніжинка AMP</string>
@@ -312,4 +296,17 @@
     <string name="device_lock_security_update_needed">Ви повинні завантажити оновлення безпеки Android для свого пристрою, щоб використовувати автентифікацію Orbot</string>
     <string name="pref_password_only_no_biometric">Заборонити біометрику для аутентифікації ORBOT</string>
     <string name="pref_password_only_no_biometric_description">Це змушує аутентифікацію орбота вимагати лише пароля вашого пристрою, навіть якщо біометрична автентифікація, наприклад, відбитки пальців або розблокування обличчя, налаштована на вашому пристрої.</string>
+    <string name="bridges_via_telegram">Мости з Tor (obfs4) через Telegram</string>
+    <string name="bridges_via_telegram_subtitle">Ймовірно, це допоможе вам залишатися на зв\'язку, якщо Tor серйозно заблоковано. Використання цього методу запустить Telegram-канал Tor Bot. Натисніть «Пуск» або напишіть «%1$s» у чаті, щоб отримати адреси мосту.</string>
+    <string name="bridges_via_email">Мости з Tor (obfs4) через електронну пошту</string>
+    <string name="bridges_via_email_subtitle">Маскує ваш трафік. Обходить деякі блокування Tor. Потрібно, щоб електронний лист був надісланий з облікового запису Gmail або Riseup.</string>
+    <string name="bridge_meek_azure_subtitle">Маскує ваш трафік. Обходить деякі блокування Tor. Може бути дуже повільним.</string>
+    <string name="custom_bridges_subtitle">Запитайте у своїх надійних мережах та організаціях, чи хтось пропонує міст. Якщо ні, друг може його вам розмістити.</string>
+    <string name="custom_bridges_description">Вставте нижче отримані адреси мостів. Або проскануйте QR-код, щоб додати їх. Друзі можуть отримати мости для вас на %1$s.</string>
+    <string name="action_use_">Використання %1$s</string>
+    <string name="enter_bridge_address">Введіть адресу мосту</string>
+    <string name="built_in_bridges_obfs4">Вбудовані мости (obfs4)</string>
+    <string name="built_in_bridges_obfs4_subtitle">Маскує ваш трафік. Допомагає обійти блокування Tor. Добре, якщо ви користуєтеся публічним Wi-Fi, але в країні, де Tor не заблоковано.</string>
+    <string name="run_smart_connect_">Запустіть Smart Connect, щоб знайти найкращий шлях</string>
+    <string name="scan_qr_code">Відскануйте QR-код</string>
 </resources>

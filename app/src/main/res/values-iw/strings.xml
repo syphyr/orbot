@@ -10,8 +10,6 @@
     <string name="main_layout_upload">העלאה</string>
     <string name="button_about">אודות</string>
     <string name="menu_exit">יציאה</string>
-    <string name="menu_scan">סריקת ברקוד גשר</string>
-    <string name="menu_share_bridge">שיתוף ברקוד גשר</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot היא אפליקציית קוד פתוח שמכילה Tor,‏ IPtProxy‏ (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks ו־LibEvent. היא מספקת מנהרת VPN, מתווך HTTP Connect מקומי (HTTPS רק ביציאה 8118) ומתווך SOCKS‏ (9050) לרשת Tor.</string>
     <!--END Welcome Wizard strings (DJH)-->
@@ -126,7 +124,6 @@
     <string name="refresh_apps">רענון יישומונים</string>
     <string name="connected_title">יש חיבור</string>
     <string name="menu_tor_connection">חיבור Tor</string>
-    <string name="drawer_close">סגירה</string>
     <string name="next">הבא</string>
     <string name="no_internet_title">התחברות לאינטרנט</string>
     <string name="allow">התרה</string>
@@ -160,7 +157,6 @@
     <string name="menu_more">עוד</string>
     <string name="setting_debug">ניפוי שגיאות</string>
     <string name="connection_snowflake">Snowflake</string>
-    <string name="drawer_open">פתיחה</string>
     <string name="action_activate">הפעלה</string>
     <string name="version">גרסה:</string>
     <string name="captcha_title">נרצה לדעת שמדובר בבן אדם</string>
@@ -184,7 +180,6 @@
     <string name="pref_circuit_padding_summary">אפשר להפעיל ריפוד מעגל כדי להגן מפני מגוון צורות של ניתוח תעבורה</string>
     <string name="pref_reduced_circuit_padding">ריפוד מעגל מופחת</string>
     <string name="volunteer_mode_alltime_label">סיכום לכל הזמן</string>
-    <string name="custom_bridge_description">גשר מותאם אישית מסופק על ידי גופים שמוכרים לך. כדאי לבקש מתוך הרשתות והארגונים המהימנים שלך כדי לראות אם מישהו מארח אחד.</string>
     <string name="proxy_ports">פתחות מתווך</string>
     <string name="no_internet_subtitle">צריך חיבור לאינטרנט כדי להשתמש ב־Orbot.</string>
     <string name="not_sure">בספק\?</string>
@@ -200,8 +195,6 @@
 \n• ניתן לכבות אותו בכל עת</string>
     <string name="ports_not_set">לא מוגדרות פתחות</string>
     <string name="ask_tor">לשאול את Tor</string>
-    <string name="solve_captcha">יש לפתור את ה־Captcha</string>
-    <string name="custom_bridge">גשר מותאם אישית</string>
     <string name="menu_help_others">סיוע לאחרים</string>
     <string name="consider_disable_battery_optimizations">שירותים מתארחים פועלים, כדאי להשבית את מיטוב הסוללה</string>
     <string name="power_user_mode">מצב משתמש פיכח</string>
@@ -214,21 +207,16 @@
     <string name="hide_apps">הסתרת יישומונים מניטור רשת וקבלת גישה כשהן חסומות.</string>
     <string name="snowflake_proxy_msg_title">הצגת הודעת חיבור</string>
     <string name="secure_your_connection_subtitle">הסתרת יישומונים מניטור רשת וקבלת גישה כשהן חסומות.</string>
-    <string name="enter_characters_from_image">נא למלא טקסט למעלה</string>
-    <string name="custom_bridge_subtitle">סביר להניח שישאיר אותך מחובר אם Tor נחסם קשות. דורש כתובת גשר מגוף מהימן.</string>
     <string name="paste_bridges">הדבקת גשרים</string>
     <string name="volunteer_mode_weekly_label">סיכום שבועי</string>
-    <string name="request_bridges">בקשת גשרים</string>
     <string name="kindness_adjust_title">הגדרות</string>
     <string name="apps_suggested_title">יישומונים מוצעים</string>
     <string name="log_copied">יומן הועתק</string>
     <string name="btn_copy_log">העתקת יומן</string>
     <string name="btn_configure">נא לבחור איך להתחבר</string>
     <string name="request_bridges_from_torproject">בקשת גשרים מ־torproject.org</string>
-    <string name="action_use">להשתמש</string>
     <string name="option_only_on_wifi">רק דרך Wifi</string>
     <string name="consider_enable_battery_optimizations">אין שירותים מתארחים פועלים, כדאי לאפשר מיטובי סוללה</string>
-    <string name="refresh_captcha">רענון ה־CAPTCHA</string>
     <string name="testing_tor_direct">החיבור ל־Tor נבדק…</string>
     <string name="bridge_snowflake">התחברות דרך משתמשי Tor אחרים באמצעות Snowflake (שיטה 1 - Fastly)</string>
     <string name="having_trouble_subtitle">אפשר לנסות גשר Tor בשלב הבא אבל נזדקק לעזרתך</string>
@@ -241,7 +229,6 @@
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="get_bridges_email_request">בקשת גשרים באמצעות דוא״ל</string>
     <string name="menu_kindness">חסד</string>
-    <string name="solve_captcha_instruction">יש לפתור את ה־CAPTCHA כדי לבקש גשרים.</string>
     <string name="v3_import_auth_private">ייבוא ‎.auth_private</string>
     <string name="use_qr_code">שימוש בקוד QR</string>
     <string name="pref_flag_secure_title">אבטחת מסך</string>
@@ -250,7 +237,6 @@
     <string name="btn_change_exit">החלפת פתחה</string>
     <string name="snowflake">Snowflake (מקורי)</string>
     <string name="backup_port_exist">שגיאה: שירות Onion כבר משתמש בפתחה %s</string>
-    <string name="get_a_bridge_subtitle">הסוואת התנועה שלך. מעקף חלק מחסימות Tor.</string>
     <string name="snowflake_proxy_msg_description">להציג הודעה כשעזרת למישהו לעקוף את הצנזורה</string>
     <string name="kindness_config_detail">הגדרת כיצד ומתי המכשיר שלך יוכל לפעול כמתווך של Snowflake לטובת משתמשי Tor אחרים.</string>
     <string name="smart_connect_subtitle">אורבוט מנסה להתחבר ל־Tor בכל דרך זמינה: ישירה, Snowflake, גשר.</string>
@@ -265,12 +251,10 @@
     <string name="strict_nodes_description">התייחסות להגדרות החרגה של צמתים כדרישה לבניית כל המעגלים. זה עלול לשבור את הפעילות אם לא ניתן ליצור מעגלים עם הגדרות החרגת הצמתים שנקבעו.</string>
     <string name="app_suggested_subtitle">Orbot עובד הכי טוב עם יישומוני הודעות ומדיה חברתית.</string>
     <string name="configure_custom_bridges">הגדרת גשרים מותאמים אישית</string>
-    <string name="get_a_bridge">גשר מ־Tor‏ (Obfs4)</string>
     <string name="secure_your_connection_title">מוכן להתחבר</string>
     <string name="volunteer_mode_title">סיוע לאחרים
 \nלהתחבר ל־Tor</string>
     <string name="v3_delete_client_authorization_confirm">מחיקת הרשאת הלקוח</string>
-    <string name="captcha">Captcha</string>
     <string name="pref_flag_secure_summary">למנוע מיישומונים אחרים לצלם את Orbot</string>
     <string name="direct_connect_subtitle">הדרך הטובה ביותר להתחבר ל־Tor. אפשר להשתמש אם Tor לא חסום.</string>
     <string name="volunteer_status_title">היום טוב יותר

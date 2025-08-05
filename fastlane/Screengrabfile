@@ -1,0 +1,17 @@
+# remove the leading '#' to uncomment lines
+
+app_package_name('org.torproject.android.debug')
+# use_tests_in_packages(['org.torproject.android.debug.tests'])
+
+# app_apk_path('path/to/your/app.apk')
+# tests_apk_path('path/to/your/tests.apk')
+
+locales([
+	'en-US', 'fr-FR', 'es-MX', 'de-DE', 'fa', 'ar', 'he', 'tr', 'pt', 'ja', 'hi', 'ru', 'ko'
+])
+
+# clear all previously generated screenshots in your local output directory before creating new ones
+clear_previous_screenshots(true)
+reinstall_app(true)
+# For more information about all available options run
+#   fastlane screengrab --help

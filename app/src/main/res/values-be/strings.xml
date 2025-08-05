@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Адпраўленне</string>
     <string name="button_about">Пра праграму</string>
     <string name="menu_exit">Выйсце</string>
-    <string name="menu_scan">Сканаваць QR-код моста</string>
-    <string name="menu_share_bridge">Апублікаваць QR-код моста</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot — гэта праграма з адкрытым зыходным кодам, якая ўтрымоўвае Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, і LibEvent. Яно прапануе лакальны HTTP- (8118) і SOCKS-проксі (9050) у сетку Tor. Orbot таксама дазваляе на прыладах з правамі root перасылаць увесь інтэрнэт-трафік праз Tor.</string>
     <!--END Welcome Wizard strings (DJH)-->
@@ -132,20 +130,16 @@
     <string name="connected_title">Падлучана</string>
     <string name="btn_refresh">Абнавіць</string>
     <string name="title_choose_apps">Абраць праграму</string>
-    <string name="action_use">Выкарыстоўваць</string>
     <string name="connection_custom">Карыстальніцкі</string>
     <string name="allow">Дазволіць</string>
     <string name="deny">Адхіліць</string>
     <string name="kibibyte">КіБ</string>
     <string name="mebibyte">МіБ</string>
     <string name="confirm">Пацвердзіць</string>
-    <string name="captcha">Капча</string>
     <string name="custom_bridges">Карыстальніцкія масты</string>
     <string name="menu_header_features">Магчымасці</string>
     <string name="menu_faq">ПіА</string>
     <string name="menu_header_learn">Даведацца больш</string>
-    <string name="drawer_open">Адкрыць</string>
-    <string name="drawer_close">Закрыць</string>
     <string name="connect">Злучэнне</string>
     <string name="next">Наступны</string>
     <string name="connection_snowflake">Snowflake</string>

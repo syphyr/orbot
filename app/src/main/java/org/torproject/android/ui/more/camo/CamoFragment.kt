@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.torproject.android.R
-import org.torproject.android.core.getKey
+import org.torproject.android.service.util.getKey
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.more.MoreActionAdapter
 import org.torproject.android.ui.OrbotMenuAction
@@ -28,7 +28,7 @@ class CamoFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_camo, container, false)
         val rvCamoApps = view.findViewById<RecyclerView>(R.id.rvCamoApps)
         // defaults to "Orbot" if user never selected anything, aka no camo
-        selectedApp = getCamoMapping(requireContext()).getKey(Prefs.getSelectedCamoApp())
+        selectedApp = getCamoMapping(requireContext()).getKey(Prefs.selectedCamoApp)
         requireActivity().title = getString(R.string.pref_camo_mode_title)
         // add orbot to front of list, then sort rest of camo apps item by locale
         val listItems = mutableListOf(

@@ -10,7 +10,7 @@ import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
 import org.torproject.android.ui.connect.CustomBridgeBottomSheet
 import org.torproject.android.R
-import org.torproject.android.core.sendIntentToService
+import org.torproject.android.service.util.sendIntentToService
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.util.Prefs
 
@@ -33,8 +33,8 @@ class KindnessFragment : Fragment() {
         btnActionActivate = view.findViewById(R.id.btnActionActivate)
         pnlActivate = view.findViewById(R.id.panel_kindness_activate)
         pnlStatus = view.findViewById(R.id.panel_kindness_status)
-        tvAllTimeTotal.text = Prefs.getSnowflakesServed().toString()
-        tvWeeklyTotal.text = (Prefs.getSnowflakesServedWeekly()).toString()
+        tvAllTimeTotal.text = Prefs.snowflakesServed.toString()
+        tvWeeklyTotal.text = (Prefs.snowflakesServedWeekly).toString()
 
         swVolunteerMode.isChecked = Prefs.beSnowflakeProxy()
         swVolunteerMode.setOnCheckedChangeListener { _, isChecked ->

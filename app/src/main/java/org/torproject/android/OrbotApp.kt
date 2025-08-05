@@ -5,8 +5,8 @@ import android.content.res.Configuration
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
-import org.torproject.android.core.Languages
-import org.torproject.android.core.LocaleHelper
+import org.torproject.android.localization.Languages
+import org.torproject.android.localization.LocaleHelper
 import org.torproject.android.service.util.Prefs
 
 import java.util.Locale
@@ -39,30 +39,30 @@ class OrbotApp : Application() {
 
         Languages.setup(OrbotActivity::class.java, R.string.menu_settings)
 
-        if (Prefs.getDefaultLocale() != Locale.getDefault().language) {
-            Languages.setLanguage(this, Prefs.getDefaultLocale(), true)
+        if (Prefs.defaultLocale != Locale.getDefault().language) {
+            Languages.setLanguage(this, Prefs.defaultLocale, true)
         }
 
         // this code only runs on first install and app updates
-        if (Prefs.getCurrentVersionForUpdate() < BuildConfig.VERSION_CODE) {
-            Prefs.setCurrentVersionForUpdate(BuildConfig.VERSION_CODE)
+        if (Prefs.currentVersionForUpdate < BuildConfig.VERSION_CODE) {
+            Prefs.currentVersionForUpdate = BuildConfig.VERSION_CODE
             // don't do anything resource intensive here, instead set a flag to do the task later
 
             // tell OrbotService it needs to reinstall geoip
-            Prefs.setIsGeoIpReinstallNeeded(true)
+            Prefs.isGeoIpReinstallNeeded = true
         }
     }
 
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
 
-        if (Prefs.getDefaultLocale() != Locale.getDefault().language) {
-            Languages.setLanguage(this, Prefs.getDefaultLocale(), true)
+        if (Prefs.defaultLocale != Locale.getDefault().language) {
+            Languages.setLanguage(this, Prefs.defaultLocale, true)
         }
     }
 
     fun setLocale() {
-        val appLocale = Prefs.getDefaultLocale()
+        val appLocale = Prefs.defaultLocale
         val systemLoc = Locale.getDefault().language
 
         if (appLocale != systemLoc) {

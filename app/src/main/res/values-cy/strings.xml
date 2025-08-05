@@ -39,7 +39,6 @@
     <string name="disable">Diffodd</string>
     <string name="connect">Cysylltu</string>
     <string name="action_activate">Ysgogi</string>
-    <string name="action_use">Wynebfath</string>
     <string name="connection_direct">Preifat</string>
     <string name="connection_custom">Cyfaddas</string>
     <string name="version">Fersiwn:</string>
@@ -49,8 +48,6 @@
     <string name="menu_header_features">Nodweddion</string>
     <string name="title_choose_apps">Dewis Apiau</string>
     <string name="menu_more">Mwy</string>
-    <string name="drawer_open">Agor</string>
-    <string name="drawer_close">Cau</string>
     <string name="next">Nesaf</string>
     <string name="menu_faq">Cwestiynau Cyffredin</string>
     <string name="allow">Caniatáu</string>
@@ -58,7 +55,6 @@
     <string name="enable">Galluogi</string>
     <string name="app_description">Mae Orbot yn ap dirprwy rhad ac am ddim sy\'n grymuso apiau eraill i ddefnyddio\'r rhyngrwyd yn fwy diogel. Mae Orbot yn defnyddio Tor i amgryptio eich traffig Rhyngrwyd ac yna\'n ei guddio trwy bownsio trwy gyfres o gyfrifiaduron ledled y byd. Mae Tor yn feddalwedd am ddim ac yn rhwydwaith agored sy\'n eich helpu i amddiffyn yn erbyn math o wyliadwriaeth rhwydwaith sy\'n bygwth rhyddid personol a phreifatrwydd, gweithgareddau busnes cyfrinachol a pherthnasoedd, a diogelwch y wladwriaeth a elwir yn ddadansoddiad traffig.</string>
     <string name="pref_proxy_port_dialog">Rhowch borthladd dirprwy</string>
-    <string name="menu_scan">Sganio BridgeQR</string>
     <string name="pref_proxy_host_summary">Enw gwesteiwr Gweinydd Dirprwy</string>
     <string name="pref_proxy_type_dialog">Rhowch Math o Ddirprwy</string>
     <string name="pref_allow_background_starts_title">Caniatáu Cychwyn Cefndir</string>
@@ -78,7 +74,6 @@
     <string name="pref_proxy_title">Dirprwy Rhwydwaith Allanol (Dewisol)</string>
     <string name="pref_proxy_host_title">Gwesteiwr Procsi Allan</string>
     <string name="pref_start_boot_title">Dechreuwch Orbot ar Boot</string>
-    <string name="menu_share_bridge">Rhannu BridgeQR</string>
     <string name="pref_proxy_username_summary">Enw defnyddiwr dirprwy (Dewisol)</string>
     <string name="pref_proxy_username_title">Enw Defnyddiwr Procsi Allan</string>
     <string name="pref_proxy_password_title">Cyfrinair Procsi Allan</string>
@@ -141,10 +136,8 @@
     <string name="bridge_direct_connect">Cysylltwch yn uniongyrchol â Tor (Gorau)</string>
     <string name="pref_isolate_protocol">Ynysu protocolau cleientiaid</string>
     <string name="secure_your_connection_subtitle">Cuddio apps rhag monitro rhwydwaith a chael mynediad pan fyddant yn cael eu rhwystro.</string>
-    <string name="enter_characters_from_image">Rhowch y testun uchod</string>
     <string name="paste_bridges">Gludo Pontydd</string>
     <string name="pref_transport_title">Porth TransProxy Tor</string>
-    <string name="request_bridges">Cais am Bontydd</string>
     <string name="pref_circuit_padding_summary">Galluogi padin cylched i amddiffyn rhag rhai mathau o ddadansoddi traffig</string>
     <string name="full_device_vpn">VPN Dyfais Llawn</string>
     <string name="pref_prefer_ipv6">Gwell cysylltiadau IPv6</string>
@@ -154,7 +147,6 @@
     <string name="consider_enable_battery_optimizations">Dim gwasanaethau lletyol yn rhedeg, ystyriwch alluogi optimeiddio batri</string>
     <string name="menu_header_learn">Dysgu mwy</string>
     <string name="trouble_connecting">Trafferth cysylltu?</string>
-    <string name="refresh_captcha">Adnewyddu CAPTCHA</string>
     <string name="testing_tor_direct">Wrthi\'n profi cysylltiad â Tor…</string>
     <string name="bridge_snowflake">Cysylltu trwy ddefnyddwyr Tor eraill gan ddefnyddio Snowflake (Dull 1 - Yn Gyflym)</string>
     <string name="send_email">Anfon e-bost</string>
@@ -169,7 +161,6 @@
     <string name="backup_saved_at_external_storage">Copi wrth gefn wedi\'i gadw mewn storfa allanol</string>
     <string name="pref_socks_dialog">SOCKS Port Config</string>
     <string name="pref_connection_padding_summary">Bob amser yn galluogi padin cysylltiad i amddiffyn yn erbyn rhai mathau o ddadansoddi traffig. Diofyn: auto</string>
-    <string name="solve_captcha_instruction">Datrys y CAPTCHA i ofyn am bontydd.</string>
     <string name="v3_import_auth_private">Mewnforio .auth_private</string>
     <string name="pref_http_title">Tor HTTP</string>
     <string name="btn_use_custom_bridge">Defnyddiwch Bont Custom</string>
@@ -211,7 +202,6 @@
     <string name="msg_taking_too_long">Mae\'n ymddangos bod hyn yn cymryd gormod o amser</string>
     <string name="v3_delete_client_authorization_confirm">Dileu Awdurdodiad Cleient</string>
     <string name="pref_http_summary">Porth y mae Tor yn cynnig ei ddirprwy HTTP arno (diofyn: 8118 neu 0 i\'w analluogi)</string>
-    <string name="captcha">Captcha</string>
     <string name="pref_reduced_connection_padding_summary">Yn cau cysylltiadau cyfnewid yn gynt ac yn anfon llai o becynnau padin i leihau\'r defnydd o ddata a batri</string>
     <string name="apps_mode">Modd VPN</string>
     <string name="local_port">Porthladd Lleol</string>

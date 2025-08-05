@@ -4,7 +4,7 @@ Orbot este singura aplicație care creează o conexiune la internet cu adevărat
 
 Tor a câștigat în 2012 premiul pentru pionieri al Electronic Frontier Foundation (EFF).
 
-★ NU ACCEPTĂ ÎNLOCUITORI: Orbot este cel mai sigur mod de a utiliza internetul pe Android. Punct. Orbot vă face să ricoșeze traficul criptat de mai multe ori prin computere din întreaga lume, în loc să vă conecteze direct, cum fac VPN-urile și proxies. Acest proces durează ceva mai mult, dar cea mai puternică protecție a confidențialității și a identității disponibilă merită așteptarea.
+★ NU ACCEPTĂ ÎNLOCUITORI: Orbot este cel mai sigur mod de a utiliza internetul pe Android. Punct. Orbot vă face să ricoșeze traficul criptat de mai multe ori prin computere din întreaga lume, în loc să vă conecteze direct, cum fac alte VPN-urile și proxiuri. Acest proces durează ceva mai mult, dar cea mai puternică protecție a confidențialității și a identității disponibilă merită așteptarea.
 ★ CONFIDENȚIALITATE PENTRU APLICAȚII: Orice aplicație poate fi direcționată prin Tor prin intermediul funcției Orbot VPN
 ★ CONFIDENȚIALITATE PENTRU TOATĂ LUMEA: Orbot împiedică pe cineva care vă urmărește conexiunea să știe ce aplicații utilizați sau ce site-uri web vizitați. Tot ceea ce poate vedea cineva care vă monitorizează traficul de rețea este faptul că utilizați Tor.
 

@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Nahrát</string>
     <string name="button_about">O aplikaci</string>
     <string name="menu_exit">Konec</string>
-    <string name="menu_scan">Skenovat BridgeQR</string>
-    <string name="menu_share_bridge">Sdílet BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Obecné</string>
@@ -102,7 +100,6 @@
     <string name="connection_direct">Přímé</string>
     <string name="connection_snowflake">Snowflake</string>
     <string name="connection_custom">Vlastní</string>
-    <string name="action_use">Použít</string>
     <string name="no_internet_title">Připojit k Internetu</string>
     <string name="action_activate">Aktivovat</string>
     <string name="title_choose_apps">Vybrat aplikace</string>
@@ -110,8 +107,6 @@
     <string name="setting_debug">Ladit</string>
     <string name="menu_more">Více</string>
     <string name="confirm">Potvrdit</string>
-    <string name="drawer_open">Otevřít</string>
-    <string name="drawer_close">Zavřít</string>
     <string name="connected_title">Připojeno</string>
     <string name="enable">Povolit</string>
     <string name="allow">Povolit</string>
@@ -126,7 +121,6 @@
     <string name="menu_tor_connection">Tor spojení</string>
     <string name="bridge_community">Připojení prostřednictvím komunitních serverů</string>
     <string name="volunteer_mode_alltime_label">Celkově za celou dobu</string>
-    <string name="custom_bridge_description">Vlastní most poskytuje někdo, koho znáte. Zeptejte se ve svých důvěryhodných sítích a organizacích, zda někdo takový most nehostuje.</string>
     <string name="proxy_ports">Proxy porty</string>
     <string name="bridge_cloud">Připojení prostřednictvím cloudových serverů</string>
     <string name="pref_circuit_padding">Vycpávky obvodů</string>
@@ -150,8 +144,6 @@
     <string name="ask_tor">Zeptejte se Toru</string>
     <string name="pref_http_dialog">Konfigurace portu HTTP</string>
     <string name="vpn_disabled">Vypnutá síť VPN</string>
-    <string name="solve_captcha">Vyřešit Captcha</string>
-    <string name="custom_bridge">Vlastní most</string>
     <string name="menu_help_others">Pomáhat ostatním</string>
     <string name="consider_disable_battery_optimizations">Spuštěné hostované služby, zvažte vypnutí optimalizací baterie</string>
     <string name="power_user_mode">Režim Power User</string>
@@ -175,11 +167,8 @@
     <string name="bridge_direct_connect">Připojení přímo k síti Tor (nejlepší)</string>
     <string name="pref_isolate_protocol">Izolovat klientské protokoly</string>
     <string name="secure_your_connection_subtitle">Skrýt aplikace před sledováním sítě a získat k nim přístup, když jsou blokovány.</string>
-    <string name="enter_characters_from_image">Zadejte text výše</string>
-    <string name="custom_bridge_subtitle">S největší pravděpodobností vás udrží v připojení, pokud je Tor silně blokován. Vyžaduje adresu mostu od někoho, komu důvěřujete.</string>
     <string name="paste_bridges">Vložení mostů</string>
     <string name="volunteer_mode_weekly_label">Týdenní součet</string>
-    <string name="request_bridges">Žádost o mosty</string>
     <string name="kindness_adjust_title">Nastavení</string>
     <string name="apps_suggested_title">Navrhované aplikace</string>
     <string name="pref_circuit_padding_summary">Umožňuje vyplňování obvodů pro obranu proti některým formám analýzy provozu</string>
@@ -193,7 +182,6 @@
     <string name="option_only_on_wifi">Pouze v síti Wifi</string>
     <string name="consider_enable_battery_optimizations">Nejsou spuštěny žádné hostované služby, zvažte zapnutí optimalizace baterie</string>
     <string name="trouble_connecting">Problémy s připojením\?</string>
-    <string name="refresh_captcha">Obnovit CAPTCHA</string>
     <string name="testing_tor_direct">Testování připojení k Tor…</string>
     <string name="bridge_snowflake">Připojení přes jiné uživatele Toru pomocí vločky Snowflake (metoda 1 - Fastly)</string>
     <string name="having_trouble_subtitle">Jako další můžeme zkusit most Tor, ale budeme potřebovat vaši pomoc</string>
@@ -212,7 +200,6 @@
     <string name="menu_kindness">Laskavost</string>
     <string name="pref_connection_padding_summary">Vždy umožňuje vyplnění připojení, aby se bránilo proti některým formám analýzy provozu. Výchozí hodnota: auto</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Otevření proxy serveru na všech rozhraních</string>
-    <string name="solve_captcha_instruction">Vyřešte CAPTCHA a požádejte o mosty.</string>
     <string name="v3_import_auth_private">Importovat soubor .auth_private</string>
     <string name="pref_http_title">Tor HTTP</string>
     <string name="btn_use_custom_bridge">Použití vlastního můstku</string>
@@ -230,7 +217,6 @@
     <string name="backup_service">Zálohování služby <i>(Varování: může dojít ke zpřístupnění konfigurace služby jiným aplikacím)</i></string>
     <string name="service_type">Typ služby</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Povolení přístupu k síti Tor partnerům Wi-Fi, připojeným zařízením a všem ostatním, kteří se mohou připojit k vaší IP adrese</string>
-    <string name="get_a_bridge_subtitle">Skrývá váš provoz. Obejde některé blokace Toru.</string>
     <string name="create_a_backup_first">Nejprve vytvořte zálohu</string>
     <string name="if_your_mobile_network_actively_blocks_tor_you_can_use_a_tor_bridge_to_access_the_network_another_way_to_get_bridges_is_to_send_an_email_to_bridges_torproject_org_please_note_that_you_must_send_the_email_using_an_address_from_one_of_the_following_email_providers_riseup_gmail_or_yahoo_">Pokud vaše mobilní síť aktivně blokuje Tor, můžete jako alternativní přístup použít \"Bridge Server\". Vyberte jednu z možností konfigurace a otestujte…</string>
     <string name="pref_connection_padding">Vycpávka připojení</string>
@@ -254,7 +240,6 @@
     <string name="strict_nodes_description">Nastavení Vyloučit uzly považujte za požadavek pro sestavení všech obvodů. To může narušit funkčnost, pokud s nastavením Exclude Nodes nebude možné vygenerovat žádné obvody.</string>
     <string name="app_suggested_subtitle">Orbot nejlépe funguje s aplikacemi pro zasílání zpráv a sociální sítě.</string>
     <string name="configure_custom_bridges">Konfigurace vlastních mostů</string>
-    <string name="get_a_bridge">Most přes řeku Tor (Obfs4)</string>
     <string name="secure_your_connection_title">Připraveno k připojení</string>
     <string name="start_tor_again_for_finish_the_process">Spusťte Tor znovu pro dokončení procesu</string>
     <string name="msg_taking_too_long">Zdá se, že to trvá příliš dlouho</string>
@@ -262,7 +247,6 @@
 \npřipojit se k síti Tor</string>
     <string name="v3_delete_client_authorization_confirm">Odstranění autorizace klienta</string>
     <string name="pref_http_summary">Port, na kterém Tor nabízí svůj proxy server HTTP (výchozí: 8118 nebo 0 pro vypnutí)</string>
-    <string name="captcha">Captcha</string>
     <string name="pref_reduced_connection_padding_summary">Uzavírá relay spojení dříve a odesílá méně paketů s vycpávkami, aby se snížila spotřeba dat a baterie</string>
     <string name="pref_flag_secure_summary">Zabránit jiným aplikacím pořizovat snímky obrazovky Orbot</string>
     <string name="direct_connect_subtitle">Nejlepší způsob připojení k síti Tor. Použijte, pokud Tor není blokován.</string>

@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Yüklə</string>
     <string name="button_about">Haqqında</string>
     <string name="menu_exit">Çıx</string>
-    <string name="menu_scan">KörpüQR kodu skan edin</string>
-    <string name="menu_share_bridge">KörpüQR kodu paylaşın</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Əsas</string>
@@ -93,11 +91,9 @@
     <string name="enable">İşə sal</string>
     <string name="allow">İcazə ver</string>
     <string name="version">Versiya:</string>
-    <string name="drawer_close">Bağla</string>
     <string name="action_activate">Aktivləşdir</string>
     <string name="btn_refresh">Yenilə</string>
     <string name="menu_faq">FAQ</string>
-    <string name="drawer_open">Aç</string>
     <string name="trying_to_connect_title">Qoşulur…</string>
     <string name="setting_debug">Sazlama</string>
     <string name="menu_more">Daha çox</string>
@@ -131,8 +127,6 @@
     <string name="pref_isolate_dest">Təyinat ünvanlarını təcrid edin</string>
     <string name="bridge_direct_connect">Birbaşa Tor-a qoşulun (Ən yaxşı)</string>
     <string name="pref_isolate_protocol">Müştəri protokollarını təcrid edin</string>
-    <string name="enter_characters_from_image">Yuxarıda mətn daxil edin</string>
-    <string name="request_bridges">Körpülər tələb edin</string>
     <string name="pref_circuit_padding_summary">Trafik təhlilinin bəzi formalarından müdafiə etmək üçün dövrə doldurmanı aktiv edin</string>
     <string name="full_device_vpn">Tam Cihaz VPN</string>
     <string name="pref_prefer_ipv6">IPv6 bağlantılarına üstünlük verin</string>
@@ -140,7 +134,6 @@
     <string name="consider_enable_battery_optimizations">Heç bir hosting xidməti işləmir, batareyanın optimallaşdırılmasını aktivləşdirin</string>
     <string name="trouble_connecting">Qoşulmaqda problem var\?</string>
     <string name="menu_hidden_services">Soğan xidmətləri</string>
-    <string name="refresh_captcha">CAPTCHA-nı yeniləyin</string>
     <string name="testing_tor_direct">Tor ilə əlaqə yoxlanılır…</string>
     <string name="delete_service">Xidməti Sil</string>
     <string name="v3_backup_name_hint">Fayl adının ehtiyat nüsxəsi…</string>
@@ -152,7 +145,6 @@
     <string name="pref_connection_padding_summary">Trafik təhlilinin bəzi formalarından müdafiə etmək üçün həmişə əlaqə paddinginə imkan verir. Defolt: avtomatik</string>
     <string name="license">Lisenziya:</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Bütün İnterfeyslərdə Proksi açın</string>
-    <string name="solve_captcha_instruction">Körpü tələb etmək üçün CAPTCHA-nı həll edin.</string>
     <string name="v3_import_auth_private">.auth_private faylını idxal edin</string>
     <string name="pref_http_title">Tor HTTP</string>
     <string name="pref_prefer_ipv6_summary">Çıxışlara IPv6 ünvanlarına üstünlük verildiyini bildirir</string>
@@ -182,7 +174,6 @@
     <string name="hidden_services">Soğan xidmətləri</string>
     <string name="v3_delete_client_authorization_confirm">Müştəri Avtorizasiyasını silin</string>
     <string name="pref_http_summary">Torun HTTP proxy-ni təklif etdiyi port (defolt: 8118 və ya 0 söndürmək üçün)</string>
-    <string name="captcha">Captcha</string>
     <string name="pref_reduced_connection_padding_summary">Rele bağlantılarını daha tez bağlayır və data və batareya istifadəsini azaltmaq üçün daha az doldurma paketləri göndərir</string>
     <string name="apps_mode">VPN rejimi</string>
     <string name="local_port">Yerli liman</string>
@@ -214,7 +205,6 @@
     <string name="volunteer_mode_label">Xeyirxahlıq rejimi</string>
     <string name="hide_apps">Tətbiqləri şəbəkə monitorinqindən gizlədin və bloklandıqda giriş əldə edin.</string>
     <string name="volunteer_mode_alltime_label">Bütün Zamanların Cəmi</string>
-    <string name="custom_bridge_description">Xüsusi körpü tanıdığınız biri tərəfindən təmin edilir. Etibarlı şəbəkələrinizdə və təşkilatlarınızdan kiminsə birinə ev sahibliyi edib-etmədiyini öyrənmək üçün soruşun.</string>
     <string name="proxy_ports">Proksi Portlar</string>
     <string name="msg_try_something_else">Başqa bir şey cəhd edin</string>
     <string name="not_sure">Əmin deyilsiniz?</string>
@@ -227,13 +217,10 @@
 \n• Yalnız wifi üzərində işləyə bilər
 \n• İstənilən vaxt söndürülə bilər</string>
     <string name="ports_not_set">Portlar Ayarlanmayıb</string>
-    <string name="solve_captcha">Captcha həll edin</string>
-    <string name="custom_bridge">Xüsusi körpü</string>
     <string name="menu_help_others">Başqalarına kömək edin</string>
     <string name="power_user_mode">Güc istifadəçi rejimi</string>
     <string name="smart_connect">Smart Connect (defolt)</string>
     <string name="apps_other_apps">Digər Proqramlar</string>
-    <string name="custom_bridge_subtitle">Tor ciddi şəkildə bloklanırsa, çox güman ki, sizi əlaqə saxlayacaq. Etibar etdiyiniz şəxsdən körpü ünvanı tələb edir.</string>
     <string name="volunteer_mode_weekly_label">Həftəlik Cəmi</string>
     <string name="apps_suggested_title">Təklif olunan proqramlar</string>
     <string name="log_copied">Qeyd kopyalandı</string>
@@ -248,13 +235,11 @@
     <string name="btn_use_custom_bridge">Xüsusi körpüdən istifadə edin</string>
     <string name="menu_app_settings">Tətbiq Parametrləri</string>
     <string name="snowflake">Snowflake (Orijinal)</string>
-    <string name="get_a_bridge_subtitle">Trafikinizi gizlədir. Bəzi Tor bloklamalarının ətrafında olur.</string>
     <string name="smart_connect_subtitle">Orbot Tor-a istənilən yolla qoşulmağa çalışır: Direct, Snowflake, Bridge.</string>
     <string name="incorrect_solution">Yanlış Həll</string>
     <string name="bridges_obtained_connecting">Körpülər alındı! tor-a qoşulur…</string>
     <string name="app_suggested_subtitle">Orbot mesajlaşma və sosial media proqramları ilə ən yaxşı şəkildə işləyir.</string>
     <string name="title_choose_apps">Proqramları seçin</string>
-    <string name="get_a_bridge">Tordan körpü (Obfs4)</string>
     <string name="msg_taking_too_long">Görünür, bu çox uzun çəkir</string>
     <string name="volunteer_mode_title">Başqalarına kömək edin
 \nTor-a qoşulun</string>
@@ -268,7 +253,6 @@
     <string name="no_internet_title">İnternetə qoşulun</string>
     <string name="kindness_adjust_title">Parametrlər</string>
     <string name="setting_padding">Doldurma</string>
-    <string name="action_use">istifadə edin</string>
     <string name="option_only_on_wifi">Yalnız Wi-Fi-da</string>
     <string name="connection_direct">Birbaşa</string>
     <string name="asking">SORUŞMAQ…</string>

@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import org.torproject.android.R
-import org.torproject.android.service.util.Utils.showToast
+import org.torproject.android.service.util.showToast
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 
 class LogBottomSheet : OrbotBottomSheetDialogFragment() {
@@ -36,10 +36,9 @@ class LogBottomSheet : OrbotBottomSheetDialogFragment() {
 
     fun appendLog(logLine: String) {
         if (this::tvLog.isInitialized) {
-            tvLog.append(logLine)
-            tvLog.append("\n")
+            tvLog.append("$logLine\n")
         }
-        buffer.append(logLine).append("\n")
+        buffer.append("$logLine\n")
     }
 
 }

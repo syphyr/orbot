@@ -72,10 +72,6 @@
     <string name="user_services">Ulanyjy hyzmatlary</string>
     <string name="app_services">Programma hyzmatlary</string>
     <string name="refresh_apps">Programmalary täzeläň</string>
-    <string name="request_bridges">Köprüleri Soraň</string>
-    <string name="refresh_captcha">CAPTCHA Täzele</string>
-    <string name="captcha">Captcha</string>
-    <string name="enter_characters_from_image">Ýokardaky teksti giriziň</string>
     <string name="request_bridges_from_torproject">torproject.org-dan köprini talap ediň</string>
     <string name="custom_bridges">Ýörite Köpriler</string>
     <string name="paste_bridges">Köprileri Salyň</string>
@@ -99,8 +95,6 @@
     <string name="menu_tor_connection">Tor Birikmesi</string>
     <string name="menu_help_others">Başgalaryna kömek ediň</string>
     <string name="root_warning">Orbot, enjamyňyzyň kök urandygyny (root), howpsuzlyk meselelerine sebäp bolup biljekdigini anyklady.</string>
-    <string name="menu_scan">BridgeQR-i skanirle</string>
-    <string name="menu_share_bridge">BridgeQR paýlaşyň</string>
     <string name="pref_proxy_host_dialog">Proksi Hostyny Giriziň</string>
     <string name="pref_proxy_port_title">Çykýan Proksi Porty</string>
     <string name="pref_proxy_port_summary">Proksi Serwer Porty</string>
@@ -135,18 +129,13 @@
     <string name="bridge_cloud">Bulut serwerleriniň üsti bilen birikdiriň</string>
     <string name="set_locale_title">Dil</string>
     <string name="snowflake_subtitle">Tor meýletinçileriniň üsti bilen birikýär. Käbir Tor bloklaryndan geçýär.</string>
-    <string name="solve_captcha">Captcha-ny çöz</string>
     <string name="bridges_obtained_connecting">Köpriler alyndy! Tor-a birikdirilýär…</string>
     <string name="pref_flag_secure_title">Ekranyň howpsuzlygy</string>
-    <string name="custom_bridge">Ýörite Köpri</string>
-    <string name="get_a_bridge_subtitle">Trafigiňizi gizleýär. Käbir Tor bloklaryndan geçýär.</string>
-    <string name="custom_bridge_subtitle">Tor gaty petiklenen bolsa, ähtimal sizi baglanyşdyrar. Ynanýan adamyňyzdan baglanyşyk salgysyny talap eder.</string>
     <string name="incorrect_solution">Nädogry çözgüt</string>
     <string name="connect">Birikdir</string>
     <string name="local_port">Ýerli Port</string>
     <string name="onion_port">Onion Porty</string>
     <string name="start_tor_again_for_finish_the_process">Amaly tamamlamak üçin Tor-y täzeden açyň</string>
-    <string name="solve_captcha_instruction">Köprileri soramak üçin CAPTCHA çözüň.</string>
     <string name="bridge_snowflake_amp">“Snowflake” (2-nji usul - AMP) ulanyp, beýleki Tor ulanyjylarynyň üsti bilen birikdiriň</string>
     <string name="menu_app_settings">Programma sazlamalary</string>
     <string name="having_trouble">Meseleler ýüze çykdy</string>
@@ -162,7 +151,6 @@
     <string name="log_copied">Log Göçürildi</string>
     <string name="not_sure">Anyk bilmeýänizmi?</string>
     <string name="ask_tor">Tor-dan Sora</string>
-    <string name="action_use">Ulan</string>
     <string name="asking">SORAÝAR…</string>
     <string name="no_internet_title">Internede baglan</string>
     <string name="no_internet_subtitle">Orbot ulanmak üçin internet birikmesi gerek.</string>
@@ -172,7 +160,6 @@
     <string name="pref_flag_secure_summary">Beýleki programmalaryň Orbot ekran suratlaryny almagynyň öňüni alyň</string>
     <string name="connection_direct">Göni</string>
     <string name="connection_snowflake">Snowflake</string>
-    <string name="custom_bridge_description">Şahsy baglanyşyk, tanaýan adamyňyz tarapyndan üpjün edilýär. Ynamly torlaryňyzda we guramalaryňyzda kimdir biri ony kabul edýärmi diýip soraň.</string>
     <string name="title_choose_apps">Programmalar saýlaň</string>
     <string name="many_ways">Tora barmagyň köp ýoly bar. Käbirleri beýlekilerden has gowy işlemegi mümkin.</string>
     <string name="option_only_when_charging">Diňe zarýad berlende</string>
@@ -206,7 +193,6 @@
     <string name="pref_detect_root_summary">Bu enjam kökli bolsa, başlangyçda duýduryş beriň</string>
     <string name="restart_orbot_to_use_this_bridge_">Üýtgeşmeleriň güýje girmegi üçin Orbot-ny täzeden açyň</string>
     <string name="volunteer_mode_label">Hoşniýetlilik Tertibi</string>
-    <string name="drawer_close">Ýap</string>
     <string name="app_description">Orbot, beýleki programmalara interneti has ygtybarly ulanmaga mümkinçilik berýän mugt proksi serwer programmasydyr. Tor arkaly, Orbot internet trafigiňizi şifrleýär we dünýäniň dürli kompýuterlerinden geçirip gizleýär. Tor, şahsy erkinligiňize we maglumatlaryňyza, gizlin iş amallaryna we gatnaşyklaryňyza, döwlet howpsuzlygy we traffigiň derňewi diýlip atlandyrylýan tor gözegçiliginden goraýan mugt programma üpjünçiligi we açyk ulgamdyr.</string>
     <string name="wizard_details_msg">Orbot; Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks we LibEvent gurluşlaryny öz içine alýan açyk çeşme programmasy. Tor network birikmek üçin ýerli HTTP proksi (8118) we SOCKS proksi (9050) üpjün edýär.</string>
     <string name="pref_proxy_type_summary">Proksi serwerinde ulanmak üçin tor protokollary: HTTP, HTTPS, SOCKS4, SOCKS5</string>
@@ -258,13 +244,11 @@
     <string name="proxy_ports">Proksi Portlar</string>
     <string name="strict_nodes_description">Aýrylan düwünleriň sazlamalaryny ähli zynjyrlary gurmak üçin talap hökmünde görüň. Sazlamalaryňyz bilen hiç hili zynjyr döredilip bilinmese, bu işlemegi bozup biler.</string>
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Düzediş ýazgysyny işjeňleşdiriň (görmek üçin adb ýa-da aLogCat talap eder)</string>
-    <string name="drawer_open">Açyk</string>
     <string name="if_your_mobile_network_actively_blocks_tor_you_can_use_a_tor_bridge_to_access_the_network_another_way_to_get_bridges_is_to_send_an_email_to_bridges_torproject_org_please_note_that_you_must_send_the_email_using_an_address_from_one_of_the_following_email_providers_riseup_gmail_or_yahoo_">Jübi ulgamyňyzda Tor ulanylyşy işjeň ýagdaýda petiklenýän bolsa, Tor girmek üçin \'Köpri Serweri\' ulanyp bilersiňiz. Sazlamak we synap görmek üçin aşakdaky opsiýalardan birini saýlaň…</string>
     <string name="power_user_description">Tor bilen tanyş ulanyjylar üçin. Orbot-a VPN sazlamasyz başlamaga mümkinçilik berýär we açyk SOCKS we HTTP portlaryny görkezýär</string>
     <string name="kindness_config_detail">Enjamyňyzyň beýleki Tor ulanyjylary üçin nädip we haçan Snowflake proksi bolup biljekdigini sazlaň.</string>
     <string name="setting_padding">Ýassyklama</string>
     <string name="setting_debug">Düzediş</string>
-    <string name="get_a_bridge">Tor arkaly (Obfs4) köprisi</string>
     <string name="connection_custom">Ýörite</string>
     <string name="volunteer_mode_subtitle_desc">Sypaýçylyk ülňi enjamyňyzy beýlekiler üçin köpri bolmaga mümkinçilik berýär. Adamlara Tor-uň petiklenen ýerlerinde ulanmagyna kömek edýär.
 \n

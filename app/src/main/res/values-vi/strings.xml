@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Tải lên</string>
     <string name="button_about">Giới thiệu</string>
     <string name="menu_exit">Thoát</string>
-    <string name="menu_scan">Quét mã BridgeQR</string>
-    <string name="menu_share_bridge">Chia sẻ mã BridgeQR</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Tổng quan</string>
@@ -107,8 +105,6 @@
     <string name="configure_custom_bridges">Thiết lập cầu nối tuỳ chỉnh</string>
     <string name="custom_bridges">Cầu nối tuỳ chỉnh</string>
     <string name="request_bridges_from_torproject">Yêu cầu các cầu Bridge từ torproject.org</string>
-    <string name="enter_characters_from_image">Nhập văn bản ở trên</string>
-    <string name="captcha">Captcha</string>
     <string name="pref_reduced_connection_padding_summary">Đóng các kết nối chuyển tiếp sớm hơn và gửi ít gói đặt khoảng cách hơn để giảm sử dụng dữ liệu và pin</string>
     <string name="pref_reduced_connection_padding">Giảm khoảng cách kết nối</string>
     <string name="pref_connection_padding_summary">Luôn bật đặt khoảng cách cho kết nối để phòng vệ chống lại một số dạng phân tích lưu lượng. Mặc định: tự động</string>
@@ -169,9 +165,6 @@
     <string name="bridge_direct_connect">Kết nối trực tiếp đến Tor (Tốt nhất)</string>
     <string name="testing_tor_direct_success">Thành công. Kết nối đến Tor tốt rồi!</string>
     <string name="testing_tor_direct">Đang thử nghiệm kết nối đến Tor…</string>
-    <string name="request_bridges">Yêu cầu các cầu Bridge</string>
-    <string name="solve_captcha_instruction">Giải CAPTCHA để yêu cầu các cầu Bridge.</string>
-    <string name="refresh_captcha">Làm mới lại CAPTCHA</string>
     <string name="if_your_mobile_network_actively_blocks_tor_you_can_use_a_tor_bridge_to_access_the_network_another_way_to_get_bridges_is_to_send_an_email_to_bridges_torproject_org_please_note_that_you_must_send_the_email_using_an_address_from_one_of_the_following_email_providers_riseup_gmail_or_yahoo_">Nếu mạng di động của bạn chặn Tor một cách chủ động, bạn có thể sử dụng một \'Máy chủ cầu nối\' làm một cách thay thế để vào. Chọn một trong số các tuỳ chọn để thiết lập và thử nghiệm…</string>
     <string name="hidden_services">Dịch vụ Onion</string>
     <string name="vpn_default_world">Toàn cầu (Tự động)</string>
@@ -180,7 +173,6 @@
     <string name="version">Phiên bản:</string>
     <string name="license">Giấy phép:</string>
     <string name="btn_refresh">Làm mới lại</string>
-    <string name="drawer_close">Đóng</string>
     <string name="menu_kindness">Thân Thiện</string>
     <string name="connection_direct">Nhắn riêng trực tiếp</string>
     <string name="connection_snowflake">Snowflake</string>
@@ -191,14 +183,12 @@
     <string name="menu_tor_connection">Kết nối Tor</string>
     <string name="menu_faq">FAQ</string>
     <string name="menu_header_learn">Tìm hiểu thêm</string>
-    <string name="drawer_open">Mở</string>
     <string name="action_activate">Kích hoạt</string>
     <string name="title_choose_apps">Chọn app ứng dụng</string>
     <string name="setting_debug">Gỡ lỗi Bug</string>
     <string name="menu_more">Thêm</string>
     <string name="connect">Kết nối</string>
     <string name="next">Tiếp theo</string>
-    <string name="action_use">Sử dụng</string>
     <string name="pref_isolate_protocol">Cô lập các Protocol máy/ứng dụng khách</string>
     <string name="secure_your_connection_subtitle">Ẩn giấu các app ứng dụng khỏi việc bị theo dõi mạng và lấy lại khả năng truy cập khi chúng bị chặn.</string>
     <string name="btn_start_vpn">Khởi động VPN</string>
@@ -232,7 +222,6 @@
     <string name="proxy_ports">Các cổng Proxy</string>
     <string name="no_thx">Không cảm ơn</string>
     <string name="bridges_obtained_connecting">Đã kiếm được cầu Bridge rồi! Đang kết nối tới Tor…</string>
-    <string name="custom_bridge_description">Một cầu Bridge tuỳ chỉnh được cung cấp bởi ai đó mà bạn quen biết. Hãy hỏi xung quanh các mạng lưới quan hệ và tổ chức đáng tin cậy của bạn để xem nếu có ai đó đang host một cái.</string>
     <string name="power_user_description">Đối với những người dùng đã quen thuộc với Tor. Cho phép bạn khởi động Orbot mà không cần cài đặt VPN và hiển thị các cổng SOCKS và HTTP mở khả dụng</string>
     <string name="volunteer_mode_label">Chế độ thân thiện</string>
     <string name="direct_connect_subtitle">Cách tốt nhất để kết nối tới Tor. Sử dụng nếu như Tor không bị chặn.</string>
@@ -240,9 +229,6 @@
     <string name="snowflake_subtitle">Kết nối thông qua các tình nguyện viên Tor. Vượt qua một số những rào cản đối với Tor.</string>
     <string name="smart_connect_subtitle">Orbot thực hiện việc kết nối đến Tor thông qua bất kỳ cách khả dụng nào: Trực tiếp, Snowflake, cầu nối Bridge.</string>
     <string name="direct_connect">Kết nối Trực tiếp đến Tor</string>
-    <string name="get_a_bridge_subtitle">Che chắn, trùm khoác lưu lượng traffic của bạn lại. Vượt qua một số những sự kiểm duyệt hoặc chặn Tor.</string>
-    <string name="custom_bridge">Cầu Bridge tuỳ chỉnh</string>
-    <string name="custom_bridge_subtitle">Rất có thể để giữ cho bạn được kết nối nếu như Tor bị chặn một cách mạnh mẽ, tàn khốc. Yêu cầu một địa chỉ cầu Bridge từ ai đó mà bạn tin tưởng.</string>
     <string name="volunteer_mode">Chế độ Thân thiện</string>
     <string name="snowflake_proxy_msg_title">Hiển thị Thông báo Kết nối</string>
     <string name="snowflake_proxy_msg_description">Hiển thị một tin nhắn khi bạn giúp đỡ ai đó vượt qua kiểm duyệt</string>
@@ -261,8 +247,6 @@
     <string name="volunteer_mode_weekly_label">Tổng cộng hằng tuần</string>
     <string name="volunteer_mode_alltime_label">Tổng cộng toàn bộ thời gian</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
-    <string name="get_a_bridge">Cầu Bridge từ Tor (Obfs4)</string>
-    <string name="solve_captcha">Giải mã Captcha</string>
     <string name="incorrect_solution">Đáp án không chính xác</string>
     <string name="having_trouble">Gặp sự cố</string>
     <string name="having_trouble_subtitle">Chúng ta có thể thử một cầu Bridge Tor tiếp theo nhưng điều này sẽ cần sự trợ giúp của bạn</string>

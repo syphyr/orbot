@@ -41,7 +41,6 @@ import org.pcap4j.packet.namednumber.IpNumber;
 import org.pcap4j.packet.namednumber.UdpPort;
 import org.torproject.android.service.OrbotConstants;
 import org.torproject.android.service.OrbotService;
-import org.torproject.android.service.R;
 import org.torproject.android.service.ui.Notifications;
 import org.torproject.android.service.util.Prefs;
 

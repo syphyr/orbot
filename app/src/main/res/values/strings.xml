@@ -11,8 +11,6 @@
     <string name="main_layout_upload">Upload</string>
     <string name="button_about">About</string>
     <string name="menu_exit">Exit</string>
-    <string name="menu_scan">Scan BridgeQR</string>
-    <string name="menu_share_bridge">Share BridgeQR</string>
     <string name="wizard_details_msg">Orbot is an open-source application that contains Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks and LibEvent. It provides a VPN tunnel, a local HTTP Connect proxy (HTTPS only on port 8118) and a SOCKS proxy (9050) into the Tor network.</string>
     <string name="pref_general_group">General</string>
     <string name="pref_start_boot_title">Start Orbot on Boot</string>
@@ -172,17 +170,11 @@
     <string name="user_services">User services</string>
     <string name="app_services">App services</string>
     <string name="refresh_apps">Refresh Apps</string>
-    <!-- MoatActivity -->
-    <string name="request_bridges">Request Bridges</string>
-    <string name="refresh_captcha">Refresh CAPTCHA</string>
-    <string name="solve_captcha_instruction">Solve the CAPTCHA to request bridges.</string>
-    <string name="captcha">Captcha</string>
-    <string name="enter_characters_from_image">Enter text above</string>
-    <!-- BridgeWizardActivity -->
+    <!-- CustomBridgesFragment -->
     <string name="request_bridges_from_torproject">Request Bridges from torproject.org</string>
     <string name="custom_bridges">Custom Bridges</string>
     <string name="configure_custom_bridges">Configure Custom Bridges</string>
-    <!-- CustomBridgesFragment -->
+
     <string name="use_custom_bridges">Use Custom Bridges</string>
     <string name="in_a_browser">In a browser, visit %s and tap "Get Bridges" &gt; "Just Give Me Bridges!"</string>
     <string name="paste_bridges">Paste Bridges</string>
@@ -217,8 +209,6 @@
     <string name="btn_use_custom_bridge">Use Custom Bridge</string>
     <string name="msg_taking_too_long">This seems to be taking too long</string>
     <string name="msg_try_something_else">Try something else</string>
-    <string name="drawer_open">Open</string>
-    <string name="drawer_close">Close</string>
     <string name="proxy_ports">Proxy Ports</string>
     <string name="globe" translatable="false">🌎</string>
     <string name="ports_not_set">Ports Not Set</string>
@@ -235,16 +225,18 @@
     <string name="snowflake_amp">Snowflake AMP</string>
     <string name="snowflake_sqs">Snowflake SQS</string>
     <string name="snowflake_subtitle">Connects through Tor volunteers. Gets around some Tor blocking.</string>
-    <string name="get_a_bridge">Bridge from Tor (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Cloaks your traffic. Gets around some Tor blocking.</string>
-    <string name="custom_bridge">Custom Bridge</string>
-    <string name="custom_bridge_subtitle">Most likely to keep you connected if Tor is severely blocked. Requires a bridge address from someone you trust.</string>
+    <string name="bridges_via_telegram">Bridges from Tor (obfs4) via Telegram</string>
+    <string name="bridges_via_telegram_subtitle">Likely to keep you connected if Tor is severely blocked. Using this method will launch the Tor Bot Telegram channel. Tap \'Start\' or write \'%1$s\' in the chat to get bridge addresses.</string>
+    <string name="bridges_via_email">Bridges from Tor (obfs4) via Email</string>
+    <string name="bridges_via_email_subtitle">Cloaks your traffic. Gets around some Tor blocking. Requires an email sent from a Gmail or Riseup account.</string>
+    <string name="bridge_meek_azure" translatable="false">Meek Azure</string>
+    <string name="bridge_meek_azure_subtitle">Cloaks your traffic. Gets around some Tor blocking. May be very slow.</string>
+    <string name="custom_bridges_subtitle">Ask within your trusted networks and organizations to see if anyone is hosting a bridge. If not, a friend can get bridges for you.</string>
     <string name="connect">Connect</string>
     <string name="next">Next</string>
-    <string name="solve_captcha">Solve Captcha</string>
     <string name="incorrect_solution">Incorrect Solution</string>
     <string name="bridges_obtained_connecting">Bridges obtained! Connecting to tor…</string>
-    <string name="custom_bridge_description">A custom bridge is provided by someone you know. Ask within your trusted networks and organizations to see if anyone is hosting one.</string>
+    <string name="custom_bridges_description">Paste the bridge addresses you receive below. Or scan the QR code to add them. Friends can get bridges for you at %1$s.</string>
     <string name="having_trouble">Having trouble</string>
     <string name="having_trouble_subtitle">We can try a Tor bridge next but will need your help</string>
     <string name="power_user_mode">Power User Mode</string>
@@ -261,7 +253,7 @@
     <string name="not_sure">Not sure?</string>
     <string name="ask_tor">Ask Tor</string>
     <string name="many_ways">There are many ways to reach Tor. Some may work better than others for you.</string>
-    <string name="action_use">Use</string>
+    <string name="action_use_">Use %1$s</string>
     <string name="asking">ASKING…</string>
     <string name="no_internet_title">Connect to internet</string>
     <string name="no_internet_subtitle">You need an internet connection to use Orbot.</string>
@@ -310,7 +302,12 @@
     <string name="device_lock_security_update_needed">You must download Android security updates for your device in order to use Orbot Authentication</string>
     <string name="invalid_bridge_format">Invalid bridge format</string>
     <string name="error_asking_tor_for_bridges">Error asking Tor how to connect</string>
+    <string name="enter_bridge_address">Enter bridge address</string>
+    <string name="built_in_bridges_obfs4">Built-in Bridges (obfs4)</string>
+    <string name="built_in_bridges_obfs4_subtitle">Cloaks your traffic. Gets around some Tor blocking. Good if you\'re on public WiFi, but in a country where Tor isn\'t blocked.</string>
     <string name="unlock_app_msg" formatted="true">Please unlock your device in order to use %s</string>
     <string name="pref_password_only_no_biometric">Disallow Biometrics for Orbot Authentication</string>
     <string name="pref_password_only_no_biometric_description">This forces Orbot Authentication to only require your device\'s password even if biometric authentication, such as fingerprint or face unlock, are configured on your device.</string>
+    <string name="run_smart_connect_">Run Smart Connect to find the best way</string>
+    <string name="scan_qr_code">Scan QR Code</string>
 </resources>

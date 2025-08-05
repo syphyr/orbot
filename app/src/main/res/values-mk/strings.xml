@@ -10,8 +10,6 @@
     <string name="main_layout_upload">Прикачи</string>
     <string name="button_about">За</string>
     <string name="menu_exit">Излез</string>
-    <string name="menu_scan">Скенирај QR на мост</string>
-    <string name="menu_share_bridge">Сподели QR на мост</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot e апликација со отворен код која содржи Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, и LibEvent. Овозможува локален HTTP прокси (8118) и SOCKS прокси (9050) во Tor мрежата. Orbot исто така има можност, на уред со root пристап, да го испраќа целиот интернет сообраќај преку Tor.</string>
     <!--END Welcome Wizard strings (DJH)-->
@@ -136,7 +134,6 @@
     <string name="trying_to_connect_title">Се поврзува…</string>
     <string name="menu_faq">FAQ</string>
     <string name="menu_header_learn">Научи повеќе</string>
-    <string name="drawer_close">Затвори</string>
     <string name="next">Следно</string>
     <string name="setting_debug">Дебагирање</string>
     <string name="version">Verzija:</string>
@@ -148,5 +145,4 @@
     <string name="btn_refresh">Osvezi</string>
     <string name="menu_header_features">Карактеристики</string>
     <string name="connect">Поврзи</string>
-    <string name="drawer_open">Отвори</string>
 </resources>

@@ -17,7 +17,6 @@
     <string name="name">Անուն</string>
     <string name="menu_faq">ՀՏՀ</string>
     <string name="menu_header_learn">Իմանալ ավելին</string>
-    <string name="drawer_close">Փակել</string>
     <string name="action_activate">Գործածել</string>
     <string name="title_choose_apps">Ընտրել ափփեր</string>
     <string name="allow">Թույլատրել</string>
@@ -47,7 +46,6 @@
     <string name="trying_to_connect_title">Միացում…</string>
     <string name="menu_header_features">Հատկություններ</string>
     <string name="menu_tor_connection">Tor միացում</string>
-    <string name="drawer_open">Բացել</string>
     <string name="connect">Միանալ</string>
     <string name="testing_tor_direct">Փորձվում է միացումը Tor-ին.…</string>
     <string name="testing_tor_direct_success">Հաջողվեց: Tor-ի միացումը լա՜վն է:</string>
@@ -55,7 +53,6 @@
     <string name="secure_your_connection_title">Պատրաստ է միացման</string>
     <string name="btn_use_custom_bridge">Օգտվել հարմարեցրած կամուրջից</string>
     <string name="smart_connect">Խելացի միացում (լռելայն)</string>
-    <string name="get_a_bridge">Կամուրջ Tor-ից (Obfs4)</string>
     <string name="volunteer_status_title">Այսօր ավելի լավ է
 \nՁեր շնորհիվ:</string>
     <string name="not_sure">Վստահ չե՞ք</string>
@@ -66,8 +63,6 @@
     <string name="use_custom_bridges">Օգտագործել հարմարեցված կամուրջները</string>
     <string name="volunteer_mode_title">Օգնեք ուրիշներին
 \nմիանալ Tor-ին</string>
-    <string name="menu_share_bridge">Տարածել BridgeQR-ը</string>
-    <string name="menu_scan">Ծրել BridgeQR-ը</string>
     <string name="pref_proxy_host_title">Արտագնա փոխանորդի հյուրընկալ</string>
     <string name="pref_proxy_port_summary">Փոխանորդ սերվերի մատույցը</string>
     <string name="pref_proxy_port_title">Արտագնա փոխանորդի մատույց</string>
@@ -82,7 +77,6 @@
     <string name="pref_socks_summary">Մատույցը, որով Tor-ն առաջարկում է իր «SOCKS» փոխանորդը (լռելայնը՝ 9050 կամ 0՝ կարողազրկման համար)</string>
     <string name="service_type">Ծառայության տեսակ</string>
     <string name="bridge_direct_connect">Միանալ ուղղակիորեն Tor-ին (լավագույնը)</string>
-    <string name="request_bridges">Պահանջել կամուրջներ</string>
     <string name="configure_custom_bridges">Կարգավորել հարմարեցված կամուրջները</string>
     <string name="pref_http_dialog">«HTTP» մատույցի կարգավորում</string>
     <string name="pref_transport_title">Tor TransProxy մատույց</string>
@@ -105,12 +99,10 @@
     <string name="menu_help_others">Օգնել այլոց</string>
     <string name="direct_connect">Tor-ին ուղիղ միացում</string>
     <string name="direct_connect_subtitle">Tor-ին միանալու լավագույն ձևը: Օգտագործեք եթե Tor-ն արգելափակված չէ:</string>
-    <string name="custom_bridge">Հարմարեցված կամուրջ</string>
     <string name="snowflake">Snowflake (բնօրինակ ձև)</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="bridges_obtained_connecting">Կամուրջները ստացվեցի՜ն: Միացվում է tor-ին…</string>
     <string name="btn_copy_log">Պատճենել մատյանը</string>
-    <string name="action_use">Օգտվել</string>
     <string name="no_internet_title">Միացեք համացանցին</string>
     <string name="no_internet_subtitle">Orbot-ից օգտվելու համար Ձեզ պետք է միացում համացանցին:</string>
     <string name="confirm_service_deletion">Հաստատել ծառայության ջնջումը</string>

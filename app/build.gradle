@@ -1,8 +1,11 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
+
 plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.android.application)
 }
-apply from: "../commons.gradle"
 
 // Gets the version name from the latest Git tag, stripping the leading v off
 def getVersionName = { ->
@@ -14,26 +17,64 @@ def getVersionName = { ->
     return stdout.toString().trim()
 }
 
-static def versionCodeEpoch() {
-    return (new Date().getTime() / 1000).toInteger()
+
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+if (keystorePropertiesFile.canRead()) {
+    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+}
+
+// Increments versionCode by ABI type
+def abiCodeMap = ["armeabi-v7a": "1", "arm64-v8a": "2", "x86": "4", "x86_64": "5"]
+android.applicationVariants.all { variant ->
+    variant.outputs.each { output ->
+        def baseVersionCode = abiCodeMap.get(output.getFilter("ABI"))
+        if (baseVersionCode != null) {
+            output.versionCodeOverride = Integer.valueOf(variant.versionCode) + Integer.valueOf(baseVersionCode)
+        }
+    }
 }
 
 android {
     namespace = "org.torproject.android"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId "org.torproject.android"
         versionName getVersionName()
         minSdk = 24
-        targetSdk = 35
+        targetSdk = 36
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         archivesBaseName = "Orbot"
     }
 
+
+    testOptions {
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
+    }
+
+    signingConfigs {
+        release {
+            if (!keystoreProperties.stringPropertyNames().isEmpty()) {
+                keyAlias keystoreProperties["keyAlias"]
+                keyPassword keystoreProperties["keyPassword"]
+                storeFile file(keystoreProperties["storeFile"])
+                storePassword keystoreProperties["storePassword"]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.txt"
+            signingConfig signingConfigs.release
+        }
+    }
+
     buildFeatures {
         buildConfig true
+        viewBinding true
     }
 
     buildTypes {
@@ -56,13 +97,10 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 
-    kotlinOptions {
-        jvmTarget = "17"
-    }
 
     flavorDimensions = ["free"]
 
@@ -107,10 +145,14 @@ android {
     }
 }
 
+
+private static def versionCodeEpoch() {
+    return (new Date().getTime() / 1000).toInteger()
+}
+
 dependencies {
     // Use locally built ipt_proxy+go_tun2socks
     implementation(project(":OrbotLib"))
-    implementation(project(":appcore"))
     implementation(project(":orbotservice"))
 
     implementation(libs.android.material)
@@ -137,11 +179,20 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso)
     androidTestImplementation(libs.androidx.rules)
     androidTestImplementation(libs.androidx.runner)
+    androidTestImplementation(libs.sreengrab)
+    androidTestUtil libs.androidx.orchestrator
+
 }
 
 tasks.register("copyLicenseToAssets", Copy) {
     from("../LICENSE")
     into("$projectDir/src/main/assets")
+}
+
+tasks.withType(KotlinJvmCompile).configureEach {
+    compilerOptions {
+        jvmTarget.set(JvmTarget.JVM_21)
+    }
 }
 
 preBuild.dependsOn copyLicenseToAssets

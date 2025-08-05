@@ -16,6 +16,5 @@
     <string name="get_bridges_email">E-Mail</string>
     <string name="menu_about">Über</string>
     <string name="license">Lizenz:</string>
-    <string name="drawer_close">Schließen</string>
     <string name="app_name">Orbot</string>
 </resources>

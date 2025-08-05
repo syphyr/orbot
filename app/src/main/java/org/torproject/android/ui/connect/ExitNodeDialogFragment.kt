@@ -5,7 +5,7 @@ import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
 import org.torproject.android.R
-import org.torproject.android.service.util.Utils
+import org.torproject.android.service.util.EmojiUtils
 import java.text.Collator
 import java.util.*
 
@@ -30,7 +30,7 @@ class ExitNodeDialogFragment(private val callback: ExitNodeSelectedCallback) : D
         array[0] = "$globe " + getString(R.string.vpn_default_world)
         sortedCountries.keys.forEachIndexed { index, displayCountry ->
             array[index + 1] =
-                Utils.convertCountryCodeToFlagEmoji(sortedCountries[displayCountry]!!.country) +
+                EmojiUtils.convertCountryCodeToFlagEmoji(sortedCountries[displayCountry]!!.country) +
                         " " + displayCountry
         }
 

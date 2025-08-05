@@ -99,8 +99,6 @@
 \n
 \n• Lo puedes detener en cualquier momento</string>
     <string name="direct_connect_subtitle">La mejor manera de conectarse a Tor. Usar si Tor no está bloqueado.</string>
-    <string name="custom_bridge_subtitle">Lo más probable es que te mantenga conectade si Tor está severamente bloqueado. Requiere una dirección puente de alguien de confianza.</string>
-    <string name="custom_bridge_description">Un puente personalizado lo proporciona alguien que tu conoces. Pregunta dentro de tus redes y organizaciones de confianza para ver si alguien está alojando uno.</string>
     <string name="app_suggested_subtitle">Orbot funciona mejor con aplicaciones de mensajería y redes sociales.</string>
     <string name="log_copied">Registro copiado</string>
     <string name="apps_other_apps">Otras aplicaciones</string>
@@ -112,8 +110,6 @@
     <string name="main_layout_upload">Subir</string>
     <string name="button_about">Acerca de</string>
     <string name="menu_exit">Salir</string>
-    <string name="menu_scan">Escaner Código QR</string>
-    <string name="menu_share_bridge">Compartir el Código QR del Puente</string>
     <string name="pref_general_group">Información General</string>
     <string name="pref_start_boot_title">Iniciar Orbot en el arranque</string>
     <string name="pref_start_boot_summary">Inicia automáticamente Orbot y conecta Tor cuando arranques tu dispositivo Android</string>
@@ -187,11 +183,6 @@
     <string name="user_services">Servicios de Usuario</string>
     <string name="app_services">Servicios de aplicaciones</string>
     <string name="refresh_apps">Actualizar aplicaciones</string>
-    <string name="request_bridges">Solicitar Puentes</string>
-    <string name="refresh_captcha">Actualizar CAPTCHA</string>
-    <string name="solve_captcha_instruction">Resuelve el CAPTCHA para solicitar puentes.</string>
-    <string name="captcha">Captcha</string>
-    <string name="enter_characters_from_image">Ingrese el texto arriba</string>
     <string name="custom_bridges">Puentes personalizados</string>
     <string name="configure_custom_bridges">Configurar puentes personalizados</string>
     <string name="in_a_browser">En un navegador, visita %s y toca Obtener puentes &gt; ¡Solo dame puentes!</string>
@@ -219,8 +210,6 @@
     <string name="menu_faq">Preguntas Frecuentes</string>
     <string name="msg_taking_too_long">Esto parece estar tomando demasiado tiempo</string>
     <string name="msg_try_something_else">Intenta algo distinto</string>
-    <string name="drawer_open">Abierto</string>
-    <string name="drawer_close">Cerrar</string>
     <string name="proxy_ports">Puertos Proxy</string>
     <string name="ports_not_set">Puertos no establecidos</string>
     <string name="volunteer_mode_title">Ayuda a otres
@@ -234,12 +223,8 @@
     <string name="snowflake">Snowflake (Original)</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="snowflake_subtitle">Se conecta a través de los voluntarios de Tor. Evita algunos bloqueos de Tor.</string>
-    <string name="get_a_bridge">Puente de Tor (Obfs4)</string>
-    <string name="get_a_bridge_subtitle">Encubre tu tráfico. Evita algunos bloqueos de Tor.</string>
-    <string name="custom_bridge">Puente Personalizado</string>
     <string name="connect">Conectar</string>
     <string name="next">Siguiente</string>
-    <string name="solve_captcha">Resolver CAPTCHA</string>
     <string name="incorrect_solution">Solución incorrecta</string>
     <string name="bridges_obtained_connecting">¡Puentes obtenidos! Conectando a tor…</string>
     <string name="having_trouble">Estas teniendo problemas</string>
@@ -256,7 +241,6 @@
     <string name="not_sure">¿No estás segure\?</string>
     <string name="ask_tor">Preguntale a Tor</string>
     <string name="many_ways">Hay muchas formas de conectarse a Tor. Algunas pueden funcionar mejor que otros para ti.</string>
-    <string name="action_use">Usar</string>
     <string name="asking">PREGUNTANDO…</string>
     <string name="no_internet_subtitle">Necesitas una conexión a Internet para usar Orbot.</string>
     <string name="kindness_adjust_title">Ajustar cuando se ejecuta…</string>

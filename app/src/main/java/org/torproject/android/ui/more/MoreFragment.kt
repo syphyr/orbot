@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.torproject.android.OrbotActivity
 import org.torproject.android.R
-import org.torproject.android.core.sendIntentToService
+import org.torproject.android.service.util.sendIntentToService
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 import org.torproject.android.ui.AppManagerActivity
@@ -56,8 +56,8 @@ class MoreFragment : Fragment() {
         val manager = requireActivity().packageManager
         val info =
             manager.getPackageInfo(requireActivity().packageName, PackageManager.GET_ACTIVITIES)
-        sb.append(getString(R.string.app_name)).append(" ").append(info.versionName).append("\n")
-        sb.append("Tor v").append(getTorVersion())
+        sb.append(getString(R.string.app_name)).append(" ${info.versionName}\n")
+        sb.append("Tor v${getTorVersion()}")
 
         tvStatus.text = sb.toString()
     }
