@@ -32,7 +32,7 @@ class ScreenshotSettings : BaseScreenshotTest() {
             frag.findPreference<CheckBoxPreference>("pref_require_password")!!.isChecked = true
             frag.findPreference<CheckBoxPreference>("pref_auth_no_biometrics")!!.isEnabled = true
         }
-        Thread.sleep(500)
+        Thread.sleep(1000)
     }
 
     @Test
