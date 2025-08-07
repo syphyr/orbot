@@ -101,7 +101,7 @@
     <string name="consider_enable_battery_optimizations">No hosted services running, consider enabling battery optimisations</string>
     <string name="pref_isolate_dest">Isolate destination addresses</string>
     <string name="confirm_service_deletion">Confirm service deletion</string>
-    <string name="backup_service">Backup Service <i>(Warning: This Could Expose Your Service Configuration to Other Apps)</i></string>
+    <string name="backup_service">Backup Service (Warning: This Could Expose Your Service Configuration to Other Apps)</string>
     <string name="share_as_qr">Share as QR</string>
     <string name="bridge_direct_connect">Connect directly to Tor (Best)</string>
     <string name="bridge_community">Connect through community servers</string>
@@ -127,7 +127,7 @@
     <string name="smart_connect_subtitle">Orbot tries connecting to Tor through any way available: Direct, Snowflake, Bridge.</string>
     <string name="direct_connect">Direct Connection to Tor</string>
     <string name="direct_connect_subtitle">The best way to connect to Tor. Use if Tor is not blocked.</string>
-    <string name="snowflake">Snowflake (Original)</string>
+    <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Connects through Tor volunteers. Gets around some Tor blocking.</string>
     <string name="connect">Connect</string>
     <string name="next">Next</string>
@@ -230,7 +230,7 @@
     <string name="pref_isolate_port">Isolate destination ports</string>
     <string name="pref_isolate_port_summary">Use a different circuit for each destination port</string>
     <string name="pref_isolate_protocol_summary">Use a different circuit for each connecting protocol</string>
-    <string name="snowflake_amp">Snowflake (AMP)</string>
+    <string name="snowflake_amp">Snowflake AMP</string>
     <string name="log_copied">Log Copied</string>
     <string name="not_sure">Not sure?</string>
     <string name="ask_tor">Ask Tor</string>
@@ -258,4 +258,44 @@
     <string name="pref_detect_root_title">Root Detection</string>
     <string name="pref_detect_root_summary">Warn on startup if root permissions are enabled on this device</string>
     <string name="system_vpn_settings">Android VPN Settings</string>
+    <string name="pref_isolate_keep_alive">Keep isolated circuits alive</string>
+    <string name="pref_isolate_keep_alive_summary">Keep isolated circuits alive that have at least one stream with SOCKS authentication active</string>
+    <string name="bridge_snowflake_sqs">Connect through other Tor users using Snowflake (Method 3 - SQS)</string>
+    <string name="snowflake_sqs">Snowflake SQS</string>
+    <string name="bridges_via_telegram">Bridges from Tor (obfs4) via Telegram</string>
+    <string name="bridges_via_telegram_subtitle">Likely to keep you connected if Tor is severely blocked. Using this method will launch the Tor Bot Telegram channel. Tap \'Start\' or write \'%1$s\' in the chat to get bridge addresses.</string>
+    <string name="bridges_via_email">Bridges from Tor (obfs4) via Email</string>
+    <string name="bridges_via_email_subtitle">Cloaks your traffic. Gets around some Tor blocking. Requires an email sent from a Gmail or Riseup account.</string>
+    <string name="bridge_meek_azure_subtitle">Cloaks your traffic. Gets around some Tor blocking. May be very slow.</string>
+    <string name="custom_bridges_subtitle">Ask within your trusted networks and organisations to see if anyone is hosting a bridge. If not, a friend can get bridges for you.</string>
+    <string name="custom_bridges_description">Paste the bridge addresses you receive below, or scan the QR code to add them. Friends can get bridges for you at %1$s.</string>
+    <string name="action_use_">Use %1$s</string>
+    <string name="pref_enable_rotation_summary">Enable device rotation (requires restart)</string>
+    <string name="pref_enable_rotation_title">Device Rotation</string>
+    <string name="app_icon_chooser_label_night_watch">Night Watch</string>
+    <string name="app_icon_chooser_label_assistant">Assistant</string>
+    <string name="app_icon_chooser_label_paint">Paint</string>
+    <string name="app_icon_chooser_label_todo">To-Do</string>
+    <string name="camo_dialog_title" formatted="true">Camouflage as %1$s</string>
+    <string name="camo_dialog_disable_confirm_msg">Orbot will resume displaying notification information about your Tor connection and will appear as normal on your home screen.\n\nDisabling Camouflage Mode will restart Orbot.</string>
+    <string name="camo_dialog_disable_title">Disable Camouflage Mode</string>
+    <string name="pref_camo_mode_title">Camouflage Mode</string>
+    <string name="pref_camo_mode_description">Disguise how Orbot\'s icon, label and notification text will appear on your device</string>
+    <string name="power_user_mode_permission">Alarms &amp; Reminders Permission Needed for Power User Mode</string>
+    <string name="power_user_mode_permission_msg">Please allow Orbot to set alarms and reminders in order to use power user mode. This won\'t actually set any alarms on your device. This permission is needed to have the system keep OrbotService running when Orbot is not being used as a system-wide VPN.</string>
+    <string name="pref_require_password">Orbot Authentication</string>
+    <string name="pref_require_password_description">Prevent access to Orbot until you authenticate by entering your device password or fingerprint. This can be combined with Camouflage Mode to help hide that Orbot is installed on your device</string>
+    <string name="error_no_password_set">Please secure your device in order to use Orbot Authentication</string>
+    <string name="device_lock_unsupported">Orbot Authentication is not supported on your device</string>
+    <string name="device_lock_security_update_needed">You must download Android security updates for your device in order to use Orbot Authentication</string>
+    <string name="invalid_bridge_format">Invalid bridge format</string>
+    <string name="error_asking_tor_for_bridges">Error asking Tor how to connect</string>
+    <string name="enter_bridge_address">Enter bridge address</string>
+    <string name="built_in_bridges_obfs4">Built-in Bridges (obfs4)</string>
+    <string name="built_in_bridges_obfs4_subtitle">Clocks your traffic. Gets around some Tor blocking. Good if you\'re on public WiFi, but in a country where Tor isn\'t blocked.</string>
+    <string name="unlock_app_msg" formatted="true">Please unlock your device in order to use %s</string>
+    <string name="pref_password_only_no_biometric">Disallow Biometrics for Orbot Authentication</string>
+    <string name="pref_password_only_no_biometric_description">This forces Orbot Authentication to only require your device\'s password even if biometric authentication, such as fingerprint or face unlock, are configured on your device.</string>
+    <string name="run_smart_connect_">Run Smart Connect to find the best way</string>
+    <string name="scan_qr_code">Scan QR Code</string>
 </resources>
