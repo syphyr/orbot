@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Orbot</string>
     <string name="app_description">Orbot es una aplicación proxy gratuita que permite a otras aplicaciones utilizar Internet de forma más segura. Orbot utiliza Tor para cifrar tu tráfico de Internet y luego lo oculta rebotando a través de una serie de ordenadores en todo el mundo. Tor es un software gratuito y una red abierta que te ayuda a defenderte de una forma de vigilancia de la red que amenaza la libertad y la privacidad personal, las actividades y relaciones comerciales confidenciales y la seguridad del Estado, conocida como análisis del tráfico.</string>
-    <string name="menu_settings">Ajustes</string>
+    <string name="menu_settings">Ajustes de Orbot</string>
     <string name="menu_log">Registro</string>
     <string name="menu_stop">Detener</string>
     <string name="menu_about">Acerca de</string>
@@ -97,7 +97,7 @@
     <string name="name">Nombre</string>
     <string name="done">¡Hecho!</string>
     <string name="copy_address_to_clipboard">Copiar dirección al portapapeles</string>
-    <string name="backup_service">Servicio de copia de seguridad <i>(Advertencia: esto podría exponer la configuración de su servicio a otras aplicaciones)</i></string>
+    <string name="backup_service">Servicio de copia de seguridad (Advertencia: esto podría exponer la configuración de su servicio a otras aplicaciones)</string>
     <string name="delete_service">Borrar servicio</string>
     <string name="backup_saved_at_external_storage">Copia de seguridad guardada en un almacenamiento externo</string>
     <string name="backup_restored">Copia de seguridad restaurada</string>
@@ -239,7 +239,7 @@
     <string name="apps_other_apps">Otras aplicaciones</string>
     <string name="hide_apps">Oculte las aplicaciones de la supervisión de la red y obtenga acceso a ellas cuando estén bloqueadas.</string>
     <string name="log_copied">Registro copiado</string>
-    <string name="snowflake_amp">Snowflake (AMP)</string>
+    <string name="snowflake_amp">Snowflake AMP</string>
     <string name="not_sure">¿No estas segura\?</string>
     <string name="many_ways">Hay muchas formas de conectarse a Tor. Algunas pueden funcionar mejor que otras para ti.</string>
     <string name="asking">PREGUNTANDO…</string>
