@@ -42,13 +42,15 @@ default_platform(:android)
       skip_upload_apk: true,
       skip_upload_aab: true,
       skip_upload_images: true,
-      skip_upload_screenshots: true
+      skip_upload_screenshots: true,
+      skip_upload_changelogs: true
     )
   end
   lane :metadata_and_images do
     supply(
       skip_upload_apk: true,
       skip_upload_aab: true,
+      skip_upload_changelogs: true
     )
   end
   desc "Build a debug APK"
