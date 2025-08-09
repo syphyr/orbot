@@ -289,6 +289,7 @@
     <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot will camouflage itself as the app %1$s. This will hide all notification details about Tor and change how the appearance of Orbot on your home screen.\n\nCamouflaging as %2$s will restart Orbot.</string>
     <string name="camo_dialog_disable_confirm_msg">Orbot will resume displaying notification information about your Tor connection and will appear as normal on your home screen.\n\nDisabling Camouflage Mode will restart Orbot.</string>
     <string name="camo_dialog_disable_title">Disable Camouflage Mode</string>
+    <string name="camo_samsung_instructions">On Your Samsung Galaxy device Camouflage Mode\'s notifications will only work by opening your Settings -> Notifications -> Advanced Settings and disabling \"Show app icon in notifications\". Click here to open Notification Settings.</string>
 
     <string name="pref_camo_mode_title">Camouflage Mode</string>
     <string name="pref_camo_mode_description">Disguise how Orbot\'s icon, label and notification text will appear on your device</string>
