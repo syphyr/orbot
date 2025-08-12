@@ -1,10 +1,13 @@
 package org.torproject.android.ui.more.camo
 
 import android.content.Context
+import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
@@ -16,6 +19,7 @@ import org.torproject.android.service.util.getKey
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.more.MoreActionAdapter
 import org.torproject.android.ui.OrbotMenuAction
+import java.lang.reflect.Field
 import kotlin.String
 
 class CamoFragment : Fragment() {
@@ -70,6 +74,17 @@ class CamoFragment : Fragment() {
         rvCamoApps.adapter = MoreActionAdapter(listItems)
         val spanCount = if (resources.configuration.screenWidthDp < 600) 2 else 4
         rvCamoApps.layoutManager = GridLayoutManager(requireContext(), spanCount)
+        if (hasSamsungOneUI()) {
+            val tvSamsungOneUI = view.findViewById<TextView>(R.id.tvCamoSamsung)
+            tvSamsungOneUI.visibility = View.VISIBLE
+            tvSamsungOneUI.setOnClickListener {
+                // open "Notifications part of Settings app
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
+                    startActivity(Intent(android.provider.Settings.ACTION_NOTIFICATION_ASSISTANT_SETTINGS))
+                else // just open the Settings app
+                    startActivity(Intent(android.provider.Settings.ACTION_SETTINGS))
+            }
+        }
         return view
     }
 
@@ -91,6 +106,15 @@ class CamoFragment : Fragment() {
         if (isSelected) item.backgroundColor =
             ContextCompat.getColor(requireContext(), R.color.panel_card_image)
         return item
+    }
+
+    // https://stackoverflow.com/questions/60122037/how-can-i-detect-samsung-one-ui
+    private fun hasSamsungOneUI(): Boolean {
+        val semPlatformIntField: Field =
+            Build.VERSION::class.java.getDeclaredField("SEM_PLATFORM_INT")
+        val version: Int = semPlatformIntField.getInt(null) - 90000
+        return Build.FINGERPRINT.contains("samsung") &&
+                version >= 0
     }
 
     companion object {
