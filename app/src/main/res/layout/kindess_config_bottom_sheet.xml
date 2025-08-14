@@ -29,10 +29,14 @@
         app:layout_constraintTop_toBottomOf="@id/handle" />
 
     <TextView
+        android:textAlignment="center"
+        android:gravity="center"
         android:id="@+id/tvCustomBridgeSubHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingBottom="2dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
         android:text="@string/kindness_config_detail"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
