@@ -194,7 +194,7 @@
                         android:id="@+id/swVolunteerAdjust"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/menu_settings"
+                        android:text="@string/kindness_adjust_title"
                         android:textSize="24sp"
                         app:layout_constraintBottom_toBottomOf="@id/ivGear"
                         app:layout_constraintStart_toEndOf="@id/ivGear"
