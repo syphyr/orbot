@@ -40,7 +40,7 @@ import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.AppManagerActivity
 import org.torproject.android.ui.OrbotMenuAction
 
-class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
+class ConnectFragment : Fragment(),
     ExitNodeBottomSheet.ExitNodeSelectedCallback {
 
     private lateinit var binding: FragmentConnectBinding
@@ -50,18 +50,20 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     private val lastStatus: String
         get() = (activity as? OrbotActivity)?.previousReceivedTorStatus ?: ""
 
-    private val startTorResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == AppCompatActivity.RESULT_OK) {
-            startTorAndVpn()
+    private val startTorResultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == AppCompatActivity.RESULT_OK) {
+                startTorAndVpn()
+            }
         }
-    }
 
-    private val restartTorResultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == AppCompatActivity.RESULT_OK) {
-            requireContext().sendIntentToService(OrbotConstants.ACTION_RESTART_VPN) // is this enough todo?
-            refreshMenuList(requireContext())
+    private val restartTorResultLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == AppCompatActivity.RESULT_OK) {
+                requireContext().sendIntentToService(OrbotConstants.ACTION_RESTART_VPN) // is this enough todo?
+                refreshMenuList(requireContext())
+            }
         }
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -78,6 +80,7 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
                                 binding.progressBar.progress = it
                             }
                         }
+
                         is ConnectUiState.On -> doLayoutOn(requireContext())
                         is ConnectUiState.Stopping -> {}
                     }
@@ -145,9 +148,13 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
             if (Prefs.isPowerUserMode) {
                 // android 14 awkwardly needs this permission to be explicitly granted to use the
                 // FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED permission without grabbing a VPN Intent
-                val alarmManager = requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
+                val alarmManager =
+                    requireContext().getSystemService(Context.ALARM_SERVICE) as AlarmManager
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !alarmManager.canScheduleExactAlarms()) {
-                    RequestScheduleExactAlarmDialogFragment().show(requireActivity().supportFragmentManager, "RequestAlarmPermDialog")
+                    RequestScheduleExactAlarmDialogFragment().show(
+                        requireActivity().supportFragmentManager,
+                        "RequestAlarmPermDialog"
+                    )
                 } else {
                     binding.ivStatus.setImageResource(R.drawable.torstarting)
                     with(binding.btnStart) {
@@ -170,14 +177,22 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
         val listItems =
             arrayListOf(
                 OrbotMenuAction(R.string.btn_change_exit, 0) {
-                    ExitNodeBottomSheet().show(requireActivity().supportFragmentManager, "ExitNodeBottomSheet")
+                    ExitNodeBottomSheet().show(
+                        requireActivity().supportFragmentManager,
+                        "ExitNodeBottomSheet"
+                    )
                 },
                 OrbotMenuAction(R.string.btn_refresh, R.drawable.ic_refresh) { sendNewnymSignal() },
                 OrbotMenuAction(R.string.btn_tor_off, R.drawable.ic_power) { stopTorAndVpn() })
         if (!Prefs.isPowerUserMode) listItems.add(
             0,
             OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
-                restartTorResultLauncher.launch(Intent(requireActivity(), AppManagerActivity::class.java))
+                restartTorResultLauncher.launch(
+                    Intent(
+                        requireActivity(),
+                        AppManagerActivity::class.java
+                    )
+                )
             })
         binding.lvConnected.adapter = ConnectMenuActionAdapter(context, listItems)
     }
@@ -245,17 +260,43 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
 
             if (Prefs.smartConnect) {
                 connectStr = getString(R.string.action_use_, getString(R.string.smart_connect))
-            }
-            else {
+            } else {
                 connectStr = when (Prefs.transport) {
-                    Transport.NONE -> getString(R.string.action_use_, getString(R.string.direct_connect))
-                    Transport.MEEK_AZURE -> getString(R.string.action_use_, getString(R.string.bridge_meek_azure))
-                    Transport.OBFS4 -> getString(R.string.action_use_, getString(R.string.built_in_bridges_obfs4))
-                    Transport.SNOWFLAKE -> getString(R.string.action_use_, getString(R.string.snowflake))
-                    Transport.SNOWFLAKE_AMP -> getString(R.string.action_use_, getString(R.string.snowflake_amp))
-                    Transport.SNOWFLAKE_SQS -> getString(R.string.action_use_, getString(R.string.snowflake_sqs))
+                    Transport.NONE -> getString(
+                        R.string.action_use_,
+                        getString(R.string.direct_connect)
+                    )
+
+                    Transport.MEEK_AZURE -> getString(
+                        R.string.action_use_,
+                        getString(R.string.bridge_meek_azure)
+                    )
+
+                    Transport.OBFS4 -> getString(
+                        R.string.action_use_,
+                        getString(R.string.built_in_bridges_obfs4)
+                    )
+
+                    Transport.SNOWFLAKE -> getString(
+                        R.string.action_use_,
+                        getString(R.string.snowflake)
+                    )
+
+                    Transport.SNOWFLAKE_AMP -> getString(
+                        R.string.action_use_,
+                        getString(R.string.snowflake_amp)
+                    )
+
+                    Transport.SNOWFLAKE_SQS -> getString(
+                        R.string.action_use_,
+                        getString(R.string.snowflake_sqs)
+                    )
+
                     Transport.WEBTUNNEL -> getString(R.string.action_use_, Transport.WEBTUNNEL.id)
-                    Transport.CUSTOM -> getString(R.string.action_use_, getString(R.string.custom_bridges))
+                    Transport.CUSTOM -> getString(
+                        R.string.action_use_,
+                        getString(R.string.custom_bridges)
+                    )
                 }
             }
 
@@ -334,13 +375,8 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
 
 
     private fun openConfigureTorConnection() {
-        ConfigConnectionBottomSheet.newInstance(this)
-            .show(requireActivity().supportFragmentManager, OrbotActivity::class.java.simpleName)
-    }
-
-
-    override fun tryConnecting() {
-        startTorAndVpn() // TODO for now just start tor and VPN, we need to decouple this down the line
+        ConfigConnectionBottomSheet()
+            .show(requireActivity().supportFragmentManager, ConfigConnectionBottomSheet.TAG)
     }
 
     override fun onExitNodeSelected(countryCode: String, displayCountryName: String) {
@@ -349,7 +385,7 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
         Prefs.exitNodes = "{$countryCode}"
 
         requireContext().sendIntentToService(
-            Intent(requireActivity(),OrbotService::class.java)
+            Intent(requireActivity(), OrbotService::class.java)
                 .setAction(OrbotConstants.CMD_SET_EXIT).putExtra("exit", countryCode)
         )
 
