@@ -8,6 +8,7 @@ import android.util.DisplayMetrics
 import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
+import android.widget.FrameLayout
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -22,7 +23,19 @@ bottom sheets to come
 open class OrbotBottomSheetDialogFragment : BottomSheetDialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
             val dialog = BottomSheetDialog(requireActivity(), theme)
-            dialog.setOnShowListener {setupRatio(dialog)}
+            dialog.setOnShowListener {
+                val bottomSheet = dialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet) as? FrameLayout
+                bottomSheet?.let {
+                    it.setBackgroundResource(R.drawable.bottom_sheet_rounded)
+                    it.setBackgroundColor(Color.TRANSPARENT)
+                    val layoutParams = it.layoutParams
+                    layoutParams.height = getHeight()
+                    bottomSheet.layoutParams = layoutParams
+                    val behavior = BottomSheetBehavior.from<FrameLayout>(bottomSheet)
+                    behavior.state = BottomSheetBehavior.STATE_EXPANDED
+                }
+            }
+
             return dialog
     }
 
@@ -30,24 +43,10 @@ open class OrbotBottomSheetDialogFragment : BottomSheetDialogFragment() {
         dismiss()
     }
 
-    private fun setupRatio(bsd: BottomSheetDialog) {
-        val bottomSheet = bsd.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
-        bottomSheet?.let {
-            it.setBackgroundResource(R.drawable.bottom_sheet_rounded)
-            it.setBackgroundColor(Color.TRANSPARENT)
-            val behavior = BottomSheetBehavior.from(it)
-            val layoutParams = it.layoutParams
-            layoutParams.height = getHeight()
-            bottomSheet.layoutParams = layoutParams
-            behavior.state = BottomSheetBehavior.STATE_EXPANDED
-        }
-    }
-
     private fun getHeight() : Int{
-        // todo handle bigger device heights
         val displayMetrics = DisplayMetrics()
         requireActivity().windowManager.defaultDisplay.getMetrics(displayMetrics)
-        return displayMetrics.heightPixels * 65 / 100
+        return displayMetrics.heightPixels * 80 / 100
     }
 
     @SuppressLint("ClickableViewAccessibility")
