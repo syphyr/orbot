@@ -136,12 +136,6 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
         }
     }
 
-    private fun openExitNodeDialog() {
-        ExitNodeBottomSheet(this).show(
-            requireActivity().supportFragmentManager, "ExitNodeBottomSheet"
-        )
-    }
-
     fun startTorAndVpn() {
         val vpnIntent = VpnService.prepare(requireActivity())?.putNotSystem()
         if (vpnIntent != null && !Prefs.isPowerUserMode) {
@@ -175,7 +169,9 @@ class ConnectFragment : Fragment(), ConnectionHelperCallbacks,
     fun refreshMenuList(context: Context) {
         val listItems =
             arrayListOf(
-                OrbotMenuAction(R.string.btn_change_exit, 0) { openExitNodeDialog() },
+                OrbotMenuAction(R.string.btn_change_exit, 0) {
+                    ExitNodeBottomSheet().show(requireActivity().supportFragmentManager, "ExitNodeBottomSheet")
+                },
                 OrbotMenuAction(R.string.btn_refresh, R.drawable.ic_refresh) { sendNewnymSignal() },
                 OrbotMenuAction(R.string.btn_tor_off, R.drawable.ic_power) { stopTorAndVpn() })
         if (!Prefs.isPowerUserMode) listItems.add(

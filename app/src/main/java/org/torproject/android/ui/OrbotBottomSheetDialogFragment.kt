@@ -2,7 +2,6 @@ package org.torproject.android.ui
 
 import android.annotation.SuppressLint
 import android.app.Dialog
-import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
 import android.util.DisplayMetrics

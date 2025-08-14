@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.fragment.NavHostFragment
 
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,9 +20,7 @@ import java.text.Collator
 import java.util.Locale
 import java.util.TreeMap
 
-class ExitNodeBottomSheet(
-    private val callback: ExitNodeSelectedCallback
-) : OrbotBottomSheetDialogFragment() {
+class ExitNodeBottomSheet : OrbotBottomSheetDialogFragment() {
 
     interface ExitNodeSelectedCallback {
         fun onExitNodeSelected(countryCode: String, displayCountryName: String)
@@ -94,8 +93,10 @@ class ExitNodeBottomSheet(
                 val prev = selectedCode
                 selectedCode = code
                 notifyItemChanged(list.indexOfFirst { it.first == prev })
+                val navHostFragment = requireActivity().supportFragmentManager.fragments[0] as NavHostFragment
+                val connectFrag = navHostFragment.childFragmentManager.fragments.last() as ConnectFragment
                 notifyItemChanged(position)
-                callback.onExitNodeSelected(code, displayName)
+                connectFrag.onExitNodeSelected(code, displayName)
                 dismiss()
             }
         }
