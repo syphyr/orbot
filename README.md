@@ -10,10 +10,7 @@
 [![Play Downloads](https://img.shields.io/github/downloads/guardianproject/orbot/total)](https://play.google.com/store/apps/details?id=org.torproject.android)
 [![Bitrise Status](https://img.shields.io/bitrise/0e76c31b8e7e1801?token=S2weJXueO3AvrDUrrd85SA&logo=bitrise&color=blue)](https://app.bitrise.io/app/0e76c31b8e7e1801) ([CI docs](./docs/info/CI.md))
 
-Orbot is a freely licensed open-source application developed for the
-Android platform. It acts as a front-end for the Tor binary application,
-while also providing a secure HTTP Proxy for connecting web browsers and other
-HTTP client applications into the Tor SOCKS interface.
+Orbot is a free VPN and proxy app that empowers other apps to use the internet more securely. Orbot uses Tor to encrypt your Internet traffic and then hides it by bouncing through a series of computers around the world. Tor is free software and an open network that helps you defend against a form of network surveillance that threatens personal freedom and privacy, confidential business activities and relationships, and state security known as traffic analysis.
 
 ***********************************************
 <img src=./fastlane/metadata/android/en-US/images/phoneScreenshots/A-orbot_connected_1754319853695.png width="24%"> <img src=./fastlane/metadata/android/en-US/images/phoneScreenshots/B-choose-how_1754319851766.png width="24%">
