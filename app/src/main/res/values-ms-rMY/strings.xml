@@ -3,11 +3,9 @@
     <string name="app_name">Orbot</string>
     <string name="menu_settings">Tetapan</string>
     <string name="menu_log">Log</string>
-    <string name="menu_stop">Henti</string>
     <string name="menu_about">Tentang</string>
     <string name="main_layout_download">Muat turun</string>
     <string name="main_layout_upload">Muat naik</string>
-    <string name="button_about">Tentang</string>
     <string name="menu_exit">Keluar</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
@@ -49,8 +47,6 @@
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Cap jari, nama samaran, negara dan alamat untuk dikeluarkan</string>
     <string name="enter_exclude_nodes">Masukkan Nod Keluar</string>
     <string name="strict_nodes">Nod Ketat</string>
-    <string name="bridges">Jambatan</string>
-    <string name="use_bridges">Guna Jambatan</string>
     <string name="reachable_addresses">Alamat yang dapat dicapai</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Jalan sebagai klien dibelakang firewall dengan peraturan ketat</string>
     <string name="reachable_ports">Port yang dapat dicapai</string>
@@ -61,7 +57,6 @@
     <string name="third_party_software">3rd-Party-Software: </string>
     <string name="set_locale_title">Bahasa</string>
     <string name="hidden_services">Perkhidmatan tersembunyi</string>
-    <string name="menu_hidden_services">Perkhidmatan tersembunyi</string>
     <string name="save">Simpan</string>
     <string name="name">Nama</string>
     <string name="version">Versi:</string>
@@ -70,22 +65,14 @@
     <string name="confirm">Sahkan</string>
     <string name="menu_new_identity">Identiti Baharu</string>
     <string name="trying_to_connect_title">Menyambung…</string>
-    <string name="menu_header_learn">Ketahui Lebih Lanjut</string>
     <string name="next">Seterusnya</string>
-    <string name="connection_snowflake">Snowflake</string>
-    <string name="connection_custom">Suai</string>
     <string name="btn_refresh">Segarkan</string>
-    <string name="menu_header_features">Fitur</string>
     <string name="setting_debug">Nyahpepijat</string>
     <string name="menu_more">Lagi</string>
     <string name="connected_title">Bersambung</string>
-    <string name="menu_faq">FAQ</string>
     <string name="disable">Lumpuhkan</string>
     <string name="mebibyte">MiB</string>
-    <string name="get_bridges_email">Email</string>
-    <string name="deny">Nafi</string>
     <string name="connect">Sambung</string>
-    <string name="allow">Benarkan</string>
     <string name="pref_allow_background_starts_title">Benarkan bermula di latar belakang</string>
     <string name="pref_allow_background_starts_summary">Benarkan mana-mana aplikasi memberitahu Orbot untuk mulakan Tor dan servis berkenaan</string>
     <string name="newnym">Anda bertukar ke identiti Tor baharu!</string>

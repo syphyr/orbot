@@ -4,11 +4,9 @@
     <string name="app_description">ORBOTa’ teeçx PROXY’ dewemee vxiswa’ja’, naayu’ vxite çaam wejxatxku ũukhmee kmajĩ’ji’. ORBOTa’ TORa’sku kseelpi’ji’ mjĩitx jxpa’yahtx jxaawkaan. TORa’ vxite çaam wejxa’, txa’wẽyçxa dewewa’jme’, na’ wala pu’çxhin kĩhsupa jiyuwẽte ki’ kwe’sx mjĩitx nwe’wek peethegkameen; sa’ ũukhmee vxiswa’ja’.</string>
     <string name="menu_settings">Phewu’jwa’</string>
     <string name="menu_log">Yase akhçxa jxaawnxi </string>
-    <string name="menu_stop">Myuju </string>
     <string name="menu_about">Naa yuwete’</string>
     <string name="main_layout_download">Miispahtx</string>
     <string name="main_layout_upload">Mkaateka’j </string>
-    <string name="button_about">Naa yuwete’</string>
     <string name="menu_exit">Kase’jnxi</string>
     <string name="wizard_details_msg">ORBOTa’ wala selpiisa’, naa çaam wejxa’tx ji’phpa’ka: Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks ki’ LibEvent. Paaç jxkhẽwwa’ja’ teeçx weh VPNek ũsu’, teeçx proxy HTTP Connect local (HTTPS, naa’ 8118 vxitxteçxaa) ki’ TORte’ teeçx proxy SOCKS (9050)</string>
     <string name="pref_general_group">Jxukaynas </string>
@@ -46,8 +44,6 @@
     <string name="enter_exclude_nodes">Me’ka NODOtx kuutxi’jwa’</string>
     <string name="strict_nodes">Kxtey nxuwa’ NODO</string>
     <string name="strict_nodes_description">Circuitotx vxitwa’ja, nodo puçkhe nvxitnxitxkhwey phewu’j, na’ mjĩia’s kyuju’juna phewu’jmeete </string>
-    <string name="bridges">Weh</string>
-    <string name="use_bridges">Weha’s muwe</string>
     <string name="reachable_addresses">U’kawa dxi\'j </string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Na’sa’ naamuna’ jxkaahana firewall e’ste</string>
     <string name="reachable_ports">Jxkẽwwa’ vitxh</string>
@@ -59,8 +55,6 @@
     <string name="version">Kĩh çaam wejxan </string>
     <string name="license">Licencia:</string>
     <string name="hidden_service_request">Teeꞔx appekh çaam pe’pe Onion yasesa’s phadewẽje, %1$s vxitxte. naayu’ ewna napa idx ewna sũuteçxaa.</string>
-    <string name="allow">Nvxiht</string>
-    <string name="deny">Nvxihtme’</string>
     <string name="pref_use_expanded_notifications">Idx kaase’jnxi Tor nodote phta’sxi’k ꞔxhab wala’s ki dxi’j IP  napa ewuutecxaa</string>
     <string name="pref_use_expanded_notifications_title">Phtasxnxi’s wejx kaajiyu’nxi.
 Notificaciones ampliadas</string>
@@ -87,13 +81,6 @@ Notificaciones ampliadas</string>
     <string name="pref_torrc_dialog">Idx Torrc</string>
     <string name="kibibyte">KiB</string>
     <string name="mebibyte">MiB</string>
-    <string name="bridges_updated">U\'se phuse\'jnxi weh</string>
-    <string name="restart_orbot_to_use_this_bridge_">Ki’ mthak Orbota’s  yu’pthe’jnxitx nvxihtwa’</string>
-    <string name="if_your_mobile_network_actively_blocks_tor_you_can_use_a_tor_bridge_to_access_the_network_another_way_to_get_bridges_is_to_send_an_email_to_bridges_torproject_org_please_note_that_you_must_send_the_email_using_an_address_from_one_of_the_following_email_providers_riseup_gmail_or_yahoo_">Çaamwelx i’neeyũute’ Tora’s fxki’ta, Fxiy u’kawẽçxa’ \'Bridge Server\' vxisya’ ewuunega. Teeçx muwe phuse\'jwa’ jĩicxa’ miisa…</string>
-    <string name="get_bridges_email"> Çaamte yuwe’s kaahnxi</string>
-    <string name="get_bridges_email_request">Çaamte yuwe’s kaahnxite, wehtx mpẽhy </string>
-    <string name="apps_mode">Modo VPN </string>
-    <string name="send_email">Çaamte yuwe’s mkaah</string>
     <string name="vpn_default_world">Jxukay (petx)</string>
     <string name="hidden_services">Onion yuwe’s kajiyu’jnxi </string>
     <string name="v3_hosted_services">Onion yuwe’s kajiyu’jnxi ayte u\'pta’</string>
@@ -107,7 +94,6 @@ Notificaciones ampliadas</string>
     <string name="v3_backup_name_hint">Backup yase</string>
     <string name="v3_import_auth_private">Ayte jxũuwa’ .auth_private</string>
     <string name="confirm">Ewna’</string>
-    <string name="menu_hidden_services">Onion yuwe’s kajiyu’jnxi </string>
     <string name="save">Mjxaaw</string>
     <string name="local_port">Ayte vxitx</string>
     <string name="onion_port">Onion vxitx</string>
@@ -120,13 +106,9 @@ Notificaciones ampliadas</string>
     <string name="backup_restored">Backupa’s neejxũg</string>
     <string name="backup_port_exist">ewme\':  Onion yuwe’s kajiyu’jsa’  vxite vxitxtenxa’ ũsa’ %s</string>
     <string name="restore_backup">Backupa’s ki’ mneejxũ</string>
-    <string name="create_a_backup_first">Teeçx Backupkhwẽy mvxith</string>
-    <string name="start_tor_again_for_finish_the_process">Tora’s ki’kin mpu’tx mjĩi\'s ew  jxã’jkan</string>
     <string name="confirm_service_deletion">Miptasx mjĩinxi\'s khũkhkan.</string>
     <string name="service_type">Fxiy fxiy selpisa</string>
     <string name="please_restart_Orbot_to_enable_the_changes">Ki’ mthak Orbota’s yu’pthe’jnxitx nvxihtwa’</string>
-    <string name="onion">.onion</string>
-    <string name="share_as_qr">Katxuhde QRna’wẽ</string>
     <string name="disable">Mfxĩçxha</string>
     <string name="enable">Nvxi’jth</string>
     <string name="consider_disable_battery_optimizations">Mjĩina ũssa’ ayte u’pta’; thegune’ga çaam ktũ’se\'s kçxhãçxha\'jnxi\'s fxĩçxhawẽçxa’</string>
@@ -145,30 +127,15 @@ Notificaciones ampliadas</string>
     <string name="pref_prefer_ipv6_summary">kase’jnxi txhitxhnxitx miipta’sx IPv6 dxi’jtx</string>
     <string name="pref_disable_ipv4">IPv4 açhnxi’s mfxĩçxha</string>
     <string name="pref_disable_ipv4_summary">Kase’jnxite, IPv4 dxi’jte açhmeene’kwe jĩ’kee</string>
-    <string name="app_shortcuts">App Torjĩ nvxitnxi ũsta’</string>
-    <string name="testing_tor_direct">Tor açhnxi’s isana…</string>
-    <string name="testing_tor_direct_success">Ewnxuja’. ¡Tor açhnxi’ ewa\'!</string>
-    <string name="bridge_direct_connect">Torteyũ maçh (wejx ewna) 
- </string>
-    <string name="bridge_community">Jxukaysajĩi çaam pe’peju maçh</string>
-    <string name="bridge_cloud">Tãaph çaam pe’peju maçh</string>
-    <string name="trouble_connecting">¿Açhwẽte ewuumeeka’?</string>
     <string name="full_device_vpn">Çaam welxtewe’sx VPN ãhya’ja\'</string>
-    <string name="vpn_disabled">VPN fxĩçxhanxi ũsa’</string>
     <string name="menu_new_identity">U\'se yase\'</string>
     <string name="user_services">Kseelpi’jsa yuwe’s kajiyu’jnxi </string>
     <string name="app_services">App yuwe’s kajiyu’jnxi </string>
-    <string name="refresh_apps">Appetx miikhpuuse’j</string>
     <!--MoatActivity-->
     <!--BridgeWizardActivity-->
-  <string name="request_bridges_from_torproject">Wehtxi’ ayte mpẽhy torproject.org </string>
     <string name="custom_bridges">Idx weh.</string>
-    <string name="configure_custom_bridges">Idx wehtx Mphuse\'j</string>
     <!--CustomBridgesFragment-->
-  <string name="use_custom_bridges">Idx wehtx miikseelpi’j </string>
     <string name="in_a_browser">Internette pakwenxite, na’s %s mtheg jĩiçxa ayte miikxtheth \"weh muy\" &gt; \"¡wehçxaatx mah!\"</string>
-    <string name="paste_bridges">Wehtx miikne’ta’j</string>
-    <string name="use_qr_code">Codigo QR miikseelpi’j</string>
     <string name="bridge_snowflake">Torta’s kseelpi’jsa yaseyak maçh, na’s kseelpi’jcxa Snowflake (Método 1 - Fastly)</string>
     <string name="bridge_snowflake_amp">Tora’s kseelpi’j yaseyak maçh, na’s kseelpi’jcxa Snowflake (Método 2 - AMP)</string>
     <string name="snowflake_proxy_msg_title">Miikthegu’ açhcxa’ kaajiyu’jnxis</string>
@@ -181,43 +148,26 @@ Notificaciones ampliadas</string>
     <string name="btn_start_vpn">VPN mpu’tx</string>
     <string name="btn_configure">Mphuse\'j</string>
     <string name="configure_header">Mphuse\'j Toryak kitxawa\'</string>
-    <string name="volunteer_mode_subtitle">Vxitetx mpu’çxh açya’ ewuukan</string>
     <string name="trying_to_connect_title">Açhnaa…</string>
     <string name="btn_choose_apps">Appetx mtxhitxh</string>
     <string name="btn_change_exit">Kase’jnxi\'s myu’pthe’j </string>
     <string name="btn_refresh">Miikphuusẽe</string>
     <string name="btn_tor_off">Tora’s mfxĩçxha</string>
-    <string name="no_thx">Ũ’u, pay</string>
-    <string name="menu_header_features">Ma’wẽn</string>
-    <string name="captcha_title">Idxa’s nasatepa jiyuya’ miipta’sx  </string>
-    <string name="menu_tor_connection">Tor açhnxi</string>
     <string name="menu_help_others">Vxitetx mpu’çxh.</string>
-    <string name="menu_app_settings">Appetx phewu’jwa’</string>
-    <string name="menu_faq">FAQ</string>
-    <string name="menu_header_learn">Wejx mpiya</string>
     <string name="btn_use_custom_bridge">Idx weha’s kseelpi’j</string>
-    <string name="msg_taking_too_long">Na’ seena’ jxtheyũçna’ thegu’k</string>
-    <string name="msg_try_something_else">Vxite ki’ miisa</string>
     <string name="proxy_ports">Proxy vxitx</string>
     <string name="ports_not_set">Vxitxkwetx phuuse’jnximee</string>
     <string name="volunteer_mode_title">Vxitetx mpu’çxh Torte açya’ ewuukan</string>
-    <string name="volunteer_mode_label">Modo Kindness</string>
     <string name="volunteer_mode_weekly_label">Ki\'su jxuka</string>
     <string name="volunteer_mode_alltime_label">Een jxuka</string>
     <string name="volunteer_mode_subtitle_desc">Kindnessa’ nvxitu’k idx çaam welxa’s, wehna’ seelpikaan. Nasatxku Tora’s ew vxisya pu’çxhi’ kyuuju’jnxi uste’.\n\n- Idx çaam ktu’se’s jxã’jmeena\n\n-Idx interneta’s kyuuju’jmeena\n\n- Wifiyakçxaa seelpiina\n\n- ma’wẽnte fxĩçxawẽçxa’ ewuune’ga</string>
     <string name="smart_connect"> Jii açhwa’(mtxhitxh)</string>
-    <string name="smart_connect_subtitle">Orbota’ Torte açhya’ isak maayakpa: Dxi’j, Snowflake, Bridge.</string>
     <string name="direct_connect">Torte dxi\'j açhwa’ </string>
     <string name="direct_connect_subtitle">Torte u’kwa’ jxthaakwe ewsa. miikseelpi’j napa Tor yujume ũstecxãa</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Na’ Tor pu’cxsayakku açhu’. Tor kyuju’jnxisatx kaahmene’ga </string>
     <string name="connect">Maçh</string>
     <string name="next">Vxite</string>
-    <string name="incorrect_solution">Paasnxi’ ewme’</string>
-    <string name="bridges_obtained_connecting">¡Weh uynxitx¡ torte açhna…
-.</string>
-    <string name="having_trouble">Yuwe ewmeesak vxaa</string>
-    <string name="having_trouble_subtitle">Teeçx weh Tor iisaya’ ewuudka’w, napa idx pu’çxwa’ pejxiina</string>
     <string name="power_user_mode">Meh kseelpi’jya jiisa</string>
     <string name="power_user_description">Tora’s kseelpi’jya jiya’jsatxi’. Nvxitu’k VPN phewu’jmee Orbota’s pu’txkan ki kaavxa’jak SOCKS vxite HTTP vxitx phadenxi ũssatx </string>
     <string name="action_activate">Miijxkaah</string>

@@ -4,11 +4,9 @@
     <string name="app_description">Orbot è un\'app proxy libera che permette ad altre app di accedere a internet in modo più sicuro. Orbot usa Tor per cifrare il traffico internet e poi lo nasconde facendolo rimbalzare attraverso una serie di computer nel mondo. Tor è un software libero e una rete aperta che aiuta a difendersi da una forma di sorveglianza che minaccia libertà e privacy personale, le attività e le relazioni commerciali riservate e la sicurezza dello Stato, nota come analisi del traffico.</string>
     <string name="menu_settings">Impostazioni di Orbot</string>
     <string name="menu_log">Registro (log)</string>
-    <string name="menu_stop">Ferma</string>
     <string name="menu_about">Informazioni</string>
     <string name="main_layout_download">Download</string>
     <string name="main_layout_upload">Upload</string>
-    <string name="button_about">Informazioni</string>
     <string name="menu_exit">Esci</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot è un\'applicazione open source che contiene Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks e LibEvent. Fornisce un tunnel VPN, un proxy HTTP locale (solo HTTPS su porta 8118) e un proxy SOCKS (9050) per la rete Tor.</string>
@@ -53,8 +51,6 @@
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Impronte, nickname, Paesi ed indirizzi da escludere</string>
     <string name="enter_exclude_nodes">Inserisci i nodi da escludere</string>
     <string name="strict_nodes">Nodi rigorosi</string>
-    <string name="bridges">Bridge</string>
-    <string name="use_bridges">Utilizza i bridge</string>
     <string name="reachable_addresses">Indirizzi raggiungibili</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Esegui come un client dietro un firewall con politiche restrittive</string>
     <string name="reachable_ports">Porte raggiungibili</string>
@@ -82,15 +78,8 @@
     <string name="pref_torrc_title">Configurazione personalizzata di Torrc</string>
     <string name="pref_torrc_summary">SOLO ESPERTI: inserisci direttamente le righe per torrc</string>
     <string name="pref_torrc_dialog">Torrc personalizzato</string>
-    <string name="bridges_updated">Bridge attivati</string>
-    <string name="restart_orbot_to_use_this_bridge_">Per favore riavvia Orbot per rendere effettive le modifiche</string>
-    <string name="if_your_mobile_network_actively_blocks_tor_you_can_use_a_tor_bridge_to_access_the_network_another_way_to_get_bridges_is_to_send_an_email_to_bridges_torproject_org_please_note_that_you_must_send_the_email_using_an_address_from_one_of_the_following_email_providers_riseup_gmail_or_yahoo_">Se la tua rete mobile blocca attivamente Tor, puoi usare un \'Server Bridge\' come via alternativa. Seleziona una delle opzioni per configurare e testare…</string>
-    <string name="get_bridges_email">Email</string>
-    <string name="apps_mode">Modalità VPN</string>
-    <string name="send_email">Invia email</string>
     <string name="vpn_default_world">Globale (Auto)</string>
     <string name="hidden_services">Servizi nascosti</string>
-    <string name="menu_hidden_services">Servizi nascosti</string>
     <string name="save">Salva</string>
     <string name="local_port">Porta locale</string>
     <string name="onion_port">Porta onion</string>
@@ -102,13 +91,9 @@
     <string name="backup_saved_at_external_storage">Backup salvato nell\'archiviazione esterna</string>
     <string name="backup_restored">Backup ripristinato</string>
     <string name="restore_backup">Ripristina backup</string>
-    <string name="create_a_backup_first">Prima crea un backup</string>
-    <string name="start_tor_again_for_finish_the_process">Riavvia Tor per finire il processo</string>
     <string name="confirm_service_deletion">Conferma l\'eliminazione del servizio</string>
     <string name="service_type">Tipo di servizio</string>
     <string name="please_restart_Orbot_to_enable_the_changes">Per favore riavvia Orbot per rendere effettive le modifiche</string>
-    <string name="onion">.onion</string>
-    <string name="share_as_qr">Condividi come QR</string>
     <string name="disable">Disattiva</string>
     <string name="enable">Attiva</string>
     <string name="consider_disable_battery_optimizations">Servizi ospitati in esecuzione, considera la disattivazione dell\'ottimizzazione della batteria</string>
@@ -119,13 +104,7 @@
     <string name="pref_connection_padding_summary">Attiva sempre il riempimento della connesione in difesa contro alcune forme di analisi del traffico. Predefinito: auto</string>
     <string name="pref_reduced_connection_padding">Riempimento connessione ridotto</string>
     <string name="pref_reduced_connection_padding_summary">Chiude prima le connessioni dei relay e invia meno pacchetti riempiti per ridurre l\'uso di dati e batteria</string>
-    <string name="app_shortcuts">App con accesso a Tor</string>
-    <string name="bridge_direct_connect">Connettiti direttamente a Tor (Migliore)</string>
-    <string name="bridge_community">Connettiti tramite i server comunitari</string>
-    <string name="bridge_cloud">Connettiti tramite i server cloud</string>
-    <string name="trouble_connecting">Problemi nel connetterti?</string>
     <string name="full_device_vpn">VPN intero dispositivo</string>
-    <string name="vpn_disabled">VPN disattivata</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Apri il proxy su tutte le interfacce</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Permetti ai peer Wi-Fi, ai dispositivi in tethering e a chiunque si connetta al tuo IP, di accedere a Tor</string>
     <string name="pref_http_title">HTTP di Tor</string>
@@ -138,7 +117,6 @@
     <string name="menu_new_identity">Nuova identità</string>
     <string name="user_services">Servizi utente</string>
     <string name="app_services">Servizi app</string>
-    <string name="refresh_apps">Rinfresca Apps</string>
     <string name="backup_port_exist">Errore: un servizio nascosto sta già usando la porta %s</string>
     <string name="confirm">Conferma</string>
     <string name="v3_import_auth_private">Importa .auth_private</string>
@@ -151,32 +129,16 @@
     <string name="v3_key_hash">Chiave privata x25519 in Base32</string>
     <string name="v3_client_auth_activity_title">Autorizzazione client</string>
     <string name="v3_hosted_services">Servizi nascosti ospitati</string>
-    <string name="get_bridges_email_request">Richiedi bridge via email</string>
     <string name="mebibyte">MiB</string>
     <string name="kibibyte">KiB</string>
-    <string name="deny">Nega</string>
-    <string name="allow">Permetti</string>
     <string name="bridge_snowflake">Connetti tramite altri utenti di Tor usando Snowflake (Metodo 1 - Fastly)</string>
-    <string name="use_qr_code">Usa codice QR</string>
-    <string name="paste_bridges">Incolla i bridge</string>
-    <string name="use_custom_bridges">Usa bridge personalizzati</string>
-    <string name="configure_custom_bridges">Configura bridge personalizzati</string>
     <string name="custom_bridges">Bridge personalizzati</string>
-    <string name="request_bridges_from_torproject">Richiedi i bridge da torproject.org</string>
-    <string name="testing_tor_direct_success">Completato. La connessione è buona!</string>
-    <string name="testing_tor_direct">Test della connessione a Tor…</string>
     <string name="license">Licenza:</string>
     <string name="btn_refresh">Aggiorna</string>
-    <string name="no_thx">No grazie</string>
-    <string name="menu_tor_connection">Connessione Tor</string>
     <string name="menu_help_others">Aiuta gli altri</string>
     <string name="connect">Connetti</string>
     <string name="next">Avanti</string>
-    <string name="connection_direct">Diretto</string>
-    <string name="connection_snowflake">Snowflake</string>
-    <string name="connection_custom">Personalizzato</string>
     <string name="trying_to_connect_title">Connessione in corso…</string>
-    <string name="menu_header_features">Funzionalità</string>
     <string name="no_internet_title">Connetti a internet</string>
     <string name="setting_debug">Debug</string>
     <string name="setting_padding">Riempimento (padding)</string>
@@ -186,8 +148,6 @@
     <string name="version">Versione:</string>
     <string name="title_choose_apps">Scegli le app</string>
     <string name="action_activate">Attiva</string>
-    <string name="menu_faq">FAQ</string>
-    <string name="menu_header_learn">Maggiori informazioni</string>
     <string name="pref_isolate_port">Isola le porte di destinazione</string>
     <string name="pref_isolate_port_summary">Usa un circuito diverso per ogni porta di destinazione</string>
     <string name="apps_other_apps">Altre app</string>
@@ -199,12 +159,8 @@
     <string name="pref_reduced_circuit_padding">Riempimento del circuito ridotto</string>
     <string name="bridge_snowflake_amp">Connetti tramite altri utenti di Tor usando Snowflake (Metodo 2 - AMP)</string>
     <string name="btn_configure">Scegli come connetterti</string>
-    <string name="volunteer_mode_subtitle">Aiuta altri a connettersi</string>
-    <string name="msg_taking_too_long">Sembra impiegarci troppo tempo</string>
     <string name="btn_choose_apps">Scegli le app</string>
     <string name="btn_use_custom_bridge">Usa bridge personalizzato</string>
-    <string name="captcha_title">Facci sapere che sei umano</string>
-    <string name="msg_try_something_else">Prova qualcos\'altro</string>
     <string name="proxy_ports">Porte del proxy</string>
     <string name="app_suggested_subtitle">Orbot funziona meglio con le app di messaggistica e social.</string>
     <string name="power_user_mode">Modalità utente avanzato</string>
@@ -219,16 +175,12 @@
 \n• Può funzionare solo su wifi
 \n• Può essere spenta in qualsiasi momento</string>
     <string name="smart_connect">Connessione intelligente (predefinita)</string>
-    <string name="smart_connect_subtitle">Orbot cerca di connettersi a Tor in qualsiasi modo disponibile: diretta, Snowflake, bridge.</string>
     <string name="snowflake_subtitle">Si connette tramite volontari di Tor. Aggira qualche blocco di Tor.</string>
     <string name="ports_not_set">Porte non impostate</string>
     <string name="volunteer_mode">Modalità altruista</string>
     <string name="btn_start_vpn">Avvia VPN</string>
     <string name="snowflake_proxy_msg_title">Mostra la notifica di connessione</string>
     <string name="snowflake_proxy_msg_description">Mostra un messaggio quando aiuti qualcuno ad aggirare la censura</string>
-    <string name="bridges_obtained_connecting">Bridge ottenuti! Connessione a Tor…</string>
-    <string name="incorrect_solution">Soluzione sbagliata</string>
-    <string name="having_trouble">Ci sono problemi</string>
     <string name="btn_copy_log">Copia log</string>
     <string name="no_internet_subtitle">Ti serve una connessione internet per usare Orbot.</string>
     <string name="kindness_config_detail">Configura come e quando il dispositivo può agire da proxy Snowflake per altri utenti Tor.</string>
@@ -237,13 +189,11 @@
     <string name="btn_tor_off">Spegni Tor</string>
     <string name="volunteer_mode_title">Aiuta altri a
 \nconnettersi a Tor</string>
-    <string name="volunteer_mode_label">Modalità altruista</string>
     <string name="volunteer_mode_alltime_label">Totale assoluto</string>
     <string name="direct_connect">Connessione diretta a Tor</string>
     <string name="direct_connect_subtitle">Il modo migliore per connettersi a Tor. Usalo se Tor non viene bloccato.</string>
     <string name="snowflake">Snowflake (originale)</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
-    <string name="having_trouble_subtitle">Possiamo provare un bridge Tor, ma ci servirà il tuo aiuto</string>
     <string name="power_user_description">Per gli utenti familiari con Tor. Consente di avviare Orbot senza l\'impostazione VPN e mostra le porte SOCKS e HTTP aperte</string>
     <string name="volunteer_status_title">Un giorno migliore
 \ngrazie a te.</string>
@@ -258,7 +208,6 @@
     <string name="pref_flag_secure_title">Sicurezza dello schermo</string>
     <string name="root_warning">Orbot ha rilevato che è stato fatto il root del dispositivo , il che può causare problemi di sicurezza.</string>
     <string name="secure_your_connection_subtitle">Nascondi le app dal monitoraggio della rete e ottieni l\'accesso quando vengono bloccate.</string>
-    <string name="menu_app_settings">Impostazioni dell\'app</string>
     <string name="volunteer_mode_weekly_label">Totale settimanale</string>
     <string name="pref_circuit_padding">Riempimento del circuito</string>
     <string name="pref_circuit_padding_summary">Attiva il riempimento del circuito in difesa contro alcune forme di analisi del traffico</string>
@@ -269,8 +218,6 @@
     <string name="pref_isolate_keep_alive_summary">Tieni in vita i circuiti isolati che hanno almeno un flusso con autenticazione SOCKS attiva</string>
     <string name="bridge_snowflake_sqs">Connetti tramite altri utenti Tor usando Snowflake (Metodo 3 - SQS)</string>
     <string name="snowflake_sqs">Snowflake SQS</string>
-    <string name="pref_enable_rotation_summary">Attiva rotazione dispositivi (richiede un riavvio)</string>
-    <string name="pref_enable_rotation_title">Rotazione dispositivi</string>
     <string name="app_icon_chooser_label_assistant">Assistente</string>
     <string name="app_icon_chooser_label_todo">Da fare</string>
     <string name="camo_dialog_title" formatted="true">Camuffa come %1$s</string>
