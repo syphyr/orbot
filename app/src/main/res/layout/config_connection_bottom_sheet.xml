@@ -1,90 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bottom_sheet_rounded"
-    android:paddingStart="10dp"
-    android:paddingEnd="10dp">
-
-    <View
-        android:id="@+id/handle"
-        android:layout_width="30dp"
-        android:layout_height="5dp"
-        android:layout_marginTop="16dp"
-        android:background="@android:color/darker_gray"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvConfigHeader"
-        style="@style/BottomSheetHeader"
-        android:layout_marginTop="32dp"
-        android:text="@string/btn_configure"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvConfigSubHeader"
-        style="@style/BottomSheetTextView"
-        android:fontFamily="sans-serif-light"
-        android:text="@string/many_ways"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvConfigHeader" />
+    android:background="@drawable/bottom_sheet_rounded">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/tvConfigAskTor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:background="@drawable/btn_shape_round"
-        android:backgroundTint="#1C1425"
-        android:orientation="horizontal"
-        android:padding="6dp"
-        app:layout_constraintTop_toBottomOf="@id/tvConfigSubHeader">
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp">
+
+        <View
+            android:id="@+id/handle"
+            android:layout_width="30dp"
+            android:layout_height="5dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/tvNotSure"
-            style="@style/BottomSheetRadioHeader"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="@string/not_sure"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/btnAskTor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/btn_shape_round"
-            android:backgroundTint="@color/orbot_btn_disable_grey"
-            android:maxLines="2"
-            android:paddingStart="@dimen/button_horizontal_med_margin"
-            android:paddingEnd="@dimen/button_horizontal_med_margin"
-            android:text="@string/ask_tor"
-            android:textColor="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:id="@+id/tvConfigHeader"
+            style="@style/BottomSheetHeader"
+            android:layout_marginTop="32dp"
+            android:text="@string/btn_configure"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintWidth_max="300dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/tvConfigSubHeader"
+            style="@style/BottomSheetTextView"
+            android:layout_marginTop="4dp"
+            android:fontFamily="sans-serif-light"
+            android:paddingBottom="6dp"
+            android:text="@string/many_ways"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvConfigHeader" />
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toTopOf="@id/mainGuideline"
-        app:layout_constraintHeight_default="spread"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvConfigAskTor">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/tvConfigAskTor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/btn_shape_round"
+            android:backgroundTint="#1C1425"
+            android:orientation="horizontal"
+            android:padding="6dp"
+            app:layout_constraintTop_toBottomOf="@id/tvConfigSubHeader">
+
+            <TextView
+                android:id="@+id/tvNotSure"
+                style="@style/BottomSheetRadioHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="@string/not_sure"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/btnAskTor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_shape_round"
+                android:backgroundTint="@color/orbot_btn_disable_grey"
+                android:paddingStart="@dimen/button_horizontal_med_margin"
+                android:paddingEnd="@dimen/button_horizontal_med_margin"
+                android:text="@string/ask_tor"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
         <RadioGroup
             android:id="@+id/connectionOptions"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@id/mainGuideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvConfigAskTor">
 
 
             <LinearLayout
@@ -400,45 +405,44 @@
             </LinearLayout>
 
         </RadioGroup>
-    </androidx.core.widget.NestedScrollView>
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/mainGuideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/button_horizontal_large_margin"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent=".85" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/mainGuideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/button_horizontal_large_margin"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".85" />
 
-    <TextView
-        android:id="@+id/tvCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:paddingStart="@dimen/button_horizontal_large_margin"
-        android:paddingEnd="@dimen/button_horizontal_large_margin"
-        android:text="@android:string/cancel"
-        android:textColor="@android:color/white"
-        android:textStyle="bold"
+        <TextView
+            android:id="@+id/tvCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/button_horizontal_large_margin"
+            android:paddingEnd="@dimen/button_horizontal_large_margin"
+            android:text="@android:string/cancel"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
 
-        app:layout_constraintEnd_toStartOf="@id/btnAction"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mainGuideline" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnAction"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainGuideline" />
 
-    <Button
-        android:id="@+id/btnAction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/btn_shape_round"
-        android:paddingStart="@dimen/button_horizontal_large_margin"
-        android:paddingEnd="@dimen/button_horizontal_large_margin"
-        android:text="@string/connect"
-        android:textColor="@android:color/white"
-        app:backgroundTint="@color/orbot_btn_enabled_purple"
-        app:layout_constraintEnd_toEndOf="@id/tvCancel"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mainGuideline" />
+        <Button
+            android:id="@+id/btnAction"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_shape_round"
+            android:paddingStart="@dimen/button_horizontal_large_margin"
+            android:paddingEnd="@dimen/button_horizontal_large_margin"
+            android:text="@string/connect"
+            android:textColor="@android:color/white"
+            app:backgroundTint="@color/orbot_btn_enabled_purple"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/tvCancel"
+            app:layout_constraintStart_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainGuideline" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

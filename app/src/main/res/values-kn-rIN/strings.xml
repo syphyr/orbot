@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name">ಆರ್ಬೋಟ್</string>
     <string name="menu_about">ಬಗ್ಗೆ</string>
-    <string name="button_about">ಬಗ್ಗೆ</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
     <!--New Wizard Strings-->
@@ -21,23 +20,17 @@
     <string name="confirm">ಖಚಿತಪಡಿಸಿ</string>
     <string name="enable">ಸಕ್ರಿಯಗೊಳಿಸಿ</string>
     <string name="connected_title">ಸಂಪರ್ಕಗೊಂಡಿದೆ</string>
-    <string name="menu_header_features">Features</string>
-    <string name="menu_faq">FAQ</string>
     <string name="setting_debug">ಡೀಬಗ್ ಮಾಡಿ</string>
-    <string name="connection_custom">ಕಸ್ಟಮ್</string>
     <string name="connect">ಸಂಪರ್ಕಿಸಿ</string>
     <string name="disable">ಹೆಳವುಗೊಳಿಸು</string>
     <string name="menu_log">ಲಾಗ್</string>
-    <string name="menu_stop">ನಿಲ್ಲಿಸಿ</string>
     <string name="menu_more">ಇನ್ನಷ್ಟು</string>
     <string name="license">ಲೈಸನ್ಸ್</string>
-    <string name="allow">ಅನುಮತಿಸಿ</string>
     <string name="pref_general_group">ಸಾಮಾನ್ಯ</string>
     <string name="menu_settings">ಸೆಟ್ಟಿಂಗ್ಸ್</string>
     <string name="error">ದೋಷ</string>
     <string name="version">ಪ್ರತಿ</string>
     <string name="main_layout_upload">Upload</string>
-    <string name="get_bridges_email">ಮಿಂಚಂಚೆ</string>
     <string name="save">ಸೇವ್</string>
     <string name="menu_new_identity">New Identity</string>
     <string name="btn_refresh">ರಿಫ್ರೆಶ್</string>

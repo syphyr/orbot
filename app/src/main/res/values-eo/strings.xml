@@ -3,11 +3,9 @@
     <string name="app_name">Orbot</string>
     <string name="menu_settings">Agordoj</string>
     <string name="menu_log">Protokolo</string>
-    <string name="menu_stop">Halti</string>
     <string name="menu_about">Pri</string>
     <string name="main_layout_download">Elŝutado</string>
     <string name="main_layout_upload">Alŝutado</string>
-    <string name="button_about">Pri</string>
     <string name="menu_exit">Eliri</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
@@ -45,8 +43,6 @@
     <string name="exit_nodes">Finnodoj</string>
     <string name="fingerprints_nicks_countries_and_addresses_for_the_last_hop">Fingrospuroj, kaŝnomoj, landoj kaj adresoj por la lasta hopo</string>
     <string name="enter_exit_nodes">Entajpu finnofojn</string>
-    <string name="bridges">Pontoj</string>
-    <string name="use_bridges">Uzi Pontojn</string>
     <string name="reachable_addresses">Atingeblaj adresoj</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Startigi kiel kliento malantaŭ fajromuro kun restriktaj reguloj</string>
     <string name="reachable_ports">Atingeblaj pordoj</string>
@@ -62,17 +58,9 @@
     <string name="connect">Konekti</string>
     <string name="no_internet_title">Konekti al Interreto</string>
     <string name="menu_more">Pli</string>
-    <string name="connection_direct">Rekta</string>
-    <string name="connection_custom">Propra</string>
     <string name="license">Permesilo:</string>
-    <string name="allow">permesi</string>
-    <string name="deny">Malakcepti</string>
-    <string name="get_bridges_email">Retpoŝto</string>
     <string name="enable">Aktivigi</string>
     <string name="btn_refresh">Aktualigi</string>
-    <string name="menu_header_features">Funkcioj</string>
-    <string name="menu_faq">oftaj demandoj</string>
-    <string name="menu_header_learn">Lerni plu</string>
     <string name="next">Sekven</string>
     <string name="connected_title">Konektita</string>
     <string name="title_choose_apps">Elekti aplikaĵojn</string>

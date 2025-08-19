@@ -5,11 +5,9 @@
     <string name="menu_settings">Orbot Settings</string>
     <string name="system_vpn_settings">Android VPN Settings</string>
     <string name="menu_log">Log</string>
-    <string name="menu_stop">Stop</string>
     <string name="menu_about">About</string>
     <string name="main_layout_download">Download</string>
     <string name="main_layout_upload">Upload</string>
-    <string name="button_about">About</string>
     <string name="menu_exit">Exit</string>
     <string name="wizard_details_msg">Orbot is an open-source application that contains Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks and LibEvent. It provides a VPN tunnel, a local HTTP Connect proxy (HTTPS only on port 8118) and a SOCKS proxy (9050) into the Tor network.</string>
     <string name="pref_general_group">General</string>
@@ -47,8 +45,6 @@
     <string name="enter_exclude_nodes">Enter Exclude Nodes</string>
     <string name="strict_nodes">Strict Nodes</string>
     <string name="strict_nodes_description">Treat Exclude Nodes settings as a requirement for building all circuits. This may break functionality if no circuits are able to be generated with your Exclude Nodes settings.</string>
-    <string name="bridges">Bridges</string>
-    <string name="use_bridges">Use Bridges</string>
     <string name="reachable_addresses">Reachable Addresses</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Run as a client behind a firewall with restrictive policies</string>
     <string name="reachable_ports">Reachable ports</string>
@@ -66,8 +62,6 @@
     <string name="version">Version:</string>
     <string name="license">License:</string>
     <string name="hidden_service_request">An app wants to open onion server on port %1$s to the Tor network. This is safe if you trust the app.</string>
-    <string name="allow">Allow</string>
-    <string name="deny">Deny</string>
     <string name="pref_use_expanded_notifications">Display in the notification the country and IP Address of your tor exit node when available</string>
     <string name="pref_use_expanded_notifications_title">Expanded Notifications</string>
     <string name="set_locale_title">Language</string>
@@ -93,13 +87,6 @@
     <string name="pref_torrc_dialog">Custom Torrc</string>
     <string name="kibibyte">KiB</string>
     <string name="mebibyte">MiB</string>
-    <string name="bridges_updated">Bridges Updated</string>
-    <string name="restart_orbot_to_use_this_bridge_">Please restart Orbot to enable the changes</string>
-    <string name="if_your_mobile_network_actively_blocks_tor_you_can_use_a_tor_bridge_to_access_the_network_another_way_to_get_bridges_is_to_send_an_email_to_bridges_torproject_org_please_note_that_you_must_send_the_email_using_an_address_from_one_of_the_following_email_providers_riseup_gmail_or_yahoo_">If your mobile network actively blocks Tor, you can use a \'Bridge Server\' as an alternate way in. Select one of the options to configure and test…</string>
-    <string name="get_bridges_email">Email</string>
-    <string name="get_bridges_email_request">Request Bridges via Email</string>
-    <string name="apps_mode">VPN Mode</string>
-    <string name="send_email">Send Email</string>
     <string name="vpn_default_world">Global (Auto)</string>
     <string name="hidden_services">Onion Services</string>
     <string name="v3_hosted_services">Hosted Onion Services</string>
@@ -113,7 +100,6 @@
     <string name="v3_backup_name_hint">Backup filename…</string>
     <string name="v3_import_auth_private">Import .auth_private</string>
     <string name="confirm">Confirm</string>
-    <string name="menu_hidden_services">Onion Services</string>
     <string name="save">Save</string>
     <string name="local_port">Local Port</string>
     <string name="onion_port">Onion Port</string>
@@ -126,13 +112,10 @@
     <string name="backup_restored">Backup restored</string>
     <string name="backup_port_exist">Error: An Onion service is already using port %s</string>
     <string name="restore_backup">Restore Backup</string>
-    <string name="create_a_backup_first">Create a backup first</string>
-    <string name="start_tor_again_for_finish_the_process">Start Tor again for finish the process</string>
     <string name="confirm_service_deletion">Confirm service deletion</string>
     <string name="service_type">Service type</string>
     <string name="please_restart_Orbot_to_enable_the_changes">Please restart Orbot to enable the changes</string>
-    <string name="onion">.onion</string>
-    <string name="share_as_qr">Share as QR</string>
+    <string name="onion" translatable="false">.onion</string>
     <string name="disable">Disable</string>
     <string name="enable">Enable</string>
     <string name="consider_disable_battery_optimizations">Hosted services running, consider disabling battery optimizations</string>
@@ -157,29 +140,13 @@
     <string name="pref_prefer_ipv6_summary">Tells exits that IPv6 addresses are preferred</string>
     <string name="pref_disable_ipv4">Disable IPv4 connections</string>
     <string name="pref_disable_ipv4_summary">Tells exits not to connect to IPv4 addresses</string>
-    <string name="app_shortcuts">Tor-Enabled Apps</string>
-    <string name="testing_tor_direct">Testing connection to Tor…</string>
-    <string name="testing_tor_direct_success">Success. Tor connection is good!</string>
-    <string name="bridge_direct_connect">Connect directly to Tor (Best)</string>
-    <string name="bridge_community">Connect through community servers</string>
-    <string name="bridge_cloud">Connect through cloud servers</string>
-    <string name="trouble_connecting">Trouble connecting?</string>
     <string name="full_device_vpn">Full Device VPN</string>
-    <string name="vpn_disabled">VPN Disabled</string>
     <string name="menu_new_identity">New Identity</string>
     <string name="user_services">User services</string>
     <string name="app_services">App services</string>
-    <string name="refresh_apps">Refresh Apps</string>
     <!-- CustomBridgesFragment -->
-    <string name="request_bridges_from_torproject">Request Bridges from torproject.org</string>
     <string name="custom_bridges">Custom Bridges</string>
-    <string name="configure_custom_bridges">Configure Custom Bridges</string>
 
-    <string name="use_custom_bridges">Use Custom Bridges</string>
-    <string name="in_a_browser">In a browser, visit %s and tap "Get Bridges" &gt; "Just Give Me Bridges!"</string>
-    <string name="paste_bridges">Paste Bridges</string>
-    <string name="use_qr_code">Use QR Code</string>
-    <string name="bridge_snowflake">Connect through other Tor users using Snowflake (Method 1 - Fastly)</string>
     <string name="bridge_snowflake_amp">Connect through other Tor users using Snowflake (Method 2 - AMP)</string>
     <string name="bridge_snowflake_sqs">Connect through other Tor users using Snowflake (Method 3 - SQS)</string>
     <string name="snowflake_proxy_msg_title">Show Connection Notification</string>
@@ -191,34 +158,19 @@
     <string name="connected_title">Connected</string>
     <string name="btn_start_vpn">Start VPN</string>
     <string name="btn_configure">Choose How To Connect</string>
-    <string name="configure_header">Configure your Tor Connection</string>
-    <string name="volunteer_mode_subtitle">Help others connect</string>
     <string name="trying_to_connect_title">Connecting…</string>
     <string name="btn_choose_apps">Choose apps</string>
     <string name="btn_change_exit">Change exit</string>
     <string name="btn_refresh">Refresh</string>
     <string name="btn_tor_off">Turn Tor off</string>
-    <string name="no_thx">No Thanks</string>
-    <string name="menu_header_features">Features</string>
-    <string name="captcha_title">Let us know you\'re human</string>
-    <string name="menu_tor_connection">Tor Connection</string>
-    <string name="menu_help_others">Help Others</string>
-    <string name="menu_app_settings">App Settings</string>
-    <string name="menu_faq">FAQ</string>
-    <string name="menu_header_learn">Learn More</string>
-    <string name="btn_use_custom_bridge">Use Custom Bridge</string>
-    <string name="msg_taking_too_long">This seems to be taking too long</string>
-    <string name="msg_try_something_else">Try something else</string>
     <string name="proxy_ports">Proxy Ports</string>
     <string name="globe" translatable="false">🌎</string>
     <string name="ports_not_set">Ports Not Set</string>
     <string name="volunteer_mode_title">Help others\nconnect to Tor</string>
-    <string name="volunteer_mode_label">Kindness Mode</string>
     <string name="volunteer_mode_weekly_label">Weekly Total</string>
     <string name="volunteer_mode_alltime_label">All Time Total</string>
     <string name="volunteer_mode_subtitle_desc">Kindness mode allows your device to be a bridge for others. It helps people use Tor in places where it is blocked.\n\n• It will not drain your battery\n• It will not slow down your internet\n• It can run only over wifi\n• It can be turned off anytime</string>
     <string name="smart_connect">Smart Connect (default)</string>
-    <string name="smart_connect_subtitle">Orbot tries connecting to Tor through any way available: Direct, Snowflake, Bridge.</string>
     <string name="direct_connect">Direct Connection to Tor</string>
     <string name="direct_connect_subtitle">The best way to connect to Tor. Use if Tor is not blocked.</string>
     <string name="snowflake">Snowflake</string>
@@ -234,11 +186,7 @@
     <string name="custom_bridges_subtitle">Ask within your trusted networks and organizations to see if anyone is hosting a bridge. If not, a friend can get bridges for you.</string>
     <string name="connect">Connect</string>
     <string name="next">Next</string>
-    <string name="incorrect_solution">Incorrect Solution</string>
-    <string name="bridges_obtained_connecting">Bridges obtained! Connecting to tor…</string>
     <string name="custom_bridges_description">Paste the bridge addresses you receive below. Or scan the QR code to add them. Friends can get bridges for you at %1$s.</string>
-    <string name="having_trouble">Having trouble</string>
-    <string name="having_trouble_subtitle">We can try a Tor bridge next but will need your help</string>
     <string name="power_user_mode">Power User Mode</string>
     <string name="power_user_description">For users familiar with Tor. Allows you to start Orbot without the VPN setting and shows open SOCKS and HTTP ports</string>
     <string name="action_activate">Activate</string>
@@ -266,16 +214,11 @@
     <string name="setting_padding">Padding</string>
     <string name="setting_debug">Debug</string>
 
-    <string name="connection_direct">Direct</string>
-    <string name="connection_snowflake">Snowflake</string>
-    <string name="connection_custom">Custom</string>
     <string name="pref_flag_secure_summary">Prevent other apps from taking screenshots of Orbot</string>
     <string name="pref_flag_secure_title">Screen Security</string>
     <string name="root_warning">Orbot has detected your device is rooted, which can cause security issues.</string>
     <string name="pref_detect_root_summary">Warn on startup if root permissions are enabled on this device</string>
     <string name="pref_detect_root_title">Root Detection</string>
-    <string name="pref_enable_rotation_summary">Enable device rotation (requires restart)</string>
-    <string name="pref_enable_rotation_title">Device Rotation</string>
 
     <string name="app_icon_chooser_label_night_watch">Night Watch</string>
     <string name="app_icon_chooser_label_assistant">Assistant</string>
@@ -289,6 +232,7 @@
     <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot will camouflage itself as the app %1$s. This will hide all notification details about Tor and change how the appearance of Orbot on your home screen.\n\nCamouflaging as %2$s will restart Orbot.</string>
     <string name="camo_dialog_disable_confirm_msg">Orbot will resume displaying notification information about your Tor connection and will appear as normal on your home screen.\n\nDisabling Camouflage Mode will restart Orbot.</string>
     <string name="camo_dialog_disable_title">Disable Camouflage Mode</string>
+    <string name="camo_samsung_instructions">On Your Samsung Galaxy device Camouflage Mode\'s notifications will only work by opening your Settings -> Notifications -> Advanced Settings and disabling \"Show app icon in notifications\". Click here to open Notification Settings.</string>
 
     <string name="pref_camo_mode_title">Camouflage Mode</string>
     <string name="pref_camo_mode_description">Disguise how Orbot\'s icon, label and notification text will appear on your device</string>
