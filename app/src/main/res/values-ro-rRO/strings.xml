@@ -210,10 +210,10 @@
     <string name="pref_detect_root_title">Detectare root</string>
     <string name="power_user_mode_permission">Permisiunea de alarmă și memento necesară pentru modul de utilizare Expert</string>
     <string name="power_user_mode_permission_msg">Vă rugăm să permiteți Orbot să seteze alarme și memento-uri pentru a utiliza modul de utilizare Expert. Acest lucru nu va seta de fapt nici o alarmă pe dispozitiv. Această permisiune este necesară pentru ca sistemul să păstreze serviciul Orbot în funcțiune atunci când Orbot nu este folosit ca un VPN la nivel de sistem.</string>
-    <string name="pref_require_password">Parola blocare dispozitiv</string>
-    <string name="pref_require_password_description">Previne accesul la Orbot până când introduceți parola dispozitivului. Acest lucru poate fi combinat cu modul de camuflaj pentru a ajuta la ascunderea faptului că Orbot este instalat pe dispozitivul dvs</string>
-    <string name="error_no_password_set">Vă rugăm să setați o parolă pe dispozitiv pentru a utiliza modul parolat</string>
-    <string name="unlock_app_msg" formatted="true">Este necesară parola dispozitivului pentru a debloca %s</string>
+    <string name="pref_require_password">Autentificare Orbot</string>
+    <string name="pref_require_password_description">Previne accesul la Orbot până când introduceți parola dispozitivului sau amprenta. Acest lucru poate fi combinat cu modul de camuflaj pentru a ajuta la ascunderea faptului că Orbot este instalat pe dispozitivul dvs</string>
+    <string name="error_no_password_set">Vă rugăm să vă securizați dispozitivul pentru a utiliza Autentificare Orbot</string>
+    <string name="unlock_app_msg" formatted="true">Vă rugăm să deblocați dispozitivul pentru a utiliza %s</string>
     <string name="bridge_snowflake_sqs">Conectați-vă prin intermediul altor utilizatori Tor folosind Snowflake (Metoda 3 - SQS)</string>
     <string name="snowflake_sqs">Snowflake SQS</string>
     <string name="camo_dialog_title" formatted="true">Camuflează ca %1$s</string>
@@ -226,4 +226,30 @@
     <string name="pref_isolate_keep_alive">Păstrează circuitele izolate active</string>
     <string name="pref_isolate_keep_alive_summary">Păstrează circuitele izolate active dacă au cel puțin un flux cu autentificare SOCKS activ</string>
     <string name="app_icon_chooser_label_assistant">Asistent</string>
+    <string name="bridges_via_telegram">Punți din Tor (obfs4) prin Telegram</string>
+    <string name="bridges_via_telegram_subtitle">Este probabil să vă țină conectat dacă Tor este grav blocat. Utilizarea acestei metode va lansa canalul Tor Bot Telegram. Atingeți \"Start\" sau scrieți \"%1$s\" în chat pentru a obține adrese de punți.</string>
+    <string name="bridges_via_email">Punți din Tor (obfs4) prin e-mail</string>
+    <string name="bridges_via_email_subtitle">Vă camuflează traficul. Evită unele moduri de blocare Tor. Necesită un e-mail trimis de un cont Gmail sau Riseup.</string>
+    <string name="bridge_meek_azure_subtitle">Vă camuflează traficul. Evită unele moduri de blocare Tor. Poate fi foarte lent.</string>
+    <string name="custom_bridges_subtitle">Întrebați în cadrul rețelelor și organizațiilor de încredere ale dvs. pentru a vedea dacă cineva găzduiește o punte. Dacă nu, un prieten poate obține punți pentru voi.</string>
+    <string name="custom_bridges_description">Lipiți adresele de punți pe care le primiți mai jos. Sau scanați codul QR pentru a le adăuga. Prietenii vă pot obține punți %1$s.</string>
+    <string name="action_use_">Folosește %1$s</string>
+    <string name="app_icon_chooser_label_night_watch">Night Watch</string>
+    <string name="app_icon_chooser_label_paint">Paint</string>
+    <string name="app_icon_chooser_label_tetras">Tetras</string>
+    <string name="app_icon_chooser_label_todo">To-Do</string>
+    <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
+    <string name="app_icon_chooser_label_birdie">Birdie</string>
+    <string name="camo_samsung_instructions">Notificările modului de Camuflaj vor funcționa pe Samsung Galaxy numai prin deschiderea setărilor -&gt; Notificări -&gt; Setări avansate și dezactivarea \"Arată iconițe aplicații în notificări\". Click aici pentru a deschide Setarea notificării.</string>
+    <string name="device_lock_unsupported">Autentificarea Orbot nu este acceptată pe dispozitivul dvs.</string>
+    <string name="device_lock_security_update_needed">Trebuie să descărcați actualizări de securitate Android pentru dispozitivul dvs. pentru a utiliza Autentificare Orbot</string>
+    <string name="invalid_bridge_format">Format de punte invalid</string>
+    <string name="error_asking_tor_for_bridges">Eroare la setarea modului de conectare Tor</string>
+    <string name="enter_bridge_address">Introduceți adresa punții</string>
+    <string name="built_in_bridges_obfs4">Punți încorporate (obfs4)</string>
+    <string name="built_in_bridges_obfs4_subtitle">Vă camuflează traficul. Evită unele moduri de blocare Tor. Bun dacă sunteți pe Wi-Fi public, dar într-o țară în care Tor nu este blocat.</string>
+    <string name="pref_password_only_no_biometric">Oprește biometria pentru Autentificare Orbot</string>
+    <string name="pref_password_only_no_biometric_description">Acest lucru forțează Autentificarea Orbot să solicite parola dispozitivului dvs. chiar dacă autentificarea biometrică, cum ar fi amprenta sau deblocarea feței, sunt configurate pe dispozitiv.</string>
+    <string name="run_smart_connect_">Rulați Conectarea Smart pentru a găsi cea mai bună cale</string>
+    <string name="scan_qr_code">Scanare cod QR</string>
 </resources>
