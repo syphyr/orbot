@@ -198,10 +198,10 @@
     <string name="pref_flag_secure_summary">Pengo aplikacione të tjerë të bëjnë foto ekrani të Orbot-it</string>
     <string name="many_ways">Ka mjaft mënyra për të mbërritur te Tor-i. Disa mund të funksionojnë më mirë se të tjerat për ju.</string>
     <string name="pref_circuit_padding">“Padding” qarku</string>
-    <string name="pref_reduced_circuit_padding_summary"/>
+    <string name="pref_reduced_circuit_padding_summary"></string>
     <string name="pref_circuit_padding_summary">Aktivizoni “padding” qarku, për t’u mbrojtur nga disa forma analizimi trafiku</string>
     <string name="setting_padding">“Padding”</string>
-    <string name="menu_kindness"/>
+    <string name="menu_kindness"></string>
     <string name="pref_connection_padding_summary">Aktivizon përherë “padding” lidhjeje, për t’u mbrojtur nga disa forma analizimi trafiku. Parazgjedhje: auto</string>
     <string name="pref_reduced_circuit_padding">“Padding” i reduktuar qarku</string>
     <string name="pref_connection_padding">“Padding” lidhjeje</string>
