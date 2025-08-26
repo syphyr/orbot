@@ -12,14 +12,14 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        maven { url = "https://jitpack.io" }
-        maven { url = "https://raw.githubusercontent.com/guardianproject/gpmaven/master" }
+        maven { url = uri("https://jitpack.io") }
+        maven { url = uri("https://raw.githubusercontent.com/guardianproject/gpmaven/master") }
     }
 }
 
 rootProject.name = "Orbot"
 include(
-        ':app',
-        ':OrbotLib',
-        ':orbotservice'
+    ":app",
+    ":OrbotLib",
+    ":orbotservice"
 )

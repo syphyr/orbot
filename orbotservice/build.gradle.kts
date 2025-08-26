@@ -13,13 +13,15 @@ android {
 
     defaultConfig {
         minSdk = 24
-        targetSdk = 36
+        testOptions.targetSdk = 36
     }
 
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            )
         }
     }
 
@@ -28,36 +30,36 @@ android {
         targetCompatibility = JavaVersion.VERSION_21
     }
 
-    packagingOptions {
+    packaging {
         resources {
-            excludes += ["META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version"]
+            excludes += setOf("META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version")
         }
     }
 
     lint {
-        abortOnError true
-        checkReleaseBuilds false
-        disable "InvalidPackage"
-        htmlReport true
-        lintConfig file("../lint.xml")
-        textReport false
-        xmlReport false
+        abortOnError = true
+        checkReleaseBuilds = false
+        disable + "InvalidPackage"
+        htmlReport = true
+        lintConfig = file("../lint.xml")
+        textReport = false
+        xmlReport = false
     }
 }
 
-tasks.withType(KotlinJvmCompile).configureEach {
+tasks.withType<KotlinJvmCompile>().configureEach {
     compilerOptions {
         jvmTarget.set(JvmTarget.JVM_21)
     }
 }
 
 dependencies {
-    // Use locally built ipt_proxy+go_tun2socks
-    api(project(":OrbotLib"))
-    api(libs.guardian.jtorctl)
     api(libs.tor.android)
-//    api(files("../../tor-android/tor-android-binary/build/outputs/aar/tor-android-binary-debug.aar"))
+    // local tor-android:
+    // api(files("../../tor-android/tor-android-binary/build/outputs/aar/tor-android-binary-debug.aar"))
 
+    api(project(":OrbotLib")) // Use locally built ipt_proxy+go_tun2socks
+    api(libs.guardian.jtorctl)
     implementation(libs.android.shell)
     implementation(libs.androidx.core)
     implementation(libs.androidx.appcompat)
@@ -66,11 +68,9 @@ dependencies {
     implementation(libs.androidx.work.kotlin)
     implementation(libs.pcap.core)
     implementation(libs.pcap.factory)
-
     implementation(files("../libs/geoip.jar"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.serialization.json)
-
     implementation(libs.retrofit.converter)
     implementation(libs.retrofit.lib)
 }
