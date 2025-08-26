@@ -11,7 +11,7 @@ plugins {
 def getVersionName = { ->
     def stdout = new ByteArrayOutputStream()
     exec {
-        commandLine 'git', 'describe', '--tags', '--always'
+        commandLine("git", "describe", "--tags", "--always")
         standardOutput = stdout
     }
     return stdout.toString().trim()
@@ -26,7 +26,7 @@ if (keystorePropertiesFile.canRead()) {
 
 // Increments versionCode by ABI type
 def abiCodeMap = ["armeabi-v7a": "1", "arm64-v8a": "2", "x86": "4", "x86_64": "5"]
-android.applicationVariants.all { variant ->
+android.applicationVariants.configureEach { variant ->
     variant.outputs.each { output ->
         def baseVersionCode = abiCodeMap.get(output.getFilter("ABI"))
         if (baseVersionCode != null) {
@@ -40,18 +40,18 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId "org.torproject.android"
-        versionName getVersionName()
+        applicationId = "org.torproject.android"
+        versionName = getVersionName()
         minSdk = 24
         targetSdk = 36
-        multiDexEnabled true
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled = true
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         archivesBaseName = "Orbot"
     }
 
 
     testOptions {
-        execution 'ANDROIDX_TEST_ORCHESTRATOR'
+        execution "ANDROIDX_TEST_ORCHESTRATOR"
     }
 
     signingConfigs {
@@ -73,26 +73,26 @@ android {
     }
 
     buildFeatures {
-        buildConfig true
-        viewBinding true
+        buildConfig = true
+        viewBinding = true
     }
 
     buildTypes {
         release {
-            shrinkResources false
-            minifyEnabled false
+            shrinkResources = false
+            minifyEnabled = false
         }
         debug {
-            debuggable true
-            applicationIdSuffix ".debug"
+            debuggable = true
+            applicationIdSuffix = ".debug"
         }
     }
 
     splits {
         abi {
-            enable true
+            enable = true
             reset()
-            include "x86", "armeabi-v7a", "x86_64", "arm64-v8a"
+            include("x86", "armeabi-v7a", "x86_64", "arm64-v8a")
         }
     }
 
@@ -106,55 +106,53 @@ android {
 
     productFlavors {
         fullperm {
-            dimension "free"
-            applicationId "org.torproject.android"
-            versionCode 1750300200
-            versionName getVersionName()
+            dimension = "free"
+            applicationId = "org.torproject.android"
+            versionCode = 1750300200
+            versionName = getVersionName()
             archivesBaseName = "Orbot-${versionName}"
         }
 
         nightly {
-            dimension "free"
-            applicationId "org.torproject.android.nightly"
-            versionName getVersionName()
-            versionCode versionCodeEpoch()
+            dimension = "free"
+            applicationId = "org.torproject.android.nightly"
+            versionName = getVersionName()
+            versionCode = versionCodeEpoch()
             archivesBaseName = "Orbot-${versionName}"
         }
     }
 
     splits {
         abi {
-            universalApk true
+            universalApk = true
         }
     }
 
     packagingOptions {
         resources {
-            excludes += ['META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version']
+            excludes += ["META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version"]
         }
     }
 
     lint {
-        abortOnError false
-        checkReleaseBuilds false
-        disable 'InvalidPackage'
-        htmlReport true
-        lintConfig file('../lint.xml')
-        textReport false
-        xmlReport false
+        abortOnError = false
+        checkReleaseBuilds = false
+        disable "InvalidPackage"
+        htmlReport = true
+        lintConfig = file("../lint.xml")
+        textReport = false
+        xmlReport = false
     }
 }
 
 
-private static def versionCodeEpoch() {
+static def versionCodeEpoch() {
     return (new Date().getTime() / 1000).toInteger()
 }
 
 dependencies {
-    // Use locally built ipt_proxy+go_tun2socks
     implementation(project(":OrbotLib"))
     implementation(project(":orbotservice"))
-
     implementation(libs.android.material)
     implementation(libs.android.volley)
     implementation(libs.androidx.activity)
