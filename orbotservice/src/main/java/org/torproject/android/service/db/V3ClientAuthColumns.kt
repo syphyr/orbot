@@ -33,8 +33,8 @@ object V3ClientAuthColumns : BaseColumns {
             null
         )
         if (v3auths == null) return
-        for (file in v3AuthBasePath.listFiles()) {
-            if (!file.isDirectory) file.delete() // todo the adapter should maybe just write these files and not do this in service...
+        v3AuthBasePath.walkTopDown().forEach {
+            if (!it.isDirectory) it.delete()
         }
         var i = 0
         try {
