@@ -100,7 +100,7 @@ object TorConfig {
             val nickname = Prefs.nickname ?: "OrbotRelay"
             conf.add("ORPort $orport")
             conf.add("Nickname $nickname")
-            conf.add("ExitPolicy reject *:*")
+            conf.add("ExitRelay 0")
         } else if (Prefs.becomeRelay) {
             val TAG = "TorConfig"
             Log.e(TAG, "Unable to start relay. Disable all Bridges, Reachable Addresses, and Reduced Padding.")
