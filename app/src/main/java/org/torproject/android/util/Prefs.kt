@@ -59,6 +59,7 @@ object Prefs {
     private const val PREF_OR = "pref_or"
     const val PREF_OR_PORT = "pref_or_port"
     private const val PREF_OR_NICKNAME = "pref_or_nickname"
+    private const val PREF_OR_EMAIL = "pref_or_email"
 
     private const val PREF_REACHABLE_ADDRESSES = "pref_reachable_addresses"
     private const val PREF_REACHABLE_ADDRESSES_PORTS = "pref_reachable_addresses_ports"
@@ -451,6 +452,9 @@ object Prefs {
 
     val nickname: String?
         get() = cr?.getPrefString(PREF_OR_NICKNAME)
+
+    val email: String?
+        get() = cr?.getPrefString(PREF_OR_EMAIL)
 
     val customTorRc: String?
         get() = cr?.getPrefString(PREF_CUSTOM_TORRC)
