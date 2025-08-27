@@ -133,6 +133,14 @@
             android:title="@string/relay_nickname"
             app:iconSpaceReserved="false" />
 
+        <EditTextPreference
+            android:defaultValue="your@e-mail"
+            android:dialogTitle="@string/enter_relay_contact_info"
+            android:key="pref_or_email"
+            android:summary="@string/contact_info_for_your_tor_relay"
+            android:title="@string/relay_email"
+            app:iconSpaceReserved="false" />
+
     </PreferenceScreen>
 
     <PreferenceScreen
