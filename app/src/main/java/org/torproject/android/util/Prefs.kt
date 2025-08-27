@@ -345,6 +345,9 @@ object Prefs {
     val nickname: String?
         get() = cr?.getPrefString(OrbotConstants.PREF_OR_NICKNAME)
 
+    val email: String?
+        get() = cr?.getPrefString(OrbotConstants.PREF_OR_EMAIL)
+
     val customTorRc: String?
         get() = cr?.getPrefString("pref_custom_torrc")
 
