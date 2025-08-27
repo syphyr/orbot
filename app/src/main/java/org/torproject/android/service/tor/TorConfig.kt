@@ -135,8 +135,10 @@ object TorConfig {
                 !reducedCircuitPadding) {
             val orport = prefs?.getString(OrbotConstants.PREF_OR_PORT, null) ?: "9001"
             val nickname = prefs?.getString(OrbotConstants.PREF_OR_NICKNAME, "OrbotRelay")
+            val email = prefs?.getString(OrbotConstants.PREF_OR_EMAIL, "your@e-mail")
             conf.add("ORPort $orport")
             conf.add("Nickname $nickname")
+            conf.add("ContactInfo $email")
             conf.add("ExitRelay 0")
         } else if (becomeRelay) {
             val TAG = "TorConfig"
