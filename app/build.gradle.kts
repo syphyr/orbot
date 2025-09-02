@@ -1,6 +1,10 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
+import com.android.build.gradle.internal.api.ApkVariantOutputImpl
+import java.util.Properties
+import java.io.FileInputStream
+import java.util.Date
 
+
+val BaseVersionCode = 1750300200
 plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
@@ -8,29 +12,15 @@ plugins {
 }
 
 // Gets the version name from the latest Git tag, stripping the leading v off
-def getVersionName = {
+val getVersionName = {
     providers.exec {
         commandLine("git", "describe", "--tags", "--always")
     }.standardOutput.asText.get().trim()
 }
 
-def keystorePropertiesFile = rootProject.file("keystore.properties")
-def keystoreProperties = new Properties()
-if (keystorePropertiesFile.canRead()) {
-    keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+kotlin {
+    jvmToolchain(21)
 }
-
-// Increments versionCode by ABI type
-def abiCodeMap = ["armeabi-v7a": "1", "arm64-v8a": "2", "x86": "4", "x86_64": "5"]
-android.applicationVariants.configureEach { variant ->
-    variant.outputs.each { output ->
-        def baseVersionCode = abiCodeMap.get(output.getFilter("ABI"))
-        if (baseVersionCode != null) {
-            output.versionCodeOverride = Integer.valueOf(variant.versionCode) + Integer.valueOf(baseVersionCode)
-        }
-    }
-}
-
 android {
     namespace = "org.torproject.android"
     compileSdk = 36
@@ -49,20 +39,25 @@ android {
     }
 
     signingConfigs {
-        release {
+        create("release") {
+            val keystorePropertiesFile = rootProject.file("keystore.properties")
+            val keystoreProperties = Properties()
+            if (keystorePropertiesFile.canRead()) {
+                keystoreProperties.load(FileInputStream(keystorePropertiesFile))
+            }
             if (!keystoreProperties.stringPropertyNames().isEmpty()) {
-                keyAlias keystoreProperties["keyAlias"]
-                keyPassword keystoreProperties["keyPassword"]
-                storeFile file(keystoreProperties["storeFile"])
-                storePassword keystoreProperties["storePassword"]
+                keyAlias = keystoreProperties["keyAlias"] as String
+                keyPassword = keystoreProperties["keyPassword"] as String
+                storeFile = file(keystoreProperties["storeFile"] as String)
+                storePassword = keystoreProperties["storePassword"] as String
             }
         }
     }
 
     buildTypes {
-        release {
-            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.txt"
-            signingConfig signingConfigs.release
+        getByName("release") {
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.txt")
+            signingConfig = signingConfigs.getByName("release")
         }
     }
 
@@ -72,21 +67,22 @@ android {
     }
 
     buildTypes {
-        release {
-            shrinkResources = false
-            minifyEnabled = false
+        getByName("release") {
+            isShrinkResources = false
+            isMinifyEnabled = false
         }
-        debug {
-            debuggable = true
+        getByName("debug") {
+            isDebuggable = true
             applicationIdSuffix = ".debug"
         }
     }
 
     splits {
         abi {
-            enable = true
+            isEnable = true
             reset()
             include("x86", "armeabi-v7a", "x86_64", "arm64-v8a")
+            isUniversalApk = true
         }
     }
 
@@ -95,40 +91,34 @@ android {
         targetCompatibility = JavaVersion.VERSION_21
     }
 
-    flavorDimensions = ["free"]
+    flavorDimensions += "free"
 
     productFlavors {
-        fullperm {
+        create("fullperm") {
             dimension = "free"
             applicationId = "org.torproject.android"
-            versionCode = 1750300200
+            versionCode = BaseVersionCode
             versionName = getVersionName()
         }
 
-        nightly {
+        create("nightly") {
             dimension = "free"
             applicationId = "org.torproject.android.nightly"
             versionName = getVersionName()
-            versionCode = versionCodeEpoch()
+            versionCode = (Date().time / 1000).toInt()
         }
     }
 
-    splits {
-        abi {
-            universalApk = true
-        }
-    }
-
-    packagingOptions {
+    packaging {
         resources {
-            excludes += ["META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version"]
+            excludes += listOf("META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version")
         }
     }
 
     lint {
         abortOnError = false
         checkReleaseBuilds = false
-        disable "InvalidPackage"
+        disable += "InvalidPackage"
         htmlReport = true
         lintConfig = file("../lint.xml")
         textReport = false
@@ -136,9 +126,15 @@ android {
     }
 }
 
-
-static def versionCodeEpoch() {
-    return (new Date().getTime() / 1000).toInteger()
+// Increments versionCode by ABI type
+android.applicationVariants.all {
+    outputs.configureEach { ->
+        if (versionCode == BaseVersionCode) {
+            val abiCodeMap = mapOf("armeabi-v7a" to 1, "arm64-v8a" to 2, "x86" to 4, "x86_64" to 5)
+            val baseCode: Int? = abiCodeMap[filters.find { it.filterType == "ABI" }?.identifier] ?: 0
+            (this as ApkVariantOutputImpl).versionCodeOverride = BaseVersionCode + baseCode!!
+        }
+    }
 }
 
 dependencies {
@@ -172,15 +168,9 @@ dependencies {
     androidTestUtil(libs.androidx.orchestrator)
 }
 
-tasks.register("copyLicenseToAssets", Copy) {
+tasks.register<Copy>("copyLicenseToAssets") {
     from(layout.projectDirectory.file("LICENSE"))
     into(layout.projectDirectory.dir("src/main/assets"))
-}
-
-tasks.withType(KotlinJvmCompile).configureEach {
-    compilerOptions {
-        jvmTarget.set(JvmTarget.JVM_21)
-    }
 }
 
 tasks.named("preBuild") {
