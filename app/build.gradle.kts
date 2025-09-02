@@ -1,10 +1,6 @@
 import com.android.build.gradle.internal.api.ApkVariantOutputImpl
-import java.util.Properties
 import java.io.FileInputStream
-import java.util.Date
-
-
-val orbotBaseVersionCode = 1750300200
+import java.util.*
 
 plugins {
     alias(libs.plugins.kotlin.android)
@@ -12,9 +8,10 @@ plugins {
     alias(libs.plugins.android.application)
 }
 
-// Gets the version name from the latest Git tag, stripping the leading v off
-val getVersionName = {
-    providers.exec {
+val orbotBaseVersionCode = 1750300200
+fun getVersionName(): String {
+    // Gets the version name from the latest Git tag, stripping the leading v off
+    return providers.exec {
         commandLine("git", "describe", "--tags", "--always")
     }.standardOutput.asText.get().trim()
 }
@@ -22,6 +19,7 @@ val getVersionName = {
 kotlin {
     jvmToolchain(21)
 }
+
 android {
     namespace = "org.torproject.android"
     compileSdk = 36
@@ -131,7 +129,8 @@ android {
 android.applicationVariants.all {
     outputs.configureEach { ->
         if (versionCode == orbotBaseVersionCode) {
-            val incrementMap = mapOf("armeabi-v7a" to 1, "arm64-v8a" to 2, "x86" to 4, "x86_64" to 5)
+            val incrementMap =
+                mapOf("armeabi-v7a" to 1, "arm64-v8a" to 2, "x86" to 4, "x86_64" to 5)
             val increment = incrementMap[filters.find { it.filterType == "ABI" }?.identifier] ?: 0
             (this as ApkVariantOutputImpl).versionCodeOverride = orbotBaseVersionCode + increment
         }
