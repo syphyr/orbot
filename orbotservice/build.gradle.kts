@@ -1,14 +1,10 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
-
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
 }
-kotlin {
-    jvmToolchain(21)
-}
+
+kotlin { jvmToolchain(21) }
 
 android {
     namespace = "org.torproject.android.service"

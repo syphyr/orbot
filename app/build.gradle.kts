@@ -8,16 +8,14 @@ plugins {
     alias(libs.plugins.android.application)
 }
 
+kotlin { jvmToolchain(21) }
+
 val orbotBaseVersionCode = 1750300200
 fun getVersionName(): String {
-    // Gets the version name from the latest Git tag, stripping the leading v off
+    // Gets the version name from the latest Git tag
     return providers.exec {
         commandLine("git", "describe", "--tags", "--always")
     }.standardOutput.asText.get().trim()
-}
-
-kotlin {
-    jvmToolchain(21)
 }
 
 android {
@@ -25,17 +23,36 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "org.torproject.android"
+        applicationId = namespace
+        versionCode = orbotBaseVersionCode
         versionName = getVersionName()
         minSdk = 24
         targetSdk = 36
         multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        flavorDimensions += "free"
     }
 
-    testOptions {
-        execution = "ANDROIDX_TEST_ORCHESTRATOR"
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
+
+    splits {
+        abi {
+            isEnable = true
+            reset()
+            include("x86", "armeabi-v7a", "x86_64", "arm64-v8a")
+            isUniversalApk = true
+        }
+    }
+
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
+    }
+
+    testOptions { execution = "ANDROIDX_TEST_ORCHESTRATOR" }
 
     signingConfigs {
         create("release") {
@@ -55,20 +72,10 @@ android {
 
     buildTypes {
         getByName("release") {
-            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.txt")
-            signingConfig = signingConfigs.getByName("release")
-        }
-    }
-
-    buildFeatures {
-        buildConfig = true
-        viewBinding = true
-    }
-
-    buildTypes {
-        getByName("release") {
             isShrinkResources = false
             isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.txt")
+            signingConfig = signingConfigs.getByName("release")
         }
         getByName("debug") {
             isDebuggable = true
@@ -76,34 +83,12 @@ android {
         }
     }
 
-    splits {
-        abi {
-            isEnable = true
-            reset()
-            include("x86", "armeabi-v7a", "x86_64", "arm64-v8a")
-            isUniversalApk = true
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
-    }
-
-    flavorDimensions += "free"
-
     productFlavors {
-        create("fullperm") {
-            dimension = "free"
-            applicationId = "org.torproject.android"
-            versionCode = orbotBaseVersionCode
-            versionName = getVersionName()
-        }
-
+        create("fullperm") { dimension = "free" }
         create("nightly") {
             dimension = "free"
+            // overwrites defaults from defaultConfig
             applicationId = "org.torproject.android.nightly"
-            versionName = getVersionName()
             versionCode = (Date().time / 1000).toInt()
         }
     }
@@ -168,11 +153,9 @@ dependencies {
     androidTestUtil(libs.androidx.orchestrator)
 }
 
+tasks.named("preBuild") { dependsOn("copyLicenseToAssets") }
 tasks.register<Copy>("copyLicenseToAssets") {
     from(layout.projectDirectory.file("LICENSE"))
     into(layout.projectDirectory.dir("src/main/assets"))
 }
 
-tasks.named("preBuild") {
-    dependsOn("copyLicenseToAssets")
-}
