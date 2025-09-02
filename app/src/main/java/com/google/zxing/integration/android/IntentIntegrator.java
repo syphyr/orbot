@@ -321,7 +321,7 @@ public class IntentIntegrator {
             // set the desired barcode types
             StringBuilder joinedByComma = new StringBuilder();
             for (String format : desiredBarcodeFormats) {
-                if (joinedByComma.length() > 0) {
+                if (!joinedByComma.isEmpty()) {
                     joinedByComma.append(',');
                 }
                 joinedByComma.append(format);
@@ -393,6 +393,7 @@ public class IntentIntegrator {
                 packageName = BS_PACKAGE;
             } else {
                 // Otherwise, first option:
+                //noinspection SequencedCollectionMethodCanBeUsed
                 packageName = targetApplications.get(0);
             }
             Uri uri = Uri.parse("market://details?id=" + packageName);
