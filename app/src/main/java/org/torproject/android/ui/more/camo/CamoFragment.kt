@@ -122,7 +122,7 @@ class CamoFragment : Fragment() {
     }
 
     companion object {
-        fun getCamoMapping(context: Context): Map<String?, String> = mapOf<String?, String>(
+        fun getCamoMapping(context: Context): Map<String?, String> = mapOf(
             context.getString(R.string.app_name) to Prefs.DEFAULT_CAMO_DISABLED_ACTIVITY,
             context.getString(R.string.app_icon_chooser_label_fit_grit) to "org.torproject.android.main.FitGrit",
             context.getString(R.string.app_icon_chooser_label_night_watch) to "org.torproject.android.main.NightWatch",

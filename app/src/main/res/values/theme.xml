@@ -5,10 +5,6 @@
         <item name="colorPrimary">@color/new_background_secondary</item>
     </style>
 
-    <style name="NavigationGroupMenuHeaders">
-        <item name="android:textColor">@color/menu_header</item>
-    </style>
-
     <style name="OrbotActivityTheme" parent="Theme.AppCompat">
         <item name="android:windowBackground">@color/new_background_secondary</item>
         <item name="android:windowIsFloating">false</item>

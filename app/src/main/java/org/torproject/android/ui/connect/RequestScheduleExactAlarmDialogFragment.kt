@@ -19,16 +19,16 @@ class RequestScheduleExactAlarmDialogFragment : DialogFragment() {
             .setTitle(R.string.power_user_mode_permission)
             .setMessage(R.string.power_user_mode_permission_msg)
             .setNegativeButton(
-                android.R.string.cancel,
-                DialogInterface.OnClickListener { dialog: DialogInterface?, which: Int -> dialog!!.cancel() })
+                android.R.string.cancel
+            ) { dialog: DialogInterface?, which: Int -> dialog!!.cancel() }
             .setPositiveButton(
-                android.R.string.ok,
-                DialogInterface.OnClickListener { dialog: DialogInterface?, which: Int ->
-                    val intent = Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM).apply {
-                        setData(Uri.fromParts("package", requireContext().packageName, null))
-                    }
-                    startActivity(intent)
-                    dismiss()
-                })
+                android.R.string.ok
+            ) { dialog: DialogInterface?, which: Int ->
+                val intent = Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM).apply {
+                    setData(Uri.fromParts("package", requireContext().packageName, null))
+                }
+                startActivity(intent)
+                dismiss()
+            }
             .create()
 }

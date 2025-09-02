@@ -57,8 +57,7 @@ public class OnionServiceActionsDialogFragment extends DialogFragment {
                 doBackup(arguments, getContext());
             }
             else if (position == 2) {
-                assert getFragmentManager() != null;
-                new OnionServiceDeleteDialogFragment(arguments).show(getFragmentManager(), OnionServiceDeleteDialogFragment.class.getSimpleName());
+                new OnionServiceDeleteDialogFragment(arguments).show(getParentFragmentManager(), OnionServiceDeleteDialogFragment.class.getSimpleName());
             }
             if (position != 1) dismiss();
         });
