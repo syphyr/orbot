@@ -4,7 +4,8 @@ import java.io.FileInputStream
 import java.util.Date
 
 
-val BaseVersionCode = 1750300200
+val orbotBaseVersionCode = 1750300200
+
 plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
@@ -97,7 +98,7 @@ android {
         create("fullperm") {
             dimension = "free"
             applicationId = "org.torproject.android"
-            versionCode = BaseVersionCode
+            versionCode = orbotBaseVersionCode
             versionName = getVersionName()
         }
 
@@ -129,10 +130,10 @@ android {
 // Increments versionCode by ABI type
 android.applicationVariants.all {
     outputs.configureEach { ->
-        if (versionCode == BaseVersionCode) {
-            val abiCodeMap = mapOf("armeabi-v7a" to 1, "arm64-v8a" to 2, "x86" to 4, "x86_64" to 5)
-            val baseCode: Int? = abiCodeMap[filters.find { it.filterType == "ABI" }?.identifier] ?: 0
-            (this as ApkVariantOutputImpl).versionCodeOverride = BaseVersionCode + baseCode!!
+        if (versionCode == orbotBaseVersionCode) {
+            val incrementMap = mapOf("armeabi-v7a" to 1, "arm64-v8a" to 2, "x86" to 4, "x86_64" to 5)
+            val increment = incrementMap[filters.find { it.filterType == "ABI" }?.identifier] ?: 0
+            (this as ApkVariantOutputImpl).versionCodeOverride = orbotBaseVersionCode + increment
         }
     }
 }
