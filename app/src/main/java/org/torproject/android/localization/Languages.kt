@@ -188,10 +188,11 @@ class Languages private constructor(activity: Activity) {
             } else if (locale.country.equals("cu", true)) {
                 tmpMap[locale.toString()] = "Español Cubano"
             } else {
-                tmpMap[locale.toString()] =
-                    locale.getDisplayLanguage(locale).capitalize() + " " + locale.getDisplayCountry(
-                        locale
-                    )
+                val displayLang = locale.getDisplayLanguage(locale).replaceFirstChar {
+                    if (it.isLowerCase()) it.titlecase()
+                    else it.toString()
+                }
+                tmpMap[locale.toString()] = "$displayLang ${locale.getDisplayCountry(locale)}"
             }
         }
 
