@@ -25,11 +25,9 @@ class KindnessConfigBottomSheet : OrbotBottomSheetDialogFragment() {
         val configCharging = v.findViewById<SwitchCompat>(R.id.swKindnessConfigCharging)
 
         btnAction.setOnClickListener {
-
             Prefs.setBeSnowflakeProxyLimitWifi(configWifi.isChecked)
             Prefs.setBeSnowflakeProxyLimitCharging(configCharging.isChecked)
-
-            closeAllSheets()
+            dismiss()
         }
 
         configWifi.isChecked = Prefs.limitSnowflakeProxyingWifi()
