@@ -73,4 +73,5 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.retrofit.converter)
     implementation(libs.retrofit.lib)
+    implementation(libs.upnp)
 }

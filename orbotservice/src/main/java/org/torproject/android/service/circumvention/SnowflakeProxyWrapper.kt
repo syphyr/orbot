@@ -4,15 +4,25 @@ import IPtProxy.SnowflakeClientConnected
 import IPtProxy.SnowflakeProxy
 import android.content.Context
 import android.os.Handler
+import com.netzarchitekten.upnp.UPnP
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotConstants.ONION_EMOJI
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.R
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.service.util.showToast
 import java.security.SecureRandom
+import kotlin.random.Random
 
 class SnowflakeProxyWrapper(private val context: Context) {
+
     private var proxy: SnowflakeProxy? = null
+
+    private var mappedPorts = mutableListOf<Int>()
 
     @Synchronized
     fun enableProxy(
@@ -22,27 +32,47 @@ class SnowflakeProxyWrapper(private val context: Context) {
         if (proxy != null) return
         if (Prefs.limitSnowflakeProxyingWifi() && !hasWifi) return
         if (Prefs.limitSnowflakeProxyingCharging() && !hasPower) return
-        proxy = SnowflakeProxy()
-        val stunServers = BuiltInBridges.getInstance(context)?.snowflake?.firstOrNull()?.ice
-            ?.split(",".toRegex())?.dropLastWhile { it.isEmpty() }?.toTypedArray() ?: emptyArray()
-        val stunUrl = stunServers[SecureRandom().nextInt(stunServers.size)]
 
-        proxy = SnowflakeProxy()
-        with(proxy!!) {
-            brokerUrl = OrbotService.getCdnFront("snowflake-target-direct")
-            capacity = 1L
-            pollInterval = 120L
-            stunServer = stunUrl
-            relayUrl = OrbotService.getCdnFront("snowflake-relay-url")
-            natProbeUrl = OrbotService.getCdnFront("snowflake-nat-probe")
-            clientConnected = SnowflakeClientConnected { onConnected() }
-            start()
-        }
+        CoroutineScope(Dispatchers.IO).launch {
+            val start = Random.nextInt(49152, 65536 - 2)
 
-        if (Prefs.showSnowflakeProxyMessage()) {
-            val message = context.getString(R.string.log_notice_snowflake_proxy_enabled)
-            Handler(context.mainLooper).post {
-                context.applicationContext.showToast(message)
+            for (port in (start..start + 2)) {
+                if (UPnP.openPortUDP(port, OrbotConstants.TAG)) {
+                    mappedPorts.add(port)
+                }
+            }
+
+            if (mappedPorts.size < 3) {
+                releaseMappedPorts()
+            }
+
+            val stunServers = BuiltInBridges.getInstance(context)?.snowflake?.firstOrNull()?.ice
+                ?.split(",".toRegex())?.dropLastWhile { it.isEmpty() }?.toTypedArray() ?: emptyArray()
+            val stunUrl = stunServers[SecureRandom().nextInt(stunServers.size)]
+
+            proxy = SnowflakeProxy()
+            with(proxy!!) {
+                brokerUrl = OrbotService.getCdnFront("snowflake-target-direct")
+                capacity = 1L
+                pollInterval = 120L
+                stunServer = stunUrl
+                relayUrl = OrbotService.getCdnFront("snowflake-relay-url")
+                natProbeUrl = OrbotService.getCdnFront("snowflake-nat-probe")
+                clientConnected = SnowflakeClientConnected { onConnected() }
+
+// TODO: Activate, when new IPtProxy is available.
+//            ephemeralMinPort = mappedPorts.firstOrNull()
+//            ephemeralMaxPort = mappedPorts.lastOrNull()
+
+                start()
+            }
+
+            if (Prefs.showSnowflakeProxyMessage()) {
+                val message = context.getString(R.string.log_notice_snowflake_proxy_enabled)
+
+                withContext(Dispatchers.Main) {
+                    context.applicationContext.showToast(message)
+                }
             }
         }
     }
@@ -50,8 +80,10 @@ class SnowflakeProxyWrapper(private val context: Context) {
     @Synchronized
     fun stopProxy() {
         if (proxy == null) return
-        proxy!!.stop()
+        proxy?.stop()
         proxy = null
+
+        releaseMappedPorts()
 
         if (Prefs.showSnowflakeProxyMessage()) {
             val message = context.getString(R.string.log_notice_snowflake_proxy_disabled)
@@ -72,6 +104,13 @@ class SnowflakeProxyWrapper(private val context: Context) {
         Handler(context.mainLooper).post {
             context.applicationContext.showToast(message)
         }
+    }
 
+    private fun releaseMappedPorts() {
+        for (port in mappedPorts) {
+            UPnP.closePortUDP(port)
+        }
+
+        mappedPorts = mutableListOf()
     }
 }
