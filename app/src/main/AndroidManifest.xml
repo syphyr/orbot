@@ -34,6 +34,11 @@
         </intent>
     </queries>
 
+    <!--
+    usesCleartextTraffic is needed for SSDP multicast local router discovery (which is an unencrypted
+    HTTP-style protocol) and for UPnP IGD requests to map ports for Snowflake Proxy, (which are also
+    unencrypted HTTP-style requests).
+     -->
     <application
         android:name=".OrbotApp"
         android:allowBackup="false"

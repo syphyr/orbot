@@ -42,6 +42,9 @@ class SnowflakeProxyWrapper(private val context: Context) {
                 }
             }
 
+            // Snowflake Proxy needs Capacity * 2 + 1 = 3 consecutive ports mapped for unrestricted mode.
+            // If we can't get all of these, remove the ones we have and
+            // rather have Snowflake Proxy run in restricted mode.
             if (mappedPorts.size < 3) {
                 releaseMappedPorts()
             }
@@ -61,8 +64,9 @@ class SnowflakeProxyWrapper(private val context: Context) {
                 clientConnected = SnowflakeClientConnected { onConnected() }
 
 // TODO: Activate, when new IPtProxy is available.
-//            ephemeralMinPort = mappedPorts.firstOrNull()
-//            ephemeralMaxPort = mappedPorts.lastOrNull()
+                // Setting these to null or 0 is equivalent to not setting this at all.
+//                ephemeralMinPort = mappedPorts.firstOrNull()
+//                ephemeralMaxPort = mappedPorts.lastOrNull()
 
                 start()
             }
