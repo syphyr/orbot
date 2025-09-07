@@ -41,6 +41,7 @@
      -->
     <application
         android:name=".OrbotApp"
+        android:supportsRtl="true"
         android:allowBackup="false"
         android:allowClearUserData="true"
         android:configChanges="locale|orientation|screenSize"

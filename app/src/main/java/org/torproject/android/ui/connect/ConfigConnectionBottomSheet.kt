@@ -176,7 +176,7 @@ class ConfigConnectionBottomSheet :
     }
 
     private fun closeAndConnect() {
-        closeAllSheets()
+        dismiss()
         val navHostFragment = requireActivity().supportFragmentManager.fragments[0] as NavHostFragment
         val connectFrag = navHostFragment.childFragmentManager.fragments.last() as ConnectFragment
         connectFrag.startTorAndVpn()
@@ -282,6 +282,6 @@ class ConfigConnectionBottomSheet :
     fun tryConnectingFromCustomBridge() {
         Prefs.transport = Transport.CUSTOM
         Prefs.smartConnect = false
-        closeAndConnect()
+        dismiss()
     }
 }

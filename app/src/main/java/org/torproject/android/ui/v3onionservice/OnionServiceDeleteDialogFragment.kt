@@ -12,7 +12,6 @@ import androidx.fragment.app.DialogFragment
 import org.torproject.android.R
 import org.torproject.android.service.util.DiskUtils.recursivelyDeleteDirectory
 import org.torproject.android.service.OrbotConstants
-import org.torproject.android.service.db.OnionServiceColumns
 
 import java.io.File
 

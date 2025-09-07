@@ -102,7 +102,7 @@ class CustomBridgeBottomSheet() :
 
         binding.btnAction.setOnClickListener {
             Prefs.bridgesList = binding.etBridges.text?.split("\n") ?: emptyList()
-            closeAllSheets()
+            dismiss()
             val parent = requireActivity().supportFragmentManager.findFragmentByTag(
                 ConfigConnectionBottomSheet.TAG
             ) as ConfigConnectionBottomSheet

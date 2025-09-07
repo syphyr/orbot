@@ -3,7 +3,6 @@ package org.torproject.android.ui.connect
 import android.app.Dialog
 import android.content.DialogInterface
 import android.content.Intent
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
@@ -12,21 +11,20 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import org.torproject.android.R
 
-class RequestScheduleExactAlarmDialogFragment : DialogFragment() {
-    @RequiresApi(Build.VERSION_CODES.S)
+class RequestPostNotificationPermission : DialogFragment() {
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
         AlertDialog.Builder(requireActivity())
-            .setTitle(R.string.power_user_mode_permission)
-            .setMessage(R.string.power_user_mode_permission_msg)
-            .setNegativeButton(
-                android.R.string.cancel
-            ) { dialog: DialogInterface?, which: Int -> dialog!!.cancel() }
+            .setTitle(R.string.request_notification_permission)
+            .setMessage(R.string.request_notification_permission_msg)
+            .setCancelable(false)
             .setPositiveButton(
-                android.R.string.ok
+                R.string.open_settings
             ) { dialog: DialogInterface?, which: Int ->
-                val intent = Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM).apply {
-                    setData(Uri.fromParts("package", requireContext().packageName, null))
-                }
+                val intent = Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    .putExtra(Settings.EXTRA_APP_PACKAGE, requireActivity().packageName)
+
                 startActivity(intent)
                 dismiss()
             }
