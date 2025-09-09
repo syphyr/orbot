@@ -64,9 +64,9 @@ class SnowflakeProxyWrapper(private val context: Context) {
                 clientConnected = SnowflakeClientConnected { onConnected() }
 
 // TODO: Activate, when new IPtProxy is available.
-                // Setting these to null or 0 is equivalent to not setting this at all.
-//                ephemeralMinPort = mappedPorts.firstOrNull()
-//                ephemeralMaxPort = mappedPorts.lastOrNull()
+                // Setting these to 0 is equivalent to not setting them at all.
+//                ephemeralMinPort = (mappedPorts.firstOrNull() ?: 0).toLong()
+//                ephemeralMaxPort = (mappedPorts.lastOrNull() ?: 0).toLong()
 
                 start()
             }
