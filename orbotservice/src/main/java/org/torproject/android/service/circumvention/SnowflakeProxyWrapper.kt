@@ -63,10 +63,9 @@ class SnowflakeProxyWrapper(private val context: Context) {
                 natProbeUrl = OrbotService.getCdnFront("snowflake-nat-probe")
                 clientConnected = SnowflakeClientConnected { onConnected() }
 
-// TODO: Activate, when new IPtProxy is available.
                 // Setting these to 0 is equivalent to not setting them at all.
-//                ephemeralMinPort = (mappedPorts.firstOrNull() ?: 0).toLong()
-//                ephemeralMaxPort = (mappedPorts.lastOrNull() ?: 0).toLong()
+                ephemeralMinPort = (mappedPorts.firstOrNull() ?: 0).toLong()
+                ephemeralMaxPort = (mappedPorts.lastOrNull() ?: 0).toLong()
 
                 start()
             }
