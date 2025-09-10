@@ -21,8 +21,8 @@ object TorConfig {
 
         val prefs = Prefs.getSharedPrefs(context)
 
-        var socksPortPref = getPort(prefs?.getString(OrbotConstants.PREF_SOCKS, null) ?: OrbotConstants.SOCKS_PROXY_PORT_DEFAULT)
-        var httpPortPref = getPort(prefs?.getString(OrbotConstants.PREF_HTTP, null) ?: OrbotConstants.HTTP_PROXY_PORT_DEFAULT)
+        val socksPortPref = getPort(prefs?.getString(OrbotConstants.PREF_SOCKS, null) ?: OrbotConstants.SOCKS_PROXY_PORT_DEFAULT)
+        val httpPortPref = getPort(prefs?.getString(OrbotConstants.PREF_HTTP, null) ?: OrbotConstants.HTTP_PROXY_PORT_DEFAULT)
 
         val isolate = getIsolation(prefs)
         val ipv6Pref = getIpv6(prefs)

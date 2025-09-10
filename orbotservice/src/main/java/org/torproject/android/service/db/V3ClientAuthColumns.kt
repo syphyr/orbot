@@ -63,7 +63,7 @@ object V3ClientAuthColumns : BaseColumns {
 
     @JvmStatic
     fun createV3AuthDir(contextWrapper: ContextWrapper): File {
-        var baseDir = File(contextWrapper.filesDir.absolutePath, OrbotConstants.V3_CLIENT_AUTH_DIR)
+        val baseDir = File(contextWrapper.filesDir.absolutePath, OrbotConstants.V3_CLIENT_AUTH_DIR)
         if (!baseDir.isDirectory) baseDir.mkdirs()
         return baseDir
     }

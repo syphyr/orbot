@@ -123,7 +123,7 @@ object AutoConf {
         settings: List<MoatApi.Setting>?
     ): Pair<Transport, List<String>>? {
         var transport: Transport? = null
-        var customBridges = mutableListOf<String>()
+        val customBridges = mutableListOf<String>()
 
         for (setting in settings ?: emptyList()) {
             if (setting.bridge.type == "snowflake") {

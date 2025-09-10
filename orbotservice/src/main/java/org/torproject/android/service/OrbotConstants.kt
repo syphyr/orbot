@@ -29,7 +29,6 @@ object OrbotConstants {
 
     const val APP_TOR_KEY = "_app_tor"
     const val APP_DATA_KEY = "_app_data"
-    const val APP_WIFI_KEY = "_app_wifi"
 
     const val DIRECTORY_TOR_DATA = "tordata"
 

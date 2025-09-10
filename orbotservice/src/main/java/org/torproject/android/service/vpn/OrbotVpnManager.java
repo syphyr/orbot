@@ -164,8 +164,6 @@ public class OrbotVpnManager implements Handler.Callback {
             final String defaultRoute = "0.0.0.0";
             final String virtualGateway = "192.168.50.1";
 
-            //    builder.setMtu(VPN_MTU);
-            //   builder.addAddress(virtualGateway, 32);
             builder.addAddress(virtualGateway, 24)
                     .addRoute(defaultRoute, 0)
                     .addRoute(FAKE_DNS, 32)

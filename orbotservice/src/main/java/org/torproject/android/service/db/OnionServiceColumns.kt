@@ -57,8 +57,8 @@ object OnionServiceColumns : BaseColumns {
                 val domain = onionServices.getString(domainIndex)
                 if (path == null) {
                     path = "v3"
-                    if (domain == null) path += UUID.randomUUID().toString()
-                    else path += localPort
+                    path += if (domain == null) UUID.randomUUID().toString()
+                    else localPort
                     val cv = ContentValues()
                     cv.put(PATH, path)
                     contentResolver.update(
@@ -116,7 +116,7 @@ object OnionServiceColumns : BaseColumns {
 
     @JvmStatic
     fun createV3OnionDir(contextWrapper: ContextWrapper): File {
-        var basePath = File(contextWrapper.filesDir.absolutePath, OrbotConstants.ONION_SERVICES_DIR)
+        val basePath = File(contextWrapper.filesDir.absolutePath, OrbotConstants.ONION_SERVICES_DIR)
         if (!basePath.isDirectory) basePath.mkdirs()
         return basePath
     }
