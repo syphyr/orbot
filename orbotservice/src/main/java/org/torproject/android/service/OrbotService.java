@@ -17,9 +17,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.ServiceInfo;
-import android.net.ConnectivityManager;
-import android.net.Network;
-import android.net.NetworkCapabilities;
 import android.net.VpnService;
 import android.os.Build;
 import android.os.Handler;
@@ -33,7 +30,6 @@ import net.freehaven.tor.control.TorControlConnection;
 
 import org.torproject.android.service.circumvention.ContentDeliveryNetworkFronts;
 import org.torproject.android.service.circumvention.SmartConnect;
-import org.torproject.android.service.circumvention.SnowflakeProxyWrapper;
 import org.torproject.android.service.circumvention.Transport;
 import org.torproject.android.service.db.OnionServiceColumns;
 import org.torproject.android.service.db.V3ClientAuthColumns;
@@ -56,7 +52,6 @@ import java.util.StringTokenizer;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.ServiceCompat;
 import androidx.core.content.ContextCompat;
@@ -87,8 +82,6 @@ public class OrbotService extends VpnService {
     private NotificationManager mNotificationManager = null;
     private NotificationCompat.Builder mNotifyBuilder;
     private File mV3OnionBasePath, mV3AuthBasePath;
-
-    private boolean mHasWifi = false;
 
     public void debug(String msg) {
         Log.d(TAG, msg);
@@ -189,7 +182,6 @@ public class OrbotService extends VpnService {
     public void onDestroy() {
         try {
             unregisterReceiver(mActionBroadcastReceiver);
-            mSnowflakeProxyWrapper.stopProxy(); // stop snowflake proxy if its somehow running
         } catch (IllegalArgumentException iae) {
             //not registered yet
         }
@@ -236,55 +228,6 @@ public class OrbotService extends VpnService {
         return mFronts.get(service);
     }
 
-    public synchronized void enableSnowflakeProxy() { // This is to host a snowflake entrance node / bridge
-        mSnowflakeProxyWrapper.enableProxy(mHasWifi, true);
-        logNotice(getString(R.string.log_notice_snowflake_proxy_enabled));
-    }
-
-    private void enableSnowflakeProxyNetworkListener() {
-        if (!Prefs.limitSnowflakeProxyingWifi()) return;
-        var connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        connMgr.registerDefaultNetworkCallback(new ConnectivityManager.NetworkCallback() {
-            @Override // update if on wifi
-            public void onAvailable(@NonNull Network network) {
-                checkNetworkForSnowflakeProxy();
-            }
-
-            @Override // or if lost
-            public void onLost(@NonNull Network network) {
-                checkNetworkForSnowflakeProxy();
-            }
-        });
-    }
-
-    private void checkNetworkForSnowflakeProxy() {
-        var connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-            var netCap = connMgr.getNetworkCapabilities(connMgr.getActiveNetwork());
-            if (netCap != null)
-                mHasWifi = netCap.hasTransport(NetworkCapabilities.TRANSPORT_WIFI);
-            else
-                mHasWifi = false;
-        } else {
-            var netInfo = connMgr.getActiveNetworkInfo();
-            if (netInfo != null)
-                mHasWifi = netInfo.getType() == ConnectivityManager.TYPE_WIFI;
-        }
-
-        if (Prefs.beSnowflakeProxy()) {
-            if (Prefs.limitSnowflakeProxyingWifi()) {
-                if (mHasWifi) enableSnowflakeProxy();
-                else disableSnowflakeProxy();
-            }
-        }
-    }
-
-    public synchronized void disableSnowflakeProxy() {
-        mSnowflakeProxyWrapper.stopProxy();
-        logNotice(getString(R.string.log_notice_snowflake_proxy_disabled));
-    }
-
     // if someone stops during startup, we may have to wait for the conn port to be setup, so we can properly shutdown tor
     private void stopTor() {
         if (shouldUnbindTorService) {
@@ -312,8 +255,6 @@ public class OrbotService extends VpnService {
             sendCallbackLogMessage(msg);
         }
     }
-
-    private SnowflakeProxyWrapper mSnowflakeProxyWrapper;
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
     @Override
@@ -370,14 +311,6 @@ public class OrbotService extends VpnService {
                 Log.e(TAG, "Error setting up Orbot", e);
                 logNotice(getString(R.string.couldn_t_start_tor_process_) + " " + e.getClass().getSimpleName());
             }
-
-            enableSnowflakeProxyNetworkListener();
-
-            mSnowflakeProxyWrapper = new SnowflakeProxyWrapper(this);
-            if (Prefs.beSnowflakeProxy()
-                    && !(Prefs.limitSnowflakeProxyingCharging() || Prefs.limitSnowflakeProxyingWifi()))
-                enableSnowflakeProxy();
-
         } catch (RuntimeException re) {
             //catch this to avoid malicious launches as document Cure53 Audit: ORB-01-009 WP1/2: Orbot DoS via exported activity (High)
         }
@@ -807,9 +740,7 @@ public class OrbotService extends VpnService {
                 }
                 case CMD_SET_EXIT -> setExitNode(mIntent.getStringExtra("exit"));
                 case ACTION_LOCAL_LOCALE_SET -> configLanguage();
-                case CMD_SNOWFLAKE_PROXY -> {
-                }
-                default -> Log.w(TAG, "unhandled OrbotService Intent: " + action);
+                    default -> Log.w(TAG, "unhandled OrbotService Intent: " + action);
             }
         }
     }

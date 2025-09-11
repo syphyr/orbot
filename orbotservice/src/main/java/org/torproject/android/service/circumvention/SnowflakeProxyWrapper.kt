@@ -95,6 +95,9 @@ class SnowflakeProxyWrapper(private val context: Context) {
         }
     }
 
+    // TODO does this need to be more robust?
+    fun isProxyRunning() : Boolean = proxy != null
+
     private fun onConnected() {
         Prefs.addSnowflakeServed()
         if (!Prefs.showSnowflakeProxyMessage()) return
