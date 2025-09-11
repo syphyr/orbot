@@ -10,12 +10,14 @@ import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
+import android.net.VpnService
 import android.os.Build
 import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import org.torproject.android.R
+import org.torproject.android.service.util.NetworkUtils
 import org.torproject.android.service.util.Prefs
 
 class SnowflakeProxyService : Service() {
@@ -98,11 +100,18 @@ class SnowflakeProxyService : Service() {
             override fun onAvailable(network: Network) {
                 val capabilities = connectivityManager.getNetworkCapabilities(network)
                 val hasWifi = capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true
+                val hasVpn = capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_VPN) == true
+
                 if (Prefs.limitSnowflakeProxyingWifi() && !hasWifi) {
                     refreshNotification(getString(R.string.kindness_mode_disabled_wifi))
                     stopSnowflakeProxy("required wifi condition not met")
                 } else {
-                    startSnowflakeProxy("got network (wifi=${hasWifi}, limit wifi=${Prefs.limitSnowflakeProxyingWifi()}")
+                    if (NetworkUtils.isNetworkAvailable(this@SnowflakeProxyService) || hasVpn) {
+                        startSnowflakeProxy("got network (wifi=${hasWifi}, limit wifi=${Prefs.limitSnowflakeProxyingWifi()}")
+                    }
+                    else {
+                        refreshNotification(getString(R.string.kindness_mode_disabled_internet))
+                    }
                 }
             }
         }

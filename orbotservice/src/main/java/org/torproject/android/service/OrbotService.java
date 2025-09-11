@@ -28,7 +28,6 @@ import android.widget.Toast;
 import net.freehaven.tor.control.TorControlCommands;
 import net.freehaven.tor.control.TorControlConnection;
 
-import org.torproject.android.service.circumvention.ContentDeliveryNetworkFronts;
 import org.torproject.android.service.circumvention.SmartConnect;
 import org.torproject.android.service.circumvention.Transport;
 import org.torproject.android.service.db.OnionServiceColumns;
@@ -46,7 +45,6 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Locale;
 import java.util.StringTokenizer;
 import java.util.concurrent.ExecutorService;
@@ -81,7 +79,7 @@ public class OrbotService extends VpnService {
     private boolean shouldUnbindTorService;
     private NotificationManager mNotificationManager = null;
     private NotificationCompat.Builder mNotifyBuilder;
-    private File mV3OnionBasePath, mV3AuthBasePath;
+    private File mV3OnionBasePath;
 
     public void debug(String msg) {
         Log.d(TAG, msg);
@@ -217,17 +215,6 @@ public class OrbotService extends VpnService {
         showToolbarNotification(getString(R.string.unable_to_start_tor) + ": " + message, ERROR_NOTIFY_ID, R.drawable.ic_stat_notifyerr);
     }
 
-    private static HashMap<String, String> mFronts;
-
-    public static void loadCdnFronts(Context context) {
-        if (mFronts != null) return;
-        mFronts = ContentDeliveryNetworkFronts.localFronts(context);
-    }
-
-    public static String getCdnFront(String service) {
-        return mFronts.get(service);
-    }
-
     // if someone stops during startup, we may have to wait for the conn port to be setup, so we can properly shutdown tor
     private void stopTor() {
         if (shouldUnbindTorService) {
@@ -274,7 +261,7 @@ public class OrbotService extends VpnService {
                 if (!appCacheHome.exists()) appCacheHome.mkdirs();
 
                 mV3OnionBasePath = OnionServiceColumns.createV3OnionDir(this);
-                mV3AuthBasePath = V3ClientAuthColumns.createV3AuthDir(this);
+                var mV3AuthBasePath = V3ClientAuthColumns.createV3AuthDir(this);
 
                 if (mNotificationManager == null)
                     mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -306,7 +293,6 @@ public class OrbotService extends VpnService {
                 }
 
                 mVpnManager = new OrbotVpnManager(this);
-                loadCdnFronts(this);
             } catch (Exception e) {
                 Log.e(TAG, "Error setting up Orbot", e);
                 logNotice(getString(R.string.couldn_t_start_tor_process_) + " " + e.getClass().getSimpleName());

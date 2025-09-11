@@ -9,9 +9,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotConstants.ONION_EMOJI
-import org.torproject.android.service.OrbotService
 import org.torproject.android.service.R
 import org.torproject.android.service.circumvention.BuiltInBridges
+import org.torproject.android.service.circumvention.ContentDeliveryNetworkFronts
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.service.util.showToast
 import java.security.SecureRandom
@@ -52,14 +52,14 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
 
             proxy = SnowflakeProxy()
             service.refreshNotification()
-
+            val fronts = ContentDeliveryNetworkFronts.localFronts(service)
             with(proxy!!) {
-                brokerUrl = OrbotService.getCdnFront("snowflake-target-direct")
+                brokerUrl = fronts["snowflake-target-direct"]
                 capacity = 1L
                 pollInterval = 120L
                 stunServer = stunUrl
-                relayUrl = OrbotService.getCdnFront("snowflake-relay-url")
-                natProbeUrl = OrbotService.getCdnFront("snowflake-nat-probe")
+                relayUrl = fronts["snowflake-relay-url"]
+                natProbeUrl = fronts["snowflake-nat-probe"]
                 clientConnected = SnowflakeClientConnected { onConnected() }
 
                 // Setting these to 0 is equivalent to not setting them at all.
