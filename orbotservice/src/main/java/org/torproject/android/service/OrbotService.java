@@ -39,7 +39,6 @@ import org.torproject.android.service.db.OnionServiceColumns;
 import org.torproject.android.service.db.V3ClientAuthColumns;
 import org.torproject.android.service.ui.Notifications;
 import org.torproject.android.service.tor.CustomTorResourceInstaller;
-import org.torproject.android.service.receivers.PowerConnectionReceiver;
 import org.torproject.android.service.util.Prefs;
 import org.torproject.android.service.tor.TorConfig;
 import org.torproject.android.service.vpn.OrbotVpnManager;
@@ -89,9 +88,7 @@ public class OrbotService extends VpnService {
     private NotificationCompat.Builder mNotifyBuilder;
     private File mV3OnionBasePath, mV3AuthBasePath;
 
-    private PowerConnectionReceiver mPowerReceiver;
-
-    private boolean mHasPower = false, mHasWifi = false;
+    private boolean mHasWifi = false;
 
     public void debug(String msg) {
         Log.d(TAG, msg);
@@ -192,7 +189,6 @@ public class OrbotService extends VpnService {
     public void onDestroy() {
         try {
             unregisterReceiver(mActionBroadcastReceiver);
-            unregisterReceiver(mPowerReceiver);
             mSnowflakeProxyWrapper.stopProxy(); // stop snowflake proxy if its somehow running
         } catch (IllegalArgumentException iae) {
             //not registered yet
@@ -241,7 +237,7 @@ public class OrbotService extends VpnService {
     }
 
     public synchronized void enableSnowflakeProxy() { // This is to host a snowflake entrance node / bridge
-        mSnowflakeProxyWrapper.enableProxy(mHasWifi, mHasPower);
+        mSnowflakeProxyWrapper.enableProxy(mHasWifi, true);
         logNotice(getString(R.string.log_notice_snowflake_proxy_enabled));
     }
 
@@ -259,16 +255,6 @@ public class OrbotService extends VpnService {
                 checkNetworkForSnowflakeProxy();
             }
         });
-    }
-
-    public void setHasPower(boolean hasPower) {
-        mHasPower = hasPower;
-        if (Prefs.beSnowflakeProxy()) {
-            if (Prefs.limitSnowflakeProxyingCharging()) {
-                if (mHasPower) enableSnowflakeProxy();
-                else disableSnowflakeProxy();
-            }
-        }
     }
 
     private void checkNetworkForSnowflakeProxy() {
@@ -384,12 +370,6 @@ public class OrbotService extends VpnService {
                 Log.e(TAG, "Error setting up Orbot", e);
                 logNotice(getString(R.string.couldn_t_start_tor_process_) + " " + e.getClass().getSimpleName());
             }
-
-            mPowerReceiver = new PowerConnectionReceiver(this);
-
-            var iFilter = new IntentFilter(Intent.ACTION_POWER_CONNECTED);
-            iFilter.addAction(Intent.ACTION_POWER_DISCONNECTED);
-            registerReceiver(mPowerReceiver, iFilter);
 
             enableSnowflakeProxyNetworkListener();
 
@@ -828,9 +808,6 @@ public class OrbotService extends VpnService {
                 case CMD_SET_EXIT -> setExitNode(mIntent.getStringExtra("exit"));
                 case ACTION_LOCAL_LOCALE_SET -> configLanguage();
                 case CMD_SNOWFLAKE_PROXY -> {
-                    if (Prefs.beSnowflakeProxy()) {
-                        enableSnowflakeProxy();
-                    } else disableSnowflakeProxy();
                 }
                 default -> Log.w(TAG, "unhandled OrbotService Intent: " + action);
             }

@@ -1,18 +1,20 @@
 package org.torproject.android.ui.kindness
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.widget.SwitchCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import org.torproject.android.ui.connect.CustomBridgeBottomSheet
 import org.torproject.android.R
 import org.torproject.android.service.util.sendIntentToService
 import org.torproject.android.service.OrbotConstants
+import org.torproject.android.service.circumvention.SnowflakeProxyService
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.service.util.canStartForegroundServices
 
@@ -40,7 +42,18 @@ class KindnessFragment : Fragment() {
         swVolunteerMode.setOnCheckedChangeListener { _, isChecked ->
             Prefs.setBeSnowflakeProxy(isChecked)
             showPanelStatus(isChecked)
-            requireContext().sendIntentToService(OrbotConstants.CMD_SNOWFLAKE_PROXY)
+            activity?.let {
+                if (isChecked) {
+                    ContextCompat.startForegroundService(
+                        it,
+                        Intent(it, SnowflakeProxyService::class.java)
+                    )
+                } else {
+                    val stopIntent = Intent(it, SnowflakeProxyService::class.java)
+                        .setAction(SnowflakeProxyService.ACTION_STOP_SNOWFLAKE_SERVICE)
+                    ContextCompat.startForegroundService(it, stopIntent)
+                }
+            }
         }
 
         view.findViewById<TextView>(R.id.swVolunteerAdjust).setOnClickListener {

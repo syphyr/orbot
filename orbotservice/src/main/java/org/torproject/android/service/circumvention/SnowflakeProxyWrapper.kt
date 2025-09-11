@@ -26,12 +26,11 @@ class SnowflakeProxyWrapper(private val context: Context) {
 
     @Synchronized
     fun enableProxy(
-        hasWifi: Boolean,
-        hasPower: Boolean
+        hasWifi: Boolean = true,
+        hasPower: Boolean = true
     ) {
         if (proxy != null) return
         if (Prefs.limitSnowflakeProxyingWifi() && !hasWifi) return
-        if (Prefs.limitSnowflakeProxyingCharging() && !hasPower) return
 
         CoroutineScope(Dispatchers.IO).launch {
             val start = Random.nextInt(49152, 65536 - 2)
