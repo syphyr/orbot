@@ -32,7 +32,6 @@
     <string name="log_notice_updating_torrc">Jeketerr  tu anatiakal  tu ipünamiukal C</string>
     <string name="log_notice_added_event_handler">Kaa´muinshi atumaa  chi ayawuajuikai  kazachiki</string>
     <string name="log_notice_connected_to_tor_control_port">Antirrashi  Tor  juma ipunamuika eki.</string>
-    <string name="log_notice_ignoring_start_request">Nojots apunuin  juchuntia  eepeja\'asú</string>
 
 </resources>
 

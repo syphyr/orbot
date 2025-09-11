@@ -462,6 +462,7 @@ public class OrbotService extends VpnService {
     // The entire process for starting tor and related services is run from this method.
     private void startTor() {
         if (torServiceConnection != null && conn != null) {
+            debug("already started, ignoring start request");
             sendCallbackLogMessage(getString(R.string.log_notice_ignoring_start_request));
             showConnectedToTorNetworkNotification();
             return;
