@@ -44,14 +44,9 @@ class KindnessFragment : Fragment() {
             showPanelStatus(isChecked)
             activity?.let {
                 if (isChecked) {
-                    ContextCompat.startForegroundService(
-                        it,
-                        Intent(it, SnowflakeProxyService::class.java)
-                    )
+                    SnowflakeProxyService.startSnowflakeProxyForegroundService(it)
                 } else {
-                    val stopIntent = Intent(it, SnowflakeProxyService::class.java)
-                        .setAction(SnowflakeProxyService.ACTION_STOP_SNOWFLAKE_SERVICE)
-                    ContextCompat.startForegroundService(it, stopIntent)
+                    SnowflakeProxyService.stopSnowflakeProxyForegroundService(it)
                 }
             }
         }

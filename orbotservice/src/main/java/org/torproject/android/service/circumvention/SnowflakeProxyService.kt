@@ -3,6 +3,7 @@ package org.torproject.android.service.circumvention
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.Service
+import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.net.ConnectivityManager
@@ -13,6 +14,7 @@ import android.os.IBinder
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
+import androidx.core.content.ContextCompat
 import org.torproject.android.service.R
 import org.torproject.android.service.receivers.PowerConnectionReceiver
 import org.torproject.android.service.util.Prefs
@@ -112,9 +114,8 @@ class SnowflakeProxyService : Service() {
 
     fun powerConnectedCallback(isPowerConnected: Boolean) {
         if (!Prefs.limitSnowflakeProxyingCharging()) return
-        Log.d(TAG, "isPowerConnected=$isPowerConnected")
-        if (isPowerConnected) snowflakeProxyWrapper.enableProxy()
-        else snowflakeProxyWrapper.stopProxy()
+        if (isPowerConnected) startSnowflakeProxy("power connected")
+        else stopSnowflakeProxy("power disconnected")
     }
 
     override fun onDestroy() {
@@ -129,6 +130,24 @@ class SnowflakeProxyService : Service() {
         const val TAG = "GoLog"//"SnowflakeProxyService"
         private const val NOTIFICATION_ID = 103
         private const val CHANNEL_ID = "snowflake"
-        const val ACTION_STOP_SNOWFLAKE_SERVICE = "ACTION_STOP_SNOWFLAKE_SERVICE"
+        private const val ACTION_STOP_SNOWFLAKE_SERVICE = "ACTION_STOP_SNOWFLAKE_SERVICE"
+
+        private fun getIntent(context: Context) = Intent(context, SnowflakeProxyService::class.java)
+
+        // start this service, but not necessarily snowflake proxy from the app UI
+        fun startSnowflakeProxyForegroundService(context: Context) {
+            ContextCompat.startForegroundService(context, getIntent(context))
+        }
+
+        // stop this service, and snowflake proxy if its running, from the app UI
+
+        fun stopSnowflakeProxyForegroundService(context: Context) {
+            ContextCompat.startForegroundService(
+                context,
+                getIntent(context).setAction(ACTION_STOP_SNOWFLAKE_SERVICE)
+            )
+        }
+
+
     }
 }
