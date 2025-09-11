@@ -8,7 +8,6 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
-import org.torproject.android.ui.connect.CustomBridgeBottomSheet
 import org.torproject.android.R
 import org.torproject.android.service.util.Prefs
 
@@ -45,12 +44,12 @@ class KindnessFragment : Fragment() {
             }
         }
 
-        view.findViewById<TextView>(R.id.swVolunteerAdjust).setOnClickListener {
-            KindnessConfigBottomSheet().show(
-                requireActivity().supportFragmentManager,
-                CustomBridgeBottomSheet.Companion.TAG
-            )
+        view.findViewById<View>(R.id.ivGear).setOnClickListener {
+            KindnessConfigBottomSheet.openKindnessSettings(requireActivity())
         }
+
+        view.findViewById<View>(R.id.swVolunteerAdjust)
+            .setOnClickListener { KindnessConfigBottomSheet.openKindnessSettings(requireActivity()) }
 
         btnActionActivate.setOnClickListener {
             swVolunteerMode.isChecked = true
