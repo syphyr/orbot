@@ -161,7 +161,7 @@ public class OrbotService extends VpnService {
                 return Service.START_REDELIVER_INTENT;
             }
 
-            final boolean shouldStartVpnFromSystemIntent = !intent.getBooleanExtra(OrbotConstants.EXTRA_NOT_SYSTEM, false);
+            final boolean shouldStartVpnFromSystemIntent = !intent.getBooleanExtra(EXTRA_NOT_SYSTEM, false);
 
             if (mCurrentStatus.equals(STATUS_OFF))
                 showToolbarNotification(getString(R.string.open_orbot_to_connect_to_tor), NOTIFY_ID, R.drawable.ic_stat_tor);
@@ -791,7 +791,7 @@ public class OrbotService extends VpnService {
                     startTor();
                     replyWithStatus(mIntent);
                     if (Prefs.useVpn()) {
-                        if (mVpnManager != null && (!mVpnManager.isStarted())) { // start VPN here
+                        if (mVpnManager != null && !mVpnManager.isStarted()) { // start VPN here
                             Intent vpnIntent = VpnService.prepare(OrbotService.this);
                             if (vpnIntent == null) { //then we can run the VPN
                                 mVpnManager.handleIntent(new Builder(), mIntent);
