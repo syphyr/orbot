@@ -30,7 +30,6 @@ Torpe kan software kɵn mayaelai chi anwei kɵmɵ, incha chu puisrɵ, kape chu p
 
     <string name="log_notice_unable_to_update_onions">Ishik munchi meran asam kaik k​­ɵn</string>
     <string name="log_notice_updating_torrc">Torrcwan na isuikmai tamaramik</string>
-    <string name="log_notice_added_event_handler">Control portwan keerik pasramisran</string>
     <string name="log_notice_connected_to_tor_control_port">Control portwan kelitsik pasran</string>
 
 </resources>
