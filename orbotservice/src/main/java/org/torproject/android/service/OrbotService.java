@@ -371,8 +371,7 @@ public class OrbotService extends VpnService {
             try {
                 startTorService();
                 showTorServiceErrorMsg = true;
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 return e;
             }
 
@@ -381,8 +380,7 @@ public class OrbotService extends VpnService {
             if (e != null) {
                 logNotice(getString(R.string.unable_to_start_tor) + " " + e.getLocalizedMessage());
                 stopTorOnError(e.getLocalizedMessage());
-            }
-            else {
+            } else {
                 stopTorAsync(true);
             }
 
@@ -420,7 +418,6 @@ public class OrbotService extends VpnService {
                 """, false);
 
         var fileTorrcCustom = updateTorrcCustomFile();
-        assert fileTorrcCustom != null;
         if ((!fileTorrcCustom.exists()) || (!fileTorrcCustom.canRead())) return;
 
         sendCallbackLogMessage(getString(R.string.status_starting_up));
@@ -544,14 +541,9 @@ public class OrbotService extends VpnService {
             }
             sendCallbackPorts(mPortSOCKS, mPortHTTP, mPortDns, mPortTrans);
 
-        } catch (IOException e) {
+        } catch (IOException | NullPointerException e) {
             e.printStackTrace();
             stopTorOnError(e.getLocalizedMessage());
-            conn = null;
-        } catch (NullPointerException npe) {
-            Log.e(TAG, "NPE reached... how???");
-            npe.printStackTrace();
-            stopTorOnError("stopping from NPE");
             conn = null;
         }
     }
@@ -621,12 +613,10 @@ public class OrbotService extends VpnService {
     }
 
     public void setNotificationSubtext(String message) {
-        if (mNotifyBuilder != null) {
+        if (mNotifyBuilder != null)
             mNotifyBuilder.setSubText(message);
-        }
     }
 
-    @Override
     public IBinder onBind(Intent intent) {
         Log.d(TAG, "OrbotService: onBind");
         return super.onBind(intent); // invoking super class will call onRevoke() when appropriate
@@ -726,7 +716,7 @@ public class OrbotService extends VpnService {
                 }
                 case CMD_SET_EXIT -> setExitNode(mIntent.getStringExtra("exit"));
                 case ACTION_LOCAL_LOCALE_SET -> configLanguage();
-                    default -> Log.w(TAG, "unhandled OrbotService Intent: " + action);
+                default -> Log.w(TAG, "unhandled OrbotService Intent: " + action);
             }
         }
     }

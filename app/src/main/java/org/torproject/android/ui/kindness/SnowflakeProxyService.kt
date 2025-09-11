@@ -10,7 +10,6 @@ import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
-import android.net.VpnService
 import android.os.Build
 import android.os.IBinder
 import android.util.Log

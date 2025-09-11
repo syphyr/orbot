@@ -39,7 +39,6 @@ import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.AppManagerActivity
 import org.torproject.android.ui.OrbotMenuAction
-import org.torproject.android.ui.core.RequestScheduleExactAlarmDialogFragment
 
 class ConnectFragment : Fragment(),
     ExitNodeBottomSheet.ExitNodeSelectedCallback {

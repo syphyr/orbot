@@ -8,16 +8,14 @@ import android.os.Build
 import android.os.Bundle
 import android.provider.Settings
 import androidx.annotation.RequiresApi
-import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentActivity
-import org.torproject.android.R
 
 abstract class RequestScheduleExactAlarmDialogFragment : DialogFragment() {
     @RequiresApi(Build.VERSION_CODES.S)
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val builder = AlertDialog.Builder(requireActivity())
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
+        AlertDialog.Builder(requireActivity())
             .setTitle(getTitleId())
             .setMessage(getMessageId())
             .setNegativeButton(
@@ -31,14 +29,7 @@ abstract class RequestScheduleExactAlarmDialogFragment : DialogFragment() {
                 }
                 startActivity(intent)
                 dismiss()
-            }
-        if (getNeutralButtonId() != 0) {
-            builder.setNeutralButton(getNeutralButtonId()) { dialog, which ->
-                getNeutralAction()
-            }
-        }
-        return builder.create()
-    }
+            }.create()
 
     fun createTransactionAndShow(activity: FragmentActivity) {
         show(activity.supportFragmentManager, "RequestAlarmPermDialog")
@@ -49,8 +40,4 @@ abstract class RequestScheduleExactAlarmDialogFragment : DialogFragment() {
     protected abstract fun getMessageId(): Int
 
     protected open fun getPositiveButtonId() = android.R.string.ok
-
-    protected open fun getNeutralButtonId(): Int = 0
-    open fun getNeutralAction() {}
-
 }
