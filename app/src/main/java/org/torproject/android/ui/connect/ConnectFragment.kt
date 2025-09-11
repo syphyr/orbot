@@ -119,7 +119,6 @@ class ConnectFragment : Fragment(),
 
     private fun stopTorAndVpn() {
         requireContext().sendIntentToService(OrbotConstants.ACTION_STOP)
-        requireContext().sendIntentToService(OrbotConstants.ACTION_STOP_VPN)
         doLayoutOff()
     }
 
@@ -142,6 +141,7 @@ class ConnectFragment : Fragment(),
     fun startTorAndVpn() {
         val vpnIntent = VpnService.prepare(requireActivity())?.putNotSystem()
         if (vpnIntent != null && !Prefs.isPowerUserMode) {
+            // prompt VPN permission dialog
             startTorResultLauncher.launch(vpnIntent)
         } else { // either the vpn permission hasn't been granted or we are in power user mode
             Prefs.putUseVpn(!Prefs.isPowerUserMode)
@@ -155,21 +155,14 @@ class ConnectFragment : Fragment(),
                         requireActivity().supportFragmentManager,
                         "RequestAlarmPermDialog"
                     )
-                } else {
-                    binding.ivStatus.setImageResource(R.drawable.torstarting)
-                    with(binding.btnStart) {
-                        text = context.getString(android.R.string.cancel)
-                    }
-                    requireContext().sendIntentToService(OrbotConstants.ACTION_START)
+                    return // user can try again after granting permission
                 }
-            } else { // normal VPN mode, power user is disabled
-                binding.ivStatus.setImageResource(R.drawable.torstarting)
-                with(binding.btnStart) {
-                    text = context.getString(android.R.string.cancel)
-                }
-                requireContext().sendIntentToService(OrbotConstants.ACTION_START)
-                requireContext().sendIntentToService(OrbotConstants.ACTION_START_VPN)
             }
+            binding.ivStatus.setImageResource(R.drawable.torstarting)
+            with(binding.btnStart) {
+                text = context.getString(android.R.string.cancel)
+            }
+            requireContext().sendIntentToService(OrbotConstants.ACTION_START)
         }
     }
 

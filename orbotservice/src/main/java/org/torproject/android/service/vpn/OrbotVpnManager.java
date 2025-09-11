@@ -84,11 +84,11 @@ public class OrbotVpnManager implements Handler.Callback {
             var action = intent.getAction();
             if (action != null) {
                 switch (action) {
-                    case ACTION_START_VPN, ACTION_START -> {
+                    case ACTION_START -> {
                         Log.d(TAG, "starting VPN");
                         isStarted = true;
                     }
-                    case ACTION_STOP_VPN, ACTION_STOP -> {
+                    case ACTION_STOP -> {
                         isStarted = false;
                         Log.d(TAG, "stopping VPN");
                         stopVPN();

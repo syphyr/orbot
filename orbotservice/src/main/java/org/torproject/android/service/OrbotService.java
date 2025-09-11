@@ -174,7 +174,6 @@ public class OrbotService extends VpnService {
                     // via always-on VPN, we need to start it regardless.
                     Prefs.putUseVpn(true);
                     mExecutor.execute(new IncomingIntentRouter(new Intent(ACTION_START)));
-                    mExecutor.execute(new IncomingIntentRouter(new Intent(ACTION_START_VPN)));
                 } else {
                     Log.wtf(TAG, "Could not start VPN from system because it is not prepared, which should be impossible!");
                 }
@@ -738,9 +737,9 @@ public class OrbotService extends VpnService {
     @Override
     public void onRevoke() {
         Prefs.putUseVpn(false);
-        mVpnManager.handleIntent(new Builder(), new Intent(ACTION_STOP_VPN));
+        mVpnManager.handleIntent(new Builder(), new Intent(ACTION_STOP));
         // tell UI, if it's open, to update immediately (don't wait for onResume() in Activity...)
-        LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(ACTION_STOP_VPN));
+        LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(ACTION_STOP));
     }
 
     private void setExitNode(String newExits) {
@@ -789,7 +788,6 @@ public class OrbotService extends VpnService {
                 case ACTION_START -> {
                     var transport = Prefs.getTransport();
                     transport.start(OrbotService.this);
-
                     startTor();
                     replyWithStatus(mIntent);
                     if (Prefs.useVpn()) {
@@ -808,26 +806,11 @@ public class OrbotService extends VpnService {
                     var userIsQuittingOrbot = mIntent.getBooleanExtra(ACTION_STOP_FOREGROUND_TASK, false);
                     // When user cancels connecting, make sure, the SmartConnect timer is also cancelled.
                     SmartConnect.cancel();
+                    if (mVpnManager != null) mVpnManager.handleIntent(new Builder(), mIntent);
                     stopTorAsync(!userIsQuittingOrbot);
                 }
                 case ACTION_UPDATE_ONION_NAMES -> updateV3OnionNames();
                 case ACTION_STOP_FOREGROUND_TASK -> stopForeground(true);
-                case ACTION_START_VPN -> {
-                    if (mVpnManager != null && (!mVpnManager.isStarted())) {
-                        //start VPN here
-                        var vpnIntent = VpnService.prepare(OrbotService.this);
-                        if (vpnIntent == null) { //then we can run the VPN
-                            mVpnManager.handleIntent(new Builder(), mIntent);
-                        }
-                    }
-                    if (mPortSOCKS != -1 && mPortHTTP != -1)
-                        sendCallbackPorts(mPortSOCKS, mPortHTTP, mPortDns, mPortTrans);
-                }
-                case ACTION_STOP_VPN -> {
-                    // When user cancels connecting, make sure, the SmartConnect timer is also cancelled.
-                    SmartConnect.cancel();
-                    if (mVpnManager != null) mVpnManager.handleIntent(new Builder(), mIntent);
-                }
                 case ACTION_RESTART_VPN -> {
                     if (mVpnManager != null) mVpnManager.restartVPN(new Builder());
                 }

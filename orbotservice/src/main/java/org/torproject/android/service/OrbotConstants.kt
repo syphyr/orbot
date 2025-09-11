@@ -28,7 +28,6 @@ object OrbotConstants {
     const val PREF_DISABLE_IPV4 = "pref_disable_ipv4"
 
     const val APP_TOR_KEY = "_app_tor"
-    const val APP_DATA_KEY = "_app_data"
 
     const val DIRECTORY_TOR_DATA = "tordata"
 
@@ -55,8 +54,6 @@ object OrbotConstants {
     // needed when Orbot exits and tor is not running, but the notification is still active
     const val ACTION_STOP_FOREGROUND_TASK = "org.torproject.android.intent.action.STOP_FOREGROUND_TASK"
 
-    const val ACTION_START_VPN = "org.torproject.android.intent.action.START_VPN"
-    const val ACTION_STOP_VPN = "org.torproject.android.intent.action.STOP_VPN"
     const val ACTION_RESTART_VPN = "org.torproject.android.intent.action.RESTART_VPN"
 
     const val ACTION_LOCAL_LOCALE_SET = "org.torproject.android.intent.LOCAL_LOCALE_SET"
