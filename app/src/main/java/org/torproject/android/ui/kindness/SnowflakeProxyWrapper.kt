@@ -1,4 +1,4 @@
-package org.torproject.android.service.circumvention
+package org.torproject.android.ui.kindness
 
 import IPtProxy.SnowflakeClientConnected
 import IPtProxy.SnowflakeProxy
@@ -11,11 +11,15 @@ import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotConstants.ONION_EMOJI
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.R
+import org.torproject.android.service.circumvention.BuiltInBridges
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.service.util.showToast
 import java.security.SecureRandom
 import kotlin.random.Random
 
+/**
+ * Manages configuration, state and static methods of Snowflake Proxy via ipt-proxy
+ */
 class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
 
     private var proxy: SnowflakeProxy? = null
@@ -42,7 +46,7 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
                 releaseMappedPorts()
             }
 
-            val stunServers = BuiltInBridges.getInstance(service)?.snowflake?.firstOrNull()?.ice
+            val stunServers = BuiltInBridges.Companion.getInstance(service)?.snowflake?.firstOrNull()?.ice
                 ?.split(",".toRegex())?.dropLastWhile { it.isEmpty() }?.toTypedArray() ?: emptyArray()
             val stunUrl = stunServers[SecureRandom().nextInt(stunServers.size)]
 

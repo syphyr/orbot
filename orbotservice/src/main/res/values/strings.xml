@@ -31,13 +31,5 @@
     <string name="log_notice_added_event_handler">Added control port event handler</string>
     <string name="log_notice_connected_to_tor_control_port">Connected to tor control port</string>
 
-    <string name="kindness_mode">Kindness Mode</string>
-    <string name="kindness_mode_is_running">Kindness Mode is Running</string>
-    <string name="kindness_mode_active_message" formatted="true">You\'ve helped %1$d people circumvent censorship</string>
-    <string name="kindness_mode_disabled">Kindness Mode is Deactivated</string>
-    <string name="kindness_mode_starting">Starting…</string>
-    <string name="kindness_mode_disabled_internet">Connect to the Internet to help people circumvent censorship</string>
-    <string name="kindness_mode_disabled_wifi">Connect to Wi-Fi to help people circumvent censorship</string>
-    <string name="kindness_mode_disabled_power">Connect your device to power to help people circumvent censorship</string>
 </resources>
 

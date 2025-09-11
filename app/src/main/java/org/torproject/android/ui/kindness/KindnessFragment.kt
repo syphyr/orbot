@@ -1,6 +1,5 @@
 package org.torproject.android.ui.kindness
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,7 +10,6 @@ import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
 import org.torproject.android.ui.connect.CustomBridgeBottomSheet
 import org.torproject.android.R
-import org.torproject.android.service.circumvention.SnowflakeProxyService
 import org.torproject.android.service.util.Prefs
 
 class KindnessFragment : Fragment() {

@@ -1,4 +1,4 @@
-package org.torproject.android.service.circumvention
+package org.torproject.android.ui.kindness
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -11,13 +11,11 @@ import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
 import android.os.Build
-import android.os.Bundle
 import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
-import org.torproject.android.service.R
-import org.torproject.android.service.receivers.PowerConnectionReceiver
+import org.torproject.android.R
 import org.torproject.android.service.util.Prefs
 
 class SnowflakeProxyService : Service() {
@@ -58,13 +56,20 @@ class SnowflakeProxyService : Service() {
             if (snowflakeProxyWrapper.isProxyRunning()) getString(R.string.kindness_mode_is_running)
             else getString(R.string.kindness_mode_disabled)
 
+        var icon = R.drawable.snowflake_on
+        if (!snowflakeProxyWrapper.isProxyRunning()) {
+            icon = if (contentText == getString(R.string.kindness_mode_starting))
+                R.drawable.snowflake_starting
+            else R.drawable.snowflake_off
+        }
+
         val activityIntent =
             packageManager.getLaunchIntentForPackage(packageName)
         val pendingActivityIntent =
             PendingIntent.getActivity(this, 0, activityIntent, PendingIntent.FLAG_IMMUTABLE)
         val notificationBuilder = NotificationCompat.Builder(this, notificationChannelId)
-            .setSmallIcon(R.drawable.ic_stat_tor)
-            .setPriority(NotificationCompat.PRIORITY_MAX)
+            .setSmallIcon(icon)
+            .setPriority(NotificationCompat.PRIORITY_LOW)
             .setCategory(NotificationCompat.CATEGORY_SERVICE)
             .setContentTitle(title)
             .setContentIntent(pendingActivityIntent)
@@ -110,7 +115,7 @@ class SnowflakeProxyService : Service() {
             return ""
         val channel = NotificationChannel(
             CHANNEL_ID,
-            getString(R.string.kindness_mode),
+            getString(R.string.volunteer_mode),
             NotificationManager.IMPORTANCE_LOW
         )
         val service = getSystemService(NOTIFICATION_SERVICE) as NotificationManager

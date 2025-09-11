@@ -118,7 +118,7 @@
             </intent-filter>
         </receiver>
 
-        <service android:name=".service.circumvention.SnowflakeProxyService"
+        <service android:name=".ui.kindness.SnowflakeProxyService"
             android:enabled="true"
             android:foregroundServiceType="remoteMessaging"
             android:stopWithTask="false"/>

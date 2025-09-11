@@ -1,9 +1,8 @@
-package org.torproject.android.service.receivers
+package org.torproject.android.ui.kindness
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
-import org.torproject.android.service.circumvention.SnowflakeProxyService
 
 class PowerConnectionReceiver(private val snowflakeProxyService: SnowflakeProxyService) :
     BroadcastReceiver() {

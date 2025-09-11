@@ -34,9 +34,8 @@ import com.scottyab.rootbeer.RootBeer
 import org.torproject.android.service.util.sendIntentToService
 import org.torproject.android.ui.core.BaseActivity
 import org.torproject.android.service.OrbotConstants
-import org.torproject.android.service.circumvention.SnowflakeProxyService
+import org.torproject.android.ui.kindness.SnowflakeProxyService
 import org.torproject.android.service.util.Prefs
-import org.torproject.android.service.util.canStartForegroundServices
 import org.torproject.android.service.util.showToast
 import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.android.ui.connect.ConnectViewModel
