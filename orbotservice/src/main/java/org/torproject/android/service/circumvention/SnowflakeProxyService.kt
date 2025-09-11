@@ -6,6 +6,7 @@ import android.app.Service
 import android.content.Intent
 import android.content.IntentFilter
 import android.net.ConnectivityManager
+import android.net.Network
 import android.net.NetworkCapabilities
 import android.os.Build
 import android.os.IBinder
@@ -20,7 +21,8 @@ class SnowflakeProxyService : Service() {
 
     private lateinit var snowflakeProxyWrapper: SnowflakeProxyWrapper
     private lateinit var powerConnectionReceiver: PowerConnectionReceiver
-    private lateinit var snowflakeNetworkCallbacks: SnowflakeNetworkCallbacks
+
+    private lateinit var networkCallbacks: ConnectivityManager.NetworkCallback
 
     override fun onBind(intent: Intent?): IBinder? {
         Log.d(TAG, "onBind: $intent")
@@ -34,11 +36,8 @@ class SnowflakeProxyService : Service() {
         val powerReceiverFilters = IntentFilter(Intent.ACTION_POWER_CONNECTED)
         powerReceiverFilters.addAction(Intent.ACTION_POWER_DISCONNECTED)
         registerReceiver(powerConnectionReceiver, powerReceiverFilters)
-        snowflakeNetworkCallbacks = SnowflakeNetworkCallbacks(this)
-        val connectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
-        connectivityManager.registerDefaultNetworkCallback(snowflakeNetworkCallbacks)
+        initNetworkCallbacks()
         startForeground()
-        startSnowflakeProxy("initializing in onCreate()")
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -63,6 +62,29 @@ class SnowflakeProxyService : Service() {
             .build()
 
         startForeground(NOTIFICATION_ID, notification)
+    }
+
+    private fun initNetworkCallbacks() {
+        val connectivityManager =
+            getSystemService(ConnectivityManager::class.java) as ConnectivityManager
+
+        networkCallbacks = object : ConnectivityManager.NetworkCallback() {
+            override fun onLost(network: Network) {
+                stopSnowflakeProxy("lost network (limit wifi=${Prefs.limitSnowflakeProxyingWifi()}")
+            }
+
+            override fun onAvailable(network: Network) {
+                val capabilities = connectivityManager.getNetworkCapabilities(network)
+                val hasWifi = capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true
+                if (Prefs.limitSnowflakeProxyingWifi() && !hasWifi) {
+                    stopSnowflakeProxy("required wifi condition not met")
+                } else {
+                    startSnowflakeProxy("got network (wifi=${hasWifi}, limit wifi=${Prefs.limitSnowflakeProxyingWifi()}")
+                }
+            }
+        }
+
+        connectivityManager.registerDefaultNetworkCallback(networkCallbacks)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -99,38 +121,8 @@ class SnowflakeProxyService : Service() {
         super.onDestroy()
         unregisterReceiver(powerConnectionReceiver)
         val connectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
-        connectivityManager.unregisterNetworkCallback(snowflakeNetworkCallbacks)
+        connectivityManager.unregisterNetworkCallback(networkCallbacks)
         stopSnowflakeProxy("in onDestroy()")
-    }
-
-    fun onNetworkEvent() {
-        val connectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
-        if (connectivityManager.activeNetwork == null) {
-            stopSnowflakeProxy("no active network, stopping")
-        } else {
-            if (!Prefs.limitSnowflakeProxyingWifi()) {
-                if (snowflakeProxyWrapper.isProxyRunning()) return
-                // we're online, and we don't care if it's wifi, so start it up
-                startSnowflakeProxy("got an active network")
-                return
-            } else {
-                var hasWifi: Boolean
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                    val capabilities =
-                        connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)
-                    hasWifi =
-                        capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) ?: false
-                } else {
-                    hasWifi =
-                        connectivityManager.activeNetworkInfo?.type == ConnectivityManager.TYPE_WIFI
-                }
-                if (hasWifi)
-                    startSnowflakeProxy("got onto metered network")
-                else
-                    stopSnowflakeProxy("metered network lost")
-            }
-
-        }
     }
 
     companion object {
