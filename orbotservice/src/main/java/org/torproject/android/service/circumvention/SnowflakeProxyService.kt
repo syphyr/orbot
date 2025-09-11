@@ -2,6 +2,7 @@ package org.torproject.android.service.circumvention
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.app.Service
 import android.content.Context
 import android.content.Intent
@@ -10,9 +11,9 @@ import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
 import android.os.Build
+import android.os.Bundle
 import android.os.IBinder
 import android.util.Log
-import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import org.torproject.android.service.R
@@ -23,6 +24,7 @@ class SnowflakeProxyService : Service() {
 
     private lateinit var snowflakeProxyWrapper: SnowflakeProxyWrapper
     private lateinit var powerConnectionReceiver: PowerConnectionReceiver
+    private lateinit var notificationChannelId: String
 
     private lateinit var networkCallbacks: ConnectivityManager.NetworkCallback
 
@@ -39,7 +41,8 @@ class SnowflakeProxyService : Service() {
         powerReceiverFilters.addAction(Intent.ACTION_POWER_DISCONNECTED)
         registerReceiver(powerConnectionReceiver, powerReceiverFilters)
         initNetworkCallbacks()
-        startForeground()
+        notificationChannelId = createNotificationChannel()
+        refreshNotification(getString(R.string.kindness_mode_starting))
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -50,20 +53,31 @@ class SnowflakeProxyService : Service() {
         return START_STICKY
     }
 
-    private fun startForeground() {
-        val channelId = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            createNotificationChannel()
-        } else ""
+    fun refreshNotification(contentText: String? = null) {
+        val title =
+            if (snowflakeProxyWrapper.isProxyRunning()) getString(R.string.kindness_mode_is_running)
+            else getString(R.string.kindness_mode_disabled)
 
-        val notification = NotificationCompat.Builder(this, channelId)
+        val activityIntent =
+            packageManager.getLaunchIntentForPackage(packageName)
+        val pendingActivityIntent =
+            PendingIntent.getActivity(this, 0, activityIntent, PendingIntent.FLAG_IMMUTABLE)
+        val notificationBuilder = NotificationCompat.Builder(this, notificationChannelId)
             .setSmallIcon(R.drawable.ic_stat_tor)
-            .setPriority(NotificationCompat.PRIORITY_HIGH)
+            .setPriority(NotificationCompat.PRIORITY_MAX)
             .setCategory(NotificationCompat.CATEGORY_SERVICE)
-            .setContentTitle("Snowflake Proxy Service")
-            .setSubText("Test...")
-            .build()
-
-        startForeground(NOTIFICATION_ID, notification)
+            .setContentTitle(title)
+            .setContentIntent(pendingActivityIntent)
+            .setContentText(
+                contentText ?: getString(
+                    R.string.kindness_mode_active_message,
+                    Prefs.snowflakesServed
+                )
+            )
+        // .setSubText("Shown on third line of notification...")
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
+            notificationBuilder.setForegroundServiceBehavior(NotificationCompat.FOREGROUND_SERVICE_IMMEDIATE)
+        startForeground(NOTIFICATION_ID, notificationBuilder.build())
     }
 
     private fun initNetworkCallbacks() {
@@ -72,6 +86,7 @@ class SnowflakeProxyService : Service() {
 
         networkCallbacks = object : ConnectivityManager.NetworkCallback() {
             override fun onLost(network: Network) {
+                refreshNotification(getString(R.string.kindness_mode_disabled_internet))
                 stopSnowflakeProxy("lost network (limit wifi=${Prefs.limitSnowflakeProxyingWifi()}")
             }
 
@@ -79,6 +94,7 @@ class SnowflakeProxyService : Service() {
                 val capabilities = connectivityManager.getNetworkCapabilities(network)
                 val hasWifi = capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true
                 if (Prefs.limitSnowflakeProxyingWifi() && !hasWifi) {
+                    refreshNotification(getString(R.string.kindness_mode_disabled_wifi))
                     stopSnowflakeProxy("required wifi condition not met")
                 } else {
                     startSnowflakeProxy("got network (wifi=${hasWifi}, limit wifi=${Prefs.limitSnowflakeProxyingWifi()}")
@@ -89,12 +105,13 @@ class SnowflakeProxyService : Service() {
         connectivityManager.registerDefaultNetworkCallback(networkCallbacks)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     private fun createNotificationChannel(): String {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
+            return ""
         val channel = NotificationChannel(
             CHANNEL_ID,
-            "Snowflake Service",
-            NotificationManager.IMPORTANCE_HIGH
+            getString(R.string.kindness_mode),
+            NotificationManager.IMPORTANCE_LOW
         )
         val service = getSystemService(NOTIFICATION_SERVICE) as NotificationManager
         service.createNotificationChannel(channel)
@@ -104,7 +121,7 @@ class SnowflakeProxyService : Service() {
 
     private fun startSnowflakeProxy(logReason: String? = null) {
         Log.d(TAG, "Starting snowflake proxy - $logReason")
-        snowflakeProxyWrapper.enableProxy(hasWifi = true)
+        snowflakeProxyWrapper.enableProxy()
     }
 
     private fun stopSnowflakeProxy(logMessage: String? = null) {
@@ -115,7 +132,10 @@ class SnowflakeProxyService : Service() {
     fun powerConnectedCallback(isPowerConnected: Boolean) {
         if (!Prefs.limitSnowflakeProxyingCharging()) return
         if (isPowerConnected) startSnowflakeProxy("power connected")
-        else stopSnowflakeProxy("power disconnected")
+        else {
+            refreshNotification(getString(R.string.kindness_mode_disabled_power))
+            stopSnowflakeProxy("power disconnected")
+        }
     }
 
     override fun onDestroy() {
@@ -127,7 +147,7 @@ class SnowflakeProxyService : Service() {
     }
 
     companion object {
-        const val TAG = "GoLog"//"SnowflakeProxyService"
+        const val TAG = "SnowflakeProxyService" // "GoLog"
         private const val NOTIFICATION_ID = 103
         private const val CHANNEL_ID = "snowflake"
         private const val ACTION_STOP_SNOWFLAKE_SERVICE = "ACTION_STOP_SNOWFLAKE_SERVICE"
@@ -136,7 +156,10 @@ class SnowflakeProxyService : Service() {
 
         // start this service, but not necessarily snowflake proxy from the app UI
         fun startSnowflakeProxyForegroundService(context: Context) {
-            ContextCompat.startForegroundService(context, getIntent(context))
+            ContextCompat.startForegroundService(
+                context,
+                getIntent(context)
+            )
         }
 
         // stop this service, and snowflake proxy if its running, from the app UI
@@ -147,7 +170,6 @@ class SnowflakeProxyService : Service() {
                 getIntent(context).setAction(ACTION_STOP_SNOWFLAKE_SERVICE)
             )
         }
-
 
     }
 }

@@ -8,15 +8,11 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.widget.SwitchCompat
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import org.torproject.android.ui.connect.CustomBridgeBottomSheet
 import org.torproject.android.R
-import org.torproject.android.service.util.sendIntentToService
-import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.SnowflakeProxyService
 import org.torproject.android.service.util.Prefs
-import org.torproject.android.service.util.canStartForegroundServices
 
 class KindnessFragment : Fragment() {
 
@@ -59,13 +55,7 @@ class KindnessFragment : Fragment() {
         }
 
         btnActionActivate.setOnClickListener {
-            activity?.let {
-                if (it.canStartForegroundServices())
-                    swVolunteerMode.isChecked = true
-                else {
-                    KindnessModeForegroundPermissionDialog().createTransactionAndShow(it)
-                }
-            }
+            swVolunteerMode.isChecked = true
         }
 
         showPanelStatus(Prefs.beSnowflakeProxy())

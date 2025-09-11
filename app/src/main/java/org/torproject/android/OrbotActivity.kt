@@ -90,10 +90,6 @@ class OrbotActivity : BaseActivity() {
             intent = null
             finish()
         }
-
-        if (Prefs.beSnowflakeProxy())
-            SnowflakeProxyService.startSnowflakeProxyForegroundService(this)
-
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -252,11 +248,9 @@ class OrbotActivity : BaseActivity() {
     override fun onResume() {
         super.onResume()
         sendIntentToService(OrbotConstants.CMD_ACTIVE)
-        // turn off snowflake proxy if on API 34 and you no longer have 
-        // the right permissions to be a foreground service....
-        if (Prefs.beSnowflakeProxy() && !canStartForegroundServices()) {
-            Prefs.setBeSnowflakeProxy(false)
-        }
+        if (Prefs.beSnowflakeProxy())
+            SnowflakeProxyService.startSnowflakeProxyForegroundService(this)
+
     }
 
     override fun onDestroy() {

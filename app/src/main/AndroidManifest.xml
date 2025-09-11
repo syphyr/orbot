@@ -19,7 +19,7 @@
 
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SYSTEM_EXEMPTED" />
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
-    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_REMOTE_MESSAGING"/>
 
 
     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
@@ -120,7 +120,7 @@
 
         <service android:name=".service.circumvention.SnowflakeProxyService"
             android:enabled="true"
-            android:foregroundServiceType="specialUse"
+            android:foregroundServiceType="remoteMessaging"
             android:stopWithTask="false"/>
 
 

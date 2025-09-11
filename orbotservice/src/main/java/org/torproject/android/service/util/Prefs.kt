@@ -127,7 +127,7 @@ object Prefs {
         return prefs?.getBoolean(PREF_BE_A_SNOWFLAKE, false) ?: false
     }
 
-    fun showSnowflakeProxyMessage(): Boolean {
+    fun showSnowflakeProxyToast(): Boolean {
         return prefs?.getBoolean(PREF_SHOW_SNOWFLAKE_MSG, false) ?: false
     }
 
