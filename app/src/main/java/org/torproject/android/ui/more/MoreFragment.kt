@@ -139,7 +139,6 @@ class MoreFragment : Fragment() {
             requireActivity(), OrbotService::class.java
         ).setAction(OrbotConstants.ACTION_STOP)
             .putExtra(OrbotConstants.ACTION_STOP_FOREGROUND_TASK, true)
-        requireContext().sendIntentToService(OrbotConstants.ACTION_STOP_VPN)
         requireContext().sendIntentToService(killIntent)
         requireActivity().finish()
     }

@@ -39,7 +39,6 @@ import org.pcap4j.packet.IpSelector;
 import org.pcap4j.packet.UdpPacket;
 import org.pcap4j.packet.namednumber.IpNumber;
 import org.pcap4j.packet.namednumber.UdpPort;
-import org.torproject.android.service.OrbotConstants;
 import org.torproject.android.service.OrbotService;
 import org.torproject.android.service.ui.Notifications;
 import org.torproject.android.service.util.Prefs;
@@ -80,38 +79,33 @@ public class OrbotVpnManager implements Handler.Callback {
     }
 
     public void handleIntent(VpnService.Builder builder, Intent intent) {
-        if (intent != null) {
-            var action = intent.getAction();
-            if (action != null) {
-                switch (action) {
-                    case ACTION_START_VPN, ACTION_START -> {
-                        Log.d(TAG, "starting VPN");
-                        isStarted = true;
-                    }
-                    case ACTION_STOP_VPN, ACTION_STOP -> {
-                        isStarted = false;
-                        Log.d(TAG, "stopping VPN");
-                        stopVPN();
+        if (intent == null) return;
+        var action = intent.getAction();
+        if (action == null) return;
+        switch (action) {
+            case ACTION_START -> {
+                Log.d(TAG, "starting VPN");
+                isStarted = true;
+            }
+            case ACTION_STOP -> {
+                isStarted = false;
+                Log.d(TAG, "stopping VPN");
+                stopVPN();
 
-                        //reset ports
-                        mTorSocks = -1;
-                        mTorDns = -1;
-                    }
-                    case OrbotConstants.LOCAL_ACTION_PORTS -> {
-                        Log.d(TAG, "setting VPN ports");
-                        int torSocks = intent.getIntExtra(OrbotConstants.EXTRA_SOCKS_PROXY_PORT, -1);
-//                    int torHttp = intent.getIntExtra(OrbotService.EXTRA_HTTP_PROXY_PORT,-1);
-                        int torDns = intent.getIntExtra(OrbotConstants.EXTRA_DNS_PORT, -1);
+                //reset ports
+                mTorSocks = -1;
+                mTorDns = -1;
+            }
+            case LOCAL_ACTION_PORTS -> {
+                Log.d(TAG, "setting VPN ports");
+                int torSocks = intent.getIntExtra(EXTRA_SOCKS_PROXY_PORT, -1);
+                int torDns = intent.getIntExtra(EXTRA_DNS_PORT, -1);
 
-                        //if running, we need to restart
-                        if ((torSocks != -1 && torSocks != mTorSocks && torDns != -1 && torDns != mTorDns)) {
-
-                            mTorSocks = torSocks;
-                            mTorDns = torDns;
-
-                            setupTun2Socks(builder);
-                        }
-                    }
+                //if running, we need to restart
+                if ((torSocks != -1 && torSocks != mTorSocks && torDns != -1 && torDns != mTorDns)) {
+                    mTorSocks = torSocks;
+                    mTorDns = torDns;
+                    setupTun2Socks(builder);
                 }
             }
         }
@@ -167,7 +161,7 @@ public class OrbotVpnManager implements Handler.Callback {
             builder.addAddress(virtualGateway, 24)
                     .addRoute(defaultRoute, 0)
                     .addRoute(FAKE_DNS, 32)
-                     .addDnsServer(FAKE_DNS) //just setting a value here so DNS is captured by TUN interface
+                    .addDnsServer(FAKE_DNS) //just setting a value here so DNS is captured by TUN interface
                     .setSession(Notifications.getVpnSessionName(mService));
 
             //handle ipv6
@@ -193,9 +187,7 @@ public class OrbotVpnManager implements Handler.Callback {
 
             }
 
-            builder
-                    .setConfigureIntent(null) // previously this was set to a null member variable
-                    .setBlocking(true);
+            builder.setBlocking(true);
 
             mInterface = builder.establish();
             mDnsResolver = new DNSResolver(mTorDns);
@@ -286,7 +278,7 @@ public class OrbotVpnManager implements Handler.Callback {
 
         for (TorifiedApp app : apps) {
             if (app.isTorified() && (!app.getPackageName().equals(mService.getPackageName()))) {
-                if (prefs.getBoolean(app.getPackageName() + OrbotConstants.APP_TOR_KEY, true)) {
+                if (prefs.getBoolean(app.getPackageName() + APP_TOR_KEY, true)) {
                     builder.addAllowedApplication(app.getPackageName());
                 }
                 individualAppsWereSelected = true;
@@ -307,7 +299,7 @@ public class OrbotVpnManager implements Handler.Callback {
             builder.addDisallowedApplication(mService.getPackageName());
 
             // disallow tor apps to avoid tor over tor, Orbot doesnt need to concern itself with them
-            for (String packageName : OrbotConstants.BYPASS_VPN_PACKAGES)
+            for (String packageName : BYPASS_VPN_PACKAGES)
                 builder.addDisallowedApplication(packageName);
         }
     }
