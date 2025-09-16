@@ -21,5 +21,4 @@ rootProject.name = "Orbot"
 include(
     ":app",
     ":OrbotLib",
-    ":orbotservice"
 )
