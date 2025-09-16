@@ -59,8 +59,6 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.localbroadcast)
     implementation(libs.androidx.work)
-    implementation(libs.pcap.core)
-    implementation(libs.pcap.factory)
     implementation(files("../libs/geoip.jar"))
     implementation(libs.androidx.core.ktx)
     implementation(libs.kotlinx.serialization.json)

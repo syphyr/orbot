@@ -145,7 +145,11 @@ dependencies {
     implementation(libs.appiconnamechanger)
     implementation(libs.androidx.work.kotlin)
     implementation(libs.upnp)
-    
+    implementation(libs.pcap.core)
+    implementation(libs.pcap.factory)
+    api(libs.guardian.jtorctl)
+
+
 
     testImplementation(libs.junit.jupiter)
     androidTestImplementation(libs.androidx.junit)
@@ -154,6 +158,7 @@ dependencies {
     androidTestImplementation(libs.androidx.runner)
     androidTestImplementation(libs.screengrab)
     androidTestUtil(libs.androidx.orchestrator)
+
 
 }
 

@@ -13,6 +13,7 @@ import kotlinx.serialization.Transient
 import org.torproject.android.service.OrbotConstants
 
 import java.text.Normalizer
+import kotlin.text.contains
 
 @Serializable
 class TorifiedApp : Comparable<TorifiedApp> {
