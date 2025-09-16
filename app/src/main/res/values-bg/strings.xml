@@ -8,17 +8,9 @@
     <string name="main_layout_download">Получено</string>
     <string name="main_layout_upload">Изпратено</string>
     <string name="menu_exit">Изход</string>
-    <!--Welcome Wizard strings (DJH)-->
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Общи</string>
     <string name="pref_start_boot_title">Старт на Orbot при включване на устройството</string>
     <string name="pref_start_boot_summary">Автоматично стартира Orbot и се свързва към Тор, когато устройство стартира</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Настройки на възела</string>
     <string name="pref_node_configuration_summary">Допълнителни настройки, които могат да намалят анонимността ви</string>
     <string name="pref_entrance_node">Входни възли</string>
@@ -245,4 +237,12 @@
     <string name="built_in_bridges_obfs4_subtitle">Маскира трафик. Заобикаля някои ограничения на Tor. Добър вариант ако използвате отворена безжична мрежа и Tor не е ограничен в страната.</string>
     <string name="scan_qr_code">Сканиране на кода за QR</string>
     <string name="camo_samsung_instructions">На вашия Самсунг Галакси известието в режим Камуфлаж ще работи само ако отворите Настройки → Известия → Разширени настройки и изключите „Показване пиктограмата на приложението в известията“. Докоснете, за да отворите настройките на известията.</string>
+    <string name="status_starting_up">Орбот стартира…</string>
+    <string name="status_activated">Свързан към Тор мрежата</string>
+    <string name="status_disabled">Орбот е деактивиран</string>
+    <string name="status_shutting_down">TorService спира</string>
+    <string name="couldn_t_start_tor_process_">Неуспешно стартиране на Тор процес: </string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Твоята ReachableAddresses настройка предизвика грешка!</string>
+    <string name="unable_to_start_tor">Не може да стартира Тор:</string>
+    <string name="updating_settings_in_tor_service">обновяване на настройките в Tor услугата</string>
 </resources>

@@ -8,17 +8,9 @@
     <string name="main_layout_download">Nedlasting</string>
     <string name="main_layout_upload">Opplasting</string>
     <string name="menu_exit">Avslutt</string>
-    <!--Welcome Wizard strings (DJH)-->
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Generelt</string>
     <string name="pref_start_boot_title">Start Orbot ved oppstart</string>
     <string name="pref_start_boot_summary">Start Orbot automatisk, og koble til Tor når din Android-enhet starter opp</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Node-oppsett</string>
     <string name="pref_node_configuration_summary">Dette er avanserte innstillinger som kan redusere din anonymitet</string>
     <string name="pref_entrance_node">Inngangsnoder</string>
@@ -206,4 +198,14 @@
 \npå grunn av deg.</string>
     <string name="many_ways">Det finnes mange måter å nå Tor på. Noen fungerer kanskje bedre enn andre for deg.</string>
     <string name="v3_key_hash">x25519 Privat nøkkel i Base32</string>
+    <string name="status_starting_up">Orbot starter…</string>
+    <string name="status_activated">Koblet til Tor-nettverket</string>
+    <string name="status_disabled">Orbot er deaktivert</string>
+    <string name="couldn_t_start_tor_process_">Kunne ikke starte Tor prosessen:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Dine \"adresser som kan nås\"-innstillinger forårsaket et unntak!</string>
+    <string name="unable_to_start_tor">Klarte ikke å starte Tor:</string>
+    <string name="updating_settings_in_tor_service">Oppdaterer innstillinger i Tor service</string>
+    <string name="mebibyte_per_second">MiB/s</string>
+    <string name="kibibyte_per_second">KiB/s</string>
+
 </resources>

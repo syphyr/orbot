@@ -252,4 +252,14 @@
     <string name="enter_bridge_address">أدخل عنوان الجسر</string>
     <string name="scan_qr_code">امسح رمز QR</string>
     <string name="camo_samsung_instructions">على جهاز Samsung Galaxy الخاص بك، لن تعمل إشعارات وضع التنكر إلا بفتح الإعدادات -&gt; الإشعارات -&gt; الإعدادات المتقدمة وتعطيل \"إظهار أيقونة التطبيق في الإشعارات\". انقر هنا لفتح إعدادات الإشعارات.</string>
+
+    <string name="status_starting_up">جاري تشغيل اوربوت…</string>
+    <string name="status_activated">متصل بشبكة تور</string>
+    <string name="status_disabled">تم إيقاف اوربوت</string>
+    <string name="status_shutting_down">جاري ايقاف خدمة تور</string>
+    <string name="couldn_t_start_tor_process_">لقد تعذر بدء تشغيل تور:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">إعدادات العنوان القابل للاتصال لديك تسببت بخطأ!</string>
+    <string name="unable_to_start_tor">غير قادر على بدء تور:</string>
+    <string name="updating_settings_in_tor_service">تحديث الاعدادات في خدمات تور</string>
+
 </resources>

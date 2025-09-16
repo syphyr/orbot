@@ -8,18 +8,10 @@
     <string name="main_layout_download">İndir</string>
     <string name="main_layout_upload">Yükle</string>
     <string name="menu_exit">Çıkış</string>
-    <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot; Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, LibEvent yapılarını kapsayan açık kaynaklı bir uygulamadır. Tor ağına bağlanmak için bir yerel HTTP vekil sunucu (sadece 8118 portunu kullanır) ve bir SOCKS vekil sunucu (9050) sağlar.</string>
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Genel</string>
     <string name="pref_start_boot_title">Orbot Açılışta Başlatılsın</string>
     <string name="pref_start_boot_summary">Android aygıtınızı açtığınızda Orbot otomatik olarak başlatılarak Tor ağına bağlanılır</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Düğüm Ayarları</string>
     <string name="pref_node_configuration_summary">Bu gelişmiş ayarlar bağlantınızın anonimliğinizi azaltabilir</string>
     <string name="pref_entrance_node">Giriş Düğümleri</string>
@@ -209,4 +201,15 @@
     <string name="pref_detect_root_title">Root Algılama</string>
     <string name="pref_detect_root_summary">Bu aygıtta root izinleri etkinleştirilmişse başlangıçta uyar</string>
     <string name="system_vpn_settings">Android VPN Ayarları</string>
+
+    <string name="status_starting_up">Orbot başlatılıyor…</string>
+    <string name="status_activated">Tor ağına bağlandı</string>
+    <string name="status_disabled">Orbot devre dışı bırakıldı</string>
+    <string name="status_shutting_down">Tor hizmeti kapatılıyor</string>
+    <string name="couldn_t_start_tor_process_">Tor işlemi başlatılamadı</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">ErişilebilirAdresleriniz ayarlarınız bir istisnaya yol açtı!</string>
+    <string name="unable_to_start_tor">Tor başlatılamadı:</string>
+    <string name="updating_settings_in_tor_service">Tor hizmet ayarları güncellemesi</string>
+    <string name="mebibyte_per_second">MiB/s</string>
+    <string name="kibibyte_per_second">KiB/s</string>
 </resources>

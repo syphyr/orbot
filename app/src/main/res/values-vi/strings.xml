@@ -13,12 +13,6 @@
     <string name="pref_general_group">Tổng quan</string>
     <string name="pref_start_boot_title">Khởi chạy Orbot khi khởi động hệ thống</string>
     <string name="pref_start_boot_summary">Tự khởi động Orbot và kết nối vào mạng Tor sau khi thiết bị Android của bạn khởi động</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Cấu hình nút giao mạng</string>
     <string name="pref_node_configuration_summary">Những cài đặt nâng cao này có thể giảm tính ẩn danh của bạn</string>
     <string name="pref_entrance_node">Các nút giao mạng đầu vào</string>
@@ -208,4 +202,15 @@
     <string name="setting_padding">Định khoảng cách Padding</string>
     <string name="pref_detect_root_summary">Cảnh báo khi khởi chạy rằng, liệu quyền hạn root đã được bật kích hoạt trên thiết bị này chưa</string>
     <string name="pref_detect_root_title">Phát hiện Root</string>
+
+    <string name="status_starting_up">Ortbot đang khởi động…</string>
+    <string name="status_activated">Đã kết nối với mạng Tor</string>
+    <string name="status_disabled">Orbot đã được vô hiệu hóa</string>
+    <string name="status_shutting_down">Đang tắt dịch vụ Tor</string>
+    <string name="couldn_t_start_tor_process_">Không thể khởi động tiến trình Tor:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Thiết lập ReachableAddresses đã gây ra một vấn đề! </string>
+    <string name="unable_to_start_tor">Không thể khởi động Tor được: </string>
+    <string name="updating_settings_in_tor_service">đang cập nhật cài đặt dịch vụ Tor</string>
+    <string name="mebibyte_per_second">MiB/s</string>
+    <string name="kibibyte_per_second">KiB/s</string>
 </resources>

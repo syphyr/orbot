@@ -8,17 +8,9 @@
     <string name="main_layout_download">다운로드</string>
     <string name="main_layout_upload">업로드</string>
     <string name="menu_exit">종료</string>
-    <!--Welcome Wizard strings (DJH)-->
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">일반</string>
     <string name="pref_start_boot_title">부팅 후 Orbot 시작</string>
     <string name="pref_start_boot_summary">안드로이드 장치가 시작할 때 자동적으로 Orbot을 시작하고 Tor에 연결합니다</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">노드 설정</string>
     <string name="pref_node_configuration_summary">귀하의 익명성을 감소시킬 수 있는 고급 설정이 있습니다</string>
     <string name="pref_entrance_node">입구 노드</string>
@@ -114,4 +106,11 @@
     <string name="local_port">내부 포트</string>
     <string name="onion_port">Onion 포트</string>
     <string name="copy_address_to_clipboard">주소를 클립보드에 복사</string>
+
+    <string name="status_starting_up">Orbot 시작 중…</string>
+    <string name="status_activated">Tor 네트워크에 연결됨</string>
+    <string name="status_disabled">Orbot이 비활성화되어 있습니다</string>
+    <string name="couldn_t_start_tor_process_">Tor 프로세스 시작 불가능:  </string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">귀하의 ReachableAddress 설정은 예외를 발생시켰습니다!</string>
+    <string name="unable_to_start_tor">Tor 시작 불가능</string>
 </resources>

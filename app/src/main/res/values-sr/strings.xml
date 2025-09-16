@@ -8,18 +8,10 @@
     <string name="main_layout_download">Преузимање</string>
     <string name="main_layout_upload">Отпремање</string>
     <string name="menu_exit">Излаз</string>
-    <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Орбот је апликација отвореног кода која садржи Тор, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks и LibEvent. Омогућава локални HTTP proxy (8118) и SOCKS proxy (9050) у Тор мрежу. Орбот такође има могућност да на рутованом уређају шаље сав интернет саобраћај преко Тор-а.</string>
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Опште</string>
     <string name="pref_start_boot_title">Покрени Орбот при покретању уређаја</string>
     <string name="pref_start_boot_summary">Аутоматски покрените Орбот и конектујте се са Тор мрежом када се укључи ваш Андроид уређај</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Конфигурација чворова</string>
     <string name="pref_node_configuration_summary">Ово су напредне поставке које могу да смање Вашу анонимност</string>
     <string name="pref_entrance_node">Почетни чворови</string>
@@ -208,4 +200,11 @@
     <string name="no_internet_title">Повежите се на интернет</string>
     <string name="pref_detect_root_summary">Упозори на покретању ако су root дозволе омогућене на овом уређају</string>
     <string name="pref_detect_root_title">Откривање root-а</string>
+    <string name="status_starting_up">Орбот се покреће…</string>
+    <string name="status_activated">Повезан са Тор мрежом</string>
+    <string name="status_disabled">Орбот је деактивиран</string>
+    <string name="couldn_t_start_tor_process_">Није могуће покренути Тор процес:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Ваше ReachableAddresses поставке су изазвале изузетак!</string>
+    <string name="unable_to_start_tor">Тор није у могућности да се покрене:</string>
+
 </resources>

@@ -8,18 +8,10 @@
     <string name="main_layout_download">Letöltés</string>
     <string name="main_layout_upload">Feltöltés</string>
     <string name="menu_exit">Kilépés</string>
-    <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Az Orbot egy nyilt forráskódú alkalmazás ami Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, és LibEvent alkalmazásokat tartalmaz. Helyi  HTTP proxyt (8118) és  SOCKS proxyt (9050) biztosít a Tor hálózatba. Az Orbot továbbá képes arra, hogy rootolt eszközön a teljes internet forgalmat keresztül küldje a Tor-on.</string>
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Általános</string>
     <string name="pref_start_boot_title">Az Orbot indítása rendszerindításkor</string>
     <string name="pref_start_boot_summary">Automatikusan elindítja az Orbot-ot és csatlakozik a hálózathoz, amikor az Android eszköz betölt</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Csomópont konfiguráció</string>
     <string name="pref_node_configuration_summary">Ezek haladó beállítások, amelyek csökkenthetik a névtelenséged.</string>
     <string name="pref_entrance_node">Belépő csomópontok</string>
@@ -121,4 +113,12 @@
     <string name="mebibyte">MB</string>
     <string name="license">Licensz:</string>
     <string name="connected_title">Csatlakozva</string>
+    <string name="status_starting_up">Az Orbot indul…</string>
+    <string name="status_activated">Csatlakozva a Tor hálózathoz</string>
+    <string name="status_disabled">Az Orbot deaktiválva</string>
+    <string name="status_shutting_down">A TorService leáll</string>
+    <string name="couldn_t_start_tor_process_">Nem indítható el a Tor folyamat:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Az elérhető címeid beállításai kivételt okoztak!</string>
+    <string name="unable_to_start_tor">A Tor indítása sikertelen:</string>
+    <string name="updating_settings_in_tor_service">a Tor szolgáltatás beállításainak frissítése</string>
 </resources>

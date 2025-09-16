@@ -161,4 +161,11 @@
     <string name="setting_debug">Fejlfinding</string>
     <string name="connect">Forbinde</string>
     <string name="next">Næste</string>
+
+    <string name="status_starting_up">Orbot starter op …</string>
+    <string name="status_activated">Der er forbindelse til Tor-netværket</string>
+    <string name="status_disabled">Orbot er slået fra</string>
+    <string name="couldn_t_start_tor_process_">Kunne ikke starte Tor processen:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Din ReachableAdresses indstilling forudsagede en fejl!</string>
+    <string name="unable_to_start_tor">Kunne ikke starte Tor:</string>
 </resources>

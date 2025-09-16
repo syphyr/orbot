@@ -8,17 +8,9 @@
     <string name="main_layout_download">Stáhnout</string>
     <string name="main_layout_upload">Nahrát</string>
     <string name="menu_exit">Konec</string>
-    <!--Welcome Wizard strings (DJH)-->
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Obecné</string>
     <string name="pref_start_boot_title">Spustit Orbot při startu systému</string>
     <string name="pref_start_boot_summary">Automaticky spustit Orbot a připojit se k Tor po startu zařízení</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Konfigurace uzlu (nodu)</string>
     <string name="pref_node_configuration_summary">Tato rozšířená nastavení mohou snížit vaši anonymitu</string>
     <string name="pref_entrance_node">Vstupní nody</string>
@@ -208,4 +200,14 @@
     <string name="v3_key_hash">x25519 Soukromý klíč v Base32</string>
     <string name="pref_detect_root_summary">Varovat při spuštění, pokud jsou na tomto zařízení zapnuta oprávnění root</string>
     <string name="pref_detect_root_title">Rozpoznání root</string>
+
+    <string name="status_starting_up">Orbot se spouští…</string>
+    <string name="status_activated">Připojen k síti Tor</string>
+    <string name="status_disabled">\"Orbot je deaktivován</string>
+    <string name="status_shutting_down">Orbot se vypíná</string>
+
+
+    <string name="couldn_t_start_tor_process_">Nelze spustit Tor proces:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Vaše nastavení dostupných adres (ReachableAddresses) způsobilo chybu!</string>
+    <string name="unable_to_start_tor">Nelze spustit Tor:</string>
 </resources>

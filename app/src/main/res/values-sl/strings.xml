@@ -206,4 +206,8 @@
     <string name="direct_connect_subtitle">Najboljši način povezave s Torom. Uporabite če Tor ni blokiran.</string>
     <string name="snowflake_amp">Snežinka (AMP)</string>
     <string name="snowflake_subtitle">Povezuje se prek Torovih prostovoljcev. Zaobide nekaj Torovih preprek.</string>
+    <string name="status_starting_up">Orbot se zaganja…</string>
+    <string name="status_activated">Povezan v omrežje Tor</string>
+    <string name="status_disabled">Orbot ni aktiviran</string>
+
 </resources>

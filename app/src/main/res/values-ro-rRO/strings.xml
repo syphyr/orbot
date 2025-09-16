@@ -252,4 +252,11 @@
     <string name="pref_password_only_no_biometric_description">Acest lucru forțează Autentificarea Orbot să solicite parola dispozitivului dvs. chiar dacă autentificarea biometrică, cum ar fi amprenta sau deblocarea feței, sunt configurate pe dispozitiv.</string>
     <string name="run_smart_connect_">Rulați Conectarea Smart pentru a găsi cea mai bună cale</string>
     <string name="scan_qr_code">Scanare cod QR</string>
+    <string name="status_starting_up">Orbot porneste…</string>
+    <string name="status_activated">Conectat la reteaua Tor</string>
+    <string name="status_disabled">Orbot este dezactivat</string>
+    <string name="couldn_t_start_tor_process_">Nu am putut porni procesul Tor:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Setarile tale pentru adrese accesibile au cauzat o exceptie!</string>
+    <string name="unable_to_start_tor">Nu am reusit sa pornesc Tor:</string>
+    <string name="updating_settings_in_tor_service">se actualizează configurările în serviciul Tor</string>
 </resources>
