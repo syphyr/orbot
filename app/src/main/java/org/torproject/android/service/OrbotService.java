@@ -31,7 +31,6 @@ import net.freehaven.tor.control.TorControlConnection;
 
 import org.torproject.android.R;
 import org.torproject.android.service.circumvention.SmartConnect;
-import org.torproject.android.service.circumvention.Transport;
 import org.torproject.android.service.db.OnionServiceColumns;
 import org.torproject.android.service.db.V3ClientAuthColumns;
 import org.torproject.android.service.tor.CustomTorResourceInstaller;
@@ -232,7 +231,6 @@ public class OrbotService extends VpnService {
     public void onCreate() {
         super.onCreate();
         configLanguage();
-        Transport.setStateLocation(getCacheDir().getPath());
 
         try {
             try {
