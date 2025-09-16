@@ -166,7 +166,7 @@ dependencies {
 
 tasks.named("preBuild") { dependsOn("copyLicenseToAssets") }
 tasks.register<Copy>("copyLicenseToAssets") {
-    from(layout.projectDirectory.file("LICENSE"))
+    from(rootProject.file("LICENSE"))
     into(layout.projectDirectory.dir("src/main/assets"))
 }
 
