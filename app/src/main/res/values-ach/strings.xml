@@ -9,5 +9,4 @@
     <!--TipsAndTricks screen-->
     <!--Transparent Proxy screen-->
     <string name="app_name">Orbot</string>
-    <string name="connection_custom">Custom</string>
 </resources>

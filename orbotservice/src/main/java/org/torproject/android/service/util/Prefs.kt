@@ -8,7 +8,6 @@ import android.preference.PreferenceManager
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
-import org.torproject.android.service.circumvention.ResetSnowflakesServedWeeklyWorker
 import org.torproject.android.service.circumvention.Transport
 import java.util.Locale
 import java.util.concurrent.TimeUnit
@@ -18,7 +17,6 @@ object Prefs {
     private const val PREF_DEFAULT_LOCALE = "pref_default_locale"
     private const val PREF_DETECT_ROOT = "pref_detect_root"
     private const val PREF_ENABLE_LOGGING = "pref_enable_logging"
-    private const val PREF_ENABLE_ROTATION = "pref_enable_rotation"
     private const val PREF_START_ON_BOOT = "pref_start_boot"
     private const val PREF_ALLOW_BACKGROUND_STARTS = "pref_allow_background_starts"
     private const val PREF_OPEN_PROXY_ON_ALL_INTERFACES = "pref_open_proxy_on_all_interfaces"
@@ -128,7 +126,7 @@ object Prefs {
         return prefs?.getBoolean(PREF_BE_A_SNOWFLAKE, false) ?: false
     }
 
-    fun showSnowflakeProxyMessage(): Boolean {
+    fun showSnowflakeProxyToast(): Boolean {
         return prefs?.getBoolean(PREF_SHOW_SNOWFLAKE_MSG, false) ?: false
     }
 
@@ -158,10 +156,6 @@ object Prefs {
     @JvmStatic
     fun useDebugLogging(): Boolean {
         return prefs?.getBoolean(PREF_ENABLE_LOGGING, false) ?: false
-    }
-
-    fun enableRotation(): Boolean {
-        return prefs?.getBoolean(PREF_ENABLE_ROTATION, false) ?: false
     }
 
     fun allowBackgroundStarts(): Boolean {

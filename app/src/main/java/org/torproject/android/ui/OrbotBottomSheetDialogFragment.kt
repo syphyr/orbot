@@ -1,14 +1,15 @@
 package org.torproject.android.ui
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.Dialog
-import android.content.DialogInterface
 import android.graphics.Color
 import android.os.Bundle
 import android.util.DisplayMetrics
 import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
+import android.widget.FrameLayout
 
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -22,39 +23,39 @@ bottom sheets to come
  */
 open class OrbotBottomSheetDialogFragment : BottomSheetDialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-            val dialog = BottomSheetDialog(requireActivity(), theme)
-            dialog.setOnShowListener {setupRatio(dialog)}
-            return dialog
+        val dialog = BottomSheetDialog(requireActivity(), theme)
+        dialog.setOnShowListener {
+            val bottomSheetView =
+                dialog.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet) as? FrameLayout
+            bottomSheetView?.let {
+                it.setBackgroundResource(R.drawable.bottom_sheet_rounded)
+                it.setBackgroundColor(Color.TRANSPARENT)
+                setHeightIfAttached(activity, it)
+                val behavior = BottomSheetBehavior.from<FrameLayout>(it)
+                behavior.state = BottomSheetBehavior.STATE_EXPANDED
+            }
+        }
+
+        return dialog
     }
 
-    protected fun closeAllSheets() {
-        dismiss()
-    }
-
-    private fun setupRatio(bsd: BottomSheetDialog) {
-        val bottomSheet = bsd.findViewById<View>(com.google.android.material.R.id.design_bottom_sheet)
-        bottomSheet?.let {
-            it.setBackgroundResource(R.drawable.bottom_sheet_rounded)
-            it.setBackgroundColor(Color.TRANSPARENT)
-            val behavior = BottomSheetBehavior.from(it)
-            val layoutParams = it.layoutParams
-            layoutParams.height = getHeight()
+    private fun setHeightIfAttached(activity: Activity?, bottomSheet: View) {
+        activity?.let {
+            val displayMetrics = DisplayMetrics()
+            requireActivity().windowManager.defaultDisplay.getMetrics(displayMetrics)
+            val height = (displayMetrics.heightPixels * getHeightRatio()).toInt()
+            val layoutParams = bottomSheet.layoutParams
+            layoutParams.height = height
             bottomSheet.layoutParams = layoutParams
-            behavior.state = BottomSheetBehavior.STATE_EXPANDED
         }
     }
 
-    private fun getHeight() : Int{
-        // todo handle bigger device heights
-        val displayMetrics = DisplayMetrics()
-        requireActivity().windowManager.defaultDisplay.getMetrics(displayMetrics)
-        return displayMetrics.heightPixels * 65 / 100
-    }
+    open fun getHeightRatio(): Float = 4 / 5f
 
     @SuppressLint("ClickableViewAccessibility")
     protected fun configureMultilineEditTextScrollEvent(editText: EditText) {
         // need this for scrolling an edittext in a BSDF
-        editText.setOnTouchListener {v , event ->
+        editText.setOnTouchListener { v, event ->
             v.parent.requestDisallowInterceptTouchEvent(true)
             when (event.action and MotionEvent.ACTION_MASK) {
                 MotionEvent.ACTION_UP -> v.parent.requestDisallowInterceptTouchEvent(false)

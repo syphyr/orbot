@@ -9,6 +9,7 @@ import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowInsetsController
 import androidx.activity.addCallback
@@ -16,6 +17,7 @@ import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
@@ -32,10 +34,12 @@ import com.scottyab.rootbeer.RootBeer
 import org.torproject.android.service.util.sendIntentToService
 import org.torproject.android.ui.core.BaseActivity
 import org.torproject.android.service.OrbotConstants
+import org.torproject.android.ui.kindness.SnowflakeProxyService
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.service.util.showToast
 import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.android.ui.connect.ConnectViewModel
+import org.torproject.android.ui.connect.RequestPostNotificationPermission
 import org.torproject.android.ui.core.DeviceAuthenticationPrompt
 import java.util.Locale
 
@@ -85,7 +89,6 @@ class OrbotActivity : BaseActivity() {
             intent = null
             finish()
         }
-
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -186,25 +189,32 @@ class OrbotActivity : BaseActivity() {
             rootDetectionShown = true
         }
 
-        onBackPressedDispatcher.addCallback(this ) {
+        onBackPressedDispatcher.addCallback(this) {
             if (lastSelectedItemId != R.id.connectFragment) {
                 bottomNavigationView.selectedItemId = R.id.connectFragment
-            }
-            else finish()
+            } else finish()
         }
     }
 
     private fun requestNotificationPermission() {
-        when (PackageManager.PERMISSION_GRANTED) {
-            ContextCompat.checkSelfPermission(
-                this, Manifest.permission.POST_NOTIFICATIONS
-            ) -> {
-                // You can use the API that requires the permission.
+        // automatically granted on Android 12 and lower
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU)
+            return
+        val checkPostNotificationPerm =
+            ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+        when (checkPostNotificationPerm) {
+            PackageManager.PERMISSION_GRANTED -> {
+                Log.d(
+                    "OrbotActivity",
+                    "Granted Permission ${Manifest.permission.POST_NOTIFICATIONS}"
+                )
             }
 
             else -> {
-                // You can directly ask for the permission.
-                // The registered ActivityResultCallback gets the result of this request.
+                Log.d(
+                    "OrbotActivity",
+                    "Try Prompting For ${Manifest.permission.POST_NOTIFICATIONS}"
+                )
                 requestPermissionLauncher.launch(
                     Manifest.permission.POST_NOTIFICATIONS
                 )
@@ -213,21 +223,19 @@ class OrbotActivity : BaseActivity() {
     }
 
     // Register the permissions callback, which handles the user's response to the
-// system permissions dialog. Save the return value, an instance of
-// ActivityResultLauncher. You can use either a val, as shown in this snippet,
-// or a lateinit var in your onAttach() or onCreate() method.
+    // system permissions dialog.
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     private val requestPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->
         if (isGranted) {
-            // Permission is granted. Continue the action or workflow in your
-            // app.
+            Log.d("OrbotActivity", "User just granted ${Manifest.permission.POST_NOTIFICATIONS}")
         } else {
-            // Explain to the user that the feature is unavailable because the
-            // feature requires a permission that the user has denied. At the
-            // same time, respect the user's decision. Don't link to system
-            // settings in an effort to convince the user to change their
-            // decision.
+            Log.d("OrbotActivity", "Notification denied")
+            RequestPostNotificationPermission().show(
+                supportFragmentManager,
+                "RequestNotificationDialog"
+            )
         }
     }
 
@@ -239,6 +247,9 @@ class OrbotActivity : BaseActivity() {
     override fun onResume() {
         super.onResume()
         sendIntentToService(OrbotConstants.CMD_ACTIVE)
+        if (Prefs.beSnowflakeProxy())
+            SnowflakeProxyService.startSnowflakeProxyForegroundService(this)
+
     }
 
     override fun onDestroy() {

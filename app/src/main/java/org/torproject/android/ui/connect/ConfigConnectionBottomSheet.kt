@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.net.toUri
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.NavHostFragment
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -26,8 +27,6 @@ import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 class ConfigConnectionBottomSheet :
     OrbotBottomSheetDialogFragment(), CompoundButton.OnCheckedChangeListener {
 
-    private var callbacks: ConnectionHelperCallbacks? = null
-
     private lateinit var binding: ConfigConnectionBottomSheetBinding
 
     private lateinit var radios: List<RadioButton>
@@ -35,11 +34,7 @@ class ConfigConnectionBottomSheet :
     private lateinit var allSubtitles: List<View>
 
     companion object {
-        fun newInstance(callbacks: ConnectionHelperCallbacks): ConfigConnectionBottomSheet {
-            return ConfigConnectionBottomSheet().apply {
-                this.callbacks = callbacks
-            }
-        }
+        const val TAG = "ConfigConnectionBttmSheet"
     }
 
     override fun onCreateView(
@@ -154,13 +149,7 @@ class ConfigConnectionBottomSheet :
             }
 
             if (binding.rbTelegram.isChecked || binding.rbEmail.isChecked || binding.rbCustom.isChecked) {
-                CustomBridgeBottomSheet(object : ConnectionHelperCallbacks {
-                    override fun tryConnecting() {
-                        Prefs.transport = Transport.CUSTOM
-                        Prefs.smartConnect = false
-                        closeAndConnect()
-                    }
-                }).show(requireActivity().supportFragmentManager, CustomBridgeBottomSheet.TAG)
+                CustomBridgeBottomSheet().show(requireActivity().supportFragmentManager, CustomBridgeBottomSheet.TAG)
             }
         }
 
@@ -187,8 +176,10 @@ class ConfigConnectionBottomSheet :
     }
 
     private fun closeAndConnect() {
-        closeAllSheets()
-        callbacks?.tryConnecting()
+        dismiss()
+        val navHostFragment = requireActivity().supportFragmentManager.fragments[0] as NavHostFragment
+        val connectFrag = navHostFragment.childFragmentManager.fragments.last() as ConnectFragment
+        connectFrag.startTorAndVpn()
     }
 
     private fun selectRadioButtonFromPreference() {
@@ -286,5 +277,11 @@ class ConfigConnectionBottomSheet :
         }
 
         binding.btnAskTor.text = text
+    }
+
+    fun tryConnectingFromCustomBridge() {
+        Prefs.transport = Transport.CUSTOM
+        Prefs.smartConnect = false
+        dismiss()
     }
 }

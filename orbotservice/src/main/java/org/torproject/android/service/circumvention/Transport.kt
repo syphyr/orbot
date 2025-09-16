@@ -82,11 +82,11 @@ enum class Transport(val id: String) {
          */
         private val addFronts = listOf("github.githubassets.com")
 
-        private val ampBroker = "https://snowflake-broker.torproject.net/"
+        private const val ampBroker = "https://snowflake-broker.torproject.net/"
         private val ampFronts = listOf("www.google.com")
-        private val ampCache = "https://cdn.ampproject.org/"
-        private val sqsQueue = "https://sqs.us-east-1.amazonaws.com/893902434899/snowflake-broker"
-        private val sqsCreds = "eyJhd3MtYWNjZXNzLWtleS1pZCI6IkFLSUE1QUlGNFdKSlhTN1lIRUczIiwiYXdzLXNlY3JldC1rZXkiOiI3U0RNc0pBNHM1RitXZWJ1L3pMOHZrMFFXV0lsa1c2Y1dOZlVsQ0tRIn0="
+        private const val ampCache = "https://cdn.ampproject.org/"
+        private const val sqsQueue = "https://sqs.us-east-1.amazonaws.com/893902434899/snowflake-broker"
+        private const val sqsCreds = "eyJhd3MtYWNjZXNzLWtleS1pZCI6IkFLSUE1QUlGNFdKSlhTN1lIRUczIiwiYXdzLXNlY3JldC1rZXkiOiI3U0RNc0pBNHM1RitXZWJ1L3pMOHZrMFFXV0lsa1c2Y1dOZlVsQ0tRIn0="
     }
 
     val transportNames: Set<String>

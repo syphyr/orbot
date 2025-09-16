@@ -110,15 +110,19 @@ class CamoFragment : Fragment() {
 
     // https://stackoverflow.com/questions/60122037/how-can-i-detect-samsung-one-ui
     private fun hasSamsungOneUI(): Boolean {
-        val semPlatformIntField: Field =
-            Build.VERSION::class.java.getDeclaredField("SEM_PLATFORM_INT")
-        val version: Int = semPlatformIntField.getInt(null) - 90000
-        return Build.FINGERPRINT.contains("samsung") &&
-                version >= 0
+        try {
+            val semPlatformIntField: Field =
+                Build.VERSION::class.java.getDeclaredField("SEM_PLATFORM_INT")
+            val version: Int = semPlatformIntField.getInt(null) - 90000
+            return Build.FINGERPRINT.contains("samsung") &&
+                    version >= 0
+        } catch (_: NoSuchFieldException) {
+            return false
+        }
     }
 
     companion object {
-        fun getCamoMapping(context: Context): Map<String?, String> = mapOf<String?, String>(
+        fun getCamoMapping(context: Context): Map<String?, String> = mapOf(
             context.getString(R.string.app_name) to Prefs.DEFAULT_CAMO_DISABLED_ACTIVITY,
             context.getString(R.string.app_icon_chooser_label_fit_grit) to "org.torproject.android.main.FitGrit",
             context.getString(R.string.app_icon_chooser_label_night_watch) to "org.torproject.android.main.NightWatch",

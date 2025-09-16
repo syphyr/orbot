@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="menu_settings">Ырастоолор</string>
-    <string name="menu_stop">Токтоо</string>
     <string name="menu_about">Программа жөнүндө</string>
-    <string name="button_about">Программа жөнүндө</string>
     <string name="menu_exit">Чыгуу</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
@@ -24,5 +22,4 @@
     <string name="mebibyte">МиБ</string>
     <string name="main_layout_download">Түшүрүп алуу</string>
     <string name="pref_general_group">Негизгилер</string>
-    <string name="connection_custom">Тандооңуз боюнча</string>
 </resources>

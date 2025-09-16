@@ -18,59 +18,65 @@ import org.torproject.android.service.circumvention.MoatApi
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 
-class CustomBridgeBottomSheet(private val callbacks: ConnectionHelperCallbacks) :
+class CustomBridgeBottomSheet() :
     OrbotBottomSheetDialogFragment() {
 
     companion object {
         const val TAG = "CustomBridgeBottomSheet"
-        private val bridgeStatement = Regex("""(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[0-9a-fA-F:]+])""")
-        private val meekLiteRegex = Regex("""^meek_lite\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[0-9a-fA-F:]+]):\d+\s+url=https?://\S+\s+front=\S+\s+utls=\S+$""")
-        private val obfs4Regex = Regex("""^obfs4\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[0-9a-fA-F:]+]):\d+\s+[A-F0-9]{40}(\s+cert=[a-zA-Z0-9+/=]+)?(\s+iat-mode=\d+)?$""")
-        private val vanillaRegex = Regex("""(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[0-9a-fA-F:]+]):\d+\s+[A-F0-9]{40}?$""")
-        private val webtunnelRegex = Regex("""^webtunnel\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[0-9a-fA-F:]+]):\d+\s+[A-F0-9]{40}(\s+url=https?://\S+)?(\s+ver=\d+\.\d+\.\d+)?$""")
+        private val bridgeStatement =
+            Regex("""(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[0-9a-fA-F:]+])""")
+        private val meekLiteRegex =
+            Regex("""^meek_lite\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[0-9a-fA-F:]+]):\d+\s+url=https?://\S+\s+front=\S+\s+utls=\S+$""")
+        private val obfs4Regex =
+            Regex("""^obfs4\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[0-9a-fA-F:]+]):\d+\s+[A-F0-9]{40}(\s+cert=[a-zA-Z0-9+/=]+)?(\s+iat-mode=\d+)?$""")
+        private val vanillaRegex =
+            Regex("""(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[0-9a-fA-F:]+]):\d+\s+[A-F0-9]{40}?$""")
+        private val webtunnelRegex =
+            Regex("""^webtunnel\s+(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\[[0-9a-fA-F:]+]):\d+\s+[A-F0-9]{40}(\s+url=https?://\S+)?(\s+ver=\d+\.\d+\.\d+)?$""")
 
         fun isValidBridge(input: String): Boolean {
             return input.lines()
                 .filter { it.isNotEmpty() && it.isNotBlank() }
                 .all {
                     it.matches(obfs4Regex) ||
-                    it.matches(webtunnelRegex) ||
-                    it.matches(meekLiteRegex) ||
-                    it.matches(vanillaRegex)
+                            it.matches(webtunnelRegex) ||
+                            it.matches(meekLiteRegex) ||
+                            it.matches(vanillaRegex)
                 }
         }
     }
 
     private lateinit var binding: CustomBridgeBottomSheetBinding
 
-    private val qrScanResultLauncher = registerForActivityResult(StartActivityForResult()) { result ->
-        val scanResult = IntentIntegrator.parseActivityResult(result.resultCode, result.data)
+    private val qrScanResultLauncher =
+        registerForActivityResult(StartActivityForResult()) { result ->
+            val scanResult = IntentIntegrator.parseActivityResult(result.resultCode, result.data)
 
-        if (scanResult != null) {
-            val current = binding.etBridges.text?.split("\n")?.toMutableList() ?: mutableListOf()
+            if (scanResult != null) {
+                val current =
+                    binding.etBridges.text?.split("\n")?.toMutableList() ?: mutableListOf()
 
-            var contents = scanResult.contents ?: ""
+                var contents = scanResult.contents ?: ""
 
-            if (contents.isBlank()) {
-                val raw = scanResult.rawBytes
+                if (contents.isBlank()) {
+                    val raw = scanResult.rawBytes
 
-                if (raw != null && raw.isNotEmpty()) {
-                    contents = String(raw)
+                    if (raw != null && raw.isNotEmpty()) {
+                        contents = String(raw)
+                    }
                 }
-            }
 
-            val bridges = try {
-                MoatApi.json.decodeFromString(contents)
-            }
-            catch (_: Throwable) {
-                emptyList<String>()
-            }
+                val bridges = try {
+                    MoatApi.json.decodeFromString(contents)
+                } catch (_: Throwable) {
+                    emptyList<String>()
+                }
 
-            current.addAll(bridges)
+                current.addAll(bridges)
 
-            binding.etBridges.setText(current.joinToString("\n"))
+                binding.etBridges.setText(current.joinToString("\n"))
+            }
         }
-    }
 
     private var dialog: AlertDialog? = null
 
@@ -82,7 +88,8 @@ class CustomBridgeBottomSheet(private val callbacks: ConnectionHelperCallbacks) 
 
         val uri = OrbotConstants.GET_BRIDES_BRIDGES_URI.buildUpon()
         uri.path("/options")
-        binding.tvCustomBridgeSubHeader.text = getString(R.string.custom_bridges_description, uri.build().toString())
+        binding.tvCustomBridgeSubHeader.text =
+            getString(R.string.custom_bridges_description, uri.build().toString())
 
         binding.btnScan.setOnClickListener {
             val activity = this@CustomBridgeBottomSheet.activity ?: return@setOnClickListener
@@ -95,8 +102,11 @@ class CustomBridgeBottomSheet(private val callbacks: ConnectionHelperCallbacks) 
 
         binding.btnAction.setOnClickListener {
             Prefs.bridgesList = binding.etBridges.text?.split("\n") ?: emptyList()
-            closeAllSheets()
-            callbacks.tryConnecting()
+            dismiss()
+            val parent = requireActivity().supportFragmentManager.findFragmentByTag(
+                ConfigConnectionBottomSheet.TAG
+            ) as ConfigConnectionBottomSheet
+            parent.tryConnectingFromCustomBridge()
         }
 
         configureMultilineEditTextScrollEvent(binding.etBridges)
@@ -109,6 +119,7 @@ class CustomBridgeBottomSheet(private val callbacks: ConnectionHelperCallbacks) 
             override fun afterTextChanged(s: Editable?) {
                 updateUi()
             }
+
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
         })

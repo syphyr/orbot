@@ -72,7 +72,7 @@ class AboutDialogFragment : DialogFragment() {
         }
 
         return AlertDialog.Builder(context, R.style.OrbotDialogTheme)
-            .setTitle(getString(R.string.button_about))
+            .setTitle(getString(R.string.menu_about))
             .setView(view)
             .create()
     }

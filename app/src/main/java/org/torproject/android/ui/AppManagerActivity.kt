@@ -69,7 +69,6 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
 
         // TODO https://github.com/guardianproject/orbot-android/issues/1344
         lockActivityOrientation()
-
     }
 
     override fun onResume() {
