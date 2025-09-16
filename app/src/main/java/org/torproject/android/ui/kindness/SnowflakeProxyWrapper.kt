@@ -2,7 +2,9 @@ package org.torproject.android.ui.kindness
 
 import IPtProxy.SnowflakeClientConnected
 import IPtProxy.SnowflakeProxy
+import android.content.Context
 import android.os.Handler
+import android.util.Log
 import com.netzarchitekten.upnp.UPnP
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -11,9 +13,10 @@ import org.torproject.android.R
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotConstants.ONION_EMOJI
 import org.torproject.android.service.circumvention.BuiltInBridges
-import org.torproject.android.service.circumvention.ContentDeliveryNetworkFronts
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.service.util.showToast
+import java.io.BufferedReader
+import java.io.InputStreamReader
 import java.security.SecureRandom
 import kotlin.random.Random
 
@@ -52,7 +55,7 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
 
             proxy = SnowflakeProxy()
             service.refreshNotification()
-            val fronts = ContentDeliveryNetworkFronts.localFronts(service)
+            val fronts = localFronts(service)
             with(proxy!!) {
                 brokerUrl = fronts["snowflake-target-direct"]
                 capacity = 1L
@@ -103,5 +106,20 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
         }
 
         mappedPorts = mutableListOf()
+    }
+
+    private fun localFronts(context: Context): HashMap<String, String> {
+        val map = HashMap<String, String>()
+        try {
+            val reader = BufferedReader(InputStreamReader(context.assets.open("fronts")))
+            reader.forEachLine {
+                val kv = it.split(" ")
+                map[kv[0]] = kv[1]
+            }
+            reader.close()
+        } catch (e: Exception) {
+            Log.e("CDNFronts", "error loading fronts from assets $e")
+        }
+        return map
     }
 }
