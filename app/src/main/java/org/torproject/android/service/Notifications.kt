@@ -1,4 +1,4 @@
-package org.torproject.android.service.ui
+package org.torproject.android.service
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -7,7 +7,7 @@ import android.content.Context
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.core.app.NotificationCompat
-import org.torproject.android.service.R
+import org.torproject.android.R
 import org.torproject.android.service.util.Prefs
 import org.torproject.jni.TorService
 

@@ -29,11 +29,11 @@ import android.widget.Toast;
 import net.freehaven.tor.control.TorControlCommands;
 import net.freehaven.tor.control.TorControlConnection;
 
+import org.torproject.android.R;
 import org.torproject.android.service.circumvention.SmartConnect;
 import org.torproject.android.service.circumvention.Transport;
 import org.torproject.android.service.db.OnionServiceColumns;
 import org.torproject.android.service.db.V3ClientAuthColumns;
-import org.torproject.android.service.ui.Notifications;
 import org.torproject.android.service.tor.CustomTorResourceInstaller;
 import org.torproject.android.service.util.DiskUtils;
 import org.torproject.android.service.util.Prefs;

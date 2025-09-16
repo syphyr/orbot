@@ -7,9 +7,9 @@ import com.netzarchitekten.upnp.UPnP
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.torproject.android.R
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotConstants.ONION_EMOJI
-import org.torproject.android.service.R
 import org.torproject.android.service.circumvention.BuiltInBridges
 import org.torproject.android.service.circumvention.ContentDeliveryNetworkFronts
 import org.torproject.android.service.util.Prefs

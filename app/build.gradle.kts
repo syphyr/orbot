@@ -124,7 +124,6 @@ android.applicationVariants.all {
 
 dependencies {
     implementation(project(":OrbotLib"))
-    implementation(project(":orbotservice"))
     implementation(libs.android.material)
     implementation(libs.android.volley)
     implementation(libs.androidx.activity)
@@ -148,6 +147,11 @@ dependencies {
     implementation(libs.pcap.core)
     implementation(libs.pcap.factory)
     api(libs.guardian.jtorctl)
+    api(libs.tor.android)
+    // local tor-android:
+    // api(files("../../tor-android/tor-android-binary/build/outputs/aar/tor-android-binary-debug.aar"))
+
+
 
 
 
@@ -158,8 +162,6 @@ dependencies {
     androidTestImplementation(libs.androidx.runner)
     androidTestImplementation(libs.screengrab)
     androidTestUtil(libs.androidx.orchestrator)
-
-
 }
 
 tasks.named("preBuild") { dependsOn("copyLicenseToAssets") }

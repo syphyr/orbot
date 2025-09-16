@@ -48,9 +48,6 @@ android {
 
 
 dependencies {
-    api(libs.tor.android)
-    // local tor-android:
-    // api(files("../../tor-android/tor-android-binary/build/outputs/aar/tor-android-binary-debug.aar"))
 
     api(project(":OrbotLib")) // Use locally built ipt_proxy+go_tun2socks
     api(libs.guardian.jtorctl)

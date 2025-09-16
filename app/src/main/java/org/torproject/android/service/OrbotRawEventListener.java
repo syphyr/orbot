@@ -9,6 +9,7 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import net.freehaven.tor.control.RawEventListener;
 import net.freehaven.tor.control.TorControlCommands;
 
+import org.torproject.android.R;
 import org.torproject.android.service.util.Prefs;
 import org.torproject.android.service.util.EmojiUtils;
 import org.torproject.jni.TorService;
