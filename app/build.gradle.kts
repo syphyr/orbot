@@ -84,7 +84,9 @@ android {
     }
 
     productFlavors {
-        create("fullperm") { dimension = "free" }
+        create("fullperm") { 
+	    dimension = "free"
+        }
         create("nightly") {
             dimension = "free"
             // overwrites defaults from defaultConfig
@@ -108,9 +110,10 @@ android {
         textReport = false
         xmlReport = false
     }
+
 }
 
-// Increments versionCode by ABI type
+// Increments versionCode by ABI type and sets custom APK name
 android.applicationVariants.all {
     outputs.configureEach { ->
         if (versionCode == orbotBaseVersionCode) {
@@ -119,6 +122,9 @@ android.applicationVariants.all {
             val increment = incrementMap[filters.find { it.filterType == "ABI" }?.identifier] ?: 0
             (this as ApkVariantOutputImpl).versionCodeOverride = orbotBaseVersionCode + increment
         }
+        
+        // Set custom APK output name with version
+        (this as ApkVariantOutputImpl).outputFileName = outputFileName.replace("app-", "Orbot-${getVersionName()}-")
     }
 }
 
