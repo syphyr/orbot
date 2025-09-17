@@ -8,18 +8,10 @@
     <string name="main_layout_download">Jaitsiera</string>
     <string name="main_layout_upload">Igoera</string>
     <string name="menu_exit">Irten</string>
-    <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, eta LibEvent dituen kode irekiko aplikazio bat da Orbot. Tor sarera sartzeko HTTP proxya (8118) eta SOCKS proxya (9050) eskaintzen ditu. Rooteatutako gailuetan Orbot-ek interneteko trafiko guztia Tor bidez bidali dezake baita ere.</string>
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Orokorra</string>
     <string name="pref_start_boot_title">Hasi Orbot abioan</string>
     <string name="pref_start_boot_summary">Hasi Orbot automatikoki  eta konektatu Tor zure Android gailua abiarazterakoan</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Nodo konfigurazioa</string>
     <string name="pref_node_configuration_summary">Hauek zure anonimotasuna murriztu dezaketen ezarpen aurreratuak dira</string>
     <string name="pref_entrance_node">Sarrera-nodoak</string>
@@ -121,4 +113,11 @@
     <string name="kibibyte">KiB</string>
     <string name="menu_new_identity">Nortasun berria</string>
     <string name="next">Hurrengoa</string>
+
+    <string name="status_starting_up">Orbot abiarazten ari da…</string>
+    <string name="status_activated">Tor sarera konektatuta</string>
+    <string name="status_disabled">\"Orbot desaktibatuta dago</string>
+    <string name="couldn_t_start_tor_process_">Ezin izan da Tor prozesua hasi:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Zure helbide atzigarriak salbuespena sortu du!</string>
+    <string name="unable_to_start_tor">Ezin izan da Tor hasi:</string>
 </resources>

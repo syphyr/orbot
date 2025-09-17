@@ -8,18 +8,10 @@
     <string name="main_layout_download">Download</string>
     <string name="main_layout_upload">Upload</string>
     <string name="menu_exit">Esci</string>
-    <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot è un\'applicazione open source che contiene Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks e LibEvent. Fornisce un tunnel VPN, un proxy HTTP locale (solo HTTPS su porta 8118) e un proxy SOCKS (9050) per la rete Tor.</string>
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Generale</string>
     <string name="pref_start_boot_title">Esegui Orbot all\'avvio</string>
     <string name="pref_start_boot_summary">Avvia automaticamente Orbot e connetti Tor quando il dispositivo Android viene avviato</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Configurazione nodo</string>
     <string name="pref_node_configuration_summary">Impostazioni avanzate che possono ridurre il tuo anonimato</string>
     <string name="pref_entrance_node">Nodi di entrata</string>
@@ -233,4 +225,13 @@
     <string name="unlock_app_msg" formatted="true">Sblocca il dispositivo per usare %s</string>
     <string name="pref_password_only_no_biometric">Vieta i dati biometrici per l\'autenticazione di Orbot</string>
     <string name="pref_password_only_no_biometric_description">Ciò costringe l\'autenticazione di Orbot a richiedere solo la password del dispositivo anche se l\'autenticazione biometrica, come l\'impronta digitale o lo sblocco facciale, è configurata sul dispositivo.</string>
+    <string name="status_starting_up">Orbot è in esecuzione…</string>
+    <string name="status_activated">Connesso alla rete Tor</string>
+    <string name="status_disabled">\"Orbot è disattivato</string>
+    <string name="status_shutting_down">TorService si sta spegnendo</string>
+    <string name="couldn_t_start_tor_process_">Impossibile avviare il processo Tor:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">La tua configurazione dell\'indirizzo raggiungibile ha causato un\'eccezione!</string>
+    <string name="unable_to_start_tor">Impossibile avviare Tor:</string>
+    <string name="updating_settings_in_tor_service">aggiornamento impostazioni nel servizio Tor</string>
+
 </resources>

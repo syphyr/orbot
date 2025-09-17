@@ -8,18 +8,10 @@
     <string name="main_layout_download">بارگیری</string>
     <string name="main_layout_upload">بارگذاری</string>
     <string name="menu_exit">خروج</string>
-    <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot نرم‌افزاری آزاد است که شامل Tor، ‏IPtProxy (Obfs4Proxy, Meek, Snowflake), ‏Go-Tun2Socks و LibEvent می‌شود. این نرم‌افزار یک تونل VPN، یک پراکسی HTTP محلی (فقط HTTPS روی درگاه ۸۱۱۸) و یک پراکسی SOCKS‏ (۹۰۵۰) به شبکهٔ Tor را فراهم می‌کند.</string>
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">عمومی</string>
     <string name="pref_start_boot_title">شروع Orbot هنگام راه‌اندازی</string>
     <string name="pref_start_boot_summary">شروع خودکار Orbot و اتصال به Tor هنگامی که دستگاه اندرویدیتان راه‌اندازی می‌شود</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">پیکربندی گره</string>
     <string name="pref_node_configuration_summary">این‌ها تنظیمات پیشرفته‌ای هستند که می‌توانند ناشناسی شما را کاهش دهند</string>
     <string name="pref_entrance_node">گره‌های ورودی</string>
@@ -244,4 +236,13 @@
     <string name="built_in_bridges_obfs4_subtitle">ترافیک شما را مخفی می‌کند. به دور زدن برخی از مسدودسازی‌های Tor کمک می‌کند. مناسب برای Wi-Fi‌های عمومی؛ اما درصورتی که در کشوری که Tor مسدود نشده، قرار گرفته باشید.</string>
     <string name="run_smart_connect_">اجرای اتصال هوشمند برای یافتن بهترین راه</string>
     <string name="scan_qr_code">اسکن کد QR</string>
+
+    <string name="status_starting_up">اربوت درحال آغاز است…</string>
+    <string name="status_activated">متصل به شبکه تور</string>
+    <string name="status_disabled">اربوت غیرفعال شده است.</string>
+    <string name="status_shutting_down">TorService خاموش است</string>
+    <string name="couldn_t_start_tor_process_"> تور نتواست اجرا شود:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">تنظیمات شما برای آدرس قابل دسترسی باعث ایجاد خطا شده اند !</string>
+    <string name="unable_to_start_tor">ناتوان در راه اندازی تور:</string>
+    <string name="updating_settings_in_tor_service">به روز رسانی تنظیمات در سرویس Tor</string>
 </resources>

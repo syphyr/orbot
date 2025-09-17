@@ -2,11 +2,13 @@ package org.torproject.android
 
 import android.app.Application
 import android.content.res.Configuration
+import android.util.Log
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
 import org.torproject.android.localization.Languages
 import org.torproject.android.localization.LocaleHelper
+import org.torproject.android.service.circumvention.Transport.Companion.stateLocation
 import org.torproject.android.service.util.Prefs
 
 import java.util.Locale
@@ -16,6 +18,13 @@ class OrbotApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
+        // set state dir for IPtProxy
+        try {
+            stateLocation = cacheDir.path
+        } catch (_ : Exception) {
+            Log.e("OrbotApp", "Couldn't set PT state dir")
+        }
 
         ProcessLifecycleOwner.get().lifecycle.addObserver(object : DefaultLifecycleObserver {
             override fun onStop(owner: LifecycleOwner) {

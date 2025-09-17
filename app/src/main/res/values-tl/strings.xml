@@ -7,17 +7,9 @@
     <string name="main_layout_download">Download</string>
     <string name="main_layout_upload">Upload</string>
     <string name="menu_exit">Labasan</string>
-    <!--Welcome Wizard strings (DJH)-->
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Pangkalahatan</string>
     <string name="pref_start_boot_title">Umpisahan ang Orboot sa Boot</string>
     <string name="pref_start_boot_summary">Kusang umpisahan ang Orbot at kumonekta sa Tor sa pag bukas ng iyong Android Device</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Pagkompigura ng Node</string>
     <string name="pref_node_configuration_summary">Ang mga ito ay advanced settings na maaring bawasan ang iyong anonymity</string>
     <string name="pref_entrance_node">Entrance Nodes</string>
@@ -72,4 +64,11 @@
     <string name="menu_more">Karagdagan</string>
     <string name="connect">Kumonekta</string>
     <string name="hidden_services">Mga Serbisyo ng Onion</string>
+
+    <string name="status_starting_up">Nagsisimula na ang Orbot…</string>
+    <string name="status_activated">Konektado sa Tor network</string>
+    <string name="status_disabled">Naka-deactivate ang Orbot</string>
+    <string name="couldn_t_start_tor_process_">Hindi ma umpisahan ang proseso ng Tor:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Ang iyong ReachableAddresses settings ay nag sanhi ng exception!</string>
+    <string name="unable_to_start_tor">Hindi masimulan ang Tor:</string>
 </resources>

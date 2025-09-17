@@ -8,17 +8,9 @@
     <string name="main_layout_download">Unduh</string>
     <string name="main_layout_upload">Unggah</string>
     <string name="menu_exit">Keluar</string>
-    <!--Welcome Wizard strings (DJH)-->
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Umum</string>
     <string name="pref_start_boot_title">Mulai Orbot saat Boot</string>
     <string name="pref_start_boot_summary">Secara otomatis memulai Orbot dan menghubungkan dengan Tor ketika perangkat Android anda boot</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Konfigurasi Simpul</string>
     <string name="pref_node_configuration_summary">Itu adalah pengaturan lanjutan yang dapat mengurangi anonimitas anda</string>
     <string name="pref_entrance_node">Simpul Masuk</string>
@@ -211,4 +203,13 @@
     <string name="pref_flag_secure_title">Keamanan Layar</string>
     <string name="pref_detect_root_summary">Peringatkan pada pemulaian jika perizinan root diaktifkan di perangkat ini</string>
     <string name="pref_detect_root_title">Deteksi Root</string>
+    <string name="status_starting_up">Orbot sedang dimulai…</string>
+    <string name="status_activated">Tersambung ke Jaringan Tor</string>
+    <string name="status_disabled">Orbot telah dibatalkan</string>
+    <string name="status_shutting_down">TorService dimatikan</string>
+    <string name="couldn_t_start_tor_process_">Tidak dapat memulai proses Tor:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Pengaturan ReachableAddresses anda menyebabkan kesalahan!</string>
+    <string name="unable_to_start_tor">Tidak dapat memulai Tor:</string>
+    <string name="updating_settings_in_tor_service">memperbarui setting pada layanan Tor</string>
+
 </resources>

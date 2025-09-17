@@ -7,17 +7,9 @@
     <string name="main_layout_download">Muat turun</string>
     <string name="main_layout_upload">Muat naik</string>
     <string name="menu_exit">Keluar</string>
-    <!--Welcome Wizard strings (DJH)-->
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Umum</string>
     <string name="pref_start_boot_title">Mulakan Orbot semasa Boot</string>
     <string name="pref_start_boot_summary">Mula Orbot secara automatik dan sambung Tor ketika peranti Android boot</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Konfigurasi Nod</string>
     <string name="pref_node_configuration_summary">Ini ialah tetapan lanjutan yang boleh mengurangkan kadar anonymity anda</string>
     <string name="pref_entrance_node">Nod Kemasukan</string>
@@ -77,4 +69,11 @@
     <string name="pref_allow_background_starts_summary">Benarkan mana-mana aplikasi memberitahu Orbot untuk mulakan Tor dan servis berkenaan</string>
     <string name="newnym">Anda bertukar ke identiti Tor baharu!</string>
     <string name="pref_socks_title">Tor SOCKS</string>
+
+    <string name="status_starting_up">Orbot telah dimulakan..</string>
+    <string name="status_activated">Bersambung ke rangkaian Tor</string>
+    <string name="status_disabled">\"Orbot telah dinyah-aktifkan</string>
+    <string name="couldn_t_start_tor_process_">Tidak boleh memulakan proses Tor:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Tetapan ReachableAddresses anda menyebabkan pengecualian!</string>
+    <string name="unable_to_start_tor">Tidak dapat memulakan Tor:</string>
 </resources>

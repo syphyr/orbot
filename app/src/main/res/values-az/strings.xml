@@ -8,17 +8,9 @@
     <string name="main_layout_download">Endir</string>
     <string name="main_layout_upload">Yüklə</string>
     <string name="menu_exit">Çıx</string>
-    <!--Welcome Wizard strings (DJH)-->
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Əsas</string>
     <string name="pref_start_boot_title">Android Açıldıqda Orbotu Başlat</string>
     <string name="pref_start_boot_summary">Android cihazın işə başladıqda avtomatik olaraq Orbot başlansın və Tor-a qoşulsun</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Kəsişmə Konfiqurasiyası</string>
     <string name="pref_node_configuration_summary">Bunlar sənin anonimliyini azalda biləcək ətraflı seçimlərdir</string>
     <string name="pref_entrance_node">Giriş Kəsişmələri</string>
@@ -206,4 +198,12 @@
     <string name="kindness_config_detail">Cihazınızın digər Tor istifadəçiləri üçün Snowflake proksisi kimi necə və nə vaxt çıxış edə biləcəyini konfiqurasiya edin.</string>
     <string name="pref_flag_secure_summary">Digər proqramların Orbotun skrinşotlarını çəkməsinə mane olun</string>
     <string name="many_ways">Tor-a çatmağın bir çox yolu var. Bəziləri sizin üçün digərlərindən daha yaxşı işləyə bilər.</string>
+    <string name="status_starting_up">Orbot başlayır…</string>
+    <string name="status_activated">Tor şəbəkəsinə bağlandı</string>
+    <string name="status_disabled">Orbot deaktivasiya edildi</string>
+    <string name="status_shutting_down">Tor xidməti işini başa vurur</string>
+    <string name="couldn_t_start_tor_process_">Tor prosesi başlana bilmədi:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Sənin ƏlçatanÜnvanlar seçimin istisnaya səbəb oldu!</string>
+    <string name="unable_to_start_tor">Tor-un başlanmasını dayandır:</string>
+    <string name="updating_settings_in_tor_service">Tor xidmətində quraşdırmalar yüklənir</string>
 </resources>

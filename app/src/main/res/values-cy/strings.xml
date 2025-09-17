@@ -7,15 +7,7 @@
     <string name="main_layout_download">Llwytho i lawr</string>
     <string name="main_layout_upload">Llwytho i fyny</string>
     <string name="menu_exit">Gadael</string>
-    <!--Welcome Wizard strings (DJH)-->
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Cyffredinol</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Ffurfweddiad nod</string>
     <string name="pref_entrance_node">Nodau mynediad</string>
     <string name="pref_entrance_node_dialog">I mewn i nodau mynediad</string>
@@ -163,4 +155,7 @@
     <string name="v3_onion">Parth .onion</string>
     <string name="done">Wedi\'i wneud!</string>
     <string name="v3_key_hash">x25519 Allwedd Breifat yn Sylfaen32</string>
+    <string name="status_starting_up">Mae Orbot yn cychwyn…</string>
+    <string name="status_activated">Wedi cysylltu â rhwydwaith Tor</string>
+
 </resources>
