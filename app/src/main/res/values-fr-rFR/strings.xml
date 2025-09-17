@@ -201,4 +201,6 @@
     <string name="pref_detect_root_summary">Avertir au démarrage si les droits d\'accès root sont activés sur cet appareil</string>
     <string name="pref_detect_root_title">Détection root</string>
     <string name="pref_camo_mode_title">Mode Camouflage</string>
+    <string name="system_vpn_settings">Paramètres du RPV/VPN Android</string>
+    <string name="pref_isolate_keep_alive">Garder les circuits isolés actifs</string>
 </resources>
