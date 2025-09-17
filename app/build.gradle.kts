@@ -152,11 +152,11 @@ dependencies {
     implementation(libs.upnp)
     implementation(libs.pcap.core)
     implementation(libs.pcap.factory)
+    implementation(files("../libs/geoip.jar"))
     api(libs.guardian.jtorctl)
     api(libs.tor.android)
     // local tor-android:
     // api(files("../../tor-android/tor-android-binary/build/outputs/aar/tor-android-binary-debug.aar"))
-
 
 
 
