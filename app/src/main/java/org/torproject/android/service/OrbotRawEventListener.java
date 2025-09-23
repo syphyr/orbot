@@ -11,7 +11,7 @@ import net.freehaven.tor.control.TorControlCommands;
 
 import org.torproject.android.R;
 import org.torproject.android.service.util.Prefs;
-import org.torproject.android.service.util.EmojiUtils;
+import org.torproject.android.service.util.StringUtils;
 import org.torproject.jni.TorService;
 
 import java.text.NumberFormat;
@@ -126,7 +126,7 @@ public class OrbotRawEventListener implements RawEventListener {
                         node.ipAddress = networkStatus[6];
                         var countryCode = mService.conn.getInfo("ip-to-country/" + node.ipAddress).toUpperCase(Locale.getDefault());
                         if (!countryCode.equals(TOR_CONTROLLER_COUNTRY_CODE_UNKNOWN)) {
-                            var emoji = EmojiUtils.convertCountryCodeToFlagEmoji(countryCode);
+                            var emoji = StringUtils.convertCountryCodeToFlagEmoji(countryCode);
                             var countryName = new Locale("", countryCode).getDisplayName();
                             node.country = emoji + " " + countryName;
                         } else node.country = "";

@@ -1,9 +1,13 @@
 /* Copyright (c) 2009, Nathan Freitas, Orbot / The Guardian Project - http://openideals.com/guardian */ /* See LICENSE for licensing information */
 package org.torproject.android.service.util
 
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
+import android.widget.Toast
 import java.util.Locale
 
-object EmojiUtils {
+object StringUtils {
 
     @JvmStatic
     fun convertCountryCodeToFlagEmoji(countryCode: String): String {
@@ -13,6 +17,15 @@ object EmojiUtils {
         val firstChar = Character.codePointAt(uppercaseCC, 0) - asciiOffset + flagOffset
         val secondChar = Character.codePointAt(uppercaseCC, 1) - asciiOffset + flagOffset
         return String(Character.toChars(firstChar)) + String(Character.toChars(secondChar))
+    }
+
+    @JvmStatic
+    fun copyToClipboard(label: String, value: String, successMsg: String, context: Context): Boolean {
+        val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
+            ?: return false
+        clipboard.setPrimaryClip(ClipData.newPlainText(label, value))
+        Toast.makeText(context, successMsg, Toast.LENGTH_LONG).show()
+        return true
     }
 
 }
