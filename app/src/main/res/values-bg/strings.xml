@@ -50,7 +50,7 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Извеждане на дневник за отстраняване на грешки (трябва да използвате adb или aLogcat за достъп до него)</string>
     <string name="project_home">Станица на проекта:</string>
     <string name="third_party_software">Софтуер от трети страни:</string>
-    <string name="pref_use_expanded_notifications">Известието съдържа държавата и адреса по IP на изходния възел на Тор ако са налични</string>
+    <string name="pref_use_expanded_notifications">Известието съдържа държавата и адреса по IP на изходния възел на Tor ако са налични</string>
     <string name="pref_use_expanded_notifications_title">Разширени известия</string>
     <string name="set_locale_title">Език</string>
     <string name="pref_disable_network_title">Без автоматично заспиване на мрежата</string>
@@ -108,7 +108,7 @@
     <string name="restore_backup">Възстановяване от резервно копие</string>
     <string name="kibibyte">КБ</string>
     <string name="mebibyte">МБ</string>
-    <string name="snowflake_proxy_msg_description">Показва известие, когато помагате на някого да заобиколи цензурата</string>
+    <string name="snowflake_proxy_msg_description">Показва известие, когато помагате на някого да избегне цензура</string>
     <string name="backup_service">Услуга за резервни копия (Внимание: по този начин могат да бъдат разкрити настройките на услугата от други приложения)</string>
     <string name="wizard_details_msg">Orbot е приложение с отворен код, което съдържа Тор, IPtProxy (Obfs4Proxy, Meek, Снежинка), Go-Tun2Socks и LibEvent. Предоставя тунел на ВЧМ, местен мрежов посредник на HTTP (HTTPS само на порт 8118) и посредник на SOCKS (9050) към мрежата на Тор.</string>
     <string name="pref_circuit_padding">Уплътняване на обходите</string>
@@ -176,7 +176,7 @@
     <string name="not_sure">Не сте сигурни?</string>
     <string name="ask_tor">Попитайте Тор</string>
     <string name="many_ways">Има много начини за достъп до Тор. Някои може да работят по-добре от други.</string>
-    <string name="kindness_config_detail">Настройте как и кога устройството ви да бъде използвано като посредник на Snowflake за другите потребители на мрежата на Тор.</string>
+    <string name="kindness_config_detail">Настройте как и кога устройството ви да бъде използвано като посредник на Snowflake за другите потребители на мрежата на Tor.</string>
     <string name="pref_isolate_port_summary">Използване на различен обход за всеки порт</string>
     <string name="pref_isolate_protocol">Изолиране на клиентските протоколи</string>
     <string name="pref_isolate_port">Изолиране на целевите портове</string>
@@ -245,4 +245,14 @@
     <string name="your_reachableaddresses_settings_caused_an_exception_">Твоята ReachableAddresses настройка предизвика грешка!</string>
     <string name="unable_to_start_tor">Не може да стартира Тор:</string>
     <string name="updating_settings_in_tor_service">обновяване на настройките в Tor услугата</string>
+    <string name="kindness_mode_is_running">Режимът на доброта работи</string>
+    <string name="kindness_mode_active_message" formatted="true">Помогнали сте на %1$d човека да избегнат цензура</string>
+    <string name="kindness_mode_disabled">Режимът на доброта е изключен</string>
+    <string name="kindness_mode_starting">Стартиране…</string>
+    <string name="kindness_mode_disabled_internet">Свържете се с интернет, за да помогнете на някого да избегне цензура</string>
+    <string name="kindness_mode_disabled_wifi">Свържете се към точка за достъп, за да помогнете на някого да избегне цензура</string>
+    <string name="kindness_mode_disabled_power">Подайте захранване на устройството, за да помогнете на някого да избегне цензура</string>
+    <string name="request_notification_permission_msg">Без включени известия Orbot не може да работи като ВЧМ на Tor или включва режим на доброта.\n\nКогато е включено се показва само едно известие докато Orbot работи.</string>
+    <string name="request_notification_permission">Включете известията за Orbot</string>
+    <string name="open_settings">Настройки</string>
 </resources>

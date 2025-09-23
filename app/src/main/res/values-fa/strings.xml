@@ -52,7 +52,7 @@
     <string name="project_home">صفحهٔ اصلی پروژه:</string>
     <string name="third_party_software">نرم‌افزارهای شخص ثالث:</string>
     <string name="hidden_service_request">برنامه‌ای می‌خواهد سرور Onion روی درگاه ‎%1$s را به شبکهٔ Tor باز کند. اگر به برنامه اعتماد دارید، این کار ایمن است.</string>
-    <string name="pref_use_expanded_notifications">نمایش کشور و نشانی IP گره خروج Tor شما در اعلان، زمانی که در دسترس باشد</string>
+    <string name="pref_use_expanded_notifications">نمایش کشور و نشانی آی‌پی گره خروجی تورتان در آگاهی هنگام وجود</string>
     <string name="pref_use_expanded_notifications_title">اعلان‌های گسترده</string>
     <string name="set_locale_title">زبان</string>
     <string name="pref_disable_network_title">حالت خواب خودکار درصورت عدم وجود شبکه</string>
@@ -154,7 +154,7 @@
     <string name="smart_connect">اتصال هوشمند (پیش‌فرض)</string>
     <string name="direct_connect">اتصال مستقیم به Tor</string>
     <string name="next">بعدی</string>
-    <string name="ports_not_set">درگاه‌ها تنظیم نشده‌اند</string>
+    <string name="ports_not_set">درگاه‌های تنظیم نشده</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">اتصال از طریق داوطلبان Tor. از برخی مسدودیت‌های Tor رد می‌شود.</string>
     <string name="direct_connect_subtitle">بهترین روش اتصال به Tor. درصورت مسدودنبودن Tor از آن استفاده کنید.</string>
@@ -236,7 +236,6 @@
     <string name="built_in_bridges_obfs4_subtitle">ترافیک شما را مخفی می‌کند. به دور زدن برخی از مسدودسازی‌های Tor کمک می‌کند. مناسب برای Wi-Fi‌های عمومی؛ اما درصورتی که در کشوری که Tor مسدود نشده، قرار گرفته باشید.</string>
     <string name="run_smart_connect_">اجرای اتصال هوشمند برای یافتن بهترین راه</string>
     <string name="scan_qr_code">اسکن کد QR</string>
-
     <string name="status_starting_up">اربوت درحال آغاز است…</string>
     <string name="status_activated">متصل به شبکه تور</string>
     <string name="status_disabled">اربوت غیرفعال شده است.</string>
@@ -245,4 +244,13 @@
     <string name="your_reachableaddresses_settings_caused_an_exception_">تنظیمات شما برای آدرس قابل دسترسی باعث ایجاد خطا شده اند !</string>
     <string name="unable_to_start_tor">ناتوان در راه اندازی تور:</string>
     <string name="updating_settings_in_tor_service">به روز رسانی تنظیمات در سرویس Tor</string>
+    <string name="open_settings">گشودن تنظیمات</string>
+    <string name="kindness_mode_is_running">در حال اجرای حالت مهربانی</string>
+    <string name="kindness_mode_active_message" formatted="true">به %1$d نفر کمک کردید سانسور را دور بزنند</string>
+    <string name="kindness_mode_disabled">حالت مهربانی از کار افتاده</string>
+    <string name="kindness_mode_starting">آغاز کردن…</string>
+    <string name="kindness_mode_disabled_internet">برای کمک به دیگران برای دور زدن سانسور به اینترنت وصل شوید</string>
+    <string name="kindness_mode_disabled_wifi">برای کمک به دیگران برای دور زدن سانسور به وای‌فای وصل شوید</string>
+    <string name="kindness_mode_disabled_power">برای کمک به دیگران برای دور زدن سانسور افزاره‌تان را به برق بزنید</string>
+    <string name="request_notification_permission">لطفاً آگاهی‌ها را برای روبوت پیازی به کار بیندازید</string>
 </resources>
