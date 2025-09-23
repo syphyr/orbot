@@ -12,6 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentActivity
 
+@Suppress("SameReturnValue")
 abstract class RequestScheduleExactAlarmDialogFragment : DialogFragment() {
     @RequiresApi(Build.VERSION_CODES.S)
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =

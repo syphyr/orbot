@@ -124,7 +124,7 @@ android.applicationVariants.all {
         }
         
         // Set custom APK output name with version
-        (this as ApkVariantOutputImpl).outputFileName = outputFileName.replace("app-", "Orbot-${getVersionName()}-")
+        (this as ApkVariantOutputImpl).outputFileName = outputFileName.replace("app-", "Orbot-${versionName}-")
     }
 }
 

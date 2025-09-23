@@ -82,11 +82,11 @@ enum class Transport(val id: String) {
          */
         private val addFronts = listOf("github.githubassets.com")
 
-        private const val ampBroker = "https://snowflake-broker.torproject.net/"
+        private const val AMP_BROKER = "https://snowflake-broker.torproject.net/"
         private val ampFronts = listOf("www.google.com")
-        private const val ampCache = "https://cdn.ampproject.org/"
-        private const val sqsQueue = "https://sqs.us-east-1.amazonaws.com/893902434899/snowflake-broker"
-        private const val sqsCreds = "eyJhd3MtYWNjZXNzLWtleS1pZCI6IkFLSUE1QUlGNFdKSlhTN1lIRUczIiwiYXdzLXNlY3JldC1rZXkiOiI3U0RNc0pBNHM1RitXZWJ1L3pMOHZrMFFXV0lsa1c2Y1dOZlVsQ0tRIn0="
+        private const val AMP_CACHE = "https://cdn.ampproject.org/"
+        private const val SQS_QUEUE = "https://sqs.us-east-1.amazonaws.com/893902434899/snowflake-broker"
+        private const val SQS_CREDENTIALS = "eyJhd3MtYWNjZXNzLWtleS1pZCI6IkFLSUE1QUlGNFdKSlhTN1lIRUczIiwiYXdzLXNlY3JldC1rZXkiOiI3U0RNc0pBNHM1RitXZWJ1L3pMOHZrMFFXV0lsa1c2Y1dOZlVsQ0tRIn0="
     }
 
     val transportNames: Set<String>
@@ -144,7 +144,7 @@ enum class Transport(val id: String) {
                 BuiltInBridges.getInstance(context)?.snowflake?.forEachIndexed { idx, it ->
                     val builder = Bridge.Builder(it)
                     builder.ip = "192.0.2.${5 + idx}"
-                    builder.url = ampBroker
+                    builder.url = AMP_BROKER
                     builder.fronts = ampFronts.toMutableSet()
 
                     result.add("Bridge ${builder.build().raw}")
@@ -197,9 +197,9 @@ enum class Transport(val id: String) {
             }
             SNOWFLAKE_AMP -> {
                 controller.snowflakeIceServers = BuiltInBridges.getInstance(context)?.snowflake?.firstOrNull()?.ice ?: ""
-                controller.snowflakeBrokerUrl = ampBroker
+                controller.snowflakeBrokerUrl = AMP_BROKER
                 controller.snowflakeFrontDomains = ampFronts.joinToString(",")
-                controller.snowflakeAmpCacheUrl = ampCache
+                controller.snowflakeAmpCacheUrl = AMP_CACHE
                 controller.snowflakeSqsUrl = ""
                 controller.snowflakeSqsCreds = ""
             }
@@ -214,8 +214,8 @@ enum class Transport(val id: String) {
                 controller.snowflakeBrokerUrl = ""
                 controller.snowflakeFrontDomains = ""
                 controller.snowflakeAmpCacheUrl = ""
-                controller.snowflakeSqsUrl = sqsQueue
-                controller.snowflakeSqsCreds = sqsCreds
+                controller.snowflakeSqsUrl = SQS_QUEUE
+                controller.snowflakeSqsCreds = SQS_CREDENTIALS
             }
             else -> Unit
         }

@@ -182,11 +182,6 @@ object Prefs {
     }
 
     @JvmStatic
-    fun putStartOnBoot(value: Boolean) {
-        putBoolean(PREF_START_ON_BOOT, value)
-    }
-
-    @JvmStatic
     var exitNodes: String?
         get() = prefs?.getString(PREF_EXIT_NODES, null)
         set(country) {
@@ -195,7 +190,6 @@ object Prefs {
 
     @JvmStatic
     fun getSharedPrefs(context: Context?): SharedPreferences? {
-        //   return context.getSharedPreferences(OrbotConstants.PREF_TOR_SHARED_PREFS, Context.MODE_MULTI_PROCESS);
         return PreferenceManager.getDefaultSharedPreferences(context)
     }
 
