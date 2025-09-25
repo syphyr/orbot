@@ -158,7 +158,7 @@ public class OrbotVpnManager implements Handler.Callback {
         return true;
     }
 
-    public final static String FAKE_DNS = "10.0.0.1";
+    public final static String FAKE_DNS = "198.18.0.2";
 
     private static final String VIRTUAL_GATEWAY_IPV4 = "198.18.0.1";
     private static final String VIRTUAL_GATEWAY_IPV6 = "fc00::1";
@@ -224,10 +224,11 @@ public class OrbotVpnManager implements Handler.Callback {
         var fos = new FileOutputStream(file, false);
 
         var tproxy_conf = "misc:\n" +
+//                "  log-file: /data/data/org.torproject.android.debug/cache/hev.log \n" +
                 "  log-level: debug\n" +
                 "  task-stack-size: " + TProxyService.TASK_SIZE + "\n" +
                 "tunnel:\n" +
-                "  ipv4: '" + VIRTUAL_GATEWAY_IPV4 + "'\n" +
+                "  ipv4: " + VIRTUAL_GATEWAY_IPV4 + "\n" +
                 "  ipv6: '" + VIRTUAL_GATEWAY_IPV6 + "'\n" +
                 "  mtu: " + TProxyService.TUNNEL_MTU + "\n";
 
@@ -236,7 +237,16 @@ public class OrbotVpnManager implements Handler.Callback {
                 "  address: 127.0.0.1\n" +
                 "  udp: 'udp'\n";
 
+        tproxy_conf += "mapdns:\n" +
+                "  address: " + FAKE_DNS + "\n" +
+                "  port: 53\n" +
+                "  network: 240.0.0.0\n" +
+                "  netmask: 240.0.0.0\n" +
+                "  cache-size: 10000";
+
         // TODO handle socks username and password here
+
+        Log.d(TAG, tproxy_conf);
 
         fos.write(tproxy_conf.getBytes());
         fos.close();
@@ -251,42 +261,6 @@ public class OrbotVpnManager implements Handler.Callback {
         File conf = getHevSocksTunnelConfFile();
 
         TProxyService.TProxyStartService(conf.getAbsolutePath(), mInterface.getFd());
-        //read packets from TUN and send to go-tun2socks
-        mThreadPacket = new Thread() {
-            public void run() {
-
-                var buffer = new byte[32767 * 2]; //64k
-                keepRunningPacket = true;
-                while (keepRunningPacket) {
-                    try {
-                        int pLen = fis.read(buffer); // will block on API 21+
-
-                        if (pLen > 0) {
-                            var pdata = Arrays.copyOf(buffer, pLen);
-                            try {
-                                var packet = IpSelector.newPacket(pdata, 0, pdata.length);
-
-                                if (packet instanceof IpPacket ipPacket) {
-                                    if (isPacketDNS(ipPacket))
-                                        mExec.execute(new RequestPacketHandler(ipPacket, fos, mDnsResolver));
-                                    else //noinspection StatementWithEmptyBody
-                                        if (isPacketICMP(ipPacket)) {
-                                            //do nothing, drop!
-                                        } else fos.write(pdata);
-                                }
-                            } catch (IllegalRawDataException e) {
-                                Log.e(TAG, e.toString());
-
-                            }
-                        }
-                    } catch (Exception e) {
-                        Log.d(TAG, "error reading from VPN fd: " + e.getLocalizedMessage());
-                    }
-                }
-            }
-        };
-        mThreadPacket.start();
-
     }
     private static boolean isPacketDNS(IpPacket p) {
         if (p.getHeader().getProtocol() == IpNumber.UDP) {
