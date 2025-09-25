@@ -33,12 +33,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import org.pcap4j.packet.IllegalRawDataException;
-import org.pcap4j.packet.IpPacket;
-import org.pcap4j.packet.IpSelector;
-import org.pcap4j.packet.UdpPacket;
-import org.pcap4j.packet.namednumber.IpNumber;
-import org.pcap4j.packet.namednumber.UdpPort;
 import org.torproject.android.service.OrbotConstants;
 import org.torproject.android.service.OrbotService;
 import org.torproject.android.service.ui.Notifications;
@@ -50,7 +44,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -62,11 +55,9 @@ public class OrbotVpnManager implements Handler.Callback {
     private int mTorDns = -1;
     private final VpnService mService;
     private final SharedPreferences prefs;
-    private DNSResolver mDnsResolver;
 
     private final ExecutorService mExec = Executors.newFixedThreadPool(10);
     private Thread mThreadPacket;
-    private boolean keepRunningPacket = false;
 
     private FileInputStream fis;
     private DataOutputStream fos;
@@ -122,7 +113,6 @@ public class OrbotVpnManager implements Handler.Callback {
     }
 
     private void stopVPN() {
-        keepRunningPacket = false;
 
         if (mInterface != null) {
             try {
@@ -170,8 +160,7 @@ public class OrbotVpnManager implements Handler.Callback {
             builder.setMtu(TProxyService.TUNNEL_MTU);
             builder.addAddress(VIRTUAL_GATEWAY_IPV4, 32)
                     .addRoute(defaultRoute, 0)
-                    .addRoute(FAKE_DNS, 32)
-                     .addDnsServer(FAKE_DNS) //just setting a value here so DNS is captured by TUN interface
+                    .addDnsServer(FAKE_DNS) //just setting a value here so DNS is captured by TUN interface
                     .setSession(Notifications.getVpnSessionName(mService));
 
             //handle ipv6
@@ -202,7 +191,6 @@ public class OrbotVpnManager implements Handler.Callback {
                     .setBlocking(true);
 
             mInterface = builder.establish();
-            mDnsResolver = new DNSResolver(mTorDns);
 
             final Handler handler = new Handler(Looper.getMainLooper());
             handler.postDelayed(() -> {
@@ -261,17 +249,6 @@ public class OrbotVpnManager implements Handler.Callback {
         File conf = getHevSocksTunnelConfFile();
 
         TProxyService.TProxyStartService(conf.getAbsolutePath(), mInterface.getFd());
-    }
-    private static boolean isPacketDNS(IpPacket p) {
-        if (p.getHeader().getProtocol() == IpNumber.UDP) {
-            var up = (UdpPacket) p.getPayload();
-            return up.getHeader().getDstPort() == UdpPort.DOMAIN;
-        }
-        return false;
-    }
-
-    private static boolean isPacketICMP(IpPacket p) {
-        return (p.getHeader().getProtocol() == IpNumber.ICMPV4 || p.getHeader().getProtocol() == IpNumber.ICMPV6);
     }
 
     private void doAppBasedRouting(VpnService.Builder builder) throws NameNotFoundException {
