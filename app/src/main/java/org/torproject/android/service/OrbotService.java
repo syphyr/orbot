@@ -610,7 +610,7 @@ public class OrbotService extends VpnService {
             try {
                 conn.setConf("GeoIPFile", new File(appBinHome, GEOIP_ASSET_KEY).getCanonicalPath());
                 conn.setConf("GeoIPv6File", new File(appBinHome, GEOIP6_ASSET_KEY).getCanonicalPath());
-                conn.setConf("ExitNodes", newExits);
+                conn.setConf("ExitNodes", Prefs.getExitNodes());
                 conn.setConf("StrictNodes", "1");
                 conn.setConf("DisableNetwork", "1");
                 conn.setConf("DisableNetwork", "0");
