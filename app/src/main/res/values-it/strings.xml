@@ -8,18 +8,10 @@
     <string name="main_layout_download">Download</string>
     <string name="main_layout_upload">Upload</string>
     <string name="menu_exit">Esci</string>
-    <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot è un\'applicazione open source che contiene Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks e LibEvent. Fornisce un tunnel VPN, un proxy HTTP locale (solo HTTPS su porta 8118) e un proxy SOCKS (9050) per la rete Tor.</string>
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Generale</string>
     <string name="pref_start_boot_title">Esegui Orbot all\'avvio</string>
     <string name="pref_start_boot_summary">Avvia automaticamente Orbot e connetti Tor quando il dispositivo Android viene avviato</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Configurazione nodo</string>
     <string name="pref_node_configuration_summary">Impostazioni avanzate che possono ridurre il tuo anonimato</string>
     <string name="pref_entrance_node">Nodi di entrata</string>
@@ -233,4 +225,41 @@
     <string name="unlock_app_msg" formatted="true">Sblocca il dispositivo per usare %s</string>
     <string name="pref_password_only_no_biometric">Vieta i dati biometrici per l\'autenticazione di Orbot</string>
     <string name="pref_password_only_no_biometric_description">Ciò costringe l\'autenticazione di Orbot a richiedere solo la password del dispositivo anche se l\'autenticazione biometrica, come l\'impronta digitale o lo sblocco facciale, è configurata sul dispositivo.</string>
+    <string name="status_starting_up">Orbot è in esecuzione…</string>
+    <string name="status_activated">Connesso alla rete Tor</string>
+    <string name="status_disabled">\"Orbot è disattivato</string>
+    <string name="status_shutting_down">TorService si sta spegnendo</string>
+    <string name="couldn_t_start_tor_process_">Impossibile avviare il processo Tor:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">La tua configurazione dell\'indirizzo raggiungibile ha causato un\'eccezione!</string>
+    <string name="unable_to_start_tor">Impossibile avviare Tor:</string>
+    <string name="updating_settings_in_tor_service">aggiornamento impostazioni nel servizio Tor</string>
+    <string name="kindness_mode_is_running">Modalità altruismo in esecuzione</string>
+    <string name="kindness_mode_active_message" formatted="true">Hai aiutato %1$d persone ad aggirare la censura</string>
+    <string name="kindness_mode_disabled">Modalità altruismo disattivata</string>
+    <string name="kindness_mode_starting">Avvio…</string>
+    <string name="kindness_mode_disabled_internet">Connettiti a internet per aiutare le persone ad aggirare la censura</string>
+    <string name="kindness_mode_disabled_wifi">Connettiti al Wi-Fi per aiutare le persone ad aggirare la censura</string>
+    <string name="kindness_mode_disabled_power">Collega il dispositivo all\'alimentatore per aiutare le persone ad aggirare la censura</string>
+    <string name="bridges_via_telegram">Bridge da Tor (obfs4) via Telegram</string>
+    <string name="bridges_via_telegram_subtitle">Può mantenerti connesso se Tor viene severamente bloccato. Usando questo metodo verrà aperto il canale Telegram di Tor Bot. Tocca \'Avvia\' o scrivi \'%1$s\' nella chat per ricevere gli indirizzi dei bridge.</string>
+    <string name="bridges_via_email">Bridge da Tor (obfs4) via email</string>
+    <string name="bridges_via_email_subtitle">Camuffa il tuo traffico. Aggira qualche blocco di Tor. Richiede un\'email inviata da un account Gmail o Riseup.</string>
+    <string name="bridge_meek_azure_subtitle">Camuffa il tuo traffico. Aggira qualche blocco di Tor. Potrebbe essere molto lento.</string>
+    <string name="custom_bridges_subtitle">Chiedi all\'interno delle tue reti e organizzazioni di fiducia se qualcuno sta ospitando un bridge. Altrimenti, un tuo amico può ricevere i bridge per te.</string>
+    <string name="custom_bridges_description">Incolla qua sotto gli indirizzi dei bridge che ricevi. Oppure scansiona il codice QR per aggiungerli. I tuoi amici possono ricevere bridge per te su %1$s.</string>
+    <string name="action_use_">Usa %1$s</string>
+    <string name="app_icon_chooser_label_night_watch">Orologio notturno</string>
+    <string name="app_icon_chooser_label_paint">Vernice</string>
+    <string name="app_icon_chooser_label_tetras">Tetra</string>
+    <string name="app_icon_chooser_label_fit_grit">Fitness</string>
+    <string name="app_icon_chooser_label_birdie">Uccellino</string>
+    <string name="camo_samsung_instructions">Le notifiche in modalità Camouflage funzioneranno nel tuo dispositivo Samsung Galaxy solo aprendo le impostazioni -&gt; Notifiche -&gt; Impostazioni avanzate e disattivando \"Mostra icona app in notifiche\". Clicca qui per aprire impostazioni di notifica.</string>
+    <string name="request_notification_permission">Attiva le notifiche per Orbot</string>
+    <string name="request_notification_permission_msg">Se non attivi le notifiche, Orbot non può agire come una VPN Tor o usare la modalità altruismo.\n\nQuando attive, mostriamo solo una singola notifica mentre Orbot è in esecuzione.</string>
+    <string name="open_settings">Apri le impostazioni</string>
+    <string name="enter_bridge_address">Inserisci l\'indirizzo del bridge</string>
+    <string name="built_in_bridges_obfs4">Bridge integrati (obfs4)</string>
+    <string name="built_in_bridges_obfs4_subtitle">Camuffa il tuo traffico. Aggira qualche blocco di Tor. Buono se sei su WiFi pubblico, ma in una nazione dove Tor non viene bloccato.</string>
+    <string name="run_smart_connect_">Esegui \"Connessione intelligente\" per trovare il metodo migliore</string>
+    <string name="scan_qr_code">Scansiona codice QR</string>
 </resources>

@@ -8,18 +8,10 @@
     <string name="main_layout_download">Sótt gögn</string>
     <string name="main_layout_upload">Send gögn</string>
     <string name="menu_exit">Hætta</string>
-    <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot er opinn og frjáls hugbúnaður sem inniheldur Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, og LibEvent. Það sér um að útbúa staðværan HTTP-milliþjón (8118) og SOCKS-milliþjón (9050) inn á Tor-netið.</string>
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Almennt</string>
     <string name="pref_start_boot_title">Virkja Orbot í ræsingu</string>
     <string name="pref_start_boot_summary">Sjálfvirkt ræsa Orbot og tengja Tor þegar Android-tækið þitt ræsist</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Stillingar aðgangspunkts</string>
     <string name="pref_node_configuration_summary">Þetta eru ítarlegri stillingar sem geta minnkað nafnleysið þitt</string>
     <string name="pref_entrance_node">Inngangspunktar</string>
@@ -212,4 +204,14 @@
     <string name="app_icon_chooser_label_birdie">Birdie</string>
     <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
     <string name="camo_dialog_title" formatted="true">Dulbúast sem %1$s</string>
+
+    <string name="status_starting_up">Orbot er að ræsa…</string>
+    <string name="status_activated">Tengdur við Tor netið</string>
+    <string name="status_disabled">Orbot er slökkt</string>
+    <string name="couldn_t_start_tor_process_">Gat ekki kveikt á Tor þráð:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Þitt ReachableAddressur stillingar ollu undanþágu!</string>
+    <string name="unable_to_start_tor">Get ekki kveikt á Tor:</string>
+    <string name="updating_settings_in_tor_service">uppfæri stillingar í Tor þjónustu</string>
+    <string name="mebibyte_per_second">MiB/sek</string>
+    <string name="kibibyte_per_second">KiB/sek</string>
 </resources>

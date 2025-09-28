@@ -8,17 +8,9 @@
     <string name="main_layout_download">Lejupielāde</string>
     <string name="main_layout_upload">Augšupielāde</string>
     <string name="menu_exit">Iziet</string>
-    <!--Welcome Wizard strings (DJH)-->
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Vispārīgi</string>
     <string name="pref_start_boot_title">Startēt Orbot, kad ielādējas</string>
     <string name="pref_start_boot_summary">Automātiski startēt Orbot, un veidot savienojumu ar Tor, kad Jūsu Android ierīce ielādējas</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Mezglu konfigurācija</string>
     <string name="pref_node_configuration_summary">Šie it lietpratīgie iestatījumi, kuri var samazināt Jūsu anonimitāti</string>
     <string name="pref_entrance_node">Ieejas mezgli</string>
@@ -206,4 +198,12 @@
     <string name="volunteer_status_title">Šodien ir labāk
 \npateicoties tev.</string>
     <string name="many_ways">Ir vairāki veidi, kā sasniegt Tor. Daži no tiem jums var darboties labāk nekā citi.</string>
+    <string name="status_starting_up">Orbot startē…</string>
+    <string name="status_activated">Izveidots savienojums ar tīklu Tor</string>
+    <string name="status_disabled">Orbot ir deaktivēts</string>
+    <string name="couldn_t_start_tor_process_">Neizdevās palaist Tor\'a procesu:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Jūsu ReachableAddresses iestatījumi izraisīja izņēmuma stāvokli!</string>
+    <string name="unable_to_start_tor">Nevar startēt Tor:</string>
+    <string name="updating_settings_in_tor_service">atjaunina Tor pakalpojuma iestatījumus </string>
+
 </resources>

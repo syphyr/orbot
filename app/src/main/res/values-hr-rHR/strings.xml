@@ -112,4 +112,13 @@
     <string name="snowflake_subtitle">Povezuje se preko Tor volontera. Zaobilazi neka blokiranja Tor-a.</string>
     <string name="volunteer_mode_weekly_label">Ukupno (tjedno)</string>
     <string name="setting_padding">Unutarnji odmak</string>
+    <string name="status_starting_up">Orbot se pokreće…</string>
+    <string name="status_activated">Spojen na Tor mrežu</string>
+    <string name="status_disabled">Orbot je deaktiviran</string>
+    <string name="status_shutting_down">OrbotService se gasi</string>
+    <string name="couldn_t_start_tor_process_">Nije moguće započeti Tor proces:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Vaše ReachableAddresses postavke su uzrokovale iznimku!</string>
+    <string name="unable_to_start_tor">Nije moguće pokrenuti Tor:</string>
+    <string name="updating_settings_in_tor_service">ažuriram postavke u Tor usluzi</string>
+
 </resources>

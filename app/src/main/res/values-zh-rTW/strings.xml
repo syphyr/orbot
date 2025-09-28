@@ -8,18 +8,10 @@
     <string name="main_layout_download">下載</string>
     <string name="main_layout_upload">上傳</string>
     <string name="menu_exit">離開</string>
-    <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot 是一個開源應用程式，包含 Tor、IPtProxy（Obfs4Proxy、Meek、Snowflake）、Go-Tun2Socks 和 LibEvent。它提供了一個 VPN 隧道、一個本地 HTTP 連接代理（HTTPS 僅在連接埠 8118 上）和一個 SOCKS 代理（9050）進入 Tor 網路。</string>
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">一般</string>
     <string name="pref_start_boot_title">開機時自動啟動 Orbot</string>
     <string name="pref_start_boot_summary">當你的 Android  裝置開機時自動開啟 Orbot 並連接 Tor 網路</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">節點設定</string>
     <string name="pref_node_configuration_summary">這些進階設定可能減損你的匿名性</string>
     <string name="pref_entrance_node">入口節點</string>
@@ -209,4 +201,9 @@
 \n• 它不會減慢您的網速
 \n• 它只能在 wifi 上運行
 \n• 它可以隨時關閉</string>
+
+    <string name="status_starting_up">Orbot 正在啟動中…</string>
+    <string name="status_activated">已連線至 Tor 網路</string>
+    <string name="status_disabled">Orbot 已停用</string>
+    <string name="status_shutting_down">Tor服務 正在關閉</string>
 </resources>

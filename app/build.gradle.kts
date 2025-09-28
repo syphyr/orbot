@@ -10,7 +10,7 @@ plugins {
 
 kotlin { jvmToolchain(21) }
 
-val orbotBaseVersionCode = 1750300200
+val orbotBaseVersionCode = 1760300100
 fun getVersionName(): String {
     // Gets the version name from the latest Git tag
     return providers.exec {
@@ -84,7 +84,9 @@ android {
     }
 
     productFlavors {
-        create("fullperm") { dimension = "free" }
+        create("fullperm") { 
+	    dimension = "free"
+        }
         create("nightly") {
             dimension = "free"
             // overwrites defaults from defaultConfig
@@ -108,9 +110,10 @@ android {
         textReport = false
         xmlReport = false
     }
+
 }
 
-// Increments versionCode by ABI type
+// Increments versionCode by ABI type and sets custom APK name
 android.applicationVariants.all {
     outputs.configureEach { ->
         if (versionCode == orbotBaseVersionCode) {
@@ -119,12 +122,14 @@ android.applicationVariants.all {
             val increment = incrementMap[filters.find { it.filterType == "ABI" }?.identifier] ?: 0
             (this as ApkVariantOutputImpl).versionCodeOverride = orbotBaseVersionCode + increment
         }
+        
+        // Set custom APK output name with version
+        (this as ApkVariantOutputImpl).outputFileName = outputFileName.replace("app-", "Orbot-${versionName}-")
     }
 }
 
 dependencies {
     implementation(project(":OrbotLib"))
-    implementation(project(":orbotservice"))
     implementation(libs.android.material)
     implementation(libs.android.volley)
     implementation(libs.androidx.activity)
@@ -143,6 +148,18 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.appiconnamechanger)
+    implementation(libs.androidx.work.kotlin)
+    implementation(libs.upnp)
+    implementation(libs.pcap.core)
+    implementation(libs.pcap.factory)
+    implementation(files("../libs/geoip.jar"))
+    api(libs.guardian.jtorctl)
+    api(libs.tor.android)
+    // local tor-android:
+    // api(files("../../tor-android/tor-android-binary/build/outputs/aar/tor-android-binary-debug.aar"))
+
+
+
 
     testImplementation(libs.junit.jupiter)
     androidTestImplementation(libs.androidx.junit)
@@ -155,7 +172,7 @@ dependencies {
 
 tasks.named("preBuild") { dependsOn("copyLicenseToAssets") }
 tasks.register<Copy>("copyLicenseToAssets") {
-    from(layout.projectDirectory.file("LICENSE"))
+    from(rootProject.file("LICENSE"))
     into(layout.projectDirectory.dir("src/main/assets"))
 }
 

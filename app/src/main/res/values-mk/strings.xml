@@ -8,18 +8,10 @@
     <string name="main_layout_download">Преземи</string>
     <string name="main_layout_upload">Прикачи</string>
     <string name="menu_exit">Излез</string>
-    <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot e апликација со отворен код која содржи Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, и LibEvent. Овозможува локален HTTP прокси (8118) и SOCKS прокси (9050) во Tor мрежата. Orbot исто така има можност, на уред со root пристап, да го испраќа целиот интернет сообраќај преку Tor.</string>
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Општо</string>
     <string name="pref_start_boot_title">Стартувај го Orbot на бутирање</string>
     <string name="pref_start_boot_summary">Автоматски стартувајте го Orbot и поврзете го Tor кога вашиот Android уред ќе се стартува</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Прилагодување на јазол</string>
     <string name="pref_node_configuration_summary">Ова се напредни поставувања кои можат да ја намалат вашата анонимност</string>
     <string name="pref_entrance_node">Влезни јазли</string>
@@ -116,4 +108,12 @@
     <string name="connected_title">Поврзано</string>
     <string name="btn_refresh">Osvezi</string>
     <string name="connect">Поврзи</string>
+    <string name="status_starting_up">Орбот се стартува…</string>
+    <string name="status_activated">Поврзан на мрежата на Tor</string>
+    <string name="status_disabled">Орбот е деактивиран</string>
+    <string name="couldn_t_start_tor_process_">Не може да се започне Tor-процесот:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Вашите поставки за достапните адреси предизвикаа грешка!</string>
+    <string name="unable_to_start_tor">Tor не може да се стартува:</string>
+    <string name="updating_settings_in_tor_service">ажурирање на поставките во сервисот Tor </string>
+
 </resources>

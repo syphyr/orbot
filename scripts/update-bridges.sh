@@ -2,7 +2,7 @@
 
 BASE=$(dirname "$0")
 
-cd "$BASE/../orbotservice/src/main/assets" || exit
+cd "$BASE/../app/src/main/assets" || exit
 
 rm -f builtin-bridges.json
 

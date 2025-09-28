@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import org.torproject.android.R
-import org.torproject.android.service.util.EmojiUtils
+import org.torproject.android.service.util.StringUtils
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 
@@ -58,7 +58,7 @@ class ExitNodeBottomSheet : OrbotBottomSheetDialogFragment() {
         }
 
         sortedCountries.forEach { (name, locale) ->
-            val display = EmojiUtils.convertCountryCodeToFlagEmoji(locale.country) + " " + name
+            val display = StringUtils.convertCountryCodeToFlagEmoji(locale.country) + " " + name
             items.add(locale.country to display)
         }
 

@@ -7,17 +7,9 @@
     <string name="main_layout_download">Elŝutado</string>
     <string name="main_layout_upload">Alŝutado</string>
     <string name="menu_exit">Eliri</string>
-    <!--Welcome Wizard strings (DJH)-->
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Ĝenerala</string>
     <string name="pref_start_boot_title">Ŝalti Orbot dum praŝargado</string>
     <string name="pref_start_boot_summary">Aŭtomate startigi Orbot kaj konekti al Tor dum praŝargado de via Androida ilo</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Agordo de Nodoj</string>
     <string name="pref_node_configuration_summary">Tie troviĝas progresintaj agordoj kiuj povas limigi vian anonimecon</string>
     <string name="pref_entrance_node">Eniraj nodoj</string>
@@ -71,4 +63,10 @@
     <string name="confirm">Konfirmi</string>
     <string name="menu_new_identity">Nova idento</string>
     <string name="version">Versio:</string>
+    <string name="status_starting_up">Orbot ŝaltiĝas…</string>
+    <string name="status_activated">Konektita al Tor-reto</string>
+    <string name="status_disabled">Orbot estas malaktivigita</string>
+    <string name="couldn_t_start_tor_process_">Tor-procedo ne sukcesis stariĝi:</string>
+    <string name="unable_to_start_tor">Ne eblas startigi Tor:</string>
+
 </resources>

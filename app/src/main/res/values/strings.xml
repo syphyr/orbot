@@ -170,6 +170,14 @@
     <string name="volunteer_mode_weekly_label">Weekly Total</string>
     <string name="volunteer_mode_alltime_label">All Time Total</string>
     <string name="volunteer_mode_subtitle_desc">Kindness mode allows your device to be a bridge for others. It helps people use Tor in places where it is blocked.\n\n• It will not drain your battery\n• It will not slow down your internet\n• It can run only over wifi\n• It can be turned off anytime</string>
+    <string name="kindness_mode_is_running">Kindness Mode is Running</string>
+    <string name="kindness_mode_active_message" formatted="true">You\'ve helped %1$d people circumvent censorship</string>
+    <string name="kindness_mode_disabled">Kindness Mode is Deactivated</string>
+    <string name="kindness_mode_starting">Starting…</string>
+    <string name="kindness_mode_disabled_internet">Connect to the Internet to help people circumvent censorship</string>
+    <string name="kindness_mode_disabled_wifi">Connect to Wi-Fi to help people circumvent censorship</string>
+    <string name="kindness_mode_disabled_power">Connect your device to power to help people circumvent censorship</string>
+
     <string name="smart_connect">Smart Connect (default)</string>
     <string name="direct_connect">Direct Connection to Tor</string>
     <string name="direct_connect_subtitle">The best way to connect to Tor. Use if Tor is not blocked.</string>
@@ -258,4 +266,31 @@
     <string name="pref_password_only_no_biometric_description">This forces Orbot Authentication to only require your device\'s password even if biometric authentication, such as fingerprint or face unlock, are configured on your device.</string>
     <string name="run_smart_connect_">Run Smart Connect to find the best way</string>
     <string name="scan_qr_code">Scan QR Code</string>
+
+    <!-- strings from the old orbotservice module -->
+    <string name="orbot_vpn">Orbot VPN</string>
+    <string name="status_starting_up">Orbot is Starting&#8230;</string>
+    <string name="status_activated">Connected to the Tor Network</string>
+    <string name="status_disabled">Orbot is Deactivated</string>
+    <string name="open_orbot_to_connect_to_tor">Open Orbot to Connect to Tor</string>
+    <string name="status_shutting_down">Orbot is Shutting Down</string>
+    <string name="connect_to_tor">Connect to Tor</string>
+    <string name="orbot_config_invalid">Orbot Configuration Invalid</string>
+
+    <string name="couldn_t_start_tor_process_">Couldn\'t start Tor process: </string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Your ReachableAddresses settings caused an exception!</string>
+    <string name="unable_to_start_tor">Unable to start Tor:</string>
+
+    <string name="updating_settings_in_tor_service">updating settings in Tor service</string>
+
+    <string name="kibibyte_per_second">KiB/s</string>
+    <string name="mebibyte_per_second">MiB/s</string>
+
+    <string name="snowflake_proxy_client_connected_msg">%1$s Kindness Mode helped someone circumvent censorship %2$s</string>
+
+    <string name="log_notice_unable_to_update_onions">unable to upload onion names</string>
+    <string name="log_notice_updating_torrc">Updating torrc custom configuration…</string>
+    <string name="log_notice_connected_to_tor_control_port">Connected to tor control port</string>
+
+
 </resources>

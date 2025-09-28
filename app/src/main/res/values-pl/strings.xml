@@ -8,17 +8,9 @@
     <string name="main_layout_download">Pobieranie</string>
     <string name="main_layout_upload">Wysyłanie</string>
     <string name="menu_exit">Wyjście</string>
-    <!--Welcome Wizard strings (DJH)-->
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Ogólne</string>
     <string name="pref_start_boot_title">Uruchamiaj Orbota przy starcie</string>
     <string name="pref_start_boot_summary">Automatycznie uruchamiaj Orbota i łącz się z Torem, gdy Twoje urządzenie z Androidem się uruchomi</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Konfiguracja węzła</string>
     <string name="pref_node_configuration_summary">Są to zaawansowane ustawienia, które mogą zmniejszyć Twoją anonimowość</string>
     <string name="pref_entrance_node">Węzły wejściowe</string>
@@ -251,4 +243,13 @@
     <string name="app_icon_chooser_label_assistant">Asystent</string>
     <string name="app_icon_chooser_label_paint">Farba</string>
     <string name="scan_qr_code">Zeskanuj kod QR</string>
+    <string name="status_starting_up">Orbot startuje…</string>
+    <string name="status_activated">Podłączony do sieci Tor</string>
+    <string name="status_disabled">Orbot wyłączony</string>
+    <string name="status_shutting_down">TorService wyłącza się</string>
+    <string name="couldn_t_start_tor_process_">Nie można było zainicjować procesu Tora:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Twoje ustawienia dostępnych adresów spowodowały wyjątek!</string>
+    <string name="unable_to_start_tor">Nie można wystartować aplikacji Tor:</string>
+    <string name="updating_settings_in_tor_service">aktualizowanie ustawień w serwisie Tor</string>
+
 </resources>

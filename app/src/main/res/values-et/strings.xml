@@ -8,17 +8,9 @@
     <string name="main_layout_download">Laadi alla</string>
     <string name="main_layout_upload">Laadi üles</string>
     <string name="menu_exit">Välju</string>
-    <!--Welcome Wizard strings (DJH)-->
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Üldist</string>
     <string name="pref_start_boot_title">Käivita Orbot seadme käivitumisel</string>
     <string name="pref_start_boot_summary">Automaatne Orbot käivitumine ja Tori võrku ühendumine seadme käivitumisel</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Seadista sõlm</string>
     <string name="pref_node_configuration_summary">Need on seadistused edasijõudnutele ja võivad vähendada sinu anonüümsust</string>
     <string name="pref_entrance_node">Sisendsõlmed</string>
@@ -208,4 +200,11 @@
     <string name="btn_copy_log">Logi kopeerimine</string>
     <string name="pref_detect_root_summary">Kui antud seadmes on juurkasutaja õigused kasutusel, siis käivitamisel hoiata</string>
     <string name="pref_detect_root_title">Tuvasta juurkasutaja õigused</string>
+    <string name="status_starting_up">Orbot käivitub…</string>
+    <string name="status_activated">Ühendatud Tor võrgustikku</string>
+    <string name="status_disabled">Orbot deaktiveeritud</string>
+    <string name="couldn_t_start_tor_process_">Tor protsessi käivitamine ebaõnnestus:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Teie ReachableAddresses seadistus põhjustas ekse!</string>
+    <string name="unable_to_start_tor">Tor käivitamine ebaõnnestus:</string>
+
 </resources>

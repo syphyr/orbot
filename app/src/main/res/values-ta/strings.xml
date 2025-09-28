@@ -8,15 +8,7 @@
     <string name="main_layout_download">பதிவிறக்கு</string>
     <string name="main_layout_upload">பதிவேற்று</string>
     <string name="menu_exit">வெளியேறு</string>
-    <!--Welcome Wizard strings (DJH)-->
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">பொது</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_proxy_password_summary">பதிலாள் கடவுச்சொல் (கட்டாயமற்ற)</string>
     <string name="pref_proxy_password_dialog">பதிலாள் கடவுச்சொல்லை உள்ளிடவும்</string>
     <string name="error">பிழை</string>
@@ -231,4 +223,8 @@
     <string name="device_lock_security_update_needed">ஆர்போட் அங்கீகாரத்தைப் பயன்படுத்த உங்கள் சாதனத்திற்கான ஆண்ட்ராய்டு பாதுகாப்பு புதுப்பிப்புகளை நீங்கள் பதிவிறக்கம் செய்ய வேண்டும்</string>
     <string name="pref_password_only_no_biometric">ஆர்போட் அங்கீகாரத்திற்கான பயோமெட்ரிக்சை அனுமதிக்காதீர்கள்</string>
     <string name="pref_password_only_no_biometric_description">கைரேகை அல்லது முகம் திறத்தல் போன்ற பயோமெட்ரிக் ஏற்பு உங்கள் சாதனத்தில் கட்டமைக்கப்பட்டிருந்தாலும் கூட, உங்கள் சாதனத்தின் கடவுச்சொல்லை மட்டுமே தேவைப்படும் ஆர்போட் அங்கீகாரத்தை இந்த கட்டாயப்படுத்துகிறது.</string>
+
+    <string name="status_starting_up">ஆர்பாட் துவங்குகிறது…</string>
+    <string name="status_activated">தோர் நெட்வொர்க் இணைக்கப்பட்ட</string>
+    <string name="status_disabled">ஆர்பாட் நிறுத்தப்பட்டது</string>
 </resources>

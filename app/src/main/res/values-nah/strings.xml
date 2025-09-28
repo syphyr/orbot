@@ -172,4 +172,29 @@ atl oquitlapatic</string>
     <string name="app_suggested_subtitle">Orbot  tequipano cenca cualli ica amatlacuilotepoztlatlatquitl ihuan tlacanamimatlatl</string>
     <string name="apps_suggested_title">Yolitectia tepoztlatlatquitl</string>
     <string name="apps_other_apps">Occe tepoztlatlatquitl</string>
+    <string name="orbot_vpn">Orbot VPN</string>
+    <string name="status_starting_up">Orbot pehualtica &#8230;</string>
+    <string name="status_activated">Tencuitica matlatl Tor Network</string>
+    <string name="status_disabled">Orbot ahmo tequitica</string>
+    <string name="open_orbot_to_connect_to_tor">Xictlapoz Orbot pampa xictencuiz Tor</string>
+    <string name="status_shutting_down">Orbot tlaltzacuatica</string>
+    <string name="connect_to_tor">Xictencuiz Tor</string>
+    <string name="orbot_config_invalid">Ahmo melahuac mocentilis Orbot</string>
+
+    <string name="couldn_t_start_tor_process_">Ahmo huel opehua Tor</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">¡Mocentiliz ReachableAddresses ye omochihua, yehce za iyopa!</string>
+    <string name="unable_to_start_tor">Ahmo opehua Tor</string>
+
+
+    <string name="updating_settings_in_tor_service">Mochihua yancuic in mocentilis ipan Tor</string>
+
+    <string name="kibibyte_per_second">KiB/s</string>
+    <string name="mebibyte_per_second">MiB/s</string>
+
+    <string name="snowflake_proxy_client_connected_msg">%1$sMocepayahuiproxy otepalehui oquitzicuini ahmo huelmati%2$s</string>
+
+    <string name="log_notice_unable_to_update_onions">Ahmo huel xictlecahuiz xonacatl itocalhuan</string>
+    <string name="log_notice_updating_torrc">Mocentiliz torrc quenime mitzpactia, papatica.</string>
+    <string name="log_notice_connected_to_tor_control_port">Ye octencui huelititzalantli</string>
+
 </resources>

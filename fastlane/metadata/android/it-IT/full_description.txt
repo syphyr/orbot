@@ -1,10 +1,10 @@
-Orbot è un'app proxy libera che consente ad altre app di usare internet in modo più sicuro. Orbot usa Tor per crittografare il tuo traffico internet e poi lo nasconde rimbalzando attraverso una serie di computer in tutto il mondo. Tor è un software libero e una rete aperta che ti aiuta a difenderti da una forma di sorveglianza della rete che minaccia la libertà personale e la privacy, le attività commerciali, le relazioni riservate e la sicurezza dello Stato, nota come analisi del traffico.
+Orbot è un'app VPN e proxy libera che consente ad altre app di usare internet in modo più sicuro. Orbot usa Tor per crittografare il tuo traffico internet e poi lo nasconde rimbalzando attraverso una serie di computer in tutto il mondo. Tor è un software libero e una rete aperta che ti aiuta a difenderti da una forma di sorveglianza della rete che minaccia la libertà personale e la privacy, le attività commerciali, le relazioni riservate e la sicurezza dello Stato, nota come analisi del traffico.
 
 Orbot è l'unica app che crea una connessione internet veramente privata. Come scrive il New York Times, "quando arriva una comunicazione da Tor, non si può mai sapere da dove o da chi provenga".
 
 Tor ha vinto il Pioneer Award della Electronic Frontier Foundation (EFF) del 2012.
 
-★ NON ACCETTARE SOSTITUTI: Orbot è il modo più sicuro di usare internet su Android. Punto. Orbot rimbalza più volte il tuo traffico crittografato attraverso computer di tutto il mondo, invece di connetterti direttamente come le VPN e i proxy. Questo processo richiede un po' più di tempo, ma la più robusta protezione disponibile per privacy e identità vale l'attesa.
+★ NON ACCETTARE SOSTITUTI: Orbot è il modo più sicuro di usare internet su Android. Punto. Orbot rimbalza più volte il tuo traffico crittografato attraverso computer di tutto il mondo, invece di connetterti direttamente come le altre VPN e i proxy. Questo processo richiede un po' più di tempo, ma la più robusta protezione disponibile per privacy e identità vale l'attesa.
 ★ PRIVACY PER LE APP: qualsiasi app può essere instradata via Tor usando la funzionalità VPN di Orbot
 ★ PRIVACY PER TUTTI: Orbot evita che qualsiasi persona stia monitorando la tua connessione possa scoprire quali app usi o siti visiti. Tutto ciò che può vedere è che stai usando Tor.
 

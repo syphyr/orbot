@@ -1,29 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Orbot</string>
-    <string name="app_description">Orbot は、より安全にインターネットを使用するために他のアプリを強化する無料のプロキシアプリです。Orbotは Tor を使ってインターネットトラフィックを暗号化し、世界中のコンピュータを経由することでトラフィックを隠します。Tor はフリーソフトウェアであり、個人の自由やプライバシーを侵害し、機密のビジネス活動や人間関係のトラフィック解析を行う国家安全保障という名目のネットワーク監視から身を守るためのオープンネットワークです。</string>
+    <string name="app_description">Orbot は、より安全にインターネットを使用するために他のアプリを強化する無料のプロキシアプリです。Orbot は Tor を使ってインターネットトラフィックを暗号化し、世界中のコンピュータを経由することでトラフィックを隠します。Tor はフリーソフトウェアであり、個人の自由やプライバシーを侵害し、機密のビジネス活動や人間関係のトラフィック解析を行う国家安全保障という名目のネットワーク監視から身を守るためのオープンネットワークです。</string>
     <string name="menu_settings">Orbot の設定</string>
     <string name="menu_log">履歴</string>
     <string name="menu_about">情報</string>
     <string name="main_layout_download">ダウンロード</string>
     <string name="main_layout_upload">アップロード</string>
     <string name="menu_exit">終了</string>
-    <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot は Tor、IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks、LibEvent を含むオープンソースアプリです。Tor ネットワークに入る VPN トンネル、ローカルHTTP接続プロキシ (8118) SOCKSプロキシ (9050) を提供します。</string>
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">一般</string>
     <string name="pref_start_boot_title">起動時に Orbot を実行する</string>
     <string name="pref_start_boot_summary">Android 端末の起動時に Orbot を自動で実行して、Tor に接続する</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">ノードの設定</string>
-    <string name="pref_node_configuration_summary">これらは、匿名性を低下させることができる高度な設定です</string>
+    <string name="pref_node_configuration_summary">これらは、匿名性を低下させる可能性のある高度な設定です</string>
     <string name="pref_entrance_node">入口ノード</string>
-    <string name="pref_entrance_node_summary">最初のホップのためのデジタル指紋、ニックネーム、国とIPアドレス</string>
+    <string name="pref_entrance_node_summary">最初のホップのためのデジタルフィンガープリント、ニックネーム、国と IP アドレス</string>
     <string name="pref_entrance_node_dialog">入口ノードを入力</string>
     <string name="pref_allow_background_starts_title">バックグラウンドでの開始を許可</string>
     <string name="pref_allow_background_starts_summary">Orbot が Tor と関連サービスを開始するように、任意のアプリに伝えます</string>
@@ -60,7 +52,7 @@
     <string name="project_home">プロジェクトのホーム:</string>
     <string name="third_party_software">サードパーティ製ソフトウェア:</string>
     <string name="hidden_service_request">アプリが Tor ネットワークへポート %1$s 上にオニオンサーバー開放しようとしています。信頼できるアプリであれば、これは安全です。</string>
-    <string name="pref_use_expanded_notifications">Tor の出口ノードの国と IP アドレスがある場合、通知に表示します</string>
+    <string name="pref_use_expanded_notifications">可能な場合、通知に Tor の出口ノードの国と IP アドレスを表示する</string>
     <string name="pref_use_expanded_notifications_title">拡張通知</string>
     <string name="set_locale_title">言語</string>
     <string name="pref_disable_network_title">ネットワークがなければ自動スリープする</string>
@@ -158,12 +150,7 @@
     <string name="next">次へ</string>
     <string name="volunteer_mode_title">他の人の Tor への
 \n接続を支援する</string>
-    <string name="volunteer_mode_subtitle_desc">Kindness Mode は、あなたのデバイスが他の人のためのブリッジになることを可能にします。Tor がブロックされている場所でも使えるようにします。
-\n
-\n• 電池を消耗しません
-\n• インターネットを遅くすることはありません
-\n• Wi-Fi のみで動作可能です
-\n• いつでも電源を切ることができます</string>
+    <string name="volunteer_mode_subtitle_desc">Kindness Mode は、あなたのデバイスが他のユーザーのためのブリッジとして機能するようにします。これにより、他のユーザーが Tor がブロックされている場所でも使えるようにします。 \n \n• バッテリーを消耗しません \n• インターネット速度を低下させることはありません \n• Wi-Fi のみで動作可能です \n• いつでもオフにできます</string>
     <string name="smart_connect">スマート接続 (デフォルト)</string>
     <string name="volunteer_mode_weekly_label">週間合計</string>
     <string name="volunteer_mode_alltime_label">全期間累計</string>
@@ -251,4 +238,23 @@
     <string name="run_smart_connect_">Smart Connect を実行して最適な方法を見つける</string>
     <string name="scan_qr_code">QR コードをスキャン</string>
     <string name="enter_bridge_address">ブリッジアドレスを入力する</string>
+    <string name="status_starting_up">Orbotが開始されています…</string>
+    <string name="status_activated">Torネットワークに接続しています</string>
+    <string name="status_disabled">\"Orbotが解除されました</string>
+    <string name="status_shutting_down">TorServiceが終了しています</string>
+    <string name="couldn_t_start_tor_process_">Torプロセスの起動に失敗:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">あなたのReachableAddresses設定により例外が発生しました!</string>
+    <string name="unable_to_start_tor">Torを実行できませんでした</string>
+    <string name="updating_settings_in_tor_service">Torサービスの設定を更新中</string>
+    <string name="kindness_mode_is_running">Kindness Mode が有効です</string>
+    <string name="kindness_mode_active_message" formatted="true">%1$d 人の検閲回避を支援しました</string>
+    <string name="kindness_mode_disabled">Kindness Mode が無効です</string>
+    <string name="kindness_mode_starting">開始しています…</string>
+    <string name="kindness_mode_disabled_internet">インターネットに接続して、人々が検閲を回避するのをサポートしましょう</string>
+    <string name="kindness_mode_disabled_wifi">Wi-Fi に接続して、人々が検閲を回避するのをサポートしましょう</string>
+    <string name="kindness_mode_disabled_power">デバイスを電源に接続して、人々が検閲を回避するのをサポートしましょう</string>
+    <string name="camo_samsung_instructions">お使いの Samsung Galaxy 端末では、カモフラージュモードの通知は、設定 -&gt; 通知 -&gt; 詳細設定 を開き、「通知にアプリアイコンを表示」を無効にすることで動作します。通知設定を開くにはここをクリックしてください。</string>
+    <string name="request_notification_permission">Orbot の通知を有効にしてください</string>
+    <string name="request_notification_permission_msg">通知を有効にしない場合、Orbot は Tor VPN として機能せず、Kindness Mode も使用できません。\n\n有効にすると、Orbot が実行中である場合にのみ通知を 1 回表示します。</string>
+    <string name="open_settings">設定を開く</string>
 </resources>

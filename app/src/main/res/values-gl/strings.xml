@@ -8,18 +8,10 @@
     <string name="main_layout_download">Descargar</string>
     <string name="main_layout_upload">Cargar</string>
     <string name="menu_exit">Saír </string>
-    <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot é unha aplicación de código-aberto que contén a Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks e LibEvent. Proporciona un proxy HTTP (8118) e un proxy SOCKS (9050) na rede Tor. Orbot tamén pode, nun dispositivo con acceso root, enviar todo o tráfico de internet a través de Tor.</string>
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Xeral</string>
     <string name="pref_start_boot_title">Inciar Orbot no Arranque</string>
     <string name="pref_start_boot_summary">Iniciar Orbot automáticamente cando o seu dispositivo Android arranque</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Configuración de Nós</string>
     <string name="pref_node_configuration_summary">Estes son axustes avanzados que poden reducir o seu anonimato</string>
     <string name="pref_entrance_node">Nós de Entrada</string>
@@ -187,4 +179,11 @@
 \na conectarse a Tor</string>
     <string name="volunteer_mode_weekly_label">Total semanal</string>
     <string name="kindness_adjust_title">Configuración</string>
+    <string name="status_starting_up">Orbot está a se iniciar…</string>
+    <string name="status_activated">Conectado á rede Tor</string>
+    <string name="status_disabled">Orbot está desactivado</string>
+    <string name="couldn_t_start_tor_process_">No se pudio inciar o proceso Tor:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">O seu axuste de ReachableAddresses causou unha excepción!</string>
+    <string name="unable_to_start_tor">Incapaz de arrancar Tor</string>
+
 </resources>
