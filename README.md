@@ -52,7 +52,7 @@ learn to configure it properly. Learn more: <https://torproject.org/>
 git clone https://github.com/guardianproject/orbot-android
 cd orbot-android
 git submodule update --init --recursive
-cd orbotservice/src/main
+cd app/src/main
 ndk-build # Make sure your Android NDK folder is on the PATH.
 mv libs jniLibs
 ```

@@ -33,15 +33,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
-import org.torproject.android.service.OrbotConstants;
 import org.torproject.android.service.OrbotService;
 import org.torproject.android.service.TProxyService;
-import org.pcap4j.packet.IllegalRawDataException;
-import org.pcap4j.packet.IpPacket;
-import org.pcap4j.packet.IpSelector;
-import org.pcap4j.packet.UdpPacket;
-import org.pcap4j.packet.namednumber.IpNumber;
-import org.pcap4j.packet.namednumber.UdpPort;
 import org.torproject.android.service.Notifications;
 import org.torproject.android.service.util.Prefs;
 
@@ -50,20 +43,15 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class OrbotVpnManager implements Handler.Callback {
-    private static final String TAG = "bim";
+    private static final String TAG = "OrbotVpnManager";
     boolean isStarted = false;
     private ParcelFileDescriptor mInterface;
     private int mTorSocks = -1;
     private int mTorDns = -1;
     private final VpnService mService;
     private final SharedPreferences prefs;
-
-    private final ExecutorService mExec = Executors.newFixedThreadPool(10);
-    private Thread mThreadPacket;
 
     private FileInputStream fis;
     private DataOutputStream fos;
@@ -135,11 +123,6 @@ public class OrbotVpnManager implements Handler.Callback {
             } catch (Exception | Error e) {
                 Log.d(TAG, "error stopping tun2socks", e);
             }
-        }
-
-        if (mThreadPacket != null && mThreadPacket.isAlive()) {
-            mThreadPacket.interrupt();
-            mThreadPacket = null;
         }
     }
 

@@ -150,8 +150,6 @@ dependencies {
     implementation(libs.appiconnamechanger)
     implementation(libs.androidx.work.kotlin)
     implementation(libs.upnp)
-    implementation(libs.pcap.core)
-    implementation(libs.pcap.factory)
     implementation(files("../libs/geoip.jar"))
     api(libs.guardian.jtorctl)
     api(libs.tor.android)
