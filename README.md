@@ -48,13 +48,13 @@ learn to configure it properly. Learn more: <https://torproject.org/>
 
 ### Build Instructions
 
+Orbot is built with [hev-socks5-tunnel](https://github.com/heiher/hev-socks5-tunnel). Before you can build Orbot, you'll need to clone the submodule
+for this dependency. Once cloned, Android Studio + Gradle will take care of building the C code.
+
 ```sh
 git clone https://github.com/guardianproject/orbot-android
 cd orbot-android
 git submodule update --init --recursive
-cd app/src/main
-ndk-build # Make sure your Android NDK folder is on the PATH.
-mv libs jniLibs
 ```
 
 

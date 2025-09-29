@@ -83,6 +83,13 @@ android {
         }
     }
 
+    ndkVersion = "28.2.13676358"
+    externalNativeBuild {
+        ndkBuild {
+            path = file("src/main/jni/Android.mk")
+        }
+    }
+
     productFlavors {
         create("fullperm") { 
 	    dimension = "free"
