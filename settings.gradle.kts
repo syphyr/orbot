@@ -23,5 +23,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Orbot"
 include(
-    ":app"
+    ":app",
+    ":OrbotLib",
 )
