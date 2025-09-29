@@ -67,7 +67,7 @@ fi
 
 cd $projectroot/app/main
 $ANDROID_NDK_HOME/ndk-build
-mv lib jniLib
+mv libs jniLibs
 cd $projectroot
 
 #clean, build, clean and build!
