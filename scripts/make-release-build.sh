@@ -65,8 +65,9 @@ else
     echo "skipping release ant.properties"
 fi
 
-cd $projectroot/orbotservice/src/main
+cd $projectroot/app/main
 $ANDROID_NDK_HOME/ndk-build
+mv lib jniLib
 cd $projectroot
 
 #clean, build, clean and build!
