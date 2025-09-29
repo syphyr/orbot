@@ -136,6 +136,7 @@ android.applicationVariants.all {
 }
 
 dependencies {
+    implementation(project(":OrbotLib"))
     implementation(libs.android.material)
     implementation(libs.android.volley)
     implementation(libs.androidx.activity)
@@ -156,7 +157,6 @@ dependencies {
     implementation(libs.appiconnamechanger)
     implementation(libs.androidx.work.kotlin)
     implementation(libs.upnp)
-    implementation(libs.iptproxy)
     implementation(files("../libs/geoip.jar"))
     api(libs.guardian.jtorctl)
     api(libs.tor.android)
