@@ -9,7 +9,10 @@ public class TProxyService {
         System.loadLibrary("hev-socks5-tunnel");
     }
 
-    public static final String IPV4 = "192.168.0.1";
+    public static final String VIRTUAL_GATEWAY_IPV4 = "198.18.0.1";
+    public static final String VIRTUAL_GATEWAY_IPV6 = "fc00::1";
+    public final static String FAKE_DNS = "198.18.0.2";
+
     public static final int TASK_SIZE = 81920;
     public static final int TUNNEL_MTU = 8500;
 }

@@ -132,24 +132,16 @@ public class OrbotVpnManager implements Handler.Callback {
         return true;
     }
 
-    public final static String FAKE_DNS = "198.18.0.2";
-
-    private static final String VIRTUAL_GATEWAY_IPV4 = "198.18.0.1";
-    private static final String VIRTUAL_GATEWAY_IPV6 = "fc00::1";
-
     private synchronized void setupTun2Socks(final VpnService.Builder builder) {
         try {
-            final String defaultRoute = "0.0.0.0";
-
             builder.setMtu(TProxyService.TUNNEL_MTU);
-            builder.addAddress(VIRTUAL_GATEWAY_IPV4, 32)
-                    .addRoute(defaultRoute, 0)
-                    .addDnsServer(FAKE_DNS) //just setting a value here so DNS is captured by TUN interface
-                    .setSession(Notifications.getVpnSessionName(mService));
-
-            //handle ipv6
-            builder.addAddress(VIRTUAL_GATEWAY_IPV6, 128);
-            builder.addRoute("::", 0);
+            builder.addAddress(TProxyService.VIRTUAL_GATEWAY_IPV4, 32)
+                    .addRoute("0.0.0.0", 0)
+                    .addDnsServer(TProxyService.FAKE_DNS) //just setting a value here so DNS is captured by TUN interface
+                    .setSession(Notifications.getVpnSessionName(mService))
+                    //handle ipv6
+                    .addAddress(TProxyService.VIRTUAL_GATEWAY_IPV6, 128)
+                    .addRoute("::", 0);
 
             /*
              * Can't use this since our HTTP proxy is only CONNECT and not a full proxy
@@ -190,6 +182,7 @@ public class OrbotVpnManager implements Handler.Callback {
 
     public File getHevSocksTunnelConfFile() throws IOException {
         var file = new File(mService.getCacheDir(), "tproxy.conf");
+        //noinspection ResultOfMethodCallIgnored
         file.createNewFile();
         var fos = new FileOutputStream(file, false);
 
@@ -198,21 +191,19 @@ public class OrbotVpnManager implements Handler.Callback {
                 "  log-level: debug\n" +
                 "  task-stack-size: " + TProxyService.TASK_SIZE + "\n" +
                 "tunnel:\n" +
-                "  ipv4: " + VIRTUAL_GATEWAY_IPV4 + "\n" +
-                "  ipv6: '" + VIRTUAL_GATEWAY_IPV6 + "'\n" +
-                "  mtu: " + TProxyService.TUNNEL_MTU + "\n";
-
-        tproxy_conf += "socks5:\n" +
+                "  ipv4: " + TProxyService.VIRTUAL_GATEWAY_IPV4 + "\n" +
+                "  ipv6: '" + TProxyService.VIRTUAL_GATEWAY_IPV6 + "'\n" +
+                "  mtu: " + TProxyService.TUNNEL_MTU + "\n" +
+                "socks5:\n" +
                 "  port: " + mTorSocks + "\n" +
                 "  address: 127.0.0.1\n" +
-                "  udp: 'udp'\n";
-
-        tproxy_conf += "mapdns:\n" +
-                "  address: " + FAKE_DNS + "\n" +
+                "  udp: 'udp'\n" +
+                "mapdns:\n" +
+                "  address: " + TProxyService.FAKE_DNS + "\n" +
                 "  port: 53\n" +
                 "  network: 240.0.0.0\n" +
                 "  netmask: 240.0.0.0\n" +
-                "  cache-size: 10000";
+                "  cache-size: 10000\n";
 
         // TODO handle socks username and password here
 
