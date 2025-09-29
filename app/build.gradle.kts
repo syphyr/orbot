@@ -181,6 +181,7 @@ androidComponents {
 }
 
 dependencies {
+    implementation(project(":OrbotLib"))
     implementation(libs.androidx.core)
     implementation(libs.androidx.datastore.preferences)
     implementation(libs.androidx.datastore.tink)
@@ -201,7 +202,6 @@ dependencies {
     implementation(libs.material3)
 
     // IPtProxy (for Snowflake, obfs4, dnstt and all other pluggable transports)
-    implementation(libs.iptproxy)
     // uncomment to use a local build of IPtProxy:
     // implementation(files("../../IPtProxy/IPtProxy.aar"))
 
