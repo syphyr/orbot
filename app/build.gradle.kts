@@ -47,7 +47,7 @@ android {
             // https://github.com/guardianproject/orbot-android/issues/1565
             // include("armeabi-v7a", "arm64-v8a")
 
-            include("arm64-v8a", "armeabi-v7a")
+            include("arm64-v8a")
             isUniversalApk = false
         }
     }
