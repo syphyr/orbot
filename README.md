@@ -52,8 +52,14 @@ Orbot is built with [hev-socks5-tunnel](https://github.com/heiher/hev-socks5-tun
 for this dependency. Once cloned, Android Studio + Gradle will take care of building the C code.
 
 ```sh
-git clone https://github.com/guardianproject/orbot-android
+git clone --recursive https://github.com/guardianproject/orbot-android
+```
+
+Or, if you already cloned the repo:
+
+```sh
 cd orbot-android
+git pull
 git submodule update --init --recursive
 ```
 

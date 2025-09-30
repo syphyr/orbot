@@ -65,11 +65,6 @@ else
     echo "skipping release ant.properties"
 fi
 
-cd $projectroot/app/main
-$ANDROID_NDK_HOME/ndk-build
-mv libs jniLibs
-cd $projectroot
-
 #clean, build, clean and build!
 make -C external clean
 APP_ABI=armeabi make -C external
