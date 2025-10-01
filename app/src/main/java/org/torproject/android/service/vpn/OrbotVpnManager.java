@@ -49,7 +49,6 @@ public class OrbotVpnManager implements Handler.Callback {
     boolean isStarted = false;
     private ParcelFileDescriptor mInterface;
     private int mTorSocks = -1;
-    private int mTorDns = -1;
     private final VpnService mService;
     private final SharedPreferences prefs;
 
@@ -79,17 +78,14 @@ public class OrbotVpnManager implements Handler.Callback {
 
                 //reset ports
                 mTorSocks = -1;
-                mTorDns = -1;
             }
             case LOCAL_ACTION_PORTS -> {
                 Log.d(TAG, "setting VPN ports");
-                int torSocks = intent.getIntExtra(EXTRA_SOCKS_PROXY_PORT, -1);
-                int torDns = intent.getIntExtra(EXTRA_DNS_PORT, -1);
+                var torSocks = intent.getIntExtra(EXTRA_SOCKS_PROXY_PORT, -1);
 
                 //if running, we need to restart
-                if ((torSocks != -1 && torSocks != mTorSocks && torDns != -1 && torDns != mTorDns)) {
+                if ((torSocks != -1 && torSocks != mTorSocks)) {
                     mTorSocks = torSocks;
-                    mTorDns = torDns;
                     setupTun2Socks(builder);
                 }
             }
@@ -102,27 +98,24 @@ public class OrbotVpnManager implements Handler.Callback {
     }
 
     private void stopVPN() {
-
-        if (mInterface != null) {
-            try {
-                Log.d(TAG, "closing interface, destroying VPN interface");
-//                IPtProxy.stopSocks();
-                TProxyService.TProxyStopService();
-                if (fis != null) {
-                    fis.close();
-                    fis = null;
-                }
-
-                if (fos != null) {
-                    fos.close();
-                    fos = null;
-                }
-
-                mInterface.close();
-                mInterface = null;
-            } catch (Exception | Error e) {
-                Log.d(TAG, "error stopping tun2socks", e);
+        if (mInterface == null) return;
+        try {
+            Log.d(TAG, "closing interface, destroying VPN interface");
+            TProxyService.TProxyStopService();
+            if (fis != null) {
+                fis.close();
+                fis = null;
             }
+
+            if (fos != null) {
+                fos.close();
+                fos = null;
+            }
+
+            mInterface.close();
+            mInterface = null;
+        } catch (Exception | Error e) {
+            Log.d(TAG, "error stopping tun2socks", e);
         }
     }
 
@@ -134,10 +127,10 @@ public class OrbotVpnManager implements Handler.Callback {
 
     private synchronized void setupTun2Socks(final VpnService.Builder builder) {
         try {
-            builder.setMtu(TProxyService.TUNNEL_MTU);
             builder.addAddress(TProxyService.VIRTUAL_GATEWAY_IPV4, 32)
+                    .setMtu(TProxyService.TUNNEL_MTU)
                     .addRoute("0.0.0.0", 0)
-                    .addDnsServer(TProxyService.FAKE_DNS) //just setting a value here so DNS is captured by TUN interface
+                    .addDnsServer(TProxyService.FAKE_DNS)
                     .setSession(Notifications.getVpnSessionName(mService))
                     //handle ipv6
                     .addAddress(TProxyService.VIRTUAL_GATEWAY_IPV6, 128)

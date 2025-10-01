@@ -42,7 +42,7 @@ object NetworkUtils {
             socket.connect(InetSocketAddress(ip, port), timeout)
             socket.close()
             return true
-        } catch (ex: Exception) {
+        } catch (_: Exception) {
             return false
         }
     }
