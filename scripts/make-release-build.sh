@@ -65,10 +65,6 @@ else
     echo "skipping release ant.properties"
 fi
 
-cd $projectroot/orbotservice/src/main
-$ANDROID_NDK_HOME/ndk-build
-cd $projectroot
-
 #clean, build, clean and build!
 make -C external clean
 APP_ABI=armeabi make -C external
