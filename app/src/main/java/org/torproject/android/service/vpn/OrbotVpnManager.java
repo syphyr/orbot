@@ -152,10 +152,7 @@ public class OrbotVpnManager implements Handler.Callback {
                 // traffic for ones without DNS servers (issue 129).
                 builder.allowFamily(OsConstants.AF_INET);
                 builder.allowFamily(OsConstants.AF_INET6);
-
             }
-
-            builder.setBlocking(true);
 
             mInterface = builder.establish();
 
