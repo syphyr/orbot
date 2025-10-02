@@ -247,4 +247,22 @@
     <string name="scan_qr_code">Scanáil Cód QR</string>
     <string name="camo_samsung_instructions">Ar do ghléas Samsung Galaxy, ní oibreoidh fógraí Camouflage Mode ach amháin trí do Socruithe -&gt; Fógraí -&gt; Socruithe Ardleibhéil a oscailt agus \"Taispeáin deilbhín an aip i bhfógraí\" a dhíchumasú. Cliceáil anseo chun Socruithe Fógra a oscailt.</string>
     <string name="power_user_mode_permission">Cead Aláraim &amp; Meabhrúcháin Riachtanach le haghaidh Mód Úsáideora Cumhachta</string>
+    <string name="orbot_vpn">VPN Orbot</string>
+    <string name="status_starting_up">Tá Orbot ag tosú…</string>
+    <string name="status_activated">Ceangailte leis an Líonra Tor</string>
+    <string name="status_disabled">Tá Orbot Díghníomhachtaithe</string>
+    <string name="open_orbot_to_connect_to_tor">Oscail Orbot chun Ceangal le Tor</string>
+    <string name="status_shutting_down">Tá Orbot ag Dúnadh Síos</string>
+    <string name="connect_to_tor">Ceangail le Tor</string>
+    <string name="orbot_config_invalid">Cumraíocht Orbot Neamhbhailí</string>
+    <string name="couldn_t_start_tor_process_">Níorbh fhéidir próiseas Tor a thosú:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Tharla eisceacht mar gheall ar do shocruithe ReachableAddresses!</string>
+    <string name="unable_to_start_tor">Ní féidir Tor a thosú:</string>
+    <string name="updating_settings_in_tor_service">socruithe a nuashonrú i seirbhís Tor</string>
+    <string name="kibibyte_per_second">KiB/s</string>
+    <string name="mebibyte_per_second">MiB/s</string>
+    <string name="snowflake_proxy_client_connected_msg">Chabhraigh Mód Cineáltais %1$s le duine éigin cinsireacht %2$s a sheachaint</string>
+    <string name="log_notice_unable_to_update_onions">ní féidir ainmneacha oinniún a uaslódáil</string>
+    <string name="log_notice_updating_torrc">Cumraíocht saincheaptha torrc á nuashonrú…</string>
+    <string name="log_notice_connected_to_tor_control_port">Ceangailte le port rialaithe tor</string>
 </resources>
