@@ -242,13 +242,13 @@
     <string name="status_starting_up">Orbot 正在启动…</string>
     <string name="status_activated">已连接到 Tor 网络</string>
     <string name="status_disabled">Orbot 已停用</string>
-    <string name="status_shutting_down">Tor服务 正在关闭</string>
+    <string name="status_shutting_down">Orbot 正在关闭</string>
     <string name="couldn_t_start_tor_process_">无法启动 Tor 进程：</string>
     <string name="your_reachableaddresses_settings_caused_an_exception_">可访问地址设置导致异常！</string>
     <string name="unable_to_start_tor">无法启动 Tor：</string>
     <string name="updating_settings_in_tor_service">正在更新 Tor 服务中的设置</string>
-    <string name="mebibyte_per_second">MiB/秒</string>
-    <string name="kibibyte_per_second">KiB/秒</string>
+    <string name="mebibyte_per_second">MiB/s</string>
+    <string name="kibibyte_per_second">KiB/s</string>
     <string name="kindness_mode_is_running">善举模式正在运行</string>
     <string name="kindness_mode_active_message" formatted="true">您已帮助 %1$d 人规避审查</string>
     <string name="kindness_mode_disabled">善举模式已停用</string>
@@ -258,4 +258,12 @@
     <string name="kindness_mode_disabled_power">连接您的设备电源以帮助他人规避审查</string>
     <string name="request_notification_permission">请为 Orbot 启用通知</string>
     <string name="request_notification_permission_msg">如果不启用通知，Orbot 将无法作为 Tor VPN 运行或使用善举模式。\n\n启用后，Orbot 仅在运行时显示一条通知。</string>
+    <string name="orbot_vpn">Orbot VPN</string>
+    <string name="open_orbot_to_connect_to_tor">打开 Orbot 以连接到 Tor</string>
+    <string name="connect_to_tor">连接到 Tor</string>
+    <string name="orbot_config_invalid">Orbot 配置无效</string>
+    <string name="snowflake_proxy_client_connected_msg">%1$s 善举模式帮助某人规避审查 %2$s</string>
+    <string name="log_notice_unable_to_update_onions">无法上传洋葱名称</string>
+    <string name="log_notice_updating_torrc">正在更新 torrc 自定义配置…</string>
+    <string name="log_notice_connected_to_tor_control_port">已连接到 tor 控制端口</string>
 </resources>
