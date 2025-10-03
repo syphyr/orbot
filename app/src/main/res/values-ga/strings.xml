@@ -9,7 +9,7 @@
     <string name="main_layout_download">Íoslódáil</string>
     <string name="main_layout_upload">Uaslódáil</string>
     <string name="menu_exit">Scoir</string>
-    <string name="wizard_details_msg">Is feidhmchlár foinse oscailte é Orbot ina bhfuil Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks agus LibEvent. Soláthraíonn sé tollán VPN, seachfhreastalaí HTTP Connect áitiúil (HTTPS ar phort 8118 amháin) agus seachfhreastalaí SOCKS (9050) isteach sa líonra Tor.</string>
+    <string name="wizard_details_msg">Is feidhmchlár foinse oscailte é Orbot ina bhfuil Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel agus LibEvent. Soláthraíonn sé tollán VPN, seachfhreastalaí HTTP Connect áitiúil (HTTPS ar phort 8118 amháin) agus seachfhreastalaí SOCKS (9050) isteach sa líonra Tor.</string>
     <string name="pref_general_group">Ginearálta</string>
     <string name="pref_start_boot_title">Tosaigh Orbot ar Tosaithe</string>
     <string name="pref_start_boot_summary">Tosaigh Orbot go huathoibríoch agus ceangail Tor nuair a thosaíonn do ghléas Android</string>
