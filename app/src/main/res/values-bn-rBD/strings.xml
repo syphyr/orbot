@@ -33,7 +33,6 @@
     <string name="menu_more">আরো</string>
     <string name="enable">সক্ষম করো</string>
     <string name="hidden_services">ওনিওন সেবা</string>
-
     <string name="status_starting_up">অরবট চালু হচ্ছে . . . </string>
     <string name="status_activated">টর নেটওয়ার্কের সাথে সংযুক্ত হয়েছে</string>
     <string name="status_disabled">অরবট নিষ্ক্রিয় করা হয়েছে</string>

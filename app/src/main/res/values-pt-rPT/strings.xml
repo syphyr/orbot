@@ -217,10 +217,8 @@
     <string name="app_icon_chooser_label_paint">Paint</string>
     <string name="app_icon_chooser_label_tetras">Tetras</string>
     <string name="unlock_app_msg" formatted="true">É necessária a palavra-passe do seu dispositivo para desbloquear o dispositivo %s</string>
-
     <string name="mebibyte_per_second">MiB/s</string>
     <string name="kibibyte_per_second">KiB/s</string>
-
     <string name="status_starting_up">Orbot está iniciando…</string>
     <string name="status_activated">Conectado à rede Tor</string>
     <string name="status_disabled">Orbot está desativado</string>

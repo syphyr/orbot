@@ -8,7 +8,7 @@
     <string name="main_layout_download">Letöltés</string>
     <string name="main_layout_upload">Feltöltés</string>
     <string name="menu_exit">Kilépés</string>
-    <string name="wizard_details_msg">Az Orbot egy nyilt forráskódú alkalmazás ami Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, és LibEvent alkalmazásokat tartalmaz. Helyi  HTTP proxyt (8118) és  SOCKS proxyt (9050) biztosít a Tor hálózatba. Az Orbot továbbá képes arra, hogy rootolt eszközön a teljes internet forgalmat keresztül küldje a Tor-on.</string>
+    <string name="wizard_details_msg">Az Orbot egy nyilt forráskódú alkalmazás ami Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, és LibEvent alkalmazásokat tartalmaz. Helyi HTTP proxyt (8118) és SOCKS proxyt (9050) biztosít a Tor hálózatba. Az Orbot továbbá képes arra, hogy rootolt eszközön a teljes internet forgalmat keresztül küldje a Tor-on.</string>
     <string name="pref_general_group">Általános</string>
     <string name="pref_start_boot_title">Az Orbot indítása rendszerindításkor</string>
     <string name="pref_start_boot_summary">Automatikusan elindítja az Orbot-ot és csatlakozik a hálózathoz, amikor az Android eszköz betölt</string>

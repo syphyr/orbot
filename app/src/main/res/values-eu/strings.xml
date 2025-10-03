@@ -113,7 +113,6 @@
     <string name="kibibyte">KiB</string>
     <string name="menu_new_identity">Nortasun berria</string>
     <string name="next">Hurrengoa</string>
-
     <string name="status_starting_up">Orbot abiarazten ari da…</string>
     <string name="status_activated">Tor sarera konektatuta</string>
     <string name="status_disabled">\"Orbot desaktibatuta dago</string>
