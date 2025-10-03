@@ -202,7 +202,6 @@
     <string name="setting_padding">Định khoảng cách Padding</string>
     <string name="pref_detect_root_summary">Cảnh báo khi khởi chạy rằng, liệu quyền hạn root đã được bật kích hoạt trên thiết bị này chưa</string>
     <string name="pref_detect_root_title">Phát hiện Root</string>
-
     <string name="status_starting_up">Ortbot đang khởi động…</string>
     <string name="status_activated">Đã kết nối với mạng Tor</string>
     <string name="status_disabled">Orbot đã được vô hiệu hóa</string>
