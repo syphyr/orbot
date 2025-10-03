@@ -204,7 +204,6 @@
     <string name="app_icon_chooser_label_birdie">Birdie</string>
     <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
     <string name="camo_dialog_title" formatted="true">Dulbúast sem %1$s</string>
-
     <string name="status_starting_up">Orbot er að ræsa…</string>
     <string name="status_activated">Tengdur við Tor netið</string>
     <string name="status_disabled">Orbot er slökkt</string>
