@@ -209,8 +209,6 @@
     <string name="pref_detect_root_summary">Beim Start warnen, wenn Root-Berechtigungen auf diesem Gerät aktiviert sind</string>
     <string name="pref_detect_root_title">Root-Erkennung</string>
     <string name="system_vpn_settings">Android-VPN-Einstellungen</string>
-
-
     <string name="status_starting_up">Orbot startet …</string>
     <string name="status_activated">Verbunden mit dem Tor-Netzwerk</string>
     <string name="status_disabled">Orbot ist deaktiviert</string>
