@@ -8,7 +8,7 @@
     <string name="main_layout_download">Завантаження</string>
     <string name="main_layout_upload">Вивантаження</string>
     <string name="menu_exit">Вихід</string>
-    <string name="wizard_details_msg">Orbot — це застосунок з відкритим кодом, що містить Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, LibEvent. Він забезпечує локальний HTTP-проксі (8118) та проксі SOCKS (9050) у мережу Tor.</string>
+    <string name="wizard_details_msg">Orbot — це програма з відкритим кодом, що містить Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel та LibEvent. Вона забезпечує VPN-тунель, локальний проксі-сервер HTTP Connect (HTTPS тільки на порту 8118) та проксі-сервер SOCKS (9050) у мережі Tor.</string>
     <string name="pref_general_group">Загальні</string>
     <string name="pref_start_boot_title">Запуск Orbot під час завантаження</string>
     <string name="pref_start_boot_summary">Автоматичний запуск Orbot та з\'єднання з Tor під час запуску вашого пристрою</string>
@@ -263,4 +263,13 @@
     <string name="request_notification_permission">Будь ласка, увімкніть сповіщення для Orbot</string>
     <string name="request_notification_permission_msg">Без увімкнення сповіщень Orbot не може працювати як Tor VPN або використовувати режим доброти.\n\nЯкщо його ввімкнено, ми показуємо лише одне сповіщення, коли Orbot працює.</string>
     <string name="open_settings">Відкрити налаштування</string>
+    <string name="orbot_vpn">Orbot VPN</string>
+    <string name="open_orbot_to_connect_to_tor">Відкрийте Orbot для підключення до Tor</string>
+    <string name="status_shutting_down">Orbot вимикається</string>
+    <string name="connect_to_tor">Підключення до Tor</string>
+    <string name="orbot_config_invalid">Недійсна конфігурація Orbot</string>
+    <string name="snowflake_proxy_client_connected_msg">%1$s Режим доброти допоміг комусь обійти цензуру %2$s</string>
+    <string name="log_notice_unable_to_update_onions">неможливо завантажити назви цибулі</string>
+    <string name="log_notice_updating_torrc">Оновлення користувацької конфігурації torrc…</string>
+    <string name="log_notice_connected_to_tor_control_port">Підключено до порту керування Tor</string>
 </resources>
