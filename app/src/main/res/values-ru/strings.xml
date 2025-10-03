@@ -2,13 +2,13 @@
 <resources>
     <string name="app_name">Orbot</string>
     <string name="app_description">Orbot — это бесплатный инструмент, который позволяет другим приложениям использовать интернет более безопасно, используя Tor для шифрования вашего интернет-трафика, пропуская его через ряд компьютеров по всему миру. Tor — это бесплатное программное обеспечение и открытая сеть, которая помогает вам защититься от формы сетевого наблюдения, угрожающей личной свободе и конфиденциальности, конфиденциальной деловой активности и отношениям, а также государственной безопасности, известной как анализ трафика.</string>
-    <string name="menu_settings">Настройки</string>
+    <string name="menu_settings">Настройки Orbot</string>
     <string name="menu_log">Журнал</string>
     <string name="menu_about">О приложении</string>
     <string name="main_layout_download">Загрузка</string>
     <string name="main_layout_upload">Отправка</string>
     <string name="menu_exit">Выход</string>
-    <string name="wizard_details_msg">Orbot — это приложение с открытым исходным кодом, которое содержит Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks и LibEvent. Оно обеспечивает VPN-туннель, локальный прокси HTTP Connect (HTTPS только на порту 8118) и SOCKS-прокси (9050) в сеть Tor.</string>
+    <string name="wizard_details_msg">Orbot — это приложение с открытым исходным кодом, которое содержит Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel и LibEvent. Оно обеспечивает VPN-туннель, локальный прокси HTTP Connect (HTTPS только на порту 8118) и SOCKS-прокси (9050) в сеть Tor.</string>
     <string name="pref_general_group">Общие</string>
     <string name="pref_start_boot_title">Автоматический запуск Orbot при загрузке системы</string>
     <string name="pref_start_boot_summary">Автоматически запускать Orbot и подключаться к сети Tor при загрузке вашего Android-устройства</string>
@@ -52,7 +52,7 @@
     <string name="project_home">Домашняя страница проекта:</string>
     <string name="third_party_software">Программы сторонних разработчиков: </string>
     <string name="hidden_service_request">Приложение хочет открыть onion-сервер на порту %1$s в сети Tor. Это безопасно, если вы доверяете приложению.</string>
-    <string name="pref_use_expanded_notifications">Отображать в уведомлении страну и IP-адрес вашего узла выхода Tor, если он доступен</string>
+    <string name="pref_use_expanded_notifications">Отображать в уведомлении страну и IP-адрес вашего выходного узла Tor, если он доступен</string>
     <string name="pref_use_expanded_notifications_title">Расширенные уведомления</string>
     <string name="set_locale_title">Язык</string>
     <string name="pref_disable_network_title">Автозасыпание без сети</string>
@@ -78,7 +78,7 @@
     <string name="name">Имя</string>
     <string name="done">Готово!</string>
     <string name="copy_address_to_clipboard">Скопировать адрес в буфер обмена</string>
-    <string name="backup_service">Резервное копирование службы <i>(Внимание: это может раскрыть конфигурацию вашей службы другим приложениям)</i></string>
+    <string name="backup_service">Резервное копирование службы (Внимание: это может раскрыть конфигурацию вашей службы другим приложениям)</string>
     <string name="delete_service">Удалить службу</string>
     <string name="backup_saved_at_external_storage">Резервная копия сохранена на внешнем хранилище</string>
     <string name="backup_restored">Восстановлено из резервной копии</string>
@@ -149,7 +149,7 @@
 \nподключиться к Tor</string>
     <string name="volunteer_mode_weekly_label">Итого за неделю</string>
     <string name="volunteer_mode_alltime_label">Итого за всё время</string>
-    <string name="snowflake">Snowflake (оригинал)</string>
+    <string name="snowflake">Snowflake</string>
     <string name="connect">Подключить</string>
     <string name="next">Далее</string>
     <string name="snowflake_subtitle">Подключение через добровольцев Tor. Обходит некоторые блокировки Tor.</string>
@@ -169,13 +169,13 @@
 \nблагодаря вам.</string>
     <string name="title_choose_apps">Выбор приложений</string>
     <string name="apps_suggested_title">Рекомендуемые приложения</string>
-    <string name="power_user_description">Для пользователей, знакомых с Tor. Позволяет запустить Orbot без настроек VPN и показывает открытые SOCKS- и HTTP-порты.</string>
+    <string name="power_user_description">Для пользователей, знакомых с Tor. Позволяет запустить Orbot без настроек VPN и показывает открытые SOCKS и HTTP порты</string>
     <string name="apps_other_apps">Другие приложения</string>
     <string name="action_activate">Активировать</string>
     <string name="app_suggested_subtitle">Orbot лучше всего работает с приложениями для обмена сообщениями и социальными сетями.</string>
     <string name="hide_apps">Скрывайте приложения от отслеживания в сети и получайте доступ при блокировке.</string>
     <string name="log_copied">Журнал скопирован</string>
-    <string name="snowflake_amp">Snowflake (AMP)</string>
+    <string name="snowflake_amp">Snowflake AMP</string>
     <string name="many_ways">Есть много способов добраться до Tor. Некоторые из них могут сработать у вас лучше, чем другие.</string>
     <string name="not_sure">Не уверены\?</string>
     <string name="ask_tor">Спросить у Tor</string>
@@ -208,4 +208,68 @@
     <string name="your_reachableaddresses_settings_caused_an_exception_">Ваши настройки доступных адресов вызвали исключение!</string>
     <string name="unable_to_start_tor">Невозможно запустить Tor:</string>
     <string name="updating_settings_in_tor_service">обновление настроек в сервисе Tor</string>
+    <string name="system_vpn_settings">Настройки Android VPN</string>
+    <string name="pref_isolate_keep_alive">Оставлять изолированные цепочки живыми</string>
+    <string name="pref_isolate_keep_alive_summary">Оставлять те изолированные цепочки живыми, которые имеют хотя бы одну активную группу с SOCKS-аутентификацией</string>
+    <string name="bridge_snowflake_sqs">Подключаться через других пользователей Tor используя Snowflake (Метод 3 - SQS)</string>
+    <string name="kindness_mode_is_running">Режим доброты сейчас работает</string>
+    <string name="kindness_mode_active_message" formatted="true">Вы помогли %1$d людям обойти цензуру</string>
+    <string name="kindness_mode_disabled">Режим доброты выключен</string>
+    <string name="kindness_mode_starting">Запускается…</string>
+    <string name="kindness_mode_disabled_internet">Подключитесь к интернету, чтобы помочь людям обойти цензуру</string>
+    <string name="kindness_mode_disabled_wifi">Подключитесь к Wi-Fi, чтобы помочь людям обойти цензуру</string>
+    <string name="kindness_mode_disabled_power">Подключите ваше устройство к зарядке, чтобы помогать людям обходить цензуру</string>
+    <string name="snowflake_sqs">Snowflake SQS</string>
+    <string name="bridges_via_telegram">Мосты от Tor (obfs4) через Telegram</string>
+    <string name="bridges_via_telegram_subtitle">Скорее всего сможет помочь вам если Tor критично заблокирован. Этот метод запустит Telegram-бота Tor. Нажмите \'Старт\' или напишите \'%1$s\' в чате, чтобы получить мосты.</string>
+    <string name="bridges_via_email">Мосты от Tor (obfs4) через эл. почту</string>
+    <string name="bridges_via_email_subtitle">Маскирует ваш трафик. Обходит некоторые блокировки Tor. Требует, чтобы эл. письмо было отправлено от аккаунта Gmail или Riseup.</string>
+    <string name="bridge_meek_azure_subtitle">Маскирует ваш трафик. Обходит некоторые блокировки Tor. Может быть очень медленным.</string>
+    <string name="custom_bridges_subtitle">Спросите внутри ваших доверяемых сетей и организаций, чтобы узнать если кто-то запустил мост. Если нет, друг может достать мосты для вас.</string>
+    <string name="custom_bridges_description">Вставьте мосты, которые вы получили под этим сообщением. Или отсканируйте QR-код, чтобы добавить их. Друзья могут достать мосты для вас здесь: %1$s.</string>
+    <string name="action_use_">Используйте %1$s</string>
+    <string name="app_icon_chooser_label_night_watch">Night Watch</string>
+    <string name="app_icon_chooser_label_assistant">Assistant</string>
+    <string name="app_icon_chooser_label_paint">Paint</string>
+    <string name="app_icon_chooser_label_tetras">Tetras</string>
+    <string name="app_icon_chooser_label_todo">To-Do</string>
+    <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
+    <string name="app_icon_chooser_label_birdie">Birdie</string>
+    <string name="camo_dialog_title" formatted="true">Замаскироваться как %1$s</string>
+    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot замаскирует себя под приложение %1$s. Это спрячет все уводемления про Tor и изменит вид Orbot на вашем главном экране.\n\nМаскировка под %2$s перезапустит Orbot.</string>
+    <string name="camo_dialog_disable_confirm_msg">Orbot продолжит показывать уведомления про ваше Tor-соединение и будет выглядеть как Orbot без маскировки на вашем главном экране.\n\nОтключение режима маскировки перезапустит Orbot.</string>
+    <string name="camo_dialog_disable_title">Выключить режим маскировки</string>
+    <string name="camo_samsung_instructions">На вашем устройстве Samsung Galaxy уведомления режима маскировки только будут работать если вы откроете настройки вашего телефона: Настройки -&gt; Уведомления -&gt; Дополнительные параметры и выключением опции \"Отображать значки оповещений\". Нажмите сюда, чтобы открыть Настройки Уведомлений.</string>
+    <string name="pref_camo_mode_title">Режим маскировки</string>
+    <string name="pref_camo_mode_description">Замаскировать как икнока, надпись и текст уведомления будут показаны на вашем устройстве</string>
+    <string name="power_user_mode_permission">Разрешение будильника и напоминателя нужны для режима большой пользователь</string>
+    <string name="power_user_mode_permission_msg">Пожалуйста разрешите приложению Orbot заводить будильники и напоминатели, чтобы использовать режим большого пользователя. Это не создаст никакие будильники на вашем устройстве. Это разрешение нужно, чтобы система держала OrbotService включенным во время, когда Orbot не использован как VPN на всю систему.</string>
+    <string name="request_notification_permission">Пожалуйста включите уведомления для Orbot</string>
+    <string name="request_notification_permission_msg">Без включения уведомлений приложения Orbot, он не может вести себя как Tor VPN или использовать Режим доброты.\n\nКогда они включены, мы только показываем одно уведомление когда Orbot работает.</string>
+    <string name="open_settings">Открыть настройки</string>
+    <string name="pref_require_password">Аутентификация Orbot</string>
+    <string name="pref_require_password_description">Предотвратите доступ к Orbot до того как вы авторизуйтесь вводом своего пароля или отпечатком пальца на вашем устройстве. Это может быть использовано в комбинации с Режимом Маскировки, чтобы помочь спрятать факт того, что Orbot установлен на вашем устройстве</string>
+    <string name="error_no_password_set">Пожалуйста защитите своё устройство, чтобы использовать Orbot Аутентификацию</string>
+    <string name="device_lock_unsupported">Orbot Аутентификация не поддерживается на вашем устройстве</string>
+    <string name="device_lock_security_update_needed">Вы должны скачивать обновления безопасности для вашего устройства, чтобы использовать Orbot Аутентификацию</string>
+    <string name="invalid_bridge_format">Неверный формат мостов</string>
+    <string name="error_asking_tor_for_bridges">Ошибка спрашивая Tor как подключиться</string>
+    <string name="enter_bridge_address">Вставьте мосты</string>
+    <string name="built_in_bridges_obfs4">Встроенные мосты (obfs4)</string>
+    <string name="built_in_bridges_obfs4_subtitle">Маскирует ваш трафик. Обходит некоторые блокировки Tor. Хорош, если вы на публичном Wi-Fi, но в стране где Tor не заблокирован.</string>
+    <string name="unlock_app_msg" formatted="true">Пожалуйста разблокируйте ваше устройство, чтобы использовать %s</string>
+    <string name="pref_password_only_no_biometric">Не разрешать биометрию для Orbot Аутентификации</string>
+    <string name="pref_password_only_no_biometric_description">Это заставляет Orbot Аутентификацию только требовать пароль вашего устройство, даже если биометрическая аутентификация, такие как отпечаток пальца или разблокировка лицом, настроены на вашем устройстве.</string>
+    <string name="run_smart_connect_">Использовать Умное Подключение, чтобы найти лучший путь</string>
+    <string name="scan_qr_code">Сканировать QR-код</string>
+    <string name="orbot_vpn">Orbot VPN</string>
+    <string name="open_orbot_to_connect_to_tor">Откройте Orbot для подключения к Tor</string>
+    <string name="connect_to_tor">Подключиться к Tor</string>
+    <string name="orbot_config_invalid">Конфигурация Orbot Неверна</string>
+    <string name="kibibyte_per_second">KiB/s</string>
+    <string name="mebibyte_per_second">MiB/s</string>
+    <string name="snowflake_proxy_client_connected_msg">%1$s Режим доброты помог кому-то обойти цензуру %2$s</string>
+    <string name="log_notice_unable_to_update_onions">не получилось загрузить onion имена</string>
+    <string name="log_notice_updating_torrc">Обновление пользовательских настроек torrc…</string>
+    <string name="log_notice_connected_to_tor_control_port">Подключены к tor control port</string>
 </resources>
