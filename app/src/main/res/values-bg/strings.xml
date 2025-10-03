@@ -110,7 +110,7 @@
     <string name="mebibyte">МБ</string>
     <string name="snowflake_proxy_msg_description">Показва известие, когато помагате на някого да избегне цензура</string>
     <string name="backup_service">Услуга за резервни копия (Внимание: по този начин могат да бъдат разкрити настройките на услугата от други приложения)</string>
-    <string name="wizard_details_msg">Orbot е приложение с отворен код, което съдържа Тор, IPtProxy (Obfs4Proxy, Meek, Снежинка), Go-Tun2Socks и LibEvent. Предоставя тунел на ВЧМ, местен мрежов посредник на HTTP (HTTPS само на порт 8118) и посредник на SOCKS (9050) към мрежата на Тор.</string>
+    <string name="wizard_details_msg">Orbot е приложение с отворен код, което съдържа Тор, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel и LibEvent. Предоставя тунел на ВЧМ, местен мрежов посредник на HTTP (HTTPS само на порт 8118) и посредник на SOCKS (9050) към мрежата на Tor.</string>
     <string name="pref_circuit_padding">Уплътняване на обходите</string>
     <string name="backup_saved_at_external_storage">Резервното копие е запазено във външното хранилище</string>
     <string name="backup_restored">Резервното копие е възстановено</string>
@@ -238,13 +238,13 @@
     <string name="scan_qr_code">Сканиране на кода за QR</string>
     <string name="camo_samsung_instructions">На вашия Самсунг Галакси известието в режим Камуфлаж ще работи само ако отворите Настройки → Известия → Разширени настройки и изключите „Показване пиктограмата на приложението в известията“. Докоснете, за да отворите настройките на известията.</string>
     <string name="status_starting_up">Орбот стартира…</string>
-    <string name="status_activated">Свързан към Тор мрежата</string>
-    <string name="status_disabled">Орбот е деактивиран</string>
-    <string name="status_shutting_down">TorService спира</string>
-    <string name="couldn_t_start_tor_process_">Неуспешно стартиране на Тор процес: </string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">Твоята ReachableAddresses настройка предизвика грешка!</string>
-    <string name="unable_to_start_tor">Не може да стартира Тор:</string>
-    <string name="updating_settings_in_tor_service">обновяване на настройките в Tor услугата</string>
+    <string name="status_activated">Има връзка с мрежата на Tor</string>
+    <string name="status_disabled">Орбот е изключен</string>
+    <string name="status_shutting_down">Orbot се изключва</string>
+    <string name="couldn_t_start_tor_process_">Грешка при стартиране на Tor:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Настройката ReachableAddresses предизвика грешка!</string>
+    <string name="unable_to_start_tor">Невъзможно стартирането на Тор:</string>
+    <string name="updating_settings_in_tor_service">Променяне настройките на услугата Tor</string>
     <string name="kindness_mode_is_running">Режимът на доброта работи</string>
     <string name="kindness_mode_active_message" formatted="true">Помогнали сте на %1$d човека да избегнат цензура</string>
     <string name="kindness_mode_disabled">Режимът на доброта е изключен</string>
@@ -255,4 +255,14 @@
     <string name="request_notification_permission_msg">Без включени известия Orbot не може да работи като ВЧМ на Tor или включва режим на доброта.\n\nКогато е включено се показва само едно известие докато Orbot работи.</string>
     <string name="request_notification_permission">Включете известията за Orbot</string>
     <string name="open_settings">Настройки</string>
+    <string name="orbot_vpn">ВМЧ на Orbot</string>
+    <string name="open_orbot_to_connect_to_tor">Отворете Orbot за връзка с Tor</string>
+    <string name="connect_to_tor">Свързване с Tor</string>
+    <string name="orbot_config_invalid">Неправилни настройки на Orbot</string>
+    <string name="kibibyte_per_second">КиБ/s</string>
+    <string name="mebibyte_per_second">МиБ/s</string>
+    <string name="snowflake_proxy_client_connected_msg">%1$s Режимът на доброта помогна на някого да заобиколи цензурата %2$s</string>
+    <string name="log_notice_unable_to_update_onions">Грешка при изпращане имената на Onion</string>
+    <string name="log_notice_updating_torrc">Обновяване потребителските настройки от torrc…</string>
+    <string name="log_notice_connected_to_tor_control_port">Свързване към управляващия порт на Tor</string>
 </resources>
