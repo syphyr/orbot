@@ -206,5 +206,4 @@
     <string name="couldn_t_start_tor_process_">Tor protsessi käivitamine ebaõnnestus:</string>
     <string name="your_reachableaddresses_settings_caused_an_exception_">Teie ReachableAddresses seadistus põhjustas ekse!</string>
     <string name="unable_to_start_tor">Tor käivitamine ebaõnnestus:</string>
-
 </resources>

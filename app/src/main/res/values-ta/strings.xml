@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ஆர்பாட் </string>
-    <string name="app_description">ஆர்பாட், இன்னும பாதுகாப்பான முறையில் இணைய பயன்படுத்த மற்ற பயன்பாடுகள் பலப்படுத்துகிறார் என்று ஒரு இலவச ப்ராக்ஸி பயன்பாடு ஆகும். ஆர்பாட் உங்கள் இணைய போக்குவரத்து குறியாக்க தோர் பயன்படுத்துகிறது மற்றும் அதன் பின்னர் உலகம் முழுவதும் கணினிகள் ஒரு தொடர் மூலம் எதிர்க்கிறது அதை மறுத்தவர். தோர் இலவச மென்பொருள் மற்றும் நீங்கள் போக்குவரத்து பகுப்பாய்வு என்ற தனிப்பட்ட சுதந்திரம் மற்றும் தனியுரிமை, ரகசிய வணிக நடவடிக்கைகள் மற்றும் உறவுகள், மற்றும் மாநில பாதுகாப்பை அச்சுறுத்தும் நெட்வொர்க் கண்காணிப்பு வடிவ எதிராக பாதுகாக்க உதவுகிறது என்று ஒரு திறந்த நெட்வொர்க் ஆகும்.</string>
+    <string name="app_description">ஆர்பாட், இன்னும பாதுகாப்பான முறையில் இணைய பயன்படுத்த மற்ற பயன்பாடுகள் பலப்படுத்துகிறார் என்று ஒரு இலவச ப்ராக்ஸி பயன்பாடு ஆகும். ஆர்பாட் உங்கள் இணைய போக்குவரத்து குறியாக்க தோர் பயன்படுத்துகிறது மற்றும் அதன் பின்னர் உலகம் முழுவதும் கணினிகள் ஒரு தொடர்மூலம் எதிர்க்கிறது அதை மறுத்தவர். தோர் இலவச மென்பொருள் மற்றும் நீங்கள் போக்குவரத்து பகுப்பாய்வு என்ற தனிப்பட்ட சுதந்திரம் மற்றும் தனியுரிமை, ரகசிய வணிக நடவடிக்கைகள் மற்றும் உறவுகள், மற்றும் மாநில பாதுகாப்பை அச்சுறுத்தும் நெட்வொர்க் கண்காணிப்பு வடிவ எதிராகப் பாதுகாக்க உதவுகிறது என்று ஒரு திறந்த நெட்வொர்க் ஆகும்.</string>
     <string name="menu_settings">சுற்றுப்பாதை அமைப்புகள்</string>
     <string name="menu_log">பதிவுகள்</string>
     <string name="menu_about">பற்றி</string>
@@ -124,7 +124,7 @@
     <string name="pref_entrance_node_summary">முதல் ஆப்பிற்கான கைரேகைகள், நிக்ச், நாடுகள் மற்றும் முகவரிகள்</string>
     <string name="no_internet_title">இணையத்துடன் இணைக்கவும்</string>
     <string name="pref_detect_root_title">ரூட் கண்டறிதல்</string>
-    <string name="wizard_details_msg">ஆர்போட் என்பது ஒரு திறந்த-மூல பயன்பாடாகும், இது டோர், இப்டிராக்சி (OBFS4Proxy, Mek, Snewflake), Go-Tun2socks மற்றும் லிபெவென்ட் ஆகியவற்றைக் கொண்டுள்ளது. இது ஒரு VPN சுரங்கப்பாதை, உள்ளக HTTP இணை Proxy (HTTP கள் துறைமுகம் 8118 இல் மட்டுமே) மற்றும் TOR நெட்வொர்க்கில் ஒரு SOCKS பதிலாள் (9050) ஆகியவற்றை வழங்குகிறது.</string>
+    <string name="wizard_details_msg">ஆர்போட் என்பது ஒரு திறந்த-மூல பயன்பாடாகும், இது டோர், இப்டிராக்சி (Lyrebird, Mek, Snewflake), hev-socks5-tunnel மற்றும் லிபெவென்ட் ஆகியவற்றைக் கொண்டுள்ளது. இது ஒரு VPN சுரங்கப்பாதை, உள்ளக HTTP இணை Proxy (HTTP கள் துறைமுகம் 8118 இல் மட்டுமே) மற்றும் TOR நெட்வொர்க்கில் ஒரு SOCKS பதிலாள் (9050) ஆகியவற்றை வழங்குகிறது.</string>
     <string name="pref_node_configuration_summary">இவை உங்கள் அநாமதேயத்தை குறைக்கக்கூடிய மேம்பட்ட அமைப்புகள்</string>
     <string name="pref_entrance_node_dialog">நுழைவு முனைகளை உள்ளிடவும்</string>
     <string name="pref_proxy_type_summary">பதிலாள் சேவையகத்திற்கு பயன்படுத்த நெறிமுறை: HTTP, HTTPS, SOCKS4, SOCKS5</string>
@@ -223,8 +223,46 @@
     <string name="device_lock_security_update_needed">ஆர்போட் அங்கீகாரத்தைப் பயன்படுத்த உங்கள் சாதனத்திற்கான ஆண்ட்ராய்டு பாதுகாப்பு புதுப்பிப்புகளை நீங்கள் பதிவிறக்கம் செய்ய வேண்டும்</string>
     <string name="pref_password_only_no_biometric">ஆர்போட் அங்கீகாரத்திற்கான பயோமெட்ரிக்சை அனுமதிக்காதீர்கள்</string>
     <string name="pref_password_only_no_biometric_description">கைரேகை அல்லது முகம் திறத்தல் போன்ற பயோமெட்ரிக் ஏற்பு உங்கள் சாதனத்தில் கட்டமைக்கப்பட்டிருந்தாலும் கூட, உங்கள் சாதனத்தின் கடவுச்சொல்லை மட்டுமே தேவைப்படும் ஆர்போட் அங்கீகாரத்தை இந்த கட்டாயப்படுத்துகிறது.</string>
-
     <string name="status_starting_up">ஆர்பாட் துவங்குகிறது…</string>
     <string name="status_activated">தோர் நெட்வொர்க் இணைக்கப்பட்ட</string>
     <string name="status_disabled">ஆர்பாட் நிறுத்தப்பட்டது</string>
+    <string name="kindness_mode_is_running">கருணை முறை இயங்குகிறது</string>
+    <string name="kindness_mode_active_message" formatted="true">தணிக்கையைத் தவிர்க்க %1$d நபர்களுக்கு நீங்கள் உதவியுள்ளீர்கள்</string>
+    <string name="kindness_mode_disabled">கருணை முறை செயலிழக்கப்படுகிறது</string>
+    <string name="kindness_mode_starting">தொடங்குகிறது…</string>
+    <string name="kindness_mode_disabled_internet">தணிக்கையைத் தவிர்க்க மக்களுக்கு உதவ இணையத்துடன் இணைக்கவும்</string>
+    <string name="kindness_mode_disabled_wifi">தணிக்கையைத் தவிர்க்க மக்களுக்கு உதவ வைஃபை உடன் இணைக்கவும்</string>
+    <string name="kindness_mode_disabled_power">தணிக்கை செய்ய மக்களுக்கு உதவ உங்கள் சாதனத்தை அதிகாரத்துடன் இணைக்கவும்</string>
+    <string name="bridges_via_telegram">டெலிகிராம் வழியாக டோர் (OBFS4) இலிருந்து பாலங்கள்</string>
+    <string name="bridges_via_telegram_subtitle">டோர் கடுமையாகத் தடுக்கப்பட்டால் உங்களை இணைத்து வைத்திருக்க வாய்ப்புள்ளது. இந்த முறையைப் பயன்படுத்துவது டோர் போட் டெலிகிராம் சேனலைத் தொடங்கும். பாலம் முகவரிகளைப் பெற அரட்டையில் \'தொடங்கு\' அல்லது \'%1$s\' ஐ எழுதுங்கள்.</string>
+    <string name="bridges_via_email">மின்னஞ்சல் வழியாக TOR (OBFS4) இலிருந்து பாலங்கள்</string>
+    <string name="bridges_via_email_subtitle">உங்கள் போக்குவரத்தை மூடுகிறது. சில டோர் தடுப்புகளைச் சுற்றி வருகிறது. சிமெயில் அல்லது ரைச்அப் கணக்கிலிருந்து அனுப்பப்பட்ட மின்னஞ்சல் தேவை.</string>
+    <string name="bridge_meek_azure_subtitle">உங்கள் போக்குவரத்தை மூடுகிறது. சில டோர் தடுப்புகளைச் சுற்றி வருகிறது. மிகவும் மெதுவாக இருக்கலாம்.</string>
+    <string name="custom_bridges_subtitle">உங்கள் நம்பகமான நெட்வொர்க்குகள் மற்றும் அமைப்புகளுக்குள் யாராவது ஒரு பாலத்தை புரவலன் செய்கிறார்களா என்று கேளுங்கள். இல்லையென்றால், ஒரு நண்பர் உங்களுக்காக பாலங்களைப் பெறலாம்.</string>
+    <string name="custom_bridges_description">நீங்கள் கீழே பெறும் பாலம் முகவரிகளை ஒட்டவும். அல்லது அவற்றைச் சேர்க்க QR குறியீட்டை வருடு செய்யுங்கள். நண்பர்கள் உங்களுக்கான பாலங்களை %1$s இல் பெறலாம்.</string>
+    <string name="action_use_">%1$s ஐப் பயன்படுத்தவும்</string>
+    <string name="camo_samsung_instructions">உங்கள் சாம்சங் கேலக்சி சாதனத்தில் உருமறைப்பு பயன்முறையின் அறிவிப்புகள் உங்கள் அமைப்புகளைத் திறப்பதன் மூலம் மட்டுமே செயல்படும் -&gt; அறிவிப்புகள் -&gt; மேம்பட்ட அமைப்புகள் மற்றும் \"அறிவிப்புகளில் பயன்பாட்டு ஐகானைக் காட்டு\" என்பதை முடக்குகின்றன. அறிவிப்பு அமைப்புகளைத் திறக்க இங்கே சொடுக்கு செய்க.</string>
+    <string name="request_notification_permission">ஆர்போட்டிற்கான அறிவிப்புகளை இயக்கவும்</string>
+    <string name="request_notification_permission_msg">அறிவிப்புகளை இயக்காமல் ஆர்போட் ஒரு டோர் வி.பி.என் ஆக செயல்பட முடியாது அல்லது கருணை பயன்முறையைப் பயன்படுத்த முடியாது. \n\nஇயக்கப்பட்டால், ஆர்போட் இயங்கும்போது மட்டுமே ஒரு அறிவிப்பைக் காண்பிப்போம்.</string>
+    <string name="open_settings">திறந்த அமைப்புகள்</string>
+    <string name="enter_bridge_address">பாலம் முகவரியை உள்ளிடவும்</string>
+    <string name="built_in_bridges_obfs4">உள்ளமைக்கப்பட்ட பாலங்கள் (OBFS4)</string>
+    <string name="built_in_bridges_obfs4_subtitle">உங்கள் போக்குவரத்தை மூடுகிறது. சில டோர் தடுப்புகளைச் சுற்றி வருகிறது. நீங்கள் பொது வைஃபை வைத்திருந்தால் நல்லது, ஆனால் டோர் தடுக்கப்படாத ஒரு நாட்டில்.</string>
+    <string name="run_smart_connect_">சிறந்த வழியைக் கண்டுபிடிக்க அறிவுள்ள கனெக்டை இயக்கவும்</string>
+    <string name="scan_qr_code">QR குறியீட்டை வருடு செய்யுங்கள்</string>
+    <string name="orbot_vpn">Orbot vpn</string>
+    <string name="open_orbot_to_connect_to_tor">TOR உடன் இணைக்க ஆர்போட் திறக்கவும்</string>
+    <string name="status_shutting_down">ஆர்போட் மூடப்படுகிறது</string>
+    <string name="connect_to_tor">TOR உடன் இணைக்கவும்</string>
+    <string name="orbot_config_invalid">சுற்றுப்பாதை உள்ளமைவு தவறானது</string>
+    <string name="couldn_t_start_tor_process_">டோர் செயல்முறையைத் தொடங்க முடியவில்லை:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">உங்கள் அடையக்கூடிய அலங்கார அமைப்புகள் விதிவிலக்கை ஏற்படுத்தின!</string>
+    <string name="unable_to_start_tor">டோர் தொடங்க முடியவில்லை:</string>
+    <string name="updating_settings_in_tor_service">TOR சேவையில் அமைப்புகளை புதுப்பித்தல்</string>
+    <string name="kibibyte_per_second">கிப் / கள்</string>
+    <string name="mebibyte_per_second">Mib/s</string>
+    <string name="snowflake_proxy_client_connected_msg">%1$s கருணை முறை தணிக்கை %2$s ஐத் தவிர்க்க உதவியது</string>
+    <string name="log_notice_unable_to_update_onions">வெங்காய பெயர்களைப் பதிவேற்ற முடியவில்லை</string>
+    <string name="log_notice_updating_torrc">டோர்க் தனிப்பயன் உள்ளமைவைப் புதுப்பித்தல்…</string>
+    <string name="log_notice_connected_to_tor_control_port">TOR கட்டுப்பாட்டு துறைமுகத்துடன் இணைக்கப்பட்டுள்ளது</string>
 </resources>

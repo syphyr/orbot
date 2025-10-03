@@ -212,4 +212,6 @@
     <string name="app_icon_chooser_label_todo">Për-T’u-Bërë</string>
     <string name="pref_isolate_keep_alive_summary">Mbaji gjallë qarqet e izoluar që kanë aktive të paktën një rrjedhë me mirëfilltësim SOCKS</string>
     <string name="pref_isolate_keep_alive">Mbaji gjallë qarqet e izoluar</string>
+    <string name="bridge_snowflake_sqs">Lidhuni përmes përdoruesish të tjerë të Tor-it duke përdorur Snowflake (Metoda 3 - SQS)</string>
+    <string name="kindness_mode_is_running">Po Xhirohet nën Mënyrën Kindness</string>
 </resources>

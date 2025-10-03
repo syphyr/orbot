@@ -157,5 +157,4 @@
     <string name="v3_key_hash">x25519 Allwedd Breifat yn Sylfaen32</string>
     <string name="status_starting_up">Mae Orbot yn cychwyn…</string>
     <string name="status_activated">Wedi cysylltu â rhwydwaith Tor</string>
-
 </resources>

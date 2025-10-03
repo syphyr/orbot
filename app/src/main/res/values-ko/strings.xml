@@ -106,7 +106,6 @@
     <string name="local_port">내부 포트</string>
     <string name="onion_port">Onion 포트</string>
     <string name="copy_address_to_clipboard">주소를 클립보드에 복사</string>
-
     <string name="status_starting_up">Orbot 시작 중…</string>
     <string name="status_activated">Tor 네트워크에 연결됨</string>
     <string name="status_disabled">Orbot이 비활성화되어 있습니다</string>

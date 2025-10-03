@@ -201,7 +201,6 @@
 \n• 它不會減慢您的網速
 \n• 它只能在 wifi 上運行
 \n• 它可以隨時關閉</string>
-
     <string name="status_starting_up">Orbot 正在啟動中…</string>
     <string name="status_activated">已連線至 Tor 網路</string>
     <string name="status_disabled">Orbot 已停用</string>

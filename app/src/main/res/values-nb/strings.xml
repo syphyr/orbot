@@ -207,5 +207,4 @@
     <string name="updating_settings_in_tor_service">Oppdaterer innstillinger i Tor service</string>
     <string name="mebibyte_per_second">MiB/s</string>
     <string name="kibibyte_per_second">KiB/s</string>
-
 </resources>

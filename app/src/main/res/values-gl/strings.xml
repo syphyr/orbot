@@ -185,5 +185,4 @@
     <string name="couldn_t_start_tor_process_">No se pudio inciar o proceso Tor:</string>
     <string name="your_reachableaddresses_settings_caused_an_exception_">O seu axuste de ReachableAddresses causou unha excepción!</string>
     <string name="unable_to_start_tor">Incapaz de arrancar Tor</string>
-
 </resources>

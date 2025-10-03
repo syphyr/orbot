@@ -201,7 +201,6 @@
     <string name="pref_detect_root_title">Root Algılama</string>
     <string name="pref_detect_root_summary">Bu aygıtta root izinleri etkinleştirilmişse başlangıçta uyar</string>
     <string name="system_vpn_settings">Android VPN Ayarları</string>
-
     <string name="status_starting_up">Orbot başlatılıyor…</string>
     <string name="status_activated">Tor ağına bağlandı</string>
     <string name="status_disabled">Orbot devre dışı bırakıldı</string>

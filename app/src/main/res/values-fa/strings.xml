@@ -8,7 +8,7 @@
     <string name="main_layout_download">بارگیری</string>
     <string name="main_layout_upload">بارگذاری</string>
     <string name="menu_exit">خروج</string>
-    <string name="wizard_details_msg">Orbot نرم‌افزاری آزاد است که شامل Tor، ‏IPtProxy (Obfs4Proxy, Meek, Snowflake), ‏Go-Tun2Socks و LibEvent می‌شود. این نرم‌افزار یک تونل VPN، یک پراکسی HTTP محلی (فقط HTTPS روی درگاه ۸۱۱۸) و یک پراکسی SOCKS‏ (۹۰۵۰) به شبکهٔ Tor را فراهم می‌کند.</string>
+    <string name="wizard_details_msg">روبوت پیازی نرم‌افزاری آزاد است که شامل تور، ‏IPtProxy (لایره‌برد, میک, دانه‌برفی)، hev-socks5-tunnel و LibEvent می‌شود. این کاره یک تونل وی‌پی‌ان، پیشکار HTTP محلی (فقط HTTPS روی درگاه ۸۱۱۸) و پیشکار ساکس (۹۰۵۰) را به شبکهٔ تور فراهم می‌کند.</string>
     <string name="pref_general_group">عمومی</string>
     <string name="pref_start_boot_title">شروع Orbot هنگام راه‌اندازی</string>
     <string name="pref_start_boot_summary">شروع خودکار Orbot و اتصال به Tor هنگامی که دستگاه اندرویدیتان راه‌اندازی می‌شود</string>
