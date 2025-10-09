@@ -71,14 +71,7 @@ object TorConfig {
 
         val transport = Prefs.transport
 
-        if (transport == Transport.NONE) {
-            conf.add("UseBridges 0")
-            conf.addAll(transport.getTorConfig(context))
-        }
-        else {
-            conf.add("UseBridges 1")
-            conf.addAll(transport.getTorConfig(context))
-        }
+        conf.addAll(transport.getTorConfig(context))
 
         if (geoIpFile.exists()) { // only apply geoip if it exists
             conf.add("GeoIPFile ${geoIpFile.canonicalPath}")

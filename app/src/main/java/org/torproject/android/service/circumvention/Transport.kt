@@ -115,6 +115,7 @@ enum class Transport(val id: String) {
 
     fun getTorConfig(context: Context): List<String> {
         val result = mutableListOf<String>()
+        result.add("UseBridges ${if (this == NONE) "0" else "1"}")
 
         for (transport in transportNames) {
             result.add("ClientTransportPlugin $transport socks5 127.0.0.1:${controller.port(transport)}")
