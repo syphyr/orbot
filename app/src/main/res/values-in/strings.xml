@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Orbot</string>
     <string name="app_description">Orbot adalah aplikasi proxy gratis yang membuat aplikasi-aplikasi lainnya dapat terkoneksi dengan internet secara aman. Orbot menggunakan Tor untuk mengenkripsi hubungan internet Anda dan menyalurkannya melewati berbagai komputer di seluruh dunia. Tor adalah software gratis dan layanan terbuka, yang membantu Anda menghindari pengawasan jaringan yang mengancam kebebasan pribadi dan privasi, aktivitas bisnis rahasia dan relasi, serta keamanan negara yang dikenal dengan analisis traffic.</string>
-    <string name="menu_settings">Pengaturan</string>
+    <string name="menu_settings">Pengaturan Orbot</string>
     <string name="menu_log">Log</string>
     <string name="menu_about">Tentang</string>
     <string name="main_layout_download">Unduh</string>
@@ -45,7 +45,7 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">nyalakan debug log untuk output (harus menggunakan adb atau aLogCat untuk menampilkan)</string>
     <string name="project_home">Beranda Proyek:</string>
     <string name="third_party_software">Perangkat Lunak Pihak Ke-3:</string>
-    <string name="pref_use_expanded_notifications">Tampilkan dalam notifikasi dengan negara dan IP keluar nodus keluar Tor ketika tersedia</string>
+    <string name="pref_use_expanded_notifications">Tampilkan negara dan alamat IP node keluar Tor Anda di pemberitahuan jika tersedia</string>
     <string name="pref_use_expanded_notifications_title">Notifikasi Melebar</string>
     <string name="set_locale_title">Bahasa</string>
     <string name="pref_disable_network_title">Auto-Tidur Tidak Ada Jaringan</string>
@@ -103,7 +103,7 @@
     <string name="smart_connect">Penghubungan Pintar (bawaan)</string>
     <string name="direct_connect">Koneksi Langsung ke Tor</string>
     <string name="direct_connect_subtitle">Cara yang terbaik untuk menghubungkan ke Tor. Gunakan jika Tor tidak diblokir.</string>
-    <string name="snowflake">Snowflake (Asli)</string>
+    <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Menghubungkan melalui sukarelawan Tor. Melewati beberapa pemblokiran Tor.</string>
     <string name="connect">Hubungkan</string>
     <string name="next">Lanjutkan</string>
@@ -125,7 +125,7 @@
     <string name="user_services">Layanan pengguna</string>
     <string name="app_services">Layanan aplikasi</string>
     <string name="custom_bridges">Jembatan Khusu</string>
-    <string name="wizard_details_msg">Orbot adalah aplikasi sumber terbuka yang berisi Tor, IPtProxy (Obfs4proxy, Meek, Snowflake), Go-Tun2Socks dan LibEvent. Ini menyediakan terowongan VPN, proksi Koneksi HTTP (hanya HTTPS dan di porta 8118) dan sebuah proksi SOCKS (9050) ke jaringan Tor.</string>
+    <string name="wizard_details_msg">Orbot adalah aplikasi sumber terbuka yang berisi Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel, dan LibEvent. Aplikasi ini menyediakan terowongan VPN, proxy HTTP Connect lokal (hanya HTTPS pada port 8118), dan proxy SOCKS (9050) ke jaringan Tor.</string>
     <string name="hidden_service_request">Sebuah aplikasi ingin membuka server onion di porta %1$s ke jaringan Tor. Ini aman jika Anda mempercayai aplikasinya.</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Perbolehkan peer Wi-Fi, perangkat tertambat dan siapa pun yang dapat menghubungkan ke IP Anda, untuk mengakses Tor</string>
     <string name="strict_nodes_description">Terapkan pengaturan Kecualikan Nodus sebagai kebutuhan untuk membangun semua sirkuit. Ini mungkin merusak penggunaan jika tidak ada sirkuit yang dapat dibuat dengan pengaturan Kecualikan Nodus Anda.</string>
@@ -156,7 +156,7 @@
     <string name="local_port">Porta Lokal</string>
     <string name="onion_port">Porta Onion</string>
     <string name="copy_address_to_clipboard">Salin alamat ke papan klip</string>
-    <string name="backup_service">Layanan Cadangan <i>(Peringatan: Ini Dapat Membocorkan Konfigurasi Layanan Anda ke Aplikasi Lain)</i></string>
+    <string name="backup_service">Layanan Cadangan (Peringatan: Hal ini dapat mengekspos konfigurasi layanan Anda ke aplikasi lain)</string>
     <string name="backup_saved_at_external_storage">Cadangan disimpan di penyimpanan eksternal</string>
     <string name="backup_restored">Cadangan dipulihkan</string>
     <string name="backup_port_exist">Terjadi kesalahan: Sebuah layanan Onion sudah menggunakan porta %s</string>
@@ -173,7 +173,7 @@
     <string name="pref_prefer_ipv6_summary">Menggunakan nodus keluar bahwa alamat IPv6 lebih disukai</string>
     <string name="hide_apps">Sembunyikan aplikasi dari pemantauan jaringan dan dapatkan akses ketika mereka diblokir.</string>
     <string name="log_copied">Catatan Disalin</string>
-    <string name="snowflake_amp">Snowflake (AMP)</string>
+    <string name="snowflake_amp">Snowflake AMP</string>
     <string name="not_sure">Tidak yakin\?</string>
     <string name="ask_tor">Tanyakan Tor</string>
     <string name="many_ways">Ada lebih banyak cara untuk mencapai Tor. Beberapa dapat bekerja dengan baik daripada yang lain untuk Anda.</string>
@@ -206,4 +206,69 @@
     <string name="your_reachableaddresses_settings_caused_an_exception_">Pengaturan ReachableAddresses anda menyebabkan kesalahan!</string>
     <string name="unable_to_start_tor">Tidak dapat memulai Tor:</string>
     <string name="updating_settings_in_tor_service">memperbarui setting pada layanan Tor</string>
+    <string name="system_vpn_settings">Pengaturan VPN Android</string>
+    <string name="pref_isolate_keep_alive">Pastikan sirkuit terisolasi tetap aktif</string>
+    <string name="pref_isolate_keep_alive_summary">Pastikan sirkuit terisolasi tetap aktif yang memiliki setidaknya satu aliran dengan otentikasi SOCKS yang aktif</string>
+    <string name="bridge_snowflake_sqs">Terhubung dengan pengguna Tor lainnya menggunakan Snowflake (Metode 3 - SQS)</string>
+    <string name="kindness_mode_is_running">Mode Kebaikan Sedang Berjalan</string>
+    <string name="kindness_mode_active_message" formatted="true">Anda telah membantu %1$d orang menghindari sensor</string>
+    <string name="kindness_mode_disabled">Mode Kebaikan Dinonaktifkan</string>
+    <string name="kindness_mode_starting">Memulai…</string>
+    <string name="kindness_mode_disabled_internet">Hubungkan ke Internet untuk membantu orang-orang menghindari sensor</string>
+    <string name="kindness_mode_disabled_wifi">Hubungkan ke Wi-Fi untuk membantu orang-orang menghindari sensor</string>
+    <string name="kindness_mode_disabled_power">Hubungkan perangkat Anda ke sumber daya untuk membantu orang-orang menghindari sensor</string>
+    <string name="snowflake_sqs">Snowflake SQS</string>
+    <string name="bridges_via_telegram">Jembatan dari Tor (obfs4) melalui Telegram</string>
+    <string name="bridges_via_telegram_subtitle">Kemungkinan besar akan tetap terhubung jika Tor diblokir secara parah. Menggunakan metode ini akan membuka saluran Telegram Tor Bot. Ketuk ‘Mulai’ atau ketik ‘%1$s’ di obrolan untuk mendapatkan alamat jembatan.</string>
+    <string name="bridges_via_email">Jembatan dari Tor (obfs4) melalui Email</string>
+    <string name="bridges_via_email_subtitle">Menyembunyikan lalu lintas Anda. Mengatasi pemblokiran Tor. Membutuhkan email yang dikirim dari akun Gmail atau Riseup.</string>
+    <string name="bridge_meek_azure_subtitle">Menyembunyikan lalu lintas Anda. Mengatasi pemblokiran Tor. Mungkin sangat lambat.</string>
+    <string name="custom_bridges_subtitle">Tanyakan kepada jaringan dan organisasi tepercaya Anda untuk melihat apakah ada yang menyediakan jembatan. Jika tidak, seorang teman dapat membantu Anda mendapatkan jembatan.</string>
+    <string name="custom_bridges_description">Tempelkan alamat jembatan yang Anda terima di bawah ini. Atau pindai kode QR untuk menambahkannya. Teman-teman Anda dapat memberikan jembatan untuk Anda di %1$s.</string>
+    <string name="action_use_">Gunakan %1$s</string>
+    <string name="app_icon_chooser_label_night_watch">Patroli Malam</string>
+    <string name="app_icon_chooser_label_assistant">Asisten</string>
+    <string name="app_icon_chooser_label_paint">Cat</string>
+    <string name="app_icon_chooser_label_tetras">Tetras</string>
+    <string name="app_icon_chooser_label_todo">Daftar Tugas</string>
+    <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
+    <string name="app_icon_chooser_label_birdie">Burung kecil</string>
+    <string name="camo_dialog_title" formatted="true">Kamuflase sebagai %1$s</string>
+    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot akan menyamar sebagai aplikasi %1$s. Hal ini akan menyembunyikan semua detail notifikasi tentang Tor dan mengubah tampilan Orbot di layar utama Anda.\n\nMenyamar sebagai %2$s akan me-restart Orbot.</string>
+    <string name="camo_dialog_disable_confirm_msg">Orbot akan kembali menampilkan informasi notifikasi tentang koneksi Tor Anda dan akan muncul seperti biasa di layar utama Anda.\n\nMenonaktifkan Mode Kamuflase akan me-restart Orbot.</string>
+    <string name="camo_dialog_disable_title">Nonaktifkan Mode Kamuflase</string>
+    <string name="camo_samsung_instructions">Pada perangkat Samsung Galaxy Anda, notifikasi Mode Kamuflase hanya akan berfungsi dengan membuka Pengaturan -&gt; Notifikasi -&gt; Pengaturan Lanjutan dan menonaktifkan “Tampilkan ikon aplikasi di notifikasi”. Klik di sini untuk membuka Pengaturan Notifikasi.</string>
+    <string name="pref_camo_mode_title">Mode Kamuflase</string>
+    <string name="pref_camo_mode_description">Sembunyikan cara tampilan ikon, label, dan teks notifikasi Orbot di perangkat Anda</string>
+    <string name="power_user_mode_permission">Izin Alarm &amp; Pengingat Diperlukan untuk Mode Pengguna Lanjutan</string>
+    <string name="power_user_mode_permission_msg">Silakan izinkan Orbot untuk mengatur alarm dan pengingat agar dapat menggunakan mode pengguna tingkat lanjut. Izin ini tidak akan benar-benar mengatur alarm di perangkat Anda. Izin ini diperlukan agar sistem dapat menjaga OrbotService tetap berjalan saat Orbot tidak digunakan sebagai VPN sistem.</string>
+    <string name="request_notification_permission">Silakan aktifkan notifikasi untuk Orbot</string>
+    <string name="request_notification_permission_msg">Tanpa mengaktifkan notifikasi, Orbot tidak dapat berfungsi sebagai VPN Tor atau menggunakan Mode Kebaikan.\n\nSaat diaktifkan, kami hanya menampilkan satu notifikasi saat Orbot sedang berjalan.</string>
+    <string name="open_settings">Buka Pengaturan</string>
+    <string name="pref_require_password">Otentikasi Orbot</string>
+    <string name="pref_require_password_description">Mencegah akses ke Orbot hingga Anda melakukan otentikasi dengan memasukkan kata sandi perangkat atau sidik jari Anda. Fitur ini dapat digabungkan dengan Mode Kamuflase untuk membantu menyembunyikan bahwa Orbot terpasang di perangkat Anda</string>
+    <string name="error_no_password_set">Silakan amankan perangkat Anda untuk menggunakan Otentikasi Orbot</string>
+    <string name="device_lock_unsupported">Otentikasi Orbot tidak didukung pada perangkat Anda</string>
+    <string name="device_lock_security_update_needed">Anda harus mengunduh pembaruan keamanan Android untuk perangkat Anda agar dapat menggunakan Orbot Authentication</string>
+    <string name="invalid_bridge_format">Format jembatan tidak valid</string>
+    <string name="error_asking_tor_for_bridges">Kesalahan saat meminta Tor untuk terhubung</string>
+    <string name="enter_bridge_address">Masukkan alamat jembatan</string>
+    <string name="built_in_bridges_obfs4">Jembatan Terintegrasi (obfs4)</string>
+    <string name="built_in_bridges_obfs4_subtitle">Menyembunyikan lalu lintas internet Anda. Mengatasi pemblokiran Tor. Berguna jika Anda menggunakan WiFi publik, tetapi di negara di mana Tor tidak diblokir.</string>
+    <string name="unlock_app_msg" formatted="true">Silakan buka kunci perangkat Anda untuk menggunakan %s</string>
+    <string name="pref_password_only_no_biometric">Larang penggunaan biometrik untuk otentikasi Orbot</string>
+    <string name="pref_password_only_no_biometric_description">Hal ini memaksa Orbot Authentication untuk hanya meminta kata sandi perangkat Anda, bahkan jika autentikasi biometrik seperti sidik jari atau pemindaian wajah telah dikonfigurasi pada perangkat Anda.</string>
+    <string name="run_smart_connect_">Jalankan Smart Connect untuk menemukan cara terbaik</string>
+    <string name="scan_qr_code">Pindai Kode QR</string>
+    <string name="orbot_vpn">Orbot VPN</string>
+    <string name="open_orbot_to_connect_to_tor">Buka Orbot untuk terhubung ke Tor</string>
+    <string name="connect_to_tor">Hubungkan ke Tor</string>
+    <string name="orbot_config_invalid">Konfigurasi Orbot Tidak Sah</string>
+    <string name="kibibyte_per_second">KiB/s</string>
+    <string name="mebibyte_per_second">MiB/s</string>
+    <string name="snowflake_proxy_client_connected_msg">%1$s Mode Kebaikan membantu seseorang menghindari sensor %2$s</string>
+    <string name="log_notice_unable_to_update_onions">tidak dapat mengunggah nama onion</string>
+    <string name="log_notice_updating_torrc">Memperbarui konfigurasi kustom torrc…</string>
+    <string name="log_notice_connected_to_tor_control_port">Terhubung ke port kontrol Tor</string>
+    <string name="note_snowflake_doesn_t_support_proxies">CATATAN: Snowflake tidak mendukung proxy. Pengaturan proxy akan diabaikan saat menggunakan jembatan Snowflake.</string>
 </resources>

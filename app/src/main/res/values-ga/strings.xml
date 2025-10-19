@@ -260,4 +260,5 @@
     <string name="log_notice_unable_to_update_onions">ní féidir ainmneacha oinniún a uaslódáil</string>
     <string name="log_notice_updating_torrc">Cumraíocht saincheaptha torrc á nuashonrú…</string>
     <string name="log_notice_connected_to_tor_control_port">Ceangailte le port rialaithe tor</string>
+    <string name="note_snowflake_doesn_t_support_proxies">NÓTA: Ní thacaíonn Snowflake le seachfhreastalaithe. Déanfar neamhaird ar shocruithe seachfhreastalaithe le droichid Snowflake.</string>
 </resources>
