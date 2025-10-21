@@ -262,4 +262,5 @@
     <string name="log_notice_unable_to_update_onions">impossibile inviare nomi onion</string>
     <string name="log_notice_updating_torrc">Aggiornamento configurazione personalizzata di torrc…</string>
     <string name="log_notice_connected_to_tor_control_port">Connesso alla porta di controllo di Tor</string>
+    <string name="note_snowflake_doesn_t_support_proxies">NOTA: Snowflake non supporta i proxy. Le impostazioni del proxy verranno ignorate con i bridge di Snowflake.</string>
 </resources>
