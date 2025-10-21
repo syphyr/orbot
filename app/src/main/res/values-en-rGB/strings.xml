@@ -9,7 +9,7 @@
     <string name="main_layout_upload">Upload</string>
     <string name="menu_exit">Exit</string>
     <!--Welcome Wizard strings (DJH)-->
-    <string name="wizard_details_msg">Orbot is an open-source application that contains Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks and LibEvent. It provides a VPN tunnel, a local HTTP Connect proxy (HTTPS only on port 8118) and a SOCKS proxy (9050) into the Tor network.</string>
+    <string name="wizard_details_msg">Orbot is an open-source application that contains Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel and LibEvent. It provides a VPN tunnel, a local HTTP Connect proxy (HTTPS only on port 8118) and a SOCKS proxy (9050) into the Tor network.</string>
     <!--END Welcome Wizard strings (DJH)-->
     <!--New Wizard Strings-->
     <!--Title Screen-->
@@ -47,24 +47,20 @@
     <string name="pref_node_configuration_summary">These are advanced settings that can reduce your anonymity</string>
     <string name="pref_start_boot_summary">Automatically start Orbot and connect Tor when your Android device boots</string>
     <string name="pref_proxy_port_summary">Proxy Server Port</string>
-    <string name="pref_proxy_password_dialog">Enter Proxy Password</string>
     <string name="pref_entrance_node_dialog">Enter Entrance Nodes</string>
     <string name="pref_entrance_node">Entrance Nodes</string>
     <string name="pref_entrance_node_summary">Fingerprints, nicknames, countries and addresses for the first hop</string>
     <string name="pref_proxy_title">Outbound Network Proxy (Optional)</string>
     <string name="pref_proxy_type_title">Outbound Proxy Type</string>
     <string name="pref_allow_background_starts_summary">Allow any app to start Orbot and related services</string>
-    <string name="pref_proxy_type_dialog">Enter Proxy Type</string>
     <string name="pref_proxy_host_summary">Proxy Server Hostname</string>
     <string name="confirm">Confirm</string>
     <string name="pref_proxy_port_title">Outbound Proxy Port</string>
     <string name="pref_proxy_username_title">Outbound Proxy Username</string>
     <string name="pref_isolate_dest_summary">Use a different circuit for each destination address</string>
     <string name="pref_reduced_circuit_padding">Reduced circuit padding</string>
-    <string name="pref_proxy_type_summary">Proxy server protocol: HTTP, HTTPS, SOCKS4, SOCKS5</string>
-    <string name="pref_proxy_host_dialog">Enter Proxy Host</string>
+    <string name="pref_proxy_type_summary">Proxy server protocol: HTTPS, SOCKS4, SOCKS5</string>
     <string name="pref_proxy_host_title">Outbound Proxy Host</string>
-    <string name="pref_proxy_port_dialog">Enter Proxy Port</string>
     <string name="enter_exclude_nodes">Enter Exclude Nodes</string>
     <string name="pref_disable_network_title">No Network Auto-Sleep</string>
     <string name="v3_backup_key_warning">Warning: This could expose your key to other apps</string>
@@ -120,7 +116,6 @@
     <string name="btn_refresh">Refresh</string>
     <string name="btn_tor_off">Turn Tor off</string>
     <string name="pref_start_boot_title">Start Orbot on Boot</string>
-    <string name="pref_proxy_username_dialog">Enter Proxy Username</string>
     <string name="pref_proxy_password_summary">Proxy Password (Optional)</string>
     <string name="exclude_nodes">Exclude Nodes</string>
     <string name="project_home">Project Home:</string>
@@ -149,7 +144,7 @@
     <string name="pref_reduced_circuit_padding_summary">Use lower overhead padding algorithms to reduce data and battery usage</string>
     <string name="snowflake_proxy_msg_description">Show a message when you help someone circumvent censorship</string>
     <string name="strict_nodes_description">Treat Exclude Nodes settings as a requirement for building all circuits. This may break functionality if no circuits are able to be generated with your Exclude Nodes settings.</string>
-    <string name="pref_use_expanded_notifications">Display in the notification the country and IP address of your tor exit node when available</string>
+    <string name="pref_use_expanded_notifications">Display in the notification the country and IP Address of your Tor exit node when available</string>
     <string name="backup_restored">Backup restored</string>
     <string name="backup_port_exist">Error: An Onion service is already using port %s</string>
     <string name="service_type">Service type</string>
@@ -240,4 +235,8 @@
     <string name="pref_password_only_no_biometric_description">This forces Orbot Authentication to only require your device\'s password even if biometric authentication, such as fingerprint or face unlock, are configured on your device.</string>
     <string name="run_smart_connect_">Run Smart Connect to find the best way</string>
     <string name="scan_qr_code">Scan QR Code</string>
+    <string name="kindness_mode_is_running">Kindness Mode is Running</string>
+    <string name="kindness_mode_active_message" formatted="true">You\'ve helped %1$d people circumvent censorship</string>
+    <string name="kindness_mode_disabled">Kindness Mode is Deactivated</string>
+    <string name="kindness_mode_starting">Starting…</string>
 </resources>

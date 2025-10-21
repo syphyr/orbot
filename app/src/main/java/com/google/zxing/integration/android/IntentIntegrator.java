@@ -32,6 +32,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 
 import androidx.activity.result.ActivityResultLauncher;
@@ -321,7 +322,7 @@ public class IntentIntegrator {
             // set the desired barcode types
             StringBuilder joinedByComma = new StringBuilder();
             for (String format : desiredBarcodeFormats) {
-                if (!joinedByComma.isEmpty()) {
+                if (!TextUtils.isEmpty(joinedByComma)) {
                     joinedByComma.append(',');
                 }
                 joinedByComma.append(format);

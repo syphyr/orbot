@@ -3,7 +3,6 @@ package org.torproject.android.service.tor
 import android.content.ContextWrapper
 import android.content.SharedPreferences
 import org.torproject.android.service.OrbotConstants
-import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.db.OnionServiceColumns
 import org.torproject.android.service.db.V3ClientAuthColumns
 import org.torproject.android.service.util.NetworkUtils
@@ -71,35 +70,7 @@ object TorConfig {
 
         val transport = Prefs.transport
 
-        if (transport == Transport.NONE) {
-            conf.add("UseBridges 0")
-
-            val proxyType = prefs?.getString("pref_proxy_type", null)
-
-            if (!proxyType.isNullOrEmpty()) {
-                val proxyHost = prefs.getString("pref_proxy_host", null)
-                val proxyPort = prefs.getString("pref_proxy_port", null)
-                val proxyUser = prefs.getString("pref_proxy_username", null)
-                val proxyPass = prefs.getString("pref_proxy_password", null)
-
-                if (!proxyHost.isNullOrEmpty() && !proxyPort.isNullOrEmpty()) {
-                    conf.add("${proxyType}Proxy $proxyHost:$proxyPort")
-
-                    if (proxyUser != null && proxyPass != null) {
-                        if (proxyType.equals("socks5", ignoreCase = true)) {
-                            conf.add("Socks5ProxyUsername $proxyUser")
-                            conf.add("Socks5ProxyPassword $proxyPass")
-                        } else {
-                            conf.add("${proxyType}ProxyAuthenticator $proxyUser:$proxyPort")
-                        }
-                    }
-                }
-            }
-        }
-        else {
-            conf.add("UseBridges 1")
-            conf.addAll(transport.getTorConfig(context))
-        }
+        conf.addAll(transport.getTorConfig(context))
 
         if (geoIpFile.exists()) { // only apply geoip if it exists
             conf.add("GeoIPFile ${geoIpFile.canonicalPath}")

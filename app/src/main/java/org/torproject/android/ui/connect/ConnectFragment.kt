@@ -340,13 +340,11 @@ class ConnectFragment : Fragment(),
 
         binding.ivStatus.setImageResource(R.drawable.torstarting)
         val animHover = AnimationUtils.loadAnimation(context, R.anim.hover)
-        animHover.repeatCount = 7
         animHover.repeatMode = Animation.REVERSE
         binding.ivStatus.animation = animHover
         animHover.start()
 
         val animShadow = AnimationUtils.loadAnimation(context, R.anim.shadow)
-        animShadow.repeatCount = 7
         animShadow.repeatMode = Animation.REVERSE
         binding.ivShadow.animation = animShadow
         animShadow.start()

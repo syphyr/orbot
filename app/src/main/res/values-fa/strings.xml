@@ -21,20 +21,15 @@
     <string name="pref_allow_background_starts_summary">به هر برنامه‌ای اجازه داده تا به Orbot برای شروع Tor و خدمات مربوط به آن دستور دهد</string>
     <string name="pref_proxy_title">پراکسی شبکهٔ خروجی (اختیاری)</string>
     <string name="pref_proxy_type_title">نوع پراکسی خروجی</string>
-    <string name="pref_proxy_type_summary">پروتکل مورد استفاده برای سرور پراکسی: HTTP, ‏HTTPS, ‏SOCKS4, ‏SOCKS5</string>
-    <string name="pref_proxy_type_dialog">نوع پراکسی را وارد کنید</string>
+    <string name="pref_proxy_type_summary">شیوه‌نامهٔ مورد استفاده برای کارساز پیشکار: HTTPS، ‏SOCKS4، ‏SOCKS5</string>
     <string name="pref_proxy_host_title">میزبان پراکسی خروجی</string>
     <string name="pref_proxy_host_summary">نام میزبان سرور پراکسی</string>
-    <string name="pref_proxy_host_dialog">میزبان پراکسی را وارد کنید</string>
     <string name="pref_proxy_port_title">درگاه پراکسی خروجی</string>
     <string name="pref_proxy_port_summary">درگاه سرور پراکسی</string>
-    <string name="pref_proxy_port_dialog">درگاه پراکسی را وارد کنید</string>
     <string name="pref_proxy_username_title">نام کاربری پراکسی خروجی</string>
     <string name="pref_proxy_username_summary">نام کاربری پراکسی (اختیاری)</string>
-    <string name="pref_proxy_username_dialog">نام کاربری پراکسی را وارد نمایید</string>
     <string name="pref_proxy_password_title">گذرواژهٔ پراکسی خروجی</string>
     <string name="pref_proxy_password_summary">گذرواژهٔ پراکسی (اختیاری)</string>
-    <string name="pref_proxy_password_dialog">گذرواژهٔ پراکسی را وارد نمایید</string>
     <string name="error">خطا</string>
     <string name="exit_nodes">گره‌های خروج</string>
     <string name="fingerprints_nicks_countries_and_addresses_for_the_last_hop">اثرانگشت‌ها، اسامی مستعار، کشورها، و نشانی‌ها برای آخرین هاپ</string>
@@ -237,13 +232,13 @@
     <string name="run_smart_connect_">اجرای اتصال هوشمند برای یافتن بهترین راه</string>
     <string name="scan_qr_code">اسکن کد QR</string>
     <string name="status_starting_up">اربوت درحال آغاز است…</string>
-    <string name="status_activated">متصل به شبکه تور</string>
-    <string name="status_disabled">اربوت غیرفعال شده است.</string>
-    <string name="status_shutting_down">TorService خاموش است</string>
-    <string name="couldn_t_start_tor_process_"> تور نتواست اجرا شود:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">تنظیمات شما برای آدرس قابل دسترسی باعث ایجاد خطا شده اند !</string>
-    <string name="unable_to_start_tor">ناتوان در راه اندازی تور:</string>
-    <string name="updating_settings_in_tor_service">به روز رسانی تنظیمات در سرویس Tor</string>
+    <string name="status_activated">وصل شده به شبکهٔ تور</string>
+    <string name="status_disabled">روبوت پیازی غیرفعّال شده</string>
+    <string name="status_shutting_down">روبوت پیازی دارد خاموش می‌شود</string>
+    <string name="couldn_t_start_tor_process_">نتوانست فرایند تور را آغاز کند:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">تنظیمات ReachableAddressesتان موجب استثنا شد!</string>
+    <string name="unable_to_start_tor">ناتوان در آغاز تور:</string>
+    <string name="updating_settings_in_tor_service">به‌روز رسانی تنظیمات در خدمت تور</string>
     <string name="open_settings">گشودن تنظیمات</string>
     <string name="kindness_mode_is_running">در حال اجرای حالت مهربانی</string>
     <string name="kindness_mode_active_message" formatted="true">به %1$d نفر کمک کردید سانسور را دور بزنند</string>
@@ -253,4 +248,5 @@
     <string name="kindness_mode_disabled_wifi">برای کمک به دیگران برای دور زدن سانسور به وای‌فای وصل شوید</string>
     <string name="kindness_mode_disabled_power">برای کمک به دیگران برای دور زدن سانسور افزاره‌تان را به برق بزنید</string>
     <string name="request_notification_permission">لطفاً آگاهی‌ها را برای روبوت پیازی به کار بیندازید</string>
+    <string name="note_snowflake_doesn_t_support_proxies">نکته: دانه‌برفی از پیشکارها پشتیبانی نمی‌کند. تنظیمات پیشکار در پل‌های دانه‌برفی نادیده گرفته خواهند شد.</string>
 </resources>

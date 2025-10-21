@@ -20,20 +20,15 @@
     <string name="pref_allow_background_starts_summary">允许任何应用告知 Orbot 启动 Tor 及相关服务</string>
     <string name="pref_proxy_title">出站网络代理（可选）</string>
     <string name="pref_proxy_type_title">出站代理类型</string>
-    <string name="pref_proxy_type_summary">代理服务器使用的协议：HTTP、HTTPS、SOCKS4、SOCKS5</string>
-    <string name="pref_proxy_type_dialog">输入代理类型</string>
+    <string name="pref_proxy_type_summary">代理服务器使用的协议：HTTPS、SOCKS4、SOCKS5</string>
     <string name="pref_proxy_host_title">出站代理主机</string>
     <string name="pref_proxy_host_summary">代理服务器主机名</string>
-    <string name="pref_proxy_host_dialog">输入代理主机</string>
     <string name="pref_proxy_port_title">出站代理端口</string>
     <string name="pref_proxy_port_summary">代理服务器端口</string>
-    <string name="pref_proxy_port_dialog">输入代理端口</string>
     <string name="pref_proxy_username_title">出站代理用户名</string>
     <string name="pref_proxy_username_summary">代理用户名（可选）</string>
-    <string name="pref_proxy_username_dialog">输入代理用户名</string>
     <string name="pref_proxy_password_title">出站代理密码</string>
     <string name="pref_proxy_password_summary">代理密码（可选）</string>
-    <string name="pref_proxy_password_dialog">输入代理密码</string>
     <string name="error">错误</string>
     <string name="exit_nodes">出口节点</string>
     <string name="fingerprints_nicks_countries_and_addresses_for_the_last_hop">最后一个跃点的指纹、昵称、国家/地区和地址</string>
@@ -266,4 +261,5 @@
     <string name="log_notice_unable_to_update_onions">无法上传洋葱名称</string>
     <string name="log_notice_updating_torrc">正在更新 torrc 自定义配置…</string>
     <string name="log_notice_connected_to_tor_control_port">已连接到 tor 控制端口</string>
+    <string name="note_snowflake_doesn_t_support_proxies">注意：Snowflake 不支持代理。使用 Snowflake 网桥时，代理设置将被忽略。</string>
 </resources>
