@@ -3,7 +3,6 @@ package org.torproject.android.service.tor
 import android.content.ContextWrapper
 import android.content.SharedPreferences
 import org.torproject.android.service.OrbotConstants
-import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.db.OnionServiceColumns
 import org.torproject.android.service.db.V3ClientAuthColumns
 import org.torproject.android.service.util.NetworkUtils

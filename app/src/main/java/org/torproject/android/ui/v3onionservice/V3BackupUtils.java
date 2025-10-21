@@ -60,7 +60,7 @@ public class V3BackupUtils {
         return backupFile.getPath();
     }
 
-    // todo this doesn't export data for onions that orbot hosts which have authentication (not supported yet...)
+    /** @noinspection CallToPrintStackTrace*/ // todo this doesn't export data for onions that orbot hosts which have authentication (not supported yet...)
     @SuppressLint("Range")
     private String[] createFilesForZippingV3(String relativePath) {
         final String v3BasePath = getV3BasePath() + "/" + relativePath + "/";
