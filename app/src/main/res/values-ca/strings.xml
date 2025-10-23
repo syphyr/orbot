@@ -8,7 +8,7 @@
     <string name="main_layout_download">Baixada</string>
     <string name="main_layout_upload">Pujada</string>
     <string name="menu_exit">Surt</string>
-    <string name="wizard_details_msg">L\'Orbot és una aplicació de codi obert que conté Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, i LibEvent. Proporciona un proxy HTTP local (8118) i un proxy SOCKS (9050) a la xarxa Tor. En dispositius root, l\'Orbot també té la capacitat d\'enviar tot el trànsit d\'Internet a través de Tor.</string>
+    <string name="wizard_details_msg">L\'Orbot és una aplicació de codi obert que conté Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel i LibEvent. Proporciona un túnnel de xarxa privada virtual (VPN), un proxy HTTP local (només HTTPS al port 8118) i un proxy SOCKS (9050) a la xarxa Tor.</string>
     <string name="pref_general_group">General</string>
     <string name="pref_start_boot_title">Inicia l\'Obot amb el sistema</string>
     <string name="pref_start_boot_summary">Inicia l\'Orbot i connecta a Tor automàticament quan s\'inicia el dispositiu Android</string>
@@ -225,7 +225,7 @@
     <string name="status_activated">Esteu connectat a la xarxa Tor</string>
     <string name="status_disabled">L\'Orbot està desactivat</string>
     <string name="couldn_t_start_tor_process_">No s\'ha pogut iniciar el procés Tor:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">Els paràmetres d\'adreces accessibles han provocat una excepció.</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Els paràmetres d\'adreces accessibles han provocat una excepció!</string>
     <string name="unable_to_start_tor">Ha estat impossible iniciar Tor:</string>
     <string name="kindness_mode_is_running">El mode altruista està activat</string>
     <string name="kindness_mode_active_message" formatted="true">Heu ajudat %1$d persones a circumval·lar la censura</string>
@@ -255,4 +255,17 @@
     <string name="pref_password_only_no_biometric_description">Això força que l\'autenticació de l\'Orbot només demani la contrasenya del dispositiu encara que tingueu configurada al dispositiu alguna autenticació biomètrica, com ara l\'empremta dactilar o el desblocatge amb la cara.</string>
     <string name="run_smart_connect_">Executa l\'Smart Connect per a trobar el millor camí</string>
     <string name="scan_qr_code">Escaneja el codi QR</string>
+    <string name="orbot_vpn">VPN de l\'Orbot</string>
+    <string name="open_orbot_to_connect_to_tor">Obriu l\'Orbot per a connectar amb Tor</string>
+    <string name="status_shutting_down">L\'Orbot s\'està aturant</string>
+    <string name="connect_to_tor">Connecta a Tor</string>
+    <string name="orbot_config_invalid">La configuració de l\'Orbot no és vàlida</string>
+    <string name="updating_settings_in_tor_service">s\'està actualitzant la configuració al servei Tor</string>
+    <string name="kibibyte_per_second">KiB/s</string>
+    <string name="mebibyte_per_second">MiB/s</string>
+    <string name="snowflake_proxy_client_connected_msg">%1$s El mode altruista ha ajudat algú a circumval·lar la censura %2$s</string>
+    <string name="log_notice_unable_to_update_onions">no s\'ha pogut actualitzar els noms onion</string>
+    <string name="log_notice_updating_torrc">S\'està actualitzant la configuració personalitzada del torrc…</string>
+    <string name="log_notice_connected_to_tor_control_port">S\'ha connectat al port de control del Tor</string>
+    <string name="note_snowflake_doesn_t_support_proxies">NOTA: Snowflake no és compatible amb els servidors intermediaris (proxy). La configuració del servidor intermediari s\'ignorarà als ponts del Snowflake.</string>
 </resources>
