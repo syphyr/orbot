@@ -21,7 +21,7 @@
     <string name="pref_allow_background_starts_summary">Orbot が Tor と関連サービスを開始するように、任意のアプリに伝えます</string>
     <string name="pref_proxy_title">外方向ネットワークプロキシ (任意)</string>
     <string name="pref_proxy_type_title">外方向プロキシの種類</string>
-    <string name="pref_proxy_type_summary">プロキシサーバーで使用するプロトコル: HTTP、HTTPS、SOCKS4、SOCKS5</string>
+    <string name="pref_proxy_type_summary">プロキシサーバーで使用するプロトコル: HTTPS、SOCKS4、SOCKS5</string>
     <string name="pref_proxy_host_title">外方向プロキシのホスト</string>
     <string name="pref_proxy_host_summary">プロキシサーバのホスト名</string>
     <string name="pref_proxy_port_title">外方向プロキシのポート</string>
@@ -262,4 +262,5 @@
     <string name="log_notice_unable_to_update_onions">オニオン名をアップロードできません</string>
     <string name="log_notice_updating_torrc">torrc カスタム設定を更新中…</string>
     <string name="log_notice_connected_to_tor_control_port">tor コントロールポートに接続済み</string>
+    <string name="note_snowflake_doesn_t_support_proxies">注意: Snowflake はプロキシをサポートしていません。Snowflake ブリッジではプロキシ設定は無視されます。</string>
 </resources>
