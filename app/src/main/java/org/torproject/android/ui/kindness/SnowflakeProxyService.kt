@@ -34,7 +34,7 @@ class SnowflakeProxyService : Service() {
 
     override fun onCreate() {
         super.onCreate()
-        notificationChannelIdD = createNotificationChannel()
+        notificationChannelId = createNotificationChannel()
         snowflakeProxyWrapper = SnowflakeProxyWrapper(this)
         powerConnectionReceiver = PowerConnectionReceiver(this)
 
