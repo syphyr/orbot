@@ -34,13 +34,14 @@ class SnowflakeProxyService : Service() {
 
     override fun onCreate() {
         super.onCreate()
+        notificationChannelIdD = createNotificationChannel()
         snowflakeProxyWrapper = SnowflakeProxyWrapper(this)
         powerConnectionReceiver = PowerConnectionReceiver(this)
+
         val powerReceiverFilters = IntentFilter(Intent.ACTION_POWER_CONNECTED)
         powerReceiverFilters.addAction(Intent.ACTION_POWER_DISCONNECTED)
         registerReceiver(powerConnectionReceiver, powerReceiverFilters)
         initNetworkCallbacks()
-        notificationChannelId = createNotificationChannel()
         refreshNotification(getString(R.string.kindness_mode_starting))
     }
 
