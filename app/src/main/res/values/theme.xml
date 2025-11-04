@@ -5,7 +5,7 @@
         <item name="colorPrimary">@color/new_background_secondary</item>
     </style>
 
-    <style name="OrbotActivityTheme" parent="Theme.AppCompat">
+    <style name="OrbotActivityTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="android:windowBackground">@color/new_background_secondary</item>
         <item name="android:windowIsFloating">false</item>
         <item name="colorPrimary">@color/new_background_secondary</item>

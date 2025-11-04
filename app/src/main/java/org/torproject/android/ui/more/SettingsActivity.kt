@@ -2,6 +2,7 @@ package org.torproject.android.ui.more
 
 import android.os.Bundle
 import android.view.MenuItem
+import androidx.appcompat.widget.Toolbar
 import org.torproject.android.R
 import org.torproject.android.ui.core.BaseActivity
 
@@ -10,7 +11,12 @@ class SettingsActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setTitle(R.string.menu_settings)
         setContentView(R.layout.activity_settings)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        var toolbar = findViewById<Toolbar>(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        var sab = getSupportActionBar();
+        if (sab != null) sab.setDisplayHomeAsUpEnabled(true);
+
         supportFragmentManager
             .beginTransaction()
             .addToBackStack(FRAGMENT_TAG)
