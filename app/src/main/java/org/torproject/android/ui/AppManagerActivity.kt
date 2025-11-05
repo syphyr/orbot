@@ -109,7 +109,6 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
             override fun afterTextChanged(s: Editable?) {}
         })
 
-        // Need a better way to manage this list
         alSuggested = OrbotConstants.VPN_SUGGESTED_APPS
     }
 
@@ -331,13 +330,24 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
                 response.putExtra(tApp.packageName, true)
             }
         }
-        val appStringOld = mPrefs?.getString(OrbotConstants.PREFS_KEY_TORIFIED, "")
+        val appStringOld = mPrefs?.getString(OrbotConstants.PREFS_KEY_TORIFIED, "") ?: ""
         val appStringNew = tordApps.toString()
         mPrefs?.edit {
-            if (appStringNew != appStringOld) {
-                putString(OrbotConstants.PREFS_KEY_TORIFIED, tordApps.toString())
-                appSelectionChanged = true
+            var shouldSave = false
+            if (appStringOld.contains('|') && appStringNew.contains('|')) {
+                val a = appStringOld.split('|')
+                val b = appStringNew.split('|')
+                if (a.size == b.size) {
+                    shouldSave = HashSet(a) != HashSet(b)
+                } else shouldSave = true
             }
+            else if (appStringNew != appStringOld) {
+                shouldSave = true
+            }
+            if (!shouldSave) return
+
+            putString(OrbotConstants.PREFS_KEY_TORIFIED, tordApps.toString())
+            appSelectionChanged = true
         }
     }
 
