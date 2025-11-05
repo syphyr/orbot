@@ -28,15 +28,5 @@
             android:gravity="center"
             tools:text="Orbot vX.X.X" />
 
-        <ImageView
-            android:id="@+id/ivMascot"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="12dp"
-            android:layout_marginTop="12dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="72dp"
-            android:src="@drawable/orbion" />
     </LinearLayout>
 </ScrollView>
