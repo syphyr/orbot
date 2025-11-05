@@ -10,7 +10,6 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import android.view.View.OnFocusChangeListener
 import android.view.ViewGroup
@@ -21,7 +20,6 @@ import android.widget.ImageView
 import android.widget.ListAdapter
 import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.appcompat.widget.Toolbar
 
 import androidx.core.content.ContextCompat
 import androidx.core.content.edit
@@ -75,12 +73,6 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
         pMgr = packageManager
         this.setContentView(R.layout.activity_app_manager)
 
-
-        var toolbar = findViewById<Toolbar>(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        var sab = getSupportActionBar();
-        if (sab != null) sab.setDisplayHomeAsUpEnabled(true);
-        
         listAppsAll = findViewById(R.id.applistview)
         progressBar = findViewById(R.id.progressBar)
         searchBar = findViewById(R.id.searchBar)
@@ -141,15 +133,9 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.menu_save_apps) {
-            saveAppSettings()
-            finish()
-        } else if (item.itemId == android.R.id.home) {
-            finish()
-            return true
-        }
-        return super.onOptionsItemSelected(item)
+    override fun onPause() {
+        super.onPause()
+        saveAppSettings()
     }
 
     private fun reloadApps() {
