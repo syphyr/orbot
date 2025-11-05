@@ -141,6 +141,7 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
     }
 
     private fun reloadApps() {
+
         scope.launch {
             progressBar?.visibility = View.VISIBLE
             withContext(Dispatchers.IO) {
@@ -157,9 +158,9 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
         scope.launch(Dispatchers.Default) {
             val lower = query?.lowercase()?.trim().orEmpty()
             val results = if (lower.isEmpty()) {
-                uiList
+                allUnfilteredUiItems
             } else {
-                uiList.filter { it.app?.name?.lowercase()?.contains(lower) == true }
+                allUnfilteredUiItems.filter { it.app?.name?.lowercase()?.contains(lower) == true }
             }
 
             withContext(Dispatchers.Main) {
@@ -177,7 +178,8 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
 
     private var allApps: List<TorifiedApp>? = null
     private var suggestedApps: List<TorifiedApp>? = null
-    var uiList: MutableList<TorifiedAppWrapper> = ArrayList()
+    // contains apps, but also other things like TextViews for suggested apps
+    var allUnfilteredUiItems: MutableList<TorifiedAppWrapper> = ArrayList()
 
     private fun loadApps() {
         if (allApps == null) allApps = getApps(this@AppManagerActivity, mPrefs, null, alSuggested)
@@ -185,24 +187,25 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
         if (suggestedApps == null) suggestedApps =
             getApps(this@AppManagerActivity, mPrefs, alSuggested, null)
         val inflater = layoutInflater
+        if (allUnfilteredUiItems.isEmpty()) {
+            // only show suggested apps, text, etc and other apps header if there are any suggested apps installed...
+            if (!suggestedApps.isNullOrEmpty()) {
+                val headerSuggested = TorifiedAppWrapper()
+                headerSuggested.header = getString(R.string.apps_suggested_title)
+                allUnfilteredUiItems.add(headerSuggested)
+                val subheaderSuggested = TorifiedAppWrapper()
+                subheaderSuggested.subheader = getString(R.string.app_suggested_subtitle)
+                allUnfilteredUiItems.add(subheaderSuggested)
 
-        // only show suggested apps, text, etc and other apps header if there are any suggested apps installed...
-        if (!suggestedApps.isNullOrEmpty()) {
-            val headerSuggested = TorifiedAppWrapper()
-            headerSuggested.header = getString(R.string.apps_suggested_title)
-            uiList.add(headerSuggested)
-            val subheaderSuggested = TorifiedAppWrapper()
-            subheaderSuggested.subheader = getString(R.string.app_suggested_subtitle)
-            uiList.add(subheaderSuggested)
+                allUnfilteredUiItems.addAll(suggestedApps?.map { TorifiedAppWrapper(app = it) } ?: emptyList())
 
-            uiList.addAll(suggestedApps?.map { TorifiedAppWrapper(app = it) } ?: emptyList())
+                val headerAllApps = TorifiedAppWrapper()
+                headerAllApps.header = getString(R.string.apps_other_apps)
+                allUnfilteredUiItems.add(headerAllApps)
+            }
 
-            val headerAllApps = TorifiedAppWrapper()
-            headerAllApps.header = getString(R.string.apps_other_apps)
-            uiList.add(headerAllApps)
+            allUnfilteredUiItems.addAll(allApps?.map { TorifiedAppWrapper(app = it) } ?: emptyList())
         }
-
-        uiList.addAll(allApps?.map { TorifiedAppWrapper(app = it) } ?: emptyList())
 
         adapterAppsAll = object : ArrayAdapter<TorifiedAppWrapper?>(
             this,
@@ -295,7 +298,7 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
         }
 
         filteredList.clear()
-        filteredList.addAll(uiList)
+        filteredList.addAll(allUnfilteredUiItems)
     }
 
     private fun saveAppSettings() {
