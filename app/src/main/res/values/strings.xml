@@ -289,4 +289,5 @@
     <string name="note_snowflake_doesn_t_support_proxies">NOTE: Snowflake doesn\'t support proxies. Proxy settings will be ignored with Snowflake bridges.</string>
 
     <string name="search_for_apps">Search for apps</string>
+    <string name="apps_updated_msg">Apps Updated</string>
 </resources>

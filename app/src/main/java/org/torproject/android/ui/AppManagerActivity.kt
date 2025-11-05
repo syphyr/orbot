@@ -20,6 +20,7 @@ import android.widget.ImageView
 import android.widget.ListAdapter
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 
 import androidx.core.content.ContextCompat
 import androidx.core.content.edit
@@ -80,6 +81,7 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
 
         retainedCheckedPackages = savedInstanceState?.getStringArray("checked_packages")?.toSet() ?: emptySet()
         val restoredQuery = savedInstanceState?.getString("search_query").orEmpty()
+        appSelectionChanged = appSelectionChanged || savedInstanceState?.getBoolean("apps_changed", false) == true
         if (restoredQuery.isNotEmpty()) {
             searchBar?.text = restoredQuery
             searchQuery.value = restoredQuery
@@ -119,6 +121,7 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putString("search_query", searchQuery.value)
+        outState.putBoolean("apps_changed", appSelectionChanged)
         val checkedPackages = (allApps.orEmpty() + suggestedApps.orEmpty())
             .filter { it.isTorified }
             .map { it.packageName }
@@ -172,6 +175,9 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
     override fun onDestroy() {
         super.onDestroy()
         job.cancel()
+        if (appSelectionChanged && !isChangingConfigurations) {
+            Toast.makeText(this, R.string.apps_updated_msg, Toast.LENGTH_LONG).show()
+        }
     }
 
     private var allApps: List<TorifiedApp>? = null
@@ -299,6 +305,8 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
         filteredList.addAll(allUnfilteredUiItems)
     }
 
+    private var appSelectionChanged = false
+
     private fun saveAppSettings() {
         val allApps = allApps ?: return
         val suggestedApps = suggestedApps ?: return
@@ -321,12 +329,14 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
                 response.putExtra(tApp.packageName, true)
             }
         }
-
+        val appStringOld = mPrefs?.getString(OrbotConstants.PREFS_KEY_TORIFIED, "")
+        val appStringNew = tordApps.toString()
         mPrefs?.edit {
-            putString(OrbotConstants.PREFS_KEY_TORIFIED, tordApps.toString())
+            if (appStringNew != appStringOld) {
+                putString(OrbotConstants.PREFS_KEY_TORIFIED, tordApps.toString())
+                appSelectionChanged = true
+            }
         }
-
-        setResult(RESULT_OK, response)
     }
 
     override fun onClick(v: View) {
@@ -416,7 +426,7 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
 
                 try {
                     app.name = pMgr.getApplicationLabel(aInfo).toString()
-                } catch (e: Exception) {
+                } catch (_: Exception) {
                     // No name, we only show apps with names
                     continue
                 }
@@ -438,8 +448,11 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
                 app.isTorified = app.isTorified || (context as? AppManagerActivity)?.retainedCheckedPackages?.contains(app.packageName) == true
             }
             apps.sort()
-
-            return apps
+            val checked = apps.filter { it.isTorified }
+            val unchecked = apps.filter { !it.isTorified }
+            val list = ArrayList<TorifiedApp>(checked)
+            list.addAll(unchecked)
+            return list
         }
     }
 }
