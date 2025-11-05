@@ -21,6 +21,7 @@ import android.widget.ImageView
 import android.widget.ListAdapter
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.appcompat.widget.Toolbar
 
 import androidx.core.content.ContextCompat
 import androidx.core.content.edit
@@ -69,7 +70,13 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         pMgr = packageManager
         this.setContentView(R.layout.activity_app_manager)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
+        var toolbar = findViewById<Toolbar>(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        var sab = getSupportActionBar();
+        if (sab != null) sab.setDisplayHomeAsUpEnabled(true);
+        
         listAppsAll = findViewById(R.id.applistview)
         progressBar = findViewById(R.id.progressBar)
         searchBar = findViewById(R.id.searchBar)

@@ -154,14 +154,14 @@ class ConnectFragment : Fragment(),
                     PowerUserForegroundPermDialog().createTransactionAndShow(requireActivity())
                     return // user can try again after granting permission
                 } else {
-                    binding.ivStatus.setImageResource(R.drawable.torstarting)
+                    binding.ivStatus.setImageResource(R.drawable.orbieon)
                     with(binding.btnStart) {
                         text = context.getString(android.R.string.cancel)
                     }
                     requireContext().sendIntentToService(OrbotConstants.ACTION_START)
                 }
             }
-            binding.ivStatus.setImageResource(R.drawable.torstarting)
+            binding.ivStatus.setImageResource(R.drawable.orbieon)
             with(binding.btnStart) {
                 text = context.getString(android.R.string.cancel)
             }
@@ -196,7 +196,7 @@ class ConnectFragment : Fragment(),
 
     private fun doLayoutNoInternet() {
 
-        binding.ivStatus.setImageResource(R.drawable.nointernet)
+        binding.ivStatus.setImageResource(R.drawable.orbiesleeping)
 
         stopAnimations()
 
@@ -213,7 +213,7 @@ class ConnectFragment : Fragment(),
     }
 
     fun doLayoutOn(context: Context) {
-        binding.ivStatus.setImageResource(R.drawable.toron)
+        binding.ivStatus.setImageResource(R.drawable.orbieon)
 
         binding.tvSubtitle.visibility = View.GONE
         binding.progressBar.visibility = View.INVISIBLE
@@ -229,7 +229,7 @@ class ConnectFragment : Fragment(),
     }
 
     fun doLayoutOff() {
-        binding.ivStatus.setImageResource(R.drawable.toroff)
+        binding.ivStatus.setImageResource(R.drawable.orbiesleeping)
         stopAnimations()
         binding.tvSubtitle.visibility = View.VISIBLE
         binding.progressBar.visibility = View.INVISIBLE
@@ -338,7 +338,7 @@ class ConnectFragment : Fragment(),
             visibility = View.VISIBLE
         }
 
-        binding.ivStatus.setImageResource(R.drawable.torstarting)
+        binding.ivStatus.setImageResource(R.drawable.orbie_stuck)
         val animHover = AnimationUtils.loadAnimation(context, R.anim.hover)
         animHover.repeatMode = Animation.REVERSE
         binding.ivStatus.animation = animHover

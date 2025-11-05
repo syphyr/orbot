@@ -73,7 +73,7 @@ class MoreFragment : Fragment() {
         updateStatus()
 
         val rvMore = view.findViewById<RecyclerView>(R.id.rvMoreActions)
-        val ivMascot = view.findViewById<ImageView>(R.id.ivMascot)
+       // val ivMascot = view.findViewById<ImageView>(R.id.ivMascot)
 
         val listItems = listOf(
             OrbotMenuAction(R.string.menu_settings, R.drawable.ic_settings_gear) {
@@ -114,18 +114,6 @@ class MoreFragment : Fragment() {
         val spanCount = if (resources.configuration.screenWidthDp < 600) 2 else 4
         rvMore.layoutManager = GridLayoutManager(requireContext(), spanCount)
 
-        ivMascot.setOnClickListener {
-            val scaleX = ObjectAnimator.ofFloat(it, View.SCALE_X, 1f, 1.2f, 1f)
-            val scaleY = ObjectAnimator.ofFloat(it, View.SCALE_Y, 1f, 1.2f, 1f)
-            val rotate = ObjectAnimator.ofFloat(it, View.ROTATION, 0f, 10f, -10f, 0f)
-
-            AnimatorSet().apply {
-                playTogether(scaleX, scaleY, rotate)
-                setDuration(500)
-                interpolator = BounceInterpolator()
-                start()
-            }
-        }
 
         return view
     }

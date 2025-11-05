@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:fitsSystemWindows="true"
     android:duplicateParentState="true">
 
@@ -48,4 +49,4 @@
         android:numColumns="1"
         android:verticalSpacing="15dp" />
 
-</FrameLayout>
+</LinearLayout>
