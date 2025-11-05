@@ -44,6 +44,7 @@ import org.torproject.android.R
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.util.Prefs
 import org.torproject.android.service.util.normalizie
+import org.torproject.android.service.util.sendIntentToService
 import org.torproject.android.service.vpn.TorifiedApp
 import org.torproject.android.service.vpn.TorifiedAppWrapper
 import org.torproject.android.ui.core.BaseActivity
@@ -176,6 +177,7 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
         super.onDestroy()
         job.cancel()
         if (appSelectionChanged && !isChangingConfigurations) {
+            sendIntentToService(OrbotConstants.ACTION_RESTART_VPN_IF_RUNNING)
             Toast.makeText(this, R.string.apps_updated_msg, Toast.LENGTH_LONG).show()
         }
     }

@@ -89,10 +89,7 @@ class MoreFragment : Fragment() {
                 )
             },
             OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
-                activity?.startActivityForResult(
-                    Intent(requireActivity(), AppManagerActivity::class.java),
-                    OrbotActivity.Companion.REQUEST_VPN_APP_SELECT
-                )
+                activity?.startActivity(Intent(activity, AppManagerActivity::class.java))
             },
             OrbotMenuAction(R.string.menu_log, R.drawable.ic_log) { showLog() },
             OrbotMenuAction(R.string.v3_hosted_services, R.drawable.ic_menu_onion) {

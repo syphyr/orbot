@@ -1,5 +1,6 @@
 package org.torproject.android.ui.connect
 
+import android.app.Activity.RESULT_OK
 import android.app.AlarmManager
 import android.content.Context
 import android.content.Intent
@@ -54,14 +55,6 @@ class ConnectFragment : Fragment(),
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             if (result.resultCode == AppCompatActivity.RESULT_OK) {
                 startTorAndVpn()
-            }
-        }
-
-    private val restartTorResultLauncher =
-        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == AppCompatActivity.RESULT_OK) {
-                requireContext().sendIntentToService(OrbotConstants.ACTION_RESTART_VPN) // is this enough todo?
-                refreshMenuList(requireContext())
             }
         }
 
@@ -183,12 +176,7 @@ class ConnectFragment : Fragment(),
         if (!Prefs.isPowerUserMode) listItems.add(
             0,
             OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
-                restartTorResultLauncher.launch(
-                    Intent(
-                        requireActivity(),
-                        AppManagerActivity::class.java
-                    )
-                )
+                activity?.startActivity(Intent(activity, AppManagerActivity::class.java))
             })
         binding.lvConnected.adapter = ConnectMenuActionAdapter(context, listItems)
     }

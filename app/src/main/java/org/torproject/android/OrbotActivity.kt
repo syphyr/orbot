@@ -268,9 +268,6 @@ class OrbotActivity : BaseActivity() {
             (application as OrbotApp).setLocale()
             finish()
             startActivity(Intent(this, OrbotActivity::class.java))
-        } else if (requestCode == REQUEST_VPN_APP_SELECT && resultCode == RESULT_OK) {
-            sendIntentToService(OrbotConstants.ACTION_RESTART_VPN) // is this enough todo?
-            connectViewModel.triggerRefreshMenuList()
         }
     }
 
@@ -358,7 +355,6 @@ class OrbotActivity : BaseActivity() {
         private const val KEY_TOR_STATUS = "key_tor_status"
         const val REQUEST_CODE_VPN = 1234
         const val REQUEST_CODE_SETTINGS = 2345
-        const val REQUEST_VPN_APP_SELECT = 2432
 
         // Make sure this is only shown once per app-start, not on every device rotation.
         private var rootDetectionShown = false

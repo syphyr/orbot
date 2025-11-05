@@ -54,7 +54,7 @@ object OrbotConstants {
     // needed when Orbot exits and tor is not running, but the notification is still active
     const val ACTION_STOP_FOREGROUND_TASK = "org.torproject.android.intent.action.STOP_FOREGROUND_TASK"
 
-    const val ACTION_RESTART_VPN = "org.torproject.android.intent.action.RESTART_VPN"
+    const val ACTION_RESTART_VPN_IF_RUNNING = "org.torproject.android.intent.action.RESTART_VPN"
 
     const val ACTION_LOCAL_LOCALE_SET = "org.torproject.android.intent.LOCAL_LOCALE_SET"
 

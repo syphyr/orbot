@@ -671,7 +671,7 @@ public class OrbotService extends VpnService {
                 }
                 case ACTION_UPDATE_ONION_NAMES -> updateV3OnionNames();
                 case ACTION_STOP_FOREGROUND_TASK -> stopForeground(true);
-                case ACTION_RESTART_VPN -> {
+                case ACTION_RESTART_VPN_IF_RUNNING -> {
                     if (mVpnManager != null) mVpnManager.restartVPN(new Builder());
                 }
                 case ACTION_STATUS -> {
