@@ -25,6 +25,8 @@ import androidx.appcompat.widget.Toolbar
 
 import androidx.core.content.ContextCompat
 import androidx.core.content.edit
+import androidx.core.content.res.ResourcesCompat
+import com.google.android.material.textfield.TextInputLayout
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -60,6 +62,7 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
     private var progressBar: ProgressBar? = null
     private var alSuggested: List<String>? = null
     private var searchBar: TextView? = null
+    private var searchBarLayout: TextInputLayout? = null
     private var filteredList: MutableList<TorifiedAppWrapper> = ArrayList()
     private val searchQuery = MutableStateFlow("")
     private var retainedCheckedPackages: Set<String> = emptySet()
@@ -81,6 +84,7 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
         listAppsAll = findViewById(R.id.applistview)
         progressBar = findViewById(R.id.progressBar)
         searchBar = findViewById(R.id.searchBar)
+        searchBarLayout = findViewById(R.id.searchBarLayout)
 
         retainedCheckedPackages = savedInstanceState?.getStringArray("checked_packages")?.toSet() ?: emptySet()
         val restoredQuery = savedInstanceState?.getString("search_query").orEmpty()
@@ -99,6 +103,13 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 searchQuery.value = s?.toString().orEmpty()
+                if (s?.isEmpty() == true) {
+                    searchBarLayout?.endIconMode = TextInputLayout.END_ICON_CUSTOM
+                    searchBarLayout?.endIconDrawable = ResourcesCompat.getDrawable(resources,R.drawable.ic_search, null)
+                } else {
+                    searchBarLayout?.endIconMode = TextInputLayout.END_ICON_CLEAR_TEXT
+                    searchBarLayout?.endIconDrawable = ResourcesCompat.getDrawable(resources,R.drawable.ic_close, null)
+                }
             }
             override fun afterTextChanged(s: Editable?) {}
         })
