@@ -42,6 +42,7 @@ import org.torproject.android.BuildConfig
 import org.torproject.android.R
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.util.Prefs
+import org.torproject.android.service.util.normalizie
 import org.torproject.android.service.vpn.TorifiedApp
 import org.torproject.android.service.vpn.TorifiedAppWrapper
 import org.torproject.android.ui.core.BaseActivity
@@ -160,7 +161,7 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
             val results = if (lower.isEmpty()) {
                 allUnfilteredUiItems
             } else {
-                allUnfilteredUiItems.filter { it.app?.name?.lowercase()?.contains(lower) == true }
+                allUnfilteredUiItems.filter { it.app?.name?.lowercase()?.normalizie()?.contains(lower) == true }
             }
 
             withContext(Dispatchers.Main) {

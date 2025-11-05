@@ -11,6 +11,7 @@ import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
+import java.text.Normalizer
 
 /**
  * Extension function for `Intent` to add a flag that marks the intent as originating
@@ -87,3 +88,8 @@ fun Context.showToast(msg: CharSequence) =
 
 fun Context.showToast(@StringRes msgId: Int) =
     Toast.makeText(this, msgId, Toast.LENGTH_LONG).show()
+
+// remove accent marks and characters from a String, useful when searching
+fun String.normalizie() : String =
+    Normalizer.normalize(this, Normalizer.Form.NFD)
+        .replace("\\p{Mn}+".toRegex(), "")
