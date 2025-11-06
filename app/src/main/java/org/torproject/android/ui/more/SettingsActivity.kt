@@ -19,7 +19,6 @@ class SettingsActivity : BaseActivity() {
 
         supportFragmentManager
             .beginTransaction()
-            .addToBackStack(FRAGMENT_TAG)
             .replace(R.id.settings_container, SettingsPreferenceFragment())
             .commit()
     }
@@ -27,7 +26,7 @@ class SettingsActivity : BaseActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {
-            if (supportFragmentManager.backStackEntryCount > 1)
+            if (supportFragmentManager.backStackEntryCount > 0)
                 onBackPressedDispatcher.onBackPressed()
             else
                 finish()
