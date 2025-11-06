@@ -4,26 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/bg_gradient"
+    android:duplicateParentState="true"
     android:fitsSystemWindows="true"
-    android:duplicateParentState="true">
+    android:orientation="vertical">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/searchBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="4dp"
         android:layout_gravity="top"
-        app:endIconMode="custom"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        app:boxBackgroundMode="outline"
         app:endIconDrawable="@drawable/ic_search"
-        app:boxBackgroundMode="outline">
+        app:endIconMode="custom">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/searchBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="2dp"
+            android:layout_marginEnd="2dp"
             android:hint="@string/search_for_apps"
             android:inputType="text" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -42,8 +46,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:layout_marginTop="64dp"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
         android:layout_marginBottom="4dp"
         android:gravity="center"
         android:horizontalSpacing="5dp"

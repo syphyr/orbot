@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/new_background"
+    android:background="@drawable/bg_gradient"
     android:fitsSystemWindows="true"
     tools:context="org.torproject.android.ui.v3onionservice.clientauth.ClientAuthActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
+        android:background="@android:color/transparent"
         android:layout_height="wrap_content"
         android:theme="@style/DefaultTheme.AppBarOverlay">
 
