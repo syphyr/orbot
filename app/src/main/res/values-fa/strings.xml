@@ -249,4 +249,18 @@
     <string name="kindness_mode_disabled_power">برای کمک به دیگران برای دور زدن سانسور افزاره‌تان را به برق بزنید</string>
     <string name="request_notification_permission">لطفاً آگاهی‌ها را برای روبوت پیازی به کار بیندازید</string>
     <string name="note_snowflake_doesn_t_support_proxies">نکته: دانه‌برفی از پیشکارها پشتیبانی نمی‌کند. تنظیمات پیشکار در پل‌های دانه‌برفی نادیده گرفته خواهند شد.</string>
+    <string name="apps_updated_msg">کاره‌ها به‌روز شده</string>
+    <string name="kibibyte_per_second">کی‌ب/ث</string>
+    <string name="mebibyte_per_second">می‌ب/ث</string>
+    <string name="orbot_vpn">وی‌پی‌ان روبوت پیازی</string>
+    <string name="connect_to_tor">وصل شدن به تور</string>
+    <string name="orbot_config_invalid">پیکربندی روبوت پیازی نامعتبر</string>
+    <string name="search_for_apps">جست‌وجوی کاره‌ها</string>
+    <string name="log_notice_updating_torrc">به‌روز رسانی پیکربندی سفارشی torrc…</string>
+    <string name="log_notice_unable_to_update_onions">ناتوان در بارگذاری نام‌های پیازی</string>
+    <string name="log_notice_connected_to_tor_control_port">وصل شده به درگاه واپایش تور</string>
+    <string name="open_orbot_to_connect_to_tor">گشودن روبوت پیازی برای وصل شدن به تور</string>
+    <string name="snowflake_proxy_client_connected_msg">%1$sحالت مهربانی به کسی در دور زدن سانسور کمک کرد%2$s</string>
+    <string name="request_notification_permission_msg">بدون روشن کردن آگاهی‌ها روبوت پیازی نمی‌تواند به عنوان وی‌پی‌ان تور عمل کرده یا از یا حالت مهربانی استفاده کند.\n\nبا به کار انداختنش تنها یک آگاهی هنگام کار کردن روبوت پیازی نشان داده خواهد شد.</string>
+    <string name="camo_samsung_instructions">آگاهی‌های حالت استتار روی افزارهٔ گلکسی سامسونگتان تنها با گشودن تنظیمات -&gt; آگاهی‌ها -&gt; تنظیمات پیش‌رفته و از کار انداختن «نمایش نقشک کاره در آگاهی‌ها» کار خواهد کرد. برای گشودن تنظیمات آگاهی این‌جا را بزنید.</string>
 </resources>
