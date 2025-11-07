@@ -30,9 +30,9 @@
     <string name="pref_proxy_type_title">Vrsta Izlaznog Proxy-a</string>
     <string name="pref_proxy_type_summary">Protokol koji se koristi za proxy server: HTTPS, Socks4, Socks5</string>
     <string name="pref_proxy_host_title">Domaćin Izlaznog Proxy-a</string>
-    <string name="pref_proxy_host_summary">Ime domaćina Proxy Poslužitelja</string>
+    <string name="pref_proxy_host_summary">Ime domaćina Proxy servera</string>
     <string name="pref_proxy_port_title">Port Izlaznog Proxy-a</string>
-    <string name="pref_proxy_port_summary">Port Proxy Poslužitelja</string>
+    <string name="pref_proxy_port_summary">Port Proxy servera</string>
     <string name="pref_proxy_username_title">Proxy izlazno korisničko ime</string>
     <string name="pref_proxy_username_summary">Proxy korisničko ime (Opcionalno)</string>
     <string name="pref_proxy_password_title">Proxy izlazna lozinka</string>
@@ -115,5 +115,4 @@
     <string name="your_reachableaddresses_settings_caused_an_exception_">Vaše ReachableAddresses postavke su uzrokovale iznimku!</string>
     <string name="unable_to_start_tor">Nije moguće pokrenuti Tor:</string>
     <string name="updating_settings_in_tor_service">ažuriram postavke u Tor usluzi</string>
-
 </resources>

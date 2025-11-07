@@ -261,4 +261,5 @@
     <string name="log_notice_updating_torrc">Обновяване потребителските настройки от torrc…</string>
     <string name="log_notice_connected_to_tor_control_port">Свързване към управляващия порт на Tor</string>
     <string name="note_snowflake_doesn_t_support_proxies">ЗАБЕЛЕЖКА: Snowflake не поддържа прокси сървъри. Такива настройки ще бъдат пренебрегнати от мостовоте на Snowflake.</string>
+    <string name="search_for_apps">Търсене на приложения</string>
 </resources>
