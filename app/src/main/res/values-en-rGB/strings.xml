@@ -239,4 +239,36 @@
     <string name="kindness_mode_active_message" formatted="true">You\'ve helped %1$d people circumvent censorship</string>
     <string name="kindness_mode_disabled">Kindness Mode is Deactivated</string>
     <string name="kindness_mode_starting">Starting…</string>
+    <string name="kindness_mode_disabled_internet">Connect to the Internet to help people circumvent censorship</string>
+    <string name="kindness_mode_disabled_wifi">Connect to Wi-Fi to help people circumvent censorship</string>
+    <string name="kindness_mode_disabled_power">Connect your device to power to help people circumvent censorship</string>
+    <string name="app_icon_chooser_label_tetras">Tetras</string>
+    <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
+    <string name="app_icon_chooser_label_birdie">Birdie</string>
+    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot will camouflage itself as the app %1$s. This will hide all notification details about Tor and change the appearance of Orbot on your home screen.\n\nCamouflaging as %2$s will restart Orbot.</string>
+    <string name="camo_samsung_instructions">On your Samsung Galaxy device, Camouflage Mode\'s notifications will only work by opening your Settings -&gt; Notifications -&gt; Advanced Settings and disabling \"Show app icon in notifications\". Click here to open Notification Settings.</string>
+    <string name="request_notification_permission">Please enable notifications for Orbot</string>
+    <string name="request_notification_permission_msg">Without turning on notifications, Orbot can\'t act as a Tor VPN or use Kindness Mode.\n\nWhen enabled, we only show a single notification when Orbot is running.</string>
+    <string name="open_settings">Open Settings</string>
+    <string name="orbot_vpn">Orbot VPN</string>
+    <string name="status_starting_up">Orbot is Starting…</string>
+    <string name="status_activated">Connected to the Tor Network</string>
+    <string name="status_disabled">Orbot is Deactivated</string>
+    <string name="open_orbot_to_connect_to_tor">Open Orbot to Connect to Tor</string>
+    <string name="status_shutting_down">Orbot is Shutting Down</string>
+    <string name="connect_to_tor">Connect to Tor</string>
+    <string name="orbot_config_invalid">Orbot Configuration Invalid</string>
+    <string name="couldn_t_start_tor_process_">Couldn\'t start Tor process:</string>
+    <string name="your_reachableaddresses_settings_caused_an_exception_">Your ReachableAddresses settings caused an exception!</string>
+    <string name="unable_to_start_tor">Unable to start Tor:</string>
+    <string name="updating_settings_in_tor_service">updating settings in Tor service</string>
+    <string name="kibibyte_per_second">KiB/s</string>
+    <string name="mebibyte_per_second">MiB/s</string>
+    <string name="snowflake_proxy_client_connected_msg">%1$s Kindness Mode helped someone circumvent censorship %2$s</string>
+    <string name="log_notice_unable_to_update_onions">unable to upload onion names</string>
+    <string name="log_notice_updating_torrc">Updating torrc custom configuration…</string>
+    <string name="log_notice_connected_to_tor_control_port">Connected to Tor control port</string>
+    <string name="note_snowflake_doesn_t_support_proxies">NOTE: Snowflake doesn\'t support proxies. Proxy settings will be ignored with Snowflake bridges.</string>
+    <string name="search_for_apps">Search for apps</string>
+    <string name="apps_updated_msg">Apps Updated</string>
 </resources>
