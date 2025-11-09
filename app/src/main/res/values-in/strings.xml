@@ -135,15 +135,7 @@
     <string name="pref_disable_ipv4">Nonaktifkan koneksi IPv4</string>
     <string name="volunteer_mode">Mode Kebaikan</string>
     <string name="btn_choose_apps">Pilih aplikasi</string>
-    <string name="volunteer_mode_subtitle_desc">Mode kebaikan membuat perangkat Anda menjadi jembatan untuk orang lain. Ini membantu orang-orang menggunakan Tor di tempat di mana Tor diblokir.
-\n
-\n• Tidak akan menghabiskan baterai Anda
-\n
-\n• Tidak akan memperlambat internet Anda
-\n
-\n• Hanya bisa berjalan dengan wifi
-\n
-\n• Dapat dimatikan kapan pun</string>
+    <string name="volunteer_mode_subtitle_desc">Mode Kebaikan memungkinkan perangkat Anda menjadi jembatan bagi orang lain. Fitur ini membantu orang menggunakan Tor di tempat-tempat di mana Tor diblokir.\n\n• Tidak akan menguras baterai Anda\n• Tidak akan memperlambat koneksi internet Anda\n• Hanya dapat dijalankan melalui Wi-Fi\n• Dapat dimatikan kapan saja</string>
     <string name="confirm">Konfirmasi</string>
     <string name="v3_backup_key_warning">Peringatan: Ini dapat membocorkan kunci Anda ke aplikasi lain</string>
     <string name="delete_service">Hapus Layanan</string>
@@ -271,4 +263,6 @@
     <string name="log_notice_updating_torrc">Memperbarui konfigurasi kustom torrc…</string>
     <string name="log_notice_connected_to_tor_control_port">Terhubung ke port kontrol Tor</string>
     <string name="note_snowflake_doesn_t_support_proxies">CATATAN: Snowflake tidak mendukung proxy. Pengaturan proxy akan diabaikan saat menggunakan jembatan Snowflake.</string>
+    <string name="search_for_apps">Cari aplikasi</string>
+    <string name="apps_updated_msg">Aplikasi Diperbarui</string>
 </resources>
