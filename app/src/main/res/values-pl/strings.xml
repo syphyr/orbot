@@ -5,8 +5,6 @@
     <string name="menu_settings">Ustawienia Orbota</string>
     <string name="menu_log">Dziennik</string>
     <string name="menu_about">O aplikacji</string>
-    <string name="main_layout_download">Pobieranie</string>
-    <string name="main_layout_upload">Wysyłanie</string>
     <string name="menu_exit">Wyjście</string>
     <string name="pref_general_group">Ogólne</string>
     <string name="pref_start_boot_title">Uruchamiaj Orbota przy starcie</string>
@@ -243,7 +241,5 @@
     <string name="status_disabled">Orbot wyłączony</string>
     <string name="status_shutting_down">TorService wyłącza się</string>
     <string name="couldn_t_start_tor_process_">Nie można było zainicjować procesu Tora:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">Twoje ustawienia dostępnych adresów spowodowały wyjątek!</string>
     <string name="unable_to_start_tor">Nie można wystartować aplikacji Tor:</string>
-    <string name="updating_settings_in_tor_service">aktualizowanie ustawień w serwisie Tor</string>
 </resources>

@@ -5,8 +5,6 @@
     <string name="menu_settings">Cài đặt</string>
     <string name="menu_log">Nhật ký Log</string>
     <string name="menu_about">Giới thiệu</string>
-    <string name="main_layout_download">Tải xuống</string>
-    <string name="main_layout_upload">Tải lên</string>
     <string name="menu_exit">Thoát</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
@@ -202,9 +200,7 @@
     <string name="status_disabled">Orbot đã được vô hiệu hóa</string>
     <string name="status_shutting_down">Đang tắt dịch vụ Tor</string>
     <string name="couldn_t_start_tor_process_">Không thể khởi động tiến trình Tor:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">Thiết lập ReachableAddresses đã gây ra một vấn đề! </string>
     <string name="unable_to_start_tor">Không thể khởi động Tor được: </string>
-    <string name="updating_settings_in_tor_service">đang cập nhật cài đặt dịch vụ Tor</string>
     <string name="mebibyte_per_second">MiB/s</string>
     <string name="kibibyte_per_second">KiB/s</string>
 </resources>

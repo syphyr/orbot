@@ -5,8 +5,6 @@
     <string name="menu_settings">Mayjt\'ayaña</string>
     <string name="menu_log">Imata</string>
     <string name="menu_about">Juk\'ampi</string>
-    <string name="main_layout_download">Apaqaña</string>
-    <string name="main_layout_upload">Apkataña</string>
     <string name="menu_exit">Mistuña</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot aplikasyunax inakiwa, kawknïriti Tor IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks ukat LibEvent ukaniwa. Tor llikanx mä VPN tunila, mä akankir proxy HTTP Connect (8118 waythapiwja ukanaki HTTPS) ukat mä SOCKS proxy (9050) churi.</string>

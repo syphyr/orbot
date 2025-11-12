@@ -28,8 +28,6 @@
     <string name="confirm">Հաստատել</string>
     <string name="menu_new_identity">Նոր ինքնություն</string>
     <string name="btn_refresh">Թարմացնել</string>
-    <string name="main_layout_download">Ներբեռնել</string>
-    <string name="main_layout_upload">Վերբեռնել</string>
     <string name="pref_general_group">Հիմնական</string>
     <string name="license">Արտոնագիր.</string>
     <string name="trying_to_connect_title">Միացում…</string>

@@ -5,8 +5,6 @@
   <string name="menu_settings">Anaata</string>
   <string name="menu_log">Sünüliamajatu</string>
   <string name="menu_about">Jautoupuna</string>
-  <string name="main_layout_download">Ashakatiraa</string>
-  <string name="main_layout_upload">Alika\'a </string>
   <string name="menu_exit">Ajuitia</string>
   <string name="wizard_details_msg">Orbot jia wane ayataya  kalúús Tor,PtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks y LibEvent. apus  wopúú VPN, un proxy HTTP Connect local (HTTPS jumuiwuaya\'a 8118) je wanee proxy SOCKS (9050) julúú atalaya Tor.</string>
   <string name="pref_general_group">Jupushu\'aa.</string>
@@ -176,11 +174,8 @@ punjulaa apps, jupula  anaijatuin  pu kachuerrase</string>
   <string name="orbot_config_invalid">sükumajia Orbot maliaasat</string>
 
   <string name="couldn_t_start_tor_process_">Nojotsü o\'ottuin sukuaipa shiatain Tor</string>
-  <string name="your_reachableaddresses_settings_caused_an_exception_">Tü anatiaaka   erree juntunuín  casaa, nojots jainrre\'in</string>
-  <string name="unable_to_start_tor">no jot süpüla achuajaje\'in Tor</string>
+    <string name="unable_to_start_tor">no jot süpüla achuajaje\'in Tor</string>
 
-
-  <string name="updating_settings_in_tor_service">Anoutuüin  tüü akümajiak süpüla Tor</string>
 
   <string name="kibibyte_per_second">KiB/s</string>
   <string name="mebibyte_per_second">MiB/s</string>

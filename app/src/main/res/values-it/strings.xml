@@ -5,8 +5,6 @@
     <string name="menu_settings">Impostazioni di Orbot</string>
     <string name="menu_log">Registro (log)</string>
     <string name="menu_about">Informazioni</string>
-    <string name="main_layout_download">Download</string>
-    <string name="main_layout_upload">Upload</string>
     <string name="menu_exit">Esci</string>
     <string name="wizard_details_msg">Orbot è un\'applicazione open source che contiene Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel e LibEvent. Fornisce un tunnel VPN, un proxy HTTP locale (solo HTTPS su porta 8118) e un proxy SOCKS (9050) per la rete Tor.</string>
     <string name="pref_general_group">Generale</string>
@@ -220,9 +218,7 @@
     <string name="status_disabled">\"Orbot è disattivato</string>
     <string name="status_shutting_down">TorService si sta spegnendo</string>
     <string name="couldn_t_start_tor_process_">Impossibile avviare il processo Tor:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">La tua configurazione dell\'indirizzo raggiungibile ha causato un\'eccezione!</string>
     <string name="unable_to_start_tor">Impossibile avviare Tor:</string>
-    <string name="updating_settings_in_tor_service">aggiornamento impostazioni nel servizio Tor</string>
     <string name="kindness_mode_is_running">Modalità altruismo in esecuzione</string>
     <string name="kindness_mode_active_message" formatted="true">Hai aiutato %1$d persone ad aggirare la censura</string>
     <string name="kindness_mode_disabled">Modalità altruismo disattivata</string>

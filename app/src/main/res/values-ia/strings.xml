@@ -19,8 +19,6 @@
     <string name="disable">Disactivar</string>
     <string name="btn_refresh">Actualisar</string>
     <string name="enable">Activar</string>
-    <string name="main_layout_download">Discarga</string>
-    <string name="main_layout_upload">Incarga</string>
     <string name="setting_debug">Depuration</string>
     <string name="menu_more">Plus</string>
     <string name="menu_new_identity">Nove identitate</string>

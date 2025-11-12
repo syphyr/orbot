@@ -30,6 +30,4 @@
     <string name="connected_title">Povezan</string>
     <string name="connect">Spoji se</string>
     <string name="next">Next</string>
-    <string name="main_layout_upload">Upload</string>
-    <string name="main_layout_download">Download</string>
 </resources>

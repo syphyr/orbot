@@ -5,8 +5,6 @@
     <string name="menu_settings">পছন্দসমূহ</string>
     <string name="menu_log">লগ</string>
     <string name="menu_about">বিস্তারিত</string>
-    <string name="main_layout_download">ডাওনলোড</string>
-    <string name="main_layout_upload">আপলোড</string>
     <string name="menu_exit">প্রস্থান</string>
     <string name="pref_general_group">সাধারণ</string>
     <string name="error">ভুল</string>

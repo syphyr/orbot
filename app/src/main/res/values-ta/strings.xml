@@ -5,8 +5,6 @@
     <string name="menu_settings">சுற்றுப்பாதை அமைப்புகள்</string>
     <string name="menu_log">பதிவுகள்</string>
     <string name="menu_about">பற்றி</string>
-    <string name="main_layout_download">பதிவிறக்கு</string>
-    <string name="main_layout_upload">பதிவேற்று</string>
     <string name="menu_exit">வெளியேறு</string>
     <string name="pref_general_group">பொது</string>
     <string name="pref_proxy_password_summary">பதிலாள் கடவுச்சொல் (கட்டாயமற்ற)</string>
@@ -251,9 +249,7 @@
     <string name="connect_to_tor">TOR உடன் இணைக்கவும்</string>
     <string name="orbot_config_invalid">சுற்றுப்பாதை உள்ளமைவு தவறானது</string>
     <string name="couldn_t_start_tor_process_">டோர் செயல்முறையைத் தொடங்க முடியவில்லை:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">உங்கள் அடையக்கூடிய அலங்கார அமைப்புகள் விதிவிலக்கை ஏற்படுத்தின!</string>
     <string name="unable_to_start_tor">டோர் தொடங்க முடியவில்லை:</string>
-    <string name="updating_settings_in_tor_service">TOR சேவையில் அமைப்புகளை புதுப்பித்தல்</string>
     <string name="kibibyte_per_second">கிப் / கள்</string>
     <string name="mebibyte_per_second">Mib/s</string>
     <string name="snowflake_proxy_client_connected_msg">%1$s கருணை முறை தணிக்கை %2$s ஐத் தவிர்க்க உதவியது</string>

@@ -5,8 +5,6 @@
     <string name="menu_settings">Ezarpenak</string>
     <string name="menu_log">Egunkaria</string>
     <string name="menu_about">Honi buruz</string>
-    <string name="main_layout_download">Jaitsiera</string>
-    <string name="main_layout_upload">Igoera</string>
     <string name="menu_exit">Irten</string>
     <string name="wizard_details_msg">Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, eta LibEvent dituen kode irekiko aplikazio bat da Orbot. Tor sarera sartzeko HTTP proxya (8118) eta SOCKS proxya (9050) eskaintzen ditu. Rooteatutako gailuetan Orbot-ek interneteko trafiko guztia Tor bidez bidali dezake baita ere.</string>
     <string name="pref_general_group">Orokorra</string>
@@ -112,6 +110,5 @@
     <string name="status_activated">Tor sarera konektatuta</string>
     <string name="status_disabled">\"Orbot desaktibatuta dago</string>
     <string name="couldn_t_start_tor_process_">Ezin izan da Tor prozesua hasi:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">Zure helbide atzigarriak salbuespena sortu du!</string>
     <string name="unable_to_start_tor">Ezin izan da Tor hasi:</string>
 </resources>

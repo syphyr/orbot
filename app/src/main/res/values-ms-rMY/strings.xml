@@ -4,8 +4,6 @@
     <string name="menu_settings">Tetapan</string>
     <string name="menu_log">Log</string>
     <string name="menu_about">Tentang</string>
-    <string name="main_layout_download">Muat turun</string>
-    <string name="main_layout_upload">Muat naik</string>
     <string name="menu_exit">Keluar</string>
     <string name="pref_general_group">Umum</string>
     <string name="pref_start_boot_title">Mulakan Orbot semasa Boot</string>
@@ -69,6 +67,5 @@
     <string name="status_activated">Bersambung ke rangkaian Tor</string>
     <string name="status_disabled">\"Orbot telah dinyah-aktifkan</string>
     <string name="couldn_t_start_tor_process_">Tidak boleh memulakan proses Tor:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">Tetapan ReachableAddresses anda menyebabkan pengecualian!</string>
     <string name="unable_to_start_tor">Tidak dapat memulakan Tor:</string>
 </resources>

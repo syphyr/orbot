@@ -13,8 +13,6 @@
     <string name="menu_settings">Nastavenia</string>
     <string name="menu_log">Denník</string>
     <string name="menu_about">O Programe</string>
-    <string name="main_layout_download">Stiahnuť</string>
-    <string name="main_layout_upload">Nahrať</string>
     <string name="menu_exit">Ukončenie</string>
     <string name="wizard_details_msg">Orbot je open-source aplikácia, ktorá obsahuje Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks a LibEvent. Poskytuje tunel VPN, miestny proxy server HTTP Connect (HTTPS len na porte 8118) a proxy server SOCKS (9050) do siete Tor.</string>
     <string name="pref_general_group">Všeobecné</string>

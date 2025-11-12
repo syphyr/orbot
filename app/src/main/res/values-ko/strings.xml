@@ -5,8 +5,6 @@
     <string name="menu_settings">Orbot 설정</string>
     <string name="menu_log">로그</string>
     <string name="menu_about">정보</string>
-    <string name="main_layout_download">다운로드</string>
-    <string name="main_layout_upload">업로드</string>
     <string name="menu_exit">종료</string>
     <string name="pref_general_group">일반</string>
     <string name="pref_start_boot_title">부팅 후 Orbot 시작</string>
@@ -105,6 +103,5 @@
     <string name="status_activated">Tor 네트워크에 연결됨</string>
     <string name="status_disabled">Orbot이 비활성화되어 있습니다</string>
     <string name="couldn_t_start_tor_process_">Tor 프로세스 시작 불가능:  </string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">귀하의 ReachableAddress 설정은 예외를 발생시켰습니다!</string>
     <string name="unable_to_start_tor">Tor 시작 불가능</string>
 </resources>

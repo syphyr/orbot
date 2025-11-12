@@ -10,7 +10,6 @@
     <!--Transparent Proxy screen-->
     <string name="name">Name</string>
     <string name="menu_about">সম্পর্কিত</string>
-    <string name="main_layout_download">ডাউনলোউড</string>
     <string name="error">ত্রুটি</string>
     <string name="btn_refresh">রিফ্রেশ</string>
     <string name="menu_settings">সেটিংস</string>

@@ -5,8 +5,6 @@
     <string name="menu_settings">Indstillinger</string>
     <string name="menu_log">Log</string>
     <string name="menu_about">Om</string>
-    <string name="main_layout_download">Henter</string>
-    <string name="main_layout_upload">Sender</string>
     <string name="menu_exit">Afslut</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
@@ -160,6 +158,5 @@
     <string name="status_activated">Der er forbindelse til Tor-netværket</string>
     <string name="status_disabled">Orbot er slået fra</string>
     <string name="couldn_t_start_tor_process_">Kunne ikke starte Tor processen:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">Din ReachableAdresses indstilling forudsagede en fejl!</string>
     <string name="unable_to_start_tor">Kunne ikke starte Tor:</string>
 </resources>

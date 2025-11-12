@@ -5,8 +5,6 @@
     <string name="menu_settings">Orbot 设置</string>
     <string name="menu_log">日志</string>
     <string name="menu_about">关于</string>
-    <string name="main_layout_download">下载</string>
-    <string name="main_layout_upload">上传</string>
     <string name="menu_exit">退出</string>
     <string name="pref_general_group">常规</string>
     <string name="pref_start_boot_title">开机时启动 Orbot</string>
@@ -239,9 +237,7 @@
     <string name="status_disabled">Orbot 已停用</string>
     <string name="status_shutting_down">Orbot 正在关闭</string>
     <string name="couldn_t_start_tor_process_">无法启动 Tor 进程：</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">可访问地址设置导致异常！</string>
     <string name="unable_to_start_tor">无法启动 Tor：</string>
-    <string name="updating_settings_in_tor_service">正在更新 Tor 服务中的设置</string>
     <string name="mebibyte_per_second">MiB/s</string>
     <string name="kibibyte_per_second">KiB/s</string>
     <string name="kindness_mode_is_running">善举模式正在运行</string>

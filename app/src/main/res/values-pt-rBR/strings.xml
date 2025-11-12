@@ -5,8 +5,6 @@
     <string name="menu_settings">Configurações</string>
     <string name="menu_log">Registro</string>
     <string name="menu_about">Sobre</string>
-    <string name="main_layout_download">Download</string>
-    <string name="main_layout_upload">Upload</string>
     <string name="menu_exit">Sair</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot é um aplicativo de código aberto que contém Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks e LibEvent. Ele fornece um túnel VPN, um proxy HTTP Connect local (HTTPS apenas na porta 8118) e um proxy SOCKS (9050) para rede Tor.</string>
@@ -208,7 +206,6 @@
     <string name="status_disabled">O Orbot está desativado</string>
     <string name="couldn_t_start_tor_process_">Não foi possível iniciar o processo Tor: </string>
     <string name="unable_to_start_tor">Não é possível iniciar o Tor:</string>
-    <string name="updating_settings_in_tor_service">a atualizar as definições no serviço Tor</string>
     <string name="mebibyte_per_second">MiB/s</string>
     <string name="kibibyte_per_second">KiB/s</string>
 </resources>

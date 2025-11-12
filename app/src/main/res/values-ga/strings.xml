@@ -6,8 +6,6 @@
     <string name="system_vpn_settings">Socruithe VPN Android</string>
     <string name="menu_log">Logáil</string>
     <string name="menu_about">Maidir</string>
-    <string name="main_layout_download">Íoslódáil</string>
-    <string name="main_layout_upload">Uaslódáil</string>
     <string name="menu_exit">Scoir</string>
     <string name="wizard_details_msg">Is feidhmchlár foinse oscailte é Orbot ina bhfuil Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel agus LibEvent. Soláthraíonn sé tollán VPN, seachfhreastalaí HTTP Connect áitiúil (HTTPS ar phort 8118 amháin) agus seachfhreastalaí SOCKS (9050) isteach sa líonra Tor.</string>
     <string name="pref_general_group">Ginearálta</string>
@@ -251,9 +249,7 @@
     <string name="connect_to_tor">Ceangail le Tor</string>
     <string name="orbot_config_invalid">Cumraíocht Orbot Neamhbhailí</string>
     <string name="couldn_t_start_tor_process_">Níorbh fhéidir próiseas Tor a thosú:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">Tharla eisceacht mar gheall ar do shocruithe ReachableAddresses!</string>
     <string name="unable_to_start_tor">Ní féidir Tor a thosú:</string>
-    <string name="updating_settings_in_tor_service">socruithe a nuashonrú i seirbhís Tor</string>
     <string name="kibibyte_per_second">KiB/s</string>
     <string name="mebibyte_per_second">MiB/s</string>
     <string name="snowflake_proxy_client_connected_msg">Chabhraigh Mód Cineáltais %1$s le duine éigin cinsireacht %2$s a sheachaint</string>

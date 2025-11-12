@@ -8,8 +8,6 @@
     <string name="menu_settings">Sazlamalar</string>
     <string name="menu_log">Hasaba gir</string>
     <string name="menu_about">Hakynda</string>
-    <string name="main_layout_download">Göçürip al</string>
-    <string name="main_layout_upload">Yükle</string>
     <string name="menu_exit">Çykalga</string>
     <string name="pref_node_configuration">Düwün Konfigurasiýasy</string>
     <string name="pref_node_configuration_summary">Bular anonimligiňizi azaldyp biljek ösen sazlamalar</string>

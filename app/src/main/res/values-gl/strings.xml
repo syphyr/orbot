@@ -5,8 +5,6 @@
     <string name="menu_settings">Axustes</string>
     <string name="menu_log">Rexistro (log)</string>
     <string name="menu_about">Sobre</string>
-    <string name="main_layout_download">Descargar</string>
-    <string name="main_layout_upload">Cargar</string>
     <string name="menu_exit">Saír </string>
     <string name="wizard_details_msg">Orbot é unha aplicación de código-aberto que contén a Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks e LibEvent. Proporciona un proxy HTTP (8118) e un proxy SOCKS (9050) na rede Tor. Orbot tamén pode, nun dispositivo con acceso root, enviar todo o tráfico de internet a través de Tor.</string>
     <string name="pref_general_group">Xeral</string>
@@ -178,6 +176,5 @@
     <string name="status_activated">Conectado á rede Tor</string>
     <string name="status_disabled">Orbot está desactivado</string>
     <string name="couldn_t_start_tor_process_">No se pudio inciar o proceso Tor:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">O seu axuste de ReachableAddresses causou unha excepción!</string>
     <string name="unable_to_start_tor">Incapaz de arrancar Tor</string>
 </resources>

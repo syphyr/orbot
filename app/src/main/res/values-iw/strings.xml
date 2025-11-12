@@ -5,8 +5,6 @@
     <string name="menu_settings">הגדרות Orbot</string>
     <string name="menu_log">רישום</string>
     <string name="menu_about">אודות</string>
-    <string name="main_layout_download">הורדה</string>
-    <string name="main_layout_upload">העלאה</string>
     <string name="menu_exit">יציאה</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot היא אפליקציית קוד פתוח שמכילה Tor,‏ IPtProxy‏ (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks ו־LibEvent. היא מספקת מנהרת VPN, מתווך HTTP Connect מקומי (HTTPS רק ביציאה 8118) ומתווך SOCKS‏ (9050) לרשת Tor.</string>

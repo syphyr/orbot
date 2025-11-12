@@ -5,8 +5,6 @@
     <string name="menu_settings">Orbot Settings</string>
     <string name="menu_log">Log</string>
     <string name="menu_about">About</string>
-    <string name="main_layout_download">Download</string>
-    <string name="main_layout_upload">Upload</string>
     <string name="menu_exit">Exit</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot is an open-source application that contains Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel and LibEvent. It provides a VPN tunnel, a local HTTP Connect proxy (HTTPS only on port 8118) and a SOCKS proxy (9050) into the Tor network.</string>
@@ -259,9 +257,7 @@
     <string name="connect_to_tor">Connect to Tor</string>
     <string name="orbot_config_invalid">Orbot Configuration Invalid</string>
     <string name="couldn_t_start_tor_process_">Couldn\'t start Tor process:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">Your ReachableAddresses settings caused an exception!</string>
     <string name="unable_to_start_tor">Unable to start Tor:</string>
-    <string name="updating_settings_in_tor_service">updating settings in Tor service</string>
     <string name="kibibyte_per_second">KiB/s</string>
     <string name="mebibyte_per_second">MiB/s</string>
     <string name="snowflake_proxy_client_connected_msg">%1$s Kindness Mode helped someone circumvent censorship %2$s</string>

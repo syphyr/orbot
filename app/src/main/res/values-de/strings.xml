@@ -5,8 +5,6 @@
     <string name="menu_settings">Einstellungen</string>
     <string name="menu_log">Protokoll</string>
     <string name="menu_about">Über</string>
-    <string name="main_layout_download">Herunterladen</string>
-    <string name="main_layout_upload">Hochladen</string>
     <string name="menu_exit">Beenden</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot ist eine quelloffene Anwendung, die Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, und LibEvent enthält. Es stellt einen lokalen HTTP-Proxy (Port: 8118) und einen SOCKS-Proxy (Port: 9050) in das Tor-Netzwerk bereit.</string>
@@ -209,9 +207,7 @@
     <string name="status_disabled">Orbot ist deaktiviert</string>
     <string name="status_shutting_down">TorService wird heruntergefahren</string>
     <string name="couldn_t_start_tor_process_">Tor-Prozess konnte nicht gestartet werden:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">Ihre eingestellten erreichbaren Adressen haben einen Ausnahmefehler verursacht!</string>
     <string name="unable_to_start_tor">Tor kann nicht gestartet werden:</string>
-    <string name="updating_settings_in_tor_service">Einstellungen im Tor-Dienst werden aktualisiert</string>
     <string name="mebibyte_per_second">MiB/s</string>
     <string name="kibibyte_per_second">KiB/s</string>
 </resources>

@@ -5,8 +5,6 @@
     <string name="menu_settings">Настройки Orbot</string>
     <string name="menu_log">Логи</string>
     <string name="menu_about">О приложении</string>
-    <string name="main_layout_download">Загрузка</string>
-    <string name="main_layout_upload">Отправка</string>
     <string name="menu_exit">Выход</string>
     <string name="wizard_details_msg">Orbot — это приложение с открытым исходным кодом, которое содержит Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel и LibEvent. Оно обеспечивает VPN-туннель, локальный прокси HTTP Connect (HTTPS только на порту 8118) и SOCKS-прокси (9050) в сеть Tor.</string>
     <string name="pref_general_group">Общие</string>
@@ -200,9 +198,7 @@
     <string name="status_disabled">Orbot отключён</string>
     <string name="status_shutting_down">Служба Tor выключается</string>
     <string name="couldn_t_start_tor_process_">Невозможно запустить Tor: </string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">Ваши настройки доступных адресов вызвали исключение!</string>
     <string name="unable_to_start_tor">Невозможно запустить Tor:</string>
-    <string name="updating_settings_in_tor_service">обновление настроек в сервисе Tor</string>
     <string name="system_vpn_settings">Настройки Android VPN</string>
     <string name="pref_isolate_keep_alive">Оставлять изолированные цепочки живыми</string>
     <string name="pref_isolate_keep_alive_summary">Оставлять те изолированные цепочки живыми, которые имеют хотя бы одну активную группу с SOCKS-аутентификацией</string>

@@ -5,8 +5,6 @@
     <string name="menu_settings">Paramètres</string>
     <string name="menu_log">Journal</string>
     <string name="menu_about">À propos</string>
-    <string name="main_layout_download">Téléchargement</string>
-    <string name="main_layout_upload">Téléversement</string>
     <string name="menu_exit">Fermer</string>
     <string name="pref_general_group">Général</string>
     <string name="pref_start_boot_title">Démarrer Orbot à l’amorçage</string>
@@ -203,9 +201,7 @@
     <string name="connect_to_tor">Se Connecter à Tor</string>
     <string name="status_starting_up">Orbot démarre…</string>
     <string name="couldn_t_start_tor_process_">Impossible de démarrer le processus Tor : </string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">Vos paramètres ReachableAddresses (adresses accessibles) ont causé une exception !</string>
     <string name="unable_to_start_tor">Impossible de démarrer Tor :</string>
-    <string name="updating_settings_in_tor_service">mise à jour des paramètres dans le service Tor</string>
     <string name="mebibyte_per_second">Mio/s</string>
     <string name="kibibyte_per_second">Kio/s</string>
     <string name="system_vpn_settings">Paramètres du RPV/VPN Android</string>

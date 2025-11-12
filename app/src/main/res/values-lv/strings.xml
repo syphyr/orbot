@@ -5,8 +5,6 @@
     <string name="menu_settings">Iestatījumi</string>
     <string name="menu_log">Žurnāls</string>
     <string name="menu_about">Par</string>
-    <string name="main_layout_download">Lejupielāde</string>
-    <string name="main_layout_upload">Augšupielāde</string>
     <string name="menu_exit">Iziet</string>
     <string name="pref_general_group">Vispārīgi</string>
     <string name="pref_start_boot_title">Startēt Orbot, kad ielādējas</string>
@@ -197,7 +195,5 @@
     <string name="status_activated">Izveidots savienojums ar tīklu Tor</string>
     <string name="status_disabled">Orbot ir deaktivēts</string>
     <string name="couldn_t_start_tor_process_">Neizdevās palaist Tor\'a procesu:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">Jūsu ReachableAddresses iestatījumi izraisīja izņēmuma stāvokli!</string>
     <string name="unable_to_start_tor">Nevar startēt Tor:</string>
-    <string name="updating_settings_in_tor_service">atjaunina Tor pakalpojuma iestatījumus </string>
 </resources>

@@ -5,8 +5,6 @@
     <string name="menu_settings">Настройки на Орбот</string>
     <string name="menu_log">Дневник</string>
     <string name="menu_about">Относно</string>
-    <string name="main_layout_download">Получено</string>
-    <string name="main_layout_upload">Изпратено</string>
     <string name="menu_exit">Изход</string>
     <string name="pref_general_group">Общи</string>
     <string name="pref_start_boot_title">Старт на Orbot при включване на устройството</string>
@@ -237,9 +235,7 @@
     <string name="status_disabled">Орбот е изключен</string>
     <string name="status_shutting_down">Orbot се изключва</string>
     <string name="couldn_t_start_tor_process_">Грешка при стартиране на Tor:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">Настройката ReachableAddresses предизвика грешка!</string>
     <string name="unable_to_start_tor">Невъзможно стартирането на Тор:</string>
-    <string name="updating_settings_in_tor_service">Променяне настройките на услугата Tor</string>
     <string name="kindness_mode_is_running">Режимът на доброта работи</string>
     <string name="kindness_mode_active_message" formatted="true">Помогнали сте на %1$d човека да избегнат цензура</string>
     <string name="kindness_mode_disabled">Режимът на доброта е изключен</string>

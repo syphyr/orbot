@@ -5,8 +5,6 @@
     <string name="menu_settings">Inställningar</string>
     <string name="menu_log">Logg</string>
     <string name="menu_about">Om</string>
-    <string name="main_layout_download">Nedladdat</string>
-    <string name="main_layout_upload">Uppladdat</string>
     <string name="menu_exit">Avsluta</string>
     <string name="wizard_details_msg">Orbot är ett program med öppen källkod som innehåller Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, och LibEvent. Den tillhandahåller en lokal HTTP-proxy (8118) och en SOCKS-proxy (9050) i Tor-nätverket. Orbot har också förmågan att, på rotad enhet, skicka all internettrafik genom Tor.</string>
     <string name="pref_general_group">Allmänt</string>
@@ -198,7 +196,5 @@
     <string name="status_disabled">Orbot är inaktiverad</string>
     <string name="status_shutting_down">TorService avslutas</string>
     <string name="couldn_t_start_tor_process_">Kunde inte starta Tor-process:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">Din NåbaraAdresser inställning orsakade ett undantag!</string>
     <string name="unable_to_start_tor">Kan inte starta Tor:</string>
-    <string name="updating_settings_in_tor_service">uppdaterar inställningar i Tor-tjänsten</string>
 </resources>

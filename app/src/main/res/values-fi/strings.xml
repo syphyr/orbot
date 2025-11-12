@@ -5,8 +5,6 @@
     <string name="menu_settings">Asetukset</string>
     <string name="menu_log">Loki</string>
     <string name="menu_about">Tietoja</string>
-    <string name="main_layout_download">Lataus</string>
-    <string name="main_layout_upload">Lähetys</string>
     <string name="menu_exit">Sulje</string>
     <string name="pref_general_group">Yleiset</string>
     <string name="pref_start_boot_title">Käynnistä Orbot automaattisesti</string>
@@ -197,7 +195,5 @@
     <string name="status_activated">Yhdistetty Tor-verkkoon</string>
     <string name="status_disabled">Orbot on poistettu käytöstä</string>
     <string name="couldn_t_start_tor_process_">Tor-prosessin käynnistäminen epäonnistui:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">ReachableAccess-asetuksesi aiheuttivat virheen!</string>
     <string name="unable_to_start_tor">Torin käynnistys epäonnistui:</string>
-    <string name="updating_settings_in_tor_service">päivitetään Tor-palvelun asetuksia</string>
 </resources>

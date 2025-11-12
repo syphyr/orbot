@@ -36,7 +36,5 @@
     <string name="confirm">സ്ഥിരീകരിക്കുക</string>
     <string name="done">പൂര്‍ത്തിയായി!</string>
     <string name="enable">സജ്ജമാക്കുക</string>
-    <string name="main_layout_download">ഡൗൺലോഡ്</string>
-    <string name="main_layout_upload">Upload</string>
     <string name="hidden_services">ഒണിയൻ സേവനങ്ങൾ</string>
 </resources>

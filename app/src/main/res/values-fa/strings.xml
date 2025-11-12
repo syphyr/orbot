@@ -5,8 +5,6 @@
     <string name="menu_settings">تنظیمات Orbot</string>
     <string name="menu_log">گزارش</string>
     <string name="menu_about">درباره</string>
-    <string name="main_layout_download">بارگیری</string>
-    <string name="main_layout_upload">بارگذاری</string>
     <string name="menu_exit">خروج</string>
     <string name="wizard_details_msg">روبوت پیازی نرم‌افزاری آزاد است که شامل تور، ‏IPtProxy (لایره‌برد, میک, دانه‌برفی)، hev-socks5-tunnel و LibEvent می‌شود. این کاره یک تونل وی‌پی‌ان، پیشکار HTTP محلی (فقط HTTPS روی درگاه ۸۱۱۸) و پیشکار ساکس (۹۰۵۰) را به شبکهٔ تور فراهم می‌کند.</string>
     <string name="pref_general_group">عمومی</string>
@@ -236,9 +234,7 @@
     <string name="status_disabled">روبوت پیازی غیرفعّال شده</string>
     <string name="status_shutting_down">روبوت پیازی دارد خاموش می‌شود</string>
     <string name="couldn_t_start_tor_process_">نتوانست فرایند تور را آغاز کند:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">تنظیمات ReachableAddressesتان موجب استثنا شد!</string>
     <string name="unable_to_start_tor">ناتوان در آغاز تور:</string>
-    <string name="updating_settings_in_tor_service">به‌روز رسانی تنظیمات در خدمت تور</string>
     <string name="open_settings">گشودن تنظیمات</string>
     <string name="kindness_mode_is_running">در حال اجرای حالت مهربانی</string>
     <string name="kindness_mode_active_message" formatted="true">به %1$d نفر کمک کردید سانسور را دور بزنند</string>

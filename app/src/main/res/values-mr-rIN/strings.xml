@@ -11,8 +11,6 @@
     <!--TipsAndTricks screen-->
     <!--Transparent Proxy screen-->
     <string name="menu_about">आमच्या बद्दल</string>
-    <string name="main_layout_download">डाउनलोड</string>
-    <string name="main_layout_upload">Upload</string>
     <string name="menu_exit">बाहेर पडा</string>
     <string name="hidden_services">ओनियॉन सेवा</string>
     <string name="confirm">पुष्टी करा</string>

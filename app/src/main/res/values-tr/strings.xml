@@ -5,8 +5,6 @@
     <string name="menu_settings">Orbot Ayarları</string>
     <string name="menu_log">Kayıt</string>
     <string name="menu_about">Hakkında</string>
-    <string name="main_layout_download">İndir</string>
-    <string name="main_layout_upload">Yükle</string>
     <string name="menu_exit">Çıkış</string>
     <string name="wizard_details_msg">Orbot; Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, LibEvent yapılarını kapsayan açık kaynaklı bir uygulamadır. Tor ağına bağlanmak için bir yerel HTTP vekil sunucu (sadece 8118 portunu kullanır) ve bir SOCKS vekil sunucu (9050) sağlar.</string>
     <string name="pref_general_group">Genel</string>
@@ -201,9 +199,7 @@
     <string name="status_disabled">Orbot devre dışı bırakıldı</string>
     <string name="status_shutting_down">Tor hizmeti kapatılıyor</string>
     <string name="couldn_t_start_tor_process_">Tor işlemi başlatılamadı</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">ErişilebilirAdresleriniz ayarlarınız bir istisnaya yol açtı!</string>
     <string name="unable_to_start_tor">Tor başlatılamadı:</string>
-    <string name="updating_settings_in_tor_service">Tor hizmet ayarları güncellemesi</string>
     <string name="mebibyte_per_second">MiB/s</string>
     <string name="kibibyte_per_second">KiB/s</string>
 </resources>

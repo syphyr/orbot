@@ -5,8 +5,6 @@
     <string name="menu_settings">Stillingar Orbot</string>
     <string name="menu_log">Atvikaskráning</string>
     <string name="menu_about">Um hugbúnaðinn</string>
-    <string name="main_layout_download">Sótt gögn</string>
-    <string name="main_layout_upload">Send gögn</string>
     <string name="menu_exit">Hætta</string>
     <string name="wizard_details_msg">Orbot er opinn og frjáls hugbúnaður sem inniheldur Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, og LibEvent. Það sér um að útbúa staðværan HTTP-milliþjón (8118) og SOCKS-milliþjón (9050) inn á Tor-netið.</string>
     <string name="pref_general_group">Almennt</string>
@@ -203,9 +201,7 @@
     <string name="status_activated">Tengdur við Tor netið</string>
     <string name="status_disabled">Orbot er slökkt</string>
     <string name="couldn_t_start_tor_process_">Gat ekki kveikt á Tor þráð:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">Þitt ReachableAddressur stillingar ollu undanþágu!</string>
     <string name="unable_to_start_tor">Get ekki kveikt á Tor:</string>
-    <string name="updating_settings_in_tor_service">uppfæri stillingar í Tor þjónustu</string>
     <string name="mebibyte_per_second">MiB/sek</string>
     <string name="kibibyte_per_second">KiB/sek</string>
 </resources>

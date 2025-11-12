@@ -5,8 +5,6 @@
     <string name="menu_settings">Yectlalia tlamantli</string>
     <string name="menu_log">Log</string>
     <string name="menu_about">Itechpa</string>
-    <string name="main_layout_download">Download</string>
-    <string name="main_layout_upload">Xitleco</string>
     <string name="menu_exit">Exit</string>
     <string name="wizard_details_msg">Aquinzazo cualli tequitl pan inin tepoztlatlatquitl Orbot quipia Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks y LibEvent. Nanmechmaca ce VPN, ce proxy HTTP Connect local (HTTPS zan tzalantli 8118) ihuan ce proxy SOCKS (9050) ipan matlatl Tor.</string>
     <string name="pref_general_group">Ipanokayotl</string>
@@ -176,9 +174,7 @@ atl oquitlapatic</string>
     <string name="connect_to_tor">Xictencuiz Tor</string>
     <string name="orbot_config_invalid">Ahmo melahuac mocentilis Orbot</string>
     <string name="couldn_t_start_tor_process_">Ahmo huel opehua Tor</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">¡Mocentiliz ReachableAddresses ye omochihua, yehce za iyopa!</string>
     <string name="unable_to_start_tor">Ahmo opehua Tor</string>
-    <string name="updating_settings_in_tor_service">Mochihua yancuic in mocentilis ipan Tor</string>
     <string name="kibibyte_per_second">KiB/s</string>
     <string name="mebibyte_per_second">MiB/s</string>
     <string name="snowflake_proxy_client_connected_msg">%1$sMocepayahuiproxy otepalehui oquitzicuini ahmo huelmati%2$s</string>

@@ -2,7 +2,6 @@
 <resources>
     <string name="menu_settings">ချိန်ညှိချက်များ</string>
     <string name="menu_about">အကြောင်း</string>
-    <string name="main_layout_download">ဒေါင်းလုဒ်</string>
     <string name="menu_exit">ထွက်ရန်</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->

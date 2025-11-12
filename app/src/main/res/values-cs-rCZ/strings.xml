@@ -5,8 +5,6 @@
     <string name="menu_settings">Nastavení</string>
     <string name="menu_log">Log</string>
     <string name="menu_about">O aplikaci</string>
-    <string name="main_layout_download">Stáhnout</string>
-    <string name="main_layout_upload">Nahrát</string>
     <string name="menu_exit">Konec</string>
     <string name="pref_general_group">Obecné</string>
     <string name="pref_start_boot_title">Spustit Orbot při startu systému</string>
@@ -200,6 +198,5 @@
     <string name="status_disabled">\"Orbot je deaktivován</string>
     <string name="status_shutting_down">Orbot se vypíná</string>
     <string name="couldn_t_start_tor_process_">Nelze spustit Tor proces:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">Vaše nastavení dostupných adres (ReachableAddresses) způsobilo chybu!</string>
     <string name="unable_to_start_tor">Nelze spustit Tor:</string>
 </resources>

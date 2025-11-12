@@ -5,8 +5,6 @@
     <string name="menu_settings">Ρυθμίσεις</string>
     <string name="menu_log">Καταγραφή</string>
     <string name="menu_about">Σχετικά</string>
-    <string name="main_layout_download">Λήψη</string>
-    <string name="main_layout_upload">Αποστολή</string>
     <string name="menu_exit">Έξοδος</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Το Orbot είναι μια εφαρμογή ανοιχτού κώδικα που περιέχει τα Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks και LibEvent. Παρέχει ένα δίαυλο VPN, έναν τοπικό διακομιστή μεσολάβησης HTTP Connect (HTTPS μόνο στη θύρα 8118) και έναν διακομιστή μεσολάβησης SOCKS (9050) στο δίκτυο Tor.</string>
@@ -207,6 +205,5 @@
     <string name="status_activated">Συνδέθηκε στο δίκτυο Tor</string>
     <string name="status_disabled">\"Το Orbot είναι Απενεργοποιημένο</string>
     <string name="couldn_t_start_tor_process_">Αδυναμία εκκίνησης της διεργασίας Tor:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">Οι ρυθμίσεις ReachableAddresses προκάλεσαν μια εξαίρεση!</string>
     <string name="unable_to_start_tor">Αδυναμία εκκίνησης του Tor:</string>
 </resources>

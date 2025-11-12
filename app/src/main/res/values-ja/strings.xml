@@ -5,8 +5,6 @@
     <string name="menu_settings">Orbot の設定</string>
     <string name="menu_log">履歴</string>
     <string name="menu_about">概要</string>
-    <string name="main_layout_download">ダウンロード</string>
-    <string name="main_layout_upload">アップロード</string>
     <string name="menu_exit">終了</string>
     <string name="wizard_details_msg">Orbot は Tor、IPtProxy (Lyrebird、Meek、Snowflake)、hev-socks5-tunnel、LibEvent を含むオープンソースアプリです。Tor ネットワークに入る VPN トンネル、ローカル HTTP 接続プロキシ (ポート 8118 では HTTPS のみ)、SOCKS プロキシ (9050) を提供します。</string>
     <string name="pref_general_group">一般</string>
@@ -238,9 +236,7 @@
     <string name="status_disabled">Orbot は無効化されています</string>
     <string name="status_shutting_down">Orbot をシャットダウンしています</string>
     <string name="couldn_t_start_tor_process_">Torプロセスの起動に失敗:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">あなたの ReachableAddresses 設定により例外が発生しました!</string>
     <string name="unable_to_start_tor">Tor を実行できません:</string>
-    <string name="updating_settings_in_tor_service">Tor サービスの設定を更新中</string>
     <string name="kindness_mode_is_running">Kindness Mode が有効です</string>
     <string name="kindness_mode_active_message" formatted="true">%1$d 人の検閲回避を支援しました</string>
     <string name="kindness_mode_disabled">Kindness Mode が無効です</string>

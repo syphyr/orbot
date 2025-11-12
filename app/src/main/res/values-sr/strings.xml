@@ -5,8 +5,6 @@
     <string name="menu_settings">Подешавања</string>
     <string name="menu_log">Логови</string>
     <string name="menu_about">О нама</string>
-    <string name="main_layout_download">Преузимање</string>
-    <string name="main_layout_upload">Отпремање</string>
     <string name="menu_exit">Излаз</string>
     <string name="wizard_details_msg">Орбот је апликација отвореног кода која садржи Тор, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks и LibEvent. Омогућава локални HTTP proxy (8118) и SOCKS proxy (9050) у Тор мрежу. Орбот такође има могућност да на рутованом уређају шаље сав интернет саобраћај преко Тор-а.</string>
     <string name="pref_general_group">Опште</string>
@@ -199,6 +197,5 @@
     <string name="status_activated">Повезан са Тор мрежом</string>
     <string name="status_disabled">Орбот је деактивиран</string>
     <string name="couldn_t_start_tor_process_">Није могуће покренути Тор процес:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">Ваше ReachableAddresses поставке су изазвале изузетак!</string>
     <string name="unable_to_start_tor">Тор није у могућности да се покрене:</string>
 </resources>

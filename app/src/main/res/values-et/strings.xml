@@ -5,8 +5,6 @@
     <string name="menu_settings">Seadistused</string>
     <string name="menu_log">Logi</string>
     <string name="menu_about">Rakenduse teave</string>
-    <string name="main_layout_download">Laadi alla</string>
-    <string name="main_layout_upload">Laadi üles</string>
     <string name="menu_exit">Välju</string>
     <string name="pref_general_group">Üldist</string>
     <string name="pref_start_boot_title">Käivita Orbot seadme käivitumisel</string>
@@ -199,6 +197,5 @@
     <string name="status_activated">Ühendatud Tor võrgustikku</string>
     <string name="status_disabled">Orbot deaktiveeritud</string>
     <string name="couldn_t_start_tor_process_">Tor protsessi käivitamine ebaõnnestus:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">Teie ReachableAddresses seadistus põhjustas ekse!</string>
     <string name="unable_to_start_tor">Tor käivitamine ebaõnnestus:</string>
 </resources>

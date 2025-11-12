@@ -4,7 +4,6 @@
     <string name="app_description">Orbot është një aplikacion i lirë ndërmjetësish që i bën aplikacionet e tjera ta përdorin internetin në mënyrë më të siguruar. Orbot-i përdor Tor-in për të fshehtëzuar trafikun tuaj Internet dhe mandej e fsheh duke e kaluar përmes një vargu kompjuterash nëpër botë. Tor-i është <em>software</em> i lirë dhe një rrjet i hapët që ju ndihmon të mbroheni nga një formë survejimi rrjetesh e cila kërcënon lirinë dhe privatësinë personale, veprimtarinë dhe marrëdhëniet rezervat në biznesi dhe sigurinë shtetërore, e njohur si analizim trafiku.</string>
     <string name="menu_settings">Rregullime Orbot-i</string>
     <string name="menu_about">Mbi</string>
-    <string name="main_layout_download">Shkarkim</string>
     <string name="menu_exit">Dalje</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
@@ -64,7 +63,6 @@
     <string name="btn_refresh">Rifreskoje</string>
     <string name="btn_tor_off">Çaktivizoje Tor-in</string>
     <string name="menu_log">Regjistër</string>
-    <string name="main_layout_upload">Ngarkim</string>
     <string name="wizard_details_msg">Orbot-i është një aplikacion me burim të hapët, që përmban Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks dhe LibEvent.AI furnizon një tunel VPN, një ndërmjetës vendor HTTP Connect (HTTPS vetëm në portën 8118) dhe një ndërmjetës SOCKS (9050) te rrjeti Tor.</string>
     <string name="pref_node_configuration">Formësim Nyjesh</string>
     <string name="pref_node_configuration_summary">Këto janë rregullime të thelluara që mund të reduktojnë anonimitetin tuaj</string>

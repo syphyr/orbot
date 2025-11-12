@@ -23,6 +23,4 @@
     <string name="menu_settings">ترتیبات</string>
     <string name="menu_log">لاگ</string>
     <string name="btn_refresh">ریفریش کریں</string>
-    <string name="main_layout_download">ڈاؤن لوڈ کریں</string>
-    <string name="main_layout_upload">Upload</string>
 </resources>

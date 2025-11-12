@@ -4,8 +4,6 @@
     <string name="menu_settings">Agordoj</string>
     <string name="menu_log">Protokolo</string>
     <string name="menu_about">Pri</string>
-    <string name="main_layout_download">Elŝutado</string>
-    <string name="main_layout_upload">Alŝutado</string>
     <string name="menu_exit">Eliri</string>
     <string name="pref_general_group">Ĝenerala</string>
     <string name="pref_start_boot_title">Ŝalti Orbot dum praŝargado</string>

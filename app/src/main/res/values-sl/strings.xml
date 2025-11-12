@@ -4,8 +4,6 @@
     <string name="menu_settings">Nastavitve</string>
     <string name="menu_log">Dnevnik</string>
     <string name="menu_about">O programu</string>
-    <string name="main_layout_download">Prenesi</string>
-    <string name="main_layout_upload">Naloži</string>
     <string name="menu_exit">Izhod</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->

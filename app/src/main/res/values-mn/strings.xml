@@ -10,8 +10,6 @@
     <!--TipsAndTricks screen-->
     <!--Transparent Proxy screen-->
     <string name="name">Нэр</string>
-    <string name="main_layout_download">Download</string>
-    <string name="main_layout_upload">Upload</string>
     <string name="save">Save</string>
     <string name="enable">Enable</string>
     <string name="btn_refresh">Refresh</string>

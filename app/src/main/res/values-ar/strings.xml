@@ -5,8 +5,6 @@
     <string name="menu_settings">إعدادات اوربوت</string>
     <string name="menu_log">السجل</string>
     <string name="menu_about">حول Orbot</string>
-    <string name="main_layout_download">تحميل</string>
-    <string name="main_layout_upload">رفع</string>
     <string name="menu_exit">خروج</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
@@ -252,9 +250,7 @@
     <string name="status_disabled">تم إيقاف اوربوت</string>
     <string name="status_shutting_down">جاري ايقاف خدمة تور</string>
     <string name="couldn_t_start_tor_process_">لقد تعذر بدء تشغيل تور:</string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">إعدادات العنوان القابل للاتصال لديك تسببت بخطأ!</string>
     <string name="unable_to_start_tor">غير قادر على بدء تور:</string>
-    <string name="updating_settings_in_tor_service">تحديث الاعدادات في خدمات تور</string>
     <string name="kindness_mode_is_running">وضع اللطف قيد التشغيل</string>
     <string name="kindness_mode_active_message" formatted="true">لقد ساعدت %1$d شخصًا في تجاوز الرقابة</string>
     <string name="kindness_mode_disabled_power">صلّ جهازك بالطاقة لمساعدة الناس على تجاوز الرقابة</string>

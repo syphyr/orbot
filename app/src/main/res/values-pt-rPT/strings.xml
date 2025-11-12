@@ -5,8 +5,6 @@
     <string name="menu_settings">Definições do Orbot</string>
     <string name="menu_log">Registo</string>
     <string name="menu_about">Sobre</string>
-    <string name="main_layout_download">Transferir</string>
-    <string name="main_layout_upload">Enviar</string>
     <string name="menu_exit">Sair</string>
     <!--Welcome Wizard strings (DJH)-->
     <!--END Welcome Wizard strings (DJH)-->
@@ -219,7 +217,5 @@
     <string name="status_disabled">Orbot está desativado</string>
     <string name="status_shutting_down">TorService está desligando</string>
     <string name="couldn_t_start_tor_process_">Não foi possível iniciar o processo Tor: </string>
-    <string name="your_reachableaddresses_settings_caused_an_exception_">Suas configurações de Endereços Acessíveis causou uma exceção!</string>
     <string name="unable_to_start_tor">Habilitar iniciar o Tor:</string>
-    <string name="updating_settings_in_tor_service">atualizando configurações no serviço Tor</string>
 </resources>
