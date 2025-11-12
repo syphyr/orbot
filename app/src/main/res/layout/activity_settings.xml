@@ -26,5 +26,5 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="64dp"
-        android:fitsSystemWindows="true"></FrameLayout>
+        android:fitsSystemWindows="true" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

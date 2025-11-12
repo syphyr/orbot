@@ -214,6 +214,7 @@ enum class Transport(val id: String) {
     /**
      * @throws Exception if the transport cannot be initialized or if it couldn't bind a port for listening.
      */
+    @Suppress("KotlinUnreachableCode") // unreachable code is disabled SQS logic
     fun start(context: Context) {
         when (this) {
             SNOWFLAKE -> {

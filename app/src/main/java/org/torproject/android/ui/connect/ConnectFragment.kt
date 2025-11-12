@@ -1,6 +1,5 @@
 package org.torproject.android.ui.connect
 
-import android.app.Activity.RESULT_OK
 import android.app.AlarmManager
 import android.content.Context
 import android.content.Intent

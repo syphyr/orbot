@@ -12,11 +12,9 @@ class SettingsActivity : BaseActivity() {
         setTitle(R.string.menu_settings)
         setContentView(R.layout.activity_settings)
 
-        var toolbar = findViewById<Toolbar>(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        var sab = getSupportActionBar();
-        if (sab != null) sab.setDisplayHomeAsUpEnabled(true);
-
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.settings_container, SettingsPreferenceFragment())

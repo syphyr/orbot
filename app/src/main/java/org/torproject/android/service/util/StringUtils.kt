@@ -20,12 +20,10 @@ object StringUtils {
     }
 
     @JvmStatic
-    fun copyToClipboard(label: String, value: String, successMsg: String, context: Context): Boolean {
-        val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?
-            ?: return false
-        clipboard.setPrimaryClip(ClipData.newPlainText(label, value))
-        Toast.makeText(context, successMsg, Toast.LENGTH_LONG).show()
-        return true
+    fun copyToClipboard(label: String, value: String, successMsg: String, context: Context) {
+        (context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager?)?.let {
+            it.setPrimaryClip(ClipData.newPlainText(label, value))
+            Toast.makeText(context, successMsg, Toast.LENGTH_LONG).show()
+        }
     }
-
 }

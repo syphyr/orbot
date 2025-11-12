@@ -337,9 +337,9 @@ class AppManagerActivity : BaseActivity(), View.OnClickListener {
             if (appStringOld.contains('|') && appStringNew.contains('|')) {
                 val a = appStringOld.split('|')
                 val b = appStringNew.split('|')
-                if (a.size == b.size) {
-                    shouldSave = HashSet(a) != HashSet(b)
-                } else shouldSave = true
+                shouldSave = if (a.size == b.size) {
+                    HashSet(a) != HashSet(b)
+                } else true
             }
             else if (appStringNew != appStringOld) {
                 shouldSave = true
