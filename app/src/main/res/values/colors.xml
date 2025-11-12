@@ -13,7 +13,7 @@
         <color name="panel_card_image">#CAADED</color>
 
         <color name="bg_gradient_start">#33bc79f0</color>
-        <color name="bg_gradient_center">#33bc79f0</color>
+        <color name="bg_gradient_center">@color/bg_gradient_start</color>
         <color name="bg_gradient_end">#33c3fe37</color>
 
 </resources>
