@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
 import android.provider.OpenableColumns;
+import android.util.Log;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -142,7 +143,7 @@ public class V3BackupUtils {
                 Toast.makeText(mContext, mContext.getString(R.string.backup_port_exist, ("" + port)), Toast.LENGTH_LONG).show();
             }
         } catch (IOException | JSONException | NullPointerException e) {
-            e.printStackTrace();
+            Log.e("V3BackupUtils", e.toString());
             Toast.makeText(mContext, R.string.error, Toast.LENGTH_LONG).show();
         }
     }

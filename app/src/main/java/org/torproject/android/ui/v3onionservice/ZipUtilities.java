@@ -3,6 +3,7 @@ package org.torproject.android.ui.v3onionservice;
 import android.content.ContentResolver;
 import android.net.Uri;
 import android.os.ParcelFileDescriptor;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -58,7 +59,7 @@ public class ZipUtilities {
             dest.close();
             pdf.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.wtf(TAG, e.toString());
             return false;
         }
         return true;
@@ -74,10 +75,12 @@ public class ZipUtilities {
             is.close();
             return returnVal;
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.wtf(TAG, e.toString());
             return false;
         }
     }
+
+    private static final String TAG = "ZipUtilities";
 
     private static final List<String> ONION_SERVICE_CONFIG_FILES = Arrays.asList("config.json",
             "hostname",
@@ -126,7 +129,7 @@ public class ZipUtilities {
 
             zis.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            Log.wtf(TAG, e.toString());
             return false;
         }
         return true;
