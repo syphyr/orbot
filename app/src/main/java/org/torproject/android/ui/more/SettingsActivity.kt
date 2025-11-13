@@ -33,7 +33,4 @@ class SettingsActivity : BaseActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    companion object {
-        const val FRAGMENT_TAG = "settings"
-    }
 }

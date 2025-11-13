@@ -6,9 +6,10 @@ import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.inputmethod.EditorInfo
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
-import androidx.fragment.app.commit
+import androidx.navigation.fragment.findNavController
 import androidx.preference.CheckBoxPreference
 import androidx.preference.EditTextPreference
 import androidx.preference.ListPreference
@@ -17,14 +18,23 @@ import androidx.preference.Preference.OnPreferenceChangeListener
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceScreen
+import org.torproject.android.OrbotApp
 import org.torproject.android.R
 import org.torproject.android.localization.Languages
-import org.torproject.android.ui.core.BaseActivity
+import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.util.Prefs
-import org.torproject.android.ui.more.camo.CamoFragment
+import org.torproject.android.service.util.sendIntentToService
+import org.torproject.android.ui.core.BaseActivity
+
 
 class SettingsPreferenceFragment : PreferenceFragmentCompat() {
     private var prefLocale: ListPreference? = null
+
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        setPreferencesFromResource(R.xml.preferences, rootKey)
+        isSubscreen = rootKey != null
+        initPrefs()
+    }
 
     private fun initPrefs() {
         setNoPersonalizedLearningOnEditTextPreferences()
@@ -37,14 +47,13 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
         prefLocale?.onPreferenceChangeListener =
             OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
                 val language = newValue as String?
+                Prefs.defaultLocale = newValue ?: ""
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                    Prefs.defaultLocale = newValue ?: ""
                     val newLocale = LocaleListCompat.forLanguageTags(language)
                     AppCompatDelegate.setApplicationLocales(newLocale)
                 } else {
-                    val intentResult = Intent()
-                    intentResult.putExtra("locale", language)
-                    requireActivity().setResult(RESULT_OK, intentResult)
+                    requireActivity().sendIntentToService(OrbotConstants.ACTION_LOCAL_LOCALE_SET)
+                    (requireActivity().application as OrbotApp).setLocale()
                     requireActivity().finish()
                 }
                 false
@@ -69,10 +78,8 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
 
         val prefCamoDialog = findPreference<Preference>("pref_key_camo_dialog")
         prefCamoDialog?.onPreferenceClickListener = Preference.OnPreferenceClickListener {
-            activity?.supportFragmentManager?.commit {
-                addToBackStack(SettingsActivity.FRAGMENT_TAG)
-                replace(R.id.settings_container, CamoFragment())
-            }
+            onBackPressedCallback.isEnabled = false
+            findNavController().navigate(R.id.open_camo)
             true
         }
 
@@ -90,39 +97,35 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-
-        val screenTitle = preferenceScreen?.title
-        if (!screenTitle.isNullOrEmpty()) {
-            activity?.title = screenTitle
-        } else {
-            activity?.setTitle(R.string.menu_settings)
-        }
-    }
+    private var isSubscreen = false
 
     override fun onNavigateToScreen(preferenceScreen: PreferenceScreen) {
-        val fragment = SettingsPreferenceFragment().apply {
-            arguments = Bundle().apply {
-                putString(ARG_PREFERENCE_ROOT, preferenceScreen.key)
-            }
-        }
-
-        parentFragmentManager.beginTransaction()
-            .setCustomAnimations(
-                R.anim.slide_in_right,
-                R.anim.slide_out_left,
-                R.anim.slide_in_left,
-                R.anim.slide_out_right
-            )
-            .replace(R.id.settings_container, fragment)
-            .addToBackStack(null)
-            .commit()
+        setPreferencesFromResource(R.xml.preferences, preferenceScreen.key)
+        initPrefs()
+        isSubscreen = true
     }
 
-    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        setPreferencesFromResource(R.xml.preferences, rootKey)
-        initPrefs()
+    private lateinit var onBackPressedCallback: OnBackPressedCallback
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        onBackPressedCallback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (isSubscreen) {
+                    setPreferencesFromResource(R.xml.preferences, null)
+                    isSubscreen = false
+                } else {
+                    remove()
+                    requireActivity().onBackPressedDispatcher.onBackPressed()
+                }
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(onBackPressedCallback)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (!onBackPressedCallback.isEnabled)
+            onBackPressedCallback.isEnabled = true
     }
 
     private fun setNoPersonalizedLearningOnEditTextPreferences() {

@@ -71,10 +71,6 @@
         </activity>
 
         <activity
-            android:name=".ui.more.SettingsActivity"
-            android:theme="@style/OrbotActivityTheme" />
-
-        <activity
             android:name=".ui.AppManagerActivity"
             android:label="@string/title_choose_apps"
             android:theme="@style/OrbotActivityTheme" />

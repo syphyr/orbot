@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.torproject.android.OrbotActivity
@@ -69,14 +70,10 @@ class MoreFragment : Fragment() {
         updateStatus()
 
         val rvMore = view.findViewById<RecyclerView>(R.id.rvMoreActions)
-       // val ivMascot = view.findViewById<ImageView>(R.id.ivMascot)
 
         val listItems = listOf(
             OrbotMenuAction(R.string.menu_settings, R.drawable.ic_settings_gear) {
-                activity?.startActivityForResult(
-                    Intent(context, SettingsActivity::class.java),
-                    OrbotActivity.Companion.REQUEST_CODE_SETTINGS
-                )
+                findNavController().navigate(R.id.more_to_settings)
             },
             OrbotMenuAction(R.string.system_vpn_settings, R.drawable.ic_vpn_key) {
                 activity?.startActivity(

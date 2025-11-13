@@ -23,9 +23,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import androidx.savedstate.SavedState
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scottyab.rootbeer.RootBeer
@@ -40,7 +42,6 @@ import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.android.ui.connect.ConnectViewModel
 import org.torproject.android.ui.connect.RequestPostNotificationPermission
 import org.torproject.android.ui.core.DeviceAuthenticationPrompt
-import java.util.Locale
 
 class OrbotActivity : BaseActivity() {
 
@@ -51,7 +52,6 @@ class OrbotActivity : BaseActivity() {
 
     var previousReceivedTorStatus: String? = null
 
-    private var lastSelectedItemId: Int = R.id.connectFragment
 
     // used to hide UI while password isn't obtained
     private var rootLayout: View? = null
@@ -71,7 +71,6 @@ class OrbotActivity : BaseActivity() {
                 window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
         }
 
-        lastSelectedItemId = savedInstanceState?.getInt(KEY_SELECTED_TAB) ?: lastSelectedItemId
         previousReceivedTorStatus = savedInstanceState?.getString(KEY_TOR_STATUS)
 
         // programmatically set title to "Orbot" since camo mode will overwrite it here from manifest
@@ -90,7 +89,6 @@ class OrbotActivity : BaseActivity() {
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        outState.putInt(KEY_SELECTED_TAB, lastSelectedItemId)
         outState.putString(KEY_TOR_STATUS, previousReceivedTorStatus)
         super.onSaveInstanceState(outState)
     }
@@ -98,18 +96,7 @@ class OrbotActivity : BaseActivity() {
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
 
-        lastSelectedItemId = savedInstanceState.getInt(KEY_SELECTED_TAB, R.id.connectFragment)
         previousReceivedTorStatus = savedInstanceState.getString(KEY_TOR_STATUS)
-
-        val navController = findNavController(R.id.nav_fragment)
-        val currentDest = navController.currentDestination?.id
-
-        if (currentDest != lastSelectedItemId) {
-            navController.navigate(lastSelectedItemId)
-        }
-
-        findViewById<BottomNavigationView>(R.id.bottom_navigation).selectedItemId =
-            lastSelectedItemId
     }
 
     private fun createOrbot() {
@@ -124,10 +111,26 @@ class OrbotActivity : BaseActivity() {
         logBottomSheet = LogBottomSheet()
 
         val navController: NavController = findNavController(R.id.nav_fragment)
+
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigationView.setupWithNavController(navController)
 
-        bottomNavigationView.selectedItemId = lastSelectedItemId
+        val bottomNavigationContainer = findViewById<View>(R.id.bottomNavContainer)
+
+        navController.addOnDestinationChangedListener(object : NavController.OnDestinationChangedListener {
+            override fun onDestinationChanged(
+                controller: NavController,
+                destination: NavDestination,
+                arguments: SavedState?
+            ) {
+                if (destination.id == R.id.connectFragment || destination.id == R.id.moreFragment || destination.id == R.id.kindnessFragment)
+                {
+                    bottomNavigationContainer.visibility = View.VISIBLE
+                } else {
+                    bottomNavigationContainer.visibility = View.GONE
+                }
+            }
+        })
 
         val navOptionsLeftToRight = NavOptions.Builder().setEnterAnim(R.anim.slide_in_right)
             .setExitAnim(R.anim.slide_out_left).setPopEnterAnim(R.anim.slide_in_right)
@@ -138,11 +141,7 @@ class OrbotActivity : BaseActivity() {
             .setPopExitAnim(R.anim.slide_out_right).build()
 
         bottomNavigationView.setOnItemSelectedListener { item ->
-            if (item.itemId == lastSelectedItemId) {
-                return@setOnItemSelectedListener true
-            }
-
-            val navOptions = if (item.itemId > lastSelectedItemId) {
+            val navOptions = if ((navController.currentDestination?.id ?: 0) < item.itemId) {
                 navOptionsLeftToRight
             } else {
                 navOptionsRightToLeft
@@ -159,8 +158,6 @@ class OrbotActivity : BaseActivity() {
 
                 R.id.moreFragment -> navController.navigate(R.id.moreFragment, null, navOptions)
             }
-
-            lastSelectedItemId = item.itemId
             true
         }
 
@@ -188,9 +185,20 @@ class OrbotActivity : BaseActivity() {
         }
 
         onBackPressedDispatcher.addCallback(this) {
-            if (lastSelectedItemId != R.id.connectFragment) {
-                bottomNavigationView.selectedItemId = R.id.connectFragment
-            } else finish()
+            navController.currentBackStackEntry?.let {
+                when (it.destination.id) {
+                    R.id.connectFragment -> {
+                        finish()
+                    }
+                    R.id.kindnessFragment, R.id.moreFragment -> {
+                        bottomNavigationView.selectedItemId = R.id.connectFragment
+                    }
+                    else -> {
+                        navController.popBackStack()
+                    }
+                }
+            }
+
         }
     }
 
@@ -260,12 +268,6 @@ class OrbotActivity : BaseActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CODE_VPN && resultCode == RESULT_OK) {
             connectViewModel.triggerStartTorAndVpn()
-        } else if (requestCode == REQUEST_CODE_SETTINGS && resultCode == RESULT_OK) {
-            Prefs.defaultLocale = data?.getStringExtra("locale") ?: Locale.getDefault().language
-            sendIntentToService(OrbotConstants.ACTION_LOCAL_LOCALE_SET)
-            (application as OrbotApp).setLocale()
-            finish()
-            startActivity(Intent(this, OrbotActivity::class.java))
         }
     }
 
@@ -349,10 +351,8 @@ class OrbotActivity : BaseActivity() {
     }
 
     companion object {
-        private const val KEY_SELECTED_TAB = "selected_tab_id"
         private const val KEY_TOR_STATUS = "key_tor_status"
         const val REQUEST_CODE_VPN = 1234
-        const val REQUEST_CODE_SETTINGS = 2345
 
         // Make sure this is only shown once per app-start, not on every device rotation.
         private var rootDetectionShown = false
