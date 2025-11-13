@@ -1,4 +1,4 @@
-package org.torproject.android.service.util
+package org.torproject.android.util
 
 import android.app.AlarmManager
 import android.content.Context

@@ -9,7 +9,7 @@ import android.widget.Button
 import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.FragmentActivity
 import org.torproject.android.R
-import org.torproject.android.service.util.Prefs
+import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 
 class KindnessConfigBottomSheet : OrbotBottomSheetDialogFragment() {

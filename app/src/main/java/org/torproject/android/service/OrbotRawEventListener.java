@@ -10,8 +10,8 @@ import net.freehaven.tor.control.RawEventListener;
 import net.freehaven.tor.control.TorControlCommands;
 
 import org.torproject.android.R;
-import org.torproject.android.service.util.Prefs;
-import org.torproject.android.service.util.StringUtils;
+import org.torproject.android.util.Prefs;
+import org.torproject.android.util.StringUtils;
 import org.torproject.jni.TorService;
 
 import java.text.NumberFormat;

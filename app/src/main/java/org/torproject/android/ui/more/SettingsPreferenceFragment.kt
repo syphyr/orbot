@@ -22,9 +22,10 @@ import org.torproject.android.OrbotApp
 import org.torproject.android.R
 import org.torproject.android.localization.Languages
 import org.torproject.android.service.OrbotConstants
-import org.torproject.android.service.util.Prefs
-import org.torproject.android.service.util.sendIntentToService
 import org.torproject.android.ui.core.BaseActivity
+import org.torproject.android.util.Prefs
+import org.torproject.android.ui.more.camo.CamoFragment
+import org.torproject.android.util.sendIntentToService
 
 class SettingsPreferenceFragment : PreferenceFragmentCompat() {
     private var prefLocale: ListPreference? = null

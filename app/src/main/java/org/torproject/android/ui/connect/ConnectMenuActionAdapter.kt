@@ -17,8 +17,8 @@ import android.widget.TextView
 import androidx.core.net.toUri
 import org.torproject.android.R
 import org.torproject.android.service.OrbotConstants
-import org.torproject.android.service.util.Prefs
-import org.torproject.android.service.util.StringUtils
+import org.torproject.android.util.Prefs
+import org.torproject.android.util.StringUtils
 import org.torproject.android.ui.OrbotMenuAction
 import java.util.ArrayList
 import java.util.TreeMap

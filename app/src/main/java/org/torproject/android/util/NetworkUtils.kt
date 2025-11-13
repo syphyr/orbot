@@ -1,4 +1,4 @@
-package org.torproject.android.service.util
+package org.torproject.android.util
 
 import android.content.Context
 import android.net.ConnectivityManager
@@ -7,7 +7,6 @@ import java.net.InetSocketAddress
 import java.net.Socket
 
 object NetworkUtils {
-    @JvmStatic
     fun isNetworkAvailable(context: Context): Boolean {
         val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val network = connectivityManager.activeNetwork ?: return false
@@ -20,7 +19,6 @@ object NetworkUtils {
         }
     }
 
-    @JvmStatic
     fun checkPortOrAuto(portString: String) : String {
         if (!portString.equals("auto", ignoreCase = true)) {
             var isPortUsed = true
@@ -35,7 +33,6 @@ object NetworkUtils {
         return portString
     }
 
-    @JvmStatic
     fun isPortOpen(ip: String?, port: Int, timeout: Int): Boolean {
         try {
             val socket = Socket()

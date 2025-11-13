@@ -11,8 +11,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
-import org.torproject.android.service.util.NetworkUtils.isNetworkAvailable
 import org.torproject.android.service.OrbotConstants
+import org.torproject.android.util.NetworkUtils
 
 class ConnectViewModel : ViewModel() {
     private val _uiState = MutableStateFlow<ConnectUiState>(ConnectUiState.Off)
@@ -23,7 +23,7 @@ class ConnectViewModel : ViewModel() {
 
     fun updateState(context: Context, status: String?) {
         val newState = when {
-            !isNetworkAvailable(context) -> ConnectUiState.NoInternet
+            !NetworkUtils.isNetworkAvailable(context) -> ConnectUiState.NoInternet
             status == OrbotConstants.STATUS_STARTING -> ConnectUiState.Starting(null)
             status == OrbotConstants.STATUS_ON -> ConnectUiState.On
             status == OrbotConstants.STATUS_STOPPING -> ConnectUiState.Stopping

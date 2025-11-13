@@ -1,5 +1,5 @@
 /* Copyright (c) 2009, Nathan Freitas, Orbot / The Guardian Project - http://openideals.com/guardian */ /* See LICENSE for licensing information */
-package org.torproject.android.service.util
+package org.torproject.android.util
 
 import android.content.ClipData
 import android.content.ClipboardManager

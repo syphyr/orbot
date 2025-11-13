@@ -31,13 +31,13 @@ import kotlinx.coroutines.launch
 import net.freehaven.tor.control.TorControlCommands
 import org.torproject.android.OrbotActivity
 import org.torproject.android.R
-import org.torproject.android.service.util.putNotSystem
-import org.torproject.android.service.util.sendIntentToService
+import org.torproject.android.util.putNotSystem
+import org.torproject.android.util.sendIntentToService
 import org.torproject.android.databinding.FragmentConnectBinding
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.circumvention.Transport
-import org.torproject.android.service.util.Prefs
+import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotMenuAction
 
 class ConnectFragment : Fragment(),
@@ -92,7 +92,7 @@ class ConnectFragment : Fragment(),
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentConnectBinding.inflate(inflater, container, false)
 
         if (Prefs.isPowerUserMode) {

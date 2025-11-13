@@ -1,4 +1,4 @@
-package org.torproject.android.service.util
+package org.torproject.android.util
 
 import android.content.ContentResolver
 import android.content.Context

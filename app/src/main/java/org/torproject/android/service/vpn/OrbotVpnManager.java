@@ -36,7 +36,7 @@ import androidx.annotation.NonNull;
 import org.torproject.android.service.OrbotService;
 import org.torproject.android.service.TProxyService;
 import org.torproject.android.service.Notifications;
-import org.torproject.android.service.util.Prefs;
+import org.torproject.android.util.Prefs;
 
 import java.io.DataOutputStream;
 import java.io.File;

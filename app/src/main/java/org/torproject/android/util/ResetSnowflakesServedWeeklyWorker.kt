@@ -1,4 +1,4 @@
-package org.torproject.android.service.util
+package org.torproject.android.util
 
 import android.content.Context
 import androidx.work.Worker

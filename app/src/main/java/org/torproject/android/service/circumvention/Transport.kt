@@ -5,7 +5,7 @@ import IPtProxy.IPtProxy
 import IPtProxy.OnTransportStopped
 import android.content.Context
 import android.util.Log
-import org.torproject.android.service.util.Prefs
+import org.torproject.android.util.Prefs
 
 enum class Transport(val id: String) {
 

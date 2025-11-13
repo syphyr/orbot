@@ -15,8 +15,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.torproject.android.R
-import org.torproject.android.service.util.getKey
-import org.torproject.android.service.util.Prefs
+import org.torproject.android.util.getKey
+import org.torproject.android.util.Prefs
 import org.torproject.android.ui.more.MoreActionAdapter
 import org.torproject.android.ui.OrbotMenuAction
 import java.lang.reflect.Field

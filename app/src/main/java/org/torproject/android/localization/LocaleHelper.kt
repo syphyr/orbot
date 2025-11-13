@@ -4,7 +4,7 @@ import android.content.Context
 import android.os.Build
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
-import org.torproject.android.service.util.Prefs
+import org.torproject.android.util.Prefs
 import java.util.*
 
 /**

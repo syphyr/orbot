@@ -16,8 +16,8 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import org.torproject.android.R
-import org.torproject.android.service.util.NetworkUtils
-import org.torproject.android.service.util.Prefs
+import org.torproject.android.util.NetworkUtils
+import org.torproject.android.util.Prefs
 
 class SnowflakeProxyService : Service() {
 
@@ -107,6 +107,10 @@ class SnowflakeProxyService : Service() {
                     stopSnowflakeProxy("required wifi condition not met")
                 } else {
                     if (NetworkUtils.isNetworkAvailable(this@SnowflakeProxyService) || hasVpn) {
+                        if (hasVpn && !Prefs.useVpn()) {
+                            stopSnowflakeProxy("has network, but non Orbot VPN is running")
+                            return
+                        }
                         startSnowflakeProxy("got network (wifi=${hasWifi}, limit wifi=${Prefs.limitSnowflakeProxyingWifi()}")
                     }
                     else {
