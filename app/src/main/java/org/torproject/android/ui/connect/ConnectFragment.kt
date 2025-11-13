@@ -153,10 +153,7 @@ class ConnectFragment : Fragment(),
                     requireContext().sendIntentToService(OrbotConstants.ACTION_START)
                 }
             }
-            binding.ivStatus.setImageResource(R.drawable.orbieon)
-            with(binding.btnStart) {
-                text = context.getString(android.R.string.cancel)
-            }
+            doLayoutStarting(requireContext())
             requireContext().sendIntentToService(OrbotConstants.ACTION_START)
         }
     }
@@ -184,7 +181,7 @@ class ConnectFragment : Fragment(),
     private fun doLayoutNoInternet() {
 
         binding.ivStatus.setImageResource(R.drawable.orbiesleeping)
-
+        binding.ivStatus.setOnClickListener {  }
         stopAnimations()
 
         binding.tvSubtitle.visibility = View.VISIBLE
