@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
+
     <style name="DefaultTheme" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@color/new_background_secondary</item>
     </style>
 
-    <style name="OrbotActivityTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="OrbotActivityTheme" parent="DefaultTheme">
         <item name="android:windowBackground">@color/new_background_secondary</item>
         <item name="android:windowIsFloating">false</item>
-        <item name="colorPrimary">@color/new_background_secondary</item>
         <item name="colorPrimaryDark">@color/new_background_secondary</item>
+        <item name="preferenceTheme">@style/PrefsTheme</item>
     </style>
 
     <style name="OrbotDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">

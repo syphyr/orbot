@@ -1,11 +1,11 @@
 /* Copyright (c) 2009, Nathan Freitas, Orbot / The Guardian Project - http://openideals.com/guardian */ /* See LICENSE for licensing information */
 package org.torproject.android.ui.more
 
-import android.app.Activity.RESULT_OK
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.view.View
 import android.view.inputmethod.EditorInfo
+import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
@@ -26,7 +26,6 @@ import org.torproject.android.service.util.Prefs
 import org.torproject.android.service.util.sendIntentToService
 import org.torproject.android.ui.core.BaseActivity
 
-
 class SettingsPreferenceFragment : PreferenceFragmentCompat() {
     private var prefLocale: ListPreference? = null
 
@@ -34,6 +33,13 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
         setPreferencesFromResource(R.xml.preferences, rootKey)
         isSubscreen = rootKey != null
         initPrefs()
+    }
+
+    private var title: TextView? = null
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        title = view.findViewById(R.id.title)
     }
 
     private fun initPrefs() {
@@ -51,6 +57,7 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                     val newLocale = LocaleListCompat.forLanguageTags(language)
                     AppCompatDelegate.setApplicationLocales(newLocale)
+                    title?.text = requireContext().getString(R.string.menu_settings)
                 } else {
                     requireActivity().sendIntentToService(OrbotConstants.ACTION_LOCAL_LOCALE_SET)
                     (requireActivity().application as OrbotApp).setLocale()
@@ -103,6 +110,7 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
         setPreferencesFromResource(R.xml.preferences, preferenceScreen.key)
         initPrefs()
         isSubscreen = true
+        title?.text = preferenceScreen.title
     }
 
     private lateinit var onBackPressedCallback: OnBackPressedCallback
@@ -111,6 +119,7 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
         onBackPressedCallback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 if (isSubscreen) {
+                    title?.text = requireContext().getString(R.string.menu_settings)
                     setPreferencesFromResource(R.xml.preferences, null)
                     isSubscreen = false
                 } else {
