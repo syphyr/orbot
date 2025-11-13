@@ -2,13 +2,13 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/scrollView"
-    android:background="@color/new_background"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="fill_parent"
+        android:layout_marginTop="4dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:paddingStart="?dialogPreferredPadding"
@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="15dp"
             android:text="@string/version"
-            android:textColor="@color/bright_green"
+            android:textColor="@color/panel_card_image"
             android:textStyle="bold" />
 
         <TextView
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="15dp"
             android:text="@string/project_home"
-            android:textColor="@color/bright_green"
+            android:textColor="@color/panel_card_image"
             android:textStyle="bold" />
 
         <TextView
@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="15dp"
             android:text="@string/third_party_software"
-            android:textColor="@color/bright_green"
+            android:textColor="@color/panel_card_image"
             android:textStyle="bold" />
 
         <TextView
@@ -111,7 +111,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="15dp"
             android:text="@string/license"
-            android:textColor="@color/bright_green"
+            android:textColor="@color/panel_card_image"
             android:textStyle="bold" />
 
         <TextView
