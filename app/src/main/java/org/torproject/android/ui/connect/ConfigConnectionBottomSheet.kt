@@ -21,7 +21,7 @@ import org.torproject.android.databinding.ConfigConnectionBottomSheetBinding
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.AutoConf
 import org.torproject.android.service.circumvention.Transport
-import org.torproject.android.service.util.Prefs
+import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 
 class ConfigConnectionBottomSheet :

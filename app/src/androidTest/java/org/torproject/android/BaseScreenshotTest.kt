@@ -17,7 +17,7 @@ import org.hamcrest.TypeSafeMatcher
 import org.junit.Before
 import org.junit.Rule
 import org.junit.runner.RunWith
-import org.torproject.android.service.util.Prefs
+import org.torproject.android.util.Prefs
 import tools.fastlane.screengrab.locale.LocaleTestRule
 
 

@@ -13,8 +13,8 @@ import org.torproject.android.R
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotConstants.ONION_EMOJI
 import org.torproject.android.service.circumvention.BuiltInBridges
-import org.torproject.android.service.util.Prefs
-import org.torproject.android.service.util.showToast
+import org.torproject.android.util.Prefs
+import org.torproject.android.util.showToast
 import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.security.SecureRandom

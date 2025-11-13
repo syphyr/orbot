@@ -5,8 +5,8 @@ import android.content.SharedPreferences
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.db.OnionServiceColumns
 import org.torproject.android.service.db.V3ClientAuthColumns
-import org.torproject.android.service.util.NetworkUtils
-import org.torproject.android.service.util.Prefs
+import org.torproject.android.util.NetworkUtils
+import org.torproject.android.util.Prefs
 import java.io.File
 
 object TorConfig {

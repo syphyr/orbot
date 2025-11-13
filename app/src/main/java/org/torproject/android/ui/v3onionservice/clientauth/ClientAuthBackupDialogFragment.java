@@ -18,7 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
 import org.torproject.android.R;
-import org.torproject.android.service.util.DiskUtils;
+import org.torproject.android.util.DiskUtils;
 import org.torproject.android.ui.core.NoPersonalizedLearningEditText;
 import org.torproject.android.ui.v3onionservice.V3BackupUtils;
 

@@ -6,8 +6,8 @@ import android.content.Intent
 import android.os.Build
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
-import org.torproject.android.service.util.Prefs
-import org.torproject.android.service.util.putNotSystem
+import org.torproject.android.util.Prefs
+import org.torproject.android.util.putNotSystem
 import java.lang.RuntimeException
 
 class OnBootReceiver : BroadcastReceiver() {

@@ -7,7 +7,7 @@ import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.FragmentActivity
 import org.torproject.android.R
-import org.torproject.android.service.util.Prefs
+import org.torproject.android.util.Prefs
 
 object DeviceAuthenticationPrompt {
     /**

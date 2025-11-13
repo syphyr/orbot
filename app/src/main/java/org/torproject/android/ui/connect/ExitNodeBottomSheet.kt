@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import org.torproject.android.R
-import org.torproject.android.service.util.StringUtils
-import org.torproject.android.service.util.Prefs
+import org.torproject.android.util.StringUtils
+import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 
 import java.text.Collator

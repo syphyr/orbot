@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
 
 import org.torproject.android.service.OrbotConstants
-import org.torproject.android.service.util.NetworkUtils
+import org.torproject.android.util.NetworkUtils
 
 class ConnectViewModel : ViewModel() {
     private val _uiState = MutableStateFlow<ConnectUiState>(ConnectUiState.Off)

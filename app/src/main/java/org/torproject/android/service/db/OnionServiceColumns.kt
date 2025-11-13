@@ -12,7 +12,7 @@ import java.io.FileInputStream
 import java.util.UUID
 import androidx.core.net.toUri
 import org.torproject.android.service.OrbotConstants
-import org.torproject.android.service.util.DiskUtils
+import org.torproject.android.util.DiskUtils
 
 object OnionServiceColumns : BaseColumns {
     const val NAME: String = "name"

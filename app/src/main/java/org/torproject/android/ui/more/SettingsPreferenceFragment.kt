@@ -20,7 +20,7 @@ import androidx.preference.PreferenceScreen
 import org.torproject.android.R
 import org.torproject.android.localization.Languages
 import org.torproject.android.ui.core.BaseActivity
-import org.torproject.android.service.util.Prefs
+import org.torproject.android.util.Prefs
 import org.torproject.android.ui.more.camo.CamoFragment
 
 class SettingsPreferenceFragment : PreferenceFragmentCompat() {

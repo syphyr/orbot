@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import org.torproject.android.localization.LocaleHelper
-import org.torproject.android.service.util.Prefs
+import org.torproject.android.util.Prefs
 
 /**
  * Small subclass of AppCompatActivity, all activities in Orbot apps

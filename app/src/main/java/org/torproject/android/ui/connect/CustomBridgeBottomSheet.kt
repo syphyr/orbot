@@ -15,7 +15,7 @@ import org.torproject.android.R
 import org.torproject.android.databinding.CustomBridgeBottomSheetBinding
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.MoatApi
-import org.torproject.android.service.util.Prefs
+import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 
 class CustomBridgeBottomSheet() :

@@ -4,7 +4,7 @@ import android.content.Context
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import org.torproject.android.service.util.Prefs
+import org.torproject.android.util.Prefs
 import java.util.Timer
 import java.util.TimerTask
 import kotlin.time.Duration.Companion.seconds

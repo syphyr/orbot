@@ -9,7 +9,7 @@ import androidx.lifecycle.ProcessLifecycleOwner
 import org.torproject.android.localization.Languages
 import org.torproject.android.localization.LocaleHelper
 import org.torproject.android.service.circumvention.Transport.Companion.stateLocation
-import org.torproject.android.service.util.Prefs
+import org.torproject.android.util.Prefs
 
 import java.util.Locale
 

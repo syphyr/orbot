@@ -8,7 +8,7 @@ import androidx.fragment.app.DialogFragment
 import `in`.myinnos.library.AppIconNameChanger
 import org.torproject.android.BuildConfig
 import org.torproject.android.R
-import org.torproject.android.service.util.Prefs
+import org.torproject.android.util.Prefs
 
 class CamoConfirmationDialogFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

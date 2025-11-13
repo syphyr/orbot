@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
 import org.torproject.android.R
-import org.torproject.android.service.util.Prefs
+import org.torproject.android.util.Prefs
 
 class KindnessFragment : Fragment() {
 

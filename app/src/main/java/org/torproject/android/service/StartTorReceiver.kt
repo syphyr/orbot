@@ -10,7 +10,7 @@ import org.torproject.android.service.OrbotConstants.ACTION_STATUS
 import org.torproject.android.service.OrbotConstants.EXTRA_PACKAGE_NAME
 import org.torproject.android.service.OrbotConstants.EXTRA_STATUS
 import org.torproject.android.service.OrbotConstants.STATUS_STARTS_DISABLED
-import org.torproject.android.service.util.Prefs
+import org.torproject.android.util.Prefs
 
 class StartTorReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
