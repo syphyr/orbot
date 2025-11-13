@@ -154,7 +154,6 @@
             android:exported="true"
             android:icon="@drawable/ic_camouflage_night_watch"
             android:label="@string/app_icon_chooser_label_night_watch"
-            android:launchMode="singleInstance"
             android:targetActivity="org.torproject.android.OrbotActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -168,7 +167,6 @@
             android:exported="true"
             android:icon="@drawable/ic_camouflage_assistant"
             android:label="@string/app_icon_chooser_label_assistant"
-            android:launchMode="singleInstance"
             android:targetActivity="org.torproject.android.OrbotActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -182,7 +180,6 @@
             android:exported="true"
             android:icon="@drawable/ic_camouflage_paint"
             android:label="@string/app_icon_chooser_label_paint"
-            android:launchMode="singleInstance"
             android:targetActivity="org.torproject.android.OrbotActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -196,7 +193,6 @@
             android:exported="true"
             android:icon="@drawable/ic_camouflage_tetras"
             android:label="@string/app_icon_chooser_label_tetras"
-            android:launchMode="singleInstance"
             android:targetActivity="org.torproject.android.OrbotActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -210,7 +206,6 @@
             android:exported="true"
             android:icon="@drawable/ic_camouflage_todo"
             android:label="@string/app_icon_chooser_label_todo"
-            android:launchMode="singleInstance"
             android:targetActivity="org.torproject.android.OrbotActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -223,7 +218,6 @@
             android:exported="true"
             android:icon="@drawable/ic_camouflage_fitgrit"
             android:label="@string/app_icon_chooser_label_fit_grit"
-            android:launchMode="singleInstance"
             android:targetActivity="org.torproject.android.OrbotActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -236,7 +230,6 @@
             android:exported="true"
             android:icon="@drawable/ic_camouflage_birdie"
             android:label="@string/app_icon_chooser_label_birdie"
-            android:launchMode="singleInstance"
             android:targetActivity="org.torproject.android.OrbotActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
