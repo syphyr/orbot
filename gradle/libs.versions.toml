@@ -36,6 +36,7 @@ androidx-activity = { group = "androidx.activity", name = "activity-ktx", versio
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core" }
 androidx-espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidx-espresso" }
+androidx-espresso-contrib = { group = "androidx.test.espresso", name = "espresso-contrib", version.ref = "androidx-espresso" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-junit" }
 androidx-localbroadcast = { group = "androidx.localbroadcastmanager", name = "localbroadcastmanager", version.ref = "androidx-localbroadcast" }
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigation-fragment-ktx" }

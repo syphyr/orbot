@@ -172,6 +172,7 @@ dependencies {
     androidTestImplementation(libs.androidx.rules)
     androidTestImplementation(libs.androidx.runner)
     androidTestImplementation(libs.screengrab)
+    androidTestImplementation(libs.androidx.espresso.contrib)
     androidTestUtil(libs.androidx.orchestrator)
 }
 
