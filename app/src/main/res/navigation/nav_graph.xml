@@ -9,7 +9,17 @@
         android:id="@+id/connectFragment"
         android:name="org.torproject.android.ui.connect.ConnectFragment"
         android:label="fragment_connect"
-        tools:layout="@layout/fragment_connect" />
+        tools:layout="@layout/fragment_connect">
+
+        <action
+            android:id="@+id/connectToApps"
+            app:destination="@id/appManager"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
     <fragment
         android:id="@+id/moreFragment"
         android:name="org.torproject.android.ui.more.MoreFragment"
@@ -22,6 +32,15 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/more_to_apps"
+            app:destination="@id/appManager"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
     </fragment>
     <fragment
         android:id="@+id/kindnessFragment"
@@ -47,4 +66,10 @@
         android:id="@+id/camoFrag"
         android:name="org.torproject.android.ui.more.camo.CamoFragment"
         android:label="fragment camo" />
+
+    <fragment
+        android:id="@+id/appManager"
+        android:name="org.torproject.android.ui.AppManagerFragment"
+        android:label="fragment apps" />
+
 </navigation>
