@@ -107,6 +107,10 @@ class SnowflakeProxyService : Service() {
                     stopSnowflakeProxy("required wifi condition not met")
                 } else {
                     if (NetworkUtils.isNetworkAvailable(this@SnowflakeProxyService) || hasVpn) {
+                        if (hasVpn && !Prefs.useVpn()) {
+                            stopSnowflakeProxy("has network, but non Orbot VPN is running")
+                            return
+                        }
                         startSnowflakeProxy("got network (wifi=${hasWifi}, limit wifi=${Prefs.limitSnowflakeProxyingWifi()}")
                     }
                     else {
