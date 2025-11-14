@@ -10,9 +10,10 @@
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:background="@android:color/transparent"
         android:layout_height="wrap_content"
-        android:theme="@style/DefaultTheme.AppBarOverlay">
+        android:background="@android:color/transparent"
+        android:theme="@style/DefaultTheme.AppBarOverlay"
+        app:elevation="0dp">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -24,9 +25,9 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <FrameLayout
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <ListView
             android:id="@+id/auth_hash_list"

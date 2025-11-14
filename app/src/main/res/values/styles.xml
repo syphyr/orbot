@@ -3,14 +3,12 @@
 
     <style name="DefaultTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
-    <style name="AppTheme.TransparentAppBar" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:windowTranslucentStatus">true</item>
-        <item name="windowActionBarOverlay">true</item> <!-- Important for content to draw behind toolbar -->
-    </style>
-
     <style name="DefaultTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="PrefsTheme" parent="PreferenceThemeOverlay.v14.Material">
+        <item name="android:layout">@layout/fragment_settings</item>
+    </style>
+    
 
     <style name="BottomSheetTextView" parent="android:Widget.TextView">
         <item name="android:textColor">@android:color/white</item>

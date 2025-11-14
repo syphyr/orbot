@@ -24,6 +24,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -37,7 +38,6 @@ import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
-import org.torproject.android.ui.AppManagerActivity
 import org.torproject.android.ui.OrbotMenuAction
 
 class ConnectFragment : Fragment(),
@@ -172,7 +172,7 @@ class ConnectFragment : Fragment(),
         if (!Prefs.isPowerUserMode) listItems.add(
             0,
             OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
-                activity?.startActivity(Intent(activity, AppManagerActivity::class.java))
+                findNavController().navigate(R.id.connectToApps)
             })
         binding.lvConnected.adapter = ConnectMenuActionAdapter(context, listItems)
     }

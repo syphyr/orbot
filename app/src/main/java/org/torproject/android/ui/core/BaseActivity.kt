@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowManager
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import org.torproject.android.localization.LocaleHelper
 import org.torproject.android.util.Prefs
@@ -18,6 +19,7 @@ import org.torproject.android.util.Prefs
 open class BaseActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         resetSecureFlags()
     }
 

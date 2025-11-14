@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.torproject.android.OrbotActivity
@@ -16,7 +17,6 @@ import org.torproject.android.R
 import org.torproject.android.util.sendIntentToService
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
-import org.torproject.android.ui.AppManagerActivity
 import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.android.ui.v3onionservice.OnionServiceActivity
 import org.torproject.android.ui.v3onionservice.clientauth.ClientAuthActivity
@@ -69,14 +69,10 @@ class MoreFragment : Fragment() {
         updateStatus()
 
         val rvMore = view.findViewById<RecyclerView>(R.id.rvMoreActions)
-       // val ivMascot = view.findViewById<ImageView>(R.id.ivMascot)
 
         val listItems = listOf(
             OrbotMenuAction(R.string.menu_settings, R.drawable.ic_settings_gear) {
-                activity?.startActivityForResult(
-                    Intent(context, SettingsActivity::class.java),
-                    OrbotActivity.Companion.REQUEST_CODE_SETTINGS
-                )
+                findNavController().navigate(R.id.more_to_settings)
             },
             OrbotMenuAction(R.string.system_vpn_settings, R.drawable.ic_vpn_key) {
                 activity?.startActivity(
@@ -85,7 +81,7 @@ class MoreFragment : Fragment() {
                 )
             },
             OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
-                activity?.startActivity(Intent(activity, AppManagerActivity::class.java))
+                findNavController().navigate(R.id.more_to_apps)
             },
             OrbotMenuAction(R.string.menu_log, R.drawable.ic_log) { showLog() },
             OrbotMenuAction(R.string.v3_hosted_services, R.drawable.ic_menu_onion) {
