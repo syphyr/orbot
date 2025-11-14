@@ -9,7 +9,7 @@ import java.util.Calendar
 
 @Serializable
 data class BuiltInBridges(
-    @SerialName("meek-azure")
+    @SerialName("meek")
     var meekAzure: List<Bridge>? = null,
     var obfs4: List<Bridge>? = null,
     var snowflake: List<Bridge>? = null,
