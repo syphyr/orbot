@@ -45,8 +45,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Kích hoạt nhật ký gỡ lỗi ở đầu ra (phải dùng adb hoặc aLogCat để xem)</string>
     <string name="project_home">Trang chủ dự án:</string>
     <string name="third_party_software">Phần mềm bên thứ 3:</string>
-    <string name="pref_use_expanded_notifications">Trong phần thông báo, hiển thị quốc gia và địa chỉ IP của nút giao mạng Tor cuối (Tor exit-node) của bạn khi có thể</string>
-    <string name="pref_use_expanded_notifications_title">Thông báo mở rộng</string>
     <string name="set_locale_title">Ngôn ngữ</string>
     <string name="pref_disable_network_title">Tự động \"ngủ\" khi không có mạng</string>
     <string name="pref_disable_network_summary">Chuyển Tor sang chế độ ngủ nếu không có Internet</string>
@@ -115,8 +113,6 @@
     <string name="v3_key_hash">Mã khoá riêng tư x25519 trong Base 32</string>
     <string name="v3_client_auth_activity_title">Uỷ quyền máy/ứng dụng khách v3</string>
     <string name="v3_hosted_services">Dịch vụ Onion được Host</string>
-    <string name="mebibyte">MiB</string>
-    <string name="kibibyte">KiB</string>
     <string name="app_services">Dịch vụ ứng dụng</string>
     <string name="user_services">Dịch vụ người dùng</string>
     <string name="menu_new_identity">Danh tính mới</string>

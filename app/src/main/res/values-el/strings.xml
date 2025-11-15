@@ -53,8 +53,6 @@
     <string name="project_home">Έργο Home:</string>
     <string name="third_party_software">Λογισμικό τρίτων:</string>
     <string name="hidden_service_request">Μια εφαρμογή θέλει να ανοίξει διακομιστή onion στη θύρα %1$s στο δίκτυο Tor. Αυτό είναι ασφαλές αν εμπιστεύεστε την εφαρμογή.</string>
-    <string name="pref_use_expanded_notifications">Εμφανίστε στην ειδοποίηση τη χώρα και τη διεύθυνση IP του κόμβου εξόδου tor, όταν είναι διαθέσιμος</string>
-    <string name="pref_use_expanded_notifications_title">Επεκταμένες Ειδοποιήσεις</string>
     <string name="set_locale_title">Γλώσσα </string>
     <string name="pref_disable_network_title">Χωρίς Αυτόματη Αναστολή Δικτύου</string>
     <string name="pref_disable_network_summary">Θέσε το Tor σε λειτουργία sleep όταν δεν υπάρχει διαθέσιμη σύνδεση Ιnternet</string>
@@ -98,8 +96,6 @@
     <string name="pref_reduced_connection_padding">Σύνδεση αναπλήρωσης</string>
     <string name="pref_reduced_connection_padding_summary">Κλείνει τον ηλεκτρονόμο συνδέσεων αργά και αποστολή λιγότερο να γεμίσει τα πακέτα για να μειώσει δεδομένων και τη χρήση της μπαταρίας</string>
     <string name="full_device_vpn">Πλήρης Συσκευή VPN</string>
-    <string name="kibibyte">KiB</string>
-    <string name="mebibyte">MiB</string>
     <string name="version">Έκδοση:</string>
     <string name="license">Άδεια:</string>
     <string name="v3_client_auth_activity_title">Εξουσιοδότηση πελάτη</string>

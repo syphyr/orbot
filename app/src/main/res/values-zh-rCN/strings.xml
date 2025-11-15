@@ -43,8 +43,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">启用调试日志输出（必须使用 adb 或 aLogCat 查看）</string>
     <string name="project_home">项目主页：</string>
     <string name="third_party_software">第三方软件：</string>
-    <string name="pref_use_expanded_notifications">在通知中显示 Tor 出口节点的国家/地区和 IP 地址（如果可用）</string>
-    <string name="pref_use_expanded_notifications_title">扩展通知</string>
     <string name="set_locale_title">语言</string>
     <string name="pref_disable_network_title">无网络时自动休眠</string>
     <string name="pref_disable_network_summary">未连接到互联网时让 Tor 进入休眠状态</string>
@@ -107,8 +105,6 @@
     <string name="pref_reduced_circuit_padding">减少线路填充</string>
     <string name="pref_circuit_padding_summary">启用线路填充以抵御某些形式的流量分析</string>
     <string name="pref_circuit_padding">线路填充</string>
-    <string name="mebibyte">MiB</string>
-    <string name="kibibyte">KiB</string>
     <string name="confirm">确认</string>
     <string name="v3_import_auth_private">导入 .auth_private</string>
     <string name="v3_backup_name_hint">备份文件名…</string>

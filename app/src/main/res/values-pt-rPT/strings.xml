@@ -63,7 +63,6 @@
     <string name="pref_proxy_port_summary">Porta do Servidor Proxy</string>
     <string name="pref_proxy_password_title">Palavra-passe do proxy de saída</string>
     <string name="pref_proxy_title">Proxy de Rede de Saída (Opcional)</string>
-    <string name="pref_use_expanded_notifications_title">Notificações Estendidas</string>
     <string name="pref_proxy_host_title">Anfitrião Proxy de Saída</string>
     <string name="pref_proxy_password_summary">Palavra-passe do Proxy (Opcional)</string>
     <string name="project_home">Projecto Home:</string>
@@ -96,7 +95,6 @@
     <string name="pref_socks_summary">Porta que o Tor oferece do proxy SOCKS dele (predefinição: 9050 ou 0 para desativar)</string>
     <string name="pref_disable_network_summary">Pôr o Tor em modo de latência quando não houver Internet disponível</string>
     <string name="pref_disable_network_title">Sem Rede, Modo de Latência Automática</string>
-    <string name="pref_use_expanded_notifications">Mostrar na notificação o país e o endereço IP do nó de saída do seu tor, quando disponível</string>
     <string name="hidden_service_request">Uma app quer abrir uma porta no servidor onion %1$s para a rede Tor. É seguro caso confie nesta app.</string>
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Ativar os registos de depuração para saída (deve usar adb ou aLogCat para ver)</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Executar como um cliente atrás de um firewall com políticas restritivas</string>
@@ -127,8 +125,6 @@
     <string name="v3_key_hash">Chave privada x25519 na Base 32</string>
     <string name="v3_client_auth_activity_title">Autorização do cliente</string>
     <string name="v3_hosted_services">Serviços de Cebola Alojada</string>
-    <string name="mebibyte">MiB</string>
-    <string name="kibibyte">KiB</string>
     <string name="license">Licença:</string>
     <string name="secure_your_connection_title">Pronto para conectar</string>
     <string name="secure_your_connection_subtitle">Oculte apps do monitoramento da rede e obtenha acesso quando eles estiverem bloqueados.</string>

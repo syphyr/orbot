@@ -53,8 +53,6 @@
     <string name="project_home">प्रोजेक्ट घर:</string>
     <string name="third_party_software">दूसरे लोगों का सॉफ्टवेयर:</string>
     <string name="hidden_service_request">एक ऐप टॉर नेटवर्क के लिए %1$s पोर्ट पे अनियन सर्वर खोलना चाहता है। अगर आप ऐप पर भरोसा करते हैं, तो ये महफूज़ है।</string>
-    <string name="pref_use_expanded_notifications">मौजूद होने पे सूचना में आखिरी नोड का देश और आईपी दिखाएं</string>
-    <string name="pref_use_expanded_notifications_title">बड़ी सूचनाएं</string>
     <string name="set_locale_title">भाषा</string>
     <string name="pref_disable_network_title">कोई नेटवर्क अपनेआप नहीं सोएगा</string>
     <string name="pref_disable_network_summary">कोई इंटरनेट मौजूद नहीं होने पे टॉर को सुला दें</string>
@@ -111,7 +109,6 @@
     <string name="pref_open_proxy_on_all_interfaces_summary">वाई-फाई पीयर, टीथर्ड डिवाइस, और बाकी लोग, जो आपके आईपी से जुड़ सकते हैं, को टॉर एक्सेस करने की इजाज़त दें</string>
     <string name="pref_open_proxy_on_all_interfaces_title">सारे इंटरफेस पर प्रॉक्सी खोलें</string>
     <string name="license">लाइसेंस:</string>
-    <string name="mebibyte">एमबी</string>
     <string name="confirm">पक्का करें</string>
     <string name="setting_debug">डीबग</string>
     <string name="action_activate">चालू करें</string>
@@ -120,7 +117,6 @@
     <string name="connect">जुड़ें</string>
     <string name="next">अगला</string>
     <string name="version">संस्करण:</string>
-    <string name="kibibyte">केबी</string>
     <string name="connected_title">जुड़े हुए</string>
     <string name="trying_to_connect_title">जुड़ रहे…</string>
     <string name="btn_refresh">रीफ्रेश करें</string>

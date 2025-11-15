@@ -43,8 +43,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Извеждане на дневник за отстраняване на грешки (трябва да използвате adb или aLogcat за достъп до него)</string>
     <string name="project_home">Станица на проекта:</string>
     <string name="third_party_software">Софтуер от трети страни:</string>
-    <string name="pref_use_expanded_notifications">Известието съдържа държавата и адреса по IP на изходния възел на Tor ако са налични</string>
-    <string name="pref_use_expanded_notifications_title">Разширени известия</string>
     <string name="set_locale_title">Език</string>
     <string name="pref_disable_network_title">Без автоматично заспиване на мрежата</string>
     <string name="pref_disable_network_summary">При липса на интернет Тор преминава в режим на сън</string>
@@ -99,8 +97,6 @@
     <string name="pref_disable_ipv4">Изключване на връзка по IPv4</string>
     <string name="pref_disable_ipv4_summary">Указва на изходните възли да не използват адреси от IPv4</string>
     <string name="restore_backup">Възстановяване от резервно копие</string>
-    <string name="kibibyte">КБ</string>
-    <string name="mebibyte">МБ</string>
     <string name="snowflake_proxy_msg_description">Показва известие, когато помагате на някого да избегне цензура</string>
     <string name="backup_service">Услуга за резервни копия (Внимание: по този начин могат да бъдат разкрити настройките на услугата от други приложения)</string>
     <string name="wizard_details_msg">Orbot е приложение с отворен код, което съдържа Тор, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel и LibEvent. Предоставя тунел на ВЧМ, местен мрежов посредник на HTTP (HTTPS само на порт 8118) и посредник на SOCKS (9050) към мрежата на Tor.</string>

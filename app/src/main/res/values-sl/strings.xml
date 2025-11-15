@@ -19,8 +19,6 @@
     <string name="save">Shrani</string>
     <string name="name">ime</string>
     <string name="pref_entrance_node_summary">Prstni odtisi, zareze, države in naslovi za prvi skok</string>
-    <string name="kibibyte">KiB</string>
-    <string name="mebibyte">MiB</string>
     <string name="v3_hosted_services">Gostovane čebulne storitve</string>
     <string name="v3_backup_key_warning">Opozorilo: To lahko razkrije vaš ključ drugim aplikacijam</string>
     <string name="pref_proxy_username_summary">Uporabniško ime posrednika (neobvezno)</string>
@@ -73,7 +71,6 @@
     <string name="pref_node_configuration">Konfiguracija vozlišča</string>
     <string name="strict_nodes_description">Nastavitve Izključi vozlišča obravnavajte kot zahtevo za izgradnjo vseh vezij. To lahko prekine funkcionalnost, če z vašimi nastavitvami Exclude Nodes ni mogoče ustvariti nobenega vezja.</string>
     <string name="pref_socks_title">Tor SOCKS</string>
-    <string name="pref_use_expanded_notifications_title">Razširjena obvestila</string>
     <string name="pref_disable_network_title">Brez samodejnega spanja v omrežju</string>
     <string name="pref_disable_network_summary">Uspavati Tor, ko ni na voljo interneta</string>
     <string name="newnym">Preklopili ste na novo identiteto Tor!</string>
@@ -132,7 +129,6 @@
     <string name="pref_proxy_password_title">Odhodni proxy Geslo</string>
     <string name="fingerprints_nicks_countries_and_addresses_for_the_last_hop">Prstni odtisi, zareze, države in naslovi za zadnji skok</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Omogočite dostop do Tor-a vrstnikom Wi-Fi, vezanim napravam in vsem drugim, ki se lahko povežejo z vašim IP-jem</string>
-    <string name="pref_use_expanded_notifications">V obvestilu prikažite državo in naslov IP izhodnega vozlišča tor, če sta na voljo</string>
     <string name="reachable_ports">Dosegljiva vrata</string>
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Omogočite izpis dnevnika odpravljanja napak (za ogled morate uporabiti adb ali aLogcat)</string>
     <string name="hidden_service_request">Aplikacija želi v omrežju Tor odpreti čebulni strežnik na vratih %1$s. To je varno, če aplikaciji zaupate.</string>

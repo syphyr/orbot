@@ -45,8 +45,6 @@
     <string name="project_home">Projekt honlap(ok):</string>
     <string name="third_party_software">3. fél szoftver:</string>
     <string name="hidden_service_request">Egy app egy rejtett szerver portot %1$d nyitna a Tor hálózatra. Ez biztonságos, ha megbízik az appban.</string>
-    <string name="pref_use_expanded_notifications">Mutassa a bővített értesítést a Tor kilépő országgal és IP-vel</string>
-    <string name="pref_use_expanded_notifications_title">Bővített értesítések</string>
     <string name="set_locale_title">Nyelv</string>
     <string name="pref_disable_network_title">Nincs hálózati auto-alvás</string>
     <string name="pref_disable_network_summary">A Tor alvó módba helyezése, ha internet nem elérhető</string>
@@ -95,7 +93,6 @@
     <string name="menu_new_identity">Új személyazonosság</string>
     <string name="action_activate">Aktiválás</string>
     <string name="no_internet_title">Csatlakozás az internethez</string>
-    <string name="kibibyte">KiB</string>
     <string name="title_choose_apps">Alkalmazások kiválasztása</string>
     <string name="setting_debug">Hibakeresés</string>
     <string name="menu_more">Több</string>
@@ -103,7 +100,6 @@
     <string name="connect">Kapcsolódás</string>
     <string name="next">Következő</string>
     <string name="btn_refresh">Frissítés</string>
-    <string name="mebibyte">MB</string>
     <string name="license">Licensz:</string>
     <string name="connected_title">Csatlakozva</string>
     <string name="status_starting_up">Az Orbot indul…</string>

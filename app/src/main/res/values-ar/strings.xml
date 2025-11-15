@@ -51,8 +51,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">شغل سجل الـdebug ( للمراجعة يجب استخدام adb أو LogCat)</string>
     <string name="project_home">الشاشة الرئيسية للمشروع:</string>
     <string name="third_party_software">برامج من الطرف الثالث:</string>
-    <string name="pref_use_expanded_notifications">اعرض في الإشعارات الدولة وعنوان IP الخاص بعُقدة خروج تور الخاصة بك عند توفرها</string>
-    <string name="pref_use_expanded_notifications_title">إشعار موسّع</string>
     <string name="set_locale_title">اللغة</string>
     <string name="pref_disable_network_title">لاتوجد شبكة نوم-آلي</string>
     <string name="pref_disable_network_summary">ضع تور في وضعية النوم عند عدم وجود الأنترنت</string>
@@ -97,7 +95,6 @@
     <string name="confirm">أكّد</string>
     <string name="trying_to_connect_title">جارِ الاتصال …</string>
     <string name="btn_refresh">أعِد التحميل</string>
-    <string name="kibibyte">ك.بايت</string>
     <string name="menu_more">المزيد</string>
     <string name="menu_new_identity">هوية جديدة</string>
     <string name="user_services">خدمات المستخدم</string>
@@ -106,7 +103,6 @@
     <string name="version">الإصدار:</string>
     <string name="connected_title">متصل</string>
     <string name="license">الرخصة:</string>
-    <string name="mebibyte">م.بايت</string>
     <string name="wizard_details_msg">Orbot هو تطبيق مفتوح المصدر يحتوي على تور و IPtProxy (Obfs4Proxy و Meek و Snowflake) و Go-Tun2Socks و LibEvent. يوفر نفق VPN ووسيط HTTP محلي (HTTPS فقط على المنفذ 8118) ووسيط SOCKS (9050) في شبكة تور.</string>
     <string name="strict_nodes_description">تعامل مع إعدادات استبعاد العُقد كشرط لبناء جميع المسار. قد يؤدي هذا إلى تعطيل الوظيفة إذا لم يكن بالإمكان إنشاء مسار باستخدام إعدادات استبعاد العُقد.</string>
     <string name="app_services">خدمات التطبيق</string>

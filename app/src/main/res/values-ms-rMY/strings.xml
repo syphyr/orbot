@@ -46,7 +46,6 @@
     <string name="name">Nama</string>
     <string name="version">Versi:</string>
     <string name="license">Lesen:</string>
-    <string name="kibibyte">KiB</string>
     <string name="confirm">Sahkan</string>
     <string name="menu_new_identity">Identiti Baharu</string>
     <string name="trying_to_connect_title">Menyambung…</string>
@@ -56,7 +55,6 @@
     <string name="menu_more">Lagi</string>
     <string name="connected_title">Bersambung</string>
     <string name="disable">Lumpuhkan</string>
-    <string name="mebibyte">MiB</string>
     <string name="connect">Sambung</string>
     <string name="pref_allow_background_starts_title">Benarkan bermula di latar belakang</string>
     <string name="pref_allow_background_starts_summary">Benarkan mana-mana aplikasi memberitahu Orbot untuk mulakan Tor dan servis berkenaan</string>

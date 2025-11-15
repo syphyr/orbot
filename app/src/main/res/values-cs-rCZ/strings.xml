@@ -43,8 +43,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">umožnit ladicí informace na výstup (musí používat adb nebo aLogCat k prohlížení)</string>
     <string name="project_home">Projekt Domů:</string>
     <string name="third_party_software">Software třetích stran:</string>
-    <string name="pref_use_expanded_notifications">Zobrazení země a IP adresy výstupního uzlu tor v oznámení, pokud je k dispozici</string>
-    <string name="pref_use_expanded_notifications_title">Rozšířené oznámení</string>
     <string name="set_locale_title">Jazyk</string>
     <string name="pref_disable_network_title">Vypnout uspávání sítě</string>
     <string name="pref_disable_network_summary">Uspat Tor když není k dispozici přístup k Internetu</string>
@@ -68,8 +66,6 @@
     <string name="hidden_services">Služby Onion</string>
     <string name="version">Verze:</string>
     <string name="license">Licence:</string>
-    <string name="kibibyte">KiB</string>
-    <string name="mebibyte">MiB</string>
     <string name="connect">Připojit</string>
     <string name="next">Další</string>
     <string name="no_internet_title">Připojit k Internetu</string>

@@ -53,7 +53,6 @@
     <string name="pref_proxy_username_title">Enw Defnyddiwr Procsi Allan</string>
     <string name="pref_proxy_password_title">Cyfrinair Procsi Allan</string>
     <string name="ports_reachable_behind_a_restrictive_firewall">Porthladdoedd y gellir eu cyrraedd y tu ôl i wal dân gyfyngol</string>
-    <string name="pref_use_expanded_notifications">Dangoswch yn yr hysbysiad wlad a Chyfeiriad IP eich nod gadael tor pan fyddant ar gael</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_socks_summary">Porthladd y mae Tor yn cynnig ei ddirprwy SOCKS arno (diofyn: 9050 neu 0 i\'w analluogi)</string>
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Galluogi log dadfygio i allbwn (rhaid defnyddio adb neu aLogcat i weld)</string>
@@ -69,7 +68,6 @@
     <string name="pref_open_proxy_on_all_interfaces_summary">Caniatáu i gyfoedion Wi-Fi, dyfeisiau clymu ac unrhyw un arall sy\'n gallu cysylltu â\'ch IP, gael mynediad i Tor</string>
     <string name="strict_nodes_description">Trin gosodiadau Nodau Eithrio fel gofyniad ar gyfer adeiladu pob cylched. Gall hyn dorri ymarferoldeb os nad oes modd cynhyrchu unrhyw gylchedau gyda\'ch gosodiadau Nodau Eithrio.</string>
     <string name="pref_disable_network_summary">Rhowch Tor i gysgu pan nad oes rhyngrwyd ar gael</string>
-    <string name="pref_use_expanded_notifications_title">Hysbysiadau Ehangu</string>
     <string name="reachable_ports">Porthladdoedd cyraeddadwy</string>
     <string name="reachable_addresses">Cyfeiriadau Cyrraeddadwy</string>
     <string name="kindness_adjust_title">Gosodiadau</string>
@@ -78,7 +76,6 @@
     <string name="pref_isolate_dest_summary">Defnyddiwch gylched wahanol ar gyfer pob cyfeiriad cyrchfan</string>
     <string name="v3_hosted_services">Gwasanaethau Winwns a Gynhelir</string>
     <string name="pref_disable_ipv4_summary">Yn dweud wrth allanfeydd i beidio â chysylltu â chyfeiriadau IPv4</string>
-    <string name="kibibyte">KiB</string>
     <string name="custom_bridges">Pontydd Custom</string>
     <string name="pref_http_dialog">HTTP Porth Config</string>
     <string name="consider_disable_battery_optimizations">Gwasanaethau lletyol sy\'n rhedeg, ystyriwch analluogi optimeiddio batri</string>
@@ -122,7 +119,6 @@
     <string name="pref_torrc_dialog">Torrc Custom</string>
     <string name="please_restart_Orbot_to_enable_the_changes">Ailgychwynnwch Orbot i alluogi\'r newidiadau</string>
     <string name="v3_client_auth_activity_title">Awdurdodi Cleient</string>
-    <string name="mebibyte">MiB</string>
     <string name="btn_change_exit">Newid allanfa</string>
     <string name="backup_port_exist">Gwall: Mae gwasanaeth Onion eisoes yn defnyddio porth %s</string>
     <string name="backup_service">Gwasanaeth Wrth Gefn <i>(Rhybudd: Gallai Hyn Datguddio Ffurfweddiad Eich Gwasanaeth i Apiau Eraill)</i></string>

@@ -84,10 +84,8 @@
     <string name="enter_exit_nodes">Insere le nodos de sortita</string>
     <string name="option_only_when_charging">Solmente quando tu apparato es cargante</string>
     <string name="vpn_default_world">Global (Automatic)</string>
-    <string name="pref_use_expanded_notifications">Monstrar in le notification le pais e adresse IP de tu nodo de sortita quando sia disponibile</string>
     <string name="proxy_ports">Portos de proxy</string>
     <string name="ports_not_set">Portos non definite</string>
-    <string name="kibibyte">KiB</string>
     <string name="v3_key_hash">Clave private x25519 in Base32</string>
     <string name="v3_onion">Dominio .onion</string>
     <string name="v3_import_auth_private">Importar .auth_private</string>
@@ -97,7 +95,6 @@
     <string name="pref_transport_dialog">Configuration del porto TransProxy</string>
     <string name="pref_dnsport_title">Porto DNS de Tor</string>
     <string name="pref_torrc_dialog">Torrc personalisate</string>
-    <string name="mebibyte">MiB</string>
     <string name="pref_http_dialog">Configuration del porto HTTP</string>
     <string name="pref_transport_title">Porto TransProxy de Tor</string>
     <string name="pref_dnsport_dialog">Configuration de porto DNS</string>

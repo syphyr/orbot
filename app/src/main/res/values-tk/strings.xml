@@ -20,7 +20,6 @@
     <string name="pref_proxy_host_summary">Proksi Serweriň host ady</string>
     <string name="pref_proxy_password_title">Çykýan Proksi Paroly</string>
     <string name="license">Ygtyýarnama:</string>
-    <string name="pref_use_expanded_notifications_title">Giňeldilen Habarnamalar</string>
     <string name="pref_disable_network_summary">Internete giriş ýok wagty Tor-y uklat</string>
     <string name="newnym">Täze Tor şahsyýetine geçdiňiz!</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Ähli Interfeýslerde Proksi Açyň</string>
@@ -150,7 +149,6 @@
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Gatnaşmajak barmak yzlary, gysgaltmalar, ýurtlar we salgylar</string>
     <string name="third_party_software">Üçünji tarap programma üpjünçiligi:</string>
     <string name="hidden_service_request">Bir programma, %1$s portdaky onion serwerini Tor network-ine açmak isleýär. Programma ynanýan bolsaňyz, bu howpsuz.</string>
-    <string name="pref_use_expanded_notifications">Elýeterli bolanda habarnamada toruňyzdan çykýan ýurduňyzy ýa-da IP adresiňizi görkeziň</string>
     <string name="pref_disable_network_title">Network ýok wagty Awto-Uky</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Wi-Fi ulgamlaryna, birikdirilen enjamlara we IP-ä birikdirip bilýänlere Tor-a girmäge rugsat beriň</string>
     <string name="pref_socks_title">Tor SOCKS</string>
@@ -163,8 +161,6 @@
     <string name="pref_torrc_title">Torrc Aýratyn Sazlamalar</string>
     <string name="pref_torrc_summary">HÜNARMENLER ÜÇIN: torrc sazlamalar setirlerini göni giriziň</string>
     <string name="pref_torrc_dialog">Aýratyn Torrc</string>
-    <string name="kibibyte">KiB</string>
-    <string name="mebibyte">MiB</string>
     <string name="v3_hosted_services">Eýeçiligindäki Onion Hyzmatlary</string>
     <string name="v3_key_hash">Base32 üçin x25519 Şahsy Açary</string>
     <string name="v3_onion">.onion Domen</string>

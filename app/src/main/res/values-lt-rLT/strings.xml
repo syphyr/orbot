@@ -20,7 +20,6 @@
     <string name="name">Pavadinimas</string>
     <string name="v3_hosted_services">Prieglobos „Onion“ paslaugos</string>
     <string name="pref_disable_network_title">Išjungti tinklo automatinio užmigdymo funkciją</string>
-    <string name="pref_use_expanded_notifications">Pranešime rodyti „Tor“ išėjimo mazgo šalį ir IP adresą, kai tai įmanoma</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Veikti kaip klientui už ugniasienės su ribojančia politika</string>
     <string name="pref_proxy_host_title">Išeinantis įgaliotojo serverio priegloba</string>
     <string name="pref_proxy_host_summary">Įgaliotojo serverio prieglobos vardas</string>
@@ -84,7 +83,6 @@
     <string name="pref_torrc_dialog">Pasirinktinis Torrc</string>
     <string name="pref_http_title">„Tor“ HTTP</string>
     <string name="pref_socks_title">Tor SOCKS</string>
-    <string name="pref_use_expanded_notifications_title">Išplėsti pranešimai</string>
     <string name="project_home">Projekto namai:</string>
     <string name="enter_ports">Įvesti prievadus</string>
     <string name="reachable_ports">Pasiekiami prievadai</string>
@@ -95,8 +93,6 @@
     <string name="pref_entrance_node">Įėjimo mazgai</string>
     <string name="pref_node_configuration">Mazgo konfigūracija</string>
     <string name="confirm">Patvirtinti</string>
-    <string name="mebibyte">MiB</string>
-    <string name="kibibyte">KiB</string>
     <string name="please_restart_Orbot_to_enable_the_changes">Paleiskite „Orbot“ iš naujo, kad įgalintumėte pakeitimus</string>
     <string name="pref_torrc_summary">TIK EKSPERTAMS: įveskite tiesiogines torrc konfigūracijos eilutes</string>
     <string name="newnym">Jūs perėjote prie naujos „Tor“ tapatybės!</string>

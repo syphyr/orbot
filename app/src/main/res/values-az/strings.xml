@@ -43,8 +43,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">məhsul üçün sazlama girişi daxil et (baxmaq üçün adb və ya aLogCat istifadə etməlisən)</string>
     <string name="project_home">Layihə Evi:</string>
     <string name="third_party_software">Xidməti Quraşdırma:</string>
-    <string name="pref_use_expanded_notifications">Mövcud olduqda bildirişdə tor çıxış qovşağınızın ölkəsini və IP ünvanını göstərin</string>
-    <string name="pref_use_expanded_notifications_title">Ətraflı bildirişlər</string>
     <string name="set_locale_title">Dil</string>
     <string name="pref_disable_network_title">Avto-Yuxu Şəbəkəsi Yoxdur</string>
     <string name="pref_disable_network_summary">İnternet olmadıqda icazə ver Tor yatsın</string>
@@ -81,7 +79,6 @@
     <string name="pref_isolate_dest_summary">Hər təyinat ünvanı üçün fərqli sxemdən istifadə edin</string>
     <string name="v3_hosted_services">Soğan Xidmətlərinə ev sahibliyi edir</string>
     <string name="pref_disable_ipv4_summary">Çıxışlara IPv4 ünvanlarına qoşulmamağı bildirir</string>
-    <string name="kibibyte">KiB</string>
     <string name="custom_bridges">Xüsusi körpülər</string>
     <string name="pref_http_dialog">HTTP Port Konfiqurasiyası</string>
     <string name="consider_disable_battery_optimizations">Hosted xidmətlər işləyir, batareyanın optimallaşdırılmasını deaktiv etməyi düşünün</string>
@@ -114,7 +111,6 @@
     <string name="pref_prefer_ipv6_summary">Çıxışlara IPv6 ünvanlarına üstünlük verildiyini bildirir</string>
     <string name="pref_reduced_circuit_padding">Azaldılmış dövrə doldurma</string>
     <string name="v3_client_auth_activity_title">Müştəri Avtorizasiyası</string>
-    <string name="mebibyte">MiB</string>
     <string name="backup_port_exist">Xəta: Onion xidməti artıq %s portundan istifadə edir</string>
     <string name="backup_service">Yedəkləmə Xidməti <i>(Xəbərdarlıq: Bu, Xidmət Konfiqurasiyanızı Digər Tətbiqlərə Aşa bilər)</i></string>
     <string name="service_type">Xidmət növü</string>

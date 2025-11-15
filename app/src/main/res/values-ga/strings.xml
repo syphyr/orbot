@@ -49,8 +49,6 @@
     <string name="version">Leagan:</string>
     <string name="license">Ceadúnas:</string>
     <string name="hidden_service_request">Tá aip ag iarraidh freastalaí onion a oscailt ar phort %1$s chuig líonra Tor. Tá sé seo sábháilte má tá muinín agat as an aip.</string>
-    <string name="pref_use_expanded_notifications">Taispeáin san fhógra tír agus Seoladh IP do nóid scoir Tor nuair atá siad ar fáil</string>
-    <string name="pref_use_expanded_notifications_title">Fógraí Leathnaithe</string>
     <string name="set_locale_title">Teanga</string>
     <string name="pref_disable_network_title">Gan Uathchodladh Líonra</string>
     <string name="pref_disable_network_summary">Cuir Tor a chodladh nuair nach bhfuil aon idirlíon ar fáil</string>
@@ -72,8 +70,6 @@
     <string name="pref_torrc_title">Cumraíocht Saincheaptha Torrc</string>
     <string name="pref_torrc_summary">SAINEOLAITHE AMHÁIN: cuir isteach línte cumraíochta torrc díreacha</string>
     <string name="pref_torrc_dialog">Torrc Saincheaptha</string>
-    <string name="kibibyte">KiB</string>
-    <string name="mebibyte">MiB</string>
     <string name="vpn_default_world">Domhanda (Uathoibríoch)</string>
     <string name="hidden_services">Seirbhísí Oinniún</string>
     <string name="v3_hosted_services">Seirbhísí Oinniún Óstáilte</string>

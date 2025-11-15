@@ -45,8 +45,6 @@
     <string name="project_home">專案首頁：</string>
     <string name="third_party_software">第三方軟體：</string>
     <string name="hidden_service_request">有一個應用程式想要在 Tor 網絡的連接埠 %1$s 上開啟 Onion 伺服器。如果你信任該應用程式，這是安全的。</string>
-    <string name="pref_use_expanded_notifications">如果可用，在通知中顯示你的 Tor 出口節點的國家和 IP 位址</string>
-    <string name="pref_use_expanded_notifications_title">詳細的通知</string>
     <string name="set_locale_title">語言</string>
     <string name="pref_disable_network_title">無網路時自動休眠</string>
     <string name="pref_disable_network_summary">當沒有網路可用時，讓 Tor 休眠</string>
@@ -91,12 +89,10 @@
     <string name="pref_reduced_connection_padding">減少連接保護</string>
     <string name="pref_reduced_connection_padding_summary">關閉中繼連接並傳送少數保護封包來減少資料和電池的用量</string>
     <string name="full_device_vpn">全設備 VPN</string>
-    <string name="kibibyte">KiB</string>
     <string name="confirm">確認</string>
     <string name="next">下一個</string>
     <string name="title_choose_apps">選擇應用程式</string>
     <string name="menu_kindness">友善</string>
-    <string name="mebibyte">MiB</string>
     <string name="trying_to_connect_title">連線中…</string>
     <string name="action_activate">啟用</string>
     <string name="setting_padding">間距</string>

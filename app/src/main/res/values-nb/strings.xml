@@ -43,8 +43,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">aktiver feilsøkingslogg for output (må bruke adb eller aLogCat for å vise)</string>
     <string name="project_home">Prosjekt Hjem:</string>
     <string name="third_party_software">Tredjepartsprogramvare:</string>
-    <string name="pref_use_expanded_notifications">Vis land og IP-adresse for tor-exit-noden i varselet når dette er tilgjengelig</string>
-    <string name="pref_use_expanded_notifications_title">Utvidede varsler</string>
     <string name="set_locale_title">Språk</string>
     <string name="pref_disable_network_title">Inget automatisk hvilemodus for nettverk</string>
     <string name="pref_disable_network_summary">Legg Tor i hvilemodus når nettilkobling til Internett ikke er tilgjengelig</string>
@@ -107,8 +105,6 @@
     <string name="pref_reduced_circuit_padding">Redusert utfylling av kretser</string>
     <string name="pref_circuit_padding_summary">Aktiver kretsutfylling for å beskytte mot visse former for trafikkanalyse</string>
     <string name="pref_circuit_padding">Utfylling av kretser</string>
-    <string name="mebibyte">MiB</string>
-    <string name="kibibyte">KiB</string>
     <string name="confirm">Bekreft</string>
     <string name="license">Lisens:</string>
     <string name="version">Versjon:</string>

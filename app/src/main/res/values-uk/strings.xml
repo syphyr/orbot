@@ -45,8 +45,6 @@
     <string name="project_home">Домівка проєкту:</string>
     <string name="third_party_software">Програми сторонніх розробників: </string>
     <string name="hidden_service_request">Застосунок хоче відкрити сервер onion на порту %1$s до мережі Tor. Це безпечно, якщо ви довіряєте застосунку.</string>
-    <string name="pref_use_expanded_notifications">Відображати в сповіщенні країну та IP-адресу вашого вихідного вузла Tor, якщо вони доступні</string>
-    <string name="pref_use_expanded_notifications_title">Розгорнуті сповіщення</string>
     <string name="set_locale_title">Мова</string>
     <string name="pref_disable_network_title">Переходити в режим сну без мережі</string>
     <string name="pref_disable_network_summary">Переводити в режим сну за відсутності інтернет-з\'єднання</string>
@@ -103,8 +101,6 @@
     <string name="user_services">Служби користувача</string>
     <string name="app_services">Служби застосунків</string>
     <string name="custom_bridges">Користувацькі мости</string>
-    <string name="mebibyte">МіБ</string>
-    <string name="kibibyte">КіБ</string>
     <string name="pref_reduced_circuit_padding_summary">Використовувати алгоритми з меншими витратами, щоб зменшити використання даних та акумулятора</string>
     <string name="pref_reduced_circuit_padding">Скорочене заповнення ланцюга</string>
     <string name="pref_circuit_padding_summary">Увімкнути підкладку ланцюга для захисту від деяких форм аналізу трафіку</string>

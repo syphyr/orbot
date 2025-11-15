@@ -43,8 +43,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Włącz dziennik debugowania do wyświetlenia (należy użyć adb lub aLogcat, aby wyświetlić)</string>
     <string name="project_home">Strona główna projektu:</string>
     <string name="third_party_software">Oprogramowanie innych firm:</string>
-    <string name="pref_use_expanded_notifications">Wyświetl w powiadomieniu kraj i adres IP węzła wyjściowego Tor, jeśli jest dostępny</string>
-    <string name="pref_use_expanded_notifications_title">Rozszerzone powiadomienia</string>
     <string name="set_locale_title">Język</string>
     <string name="pref_disable_network_title">Brak automatycznego uśpienia sieci</string>
     <string name="pref_disable_network_summary">Uśpij Tor, gdy nie ma dostępnego Internetu</string>
@@ -100,8 +98,6 @@
     <string name="pref_connection_padding">Wypełnienie połączenia</string>
     <string name="pref_connection_padding_summary">Zawsze włącza wypełnienie połączenia, aby chronić się przed niektórymi formami analizy ruchu. Domyślnie: auto</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Zezwól sieciom Wi-Fi, urządzeniom z tetheringiem i każdemu, kto może połączyć się z Twoim adresem IP, na dostęp do Tor</string>
-    <string name="mebibyte">MiB</string>
-    <string name="kibibyte">KiB</string>
     <string name="connected_title">Połączony</string>
     <string name="trying_to_connect_title">Łączenie…</string>
     <string name="secure_your_connection_subtitle">Ukryj aplikacje przed monitorowaniem sieci i uzyskaj dostęp, gdy zostaną zablokowane.</string>

@@ -19,9 +19,7 @@
     <string name="disable">O\'chirish</string>
     <string name="connect">Ulanish</string>
     <string name="next">Keyingi</string>
-    <string name="kibibyte">KiB</string>
     <string name="confirm">Tasdiqlash</string>
-    <string name="mebibyte">MiB</string>
     <string name="license">Litsenziya:</string>
     <string name="status_starting_up">Orbot ishga tushirilmoqda…</string>
     <string name="status_activated">Tor tarmog\'iga ulangan</string>

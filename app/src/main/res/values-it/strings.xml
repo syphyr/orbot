@@ -45,8 +45,6 @@
     <string name="project_home">Pagina principale del progetto:</string>
     <string name="third_party_software">Software di terze parti:</string>
     <string name="hidden_service_request">Un\'app vuole aprire unserver nascosto sulla porta %1$s verso la rete Tor. È un\'azione sicura se ti fidi dell\'app.</string>
-    <string name="pref_use_expanded_notifications">Mostra nella notifica la nazione e l\'indirizzo IP del tuo nodo di uscita Tor quando disponibile</string>
-    <string name="pref_use_expanded_notifications_title">Espandi notifiche</string>
     <string name="set_locale_title">Lingua</string>
     <string name="pref_disable_network_title">Evita autosospensione della rete</string>
     <string name="pref_disable_network_summary">Sospendi Tor quando internet non è disponibile</string>
@@ -114,8 +112,6 @@
     <string name="v3_key_hash">Chiave privata x25519 in Base32</string>
     <string name="v3_client_auth_activity_title">Autorizzazione client</string>
     <string name="v3_hosted_services">Servizi nascosti ospitati</string>
-    <string name="mebibyte">MiB</string>
-    <string name="kibibyte">KiB</string>
     <string name="custom_bridges">Bridge personalizzati</string>
     <string name="license">Licenza:</string>
     <string name="btn_refresh">Aggiorna</string>

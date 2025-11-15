@@ -45,8 +45,6 @@
     <string name="project_home">Projekt hem:</string>
     <string name="third_party_software">Tredjepartsprogramvara:</string>
     <string name="hidden_service_request">En app vill öppna dold serverport %1$s till Tor-nätverket. Det här är säkert om du litar på appen.</string>
-    <string name="pref_use_expanded_notifications">Visa land och IP-adress för din tor-utgångsnod i meddelandet när de är tillgängliga</string>
-    <string name="pref_use_expanded_notifications_title">Utökade notiser</string>
     <string name="set_locale_title">Språk</string>
     <string name="pref_disable_network_title">Ingen auto-sömn för nätverket</string>
     <string name="pref_disable_network_summary">Låt Tor sova när inget internet finns tillgängligt</string>
@@ -102,8 +100,6 @@
     <string name="menu_new_identity">Ny identitet</string>
     <string name="user_services">Användartjänster</string>
     <string name="app_services">App-tjänster</string>
-    <string name="kibibyte">KiB</string>
-    <string name="mebibyte">MiB</string>
     <string name="v3_hosted_services">Tjänster för värdväxling av lökar</string>
     <string name="v3_onion">.onion-domän</string>
     <string name="v3_key_hash">x25519 Privat nyckel i Base32</string>

@@ -50,8 +50,6 @@
     <string name="connected_title">Konektita</string>
     <string name="title_choose_apps">Elekti aplikaĵojn</string>
     <string name="setting_debug">Sencimigo</string>
-    <string name="kibibyte">KiB</string>
-    <string name="mebibyte">MiB</string>
     <string name="disable">Malŝalti</string>
     <string name="confirm">Konfirmi</string>
     <string name="menu_new_identity">Nova idento</string>

@@ -45,8 +45,6 @@
     <string name="project_home">Inicio do Proxecto:</string>
     <string name="third_party_software">Software de Terceiros:</string>
     <string name="hidden_service_request">Unha aplicación quere abrir o porto oculto de servidor %1$s a rede Tor. Esto é seguro se vostede confía na app.</string>
-    <string name="pref_use_expanded_notifications">Mostra na notificación o país e o enderezo IP do teu nó de saída cando estea dispoñible</string>
-    <string name="pref_use_expanded_notifications_title">Notificacións extendidas</string>
     <string name="set_locale_title">Idioma</string>
     <string name="pref_disable_network_title">Auto-Parado Sen Rede</string>
     <string name="pref_disable_network_summary">Parar Tor cando non hai conexión a internet</string>
@@ -96,8 +94,6 @@
     <string name="title_choose_apps">Escoller as aplicacións</string>
     <string name="menu_more">Máis</string>
     <string name="license">Licenza:</string>
-    <string name="kibibyte">KiB</string>
-    <string name="mebibyte">MiB</string>
     <string name="setting_debug">Depuración</string>
     <string name="version">Versión:</string>
     <string name="connect">Conectar</string>

@@ -18,8 +18,6 @@
     <string name="pref_general_group">Všeobecné</string>
     <string name="pref_start_boot_title">Spustiť Orbot pri štarte</string>
     <string name="consider_enable_battery_optimizations">Nie sú spustené žiadne hostované služby, zvážte povolenie optimalizácie batérie</string>
-    <string name="kibibyte">KiB</string>
-    <string name="mebibyte">MiB</string>
     <string name="v3_hosted_services">Hostované služby Onion</string>
     <string name="v3_key_hash">x25519 Súkromný kľúč v Base32</string>
     <string name="v3_delete_client_authorization_confirm">Odstránenie autorizácie klienta</string>
@@ -71,7 +69,6 @@
     <string name="custom_bridges">Vlastné mosty</string>
     <string name="strict_nodes_description">Nastavenie Vylúčiť uzly považujte za požiadavku na vytvorenie všetkých okruhov. To môže narušiť funkčnosť, ak sa s nastaveniami Exclude Nodes (Vylúčené uzly) nepodarí vygenerovať žiadne obvody.</string>
     <string name="pref_transport_summary">Port, na ktorom Tor ponúka svoj transparentný proxy server (predvolené: 9040 alebo 0 pre vypnutie)</string>
-    <string name="pref_use_expanded_notifications_title">Rozšírené oznámenia</string>
     <string name="set_locale_title">Jazyk</string>
     <string name="pref_disable_network_title">Žiadny automatický spánok siete</string>
     <string name="pref_disable_network_summary">Uspanie Tor, keď nie je k dispozícii internet</string>
@@ -121,7 +118,6 @@
     <string name="pref_proxy_title">Odchádzajúci sieťový proxy server (voliteľné)</string>
     <string name="pref_proxy_username_summary">Používateľské meno proxy servera (voliteľné)</string>
     <string name="ports_reachable_behind_a_restrictive_firewall">Porty dosiahnuteľné za reštriktívnou bránou firewall</string>
-    <string name="pref_use_expanded_notifications">Zobrazenie krajiny a IP adresy vášho výstupného uzla Tor v oznámení, ak je k dispozícii</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Povoľte prístup k sieti Tor partnerom Wi-Fi, pripojeným zariadeniam a všetkým ostatným, ktorí sa môžu pripojiť k vašej IP adrese</string>
     <string name="pref_dnsport_dialog">Konfigurácia portu DNS</string>
     <string name="pref_transport_dialog">Konfigurácia portu TransProxy</string>

@@ -45,8 +45,6 @@
     <string name="project_home">صفحهٔ اصلی پروژه:</string>
     <string name="third_party_software">نرم‌افزارهای شخص ثالث:</string>
     <string name="hidden_service_request">برنامه‌ای می‌خواهد سرور Onion روی درگاه ‎%1$s را به شبکهٔ Tor باز کند. اگر به برنامه اعتماد دارید، این کار ایمن است.</string>
-    <string name="pref_use_expanded_notifications">نمایش کشور و نشانی آی‌پی گره خروجی تورتان در آگاهی هنگام وجود</string>
-    <string name="pref_use_expanded_notifications_title">اعلان‌های گسترده</string>
     <string name="set_locale_title">زبان</string>
     <string name="pref_disable_network_title">حالت خواب خودکار درصورت عدم وجود شبکه</string>
     <string name="pref_disable_network_summary">هنگامی که اینترنت در دسترس نیست، Tor را در حالت خواب قرار می‌دهد</string>
@@ -92,14 +90,12 @@
     <string name="full_device_vpn">VPN برای کل دستگاه</string>
     <string name="pref_prefer_ipv6">ترجیح‌دادن اتصال‌های IPv6</string>
     <string name="pref_http_summary">درگاهی که Tor پراکسی HTTP خود را روی آن ارائه می‌دهد (پیش‌فرض: ۸۱۱۸ یا اینکه ۰ برای از کار انداختن)</string>
-    <string name="mebibyte">مِبی‌بایت</string>
     <string name="v3_backup_key">پشتیبان‌گیری از کلید صدور مجوز کلاینت</string>
     <string name="v3_key_hash">کلید خصوصی x25519 در Base32</string>
     <string name="v3_onion">دامنهٔ ‎.onion</string>
     <string name="v3_delete_client_authorization">حذف کلید صدور مجوز کلاینت</string>
     <string name="v3_backup_key_warning">هشدار: این کار می‌تواند کلیدتان را برای دیگر برنامه‌ها افشا کند</string>
     <string name="v3_delete_client_authorization_confirm">حذف صدور وجوز کلاینت</string>
-    <string name="kibibyte">کیبی‌بایت</string>
     <string name="version">نسخه:</string>
     <string name="license">پروانه:</string>
     <string name="v3_hosted_services">سرویس‌های Onion میزبانی‌شده</string>

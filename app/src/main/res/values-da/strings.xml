@@ -61,7 +61,6 @@
     <string name="v3_backup_name_hint">Backup filnavn…</string>
     <string name="pref_dnsport_summary">Port, som Tor tilbyder sin DNS på (standard: 9053 eller 0 for at deaktivere)</string>
     <string name="pref_torrc_title">Torrc brugerdefineret konfiguration</string>
-    <string name="kibibyte">KiB</string>
     <string name="v3_onion">.onion-domæne</string>
     <string name="pref_circuit_padding_summary">Aktiver kredsløbspolstring for at beskytte mod visse former for trafikanalyse</string>
     <string name="pref_disable_ipv4">Deaktiver IPv4-forbindelser</string>
@@ -103,7 +102,6 @@
     <string name="pref_dnsport_dialog">Konfiguration af DNS-port</string>
     <string name="pref_torrc_summary">KUN EXPERTER: indtast direkte torrc-konfigurationslinjer</string>
     <string name="pref_torrc_dialog">Brugerdefineret Torrc</string>
-    <string name="mebibyte">MiB</string>
     <string name="vpn_default_world">Global (automatisk)</string>
     <string name="v3_hosted_services">Hosted Onion-tjenester</string>
     <string name="v3_client_auth_activity_title">Godkendelse af klient</string>
@@ -138,8 +136,6 @@
     <string name="snowflake_proxy_msg_title">Vis meddelelse om forbindelse</string>
     <string name="snowflake_proxy_msg_description">Vis en besked, når din snefnug hjælper nogen med at omgå censuren</string>
     <string name="pref_http_dialog">Konfiguration af HTTP-port</string>
-    <string name="pref_use_expanded_notifications">Vis land og IP-adresse for din tor-exit node i meddelelsen, hvis den er tilgængelig</string>
-    <string name="pref_use_expanded_notifications_title">Udvidede meddelelser</string>
     <string name="pref_socks_summary">Port, som Tor tilbyder sin SOCKS-proxy på (standard: 9050 eller 0 for at deaktivere)</string>
     <string name="pref_http_summary">Port, som Tor tilbyder sin HTTP-proxy på (standard: 8118 eller 0 for at deaktivere)</string>
     <string name="pref_http_title">Tor HTTP</string>

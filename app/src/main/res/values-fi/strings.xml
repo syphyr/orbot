@@ -43,8 +43,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Käytä vianselvityslokin lähetystä (tarkastelu adb:n tai aLogCat-sovelluksen kautta).</string>
     <string name="project_home">Projektin kotisivusto:</string>
     <string name="third_party_software">3. osapuolen ohjelmistot:</string>
-    <string name="pref_use_expanded_notifications">Näytä Tor-päätössolmun maa ja IP-osoite ilmoituksessa, jos saatavilla.</string>
-    <string name="pref_use_expanded_notifications_title">Laajennetut ilmoitukset</string>
     <string name="set_locale_title">Kieli</string>
     <string name="pref_disable_network_title">Ei verkon automaattilepotilaa</string>
     <string name="pref_disable_network_summary">Aseta Tor lepotilaan, kun Internet-yhteyttä ei ole käytettävissä.</string>
@@ -84,8 +82,6 @@
     <string name="confirm_service_deletion">Vahvista palvelun poisto</string>
     <string name="service_type">Palvelun tyyppi</string>
     <string name="confirm">Vahvista</string>
-    <string name="mebibyte">MiB</string>
-    <string name="kibibyte">KiB</string>
     <string name="pref_reduced_circuit_padding_summary">Käytä kevyempiä pehmustusalgoritmeja vähentääksesi tiedonsiirtoa ja virrankulutusta.</string>
     <string name="pref_reduced_circuit_padding">Kevennetty ketjupehmustus</string>
     <string name="pref_circuit_padding_summary">Pehmusta ketjuja suojautuaksesi eräiltä tietoliikenteen analysointitavoilta.</string>

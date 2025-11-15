@@ -50,9 +50,7 @@
   <string name="version">Katɵkan</string>
   <string name="license">Utɵ miek</string>
   <string name="hidden_service_request">1%1$s Kan marampurukuntrapik, cebolla wam lasrpichapik Toryu. Ikwane ñi marampurukuntrapikwan tap purukuntraptik kuik asha mar.</string>
-  <string name="pref_use_expanded_notifications">Wam mɵrɵsrɵsrɵpikyu, ñi chu kaleikwan, Torwei wepiamik IPwan kurik pasrɵpen</string>
-  <string name="pref_use_expanded_notifications_title">Wam mɵrɵsreilan katɵkuchi nemarik</string>
-  <string name="set_locale_title">Wam-mera</string>
+    <string name="set_locale_title">Wam-mera</string>
   <string name="pref_disable_network_title">Wam srɵl mera nɵmtɵpe chincha pasram pumumik</string>
   <string name="pref_disable_network_summary">Internet kapene Torwan Kiptrasr</string>
   <string name="newnym">Tor maik kenamisrɵpik kuipe yunɵmaran</string>
@@ -73,9 +71,7 @@
   <string name="pref_torrc_title">Torrcwan na asikmei tamara pasramik</string>
   <string name="pref_torrc_summary">IKWANE TSAPɵ ASHIPELɵTɵ MARAMIK: kan meitɵ torrc tamaramik srɵlmeran ker</string>
   <string name="pref_torrc_dialog">Torrc Netik kɵn</string>
-  <string name="kibibyte">KiB</string>
-  <string name="mebibyte">MiB</string>
-  <string name="vpn_default_world">Mupa kuinpurap (munasrɵ)</string>
+    <string name="vpn_default_world">Mupa kuinpurap (munasrɵ)</string>
   <string name="hidden_services">Onionyu chitɵ maramtelɵ</string>
   <string name="v3_hosted_services">Wam esekamel Onionyu maramtelɵ</string>
   <string name="v3_client_auth_activity_title">Naaship ɵ tamik</string>

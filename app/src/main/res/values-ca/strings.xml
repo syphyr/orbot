@@ -45,8 +45,6 @@
     <string name="project_home">Lloc web del projecte:</string>
     <string name="third_party_software">Programari de terceres parts:</string>
     <string name="hidden_service_request">Una aplicació vol obrir el port %1$s del servidor onion a la xarxa Tor. Això és segur si confieu en l\'aplicació.</string>
-    <string name="pref_use_expanded_notifications">Mostra en la notificació el país l\'adreça IP del vostre node de sortida Tor quan sigui disponible</string>
-    <string name="pref_use_expanded_notifications_title">Notificacions expandides</string>
     <string name="set_locale_title">Llengua</string>
     <string name="pref_disable_network_title">No hi ha autodesconnexió de xarxa</string>
     <string name="pref_disable_network_summary">Posa el Tor en pausa mentre no hi ha connexió a internet</string>
@@ -108,8 +106,6 @@
     <string name="trying_to_connect_title">S\'està connectant…</string>
     <string name="version">Versió:</string>
     <string name="license">Llicència:</string>
-    <string name="kibibyte">KiB</string>
-    <string name="mebibyte">MiB</string>
     <string name="custom_bridges">Ponts personalitzats</string>
     <string name="volunteer_mode_alltime_label">Total global</string>
     <string name="proxy_ports">Ports proxy</string>

@@ -74,9 +74,7 @@
     <string name="confirm">Confirmar</string>
     <string name="pref_isolate_protocol">Aislar protocolos de cliente</string>
     <string name="hidden_service_request">Una aplicación quiere abrir el servidor de Onion en el puerto %1$s hacia la red Tor. Esto es seguro solo si confías en la aplicación.</string>
-    <string name="pref_use_expanded_notifications_title">Expandir notificaciones</string>
     <string name="set_locale_title">Idioma</string>
-    <string name="pref_use_expanded_notifications">Mostrar notificación del país y dirección IP del nodo de salida de Tor cuando esté disponible</string>
     <string name="pref_disable_network_title">Desactivar auto-suspensión de Red</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Abrir Proxy en todas las interfaces</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Permitir que los pares Wi-Fi, dispositivos anclados y cualquiera que pueda conectarse a tu IP, accedan a Tor</string>
@@ -90,8 +88,6 @@
     <string name="pref_transport_dialog">Configuración del puerto TransProxy</string>
     <string name="pref_torrc_summary">SOLO EXPERTOS: Introduzca líneas de configuración para torrc</string>
     <string name="pref_torrc_dialog">Personaliza Torrc</string>
-    <string name="kibibyte">KiB</string>
-    <string name="mebibyte">MiB</string>
     <string name="vpn_default_world">Global (Auto)</string>
     <string name="hidden_services">Servicios de Onion</string>
     <string name="v3_hosted_services">Servicios alojados de Onion</string>

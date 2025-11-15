@@ -53,8 +53,6 @@
     <string name="project_home">Site do projeto:</string>
     <string name="third_party_software">Software de Terceiros:</string>
     <string name="hidden_service_request">Um aplicativo quer abrir uma porta no servidor onion %1$s para a rede Tor. É seguro caso você confie neste aplicativo.</string>
-    <string name="pref_use_expanded_notifications">Exibe na notificação o país e o endereço IP do seu nó de saída do Tor quando estiver disponível</string>
-    <string name="pref_use_expanded_notifications_title">Notificações Expandidas</string>
     <string name="set_locale_title">Idioma</string>
     <string name="pref_disable_network_title">Sem rede. Modo de Espera Automático</string>
     <string name="pref_disable_network_summary">Colocar o Tor em modo de espera quando não houver Internet disponível</string>
@@ -115,8 +113,6 @@
     <string name="pref_reduced_circuit_padding">Preenchimento reduzido do circuito</string>
     <string name="pref_circuit_padding_summary">Ative o preenchimento do circuito para se defender contra algumas formas de análise de tráfego</string>
     <string name="pref_circuit_padding">Preenchimento do circuito</string>
-    <string name="mebibyte">MiB</string>
-    <string name="kibibyte">KiB</string>
     <string name="confirm">Confirmar</string>
     <string name="v3_import_auth_private">Importe o .auth_private</string>
     <string name="v3_backup_name_hint">Nome do arquivo de backup…</string>

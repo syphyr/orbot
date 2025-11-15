@@ -55,8 +55,6 @@
     <string name="version">Version:</string>
     <string name="license">License:</string>
     <string name="hidden_service_request">An app wants to open onion server on port %1$s to the Tor network. This is safe if you trust the app.</string>
-    <string name="pref_use_expanded_notifications">Display in the notification the country and IP Address of your Tor exit node when available</string>
-    <string name="pref_use_expanded_notifications_title">Expanded Notifications</string>
     <string name="set_locale_title">Language</string>
     <string name="pref_disable_network_title">No Network Auto-Sleep</string>
     <string name="pref_disable_network_summary">Put Tor to sleep when there is no internet available</string>
@@ -78,8 +76,6 @@
     <string name="pref_torrc_title">Torrc Custom Config</string>
     <string name="pref_torrc_summary">EXPERTS ONLY: enter direct torrc config lines</string>
     <string name="pref_torrc_dialog">Custom Torrc</string>
-    <string name="kibibyte">KiB</string>
-    <string name="mebibyte">MiB</string>
     <string name="vpn_default_world">Global (Auto)</string>
     <string name="hidden_services">Onion Services</string>
     <string name="v3_hosted_services">Hosted Onion Services</string>

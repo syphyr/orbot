@@ -46,7 +46,6 @@
     <string name="pref_dnsport_summary">Puerto en el que Tor ofrece tu DNS (predeterminado: 9053 o 0 para deshabilitar)</string>
     <string name="pref_isolate_dest">Aislar direcciones de destino</string>
     <string name="pref_torrc_title">Configuración personalizada Torrc</string>
-    <string name="mebibyte">MiB</string>
     <string name="hidden_services">Servicios Cebolla</string>
     <string name="v3_delete_client_authorization_confirm">Eliminar autorización de cliente</string>
     <string name="v3_hosted_services">Servicios de cebolla alojados</string>
@@ -65,9 +64,7 @@
     <string name="btn_change_exit">Cambiar salida</string>
     <string name="pref_circuit_padding_summary">Habilita el relleno de circuito para defenderte contra algunas formas de análisis de tráfico</string>
     <string name="pref_reduced_circuit_padding_summary">Usa algoritmos de relleno de gastos generales más bajos para reducir el uso de datos y batería</string>
-    <string name="pref_use_expanded_notifications_title">Notificaciones ampliadas</string>
     <string name="pref_disable_network_summary">Pon Tor a dormir cuando no haya Internet disponible</string>
-    <string name="pref_use_expanded_notifications">Muestra en la notificación el país y la dirección IP de tu nodo Tor de salida cuando esté disponible</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Permite que las personas conectadas al mismo Wi-Fi, los dispositivos conectados y cualquier otra persona que pueda conectarse a tu IP acceda a Tor</string>
     <string name="volunteer_mode_subtitle_desc">El modo Solidario permite que tu dispositivo sea un puente para los demás. Ayuda a las personas a usar Tor en lugares donde está bloqueado.
 \n
@@ -106,7 +103,6 @@
     <string name="pref_dnsport_dialog">Configuración del puerto DNS</string>
     <string name="pref_torrc_summary">SOLO EXPERTOS: ingresa las líneas de configuración torrc directas</string>
     <string name="pref_torrc_dialog">Torrc personalizada</string>
-    <string name="kibibyte">KiB</string>
     <string name="vpn_default_world">Global (Automático)</string>
     <string name="v3_client_auth_activity_title">Autorización del cliente</string>
     <string name="v3_key_hash">x25519 Clave privada en Base32</string>

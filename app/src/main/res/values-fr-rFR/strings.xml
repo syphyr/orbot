@@ -43,8 +43,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Activer le journal de débogage vers la sortie (adb ou aLogCat doivent être utilisés pour le visualiser)</string>
     <string name="project_home">Page d’accueil du projet :</string>
     <string name="third_party_software">Logiciels tiers :</string>
-    <string name="pref_use_expanded_notifications">Dans la notification, afficher si possible le pays et l’adresse IP de votre nœud de sortie Tor</string>
-    <string name="pref_use_expanded_notifications_title">Notifications plus détaillées</string>
     <string name="set_locale_title">Langue</string>
     <string name="pref_disable_network_title">Aucune mise en veille automatique du réseau</string>
     <string name="pref_disable_network_summary">Mettre Tor en veille quand Internet est inaccessible</string>
@@ -107,8 +105,6 @@
     <string name="pref_reduced_circuit_padding">Bourrage de circuit réduit</string>
     <string name="pref_circuit_padding_summary">Active le bourrage du circuit pour se défendre contre certaines formes d’analyse du trafic</string>
     <string name="pref_circuit_padding">Bourrage du circuit</string>
-    <string name="mebibyte">Mio</string>
-    <string name="kibibyte">Kio</string>
     <string name="confirm">Confirmer</string>
     <string name="v3_import_auth_private">Importer .auth_private</string>
     <string name="v3_backup_name_hint">Nom du fichier de sauvegarde…</string>

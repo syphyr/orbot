@@ -43,8 +43,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">iespējot atkļūdošanas žurnālu izvadei (jālieto adb vai aLogCat , lai skatītu)</string>
     <string name="project_home">Projekts Home:</string>
     <string name="third_party_software">Trešo personu programmatūra:</string>
-    <string name="pref_use_expanded_notifications">Paziņojumā tiek parādīta jūsu tor izejas mezgla valsts un IP adrese, ja tāda ir pieejama</string>
-    <string name="pref_use_expanded_notifications_title">Paplašināti paziņojumi</string>
     <string name="set_locale_title">Valoda</string>
     <string name="pref_disable_network_title">Neizmantot tīkla automātiskā miega režīmu</string>
     <string name="pref_disable_network_summary">Kad nav interneta, pārslēgt Tor\'u uz miega režīmu</string>
@@ -85,7 +83,6 @@
     <string name="btn_refresh">Atjaunināt</string>
     <string name="btn_tor_off">Tor izslēgšana</string>
     <string name="hidden_service_request">Programma vēlas atvērt sīpolu serveri Tor tīklā porta %1$s. Tas ir droši, ja lietotnei uzticaties.</string>
-    <string name="kibibyte">KiB</string>
     <string name="v3_backup_name_hint">Rezerves kopijas faila nosaukums…</string>
     <string name="pref_circuit_padding">Ķēdes polsterējums</string>
     <string name="pref_prefer_ipv6_summary">Norāda, ka IPv6 adreses ir vēlamas</string>
@@ -101,7 +98,6 @@
     <string name="pref_http_title">Tor HTTP</string>
     <string name="pref_http_summary">Port, kurā Tor piedāvā savu HTTP starpniekserveri (noklusējuma iestatījums: 8118 vai 0, lai atspējotu)</string>
     <string name="pref_http_dialog">HTTP porta konfigurācija</string>
-    <string name="mebibyte">MiB</string>
     <string name="vpn_default_world">Globālā (automātiskā)</string>
     <string name="v3_hosted_services">Hostētie sīpolu pakalpojumi</string>
     <string name="v3_client_auth_activity_title">Klienta autorizācija</string>

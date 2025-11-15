@@ -48,9 +48,6 @@
     <string name="version">Kĩh çaam wejxan </string>
     <string name="license">Licencia:</string>
     <string name="hidden_service_request">Teeꞔx appekh çaam pe’pe Onion yasesa’s phadewẽje, %1$s vxitxte. naayu’ ewna napa idx ewna sũuteçxaa.</string>
-    <string name="pref_use_expanded_notifications">Idx kaase’jnxi Tor nodote phta’sxi’k ꞔxhab wala’s ki dxi’j IP napa ewuutecxaa</string>
-    <string name="pref_use_expanded_notifications_title">Phtasxnxi’s wejx kaajiyu’nxi.
-Notificaciones ampliadas</string>
     <string name="set_locale_title">Kĩh yuwe</string>
     <string name="pref_disable_network_title">Reda’s peetx kyuju’jnximee</string>
     <string name="pref_disable_network_summary">Tora’s  mikyuju’ internet meete’</string>
@@ -72,8 +69,6 @@ Notificaciones ampliadas</string>
     <string name="pref_torrc_title">Idx phuse\'jnxi Torrc</string>
     <string name="pref_torrc_summary">MEH JIISA:  mki’ph Torrctewe’sx phuse’jnxi westxi</string>
     <string name="pref_torrc_dialog">Idx Torrc</string>
-    <string name="kibibyte">KiB</string>
-    <string name="mebibyte">MiB</string>
     <string name="vpn_default_world">Jxukay (petx)</string>
     <string name="hidden_services">Onion yuwe’s kajiyu’jnxi </string>
     <string name="v3_hosted_services">Onion yuwe’s kajiyu’jnxi ayte u\'pta’</string>

@@ -45,8 +45,6 @@
     <string name="project_home">Домашняя страница проекта:</string>
     <string name="third_party_software">Программы сторонних разработчиков: </string>
     <string name="hidden_service_request">Приложение хочет открыть onion-сервер на порту %1$s в сети Tor. Это безопасно, если вы доверяете приложению.</string>
-    <string name="pref_use_expanded_notifications">Отображать в уведомлении страну и IP-адрес вашего выходного узла Tor, если он доступен</string>
-    <string name="pref_use_expanded_notifications_title">Расширенные уведомления</string>
     <string name="set_locale_title">Язык</string>
     <string name="pref_disable_network_title">Автозасыпание без сети</string>
     <string name="pref_disable_network_summary">Переводить Tor в спящий режим при отсутствии интернета</string>
@@ -119,8 +117,6 @@
     <string name="v3_key_hash">Закрытый ключ x25519 в Base32</string>
     <string name="v3_client_auth_activity_title">Авторизация клиента</string>
     <string name="v3_hosted_services">Размещённые Onion-службы</string>
-    <string name="mebibyte">МБ</string>
-    <string name="kibibyte">КБ</string>
     <string name="bridge_snowflake_amp">Использовать Snowflake (AMP)</string>
     <string name="connected_title">Подключено</string>
     <string name="btn_configure">Настроить подключение</string>

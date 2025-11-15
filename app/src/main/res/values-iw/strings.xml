@@ -97,14 +97,11 @@
     <string name="next">הבא</string>
     <string name="no_internet_title">התחברות לאינטרנט</string>
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">לאפשר יומן ניפוי תקלות אל הפלט (דרוש שימוש ב־adb או ב־aLogCat כדי לצפות)</string>
-    <string name="pref_use_expanded_notifications_title">התראות מורחבות</string>
     <string name="pref_http_summary">פתחה דרכה Tor מגיש את מתווך ה־HTTP שלו (ברירת מחדל: 8118 או 0 להשבתה)</string>
     <string name="vpn_default_world">עולמי (אוטומטי)</string>
     <string name="hidden_services">שירותי בצל</string>
     <string name="backup_saved_at_external_storage">גיבוי נשמר באחסון חיצוני</string>
     <string name="disable">השבתה</string>
-    <string name="kibibyte">ק\"ב</string>
-    <string name="mebibyte">מ\"ב</string>
     <string name="setting_padding">ריפוד</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">הרצה כלקוח תחת חומת אש עם מדיניות מגבילה</string>
     <string name="license">רישיון:</string>
@@ -129,7 +126,6 @@
     <string name="pref_isolate_protocol">בידוד פרוטוקולי לקוח</string>
     <string name="backup_service">שירות גיבוי (אזהרה: עלול לחשוף את הגדרות השירות שלך ליישומונים אחרים)</string>
     <string name="hidden_service_request">יישום רוצה לפתוח שרת בצל בפתחה %1$s לרשת הTor. הפעולה בטוחה אם היישום אמין.</string>
-    <string name="pref_use_expanded_notifications">להציג בהתראה את המדינה וכתובת ה־IP של צומת היציאה שלך כשזמין</string>
     <string name="v3_hosted_services">שירותי בצל מאורחים</string>
     <string name="v3_key_hash">מפתח פרטי x25519 בבסיס 32</string>
     <string name="v3_onion">שם ‎.onion</string>

@@ -53,8 +53,6 @@
     <string name="project_home">Хатняя старонка праекта:</string>
     <string name="third_party_software">Праграмы іншых распрацоўнікаў: </string>
     <string name="hidden_service_request">Дадатак хоча адкрыць схаваны порт сервера %1$s сеткі Tor. Гэта бяспечна, калі вы давяраеце дадзенаму дадатку.</string>
-    <string name="pref_use_expanded_notifications">Адлюстроўваць у паведамленні краіну і IP-адрас вузла выхаду з tor, калі ён даступны</string>
-    <string name="pref_use_expanded_notifications_title">Пашыраныя апавяшчэнні</string>
     <string name="set_locale_title">Мова</string>
     <string name="pref_disable_network_title">Аўтазасынанне без сеткі</string>
     <string name="pref_disable_network_summary">Пераводзіць Tor у спячы рэжым пры немені інтэрнэту</string>
@@ -102,8 +100,6 @@
     <string name="connected_title">Падлучана</string>
     <string name="btn_refresh">Абнавіць</string>
     <string name="title_choose_apps">Абраць праграму</string>
-    <string name="kibibyte">КіБ</string>
-    <string name="mebibyte">МіБ</string>
     <string name="confirm">Пацвердзіць</string>
     <string name="custom_bridges">Карыстальніцкія масты</string>
     <string name="connect">Злучэнне</string>

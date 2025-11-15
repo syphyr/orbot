@@ -45,8 +45,6 @@
     <string name="project_home">Proiektuaren etxea(k):</string>
     <string name="third_party_software">Hirugarrengoen softwarea:</string>
     <string name="hidden_service_request">Aplikazio batek ezkutuko zerbitzariko %1$s ataka ireki nau du Tor sarera. Segurua da aplikazioaz fidatzen bazara.</string>
-    <string name="pref_use_expanded_notifications">Erakutsi hedatutako jakinarazpenak Tor irteera herrialde eta IP-arekin</string>
-    <string name="pref_use_expanded_notifications_title">Hedatutako jakinarazpenak</string>
     <string name="set_locale_title">Hizkuntza</string>
     <string name="pref_disable_network_title">Sareko lokartze automatikorik ez</string>
     <string name="pref_disable_network_summary">Jarri Tor lotan internet atzigarri ez dagoenean</string>
@@ -91,7 +89,6 @@
     <string name="pref_reduced_connection_padding_summary">Errelearen konexioa azkarrago ixten du eta pakete betegarri gutxiago bidaltzen ditu datu eta bateria erabilera gutxiagotzeko</string>
     <string name="full_device_vpn">Gailu osoaren VPN-a</string>
     <string name="trying_to_connect_title">Konektatzen…</string>
-    <string name="mebibyte">MiB</string>
     <string name="confirm">Berretsi</string>
     <string name="connect">Konektatu</string>
     <string name="action_activate">Aktibatu</string>
@@ -103,7 +100,6 @@
     <string name="menu_more">Gehiago</string>
     <string name="version">Bertsioa:</string>
     <string name="license">Lizentzia:</string>
-    <string name="kibibyte">KiB</string>
     <string name="menu_new_identity">Nortasun berria</string>
     <string name="next">Hurrengoa</string>
     <string name="status_starting_up">Orbot abiarazten ari da…</string>

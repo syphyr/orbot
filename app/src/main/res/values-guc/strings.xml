@@ -48,9 +48,7 @@
   <string name="version">Eírrakawua</string>
   <string name="license">Jiat\'tapula Anaiwua  Puyataya</string>
   <string name="hidden_service_request">Wane app ajútales cewolla, %1$saner jutuma maka pirrajulee</string>
-  <string name="pref_use_expanded_notifications">Pii yaa taa jalain puuma\'in ,je jalain IP erre pujuituín nulujee Tor</string>
-  <string name="pref_use_expanded_notifications_title">Aküüjaa mulou</string>
-  <string name="set_locale_title">Anuiki</string>
+    <string name="set_locale_title">Anuiki</string>
   <string name="pref_disable_network_title">Nojots atunku\'in  Network jumuiwuaya\'a </string>
   <string name="pref_disable_network_summary">Púitaa  Tor  junain atunkaa nojotpaa ein internet.</string>
   <string name="newnym">¡tü puanajun sülü wanee jeketü shiyawase Tor!</string>
@@ -71,9 +69,7 @@
   <string name="pref_torrc_title">Anatia pupula torr c</string>
   <string name="pref_torrc_summary">Jupula na a\'tujushanaka  jikerrolo julu Torrc</string>
   <string name="pref_torrc_dialog">Pupülajat  Torrc</string>
-  <string name="kibibyte">KiB</string>
-  <string name="mebibyte">MiB</string>
-  <string name="vpn_default_world">global(Auto)</string>
+    <string name="vpn_default_world">global(Auto)</string>
   <string name="hidden_services">süpülajana tüü cewollaka</string>
   <string name="v3_hosted_services">süpülajana cewollaka anáterüshi</string>
   <string name="v3_client_auth_activity_title">alüwataya sümüin sümajat</string>

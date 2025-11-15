@@ -78,10 +78,8 @@
     <string name="btn_tor_off">Lülita Tor välja</string>
     <string name="wizard_details_msg">Orbot on avatud lähtekoodiga rakendus, mis sisaldab Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks ja LibEvent. Ta võimaldab kasutada VPN-tunnelit, lokaalset HTTP Connect proksit (HTTPS ainult pordis 8118) ja SOCKS-proksit (9050) Tor-võrku.</string>
     <string name="hidden_service_request">Rakendus soovib avada Tor-võrku sibulaserveri sadamas %1$s. See on turvaline, kui te rakendust usaldate.</string>
-    <string name="pref_use_expanded_notifications_title">Laiendatud teated</string>
     <string name="pref_http_dialog">HTTP portide konfigureerimine</string>
     <string name="pref_transport_title">Tor TransProxy port</string>
-    <string name="kibibyte">KiB</string>
     <string name="v3_backup_key">Kliendi varukoopia autoriseerimisvõti</string>
     <string name="v3_delete_client_authorization_confirm">Kliendi autoriseeringu kustutamine</string>
     <string name="v3_backup_name_hint">Varukoopia failinimi…</string>
@@ -98,7 +96,6 @@
     <string name="pref_dnsport_title">Tor DNS-port</string>
     <string name="pref_dnsport_summary">Port, millel Tor pakub oma DNS-i (vaikimisi: 9053 või 0, et keelata)</string>
     <string name="pref_torrc_title">Torrc kohandatud konfiguratsioon</string>
-    <string name="mebibyte">MiB</string>
     <string name="hidden_services">Sibulateenused</string>
     <string name="v3_client_auth_activity_title">Kliendi autoriseerimine</string>
     <string name="v3_key_hash">x25519 privaatne võti Base32-süsteemis</string>
@@ -131,7 +128,6 @@
     <string name="snowflake_proxy_msg_description">Näita sõnumit, kui aitad kedagi tsensuurist kõrvale hoida</string>
     <string name="pref_disable_ipv4_summary">Ütleb väljumistele, et nad ei ühenduksid IPv4-aadressidega</string>
     <string name="pref_socks_summary">Port, millel Tor pakub oma SOCKS proxy\'d (vaikimisi: 9050 või 0, et keelata)</string>
-    <string name="pref_use_expanded_notifications">Kuvage teates riik ja IP-aadress, kui see on saadaval, teie tor väljumissõlme kohta</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Lubage Wi-Fi-võrgupartneritele, seotud seadmetele ja kõigile teistele, kes saavad teie IP-ga ühenduda, juurdepääs Torile</string>
     <string name="pref_socks_dialog">SOCKS-porti konfiguratsioon</string>
     <string name="pref_dnsport_dialog">DNS portide konfigureerimine</string>

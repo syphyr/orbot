@@ -45,8 +45,6 @@
     <string name="project_home">Heimili verkefnisins:</string>
     <string name="third_party_software">Hugbúnaður frá 3ja aðila:</string>
     <string name="hidden_service_request">Forrit vill opna onion-netþjón á gáttinni %1$s inn á Tor-netið. Þetta er öruggt ef þú treystir forritinu.</string>
-    <string name="pref_use_expanded_notifications">Birta land og IP-vistfang útgangspunkts í tilkynningum þegar slíkt er tiltækt</string>
-    <string name="pref_use_expanded_notifications_title">Útflettar tilkynningar</string>
     <string name="set_locale_title">Tungumál</string>
     <string name="pref_disable_network_title">Engin sjálfvirk svæfing netkerfis</string>
     <string name="pref_disable_network_summary">Svæfa Tor þegar engin internettenging er til staðar</string>
@@ -107,8 +105,6 @@
     <string name="pref_reduced_circuit_padding">Minnkuð bólstrun rásar (padding)</string>
     <string name="pref_circuit_padding_summary">Virkjar alltaf bólstrun rásar (padding) til varnar gegn ákveðnum gerðum umferðargreiningar</string>
     <string name="pref_circuit_padding">Bólstrun rásar (padding)</string>
-    <string name="kibibyte">KiB</string>
-    <string name="mebibyte">MiB</string>
     <string name="backup_port_exist">Villa: Önnur onion-þjónusta er þegar að nota gátt %s</string>
     <string name="confirm">Staðfesta</string>
     <string name="v3_import_auth_private">Flytja inn .auth_private</string>

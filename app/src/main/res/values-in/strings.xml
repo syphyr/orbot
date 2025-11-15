@@ -43,8 +43,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">nyalakan debug log untuk output (harus menggunakan adb atau aLogCat untuk menampilkan)</string>
     <string name="project_home">Beranda Proyek:</string>
     <string name="third_party_software">Perangkat Lunak Pihak Ke-3:</string>
-    <string name="pref_use_expanded_notifications">Tampilkan negara dan alamat IP node keluar Tor Anda di pemberitahuan jika tersedia</string>
-    <string name="pref_use_expanded_notifications_title">Notifikasi Melebar</string>
     <string name="set_locale_title">Bahasa</string>
     <string name="pref_disable_network_title">Auto-Tidur Tidak Ada Jaringan</string>
     <string name="pref_disable_network_summary">Menempatkan Tor untuk tidur ketika tidak ada internet yang tersedia</string>
@@ -64,8 +62,6 @@
     <string name="please_restart_Orbot_to_enable_the_changes">Silakan start ulang Orbot untuk mengaktifkan perubahan</string>
     <string name="done">Beres!</string>
     <string name="name">Nama</string>
-    <string name="mebibyte">MiB</string>
-    <string name="kibibyte">KiB</string>
     <string name="pref_http_title">Tor HTTP</string>
     <string name="pref_http_summary">Port yang Tor menawarkan proxy HTTP-nya (standar: 8118 atau 0 untuk mematikan)</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Buka Proxy di Semua Antarmuka</string>

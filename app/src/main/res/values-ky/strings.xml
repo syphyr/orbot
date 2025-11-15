@@ -15,10 +15,8 @@
     <string name="set_locale_title">Тил</string>
     <string name="save">Сактоо</string>
     <string name="name">Аты-жөнү</string>
-    <string name="kibibyte">КиБ</string>
     <string name="connect">Туташуу</string>
     <string name="menu_new_identity">Жаңы инсан</string>
     <string name="setting_debug">Катаны оңдоо</string>
-    <string name="mebibyte">МиБ</string>
     <string name="pref_general_group">Негизгилер</string>
 </resources>

@@ -45,8 +45,6 @@
     <string name="project_home">Proje Ana Sayfası:</string>
     <string name="third_party_software">Üçüncü Taraf Yazılım:</string>
     <string name="hidden_service_request">Bir uygulama %1$s numaralı bağlantı noktasındaki onion sunucusunu Tor ağına açmak istiyor. Uygulamaya güveniyorsanız bu güvenlidir.</string>
-    <string name="pref_use_expanded_notifications">Mevcut olduğunda tor çıkış düğümünüzün ülkesini ve IP adresini bildirimde göster</string>
-    <string name="pref_use_expanded_notifications_title">Ayrıntılı Bildirimler</string>
     <string name="set_locale_title">Dil</string>
     <string name="pref_disable_network_title">Bağlantı Olmadığında Otomatik Uyku</string>
     <string name="pref_disable_network_summary">İnternet bağlantısı olmadığında Tor uyku kipine geçsin</string>
@@ -107,8 +105,6 @@
     <string name="pref_reduced_circuit_padding">Azaltılmış devre yastıklaması</string>
     <string name="pref_circuit_padding_summary">Bazı trafik analizi türlerine karşı korunmak için devre yastıklamasını etkinleştirin</string>
     <string name="pref_circuit_padding">Devre yastıklama</string>
-    <string name="mebibyte">MiB</string>
-    <string name="kibibyte">KiB</string>
     <string name="confirm">Onayla</string>
     <string name="v3_import_auth_private">.auth_private içe aktar</string>
     <string name="v3_backup_name_hint">Yedekleme dosyası adı…</string>
