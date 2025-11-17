@@ -202,23 +202,36 @@ val fetchBuiltinBridges by tasks.registering {
     outputs.file(outputFile)
 
     doLast {
-        assetsDir.asFile.mkdirs()
-        outputFile.asFile.delete()
-
-        try {
-            URI("https://bridges.torproject.org/moat/circumvention/builtin")
-                .toURL()
-                .openStream()
-                .use { input ->
-                    outputFile.asFile.outputStream().use { output ->
-                        input.copyTo(output)
-                    }
-                }
-
-            println("Successfully fetched builtin bridges from Tor.")
+        val diffOutput = try {
+            providers.exec {
+                commandLine("git", "log", "-1", "--since='1 day ago'", outputFile.asFile.path)
+            }.standardOutput.asText.get().trim()
         } catch (e: Exception) {
-            println("WARNING: Could not fetch builtin bridges: ${e.message}")
-            println("Using existing builtin-bridges.json if present.")
+            throw GradleException(
+                "Could not run 'git' to verify builtin-bridges.json: ${e.message}\n" +
+                 "Ensure git is installed and this is a git repo.", e
+            )
+        }
+
+        if (diffOutput.isBlank()) {
+            assetsDir.asFile.mkdirs()
+            outputFile.asFile.delete()
+
+            try {
+                URI("https://bridges.torproject.org/moat/circumvention/builtin")
+                    .toURL()
+                    .openStream()
+                    .use { input ->
+                        outputFile.asFile.outputStream().use { output ->
+                            input.copyTo(output)
+                        }
+                    }
+
+                println("Successfully fetched builtin bridges from Tor.")
+            } catch (e: Exception) {
+                println("WARNING: Could not fetch builtin bridges: ${e.message}")
+                println("Using existing builtin-bridges.json if present.")
+            }
         }
     }
 }
@@ -235,7 +248,7 @@ val verifyBridgesCommitted by tasks.registering {
     doLast {
         val diffOutput = try {
             providers.exec {
-                commandLine("git", "log", "-1", "--since='3 weeks ago'", bridgesFile.path)
+                commandLine("git", "log", "-1", "--since='1 day ago'", bridgesFile.path)
             }.standardOutput.asText.get().trim()
         } catch (e: Exception) {
             throw GradleException(
