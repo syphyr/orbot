@@ -15,6 +15,7 @@ import org.torproject.android.R
 import org.torproject.android.databinding.CustomBridgeBottomSheetBinding
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.MoatApi
+import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 
@@ -98,12 +99,14 @@ class CustomBridgeBottomSheet() :
         binding.tvCancel.setOnClickListener { dismiss() }
 
         binding.btnAction.setOnClickListener {
+            Prefs.transport = Transport.CUSTOM
+            Prefs.smartConnect = false
             Prefs.bridgesList = binding.etBridges.text?.split("\n") ?: emptyList()
             dismiss()
             val parent = requireActivity().supportFragmentManager.findFragmentByTag(
                 ConfigConnectionBottomSheet.TAG
             ) as ConfigConnectionBottomSheet
-            parent.tryConnectingFromCustomBridge()
+            parent.closeAndConnect()
         }
 
         configureMultilineEditTextScrollEvent(binding.etBridges)

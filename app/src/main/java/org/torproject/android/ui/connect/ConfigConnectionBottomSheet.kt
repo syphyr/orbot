@@ -184,7 +184,7 @@ class ConfigConnectionBottomSheet :
         }
     }
 
-    private fun closeAndConnect() {
+    public fun closeAndConnect() {
         dismiss()
         val navHostFragment = requireActivity().supportFragmentManager.fragments[0] as NavHostFragment
         val connectFrag = navHostFragment.childFragmentManager.fragments.last() as ConnectFragment
@@ -288,9 +288,4 @@ class ConfigConnectionBottomSheet :
         binding.btnAskTor.text = text
     }
 
-    fun tryConnectingFromCustomBridge() {
-        Prefs.transport = Transport.CUSTOM
-        Prefs.smartConnect = false
-        dismiss()
-    }
 }
