@@ -44,6 +44,7 @@ class ConfigConnectionBottomSheet :
 
         radios = arrayListOf(
             binding.rbDirect,
+            binding.rbSmart,
             binding.rbSnowflake,
             binding.rbSnowflakeAmp,
             binding.rbSnowflakeSqs,
@@ -55,6 +56,7 @@ class ConfigConnectionBottomSheet :
         )
         radioSubtitleMap = mapOf<CompoundButton, View>(
             binding.rbDirect to binding.tvDirectSubtitle,
+            binding.rbSmart to binding.tvSmartSubtitle,
             binding.rbSnowflake to binding.tvSnowflakeSubtitle,
             binding.rbSnowflakeAmp to binding.tvSnowflakeAmpSubtitle,
             binding.rbSnowflakeSqs to binding.tvSnowflakeSqsSubtitle,
@@ -66,6 +68,7 @@ class ConfigConnectionBottomSheet :
         )
         allSubtitles = arrayListOf(
             binding.tvDirectSubtitle,
+            binding.tvSmartSubtitle,
             binding.tvSnowflakeSubtitle,
             binding.tvSnowflakeAmpSubtitle,
             binding.tvSnowflakeSqsSubtitle,
@@ -82,6 +85,7 @@ class ConfigConnectionBottomSheet :
 
         // setup containers so radio buttons can be checked if labels are clicked on
         binding.directContainer.setOnClickListener { binding.rbDirect.isChecked = true }
+        binding.smarttContainer.setOnClickListener { binding.rbSmart.isChecked = true }
         binding.snowflakeContainer.setOnClickListener { binding.rbSnowflake.isChecked = true }
         binding.snowflakeAmpContainer.setOnClickListener { binding.rbSnowflakeAmp.isChecked = true }
         binding.snowflakeSqsContainer.setOnClickListener { binding.rbSnowflakeSqs.isChecked = true }
@@ -93,6 +97,7 @@ class ConfigConnectionBottomSheet :
         binding.tvCancel.setOnClickListener { dismiss() }
 
         binding.rbDirect.setOnCheckedChangeListener(this)
+        binding.rbSmart.setOnCheckedChangeListener (this)
         binding.rbSnowflake.setOnCheckedChangeListener(this)
         binding.rbSnowflakeAmp.setOnCheckedChangeListener(this)
         binding.rbSnowflakeSqs.setOnCheckedChangeListener(this)
@@ -114,6 +119,10 @@ class ConfigConnectionBottomSheet :
             } else if (binding.rbDirect.isChecked) {
                 Prefs.transport = Transport.NONE
                 Prefs.smartConnect = false
+                closeAndConnect()
+            } else if (binding.rbSmart.isChecked) {
+                Prefs.transport = Transport.NONE
+                Prefs.smartConnect = true
                 closeAndConnect()
             } else if (binding.rbSnowflake.isChecked) {
                 Prefs.transport = Transport.SNOWFLAKE

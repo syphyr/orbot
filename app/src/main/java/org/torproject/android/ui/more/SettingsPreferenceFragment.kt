@@ -1,13 +1,16 @@
 /* Copyright (c) 2009, Nathan Freitas, Orbot / The Guardian Project - http://openideals.com/guardian */ /* See LICENSE for licensing information */
 package org.torproject.android.ui.more
 
+import android.R.attr.homeAsUpIndicator
 import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.widget.Toolbar
 import androidx.core.os.LocaleListCompat
 import androidx.navigation.fragment.findNavController
 import androidx.preference.CheckBoxPreference
@@ -36,11 +39,19 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
         initPrefs()
     }
 
-    private var title: TextView? = null
+    //private var title: TextView? = null
+    private var toolbar: Toolbar? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        title = view.findViewById(R.id.title)
+        //title = view.findViewById(R.id.title)
+        toolbar = view.findViewById<Toolbar>(R.id.toolbar)
+        (context as AppCompatActivity).setSupportActionBar(toolbar)
+        toolbar?.setNavigationOnClickListener {
+            // do something when click navigation
+            onBackPressedCallback.handleOnBackPressed()
+        }
+        toolbar?.title = requireContext().getString(R.string.menu_settings)
     }
 
     private fun initPrefs() {
@@ -58,7 +69,8 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                     val newLocale = LocaleListCompat.forLanguageTags(language)
                     AppCompatDelegate.setApplicationLocales(newLocale)
-                    title?.text = requireContext().getString(R.string.menu_settings)
+                    //title?.text = requireContext().getString(R.string.menu_settings)
+                    toolbar?.title = requireContext().getString(R.string.menu_settings)
                 } else {
                     requireActivity().sendIntentToService(OrbotConstants.ACTION_LOCAL_LOCALE_SET)
                     (requireActivity().application as OrbotApp).setLocale()
@@ -111,7 +123,8 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
         setPreferencesFromResource(R.xml.preferences, preferenceScreen.key)
         initPrefs()
         isSubscreen = true
-        title?.text = preferenceScreen.title
+        //title?.text = preferenceScreen.title
+        toolbar?.title = preferenceScreen.title
     }
 
     private lateinit var onBackPressedCallback: OnBackPressedCallback
@@ -120,7 +133,8 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
         onBackPressedCallback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 if (isSubscreen) {
-                    title?.text = requireContext().getString(R.string.menu_settings)
+                    //title?.text = requireContext().getString(R.string.menu_settings)
+                    toolbar?.title = requireContext().getString(R.string.menu_settings)
                     setPreferencesFromResource(R.xml.preferences, null)
                     isSubscreen = false
                 } else {

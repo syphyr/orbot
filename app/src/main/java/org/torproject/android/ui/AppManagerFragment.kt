@@ -20,6 +20,8 @@ import android.widget.ListAdapter
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.content.edit
 import androidx.core.content.res.ResourcesCompat
@@ -61,6 +63,8 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
 
     private val job = Job()
     private var retainedCheckedPackages: Set<String> = emptySet()
+
+    private var toolbar: Toolbar? = null
 
     private val scope = CoroutineScope(Dispatchers.Main + job)
     override fun onCreateView(
@@ -105,6 +109,18 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
         })
 
         alSuggested = OrbotConstants.VPN_SUGGESTED_APPS
+
+        toolbar = view.findViewById<Toolbar>(R.id.toolbar)
+        (context as AppCompatActivity).setSupportActionBar(toolbar)
+        toolbar?.setNavigationOnClickListener {
+            // do something when click navigation
+
+            (context as AppCompatActivity).supportFragmentManager.popBackStack()
+
+        }
+        toolbar?.title = requireContext().getString(R.string.title_choose_apps)
+
+
         return view
     }
     override fun onCreate(savedInstanceState: Bundle?) {

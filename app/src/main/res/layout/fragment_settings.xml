@@ -10,16 +10,14 @@
         android:background="@android:color/transparent"
         app:elevation="0dp">
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:minHeight="?actionBarSize"
-            android:padding="@dimen/button_horizontal_small_margin"
-            android:text="@string/menu_settings"
-            android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
-            android:textStyle="bold" />
+               <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:navigationIcon="?attr/homeAsUpIndicator"
+                    android:baselineAligned="false" />
+
+
 
     </com.google.android.material.appbar.AppBarLayout>
 
