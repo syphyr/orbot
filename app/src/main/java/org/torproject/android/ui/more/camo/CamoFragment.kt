@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
@@ -85,6 +87,16 @@ class CamoFragment : Fragment() {
                     startActivity(Intent(android.provider.Settings.ACTION_SETTINGS))
             }
         }
+
+        var toolbar = view.findViewById<Toolbar>(R.id.toolbar)
+        (context as AppCompatActivity).setSupportActionBar(toolbar)
+        toolbar?.setNavigationOnClickListener {
+            // do something when click navigation
+
+            (context as AppCompatActivity).supportFragmentManager.popBackStack()
+
+        }
+        toolbar?.title = requireContext().getString(R.string.pref_camo_mode_title)
         return view
     }
 
