@@ -46,6 +46,7 @@ import org.torproject.android.ui.core.DeviceAuthenticationPrompt
 class OrbotActivity : BaseActivity() {
 
     private lateinit var logBottomSheet: LogBottomSheet
+    private lateinit var navController: NavController
 
     var portSocks: Int = -1
     var portHttp: Int = -1
@@ -110,7 +111,7 @@ class OrbotActivity : BaseActivity() {
 
         logBottomSheet = LogBottomSheet()
 
-        val navController: NavController = findNavController(R.id.nav_fragment)
+        navController = findNavController(R.id.nav_fragment)
 
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigationView.setupWithNavController(navController)
@@ -200,6 +201,10 @@ class OrbotActivity : BaseActivity() {
             }
 
         }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.navigateUp()
     }
 
     private fun requestNotificationPermission() {
