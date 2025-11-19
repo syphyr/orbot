@@ -221,12 +221,14 @@ class ConnectFragment : Fragment(),
         binding.tvTitle.text = getString(R.string.secure_your_connection_title)
         binding.tvSubtitle.text = getString(R.string.secure_your_connection_subtitle)
 
+        /**
+         * //TODO hide smart connect in the UI for now
         binding.swSmartConnect.visibility = View.VISIBLE
         binding.swSmartConnect.isChecked = Prefs.smartConnect
         binding.swSmartConnect.setOnCheckedChangeListener { _, value ->
             Prefs.smartConnect = value
             doLayoutOff()
-        }
+        }**/
 
         binding.tvConfigure.visibility = View.VISIBLE
         binding.tvConfigure.text = getString(R.string.btn_configure)

@@ -127,6 +127,43 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/smarttContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbSmart"
+                    style="@style/BottomSheetRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/BottomSheetRadioHeader"
+                        android:text="@string/smart_connect" />
+
+                    <TextView
+                        android:id="@+id/tvSmartSubtitle"
+                        style="@style/BottomSheetTextView"
+                        android:text="@string/run_smart_connect_"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
                 android:id="@+id/snowflakeContainer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -234,39 +271,7 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/telegramContainer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:background="?android:attr/selectableItemBackground"
-                android:orientation="horizontal">
 
-                <RadioButton
-                    android:id="@+id/rbTelegram"
-                    style="@style/BottomSheetRadio"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:orientation="vertical">
-
-                    <TextView
-                        style="@style/BottomSheetRadioHeader"
-                        android:text="@string/bridges_via_telegram" />
-
-                    <TextView
-                        android:id="@+id/tvTelegramSubtitle"
-                        style="@style/BottomSheetTextView"
-                        android:text="@string/bridges_via_telegram_subtitle"
-                        android:visibility="gone" />
-                </LinearLayout>
-
-            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/obfs4Container"
@@ -331,6 +336,40 @@
                         android:id="@+id/tvEmailSubtitle"
                         style="@style/BottomSheetTextView"
                         android:text="@string/bridges_via_email_subtitle"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/telegramContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbTelegram"
+                    style="@style/BottomSheetRadio"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/BottomSheetRadioHeader"
+                        android:text="@string/bridges_via_telegram" />
+
+                    <TextView
+                        android:id="@+id/tvTelegramSubtitle"
+                        style="@style/BottomSheetTextView"
+                        android:text="@string/bridges_via_telegram_subtitle"
                         android:visibility="gone" />
                 </LinearLayout>
 

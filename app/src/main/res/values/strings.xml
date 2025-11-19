@@ -167,7 +167,7 @@
     <string name="kindness_mode_disabled_wifi">Connect to Wi-Fi to help people circumvent censorship</string>
     <string name="kindness_mode_disabled_power">Connect your device to power to help people circumvent censorship</string>
 
-    <string name="smart_connect">Smart Connect (default)</string>
+    <string name="smart_connect">Smart Connect</string>
     <string name="direct_connect">Direct Connection to Tor</string>
     <string name="direct_connect_subtitle">The best way to connect to Tor. Use if Tor is not blocked.</string>
     <string name="snowflake">Snowflake</string>
