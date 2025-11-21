@@ -249,7 +249,7 @@
     <string name="status_disabled">Orbot-i është i Çaktivizuar</string>
     <string name="open_orbot_to_connect_to_tor">Që të lidheni te Tor-i, hapni Orbot-in</string>
     <string name="status_shutting_down">Orbot-i Po Fiket</string>
-    <string name="connect_to_tor">Lidhuni me Tor-in</string>
+    <string name="connect_to_tor">Lidhu me Tor-in</string>
     <string name="orbot_config_invalid">Formësim i Pavlefshëm Orbot-i</string>
     <string name="couldn_t_start_tor_process_">S’u nis dot procesi Tor:</string>
     <string name="unable_to_start_tor">S’arrihet të niset Tor-i:</string>
