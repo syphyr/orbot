@@ -204,4 +204,7 @@
     <string name="pref_isolate_keep_alive">Garder les circuits isolés actifs</string>
     <string name="pref_isolate_keep_alive_summary">Garder les circuits isolés actifs qui ont au moins un flux avec authentification SOCKS activée</string>
     <string name="search_for_apps">Chercher des applis</string>
+    <string name="app_icon_chooser_label_night_watch">Veille nocturne</string>
+    <string name="app_icon_chooser_label_assistant">Assistant</string>
+    <string name="app_icon_chooser_label_paint">Paint</string>
 </resources>
