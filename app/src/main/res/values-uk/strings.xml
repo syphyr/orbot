@@ -149,7 +149,7 @@
     <string name="volunteer_mode_title">Допомагайте іншим
 \nпід\'єднуватися до Tor</string>
     <string name="volunteer_mode_alltime_label">Усього за весь час</string>
-    <string name="smart_connect">Розумне з\'єднання (типово)</string>
+    <string name="smart_connect">Розумне підключення</string>
     <string name="direct_connect">Безпосереднє з\'єднання з Tor</string>
     <string name="snowflake_subtitle">З\'єднання через волонтерів Tor. Обходить деякі блокування Tor.</string>
     <string name="connect">Під\'єднати</string>
