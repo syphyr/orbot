@@ -137,7 +137,7 @@
     <string name="volunteer_mode_title">Помогнете на другите\nда се свържат с Тор</string>
     <string name="volunteer_mode_weekly_label">Общо седмично</string>
     <string name="volunteer_mode_alltime_label">Общо за цялото време</string>
-    <string name="smart_connect">Интелигентна връзка (подразбирано)</string>
+    <string name="smart_connect">Интелигентна връзка</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Връзката се осъществява през доброволци на Тор. Заобикаля някои забрани на Тор.</string>
     <string name="connect">Свързване</string>
