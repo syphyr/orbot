@@ -15,7 +15,7 @@ Orbot is a free VPN and proxy app that empowers other apps to use the internet m
 ***********************************************
 <img src=./fastlane/metadata/android/en-US/images/phoneScreenshots/A-orbot_connected.png width="20%"> <img src=./fastlane/metadata/android/en-US/images/phoneScreenshots/B-choose-how.png width="20%">
 <img src=./fastlane/metadata/android/en-US/images/phoneScreenshots/C-Choose_Apps.png width="20%">
-<img src=./fastlane/metadata/android/en-US/images/phoneScreenshots/kindness_mode_screen.png width="20%">
+<img src=./fastlane/metadata/android/en-US/images/phoneScreenshots/D-kindness_mode_screen.png width="20%">
 <img src=./fastlane/metadata/android/en-US/images/phoneScreenshots/E-more_screen.png width="20%">
 
 ***********************************************
