@@ -13,10 +13,10 @@
 Orbot is a free VPN and proxy app that empowers other apps to use the internet more securely. Orbot uses Tor to encrypt your Internet traffic and then hides it by bouncing through a series of computers around the world. Tor is free software and an open network that helps you defend against a form of network surveillance that threatens personal freedom and privacy, confidential business activities and relationships, and state security known as traffic analysis.
 
 ***********************************************
-<img src=./fastlane/metadata/android/en-US/images/phoneScreenshots/A-orbot_connected.png width="20%"> <img src=./fastlane/metadata/android/en-US/images/phoneScreenshots/B-choose-how.png width="20%">
-<img src=./fastlane/metadata/android/en-US/images/phoneScreenshots/C-Choose_Apps.png width="20%">
-<img src=./fastlane/metadata/android/en-US/images/phoneScreenshots/D-kindness_mode_screen.png width="20%">
-<img src=./fastlane/metadata/android/en-US/images/phoneScreenshots/E-more_screen.png width="20%">
+<img src=./fastlane/metadata/android/en-US/images/phoneScreenshots/A-orbot_connected.png width="19%%"> <img src=./fastlane/metadata/android/en-US/images/phoneScreenshots/B-choose-how.png width="20%">
+<img src=./fastlane/metadata/android/en-US/images/phoneScreenshots/C-Choose_Apps.png width="19%">
+<img src=./fastlane/metadata/android/en-US/images/phoneScreenshots/D-kindness_mode_screen.png width="19%">
+<img src=./fastlane/metadata/android/en-US/images/phoneScreenshots/E-more_screen.png width="19%">
 
 ***********************************************
 Orbot is a crucial component of the Guardian Project, an initiative  that leads an effort
