@@ -17,7 +17,7 @@ object TorConfig {
     @Suppress("NullableBooleanElvis")
     fun build(context: ContextWrapper, geoIpFile: File, geoIp6File: File): String {
         val conf = mutableListOf(
-            "RunAsDaemon 1",
+            "RunAsDaemon 0",
             "AvoidDiskWrites 1")
 
         val prefs = Prefs.getSharedPrefs(context)
