@@ -2,7 +2,7 @@
 
 <resources>
 
-    <style name="DefaultTheme" parent="Theme.AppCompat.NoActionBar">
+    <style name="DefaultTheme" parent="Theme.MaterialComponents.NoActionBar">
         <item name="colorPrimary">@color/new_background</item>
         <item name="android:windowBackground">@color/new_background</item>
         <item name="android:windowIsFloating">false</item>
