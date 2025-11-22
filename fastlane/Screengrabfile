@@ -9,7 +9,7 @@
 # locale, and then calling use_tests_in_classes() below with an array of one test... Setting clear
 # screenshots to true
 # default. every locale that we're tryign to maintain screenshots of
-ALL_LOCALES_WE_TRACK = ['en-US', 'fr-FR', 'es-MX', 'de-DE', 'ar', 'he', 'tr', 'pt', 'ja', 'hi', 'ru', 'ko-KR', 'bg', 'en_GB', 'id', 'ga', 'it', 'uk', 'ca', 'ro', 'ta', 'pl', 'pt_PT', 'fr', 'es', 'sq', 'de', 'vi', 'pt_BR', 'cs', 'et', 'fi', 'el', 'sr', 'nb_NO', 'az', 'sv', 'sk', 'lv', 'es_CU', 'tk', 'sl', 'zh_Hans'].sort
+ALL_LOCALES_WE_TRACK = ['en-US', 'fr-FR', 'es-MX', 'de-DE', 'ar', 'he', 'tr', 'pt', 'ja-JP', 'hi', 'ru', 'ko-KR', 'bg', 'en_GB', 'id', 'ga', 'it-IT', 'uk', 'ca', 'ro', 'ta', 'pl', 'pt_PT', 'fr', 'es', 'sq', 'de', 'vi', 'pt_BR', 'cs', 'et', 'fi', 'el', 'sr', 'nb_NO', 'az', 'sv', 'sk', 'lv', 'es_CU', 'tk', 'sl', 'zh_Hans'].sort
 
 # get screenshots for all loacles, excluding the ones in this array
 # useful if some screenshots aren't coming out good for some locales, and others are.
