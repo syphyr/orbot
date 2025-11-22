@@ -142,7 +142,7 @@
     <string name="volunteer_mode_alltime_label">所有时间总计</string>
     <string name="volunteer_mode_subtitle_desc">善举模式可让您的设备成为他人的网桥，帮助人们在 Tor 被屏蔽的地方使用 Tor。\n\n• 不会耗尽电池电量\n• 不会减慢网速\n• 只通过 Wi-Fi 运行\n• 可随时关闭</string>
     <string name="snowflake">Snowflake</string>
-    <string name="smart_connect">智能连接（默认）</string>
+    <string name="smart_connect">智能连接</string>
     <string name="direct_connect">直接连接到 Tor</string>
     <string name="direct_connect_subtitle">连接 Tor 的最佳方式，在 Tor 未被屏蔽时使用。</string>
     <string name="next">下一步</string>
