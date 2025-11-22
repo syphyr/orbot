@@ -63,7 +63,7 @@
     <string name="btn_refresh">Rifreskoje</string>
     <string name="btn_tor_off">Çaktivizoje Tor-in</string>
     <string name="menu_log">Regjistër</string>
-    <string name="wizard_details_msg">Orbot-i është një aplikacion me burim të hapët, që përmban Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks dhe LibEvent.AI furnizon një tunel VPN, një ndërmjetës vendor HTTP Connect (HTTPS vetëm në portën 8118) dhe një ndërmjetës SOCKS (9050) te rrjeti Tor.</string>
+    <string name="wizard_details_msg">Orbot-i është një aplikacion me burim të hapët, që përmban Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel dhe LibEvent. Ai furnizon një tunel VPN, një ndërmjetës vendor HTTP Connect (HTTPS vetëm në portën 8118) dhe një ndërmjetës SOCKS (9050) te rrjeti Tor.</string>
     <string name="pref_node_configuration">Formësim Nyjesh</string>
     <string name="pref_node_configuration_summary">Këto janë rregullime të thelluara që mund të reduktojnë anonimitetin tuaj</string>
     <string name="pref_entrance_node">Nyja Hyrjesh</string>
@@ -203,4 +203,64 @@
     <string name="pref_isolate_keep_alive">Mbaji gjallë qarqet e izoluar</string>
     <string name="bridge_snowflake_sqs">Lidhuni përmes përdoruesish të tjerë të Tor-it duke përdorur Snowflake (Metoda 3 - SQS)</string>
     <string name="kindness_mode_is_running">Po Xhirohet nën Mënyrën Kindness</string>
+    <string name="kindness_mode_active_message" formatted="true">Ndihmuat %1$d vetë të anashkalojnë censurimin</string>
+    <string name="kindness_mode_disabled">Mënyra “Kindness” është e Çaktivizuar</string>
+    <string name="kindness_mode_starting">Po niset…</string>
+    <string name="kindness_mode_disabled_internet">Lidhuni në Internet, që të ndihmoni njerëz të anashkalojnë censurimin</string>
+    <string name="kindness_mode_disabled_wifi">Lidhni në Wi-Fi, që të ndihmoni njerëz të anashkalojnë censurimin</string>
+    <string name="kindness_mode_disabled_power">Lidhni në rrjetin energjetik pajisjen tuaj, që të ndihmoni njerëz të anashkalojnë censurimin</string>
+    <string name="bridges_via_telegram">Ura nga Tor (obfs4) përmes Telegram-i</string>
+    <string name="bridges_via_telegram_subtitle">Ka gjasa të mbajë në këmbë lidhjen tuaj, nëse Tor-in e bllokojnë rëndë. Përdorimi i kësaj metode do të nisë kanalin Tor Bot Telegram. Prekni “Nise”, ose shkruani “%1$s” te fjalosja që të merrni adresa urash.</string>
+    <string name="bridges_via_email">Ura nga Tor (obfs4) përmes Email-i</string>
+    <string name="bridges_via_email_subtitle">Fsheh trafikun tuaj. Anashkalon ca bllokim të Tor-it. Lyp dërgimin e një email-i nga një llogari Gmail ose Riseup.</string>
+    <string name="bridge_meek_azure_subtitle">Fsheh trafikun tuaj. Anashkalon ca bllokim të Tor-it. Mund të jetë shumë e ngadaltë.</string>
+    <string name="custom_bridges_subtitle">Pyetni brenda rrjeteve dhe enteve tuaj të besuar, për të parë se mos dikush është duke strehuar një urë. Nëse jo, ura mund të marrë një shok për ju.</string>
+    <string name="custom_bridges_description">Ngjitni më poshtë adresat e urave që merrni. Ose skanoni kodin QR që të shtohen. Shokët mund të marrin ura për ju te %1$s.</string>
+    <string name="action_use_">Përdor %1$s</string>
+    <string name="camo_dialog_title" formatted="true">Kamuflazh si %1$s</string>
+    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot-i do ta kamuflojë veten si aplikacioni %1$s. Kjo do të fshehtë krejt hollësitë e njoftimeve rreth Tor-it dhe do të ndryshojë pamjen e Orbot-it në skenën tuaj të kreut.\n\nKamuflimi si %2$s do të sjellë rinisjen e Orbot-it.</string>
+    <string name="camo_dialog_disable_confirm_msg">Orbot-i do të rifillojë shfaqje informacioni njoftimesh rreth lidhjes tuaj Tor dhe do të shfaqet si normal në skenën e kreut tuaj.\n\nÇaktivizimi i Mënyrës Kamuflazh do të sjellë rinisjen e Orbot-it.</string>
+    <string name="camo_dialog_disable_title">Çaktivizo Mënyrën Kamuflazh</string>
+    <string name="camo_samsung_instructions">Në pajisjen tuaj Samsung Galaxy, njoftimet e Mënyrës Kamuflazh do të funksionojnë vetëm duke hapur Rregullime -&gt; Njoftime -&gt; Rregullime të Mëtejshme tuajat dhe duke çaktivizuar “Shfaq ikonë aplikacione në njoftime”. Klikoni këtu që të hapni Rregullime Njoftimesh.</string>
+    <string name="pref_camo_mode_title">Mënyra Kamuflazh</string>
+    <string name="power_user_mode_permission">Për Mënyrën “Përdorues i Thelluar” Lypsen Leje Alarmesh &amp; Kujtuesish</string>
+    <string name="power_user_mode_permission_msg">Ju lutemi, lejojeni Orbot-in të caktojë alarme dhe kujtues, që të mund të përdorë mënyrën “përdorues i thelluar”. Kjo s’do të caktojë faktikisht ndonjë alarm në pajisjen tuaj. Kjo leje duhet që të bëhet sistemi të mbajë në punë OrbotService, kur Orbot-i nuk është duke u përdorur si një VPN për krejt sistemin.</string>
+    <string name="request_notification_permission">Ju lutemi, aktivizoni njoftime për Orbot</string>
+    <string name="request_notification_permission_msg">Pa lejuar njoftimet, Orbot-i s’mund të veprojë si një VPN Tor, apo të përdorë Mënyrën “Kindness”.\n\nKur lejohen, shfaqim vetëm një njoftim, kur Orbot-i xhiron.</string>
+    <string name="open_settings">Hapni Rregullimet</string>
+    <string name="pref_require_password">Mirëfilltësim Orbot</string>
+    <string name="pref_require_password_description">Pengoni hyrje te Orbot-i, deri sa të bëni mirëfilltësimin duke dhënë fjalëkalimin e pajisjes tuaj, ose shenja gishtash. Kjo mund të ndërthuret me Mënyrën Kamuflazh, për të ndihmuar të fshihet fakti se Orbot-i është i instaluar në pajisjen tuaj</string>
+    <string name="error_no_password_set">Ju lutemi, siguroni pajisjen tuaj, që të mund të përdorni Mirëfilltësim Orbot</string>
+    <string name="device_lock_unsupported">Mirëfilltësimi Orbot s’mbulohet në pajisjen tuaj</string>
+    <string name="device_lock_security_update_needed">Duhet të shkarkoni përditësime sigurie për Android-in për pajisjen tuaj, që të mund të përdorni Mirëfilltësim Orbot</string>
+    <string name="invalid_bridge_format">Format i pavlefshëm ure</string>
+    <string name="error_asking_tor_for_bridges">Gabim në pyetjen e Tor-it se si të lidhet</string>
+    <string name="enter_bridge_address">Jepni adresë ure</string>
+    <string name="built_in_bridges_obfs4">Ura të Brendshme (obfs4)</string>
+    <string name="built_in_bridges_obfs4_subtitle">Fsheh trafikun tuaj. Anashkalon ca bllokim të Tor-it. I dobishëm nëse gjendeni në WiFi publik, por në një vend ku Tor-i nuk bllokohet.</string>
+    <string name="unlock_app_msg" formatted="true">Që të mund të përdorni %s, ju lutemi, shkyçni pajisjen tuaj</string>
+    <string name="pref_password_only_no_biometric">Mos Lejo Vlera Biometrike për Mirëfilltësim Orbot-i</string>
+    <string name="pref_password_only_no_biometric_description">Kjo e detyron Mirëfilltësimim Orbottë kërkojë vetëm fjalëkalimin e pajisjes tuaj, edhe nëse është formësuar në pajisjen tuaj mirëfilltësim biometrik, fjala vjen, shenja gishtash, ose shkyçje me fytyrë.</string>
+    <string name="run_smart_connect_">Që të gjeni rrugën më të mirë, xhironi Smart Connect</string>
+    <string name="scan_qr_code">Skanoni Kodin QR</string>
+    <string name="orbot_vpn">VPN Orbot</string>
+    <string name="status_starting_up">Orbot-i po Niset…</string>
+    <string name="status_activated">I lidhur te Rrjeti Tor</string>
+    <string name="status_disabled">Orbot-i është i Çaktivizuar</string>
+    <string name="open_orbot_to_connect_to_tor">Që të lidheni te Tor-i, hapni Orbot-in</string>
+    <string name="status_shutting_down">Orbot-i Po Fiket</string>
+    <string name="connect_to_tor">Lidhu me Tor-in</string>
+    <string name="orbot_config_invalid">Formësim i Pavlefshëm Orbot-i</string>
+    <string name="couldn_t_start_tor_process_">S’u nis dot procesi Tor:</string>
+    <string name="unable_to_start_tor">S’arrihet të niset Tor-i:</string>
+    <string name="kibibyte_per_second">KiB/s</string>
+    <string name="mebibyte_per_second">MiB/s</string>
+    <string name="snowflake_proxy_client_connected_msg">Mënyra “Kindness” %1$s ndihmoi dikë të anashkalojë censurimin %2$s</string>
+    <string name="log_notice_unable_to_update_onions">s’arrihet të ngarkohen emra Onion</string>
+    <string name="log_notice_updating_torrc">Po përditësohet formësim vetjak i torrc-së…</string>
+    <string name="log_notice_connected_to_tor_control_port">I lidhur te porta e kontrollit të Tor-it</string>
+    <string name="note_snowflake_doesn_t_support_proxies">SHËNIM: Snowflake s’mbulon ndërmjetës. Rregullimet për ndërmjetës do të shpërfillen nga ura Snowflake.</string>
+    <string name="search_for_apps">Kërkoni për aplikacione</string>
+    <string name="apps_updated_msg">Aplikacionet u Përditësuan</string>
+    <string name="pref_camo_mode_description">Maskoni si do të duken në pajisjen tuaj ikonat, etiketat dhe tekst njoftimesh Orbot-i</string>
 </resources>
