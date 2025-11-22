@@ -6,16 +6,17 @@
 
 # LANGUAGE SETTINGS
 # you can re-run a specific screenshot for a specific locale, by passing an array to locales
-# locale, and then calling use_tests_in_classes() below with an array of one test... Setting clear
-# screenshots to true
-# default. every locale that we're tryign to maintain screenshots of
+# while also calling use_tests_in_classes() below with an array of one test... Ensure clear
+# previous screenshots is called with true
+
+# default. every locale that we're maintaining screenshots of
 ALL_LOCALES_WE_TRACK = ['en-US', 'fr-FR', 'es-MX', 'de-DE', 'ar', 'he', 'tr', 'pt', 'ja-JP', 'hi', 'ru', 'ko-KR', 'bg', 'en_GB', 'id', 'ga', 'it-IT', 'uk', 'ca', 'ro', 'ta', 'pl', 'pt_PT', 'fr', 'es', 'sq', 'de', 'vi', 'pt_BR', 'cs', 'et', 'fi', 'el', 'sr', 'nb_NO', 'az', 'sv', 'sk', 'lv', 'es_CU', 'tk', 'sl', 'zh_Hans'].sort
 
-# get screenshots for all loacles, excluding the ones in this array
+# get screenshots for all locales, excluding the ones in this array
 # useful if some screenshots aren't coming out good for some locales, and others are.
-# just exclude the good ones and rerun fastlane screengrab
-# BUT_SKIP_THESE_ONES = ['en-US', 'fr-FR', 'hi', 'pt']
+# just exclude the good locales and rerun fastlane screengrab
 BUT_SKIP_THESE_ONES = [] # dont skip any, default...
+# BUT_SKIP_THESE_ONES = ['en-US', 'fr-FR', 'hi', 'pt'] # skip some
 
 ALL_LOCALES_WE_TRACK -= BUT_SKIP_THESE_ONES
 
@@ -38,27 +39,26 @@ SETTINGS = PREFIX + 'Settings'
 	
 # CHOOSE_APPS makes a toast, that sometimes sneaks its way into other screenshots, run it in isolation
 # also for whatever reason, CHOOSE_APPS only works if another test runs before it... IDK right now. 
-# runs all, with pesky CHOOSE_APPS last..
 # use_tests_in_classes([CHOOSE_HOW_TO_CONNECT, CHOOSE_APPS])
 
-# explicitly run every test...
+# explicitly run every test..., with CHOOSE_APPS last
 use_tests_in_classes([CHOOSE_HOW_TO_CONNECT, CONNECTED_SCREEN, KINDNESS_SCREEN, MORE_SCREEN, SETTINGS, CHOOSE_APPS])	
 
 # clear all previously generated screenshots in your local output directory before creating new ones
 # if you're running multiple rounds of fastlane screengrab, and especially if use_timestamp_suffix.
 # if true, this deletes ALL screenshots in the repository, even if you are only redoing a specific one.
 #
-# IF YOU ARE REDOIGN ANY SCREENSHOTS YOU WANT THIS TO BE TRUE. Then just git commit the new screenshot.
+# IF YOU ARE REDOING ANY SCREENSHOTS YOU WANT THIS TO BE TRUE. Then just git commit the new screenshot.
 clear_previous_screenshots(true)
 
 # default behavior is to exit once a test fails. If you exit on failure, none of the successful 
 # screenshots captured before the failure will be copied and saved... useful to have as false if
-# tests are FAILING(not passing, not making unwanted screenshots) in some locales and not others
+# tests are FAILING in junit in some locales and not others
 exit_on_test_failure(true) 
 
 
 # an APK produced by ./gradlew assembleFullpermDebug that can run on your emulator's ABI
-# but for convenience, you can set this to the file you select in fastlane screengrab prompt...
+# you can also set this to the file you select in fastlane screengrab's prompt...
 APP_APK_DIR= 'app/build/outputs/apk/fullperm/debug/'
 APP_APK_FILENAME= 'Orbot-' + `#{'git describe --tags --always'}`.strip + '-fullperm-universal-debug.apk'	
 
