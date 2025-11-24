@@ -1,37 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-<com.google.android.material.appbar.AppBarLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@android:color/transparent"
-    app:elevation="0dp">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:navigationIcon="?attr/homeAsUpIndicator"
-        android:baselineAligned="false" />
-
-
-</com.google.android.material.appbar.AppBarLayout>
-
-<FrameLayout
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:duplicateParentState="true"
-    android:fitsSystemWindows="true"
     android:orientation="vertical">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            android:baselineAligned="false" />
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/searchBarLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="top"
@@ -39,6 +31,8 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
         app:boxBackgroundMode="outline"
+        app:boxStrokeColor="@color/menu_header"
+        app:hintTextColor="@android:color/white"
         app:endIconDrawable="@drawable/ic_search"
         app:endIconMode="custom">
 
@@ -65,16 +59,13 @@
     <GridView
         android:id="@+id/applistview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
-        android:layout_marginTop="64dp"
         android:layout_marginEnd="@dimen/activity_horizontal_margin"
-        android:layout_marginBottom="4dp"
         android:gravity="center"
         android:horizontalSpacing="5dp"
         android:numColumns="1"
         android:verticalSpacing="15dp" />
-
-</FrameLayout>
 
 </LinearLayout>
