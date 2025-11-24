@@ -155,7 +155,7 @@
     <string name="kindness_mode_disabled_internet">Ceangail leis an Idirlíon chun cabhrú le daoine cinsireacht a sheachaint</string>
     <string name="kindness_mode_disabled_wifi">Ceangail le Wi-Fi chun cabhrú le daoine cinsireacht a sheachaint</string>
     <string name="kindness_mode_disabled_power">Ceangail do ghléas le cumhacht chun cabhrú le daoine cinsireacht a sheachaint</string>
-    <string name="smart_connect">Ceangal Cliste (réamhshocraithe)</string>
+    <string name="smart_connect">Ceangal Cliste</string>
     <string name="direct_connect">Ceangal Díreach le Tor</string>
     <string name="direct_connect_subtitle">An bealach is fearr chun ceangal le Tor. Bain úsáid as mura bhfuil Tor blocáilte.</string>
     <string name="snowflake">Calóg sneachta</string>

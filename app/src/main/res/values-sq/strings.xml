@@ -49,7 +49,7 @@
     <string name="pref_isolate_dest">Izolo adresa vendmbërritje</string>
     <string name="secure_your_connection_title">Gati që të lidheni</string>
     <string name="proxy_ports">Porta Ndërmjetësi</string>
-    <string name="smart_connect">Lidhje e Mençur (parazgjedhje)</string>
+    <string name="smart_connect">Lidhje e Mençur</string>
     <string name="direct_connect">Lidhje e drejtpërdrejtë me Tor-in</string>
     <string name="snowflake">Snowflake</string>
     <string name="connect">Lidhu</string>
