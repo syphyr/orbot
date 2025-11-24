@@ -201,6 +201,15 @@ public class OrbotService extends VpnService {
     // if someone stops during startup, we may have to wait for the conn port to be setup, so we can properly shutdown tor
     private void stopTor() {
         if (shouldUnbindTorService) {
+            if (conn != null) {
+                try {
+                    //make sure Tor shuts down now - don't wait for service cleanup
+                    conn.shutdownTor(TorControlCommands.SIGNAL_SHUTDOWN);
+                } catch (IOException e) {
+                    debug ("error shutting down Tor from the control port");
+                }
+            }
+
             debug("unbinding tor service");
             unbindService(torServiceConnection); //unbinding from the tor service will stop tor
             shouldUnbindTorService = false;
@@ -572,7 +581,8 @@ public class OrbotService extends VpnService {
                 notificationMessage = notificationMessage.substring(notificationMessage.indexOf(':') + 1).trim();
             }
         }
-        showToolbarNotification(notificationMessage, NOTIFY_ID, R.drawable.ic_stat_tor);
+        //we shouldn't show all log messages in the notification area - can cause crashes
+       // showToolbarNotification(notificationMessage, NOTIFY_ID, R.drawable.ic_stat_tor);
         mHandler.post(() -> LocalBroadcastManager.getInstance(OrbotService.this).sendBroadcast(localIntent));
     }
 
