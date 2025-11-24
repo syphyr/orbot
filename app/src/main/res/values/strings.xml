@@ -281,4 +281,16 @@
 
     <string name="search_for_apps">Search for apps</string>
     <string name="apps_updated_msg">Apps Updated</string>
+
+    <string name="title_safety">Safety</string>
+    <string name="setting_app_icon_title">App Icon</string>
+    <string name="setting_app_icon_description">Choose how Orbot appears on your device</string>
+    <string name="setting_block_screenshot_title">Block Screenshots</string>
+    <string name="setting_block_screenshot_description">Prevents anyone from taking screenshots of this app</string>
+    <string name="setting_lock_screen_title">Lock Screen</string>
+    <string name="setting_lock_screen_description">Access to the app will require authentication using your device\'s lock screen settings</string>
+    <string name="setting_unlock_pass_title">Unlock With Passcode</string>
+    <string name="setting_unlock_pass_description">Require device PIN or Pattern</string>
+    <string name="setting_unlock_with_biometrics_title">Unlock With Biometrics</string>
+    <string name="setting_unlock_with_biometrics_description">Fingerprint or Face ID</string>
 </resources>
