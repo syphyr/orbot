@@ -242,7 +242,7 @@
 
     <string name="pref_require_password">Orbot Authentication</string>
     <string name="pref_require_password_description">Prevent access to Orbot until you authenticate by entering your device password or fingerprint. This can be combined with Camouflage Mode to help hide that Orbot is installed on your device</string>
-    <string name="error_no_password_set">Please secure your device in order to use Orbot Authentication </string>
+    <string name="error_no_password_set">You need to set a password for your Android device in order to use the Lock Screen feature</string>
     <string name="device_lock_unsupported">Orbot Authentication is not supported on your device</string>
     <string name="device_lock_security_update_needed">You must download Android security updates for your device in order to use Orbot Authentication</string>
     <string name="invalid_bridge_format">Invalid bridge format</string>
@@ -287,10 +287,8 @@
     <string name="setting_app_icon_description">Choose how Orbot appears on your device</string>
     <string name="setting_block_screenshot_title">Block Screenshots</string>
     <string name="setting_block_screenshot_description">Prevents anyone from taking screenshots of this app</string>
-    <string name="setting_lock_screen_title">Lock Screen</string>
-    <string name="setting_lock_screen_description">Access to the app will require authentication using your device\'s lock screen settings</string>
-    <string name="setting_unlock_pass_title">Unlock With Passcode</string>
-    <string name="setting_unlock_pass_description">Require device PIN or Pattern</string>
-    <string name="setting_unlock_with_biometrics_title">Unlock With Biometrics</string>
-    <string name="setting_unlock_with_biometrics_description">Fingerprint or Face ID</string>
+    <string name="setting_unlock_pass_title">Lock Screen</string>
+    <string name="setting_unlock_pass_description">Require your device Password, PIN, or biometrics to unlock Orbot</string>
+    <string name="setting_unlock_with_biometrics_title">Prevent Biometrics from Unlocking Orbot</string>
+    <string name="setting_unlock_with_biometrics_description">If you are using the Lock Screen setting, this stops any biometrics that you may have configured to unlock your phone - such as your fingerprint or Face ID - from unlocking Orbot</string>
 </resources>
