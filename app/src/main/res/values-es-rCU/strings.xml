@@ -182,8 +182,6 @@
     <string name="kindness_adjust_title">Ajustes</string>
     <string name="kindness_config_detail">Configurar cómo y cuándo tu dispositivo puede actuar como un Proxy Snowflake para otros usuarios de Tor.</string>
     <string name="setting_debug">Depurar</string>
-    <string name="pref_flag_secure_summary">Evitar que otras aplicaciones tomen capturas de pantalla de Orbot</string>
-    <string name="pref_flag_secure_title">Seguridad de bloqueo de pantalla</string>
     <string name="root_warning">Orbot ha detectado que tu dispositivo está roteado, lo cual puede causar problemas de seguridad.</string>
     <string name="pref_detect_root_summary">Advertir al iniciar si los permisos de root están habilitados en este dispositivo</string>
     <string name="pref_detect_root_title">Detección de root</string>

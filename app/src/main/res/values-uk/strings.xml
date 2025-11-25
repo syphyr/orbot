@@ -184,8 +184,6 @@
     <string name="menu_more">Докладніше</string>
     <string name="setting_padding">Набивання</string>
     <string name="setting_debug">Налагодження</string>
-    <string name="pref_flag_secure_summary">Заборонити іншим застосункам робити знімок екрану Orbot</string>
-    <string name="pref_flag_secure_title">Захист екрану</string>
     <string name="root_warning">Orbot виявив, що ваш пристрій рутовано, що може спричинити проблеми з безпекою.</string>
     <string name="pref_detect_root_summary">Попереджати під час запуску, якщо на цьому пристрої увімкнено права root</string>
     <string name="pref_detect_root_title">Виявлення Root</string>
@@ -204,21 +202,15 @@
     <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot замаскується під додаток %1$s. Це приховає всі деталі сповіщень про Tor та змінить вигляд Orbot на головному екрані.\n\nКамуфляж під %2$s перезапустить Orbot.</string>
     <string name="camo_dialog_disable_confirm_msg">Orbot відновить відображення сповіщень про ваше з’єднання Tor та з’явиться на головному екрані у звичайному режимі.\n\nВимкнення режиму камуфляжу перезапустить Orbot.</string>
     <string name="camo_dialog_disable_title">Вимкнути режим камуфляжу</string>
-    <string name="pref_camo_mode_title">Режим камуфляжу</string>
-    <string name="pref_camo_mode_description">Замаскуйте, як значок, мітка та текст сповіщення Orbot відображатимуться на вашому пристрої</string>
     <string name="bridge_snowflake_sqs">Підключення через інших користувачів Tor за допомогою Snowflake (Спосіб 3 - SQS)</string>
     <string name="power_user_mode_permission">Сигнали та нагадування. Потрібен дозвіл для режиму досвідченого користувача</string>
     <string name="power_user_mode_permission_msg">Будь ласка, дозвольте Orbot встановлювати будильники та нагадування, щоб використовувати режим досвідченого користувача. Це фактично не встановить жодних будильників на вашому пристрої. Цей дозвіл потрібен для того, щоб система підтримувала роботу OrbotService, коли Orbot не використовується як VPN для всієї системи.</string>
-    <string name="pref_require_password">Аутентифікація орбота</string>
-    <string name="pref_require_password_description">Запобігайте доступу до ORBOT, поки ви не є автентифікацією, ввівши пароль пристрою або відбиток пальців. Це можна поєднати з режимом камуфляжу, щоб допомогти приховати, що ORBOT встановлений на вашому пристрої</string>
     <string name="error_no_password_set">Будь ласка, закріпіть свій пристрій, щоб використовувати автентифікацію ORBOT</string>
     <string name="unlock_app_msg" formatted="true">Будь ласка, розблокуйте свій пристрій, щоб використовувати %s</string>
     <string name="invalid_bridge_format">Недійсний формат мосту</string>
     <string name="error_asking_tor_for_bridges">Помилка під час запиту Tor про підключення</string>
     <string name="device_lock_unsupported">Аутентифікація Orbot не підтримується на вашому пристрої</string>
     <string name="device_lock_security_update_needed">Ви повинні завантажити оновлення безпеки Android для свого пристрою, щоб використовувати автентифікацію Orbot</string>
-    <string name="pref_password_only_no_biometric">Заборонити біометрику для аутентифікації ORBOT</string>
-    <string name="pref_password_only_no_biometric_description">Це змушує аутентифікацію орбота вимагати лише пароля вашого пристрою, навіть якщо біометрична автентифікація, наприклад, відбитки пальців або розблокування обличчя, налаштована на вашому пристрої.</string>
     <string name="bridges_via_telegram">Мости з Tor (obfs4) через Telegram</string>
     <string name="bridges_via_telegram_subtitle">Ймовірно, це допоможе вам залишатися на зв\'язку, якщо Tor серйозно заблоковано. Використання цього методу запустить Telegram-канал Tor Bot. Натисніть «Пуск» або напишіть «%1$s» у чаті, щоб отримати адреси мосту.</string>
     <string name="bridges_via_email">Мости з Tor (obfs4) через електронну пошту</string>

@@ -211,8 +211,6 @@
     <string name="setting_padding">Padding</string>
     <string name="setting_debug">Debug</string>
 
-    <string name="pref_flag_secure_summary">Prevent other apps from taking screenshots of Orbot</string>
-    <string name="pref_flag_secure_title">Screen Security</string>
     <string name="root_warning">Orbot has detected your device is rooted, which can cause security issues.</string>
     <string name="pref_detect_root_summary">Warn on startup if root permissions are enabled on this device</string>
     <string name="pref_detect_root_title">Root Detection</string>
@@ -231,8 +229,6 @@
     <string name="camo_dialog_disable_title">Disable Camouflage Mode</string>
     <string name="camo_samsung_instructions">On Your Samsung Galaxy device Camouflage Mode\'s notifications will only work by opening your Settings -> Notifications -> Advanced Settings and disabling \"Show app icon in notifications\". Click here to open Notification Settings.</string>
 
-    <string name="pref_camo_mode_title">Camouflage Mode</string>
-    <string name="pref_camo_mode_description">Disguise how Orbot\'s icon, label and notification text will appear on your device</string>
     <string name="power_user_mode_permission">Alarms &amp; Reminders Permission Needed for Power User Mode</string>
     <string name="power_user_mode_permission_msg">Please allow Orbot to set alarms and reminders in order to use power user mode. This won\'t actually set any alarms on your device. This permission is needed to have the system keep OrbotService running when Orbot is not being used as a system-wide VPN.</string>
 
@@ -240,8 +236,6 @@
     <string name="request_notification_permission_msg">Without turning on notifications Orbot can\'t act as a Tor VPN or use Kindness Mode.\n\nWhen enabled, we only show a single notification when Orbot is running.</string>
     <string name="open_settings">Open Settings</string>
 
-    <string name="pref_require_password">Orbot Authentication</string>
-    <string name="pref_require_password_description">Prevent access to Orbot until you authenticate by entering your device password or fingerprint. This can be combined with Camouflage Mode to help hide that Orbot is installed on your device</string>
     <string name="error_no_password_set">You need to set a password for your Android device in order to use the Lock Screen feature</string>
     <string name="device_lock_unsupported">Orbot Authentication is not supported on your device</string>
     <string name="device_lock_security_update_needed">You must download Android security updates for your device in order to use Orbot Authentication</string>
@@ -251,8 +245,6 @@
     <string name="built_in_bridges_obfs4">Built-in Bridges (obfs4)</string>
     <string name="built_in_bridges_obfs4_subtitle">Cloaks your traffic. Gets around some Tor blocking. Good if you\'re on public WiFi, but in a country where Tor isn\'t blocked.</string>
     <string name="unlock_app_msg" formatted="true">Please unlock your device in order to use %s</string>
-    <string name="pref_password_only_no_biometric">Disallow Biometrics for Orbot Authentication</string>
-    <string name="pref_password_only_no_biometric_description">This forces Orbot Authentication to only require your device\'s password even if biometric authentication, such as fingerprint or face unlock, are configured on your device.</string>
     <string name="run_smart_connect_">Run Smart Connect to find the best way</string>
     <string name="scan_qr_code">Scan QR Code</string>
 

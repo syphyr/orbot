@@ -158,7 +158,6 @@
 \njumïpana.</string>
     <string name="not_sure">Pächastati\?</string>
     <string name="no_internet_title">Internetar waythapiyaña</string>
-    <string name="pref_flag_secure_title">Pantalla jark\'aqäwi</string>
     <string name="many_ways">Tor ukarux kunaymantuqit waythapiyasispa. Yaqhipanakax yaqhanakat sipan kusa jumatak irnaqi.</string>
     <string name="kindness_config_detail">Yaqha Tor apnaqirinakatakix kunjama ukat kunawsas tispusitiwumax Snowflake proxy ukjam tukuspa uk mayjt\'ayam.</string>
     <string name="bridge_snowflake_amp">Snowflake apnaqas yaqha Tor apnaqirinaktuq mantaña (Thakhi 2 )</string>
@@ -189,7 +188,6 @@
     <string name="secure_your_connection_subtitle">Uñakipat llika aplikasyunanak imantam ukat kunawsatï jark\'atakan ukha mantam.</string>
     <string name="power_user_description">Toramp jichuntat apnaqirinakataki. VPN jan mayjt\'ayampikiw Orbot qalltayi ukatx SOCKS jist\'aratamp HTTP waythapiwjanakamp uñachayi</string>
     <string name="app_suggested_subtitle">Apayanakamp llika aplikasyunanakampiw Orbotax sumpach saranti.</string>
-    <string name="pref_flag_secure_summary">Orbotat yaqha aplikasyun waruqirinakat jark\'aqam</string>
     <string name="btn_copy_log">Mantat waruqaña</string>
     <string name="log_copied">Mantatax waruqatawa</string>
     <string name="v3_backup_key_warning">Ukataraki: Akax yaqha aplikasyunanakaruw chimpum uñachayaspa</string>

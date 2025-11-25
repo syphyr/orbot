@@ -165,8 +165,6 @@
     <string name="snowflake_proxy_msg_description">Hiển thị một tin nhắn khi bạn giúp đỡ ai đó vượt qua kiểm duyệt</string>
     <string name="btn_copy_log">Sao chép nhật ký Log</string>
     <string name="log_copied">Nhật ký Log đã được sao chép</string>
-    <string name="pref_flag_secure_summary">Ngăn chặn các app ứng dụng khác khỏi việc chụp ảnh màn hình Orbot</string>
-    <string name="pref_flag_secure_title">Bảo mật Màn hình</string>
     <string name="root_warning">Orbot đã phát hiện được rằng thiết bị của bạn đã được root, điều này có thể gây ra các vấn đề an ninh bảo mật.</string>
     <string name="pref_isolate_port">Cô lập các cổng đích đến (destination ports)</string>
     <string name="pref_isolate_port_summary">Sử dụng một mạch nối khác cho mỗi một cổng đích đến (destination port)</string>

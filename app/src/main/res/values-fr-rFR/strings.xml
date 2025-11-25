@@ -184,12 +184,9 @@
     <string name="log_copied">Journal copié</string>
     <string name="strict_nodes_description">Considérez les paramètres « Exclure des nœuds » comme une condition à la création de tous les circuits. Cela peut entraîner un dysfonctionnement si aucun circuit ne peut être généré avec vos paramètres « Exclure des nœuds ».</string>
     <string name="not_sure">Vous n\'êtes pas sûr \?</string>
-    <string name="pref_flag_secure_summary">Empêcher les autres applications de prendre des captures d\'écran d\'Orbot</string>
-    <string name="pref_flag_secure_title">Sécurité de l\'écran</string>
     <string name="root_warning">Orbot a détecté que votre appareil est rooté, ce qui peut entraîner des problèmes de sécurité.</string>
     <string name="pref_detect_root_summary">Avertir au démarrage si les droits d\'accès root sont activés sur cet appareil</string>
     <string name="pref_detect_root_title">Détection root</string>
-    <string name="pref_camo_mode_title">Mode Camouflage</string>
     <string name="status_activated">Connecté au réseau Tor</string>
     <string name="status_disabled">Orbot est désactivé</string>
     <string name="open_orbot_to_connect_to_tor">Ouvrez Orbot pour vous connecter à Tor</string>

@@ -197,8 +197,6 @@
     <string name="option_only_when_charging">Nuair a bhíonn sé á mhuirearú amháin</string>
     <string name="setting_padding">Líníocht</string>
     <string name="setting_debug">Dífhabhtú</string>
-    <string name="pref_flag_secure_summary">Cosc a chur ar aipeanna eile scáileáin a thógáil de Orbot</string>
-    <string name="pref_flag_secure_title">Slándáil Scáileáin</string>
     <string name="root_warning">Tá Orbot tar éis a bhraith go bhfuil do ghléas fréamhaithe, rud a d\'fhéadfadh fadhbanna slándála a chruthú.</string>
     <string name="pref_detect_root_summary">Rabhadh ag am tosaithe má tá ceadanna fréimhe cumasaithe ar an ngléas seo</string>
     <string name="pref_detect_root_title">Brath Fréamhacha</string>
@@ -213,14 +211,10 @@
     <string name="camo_dialog_enable_confirm_msg" formatted="true">Déanfaidh Orbot é féin a dhúbláil mar an aip %1$s. Cuirfidh sé seo gach mionsonra fógra faoi Tor i bhfolach agus athróidh sé cuma Orbot ar do scáileán baile.\n\nMá dhúblaíonn tú mar %2$s, atosófar Orbot.</string>
     <string name="camo_dialog_disable_confirm_msg">Leanfaidh Orbot ar aghaidh ag taispeáint faisnéise fógra faoi do nasc Tor agus beidh sé le feiceáil mar is gnách ar do scáileán baile.\n\nMá dhíchumasaítear Mód Camouflage, atosófar Orbot.</string>
     <string name="camo_dialog_disable_title">Díchumasaigh Mód Duaithníochta</string>
-    <string name="pref_camo_mode_title">Mód Duaithníochta</string>
-    <string name="pref_camo_mode_description">Folaigh conas a bheidh deilbhín, lipéad agus téacs fógra Orbot le feiceáil ar do ghléas</string>
     <string name="power_user_mode_permission_msg">Lig d\'Orbot aláraim agus meabhrúcháin a shocrú le go mbeidh tú in ann mód úsáideora cumhachta a úsáid. Ní shocróidh sé seo aon aláraim ar do ghléas i ndáiríre. Tá an cead seo ag teastáil chun go gcoinneoidh an córas OrbotService ag rith nuair nach bhfuil Orbot in úsáid mar VPN ar fud an chórais.</string>
     <string name="request_notification_permission">Cumasaigh fógraí le haghaidh Orbot le do thoil</string>
     <string name="request_notification_permission_msg">Gan fógraí a chasadh air, ní féidir le Orbot gníomhú mar VPN Tor ná Mód Cineáltais a úsáid.\n\nNuair a bhíonn sé cumasaithe, ní thaispeánaimid ach fógra amháin nuair a bhíonn Orbot ag rith.</string>
     <string name="open_settings">Oscail Socruithe</string>
-    <string name="pref_require_password">Fíordheimhniú Orbot</string>
-    <string name="pref_require_password_description">Cosc rochtain ar Orbot go dtí go ndéanfaidh tú fíordheimhniú trí phasfhocal nó méarloirg do ghléis a iontráil. Is féidir é seo a chomhcheangal le Mód Duaithníochta chun cabhrú le ceilt a dhéanamh ar an bhfíric go bhfuil Orbot suiteáilte ar do ghléas</string>
     <string name="error_no_password_set">Déan do ghléas a dhaingniú le go mbeidh tú in ann Fíordheimhniú Orbot a úsáid</string>
     <string name="device_lock_unsupported">Ní thacaítear le fíordheimhniú Orbot ar do ghléas</string>
     <string name="device_lock_security_update_needed">Ní mór duit nuashonruithe slándála Android a íoslódáil le haghaidh do ghléas chun Orbot Fíordheimhniú a úsáid</string>
@@ -230,8 +224,6 @@
     <string name="built_in_bridges_obfs4">Droichid Tógtha Isteach (obfs4)</string>
     <string name="built_in_bridges_obfs4_subtitle">Cuireann sé bac ar thrácht. Seachnaíonn sé roinnt bac Tor. Go maith má tá tú ar WiFi poiblí, ach i dtír nach bhfuil bac ar Tor.</string>
     <string name="unlock_app_msg" formatted="true">Díghlasáil do ghléas le do thoil chun %s a úsáid</string>
-    <string name="pref_password_only_no_biometric">Bithmhéadracht a thoirmeasc le haghaidh fíordheimhniú Orbot</string>
-    <string name="pref_password_only_no_biometric_description">Cuireann sé seo iallach ar Fíordheimhniú Orbot gan ach pasfhocal do ghléis a éileamh fiú má tá fíordheimhniú bithmhéadrach, amhail méarloirg nó díghlasáil aghaidhe, cumraithe ar do ghléas.</string>
     <string name="run_smart_connect_">Rith Smart Connect chun an bealach is fearr a aimsiú</string>
     <string name="scan_qr_code">Scanáil Cód QR</string>
     <string name="camo_samsung_instructions">Ar do ghléas Samsung Galaxy, ní oibreoidh fógraí Camouflage Mode ach amháin trí do Socruithe -&gt; Fógraí -&gt; Socruithe Ardleibhéil a oscailt agus \"Taispeáin deilbhín an aip i bhfógraí\" a dhíchumasú. Cliceáil anseo chun Socruithe Fógra a oscailt.</string>

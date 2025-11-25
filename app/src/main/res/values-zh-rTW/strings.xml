@@ -164,9 +164,7 @@
     <string name="power_user_description">給熟悉 Tor 的使用者。允許你在沒有 VPN 設定的情況下啟動 Orbot 並顯示開放的 SOCKS 和 HTTP 連接埠</string>
     <string name="apps_suggested_title">推薦的應用程式</string>
     <string name="option_only_on_wifi">僅在 Wi-Fi 上</string>
-    <string name="pref_flag_secure_summary">防止其他應用程式對 Orbot 進行螢幕截圖</string>
     <string name="log_copied">記錄已複製</string>
-    <string name="pref_flag_secure_title">螢幕安全</string>
     <string name="proxy_ports">代理連接埠</string>
     <string name="volunteer_mode_alltime_label">所有時間總計</string>
     <string name="snowflake_amp">Snowflake（AMP）</string>

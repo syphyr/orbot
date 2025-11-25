@@ -184,8 +184,6 @@
     <string name="option_only_when_charging">Yalnızca şarj olurken</string>
     <string name="menu_more">Daha fazla</string>
     <string name="setting_padding">Yastıklama</string>
-    <string name="pref_flag_secure_summary">Diğer uygulamaların Orbot\'un ekran görüntülerini almasını engelleyin</string>
-    <string name="pref_flag_secure_title">Ekran Güvenliği</string>
     <string name="root_warning">Orbot, aygıtınızın root yapılmış olduğunu tespit etti, bu güvenlik sorunlarına neden olabilir.</string>
     <string name="pref_detect_root_title">Root Algılama</string>
     <string name="pref_detect_root_summary">Bu aygıtta root izinleri etkinleştirilmişse başlangıçta uyar</string>

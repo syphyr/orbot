@@ -179,8 +179,6 @@
     <string name="menu_kindness">貢献</string>
     <string name="option_only_when_charging">充電時のみ</string>
     <string name="setting_debug">デバッグ</string>
-    <string name="pref_flag_secure_summary">他のアプリが Orbot のスクリーンショットを撮るのを防ぐ</string>
-    <string name="pref_flag_secure_title">画面の安全</string>
     <string name="root_warning">Orbot は、デバイスが root 化されていることを検出しました。これにより、セキュリティの問題が発生する可能性があります。</string>
     <string name="pref_detect_root_title">Root 検知</string>
     <string name="pref_detect_root_summary">この端末で root 権限が有効になっている場合、起動時に警告する</string>
@@ -196,24 +194,18 @@
     <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
     <string name="app_icon_chooser_label_birdie">Birdie</string>
     <string name="camo_dialog_title" formatted="true">%1$s にカモフラージュ</string>
-    <string name="pref_camo_mode_description">Orbot のアイコン、ラベル、通知テキストのデバイスでの表示方法を偽装する</string>
     <string name="camo_dialog_disable_confirm_msg">Orbot は Tor 接続に関する通知情報の表示を再開し、ホーム画面に通常通り表示されます。\n\nカモフラージュモードを無効にすると Orbot が再起動します。</string>
-    <string name="pref_camo_mode_title">カモフラージュモード</string>
     <string name="bridge_snowflake_sqs">Snowflake を使用して他の Tor ユーザー経由で接続する (方法3 - SQS)</string>
     <string name="camo_dialog_disable_title">カモフラージュモードを無効にする</string>
     <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot はアプリ %1$s にカモフラージュします。これにより、Tor に関するすべての通知の詳細が非表示になり、ホーム画面での Orbot の外観が変わります。\n\n%2$s にカモフラージュすると Orbot が再起動します。</string>
     <string name="power_user_mode_permission">パワーユーザーモードにはアラームとリマインダーの許可が必要です</string>
     <string name="power_user_mode_permission_msg">パワーユーザーモードを使用するには、Orbot がアラームとリマインダーを設定できるようにしてください。これにより、実際にデバイスにアラームが設定されることはありません。この権限は、Orbot がシステム全体の VPN として使用されていないときに、システムが OrbotService を実行し続けるために必要です。</string>
-    <string name="pref_require_password">Orbot 認証</string>
-    <string name="pref_require_password_description">デバイスのパスワードまたは指紋を入力して認証するまで Orbot にアクセスできないようにします。これをカモフラージュモードと組み合わせることで、Orbot がデバイスにインストールされていることを隠すことができます。</string>
     <string name="error_no_password_set">Orbot 認証を使用するためにはデバイスのセキュリティ保護が必要です</string>
     <string name="unlock_app_msg" formatted="true">%s を使用するにはデバイスのロックを解除してください</string>
     <string name="device_lock_unsupported">お使いのデバイスでは Orbot 認証がサポートされていません</string>
     <string name="device_lock_security_update_needed">Orbot 認証を使用するには、Android のセキュリティアップデートをダウンロードする必要があります</string>
     <string name="invalid_bridge_format">無効なブリッジフォーマット</string>
     <string name="error_asking_tor_for_bridges">Tor への接続方法の確認中にエラーが発生しました</string>
-    <string name="pref_password_only_no_biometric">Orbot 認証の際に生体認証を許可しない</string>
-    <string name="pref_password_only_no_biometric_description">これにより、指紋認証や顔認証などの生体認証がデバイスに設定されている場合でも、Orbot 認証はデバイスのパスワードのみしか許可しないようになります。</string>
     <string name="bridges_via_telegram">Telegram 経由の Tor (obfs4) からのブリッジ</string>
     <string name="bridges_via_email">メール経由の Tor (obfs4) からのブリッジ</string>
     <string name="bridges_via_telegram_subtitle">Tor が厳しく検閲されている場合でも、接続を維持できる可能性があります。この方法を使用すると、Tor Bot Telegram チャンネルが起動します。チャットで「Start」をタップするか、「%1$s」と入力すると、ブリッジアドレスを取得できます。</string>

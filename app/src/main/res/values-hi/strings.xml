@@ -149,8 +149,6 @@
     <string name="asking">पूछ रहे है।</string>
     <string name="btn_copy_log">लॉग कॉपी करें</string>
     <string name="setting_padding">पैडिंग</string>
-    <string name="pref_flag_secure_summary">दूसरे ऐपों को ऑरबॉट का स्क्रीनशॉट लेने से रोकें</string>
-    <string name="pref_flag_secure_title">स्क्रीन सुरक्षा</string>
     <string name="root_warning">ऑरबॉट को मालूम हुआ कि आपका डिवाइस रूट किया गया है, जिससे सुरक्षा लफड़े हो सकते है।</string>
     <string name="hide_apps">नेटवर्क निगरानी से ऐप छुपाएं और ब्लॉक होने पे एक्सेस दें।</string>
     <string name="log_copied">लॉग कॉपी किया गया</string>

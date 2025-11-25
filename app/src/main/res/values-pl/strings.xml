@@ -182,8 +182,6 @@
     <string name="menu_more">Więcej</string>
     <string name="menu_kindness">Życzliwość</string>
     <string name="root_warning">Orbot wykrył, że urządzenie jest zrootowane, co może powodować problemy z bezpieczeństwem.</string>
-    <string name="pref_flag_secure_title">Bezpieczeństwo ekranu</string>
-    <string name="pref_flag_secure_summary">Uniemożliwiaj innym aplikacjom wykonywanie zrzutów ekranu Orbota</string>
     <string name="option_only_when_charging">Tylko podczas ładowania</string>
     <string name="option_only_on_wifi">Tylko przez Wi-Fi</string>
     <string name="btn_copy_log">Skopiuj dziennik</string>
@@ -211,12 +209,8 @@
     <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot będzie się kamuflował jako aplikacja %1$s. Spowoduje to ukrycie wszystkich szczegółów powiadomień dotyczących sieci Tor i zmianę wyglądu Orbota na ekranie głównym.\n\nKamuflaż jako %2$s spowoduje ponowne uruchomienie Orbota.</string>
     <string name="camo_dialog_disable_confirm_msg">Orbot wznowi wyświetlanie powiadomień o połączeniu z siecią Tor i będzie wyświetlany normalnie na ekranie głównym.\n\nWyłączenie trybu kamuflażu spowoduje ponowne uruchomienie Orbota.</string>
     <string name="camo_dialog_disable_title">Wyłącz tryb kamuflażu</string>
-    <string name="pref_camo_mode_title">Tryb kamuflażu</string>
-    <string name="pref_camo_mode_description">Ukryj sposób wyświetlania ikony, etykiety i tekstu powiadomień Orbota na swoim urządzeniu</string>
     <string name="power_user_mode_permission">Alarmy i przypomnienia. Wymagane uprawnienia do trybu użytkownika zaawansowanego</string>
     <string name="power_user_mode_permission_msg">Zezwól Orbotowi na ustawianie alarmów i przypomnień, aby móc korzystać z trybu użytkownika zaawansowanego. Nie spowoduje to ustawienia żadnych alarmów na Twoim urządzeniu. To uprawnienie jest potrzebne, aby system mógł utrzymać działanie usługi Orbot, gdy Orbot nie jest używany jako ogólnosystemowa sieć VPN.</string>
-    <string name="pref_require_password">Uwierzytelnianie Orbota</string>
-    <string name="pref_require_password_description">Zablokuj dostęp do Orbota, dopóki nie uwierzytelnisz się, podając hasło urządzenia lub odcisk palca. Można to połączyć z trybem kamuflażu, aby ukryć fakt, że Orbot jest zainstalowany na Twoim urządzeniu</string>
     <string name="error_no_password_set">Aby móc korzystać z uwierzytelniania Orbota, zabezpiecz swoje urządzenie</string>
     <string name="device_lock_unsupported">Uwierzytelnianie Orbota nie jest obsługiwane na Twoim urządzeniu</string>
     <string name="device_lock_security_update_needed">Aby móc korzystać z uwierzytelniania Orbota, musisz pobrać aktualizacje zabezpieczeń systemu Android dla swojego urządzenia</string>
@@ -226,8 +220,6 @@
     <string name="built_in_bridges_obfs4">Wbudowane mostki (obfs4)</string>
     <string name="built_in_bridges_obfs4_subtitle">Maskuje ruch. Omija niektóre blokady sieci Tor. Przydatne, jeśli korzystasz z publicznej sieci Wi-Fi, ale w kraju, gdzie sieć Tor nie jest blokowana.</string>
     <string name="unlock_app_msg" formatted="true">Odblokuj urządzenie, aby móc korzystać z %s</string>
-    <string name="pref_password_only_no_biometric">Nie zezwalaj na biometrię w uwierzytelnianiu Orbota</string>
-    <string name="pref_password_only_no_biometric_description">Wymusza to na uwierzytelnianiu Orbota żądanie podania jedynie hasła urządzenia, nawet jeśli na urządzeniu skonfigurowano uwierzytelnianie biometryczne, takie jak odcisk palca lub odblokowywanie twarzą.</string>
     <string name="run_smart_connect_">Uruchom inteligentne połączenie, aby znaleźć najlepszy sposób</string>
     <string name="app_icon_chooser_label_assistant">Asystent</string>
     <string name="app_icon_chooser_label_paint">Farba</string>

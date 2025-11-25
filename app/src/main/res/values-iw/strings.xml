@@ -172,7 +172,6 @@
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="menu_kindness">חסד</string>
     <string name="v3_import_auth_private">ייבוא ‎.auth_private</string>
-    <string name="pref_flag_secure_title">אבטחת מסך</string>
     <string name="root_warning">Orbot זיהה שהמכשיר שלך נפרץ לגישת root, מה שעלול לגרום לבעיות אבטחה.</string>
     <string name="btn_change_exit">החלפת פתחה</string>
     <string name="snowflake">Snowflake (מקורי)</string>
@@ -190,7 +189,6 @@
     <string name="volunteer_mode_title">סיוע לאחרים
 \nלהתחבר ל־Tor</string>
     <string name="v3_delete_client_authorization_confirm">מחיקת הרשאת הלקוח</string>
-    <string name="pref_flag_secure_summary">למנוע מיישומונים אחרים לצלם את Orbot</string>
     <string name="direct_connect_subtitle">הדרך הטובה ביותר להתחבר ל־Tor. אפשר להשתמש אם Tor לא חסום.</string>
     <string name="volunteer_status_title">היום טוב יותר
 \nבזכותך.</string>

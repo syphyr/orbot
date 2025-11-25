@@ -166,7 +166,6 @@
     <string name="power_user_description">For brukere som er kjent med Tor. Lar deg starte Orbot uten VPN-innstillingen og viser åpne SOCKS- og HTTP-porter</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="menu_kindness">Vennlighet</string>
-    <string name="pref_flag_secure_title">Sikkerhet på skjermen</string>
     <string name="root_warning">Orbot har oppdaget at enheten din er rotfestet, noe som kan føre til sikkerhetsproblemer.</string>
     <string name="btn_change_exit">Endre utgang</string>
     <string name="snowflake">Snowflake</string>
@@ -181,7 +180,6 @@
     <string name="secure_your_connection_title">Klar til å koble til</string>
     <string name="volunteer_mode_title">Hjelp andre
 \nkoble til Tor</string>
-    <string name="pref_flag_secure_summary">Forhindre at andre apper tar skjermbilder av Orbot</string>
     <string name="direct_connect_subtitle">Den beste måten å koble til Tor på. Brukes hvis Tor ikke er blokkert.</string>
     <string name="volunteer_status_title">Dagen i dag er bedre
 \npå grunn av deg.</string>
