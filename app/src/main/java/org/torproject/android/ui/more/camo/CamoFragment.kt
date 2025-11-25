@@ -35,7 +35,7 @@ class CamoFragment : Fragment() {
         val rvCamoApps = view.findViewById<RecyclerView>(R.id.rvCamoApps)
         // defaults to "Orbot" if user never selected anything, aka no camo
         selectedApp = getCamoMapping(requireContext()).getKey(Prefs.selectedCamoApp)
-        requireActivity().title = getString(R.string.pref_camo_mode_title)
+        requireActivity().title = getString(R.string.setting_app_icon_title)
         // add orbot to front of list, then sort rest of camo apps item by locale
         val listItems = mutableListOf(
             createAppMenuItem(R.drawable.ic_launcher_foreground, R.string.app_name)
