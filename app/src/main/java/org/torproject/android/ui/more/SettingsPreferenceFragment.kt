@@ -16,15 +16,12 @@ import org.torproject.android.util.Prefs
 import org.torproject.android.util.sendIntentToService
 
 class SettingsPreferenceFragment : AbstractPreferenceFragment() {
-    private var prefLocale: ListPreference? = null
-
     private var toolbar: Toolbar? = null
-
     override fun prefId(): Int = R.xml.preferences
     override fun rootTitleId(): Int = R.string.menu_settings
 
     override fun initPrefs() {
-        prefLocale = findPreference("pref_default_locale")
+        val prefLocale = findPreference<ListPreference>("pref_default_locale")
         val languages = Languages[requireActivity()]
         prefLocale?.entries = languages?.allNames
         prefLocale?.entryValues = languages?.supportedLocales
@@ -36,8 +33,7 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment() {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                     val newLocale = LocaleListCompat.forLanguageTags(language)
                     AppCompatDelegate.setApplicationLocales(newLocale)
-                    //title?.text = requireContext().getString(R.string.menu_settings)
-                    toolbar?.title = requireContext().getString(R.string.menu_settings)
+                    toolbar?.title = requireContext().getString(rootTitleId())
                 } else {
                     requireActivity().sendIntentToService(OrbotConstants.ACTION_LOCAL_LOCALE_SET)
                     (requireActivity().application as OrbotApp).setLocale()
@@ -52,9 +48,5 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment() {
                 it.parent?.removePreference(it)
             }
         }
-
-
-
     }
-
 }
