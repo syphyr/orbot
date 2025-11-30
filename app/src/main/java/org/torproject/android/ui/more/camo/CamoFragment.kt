@@ -88,7 +88,7 @@ class CamoFragment : Fragment() {
             }
         }
 
-        var toolbar = view.findViewById<Toolbar>(R.id.toolbar)
+        val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
         (context as AppCompatActivity).setSupportActionBar(toolbar)
         toolbar?.setNavigationOnClickListener {
             // do something when click navigation

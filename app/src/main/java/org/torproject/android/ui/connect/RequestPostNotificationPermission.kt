@@ -20,7 +20,7 @@ class RequestPostNotificationPermission : DialogFragment() {
             .setCancelable(false)
             .setPositiveButton(
                 R.string.open_settings
-            ) { dialog: DialogInterface?, which: Int ->
+            ) { _: DialogInterface?, _: Int ->
                 val intent = Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
                     .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     .putExtra(Settings.EXTRA_APP_PACKAGE, requireActivity().packageName)

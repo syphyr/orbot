@@ -1,12 +1,10 @@
 /* Copyright (c) 2009, Nathan Freitas, Orbot / The Guardian Project - http://openideals.com/guardian */ /* See LICENSE for licensing information */
 package org.torproject.android.ui.more
 
-import android.R.attr.homeAsUpIndicator
 import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.TextView
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -27,7 +25,6 @@ import org.torproject.android.localization.Languages
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.ui.core.BaseActivity
 import org.torproject.android.util.Prefs
-import org.torproject.android.ui.more.camo.CamoFragment
 import org.torproject.android.util.sendIntentToService
 
 class SettingsPreferenceFragment : PreferenceFragmentCompat() {
@@ -45,7 +42,7 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //title = view.findViewById(R.id.title)
-        toolbar = view.findViewById<Toolbar>(R.id.toolbar)
+        toolbar = view.findViewById(R.id.toolbar)
         (context as AppCompatActivity).setSupportActionBar(toolbar)
         toolbar?.setNavigationOnClickListener {
             // do something when click navigation
@@ -110,7 +107,7 @@ class SettingsPreferenceFragment : PreferenceFragmentCompat() {
         } else {
             prefPasswordNoBiometrics?.isEnabled = prefOrbotAuthentication?.isChecked == true
             prefOrbotAuthentication?.onPreferenceChangeListener =
-                OnPreferenceChangeListener { preference, newValue ->
+                OnPreferenceChangeListener { _, newValue ->
                     prefPasswordNoBiometrics?.isEnabled = newValue as Boolean
                     true
                 }

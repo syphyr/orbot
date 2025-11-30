@@ -37,7 +37,7 @@ object AutoConf {
         Transport.controller.start(IPtProxy.MeekLite, null)
 
         val authenticator = object : Authenticator() {
-            override fun getPasswordAuthentication(): PasswordAuthentication? {
+            override fun getPasswordAuthentication(): PasswordAuthentication {
                 return PasswordAuthentication(MEEK_PARAMETERS, "\u0000".toCharArray())
             }
         }

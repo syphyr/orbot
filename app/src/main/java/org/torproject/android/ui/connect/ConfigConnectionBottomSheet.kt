@@ -184,7 +184,7 @@ class ConfigConnectionBottomSheet :
         }
     }
 
-    public fun closeAndConnect() {
+    fun closeAndConnect() {
         dismiss()
         val navHostFragment = requireActivity().supportFragmentManager.fragments[0] as NavHostFragment
         val connectFrag = navHostFragment.childFragmentManager.fragments.last() as ConnectFragment

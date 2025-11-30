@@ -49,7 +49,7 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
                 releaseMappedPorts()
             }
 
-            val stunServers = BuiltInBridges.Companion.getInstance(service)?.snowflake?.firstOrNull()?.ice
+            val stunServers = BuiltInBridges.getInstance(service)?.snowflake?.firstOrNull()?.ice
                 ?.split(",".toRegex())?.dropLastWhile { it.isEmpty() }?.toTypedArray() ?: emptyArray()
             val stunUrl = stunServers[SecureRandom().nextInt(stunServers.size)]
 

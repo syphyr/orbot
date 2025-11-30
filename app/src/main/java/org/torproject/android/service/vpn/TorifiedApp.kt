@@ -94,7 +94,7 @@ class TorifiedApp : Comparable<TorifiedApp> {
 
                 try {
                     app.name = pMgr.getApplicationLabel(it).toString()
-                } catch (e: Exception) {
+                } catch (_: Exception) {
                     app.name = it.packageName
                 }
 

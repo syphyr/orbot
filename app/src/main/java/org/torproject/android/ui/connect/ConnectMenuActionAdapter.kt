@@ -102,11 +102,11 @@ class ConnectMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction
                         params.setMargins(1, 10, 1, 1)
                         iv.layoutParams = params
 
-                        iv.setOnClickListener { v: View? ->
+                        iv.setOnClickListener { _: View? ->
                             checkTorStatusUrl(context, applicationInfo.packageName)
                         }
                         icons[packageManager.getApplicationLabel(applicationInfo).toString()] = iv
-                    } catch (e: PackageManager.NameNotFoundException) {
+                    } catch (_ : PackageManager.NameNotFoundException) {
                         //couldn't draw icon for the package name
                         Log.d("Orbot", "error getting package info for: $tordApp")
 

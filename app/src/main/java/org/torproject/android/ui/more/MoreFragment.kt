@@ -93,7 +93,7 @@ class MoreFragment : Fragment() {
             OrbotMenuAction(R.string.menu_about, R.drawable.ic_about) {
                 AboutDialogFragment().show(
                     requireActivity().supportFragmentManager,
-                    AboutDialogFragment.Companion.TAG
+                    AboutDialogFragment.TAG
                 )
             },
             OrbotMenuAction(R.string.menu_exit, R.drawable.ic_exit) { doExit() }

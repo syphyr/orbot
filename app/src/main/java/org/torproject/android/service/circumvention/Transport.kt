@@ -127,7 +127,7 @@ enum class Transport(val id: String) {
 
                 if (proxy != null) {
                     var hostPort = proxy.host
-                    if (proxy.port > 0 && proxy.port < 65536) hostPort += ":${proxy.port}"
+                    if (proxy.port in 1..<65536) hostPort += ":${proxy.port}"
 
                     // Modern tor only supports https, socks4 and socks5. *No* http!
                     when (proxy.scheme) {

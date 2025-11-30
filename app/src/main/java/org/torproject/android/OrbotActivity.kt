@@ -23,11 +23,9 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.navigation.NavController
-import androidx.navigation.NavDestination
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.savedstate.SavedState
 
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scottyab.rootbeer.RootBeer
@@ -118,20 +116,13 @@ class OrbotActivity : BaseActivity() {
 
         val bottomNavigationContainer = findViewById<View>(R.id.bottomNavContainer)
 
-        navController.addOnDestinationChangedListener(object : NavController.OnDestinationChangedListener {
-            override fun onDestinationChanged(
-                controller: NavController,
-                destination: NavDestination,
-                arguments: SavedState?
-            ) {
-                if (destination.id == R.id.connectFragment || destination.id == R.id.moreFragment || destination.id == R.id.kindnessFragment)
-                {
-                    bottomNavigationContainer.visibility = View.VISIBLE
-                } else {
-                    bottomNavigationContainer.visibility = View.GONE
-                }
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.connectFragment || destination.id == R.id.moreFragment || destination.id == R.id.kindnessFragment) {
+                bottomNavigationContainer.visibility = View.VISIBLE
+            } else {
+                bottomNavigationContainer.visibility = View.GONE
             }
-        })
+        }
 
         val navOptionsLeftToRight = NavOptions.Builder().setEnterAnim(R.anim.slide_in_right)
             .setExitAnim(R.anim.slide_out_left).setPopEnterAnim(R.anim.slide_in_right)

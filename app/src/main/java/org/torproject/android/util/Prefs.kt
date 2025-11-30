@@ -259,7 +259,7 @@ object Prefs {
                 prefs?.getString("pref_proxy_port", null)?.trim()?.toInt() ?: 0
             } catch (_: Throwable) { 0 }
 
-            if (port > 0 && port < 65536) {
+            if (port in 1..<65536) {
                 url.append(":")
                 url.append(port)
             }

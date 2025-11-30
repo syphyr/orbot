@@ -21,10 +21,10 @@ abstract class RequestScheduleExactAlarmDialogFragment : DialogFragment() {
             .setMessage(getMessageId())
             .setNegativeButton(
                 android.R.string.cancel
-            ) { dialog: DialogInterface?, which: Int -> dialog!!.cancel() }
+            ) { dialog: DialogInterface?, _: Int -> dialog!!.cancel() }
             .setPositiveButton(
                 getPositiveButtonId()
-            ) { dialog: DialogInterface?, which: Int ->
+            ) { _: DialogInterface?, _: Int ->
                 val intent = Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM).apply {
                     setData(Uri.fromParts("package", requireContext().packageName, null))
                 }
