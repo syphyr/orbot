@@ -2,6 +2,7 @@ package org.torproject.android.service;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
@@ -107,7 +108,7 @@ public class OrbotRawEventListener implements RawEventListener {
 
     private void handleNewDescriptors(String[] descriptors) {
         for (String descriptor : descriptors)
-            mService.debug("descriptors: " + descriptor);
+            Log.d("Orbot", "descriptors: " + descriptor);
     }
 
     private void handleStreamEventExpandedNotifications(String status, String target, String circuitId, String clientProtocol) {
@@ -144,7 +145,7 @@ public class OrbotRawEventListener implements RawEventListener {
     private static final String TOR_CONTROLLER_COUNTRY_CODE_UNKNOWN = "??";
 
     private void handleStreamEventsDebugLogging(String streamId, String status) {
-        mService.debug("StreamStatus (" + streamId + "): " + status);
+        Log.d("Orbot", "StreamStatus (" + streamId + "): " + status);
     }
 
     private void handleCircuitStatusExpandedNotifications(String circuitStatus, String circuitId, String path) {
@@ -211,7 +212,7 @@ public class OrbotRawEventListener implements RawEventListener {
                 hmBuiltNodes.put(node.id, node);
                 isFirstNode = false;
             } else if (circuitStatus.equals(TorControlCommands.CIRC_EVENT_LAUNCHED)) {
-                if (Prefs.useDebugLogging() && nodeCount > 3) mService.debug(sb.toString());
+                if (Prefs.useDebugLogging() && nodeCount > 3) Log.d("Orbot", sb.toString());
             } else if (circuitStatus.equals(TorControlCommands.CIRC_EVENT_CLOSED)) {
                 hmBuiltNodes.remove(node.id);
             }
@@ -220,11 +221,11 @@ public class OrbotRawEventListener implements RawEventListener {
 
     private void handleConnectionStatus(String status, String unparsedNodeName) {
         var message = "orConnStatus (" + parseNodeName(unparsedNodeName) + "): " + status;
-        mService.debug(message);
+        Log.d("Orbot", message);
     }
 
     private void handleDebugMessage(String severity, String message) {
-        if (severity.equalsIgnoreCase("debug")) mService.debug(severity + ": " + message);
+        if (severity.equalsIgnoreCase("debug")) Log.d("Orbot", severity + ": " + message);
         else mService.logNotice(severity + ": " + message);
     }
 
