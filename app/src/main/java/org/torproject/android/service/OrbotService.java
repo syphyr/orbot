@@ -651,7 +651,7 @@ public class OrbotService extends VpnService {
                     transport.start(OrbotService.this);
                     startTor();
                     replyWithStatus(mIntent);
-                    if (!Prefs.useVpn()) {
+                    if (Prefs.useVpn()) {
                         if (mVpnManager != null && !mVpnManager.isStarted()) { // start VPN here
                             Intent vpnIntent = VpnService.prepare(OrbotService.this);
                             if (vpnIntent == null) { //then we can run the VPN
