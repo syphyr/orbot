@@ -3,7 +3,6 @@
 
 package org.torproject.android.service;
 
-
 import static org.torproject.android.service.OrbotConstants.*;
 
 import android.annotation.SuppressLint;
@@ -75,13 +74,6 @@ public class OrbotService extends VpnService {
     private NotificationManager mNotificationManager = null;
     private NotificationCompat.Builder mNotifyBuilder;
     private File mV3OnionBasePath;
-
-    public void debug(String msg) {
-        Log.d(TAG, msg);
-        if (Prefs.useDebugLogging()) {
-            sendCallbackLogMessage(msg);
-        }
-    }
 
     @SuppressLint({"NewApi", "RestrictedApi"})
     protected void showToolbarNotification(String notifyMsg, int notifyType, int icon) {
@@ -172,7 +164,7 @@ public class OrbotService extends VpnService {
     }
 
     private void stopTorAsync(boolean showNotification) {
-        debug("stopTorAsync");
+        Log.d(TAG, "stopTorAsync");
         if (showNotification) sendCallbackLogMessage(getString(R.string.status_shutting_down));
         Prefs.getTransport().stop();
         stopTor();
@@ -206,11 +198,11 @@ public class OrbotService extends VpnService {
                     //make sure Tor shuts down now - don't wait for service cleanup
                     conn.shutdownTor(TorControlCommands.SIGNAL_SHUTDOWN);
                 } catch (IOException e) {
-                    debug ("error shutting down Tor from the control port");
+                    Log.d(TAG, "error shutting down Tor from the control port");
                 }
             }
 
-            debug("unbinding tor service");
+            Log.d(TAG, "unbinding tor service");
             unbindService(torServiceConnection); //unbinding from the tor service will stop tor
             shouldUnbindTorService = false;
             conn = null;
@@ -308,7 +300,7 @@ public class OrbotService extends VpnService {
                 new File(appBinHome, GEOIP6_ASSET_KEY));
 
         logNotice(getString(R.string.log_notice_updating_torrc));
-        debug("torrc.custom=\n" + conf);
+        Log.d(TAG, "torrc.custom=\n" + conf);
 
         var fileTorRcCustom = TorService.getTorrc(this);
         DiskUtils.flushTextToFile(fileTorRcCustom, conf, false);
@@ -345,7 +337,7 @@ public class OrbotService extends VpnService {
     // The entire process for starting tor and related services is run from this method.
     private void startTor() {
         if (torServiceConnection != null && conn != null) {
-            debug("already started, ignoring start request");
+            Log.d(TAG, "already started, ignoring start request");
             mNotifyBuilder.setProgress(0, 0, false);
             showToolbarNotification(getString(R.string.status_activated), NOTIFY_ID, R.drawable.ic_stat_tor);
             return;
@@ -478,7 +470,7 @@ public class OrbotService extends VpnService {
         };
 
         var serviceIntent = new Intent(this, TorService.class);
-        debug("binding tor service");
+        Log.d(TAG, "binding tor service");
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
             shouldUnbindTorService = bindService(serviceIntent, torServiceConnection, BIND_AUTO_CREATE);
         else
@@ -543,7 +535,7 @@ public class OrbotService extends VpnService {
             try {
                 conn.signal("ACTIVE");
             } catch (IOException e) {
-                debug("error send active: " + e.getLocalizedMessage());
+                Log.d(TAG, "error send active: " + e.getLocalizedMessage());
             }
         }
     }
@@ -560,7 +552,7 @@ public class OrbotService extends VpnService {
                         conn.signal(TorControlCommands.SIGNAL_NEWNYM);
                     }
                 } catch (Exception ioe) {
-                    debug("error requesting newnym: " + ioe.getLocalizedMessage());
+                    Log.d(TAG, "error requesting newnym: " + ioe.getLocalizedMessage());
                 }
             }
         }.start();
@@ -581,8 +573,7 @@ public class OrbotService extends VpnService {
                 notificationMessage = notificationMessage.substring(notificationMessage.indexOf(':') + 1).trim();
             }
         }
-        //we shouldn't show all log messages in the notification area - can cause crashes
-       // showToolbarNotification(notificationMessage, NOTIFY_ID, R.drawable.ic_stat_tor);
+        showToolbarNotification(notificationMessage, NOTIFY_ID, R.drawable.ic_stat_tor);
         mHandler.post(() -> LocalBroadcastManager.getInstance(OrbotService.this).sendBroadcast(localIntent));
     }
 
