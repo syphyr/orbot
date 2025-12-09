@@ -108,8 +108,7 @@ public class OrbotService extends VpnService {
                 i.setAction(TorControlCommands.SIGNAL_NEWNYM);
                 i.putExtra(OrbotConstants.EXTRA_NOT_SYSTEM, true);
 
-                var pendingIntentNewNym = PendingIntent.getBroadcast(this, 0, i,
-                        PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+                var pendingIntentNewNym = getServiceIntent(i);
 
                 mNotifyBuilder.addAction(R.drawable.ic_refresh_white_24dp, getString(R.string.menu_new_identity), pendingIntentNewNym);
             } // Tor connection is off
@@ -118,8 +117,7 @@ public class OrbotService extends VpnService {
                 i.setAction(ACTION_START);
                 i.putExtra(OrbotConstants.EXTRA_NOT_SYSTEM, true);
 
-                var pendingIntentConnect = PendingIntent.getForegroundService(this, 0, i,
-                        PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+                var pendingIntentConnect = getServiceIntent(i);
 
                 mNotifyBuilder
                         .addAction(R.drawable.ic_stat_tor, getString(R.string.connect_to_tor), pendingIntentConnect)
@@ -644,6 +642,16 @@ public class OrbotService extends VpnService {
                 Log.e(TAG, "Connection exception occurred resetting exits", ioe);
             }
         }
+    }
+
+    private PendingIntent getServiceIntent(Intent i) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            return PendingIntent.getForegroundService(this, 0, i,
+                    PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+        }
+
+        return PendingIntent.getService(this, 0, i,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
     }
 
     private class IncomingIntentRouter implements Runnable {
