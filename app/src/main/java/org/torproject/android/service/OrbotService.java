@@ -341,8 +341,7 @@ public class OrbotService extends VpnService {
         if (packageName != null)
             sendBroadcast(reply.setPackage(packageName));
 
-        sendBroadcast(reply.setAction(LOCAL_ACTION_STATUS).setPackage(getPackageName()));
-
+        LocalBroadcastManager.getInstance(this).sendBroadcast(reply.setAction(LOCAL_ACTION_STATUS));
         if (mPortSOCKS != -1 && mPortHTTP != -1)
             sendCallbackPorts(mPortSOCKS, mPortHTTP, mPortDns, mPortTrans);
     }
@@ -412,10 +411,8 @@ public class OrbotService extends VpnService {
         // Down the line a better approach needs to happen for sending back the onion names' updated
         // status, perhaps just adding it as an extra to the normal Intent callback...
         var oldStatus = mCurrentStatus;
-
-        sendBroadcast(new Intent(LOCAL_ACTION_V3_NAMES_UPDATED)
-                .setPackage(getPackageName()));
-
+        var intent = new Intent(LOCAL_ACTION_V3_NAMES_UPDATED);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
         mCurrentStatus = oldStatus;
     }
 
@@ -495,9 +492,8 @@ public class OrbotService extends VpnService {
     }
 
     private void sendLocalStatusOffBroadcast() {
-        sendBroadcast(new Intent(LOCAL_ACTION_STATUS)
-                .putExtra(EXTRA_STATUS, STATUS_OFF)
-                .setPackage(getPackageName()));
+        var localOffStatus = new Intent(LOCAL_ACTION_STATUS).putExtra(EXTRA_STATUS, STATUS_OFF);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(localOffStatus);
     }
 
     private void initControlConnection() {
@@ -578,11 +574,7 @@ public class OrbotService extends VpnService {
 
     private void sendCallbackLogMessage(final String logMessage) {
         var notificationMessage = logMessage;
-
-        var localIntent = new Intent(LOCAL_ACTION_LOG)
-                .putExtra(LOCAL_EXTRA_LOG, logMessage)
-                .setPackage(getPackageName());
-
+        var localIntent = new Intent(LOCAL_ACTION_LOG).putExtra(LOCAL_EXTRA_LOG, logMessage);
         if (logMessage.contains(LOG_NOTICE_HEADER)) {
             notificationMessage = notificationMessage.substring(LOG_NOTICE_HEADER.length());
             if (notificationMessage.contains(LOG_NOTICE_BOOTSTRAPPED)) {
@@ -596,19 +588,12 @@ public class OrbotService extends VpnService {
             }
         }
         showToolbarNotification(notificationMessage, NOTIFY_ID, R.drawable.ic_stat_tor);
-        mHandler.post(() -> sendBroadcast(localIntent));
+        mHandler.post(() -> LocalBroadcastManager.getInstance(OrbotService.this).sendBroadcast(localIntent));
     }
 
     private void sendCallbackPorts(int socksPort, int httpPort, int dnsPort, int transPort) {
-        var intent = new Intent(LOCAL_ACTION_PORTS)
-                .putExtra(EXTRA_SOCKS_PROXY_PORT, socksPort)
-                .putExtra(EXTRA_HTTP_PROXY_PORT, httpPort)
-                .putExtra(EXTRA_DNS_PORT, dnsPort)
-                .putExtra(EXTRA_TRANS_PORT, transPort)
-                .setPackage(getPackageName());
-
-        sendBroadcast(intent);
-
+        var intent = new Intent(LOCAL_ACTION_PORTS).putExtra(EXTRA_SOCKS_PROXY_PORT, socksPort).putExtra(EXTRA_HTTP_PROXY_PORT, httpPort).putExtra(EXTRA_DNS_PORT, dnsPort).putExtra(EXTRA_TRANS_PORT, transPort);
+        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
         if (Prefs.useVpn() && mVpnManager != null) mVpnManager.handleIntent(new Builder(), intent);
     }
 
@@ -629,7 +614,7 @@ public class OrbotService extends VpnService {
         Prefs.putUseVpn(false);
         mVpnManager.handleIntent(new Builder(), new Intent(ACTION_STOP));
         // tell UI, if it's open, to update immediately (don't wait for onResume() in Activity...)
-        sendBroadcast(new Intent(ACTION_STOP).setPackage(getPackageName()));
+        LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(ACTION_STOP));
     }
 
     private void setExitNode(String newExits) {
@@ -762,9 +747,8 @@ public class OrbotService extends VpnService {
                         SmartConnect.updateProgress(100);
                     }
 
-                    sendBroadcast(new Intent(LOCAL_ACTION_STATUS)
-                            .putExtra(EXTRA_STATUS, mCurrentStatus)
-                            .setPackage(getPackageName())); // update the activity with what's new
+                    var localStatus = new Intent(LOCAL_ACTION_STATUS).putExtra(EXTRA_STATUS, mCurrentStatus);
+                    LocalBroadcastManager.getInstance(OrbotService.this).sendBroadcast(localStatus); // update the activity with what's new
                 }
             }
         }
