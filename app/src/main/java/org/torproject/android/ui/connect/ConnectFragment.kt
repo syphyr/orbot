@@ -84,12 +84,51 @@ class ConnectFragment : Fragment(),
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.logState.collect { logline ->
                     if (logline.isNotEmpty()) {
-                        var logParts = logline.split(":")
+                        
+                        if (logline.contains("Connected to tor control port"))
+                        {
+                            binding.tvSubtitle.text =
+                                getString(R.string.status_connected_control_port)
+                        }
+                        else if (logline.contains("(handshake)"))
+                        {
+                            binding.tvSubtitle.text = getString(R.string.status_handshake)
+                        }
+                        else if (logline.contains("(handshake_done)"))
+                        {
+                            binding.tvSubtitle.text = getString(R.string.status_handshake_done)
+                        }
+                        else if (logline.contains("(circuit_create)"))
+                        {
+                            binding.tvSubtitle.text = getString(R.string.status_circuit_create)
+                        }
+                        else if (logline.contains("(done)"))
+                        {
+                            binding.tvSubtitle.text = getString(R.string.status_done)
+                        }
+                        else if (logline.contains("(conn_pt)"))
+                        {
+                            binding.tvSubtitle.text = getString(R.string.status_conn_pt)
+                        }
+                        else if (logline.contains("(conn_done_pt)"))
+                        {
+                            binding.tvSubtitle.text = getString(R.string.status_conn_done_pt)
+                        }
+                        else if (logline.contains("(conn_done)"))
+                        {
+                            binding.tvSubtitle.text = getString(R.string.status_conn_done)
+                        }
+                        else if (logline.contains("(onehop_create)"))
+                        {
+                            binding.tvSubtitle.text = getString(R.string.status_onehop_create)
+                        }
+                        else if (logline.contains("(enough_dirinfo)"))
+                        {
+                            binding.tvSubtitle.text = getString(R.string.status_enough_dirinfo)
+                        }
 
-                        if (logParts.size > 2)
-                            binding.tvSubtitle.text = logParts[logParts.size-1]
-                        else
-                            binding.tvSubtitle.text = ""
+
+
                     }
                 }
             }

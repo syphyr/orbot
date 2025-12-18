@@ -291,4 +291,14 @@
     <string name="setting_unlock_pass_description">Require your device Password, PIN, or biometrics to unlock Orbot</string>
     <string name="setting_unlock_with_biometrics_title">Prevent Biometrics from Unlocking Orbot</string>
     <string name="setting_unlock_with_biometrics_description">If you are using the Lock Screen setting, this stops any biometrics that you may have configured to unlock your phone - such as your fingerprint or Face ID - from unlocking Orbot</string>
+    <string name="status_connected_control_port">Tor service has started</string>
+    <string name="status_handshake">Connecting to Tor network entrance</string>
+    <string name="status_handshake_done">Entering the Tor network</string>
+    <string name="status_circuit_create">Setting up connection through Tor network</string>
+    <string name="status_done">Ready to go!</string>
+    <string name="status_conn_pt">Finding alternate route to Tor network</string>
+    <string name="status_conn_done_pt">Alternate route established</string>
+    <string name="status_conn_done">Connected to Tor network entrance</string>
+    <string name="status_onehop_create">Accessing Tor network directory</string>
+    <string name="status_enough_dirinfo">Tor network directory loaded</string>
 </resources>
