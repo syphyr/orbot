@@ -168,7 +168,6 @@ class ConnectFragment : Fragment(),
                     with(binding.btnStart) {
                         text = context.getString(android.R.string.cancel)
                     }
-                    requireContext().sendIntentToService(OrbotConstants.ACTION_START)
                 }
             }
             doLayoutStarting(requireContext())
