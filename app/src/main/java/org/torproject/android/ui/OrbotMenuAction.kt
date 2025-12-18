@@ -8,5 +8,7 @@ data class OrbotMenuAction(
     val imgId: Int,
     val removeTint: Boolean = false,
     var backgroundColor: Int? = null,
+    val statusString: String? = "",
     val action: () -> Unit
 )
+
