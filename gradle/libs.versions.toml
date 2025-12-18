@@ -18,7 +18,7 @@ navigation-fragment-ktx = "2.9.6"
 orchestrator = "1.6.1"
 retrofit = "3.0.0"
 rootbeer = "0.1.1"
-tor-android = "0.4.8.21"
+tor-android = "0.4.8.21.1"
 kotlin = "2.2.21"
 coroutines = "1.10.2"
 serialization = "1.9.0"
@@ -27,7 +27,7 @@ androidx-biometric = "1.1.0"
 androidx-lifecycle = "2.10.0"
 screengrab = "2.1.1"
 upnp = "1.0.0"
-iptproxy = "4.2.2"
+iptproxy = "4.3.0"
 
 [libraries]
 android-material = { group = "com.google.android.material", name = "material", version.ref = "android-material" }
