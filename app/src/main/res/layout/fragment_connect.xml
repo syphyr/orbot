@@ -12,17 +12,7 @@
         android:paddingBottom="110dp"
         android:backgroundTint="@color/new_background">
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:progressTint="@color/progress_bar_purple"
-            android:visibility="invisible"
-            app:layout_constraintBottom_toTopOf="@id/ivStatus"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:progress="33"
-            tools:visibility="visible" />
+
 
         <ImageView
             android:id="@+id/ivStatus"
@@ -61,10 +51,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/ivShadow" />
 
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:progressTint="@color/progress_bar_purple"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            tools:progress="33"
+            tools:visibility="visible" />
+
         <TextView
             android:id="@+id/tvSubtitle"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_marginTop="8dp"
             android:gravity="center_horizontal"
             android:paddingStart="@dimen/activity_horizontal_large_margin"
@@ -75,7 +78,23 @@
             android:textColor="@android:color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+            app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+
+        <ListView
+            android:id="@+id/lvConnected"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="24dp"
+            android:dividerHeight="1dp"
+            android:drawSelectorOnTop="true"
+            android:visibility="visible"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSubtitle"
+            tools:visibility="visible" />
 
         <Button
             android:id="@+id/btnStart"
@@ -92,7 +111,7 @@
             android:text="@string/btn_start_vpn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvSubtitle"
+            app:layout_constraintTop_toBottomOf="@+id/lvConnected"
             tools:enabled="false" />
 
         <androidx.appcompat.widget.SwitchCompat
@@ -114,23 +133,13 @@
             android:layout_marginTop="16dp"
             android:text="@string/btn_configure"
             android:textAllCaps="true"
+            android:visibility="gone"
             android:textAppearance="@style/TextAppearance.Material3.BodySmall"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swSmartConnect" />
 
-        <ListView
-            android:id="@+id/lvConnected"
-            android:layout_width="match_parent"
-            android:layout_height="170dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="24dp"
-            android:dividerHeight="1dp"
-            android:drawSelectorOnTop="true"
-            android:visibility="invisible"
-            app:layout_constraintTop_toBottomOf="@id/tvConfigure"
-            tools:visibility="gone" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

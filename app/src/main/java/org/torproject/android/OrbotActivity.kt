@@ -279,6 +279,7 @@ class OrbotActivity : BaseActivity() {
                     }
                     intent.getStringExtra(OrbotConstants.LOCAL_EXTRA_LOG)?.let {
                         logBottomSheet.appendLog(it)
+                        connectViewModel.updateLogState(it)
                     }
                 }
 

@@ -18,6 +18,9 @@ class ConnectViewModel : ViewModel() {
     private val _uiState = MutableStateFlow<ConnectUiState>(ConnectUiState.Off)
     val uiState: StateFlow<ConnectUiState> = _uiState
 
+    private val _logState = MutableStateFlow<String>("")
+    val logState: StateFlow<String>  = _logState
+
     private val _eventChannel = Channel<ConnectEvent>(Channel.BUFFERED)
     val events = _eventChannel.receiveAsFlow()
 
@@ -30,6 +33,10 @@ class ConnectViewModel : ViewModel() {
             else -> ConnectUiState.Off
         }
         _uiState.value = newState
+    }
+
+    fun updateLogState (logline: String) {
+        _logState.value = logline
     }
 
     fun updateBootstrapPercent(percent: Int) {

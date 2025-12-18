@@ -81,6 +81,21 @@ class ConnectFragment : Fragment(),
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.logState.collect { logline ->
+                    if (logline.isNotEmpty()) {
+                        var logParts = logline.split(":")
+
+                        if (logParts.size > 2)
+                            binding.tvSubtitle.text = logParts[logParts.size-1]
+                        else
+                            binding.tvSubtitle.text = ""
+                    }
+                }
+            }
+        }
+
+        viewLifecycleOwner.lifecycleScope.launch {
             viewModel.events.collect { event ->
                 when (event) {
                     is ConnectEvent.StartTorAndVpn -> startTorAndVpn()
@@ -88,6 +103,9 @@ class ConnectFragment : Fragment(),
                 }
             }
         }
+
+        refreshMenuList(requireContext())
+
     }
 
     override fun onCreateView(
@@ -156,19 +174,52 @@ class ConnectFragment : Fragment(),
             doLayoutStarting(requireContext())
             requireContext().sendIntentToService(OrbotConstants.ACTION_START)
         }
+        refreshMenuList(requireContext())
     }
 
     fun refreshMenuList(context: Context) {
+
+        val connectStr: String
+
+        if (Prefs.smartConnect) {
+            connectStr = getString(R.string.smart_connect)
+        } else {
+            connectStr = when (Prefs.transport) {
+                Transport.NONE ->
+                    getString(R.string.direct_connect)
+
+                Transport.MEEK_AZURE ->
+                    getString(R.string.bridge_meek_azure)
+
+                Transport.OBFS4 ->
+                    getString(R.string.built_in_bridges_obfs4)
+
+                Transport.SNOWFLAKE ->
+                    getString(R.string.snowflake)
+
+                Transport.SNOWFLAKE_AMP ->
+                    getString(R.string.snowflake_amp)
+
+                Transport.SNOWFLAKE_SQS ->
+                    getString(R.string.snowflake_sqs)
+
+                Transport.WEBTUNNEL ->  Transport.WEBTUNNEL.id
+                Transport.CUSTOM ->
+                    getString(R.string.custom_bridges)
+            }
+        }
+
         val listItems =
             arrayListOf(
+                OrbotMenuAction(R.string.btn_configure, R.drawable.ic_settings_gear, statusString = connectStr) { openConfigureTorConnection() },
                 OrbotMenuAction(R.string.btn_change_exit, 0) {
                     ExitNodeBottomSheet().show(
                         requireActivity().supportFragmentManager,
                         "ExitNodeBottomSheet"
                     )
                 },
-                OrbotMenuAction(R.string.btn_refresh, R.drawable.ic_refresh) { sendNewnymSignal() },
-                OrbotMenuAction(R.string.btn_tor_off, R.drawable.ic_power) { stopTorAndVpn() })
+        OrbotMenuAction(R.string.btn_refresh, R.drawable.ic_refresh) { sendNewnymSignal() })
+             //   OrbotMenuAction(R.string.btn_tor_off, R.drawable.ic_power) { stopTorAndVpn() })
         if (!Prefs.isPowerUserMode) listItems.add(
             0,
             OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
@@ -191,7 +242,7 @@ class ConnectFragment : Fragment(),
         binding.tvSubtitle.text = getString(R.string.no_internet_subtitle)
 
         binding.btnStart.visibility = View.GONE
-        binding.lvConnected.visibility = View.GONE
+        binding.lvConnected.visibility = View.VISIBLE
         binding.swSmartConnect.visibility = View.GONE
         binding.tvConfigure.visibility = View.GONE
     }
@@ -199,17 +250,32 @@ class ConnectFragment : Fragment(),
     fun doLayoutOn(context: Context) {
         binding.ivStatus.setImageResource(R.drawable.orbieon)
 
-        binding.tvSubtitle.visibility = View.GONE
+        binding.tvSubtitle.visibility = View.VISIBLE
         binding.progressBar.visibility = View.INVISIBLE
         binding.tvTitle.text = context.getString(R.string.connected_title)
-        binding.btnStart.visibility = View.GONE
+        binding.btnStart.visibility = View.VISIBLE
         binding.lvConnected.visibility = View.VISIBLE
         binding.swSmartConnect.visibility = View.GONE
         binding.tvConfigure.visibility = View.GONE
 
         refreshMenuList(context)
 
-        binding.ivStatus.setOnClickListener {}
+        with(binding.btnStart) {
+            text = getString(R.string.btn_tor_off)
+            isEnabled = true
+            backgroundTintList = ColorStateList.valueOf(
+                ContextCompat.getColor(
+                    context, R.color.orbot_btn_enabled_purple
+                )
+            )
+            setOnClickListener {
+                stopTorAndVpn()
+            }
+        }
+
+        binding.ivStatus.setOnClickListener {
+            (activity as OrbotActivity).showLog()
+        }
     }
 
     fun doLayoutOff() {
@@ -217,9 +283,10 @@ class ConnectFragment : Fragment(),
         stopAnimations()
         binding.tvSubtitle.visibility = View.VISIBLE
         binding.progressBar.visibility = View.INVISIBLE
-        binding.lvConnected.visibility = View.GONE
+        binding.lvConnected.visibility = View.VISIBLE
         binding.tvTitle.text = getString(R.string.secure_your_connection_title)
         binding.tvSubtitle.text = getString(R.string.secure_your_connection_subtitle)
+        binding.btnStart.text = getString(R.string.btn_start_vpn)
 
         /**
          * //TODO hide smart connect in the UI for now
@@ -230,7 +297,7 @@ class ConnectFragment : Fragment(),
             doLayoutOff()
         }**/
 
-        binding.tvConfigure.visibility = View.VISIBLE
+        binding.tvConfigure.visibility = View.GONE
         binding.tvConfigure.text = getString(R.string.btn_configure)
         binding.tvConfigure.paintFlags = Paint.UNDERLINE_TEXT_FLAG
         binding.tvConfigure.setOnClickListener { openConfigureTorConnection() }
@@ -238,49 +305,7 @@ class ConnectFragment : Fragment(),
         with(binding.btnStart) {
             visibility = View.VISIBLE
 
-            val connectStr: String
-
-            if (Prefs.smartConnect) {
-                connectStr = getString(R.string.action_use_, getString(R.string.smart_connect))
-            } else {
-                connectStr = when (Prefs.transport) {
-                    Transport.NONE -> getString(
-                        R.string.action_use_,
-                        getString(R.string.direct_connect)
-                    )
-
-                    Transport.MEEK_AZURE -> getString(
-                        R.string.action_use_,
-                        getString(R.string.bridge_meek_azure)
-                    )
-
-                    Transport.OBFS4 -> getString(
-                        R.string.action_use_,
-                        getString(R.string.built_in_bridges_obfs4)
-                    )
-
-                    Transport.SNOWFLAKE -> getString(
-                        R.string.action_use_,
-                        getString(R.string.snowflake)
-                    )
-
-                    Transport.SNOWFLAKE_AMP -> getString(
-                        R.string.action_use_,
-                        getString(R.string.snowflake_amp)
-                    )
-
-                    Transport.SNOWFLAKE_SQS -> getString(
-                        R.string.action_use_,
-                        getString(R.string.snowflake_sqs)
-                    )
-
-                    Transport.WEBTUNNEL -> getString(R.string.action_use_, Transport.WEBTUNNEL.id)
-                    Transport.CUSTOM -> getString(
-                        R.string.action_use_,
-                        getString(R.string.custom_bridges)
-                    )
-                }
-            }
+            val connectStr = ""
 
             text = when {
                 Prefs.isPowerUserMode -> getString(R.string.connect)
@@ -313,12 +338,14 @@ class ConnectFragment : Fragment(),
         }
 
         binding.ivStatus.setOnClickListener {
-            startTorAndVpn()
+
         }
     }
 
     fun doLayoutStarting(context: Context) {
-        binding.tvSubtitle.visibility = View.GONE
+        binding.tvSubtitle.visibility = View.VISIBLE
+        binding.tvSubtitle.text = ""
+
         with(binding.progressBar) {
             progress = 0
             visibility = View.VISIBLE
@@ -351,6 +378,10 @@ class ConnectFragment : Fragment(),
 
         binding.swSmartConnect.visibility = View.GONE
         binding.tvConfigure.visibility = View.GONE
+
+        binding.tvSubtitle.setOnClickListener {
+            (activity as OrbotActivity).showLog()
+        }
     }
 
 

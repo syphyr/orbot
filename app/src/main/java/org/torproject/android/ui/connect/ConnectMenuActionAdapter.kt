@@ -66,7 +66,11 @@ class ConnectMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction
                     imgView.setImageResource(model.imgId)
                 }
             }
-            returnView.findViewById<TextView>(R.id.tvLabel).text = context.getString(model.textId)
+            if (model.statusString?.isEmpty() == true)
+                returnView.findViewById<TextView>(R.id.tvLabel).text = context.getString(model.textId)
+            else
+                returnView.findViewById<TextView>(R.id.tvLabel).text = model.statusString
+
             returnView.setOnClickListener { model.action() }
         }
         return returnView
