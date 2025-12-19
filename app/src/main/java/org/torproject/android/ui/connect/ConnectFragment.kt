@@ -84,7 +84,7 @@ class ConnectFragment : Fragment(),
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.logState.collect { logline ->
                     if (logline.isNotEmpty()) {
-                        
+
                         if (logline.contains("Connected to tor control port"))
                         {
                             binding.tvSubtitle.text =
@@ -125,6 +125,21 @@ class ConnectFragment : Fragment(),
                         else if (logline.contains("(enough_dirinfo)"))
                         {
                             binding.tvSubtitle.text = getString(R.string.status_enough_dirinfo)
+                        }
+                        else if (logline.contains("(requesting_status)")) {
+                            binding.tvSubtitle.text = "Asking Tor for network status"
+                        }
+                        else if (logline.contains("(loading_status)")) {
+                            binding.tvSubtitle.text = "Loading network status"
+                        }
+                        else if (logline.contains("(loading_keys)")) {
+                            binding.tvSubtitle.text = "Loading network security keys"
+                        }
+                        else if (logline.contains("(requesting_descriptors)")) {
+                            binding.tvSubtitle.text = "Requesting network server information"
+                        }
+                        else if (logline.contains("(loading_descriptors)")) {
+                            binding.tvSubtitle.text = "Loading network server information"
                         }
 
 
@@ -225,7 +240,7 @@ class ConnectFragment : Fragment(),
         } else {
             connectStr = when (Prefs.transport) {
                 Transport.NONE ->
-                    getString(R.string.direct_connect)
+                    getString(R.string.btn_configure)
 
                 Transport.MEEK_AZURE ->
                     getString(R.string.bridge_meek_azure)
