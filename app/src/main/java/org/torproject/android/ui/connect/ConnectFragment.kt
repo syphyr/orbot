@@ -127,19 +127,20 @@ class ConnectFragment : Fragment(),
                             binding.tvSubtitle.text = getString(R.string.status_enough_dirinfo)
                         }
                         else if (logline.contains("(requesting_status)")) {
-                            binding.tvSubtitle.text = "Asking Tor for network status"
+                            binding.tvSubtitle.text = getString(R.string.status_requesting_status)
                         }
                         else if (logline.contains("(loading_status)")) {
-                            binding.tvSubtitle.text = "Loading network status"
+                            binding.tvSubtitle.text = getString(R.string.status_loading_status)
                         }
                         else if (logline.contains("(loading_keys)")) {
-                            binding.tvSubtitle.text = "Loading network security keys"
+                            binding.tvSubtitle.text = getString(R.string.status_loading_keys)
                         }
                         else if (logline.contains("(requesting_descriptors)")) {
-                            binding.tvSubtitle.text = "Requesting network server information"
+                            binding.tvSubtitle.text =
+                                getString(R.string.status_requesting_descriptors)
                         }
                         else if (logline.contains("(loading_descriptors)")) {
-                            binding.tvSubtitle.text = "Loading network server information"
+                            binding.tvSubtitle.text = getString(R.string.status_loading_descriptors)
                         }
 
 

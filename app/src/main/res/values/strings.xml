@@ -301,4 +301,9 @@
     <string name="status_conn_done">Connected to Tor network entrance</string>
     <string name="status_onehop_create">Accessing Tor network directory</string>
     <string name="status_enough_dirinfo">Tor network directory loaded</string>
+    <string name="status_requesting_status">Asking Tor for network status</string>
+    <string name="status_loading_status">Loading network status</string>
+    <string name="status_loading_keys">Loading network security keys</string>
+    <string name="status_requesting_descriptors">Requesting network server information</string>
+    <string name="status_loading_descriptors">Loading network server information</string>
 </resources>
