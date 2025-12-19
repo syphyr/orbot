@@ -74,7 +74,7 @@
             android:paddingEnd="@dimen/activity_horizontal_large_margin"
             android:text="@string/hide_apps"
             android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
             android:textColor="#cccccc"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
