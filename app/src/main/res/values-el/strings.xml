@@ -202,4 +202,5 @@
     <string name="status_disabled">\"Το Orbot είναι Απενεργοποιημένο</string>
     <string name="couldn_t_start_tor_process_">Αδυναμία εκκίνησης της διεργασίας Tor:</string>
     <string name="unable_to_start_tor">Αδυναμία εκκίνησης του Tor:</string>
+    <string name="set_transport">Ορισμός μεταφοράς</string>
 </resources>

@@ -199,4 +199,5 @@
     <string name="unable_to_start_tor">Không thể khởi động Tor được: </string>
     <string name="mebibyte_per_second">MiB/s</string>
     <string name="kibibyte_per_second">KiB/s</string>
+    <string name="set_transport">Thiết lập phương thức truyền tải</string>
 </resources>

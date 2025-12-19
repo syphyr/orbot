@@ -262,4 +262,5 @@
     <string name="note_snowflake_doesn_t_support_proxies">ПРИМІТКА. Snowflake не підтримує проксі-сервери. Налаштування проксі-сервера будуть ігноруватися мостами Snowflake.</string>
     <string name="search_for_apps">Пошук програм</string>
     <string name="apps_updated_msg">Оновлені програми</string>
+    <string name="set_transport">Налаштувати транспорт</string>
 </resources>

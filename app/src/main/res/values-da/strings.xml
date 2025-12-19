@@ -155,4 +155,5 @@
     <string name="status_disabled">Orbot er slået fra</string>
     <string name="couldn_t_start_tor_process_">Kunne ikke starte Tor processen:</string>
     <string name="unable_to_start_tor">Kunne ikke starte Tor:</string>
+    <string name="set_transport">Indstil transport</string>
 </resources>

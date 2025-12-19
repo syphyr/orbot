@@ -257,4 +257,5 @@
     <string name="kindness_mode_starting">يبدأ…</string>
     <string name="kindness_mode_disabled_internet">اتصل بالإنترنت لمساعدة الناس على تجاوز الرقابة</string>
     <string name="kindness_mode_disabled_wifi">اتصل بشبكة Wi-Fi لمساعدة الناس على تجاوز الرقابة</string>
+    <string name="set_transport">تعيين النقل</string>
 </resources>

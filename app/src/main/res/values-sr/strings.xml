@@ -194,4 +194,5 @@
     <string name="status_disabled">Орбот је деактивиран</string>
     <string name="couldn_t_start_tor_process_">Није могуће покренути Тор процес:</string>
     <string name="unable_to_start_tor">Тор није у могућности да се покрене:</string>
+    <string name="set_transport">Подеси транспорт</string>
 </resources>

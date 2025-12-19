@@ -268,4 +268,5 @@
     <string name="log_notice_updating_torrc">Actualizarea configurației personalizate torrc…</string>
     <string name="log_notice_connected_to_tor_control_port">Portul de control Tor</string>
     <string name="note_snowflake_doesn_t_support_proxies">NOTĂ: Snowflake nu suportă proxy-uri. Setările proxy vor fi ignorate cu punțile Snowflake.</string>
+    <string name="set_transport">Setați transportul</string>
 </resources>

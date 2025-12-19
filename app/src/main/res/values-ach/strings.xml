@@ -9,4 +9,5 @@
     <!--TipsAndTricks screen-->
     <!--Transparent Proxy screen-->
     <string name="app_name">Orbot</string>
+    <string name="set_transport">Set Transport</string>
 </resources>

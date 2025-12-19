@@ -173,4 +173,5 @@
     <string name="status_disabled">Orbot está desactivado</string>
     <string name="couldn_t_start_tor_process_">No se pudio inciar o proceso Tor:</string>
     <string name="unable_to_start_tor">Incapaz de arrancar Tor</string>
+    <string name="set_transport">Establecer transporte</string>
 </resources>

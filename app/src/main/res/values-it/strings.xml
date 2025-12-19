@@ -257,4 +257,5 @@
     <string name="note_snowflake_doesn_t_support_proxies">NOTA: Snowflake non supporta i proxy. Le impostazioni del proxy verranno ignorate con i bridge di Snowflake.</string>
     <string name="search_for_apps">Cerca app</string>
     <string name="apps_updated_msg">App aggiornate</string>
+    <string name="set_transport">Imposta trasporto</string>
 </resources>

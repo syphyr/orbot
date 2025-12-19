@@ -263,4 +263,5 @@
     <string name="search_for_apps">Kërkoni për aplikacione</string>
     <string name="apps_updated_msg">Aplikacionet u Përditësuan</string>
     <string name="pref_camo_mode_description">Maskoni si do të duken në pajisjen tuaj ikonat, etiketat dhe tekst njoftimesh Orbot-i</string>
+    <string name="set_transport">Vendos transportin</string>
 </resources>

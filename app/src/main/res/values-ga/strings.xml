@@ -255,4 +255,5 @@
     <string name="note_snowflake_doesn_t_support_proxies">NÓTA: Ní thacaíonn Snowflake le seachfhreastalaithe. Déanfar neamhaird ar shocruithe seachfhreastalaithe le droichid Snowflake.</string>
     <string name="search_for_apps">Cuardaigh d\'aipeanna</string>
     <string name="apps_updated_msg">Aipeanna Nuashonraithe</string>
+    <string name="set_transport">Socraigh Iompar</string>
 </resources>

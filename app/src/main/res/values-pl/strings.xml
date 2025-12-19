@@ -238,4 +238,5 @@
     <string name="status_shutting_down">TorService wyłącza się</string>
     <string name="couldn_t_start_tor_process_">Nie można było zainicjować procesu Tora:</string>
     <string name="unable_to_start_tor">Nie można wystartować aplikacji Tor:</string>
+    <string name="set_transport">Ustaw transport</string>
 </resources>

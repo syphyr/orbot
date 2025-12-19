@@ -115,4 +115,5 @@
     <string name="status_activated">เชื่อมต่อกับเครือข่าย Tor</string>
     <string name="couldn_t_start_tor_process_">ไม่สามารถเริ่มโพรเซสของ Tor</string>
     <string name="unable_to_start_tor">ไม่สามารถเริ่ม Tor</string>
+    <string name="set_transport">ตั้งค่าการขนส่ง</string>
 </resources>

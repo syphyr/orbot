@@ -100,4 +100,5 @@
     <string name="status_disabled">Orbot이 비활성화되어 있습니다</string>
     <string name="couldn_t_start_tor_process_">Tor 프로세스 시작 불가능:  </string>
     <string name="unable_to_start_tor">Tor 시작 불가능</string>
+    <string name="set_transport">전송 설정</string>
 </resources>

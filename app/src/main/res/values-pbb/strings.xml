@@ -173,5 +173,6 @@
     <string name="snowflake_proxy_client_connected_msg">%1$sIdx snowflake proxi pu’çxhku maasume kaajxkhẽwu’jxa%2$s</string>
     <string name="log_notice_unable_to_update_onions">Spulxa yase kaateka’jya ewuumeen</string>
     <string name="log_notice_updating_torrc">Torrc Khpuusee’jnxi’s phewu’jna…</string>
-    <string name="log_notice_connected_to_tor_control_port">Txitxanxi ũsa’ çaam pe’pete u’kaya’</string>
+    <string name="log_notice_connected_to_tor_control_port">Txitxanxi ũsa' çaam pe'pete u'kaya'</string>
+    <string name="set_transport">Set Transport</string>
 </resources>

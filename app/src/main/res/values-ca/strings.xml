@@ -260,4 +260,5 @@
     <string name="log_notice_updating_torrc">S\'està actualitzant la configuració personalitzada del torrc…</string>
     <string name="log_notice_connected_to_tor_control_port">S\'ha connectat al port de control del Tor</string>
     <string name="note_snowflake_doesn_t_support_proxies">NOTA: Snowflake no és compatible amb els servidors intermediaris (proxy). La configuració del servidor intermediari s\'ignorarà als ponts del Snowflake.</string>
+    <string name="set_transport">Estableix el transport</string>
 </resources>

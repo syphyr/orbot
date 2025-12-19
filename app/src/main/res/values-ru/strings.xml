@@ -259,4 +259,5 @@
     <string name="log_notice_unable_to_update_onions">не получилось загрузить onion имена</string>
     <string name="log_notice_updating_torrc">Обновление пользовательских настроек torrc…</string>
     <string name="log_notice_connected_to_tor_control_port">Подключены к tor control port</string>
+    <string name="set_transport">Настроить транспорт</string>
 </resources>

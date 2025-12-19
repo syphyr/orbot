@@ -181,5 +181,5 @@ punjulaa apps, jupula  anaijatuin  pu kachuerrase</string>
   <string name="log_notice_unable_to_update_onions">Nojoluinjat  aitanüin junulia cewoolla.</string>
   <string name="log_notice_updating_torrc">Jeketerr  tu anatiakal  tu ipünamiukal C</string>
   <string name="log_notice_connected_to_tor_control_port">Antirrashi  Tor  juma ipunamuika eki.</string>
-
+    <string name="set_transport">Set Transport</string>
 </resources>

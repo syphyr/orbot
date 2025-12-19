@@ -214,4 +214,5 @@
     <string name="status_shutting_down">TorService está desligando</string>
     <string name="couldn_t_start_tor_process_">Não foi possível iniciar o processo Tor: </string>
     <string name="unable_to_start_tor">Habilitar iniciar o Tor:</string>
+    <string name="set_transport">Definir transporte</string>
 </resources>

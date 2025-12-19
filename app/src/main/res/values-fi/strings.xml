@@ -192,4 +192,5 @@
     <string name="status_disabled">Orbot on poistettu käytöstä</string>
     <string name="couldn_t_start_tor_process_">Tor-prosessin käynnistäminen epäonnistui:</string>
     <string name="unable_to_start_tor">Torin käynnistys epäonnistui:</string>
+    <string name="set_transport">Aseta kuljetus</string>
 </resources>

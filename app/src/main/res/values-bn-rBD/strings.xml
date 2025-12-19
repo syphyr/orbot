@@ -34,4 +34,5 @@
     <string name="status_starting_up">অরবট চালু হচ্ছে . . . </string>
     <string name="status_activated">টর নেটওয়ার্কের সাথে সংযুক্ত হয়েছে</string>
     <string name="status_disabled">অরবট নিষ্ক্রিয় করা হয়েছে</string>
+    <string name="set_transport">পরিবহন সেট করুন</string>
 </resources>

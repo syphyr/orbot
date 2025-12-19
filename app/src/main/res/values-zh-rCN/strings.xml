@@ -256,4 +256,5 @@
     <string name="note_snowflake_doesn_t_support_proxies">注意：Snowflake 不支持代理。使用 Snowflake 网桥时，代理设置将被忽略。</string>
     <string name="search_for_apps">搜索应用</string>
     <string name="apps_updated_msg">应用已更新</string>
+    <string name="set_transport">设置传输方式</string>
 </resources>

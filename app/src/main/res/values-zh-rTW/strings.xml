@@ -194,4 +194,5 @@
     <string name="status_activated">已連線至 Tor 網路</string>
     <string name="status_disabled">Orbot 已停用</string>
     <string name="status_shutting_down">Tor服務 正在關閉</string>
+    <string name="set_transport">設定傳輸方式</string>
 </resources>
