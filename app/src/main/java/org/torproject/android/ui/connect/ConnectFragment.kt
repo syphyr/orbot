@@ -183,8 +183,8 @@ class ConnectFragment : Fragment(),
     }
 
     private fun stopTorAndVpn() {
-        requireContext().sendIntentToService(OrbotConstants.ACTION_STOP)
         doLayoutOff()
+        requireContext().sendIntentToService(OrbotConstants.ACTION_STOP)
     }
 
     private fun stopAnimations() {
