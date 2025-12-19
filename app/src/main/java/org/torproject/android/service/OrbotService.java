@@ -192,27 +192,31 @@ public class OrbotService extends VpnService {
         if (!showNotification) { // clear notifications and stopSelf
             if (mNotificationManager != null) mNotificationManager.cancelAll();
             if (mOrbotRawEventListener != null) mOrbotRawEventListener.getNodes().clear();
-            stopSelf();
+
         }
+
+        //ensure service is destroyed and we get a clean instance of TorService
+        stopSelf();
     }
 
     private void stopTorOnError(String message) {
-        stopTorAsync(false);
+      //  stopTorAsync(false);
         showToolbarNotification(getString(R.string.unable_to_start_tor) + ": " + message, ERROR_NOTIFY_ID, R.drawable.ic_stat_notifyerr);
     }
 
     // if someone stops during startup, we may have to wait for the conn port to be setup, so we can properly shutdown tor
     private void stopTor() {
-        if (shouldUnbindTorService) {
-            if (conn != null) {
-                try {
-                    //make sure Tor shuts down now - don't wait for service cleanup
-                    conn.shutdownTor(TorControlCommands.SIGNAL_SHUTDOWN);
-                } catch (IOException e) {
-                    Log.d(TAG, "error shutting down Tor from the control port");
-                }
-            }
 
+        if (conn != null) {
+            try {
+                //make sure Tor shuts down now - don't wait for service cleanup
+                conn.shutdownTor(TorControlCommands.SIGNAL_SHUTDOWN);
+            } catch (Exception e) {
+                Log.d(TAG, "error shutting down Tor from the control port");
+            }
+        }
+
+        if (shouldUnbindTorService) {
             Log.d(TAG, "unbinding tor service");
             unbindService(torServiceConnection); //unbinding from the tor service will stop tor
             shouldUnbindTorService = false;
@@ -383,7 +387,7 @@ public class OrbotService extends VpnService {
                 logNotice(getString(R.string.unable_to_start_tor) + " " + e.getLocalizedMessage());
                 stopTorOnError(e.getLocalizedMessage());
             } else {
-                stopTorAsync(true);
+           //     stopTorAsync(true);
             }
 
             return Unit.INSTANCE;
