@@ -68,13 +68,17 @@ class ConnectFragment : Fragment(),
                         is ConnectUiState.NoInternet -> doLayoutNoInternet()
                         is ConnectUiState.Off -> doLayoutOff()
                         is ConnectUiState.Starting -> {
+                            binding.switchConnect.isChecked = true
                             doLayoutStarting(requireContext())
                             state.bootstrapPercent?.let {
                                 binding.progressBar.progress = it
                             }
                         }
 
-                        is ConnectUiState.On -> doLayoutOn(requireContext())
+                        is ConnectUiState.On -> {
+                            lastState = OrbotConstants.ACTION_START
+                            doLayoutOn(requireContext())
+                        }
                         is ConnectUiState.Stopping -> {}
                     }
                 }
@@ -199,6 +203,7 @@ class ConnectFragment : Fragment(),
     private fun stopTorAndVpn() {
         doLayoutOff()
         setState(OrbotConstants.ACTION_STOP)
+        binding.tvSubtitle.text=""
     }
 
     private fun stopAnimations() {
@@ -289,9 +294,11 @@ class ConnectFragment : Fragment(),
             }
         }
 
+        var connectStrLabel = getString(R.string.set_transport) + ": $connectStr"
+
         val listItems =
             arrayListOf(
-                OrbotMenuAction(R.string.btn_configure, R.drawable.ic_settings_gear, statusString = connectStr) { openConfigureTorConnection() },
+                OrbotMenuAction(R.string.btn_configure, R.drawable.ic_settings_gear, statusString = connectStrLabel) { openConfigureTorConnection() },
                 OrbotMenuAction(R.string.btn_change_exit, 0) {
                     ExitNodeBottomSheet().show(
                         requireActivity().supportFragmentManager,
@@ -366,7 +373,7 @@ class ConnectFragment : Fragment(),
         binding.progressBar.visibility = View.INVISIBLE
         binding.lvConnected.visibility = View.VISIBLE
         binding.tvTitle.text = getString(R.string.secure_your_connection_title)
-        binding.tvSubtitle.text = getString(R.string.secure_your_connection_subtitle)
+      //  binding.tvSubtitle.text = ""//getString(R.string.secure_your_connection_subtitle)
         binding.btnStart.text = getString(R.string.btn_start_vpn)
 
         /**
