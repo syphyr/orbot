@@ -200,7 +200,7 @@ class ConnectFragment : Fragment(),
         viewModel.updateState(requireContext(), lastStatus)
     }
 
-    private fun stopTorAndVpn() {
+    fun stopTorAndVpn() {
         doLayoutOff()
         setState(OrbotConstants.ACTION_STOP)
         binding.tvSubtitle.text=""
