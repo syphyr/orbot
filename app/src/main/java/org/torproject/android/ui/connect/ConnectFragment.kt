@@ -21,6 +21,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -148,6 +149,7 @@ class ConnectFragment : Fragment(),
                     }
                 }
             }
+
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
@@ -159,6 +161,18 @@ class ConnectFragment : Fragment(),
             }
         }
 
+        binding.switchConnect.setOnCheckedChangeListener{ _, value ->
+
+            if (value == true)
+            {
+                startTorAndVpn()
+            }
+            else
+            {
+                stopTorAndVpn()
+            }
+
+        }
         refreshMenuList(requireContext())
 
     }
@@ -184,7 +198,7 @@ class ConnectFragment : Fragment(),
 
     private fun stopTorAndVpn() {
         doLayoutOff()
-        requireContext().sendIntentToService(OrbotConstants.ACTION_STOP)
+        setState(OrbotConstants.ACTION_STOP)
     }
 
     private fun stopAnimations() {
@@ -226,9 +240,21 @@ class ConnectFragment : Fragment(),
                 }
             }
             doLayoutStarting(requireContext())
-            requireContext().sendIntentToService(OrbotConstants.ACTION_START)
+            setState(OrbotConstants.ACTION_START)
         }
         refreshMenuList(requireContext())
+    }
+
+    private var lastState :String? = null
+
+    @Synchronized
+    fun setState (newState: String) {
+
+        if (lastState != newState)
+        {
+            requireContext().sendIntentToService(newState)
+            lastState = newState
+        }
     }
 
     fun refreshMenuList(context: Context) {
@@ -295,10 +321,9 @@ class ConnectFragment : Fragment(),
         binding.tvTitle.text = getString(R.string.no_internet_title)
         binding.tvSubtitle.text = getString(R.string.no_internet_subtitle)
 
-        binding.btnStart.visibility = View.GONE
+       // binding.btnStart.visibility = View.GONE
         binding.lvConnected.visibility = View.VISIBLE
-        binding.swSmartConnect.visibility = View.GONE
-        binding.tvConfigure.visibility = View.GONE
+
     }
 
     fun doLayoutOn(context: Context) {
@@ -307,15 +332,17 @@ class ConnectFragment : Fragment(),
         binding.tvSubtitle.visibility = View.VISIBLE
         binding.progressBar.visibility = View.INVISIBLE
         binding.tvTitle.text = context.getString(R.string.connected_title)
-        binding.btnStart.visibility = View.VISIBLE
+       // binding.btnStart.visibility = View.VISIBLE
         binding.lvConnected.visibility = View.VISIBLE
-        binding.swSmartConnect.visibility = View.GONE
-        binding.tvConfigure.visibility = View.GONE
 
         refreshMenuList(context)
 
         with(binding.btnStart) {
-            text = getString(R.string.btn_tor_off)
+            if (Prefs.isPowerUserMode)
+                text = getString(R.string.btn_tor_off)
+            else
+                text = "Stop VPN"
+
             isEnabled = true
             backgroundTintList = ColorStateList.valueOf(
                 ContextCompat.getColor(
@@ -351,16 +378,17 @@ class ConnectFragment : Fragment(),
             doLayoutOff()
         }**/
 
+        /**
         binding.tvConfigure.visibility = View.GONE
         binding.tvConfigure.text = getString(R.string.btn_configure)
         binding.tvConfigure.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-        binding.tvConfigure.setOnClickListener { openConfigureTorConnection() }
+        binding.tvConfigure.setOnClickListener { openConfigureTorConnection()
+        **/
 
         with(binding.btnStart) {
-            visibility = View.VISIBLE
 
             val connectStr = ""
-
+/**
             text = when {
                 Prefs.isPowerUserMode -> getString(R.string.connect)
                 connectStr.isEmpty() -> SpannableStringBuilder()
@@ -382,7 +410,7 @@ class ConnectFragment : Fragment(),
                         AbsoluteSizeSpan(12, true),
                         Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
                     )
-            }
+            }**/
 
             isEnabled = true
             backgroundTintList = ColorStateList.valueOf(
@@ -429,9 +457,6 @@ class ConnectFragment : Fragment(),
                 stopTorAndVpn()
             }
         }
-
-        binding.swSmartConnect.visibility = View.GONE
-        binding.tvConfigure.visibility = View.GONE
 
         binding.tvSubtitle.setOnClickListener {
             (activity as OrbotActivity).showLog()

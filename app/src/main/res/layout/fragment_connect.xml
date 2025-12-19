@@ -98,8 +98,8 @@
 
         <Button
             android:id="@+id/btnStart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/btn_shape_round"
             android:backgroundTint="@color/orbot_btn_enabled_purple"
@@ -112,8 +112,27 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lvConnected"
-            tools:enabled="false" />
+            tools:enabled="false"
+            android:visibility="gone"
+            />
 
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switchConnect"
+            android:layout_width="200dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="32dp"
+            android:text="@string/connect"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lvConnected"
+            android:background="@color/orbot_btn_enabled_purple"
+            android:paddingStart="@dimen/button_horizontal_med_margin"
+            android:paddingTop="@dimen/button_horizontal_small_margin"
+            android:paddingEnd="@dimen/button_horizontal_med_margin"
+            android:paddingBottom="@dimen/button_horizontal_small_margin"
+            />
+
+        <!--
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swSmartConnect"
             android:layout_width="wrap_content"
@@ -138,7 +157,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swSmartConnect" />
-
+-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
