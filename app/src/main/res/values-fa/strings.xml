@@ -256,4 +256,19 @@
     <string name="request_notification_permission_msg">بدون روشن کردن آگاهی‌ها روبوت پیازی نمی‌تواند به عنوان وی‌پی‌ان تور عمل کرده یا از یا حالت مهربانی استفاده کند.\n\nبا به کار انداختنش تنها یک آگاهی هنگام کار کردن روبوت پیازی نشان داده خواهد شد.</string>
     <string name="camo_samsung_instructions">آگاهی‌های حالت استتار روی افزارهٔ گلکسی سامسونگتان تنها با گشودن تنظیمات -&gt; آگاهی‌ها -&gt; تنظیمات پیش‌رفته و از کار انداختن «نمایش نقشک کاره در آگاهی‌ها» کار خواهد کرد. برای گشودن تنظیمات آگاهی این‌جا را بزنید.</string>
     <string name="set_transport">تنظیم حمل‌ونقل</string>
+    <string name="status_connected_control_port">سرویس تور شروع شده است</string>
+    <string name="status_handshake">در حال اتصال به ورودی شبکه تور</string>
+    <string name="status_handshake_done">در حال ورود به شبکه تور</string>
+    <string name="status_circuit_create">در حال برقراری اتصال از طریق شبکه تور</string>
+    <string name="status_done">آماده!</string>
+    <string name="status_conn_pt">در حال یافتن مسیر جایگزین به شبکه تور</string>
+    <string name="status_conn_done_pt">مسیر جایگزین برقرار شد</string>
+    <string name="status_conn_done">به ورودی شبکه تور متصل شد</string>
+    <string name="status_onehop_create">در حال دسترسی به فهرست شبکه تور</string>
+    <string name="status_enough_dirinfo">فهرست شبکه تور بارگذاری شد</string>
+    <string name="status_requesting_status">درخواست وضعیت شبکه از تور</string>
+    <string name="status_loading_status">در حال بارگذاری وضعیت شبکه</string>
+    <string name="status_loading_keys">در حال بارگذاری کلیدهای امنیتی شبکه</string>
+    <string name="status_requesting_descriptors">درخواست اطلاعات سرورهای شبکه</string>
+    <string name="status_loading_descriptors">در حال بارگذاری اطلاعات سرورهای شبکه</string>
 </resources>
