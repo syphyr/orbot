@@ -240,7 +240,7 @@ class ConnectFragment : Fragment(),
         } else {
             connectStr = when (Prefs.transport) {
                 Transport.NONE ->
-                    getString(R.string.btn_configure)
+                    getString(R.string.direct_connect)
 
                 Transport.MEEK_AZURE ->
                     getString(R.string.bridge_meek_azure)
