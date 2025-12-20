@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.CompoundButton
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -106,7 +107,7 @@ class ConnectFragment : Fragment(),
             }
         }
 
-        binding.switchConnect.setOnCheckedChangeListener { _, value ->
+        binding.switchConnect.setOnThrottledCheckedChangeListener { _, value ->
             if (value)
                 startTorAndVpn()
             else
@@ -406,5 +407,37 @@ class ConnectFragment : Fragment(),
         )
 
         refreshMenuList(requireContext())
+    }
+}
+
+private var lastChange = 0L
+private const val DEFAULT_THROTTLE_INTERVAL = 5000L
+
+/**
+ * Prevents rapid consecutive checked-change calls while visually indicating cooldown
+ */
+fun CompoundButton.setOnThrottledCheckedChangeListener(
+    intervalMs: Long = DEFAULT_THROTTLE_INTERVAL,
+    onCheckedChange: (button: CompoundButton, isChecked: Boolean) -> Unit
+) {
+    setOnCheckedChangeListener { buttonView, isChecked ->
+        val now = System.currentTimeMillis()
+        if (now - lastChange >= intervalMs) {
+            lastChange = now
+            onCheckedChange(buttonView, isChecked)
+        } else {
+            buttonView.isChecked = !isChecked
+            val timeRemain = intervalMs - (now - lastChange)
+
+            // Visual feedback
+            buttonView.isEnabled = false
+            buttonView.alpha = 0.38f
+
+            // Restore after delay
+            buttonView.postDelayed({
+                buttonView.isEnabled = true
+                buttonView.alpha = 1f
+            }, timeRemain)
+        }
     }
 }
