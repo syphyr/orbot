@@ -113,9 +113,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lvConnected"
             tools:enabled="false"
-            android:visibility="gone"
             />
-
+<!--
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/switchConnect"
             android:layout_width="wrap_content"
@@ -132,7 +131,6 @@
             android:paddingBottom="@dimen/button_horizontal_small_margin"
             />
 
-        <!--
         <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/swSmartConnect"
             android:layout_width="wrap_content"
@@ -158,7 +156,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/swSmartConnect" />
 -->
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

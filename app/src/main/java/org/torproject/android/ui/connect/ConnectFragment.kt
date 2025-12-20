@@ -21,7 +21,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -68,7 +67,6 @@ class ConnectFragment : Fragment(),
                         is ConnectUiState.NoInternet -> doLayoutNoInternet()
                         is ConnectUiState.Off -> doLayoutOff()
                         is ConnectUiState.Starting -> {
-                            binding.switchConnect.isChecked = true
                             doLayoutStarting(requireContext())
                             state.bootstrapPercent?.let {
                                 binding.progressBar.progress = it
@@ -165,18 +163,6 @@ class ConnectFragment : Fragment(),
             }
         }
 
-        binding.switchConnect.setOnCheckedChangeListener{ _, value ->
-
-            if (value == true)
-            {
-                startTorAndVpn()
-            }
-            else
-            {
-                stopTorAndVpn()
-            }
-
-        }
         refreshMenuList(requireContext())
 
     }
@@ -328,7 +314,7 @@ class ConnectFragment : Fragment(),
         binding.tvTitle.text = getString(R.string.no_internet_title)
         binding.tvSubtitle.text = getString(R.string.no_internet_subtitle)
 
-       // binding.btnStart.visibility = View.GONE
+        binding.btnStart.visibility = View.GONE
         binding.lvConnected.visibility = View.VISIBLE
 
     }
@@ -339,7 +325,7 @@ class ConnectFragment : Fragment(),
         binding.tvSubtitle.visibility = View.VISIBLE
         binding.progressBar.visibility = View.INVISIBLE
         binding.tvTitle.text = context.getString(R.string.connected_title)
-       // binding.btnStart.visibility = View.VISIBLE
+        binding.btnStart.visibility = View.VISIBLE
         binding.lvConnected.visibility = View.VISIBLE
 
         refreshMenuList(context)
@@ -373,8 +359,11 @@ class ConnectFragment : Fragment(),
         binding.progressBar.visibility = View.INVISIBLE
         binding.lvConnected.visibility = View.VISIBLE
         binding.tvTitle.text = getString(R.string.secure_your_connection_title)
-      //  binding.tvSubtitle.text = ""//getString(R.string.secure_your_connection_subtitle)
-        binding.btnStart.text = getString(R.string.btn_start_vpn)
+      //  binding.tvSubtitle.text = getString(R.string.secure_your_connection_subtitle)
+        if (Prefs.isPowerUserMode)
+            binding.btnStart.text = getString(R.string.connect)
+        else
+            binding.btnStart.text = getString(R.string.btn_start_vpn)
 
         /**
          * //TODO hide smart connect in the UI for now
