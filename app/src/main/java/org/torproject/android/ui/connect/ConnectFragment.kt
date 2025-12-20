@@ -8,6 +8,7 @@ import android.graphics.Paint
 import android.net.VpnService
 import android.os.Build
 import android.os.Bundle
+import android.os.SystemClock
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.AbsoluteSizeSpan
@@ -16,6 +17,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -25,6 +27,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import java.util.WeakHashMap
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -39,6 +42,26 @@ import org.torproject.android.service.OrbotService
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotMenuAction
+
+// Simple per-View throttle using a WeakHashMap to avoid leaking Views.
+private val lastClickMap = WeakHashMap<View, Long>()
+
+/**
+ * Install a throttled click listener on a View.
+ * Only allows one click per [intervalMs] milliseconds.
+ */
+fun View.setOnThrottledClick(intervalMs: Long = 4000L, onClick: (View) -> Unit) {
+    setOnClickListener { v ->
+        val now = SystemClock.elapsedRealtime()
+        val last = lastClickMap[v] ?: 0L
+        if (now - last >= intervalMs) {
+            lastClickMap[v] = now
+            onClick(v)
+        } else {
+            Toast.makeText(v.context, R.string.wait, Toast.LENGTH_SHORT).show()
+        }
+    }
+}
 
 class ConnectFragment : Fragment(),
     ExitNodeBottomSheet.ExitNodeSelectedCallback {
@@ -342,7 +365,7 @@ class ConnectFragment : Fragment(),
                     context, R.color.orbot_btn_enabled_purple
                 )
             )
-            setOnClickListener {
+            setOnThrottledClick {
                 stopTorAndVpn()
             }
         }
@@ -412,7 +435,7 @@ class ConnectFragment : Fragment(),
             backgroundTintList = ColorStateList.valueOf(
                 ContextCompat.getColor(requireContext(), R.color.orbot_btn_enabled_purple)
             )
-            setOnClickListener { startTorAndVpn() }
+            setOnThrottledClick { startTorAndVpn() }
         }
 
         binding.ivStatus.setOnClickListener {
@@ -449,7 +472,7 @@ class ConnectFragment : Fragment(),
                     context, R.color.orbot_btn_enabled_purple
                 )
             )
-            setOnClickListener {
+            setOnThrottledClick {
                 stopTorAndVpn()
             }
         }
