@@ -19,7 +19,6 @@ import kotlinx.coroutines.withContext
 import org.torproject.android.R
 import org.torproject.android.databinding.ConfigConnectionBottomSheetBinding
 import org.torproject.android.service.OrbotConstants
-import org.torproject.android.service.OrbotConstants.STATUS_OFF
 import org.torproject.android.service.circumvention.AutoConf
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
