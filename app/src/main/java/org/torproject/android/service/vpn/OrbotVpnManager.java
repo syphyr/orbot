@@ -19,7 +19,6 @@ package org.torproject.android.service.vpn;
 import static org.torproject.android.service.OrbotConstants.*;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.net.VpnService;
 import android.os.Build;
@@ -50,7 +49,6 @@ public class OrbotVpnManager implements Handler.Callback {
     private ParcelFileDescriptor mInterface;
     private int mTorSocks = -1;
     private final VpnService mService;
-    private final SharedPreferences prefs;
 
     private FileInputStream fis;
     private DataOutputStream fos;
@@ -59,7 +57,6 @@ public class OrbotVpnManager implements Handler.Callback {
 
     public OrbotVpnManager(OrbotService service) {
         mService = service;
-        prefs = Prefs.getSharedPrefs(mService.getApplicationContext());
     }
 
     public void handleIntent(VpnService.Builder builder, Intent intent) {
@@ -215,13 +212,13 @@ public class OrbotVpnManager implements Handler.Callback {
     }
 
     private void doAppBasedRouting(VpnService.Builder builder) throws NameNotFoundException {
-        var apps = TorifiedApp.Companion.getApps(mService, prefs);
+        var apps = TorifiedApp.Companion.getApps(mService);
         var individualAppsWereSelected = false;
         var isLockdownMode = isVpnLockdown(mService);
 
         for (TorifiedApp app : apps) {
             if (app.isTorified() && (!app.getPackageName().equals(mService.getPackageName()))) {
-                if (prefs.getBoolean(app.getPackageName() + APP_TOR_KEY, true)) {
+                if (Prefs.isAppTorified(app.getPackageName())) {
                     builder.addAllowedApplication(app.getPackageName());
                 }
                 individualAppsWereSelected = true;

@@ -1,11 +1,11 @@
 package org.torproject.android.util
 
+import android.content.ContentResolver
 import android.content.Context
-import android.content.SharedPreferences
-import android.preference.PreferenceManager
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
+import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.Transport
 import java.net.URI
 import java.util.Locale
@@ -48,22 +48,23 @@ object Prefs {
 
     const val PREF_SECURE_WINDOW_FLAG: String = "pref_flag_secure"
 
-    private var prefs: SharedPreferences? = null
+    private var cr: ContentResolver? = null
+
 
     var currentVersionForUpdate: Int
-        get() = prefs?.getInt(PREF_CURRENT_VERSION, 0) ?: 0
-        set(version) = putInt(PREF_CURRENT_VERSION, version)
+        get() = cr?.getPrefInt(PREF_CURRENT_VERSION) ?: 0
+        set(version) = cr?.putPref(PREF_CURRENT_VERSION, version) ?: Unit
 
     private const val PREF_REINSTALL_GEOIP = "pref_geoip"
 
     @JvmStatic
     var isGeoIpReinstallNeeded: Boolean
-        get() = prefs?.getBoolean(PREF_REINSTALL_GEOIP, true) ?: true
-        set(value) = putBoolean(PREF_REINSTALL_GEOIP, value)
+        get() = cr?.getPrefBoolean(PREF_REINSTALL_GEOIP, true) ?: true
+        set(value) = cr?.putPref(PREF_REINSTALL_GEOIP, value) ?: Unit
 
     @JvmStatic
     fun setContext(context: Context?) {
-        if (prefs == null) prefs = getSharedPrefs(context)
+        if (cr == null) cr = context?.contentResolver
     }
 
     fun initWeeklyWorker() {
@@ -75,136 +76,112 @@ object Prefs {
             .enqueueUniquePeriodicWork("prefsWeeklyWorker", ExistingPeriodicWorkPolicy.KEEP, myWork)
     }
 
-    private fun putBoolean(key: String?, value: Boolean) {
-        prefs?.edit()?.putBoolean(key, value)?.apply()
-    }
-
-    private fun putInt(key: String?, value: Int) {
-        prefs?.edit()?.putInt(key, value)?.apply()
-    }
-
-    private fun putString(key: String?, value: String?) {
-        prefs?.edit()?.putString(key, value)?.apply()
-    }
-
     @JvmStatic
-    fun hostOnionServicesEnabled(): Boolean {
-        return prefs?.getBoolean(PREF_HOST_ONION_SERVICES, true) ?: true
-    }
-
-    @JvmStatic
-    fun putHostOnionServicesEnabled(value: Boolean) {
-        putBoolean(PREF_HOST_ONION_SERVICES, value)
-    }
+    var hostOnionServicesEnabled: Boolean
+        get() = cr?.getPrefBoolean(PREF_HOST_ONION_SERVICES, true) ?: true
+        set(value) = cr?.putPref(PREF_HOST_ONION_SERVICES, value) ?: Unit
 
     @JvmStatic
     var bridgesList: List<String>
         get() {
-            return prefs?.getString(PREF_BRIDGES_LIST, null)
+            return cr?.getPrefString(PREF_BRIDGES_LIST)
                 ?.split("\n")
                 ?.filter { it.isNotBlank() }
                 ?.map { it.trim() }
                 ?: emptyList()
         }
         set(value) {
-            putString(PREF_BRIDGES_LIST,
+            cr?.putPref(PREF_BRIDGES_LIST,
                 value.filter { it.isNotBlank() }.joinToString("\n") { it.trim() })
         }
 
     @JvmStatic
     var defaultLocale: String
-        get() = prefs?.getString(PREF_DEFAULT_LOCALE, null) ?: Locale.getDefault().language
-        set(value) = putString(PREF_DEFAULT_LOCALE, value)
+        get() = cr?.getPrefString(PREF_DEFAULT_LOCALE) ?: Locale.getDefault().language
+        set(value) = cr?.putPref(PREF_DEFAULT_LOCALE, value) ?: Unit
 
     fun detectRoot(): Boolean {
-        return prefs?.getBoolean(PREF_DETECT_ROOT, true) ?: true
+        return cr?.getPrefBoolean(PREF_DETECT_ROOT, true) ?: true
     }
 
     @JvmStatic
     fun beSnowflakeProxy(): Boolean {
-        return prefs?.getBoolean(PREF_BE_A_SNOWFLAKE, false) ?: false
+        return cr?.getPrefBoolean(PREF_BE_A_SNOWFLAKE) ?: false
     }
 
     fun showSnowflakeProxyToast(): Boolean {
-        return prefs?.getBoolean(PREF_SHOW_SNOWFLAKE_MSG, false) ?: false
+        return cr?.getPrefBoolean(PREF_SHOW_SNOWFLAKE_MSG) ?: false
     }
 
     @JvmStatic
     fun setBeSnowflakeProxy(beSnowflakeProxy: Boolean) {
-        putBoolean(PREF_BE_A_SNOWFLAKE, beSnowflakeProxy)
+        cr?.putPref(PREF_BE_A_SNOWFLAKE, beSnowflakeProxy)
     }
 
     fun setBeSnowflakeProxyLimitWifi(beSnowflakeProxy: Boolean) {
-        putBoolean(PREF_BE_A_SNOWFLAKE_LIMIT_WIFI, beSnowflakeProxy)
+        cr?.putPref(PREF_BE_A_SNOWFLAKE_LIMIT_WIFI, beSnowflakeProxy)
     }
 
     fun setBeSnowflakeProxyLimitCharging(beSnowflakeProxy: Boolean) {
-        putBoolean(PREF_BE_A_SNOWFLAKE_LIMIT_CHARGING, beSnowflakeProxy)
+        cr?.putPref(PREF_BE_A_SNOWFLAKE_LIMIT_CHARGING, beSnowflakeProxy)
     }
 
     @JvmStatic
     fun limitSnowflakeProxyingWifi(): Boolean {
-        return prefs?.getBoolean(PREF_BE_A_SNOWFLAKE_LIMIT_WIFI, false) ?: false
+        return cr?.getPrefBoolean(PREF_BE_A_SNOWFLAKE_LIMIT_WIFI) ?: false
     }
 
     @JvmStatic
     fun limitSnowflakeProxyingCharging(): Boolean {
-        return prefs?.getBoolean(PREF_BE_A_SNOWFLAKE_LIMIT_CHARGING, false) ?: false
+        return cr?.getPrefBoolean(PREF_BE_A_SNOWFLAKE_LIMIT_CHARGING) ?: false
     }
 
     @JvmStatic
     fun useDebugLogging(): Boolean {
-        return prefs?.getBoolean(PREF_ENABLE_LOGGING, false) ?: false
+        return cr?.getPrefBoolean(PREF_ENABLE_LOGGING) ?: false
     }
 
     fun allowBackgroundStarts(): Boolean {
-        return prefs?.getBoolean(PREF_ALLOW_BACKGROUND_STARTS, true) ?: true
+        return cr?.getPrefBoolean(PREF_ALLOW_BACKGROUND_STARTS, true) ?: true
     }
 
     @JvmStatic
     fun openProxyOnAllInterfaces(): Boolean {
-        return prefs?.getBoolean(PREF_OPEN_PROXY_ON_ALL_INTERFACES, false) ?: false
+        return cr?.getPrefBoolean(PREF_OPEN_PROXY_ON_ALL_INTERFACES) ?: false
     }
 
     @JvmStatic
     fun useVpn(): Boolean {
-        return prefs?.getBoolean(PREF_USE_VPN, false) ?: false
+        return cr?.getPrefBoolean(PREF_USE_VPN) ?: false
     }
 
     @JvmStatic
     fun putUseVpn(value: Boolean) {
-        putBoolean(PREF_USE_VPN, value)
+        cr?.putPref(PREF_USE_VPN, value)
     }
 
     fun startOnBoot(): Boolean {
-        return prefs?.getBoolean(PREF_START_ON_BOOT, true) ?: true
+        return cr?.getPrefBoolean(PREF_START_ON_BOOT, true) ?: true
     }
 
     @JvmStatic
     var exitNodes: String?
-        get() = prefs?.getString(PREF_EXIT_NODES, null)
-        set(country) {
-            putString(PREF_EXIT_NODES, country)
-        }
-
-    @JvmStatic
-    fun getSharedPrefs(context: Context?): SharedPreferences? {
-        return PreferenceManager.getDefaultSharedPreferences(context)
-    }
+        get() = cr?.getPrefString(PREF_EXIT_NODES)
+        set(country) = cr?.putPref(PREF_EXIT_NODES, country) ?: Unit
 
     val snowflakesServed: Int
-        get() = prefs?.getInt(PREF_SNOWFLAKES_SERVED_COUNT, 0) ?: 0
+        get() = cr?.getPrefInt(PREF_SNOWFLAKES_SERVED_COUNT) ?: 0
 
     val snowflakesServedWeekly: Int
-        get() = prefs?.getInt(PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY, 0) ?: 0
+        get() = cr?.getPrefInt(PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY) ?: 0
 
     fun addSnowflakeServed() {
-        putInt(PREF_SNOWFLAKES_SERVED_COUNT, snowflakesServed + 1)
-        putInt(PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY, snowflakesServedWeekly + 1)
+        cr?.putPref(PREF_SNOWFLAKES_SERVED_COUNT, snowflakesServed + 1)
+        cr?.putPref(PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY, snowflakesServedWeekly + 1)
     }
 
     fun resetSnowflakesServedWeekly() {
-        putInt(PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY, 0)
+        cr?.putPref(PREF_SNOWFLAKES_SERVED_COUNT_WEEKLY, 0)
     }
 
     @JvmStatic
@@ -212,39 +189,40 @@ object Prefs {
         /**
          * @return How Orbot is configured to attempt to connect to Tor
          */
-        get() = Transport.fromId(prefs?.getString(PREF_CONNECTION_PATHWAY, null) ?: Transport.NONE.id)
+        get() = Transport.fromId(cr?.getPrefString(PREF_CONNECTION_PATHWAY) ?: Transport.NONE.id)
         /**
          * Set how Orbot should initialize a tor connection (direct, with a PT, etc)
          */
-        set(value) = putString(PREF_CONNECTION_PATHWAY, value.id)
+        set(value) = cr?.putPref(PREF_CONNECTION_PATHWAY, value.id) ?: Unit
 
     var smartConnect: Boolean
-        get() = prefs?.getBoolean(PREF_USE_SMART_CONNECT, false) ?: false
-        set(value) = putBoolean(PREF_USE_SMART_CONNECT, value)
+        get() = cr?.getPrefBoolean(PREF_USE_SMART_CONNECT) ?: false
+        set(value) = cr?.putPref(PREF_USE_SMART_CONNECT, value) ?: Unit
+
 
     var smartConnectTimeout: Int
-        get() = prefs?.getInt(PREF_SMART_CONNECT_TIMEOUT, 30) ?: 30
-        set(value) = putInt(PREF_SMART_CONNECT_TIMEOUT, value)
+        get() = cr?.getPrefInt(PREF_SMART_CONNECT_TIMEOUT) ?: 30
+        set(value) = cr?.putPref(PREF_SMART_CONNECT_TIMEOUT, value) ?: Unit
 
     val proxy: URI?
         get() {
-            val scheme = prefs?.getString("pref_proxy_type", null)?.lowercase()?.trim()
+            val scheme = cr?.getPrefString("pref_proxy_type")?.lowercase()?.trim()
             if (scheme.isNullOrEmpty()) return null
 
-            val host = prefs?.getString("pref_proxy_host", null)?.trim()
+            val host = cr?.getPrefString("pref_proxy_host")?.trim()
             if (host.isNullOrEmpty()) return null
 
             val url = StringBuilder(scheme)
             url.append("://")
 
             var needsAt = false
-            val username = prefs?.getString("pref_proxy_username", null)
+            val username = cr?.getPrefString("pref_proxy_username")
             if (!username.isNullOrEmpty()) {
                 url.append(username)
                 needsAt = true
             }
 
-            val password = prefs?.getString("pref_proxy_password", null)
+            val password = cr?.getPrefString("pref_proxy_password")
             if (!password.isNullOrEmpty()) {
                 url.append(":")
                 url.append(password)
@@ -256,7 +234,7 @@ object Prefs {
             url.append(host)
 
             val port = try {
-                prefs?.getString("pref_proxy_port", null)?.trim()?.toInt() ?: 0
+                cr?.getPrefString("pref_proxy_port")?.trim()?.toInt() ?: 0
             } catch (_: Throwable) { 0 }
 
             if (port in 1..<65536) {
@@ -270,35 +248,109 @@ object Prefs {
         }
 
     val isPowerUserMode: Boolean
-        get() = prefs?.getBoolean(PREF_POWER_USER_MODE, false) ?: false
+        get() = cr?.getPrefBoolean(PREF_POWER_USER_MODE) ?: false
 
     var isSecureWindow: Boolean
-        get() = prefs?.getBoolean(PREF_SECURE_WINDOW_FLAG, true) ?: true
-        set(isFlagSecure) = putBoolean(PREF_SECURE_WINDOW_FLAG, isFlagSecure)
+        get() = cr?.getPrefBoolean(PREF_SECURE_WINDOW_FLAG, true) ?: true
+        set(isFlagSecure) = cr?.putPref(PREF_SECURE_WINDOW_FLAG, isFlagSecure) ?: Unit
 
     const val DEFAULT_CAMO_DISABLED_ACTIVITY: String = "org.torproject.android.OrbotActivity"
 
     @JvmStatic
     val isCamoEnabled: Boolean
         get() {
-            val app = prefs?.getString(PREF_CAMO_APP_PACKAGE, DEFAULT_CAMO_DISABLED_ACTIVITY) ?: ""
+            val app = cr?.getPrefString(PREF_CAMO_APP_PACKAGE, DEFAULT_CAMO_DISABLED_ACTIVITY) ?: ""
             return app != DEFAULT_CAMO_DISABLED_ACTIVITY
         }
 
     val selectedCamoApp: String
-        get() = prefs?.getString(PREF_CAMO_APP_PACKAGE, DEFAULT_CAMO_DISABLED_ACTIVITY) ?: ""
+        get() = cr?.getPrefString(PREF_CAMO_APP_PACKAGE, DEFAULT_CAMO_DISABLED_ACTIVITY) ?: ""
 
     fun setCamoAppPackage(packageName: String?) {
-        putString(PREF_CAMO_APP_PACKAGE, packageName)
+        cr?.putPref(PREF_CAMO_APP_PACKAGE, packageName)
     }
 
     var camoAppDisplayName: String?
-        get() = prefs?.getString(PREF_CAMO_APP_DISPLAY_NAME, "Android")
-        set(name) = putString(PREF_CAMO_APP_DISPLAY_NAME, name)
+        get() = cr?.getPrefString(PREF_CAMO_APP_DISPLAY_NAME) ?: "Android"
+        set(name) = cr?.putPref(PREF_CAMO_APP_DISPLAY_NAME, name) ?: Unit
 
     val requireDeviceAuthentication: Boolean
-        get() = prefs?.getBoolean(PREF_REQUIRE_PASSWORD, false) ?: false
+        get() = cr?.getPrefBoolean(PREF_REQUIRE_PASSWORD) ?: false
 
     val disallowBiometricAuthentication: Boolean
-        get() = prefs?.getBoolean(PREF_DISALLOW_BIOMETRIC_AUTH, false) ?: false
+        get() = cr?.getPrefBoolean(PREF_DISALLOW_BIOMETRIC_AUTH) ?: false
+
+    val proxySocksPort: String?
+        get() = cr?.getPrefString(OrbotConstants.PREF_SOCKS)
+
+    val proxyHttpPort: String?
+        get() = cr?.getPrefString(OrbotConstants.PREF_HTTP)
+
+    val connectionPadding: Boolean
+        get() = cr?.getPrefBoolean(OrbotConstants.PREF_CONNECTION_PADDING) ?: false
+
+    val reducedConnectionPadding: Boolean
+        get() = cr?.getPrefBoolean(OrbotConstants.PREF_REDUCED_CONNECTION_PADDING, true) ?: true
+
+    val circuitPadding: Boolean
+        get() = cr?.getPrefBoolean(OrbotConstants.PREF_CIRCUIT_PADDING, true) ?: true
+
+    val reducedCircuitPadding: Boolean
+        get() = cr?.getPrefBoolean(OrbotConstants.PREF_REDUCED_CIRCUIT_PADDING, true) ?: true
+
+    val torTransPort: String?
+        get() = cr?.getPrefString(OrbotConstants.PREF_TRANSPORT)
+
+    val torDnsPort: String?
+        get() = cr?.getPrefString(OrbotConstants.PREF_DNSPORT)
+
+    val entryNodes: String?
+        get() = cr?.getPrefString("pref_entrance_nodes")
+
+    val excludeNodes: String?
+        get() = cr?.getPrefString("pref_exclude_nodes")
+
+    val strictNodes: Boolean
+        get() = cr?.getPrefBoolean("pref_strict_nodes") ?: false
+
+    val reachableAddresses: Boolean
+        get() = cr?.getPrefBoolean(OrbotConstants.PREF_REACHABLE_ADDRESSES) ?: false
+
+    val reachableAddressesPorts: String?
+        get() = cr?.getPrefString(OrbotConstants.PREF_REACHABLE_ADDRESSES_PORTS)
+
+    val customTorRc: String?
+        get() = cr?.getPrefString("pref_custom_torrc")
+
+    val isolateDest: Boolean
+        get() = cr?.getPrefBoolean(OrbotConstants.PREF_ISOLATE_DEST) ?: false
+
+    val isolatePort: Boolean
+        get() = cr?.getPrefBoolean(OrbotConstants.PREF_ISOLATE_PORT) ?: false
+
+    val isolateProtocol: Boolean
+        get() = cr?.getPrefBoolean(OrbotConstants.PREF_ISOLATE_PROTOCOL) ?: false
+
+    val isolateKeepAlive: Boolean
+        get() = cr?.getPrefBoolean(OrbotConstants.PREF_ISOLATE_KEEP_ALIVE) ?: false
+
+    val preferIpv6: Boolean
+        get() = cr?.getPrefBoolean(OrbotConstants.PREF_PREFER_IPV6, true) ?: true
+
+    val disableIpv4: Boolean
+        get() = cr?.getPrefBoolean(OrbotConstants.PREF_DISABLE_IPV4) ?: false
+
+    var torifiedApps: String?
+        get() = cr?.getPrefString(OrbotConstants.PREFS_KEY_TORIFIED)
+        set(value) = cr?.putPref(OrbotConstants.PREFS_KEY_TORIFIED, value) ?: Unit
+
+    @JvmStatic
+    var torDnsPortResolved: Int
+        get() = cr?.getPrefInt(OrbotConstants.PREFS_DNS_PORT) ?: 0
+        set(value) = cr?.putPref(OrbotConstants.PREFS_DNS_PORT, value) ?: Unit
+
+    @JvmStatic
+    fun isAppTorified(appId: String): Boolean {
+        return cr?.getPrefBoolean("$appId${OrbotConstants.APP_TOR_KEY}", true) ?: true
+    }
 }

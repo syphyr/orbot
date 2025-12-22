@@ -16,11 +16,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.net.toUri
 import org.torproject.android.R
-import org.torproject.android.service.OrbotConstants
+import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.StringUtils
-import org.torproject.android.ui.OrbotMenuAction
-import java.util.ArrayList
 import java.util.TreeMap
 
 class ConnectMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction>) :
@@ -78,8 +76,7 @@ class ConnectMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction
 
     private fun drawAppShortcuts(llBoxShortcuts: HorizontalScrollView): Boolean {
 
-        val tordAppString =
-            Prefs.getSharedPrefs(context)?.getString(OrbotConstants.PREFS_KEY_TORIFIED, "")
+        val tordAppString = Prefs.torifiedApps
         if (!TextUtils.isEmpty(tordAppString)) {
 
             val packageManager: PackageManager = context.packageManager
