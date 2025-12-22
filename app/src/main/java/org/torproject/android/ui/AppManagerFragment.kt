@@ -3,7 +3,6 @@ package org.torproject.android.ui
 import android.Manifest
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -23,7 +22,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
-import androidx.core.content.edit
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputLayout
@@ -40,18 +38,17 @@ import kotlinx.coroutines.withContext
 import org.torproject.android.BuildConfig
 import org.torproject.android.R
 import org.torproject.android.service.OrbotConstants
+import org.torproject.android.service.vpn.TorifiedApp
+import org.torproject.android.service.vpn.TorifiedAppWrapper
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.normalizie
 import org.torproject.android.util.sendIntentToService
-import org.torproject.android.service.vpn.TorifiedApp
-import org.torproject.android.service.vpn.TorifiedAppWrapper
 import java.util.Arrays
 import java.util.StringTokenizer
 
 class AppManagerFragment : Fragment(), View.OnClickListener {
 
     private var pMgr: PackageManager? = null
-    private var mPrefs: SharedPreferences? = null
     private var listAppsAll: GridView? = null
     private var adapterAppsAll: ListAdapter? = null
     private var progressBar: ProgressBar? = null
@@ -130,7 +127,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
 
     override fun onResume() {
         super.onResume()
-        mPrefs = Prefs.getSharedPrefs(requireActivity().applicationContext)
+
         reloadApps()
     }
 
@@ -200,10 +197,10 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
     private fun loadApps() {
         activity?.let {
             if (allApps == null) allApps =
-                getApps(it, mPrefs, null, alSuggested, retainedCheckedPackages)
+                getApps(it, null, alSuggested, retainedCheckedPackages)
             TorifiedApp.sortAppsForTorifiedAndAbc(allApps)
             if (suggestedApps == null) suggestedApps =
-                getApps(it, mPrefs, alSuggested, null, retainedCheckedPackages)
+                getApps(it, alSuggested, null, retainedCheckedPackages)
             val inflater = layoutInflater
             if (allUnfilteredUiItems.isEmpty()) {
                 // only show suggested apps, text, etc and other apps header if there are any suggested apps installed...
@@ -342,25 +339,24 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
                 response.putExtra(tApp.packageName, true)
             }
         }
-        val appStringOld = mPrefs?.getString(OrbotConstants.PREFS_KEY_TORIFIED, "") ?: ""
+        val appStringOld = Prefs.torifiedApps ?: ""
         val appStringNew = tordApps.toString()
-        mPrefs?.edit {
-            var shouldSave = false
-            if (appStringOld.contains('|') && appStringNew.contains('|')) {
-                val a = appStringOld.split('|')
-                val b = appStringNew.split('|')
-                shouldSave = if (a.size == b.size) {
-                    HashSet(a) != HashSet(b)
-                } else true
-            }
-            else if (appStringNew != appStringOld) {
-                shouldSave = true
-            }
-            if (!shouldSave) return
 
-            putString(OrbotConstants.PREFS_KEY_TORIFIED, tordApps.toString())
-            appSelectionChanged = true
+        var shouldSave = false
+        if (appStringOld.contains('|') && appStringNew.contains('|')) {
+            val a = appStringOld.split('|')
+            val b = appStringNew.split('|')
+            shouldSave = if (a.size == b.size) {
+                HashSet(a) != HashSet(b)
+            } else true
         }
+        else if (appStringNew != appStringOld) {
+            shouldSave = true
+        }
+        if (!shouldSave) return
+
+        Prefs.torifiedApps = tordApps.toString()
+        appSelectionChanged = true
     }
 
     override fun onClick(v: View) {
@@ -399,13 +395,12 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
 
         fun getApps(
             context: Context,
-            prefs: SharedPreferences?,
             filterInclude: List<String>?,
             filterRemove: List<String>?,
             retainedCheckedPackages: Set<String>
         ): ArrayList<TorifiedApp> {
             val pMgr = context.packageManager
-            val tordAppString = prefs?.getString(OrbotConstants.PREFS_KEY_TORIFIED, "")
+            val tordAppString = Prefs.torifiedApps
             val tordApps: Array<String?>
             val st = StringTokenizer(tordAppString, "|")
             tordApps = arrayOfNulls(st.countTokens())

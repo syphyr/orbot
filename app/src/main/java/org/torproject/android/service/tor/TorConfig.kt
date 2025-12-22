@@ -1,7 +1,6 @@
 package org.torproject.android.service.tor
 
 import android.content.ContextWrapper
-import android.content.SharedPreferences
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.db.OnionServiceColumns
 import org.torproject.android.service.db.V3ClientAuthColumns
@@ -18,13 +17,11 @@ object TorConfig {
             "RunAsDaemon 1",
             "AvoidDiskWrites 1")
 
-        val prefs = Prefs.getSharedPrefs(context)
+        val socksPortPref = getPort(Prefs.proxySocksPort ?: OrbotConstants.SOCKS_PROXY_PORT_DEFAULT)
+        val httpPortPref = getPort(Prefs.proxyHttpPort ?: OrbotConstants.HTTP_PROXY_PORT_DEFAULT)
 
-        val socksPortPref = getPort(prefs?.getString(OrbotConstants.PREF_SOCKS, null) ?: OrbotConstants.SOCKS_PROXY_PORT_DEFAULT)
-        val httpPortPref = getPort(prefs?.getString(OrbotConstants.PREF_HTTP, null) ?: OrbotConstants.HTTP_PROXY_PORT_DEFAULT)
-
-        val isolate = getIsolation(prefs)
-        val ipv6Pref = getIpv6(prefs)
+        val isolate = getIsolation()
+        val ipv6Pref = getIpv6()
 
         if (Prefs.openProxyOnAllInterfaces()) {
             conf.add("SOCKSPort 0.0.0.0:$socksPortPref $ipv6Pref $isolate")
@@ -37,23 +34,22 @@ object TorConfig {
         conf.add("TestSocks 0")
         conf.add("HTTPTunnelPort $httpPortPref $isolate")
 
-        if (prefs?.getBoolean(OrbotConstants.PREF_CONNECTION_PADDING, false) ?: false) {
+        if (Prefs.connectionPadding) {
             conf.add("ConnectionPadding 1")
         }
 
-        if (prefs?.getBoolean(OrbotConstants.PREF_REDUCED_CONNECTION_PADDING, true) ?: true) {
+        if (Prefs.reducedConnectionPadding) {
             conf.add("ReducedConnectionPadding 1")
         }
 
-        val circuitPadding = prefs?.getBoolean(OrbotConstants.PREF_CIRCUIT_PADDING, true) ?: true
-        conf.add("CircuitPadding ${if (circuitPadding) "1" else "0"}")
+        conf.add("CircuitPadding ${if (Prefs.circuitPadding) "1" else "0"}")
 
-        if (prefs?.getBoolean(OrbotConstants.PREF_REDUCED_CIRCUIT_PADDING, true) ?: true) {
+        if (Prefs.reducedCircuitPadding) {
             conf.add("ReducedCircuitPadding 1")
         }
 
-        val transPort = prefs?.getString(OrbotConstants.PREF_TRANSPORT, null) ?: OrbotConstants.TOR_TRANSPROXY_PORT_DEFAULT.toString()
-        val dnsPort = prefs?.getString(OrbotConstants.PREF_DNSPORT, null) ?: OrbotConstants.TOR_DNS_PORT_DEFAULT.toString()
+        val transPort = Prefs.torTransPort ?: OrbotConstants.TOR_TRANSPROXY_PORT_DEFAULT.toString()
+        val dnsPort = Prefs.torDnsPort ?: OrbotConstants.TOR_DNS_PORT_DEFAULT.toString()
 
         conf.add("TransPort ${NetworkUtils.checkPortOrAuto(transPort)} $isolate")
         conf.add("DNSPort ${NetworkUtils.checkPortOrAuto(dnsPort)} $isolate")
@@ -80,24 +76,23 @@ object TorConfig {
             conf.add("GeoIPv6File ${geoIp6File.canonicalPath}")
         }
 
-        val entryNodes = prefs?.getString("pref_entrance_nodes", null)
+        val entryNodes = Prefs.entryNodes
         if (!entryNodes.isNullOrEmpty()) conf.add("EntryNodes $entryNodes")
 
-        val exitNodes = prefs?.getString("pref_exit_nodes", null)
+        val exitNodes = Prefs.exitNodes
         if (!exitNodes.isNullOrEmpty()) conf.add("ExitNodes $exitNodes")
 
-        val excludeNodes = prefs?.getString("pref_exclude_nodes", null)
+        val excludeNodes = Prefs.excludeNodes
         if (!excludeNodes.isNullOrEmpty()) conf.add("ExcludeNodes $excludeNodes")
 
-        val enableStrictNodes = prefs?.getBoolean("pref_strict_nodes", false) ?: false
-        conf.add("StrictNodes ${if (enableStrictNodes) "1" else "0"}")
+        conf.add("StrictNodes ${if (Prefs.strictNodes) "1" else "0"}")
 
-        if (prefs?.getBoolean(OrbotConstants.PREF_REACHABLE_ADDRESSES, false) ?: false) {
-            val reachableAddressesPorts = prefs.getString(OrbotConstants.PREF_REACHABLE_ADDRESSES_PORTS, null) ?: "*:80,*:443"
+        if (Prefs.reachableAddresses) {
+            val reachableAddressesPorts = Prefs.reachableAddressesPorts ?: "*:80,*:443"
             conf.add("ReachableAddresses $reachableAddressesPorts")
         }
 
-        if (Prefs.hostOnionServicesEnabled()) {
+        if (Prefs.hostOnionServicesEnabled) {
             val extraLines = StringBuffer()
 
             // Add any needed client authorization and hosted onion service config lines to torrc.
@@ -109,7 +104,7 @@ object TorConfig {
             conf.addAll(extraLines.split("\n"))
         }
 
-        val custom = prefs?.getString("pref_custom_torrc", null)
+        val custom = Prefs.customTorRc
         if (!custom.isNullOrEmpty()) conf.add(custom)
 
         return conf.joinToString("\n")
@@ -125,19 +120,19 @@ object TorConfig {
     }
 
     @Suppress("NullableBooleanElvis")
-    private fun getIsolation(prefs: SharedPreferences?): String {
+    private fun getIsolation(): String {
         val isolate = mutableListOf<String>()
 
-        if (prefs?.getBoolean(OrbotConstants.PREF_ISOLATE_DEST, false) ?: false) {
+        if (Prefs.isolateDest) {
             isolate.add("IsolateDestAddr")
         }
-        if (prefs?.getBoolean(OrbotConstants.PREF_ISOLATE_PORT, false) ?: false) {
+        if (Prefs.isolatePort) {
             isolate.add("IsolateDestPort")
         }
-        if (prefs?.getBoolean(OrbotConstants.PREF_ISOLATE_PROTOCOL, false) ?: false) {
+        if (Prefs.isolateProtocol) {
             isolate.add("IsolateClientProtocol")
         }
-        if (prefs?.getBoolean(OrbotConstants.PREF_ISOLATE_KEEP_ALIVE, false) ?: false) {
+        if (Prefs.isolateKeepAlive) {
             isolate.add("KeepAliveIsolateSOCKSAuth")
         }
 
@@ -145,15 +140,15 @@ object TorConfig {
     }
 
     @Suppress("NullableBooleanElvis")
-    private fun getIpv6(prefs: SharedPreferences?): String {
+    private fun getIpv6(): String {
         val ipv6Pref = mutableSetOf<String>()
 
-        if (prefs?.getBoolean(OrbotConstants.PREF_PREFER_IPV6, true) ?: true) {
+        if (Prefs.preferIpv6) {
             ipv6Pref.add("IPv6Traffic")
             ipv6Pref.add("PreferIPv6")
         }
 
-        if (prefs?.getBoolean(OrbotConstants.PREF_DISABLE_IPV4, false) ?: false) {
+        if (Prefs.disableIpv4) {
             ipv6Pref.add("IPv6Traffic")
             ipv6Pref.add("NoIPv4Traffic")
         }

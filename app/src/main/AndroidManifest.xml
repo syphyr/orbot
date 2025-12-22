@@ -85,6 +85,11 @@
             android:authorities="${applicationId}.ui.v3onionservice.clientauth"
             android:exported="false" />
 
+        <provider
+            android:name=".util.PreferenceProvider"
+            android:authorities="${applicationId}.provider.preferences"
+            android:exported="false" />
+
         <receiver
             android:name=".service.StartTorReceiver"
             android:exported="true"

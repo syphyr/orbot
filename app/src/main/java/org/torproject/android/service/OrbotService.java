@@ -52,7 +52,6 @@ import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.ServiceCompat;
 import androidx.core.content.ContextCompat;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import kotlin.Unit;
 
@@ -392,7 +391,7 @@ public class OrbotService extends VpnService {
 
             return Unit.INSTANCE;
         }, () -> {
-            if (Prefs.hostOnionServicesEnabled()) {
+            if (Prefs.getHostOnionServicesEnabled()) {
                 try {
                     updateV3OnionNames();
                 } catch (SecurityException se) {
@@ -527,8 +526,7 @@ public class OrbotService extends VpnService {
                 confDns = confDns.substring(0, confDns.length() - 1);
                 mPortDns = Integer.parseInt(confDns);
 
-                var prefs = Prefs.getSharedPrefs(getApplicationContext());
-                if (prefs != null) prefs.edit().putInt(PREFS_DNS_PORT, mPortDns).apply();
+                Prefs.setTorDnsPortResolved(mPortDns);
             }
 
             var confTrans = conn.getInfo("net/listeners/trans");
