@@ -10,14 +10,16 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.CompoundButton
+import android.widget.LinearLayout
 import android.widget.ProgressBar
-import android.widget.Toast
+import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -62,14 +64,33 @@ fun CompoundButton.setOnThrottledCheckedChangeListener(
             buttonView.isChecked = !isChecked
             val timeRemain = intervalMs - (now - lastChange)
 
-            val progressBar = ProgressBar(buttonView.context, null, android.R.attr.progressBarStyleHorizontal).apply {
-                max = intervalMs.toInt()
-                progress = (now - lastChange).toInt()
+            val layout = LinearLayout(buttonView.context).apply {
+                orientation = LinearLayout.VERTICAL
+                gravity = Gravity.CENTER_HORIZONTAL
+                setPadding(32, 32, 32, 32)
+
+                val textView = TextView(buttonView.context).apply {
+                    text = buttonView.context.getString(R.string.toast_throttle_wait, timeRemain/1000)
+                    setTextAppearance(buttonView.context, android.R.style.TextAppearance_Medium)
+                }
+
+                val progressBar = ProgressBar(buttonView.context, null, android.R.attr.progressBarStyleHorizontal).apply {
+                    max = intervalMs.toInt()
+                    progress = (now - lastChange).toInt()
+                    layoutParams = LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT
+                    ).apply {
+                        setMargins(32, 32, 32, 0)
+                    }
+                }
+
+                addView(textView)
+                addView(progressBar)
             }
 
             val dialog = AlertDialog.Builder(buttonView.context)
-                .setMessage(buttonView.context.getString(R.string.toast_throttle_wait, timeRemain/1000))
-                .setView(progressBar)
+                .setView(layout)
                 .setCancelable(false)
                 .create()
                 .apply { show() }
@@ -79,10 +100,10 @@ fun CompoundButton.setOnThrottledCheckedChangeListener(
                 override fun run() {
                     val currentTime = System.currentTimeMillis()
                     val elapsed = (currentTime - lastChange).toInt()
-                    progressBar.progress = elapsed
+                    layout.getChildAt(1).let { it as ProgressBar }.progress = elapsed
 
                     if (elapsed < intervalMs) {
-                        handler.postDelayed(this, 16) // ~60fps update
+                        handler.postDelayed(this, 16)
                     } else {
                         dialog.dismiss()
                     }
