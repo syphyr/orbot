@@ -207,4 +207,5 @@
     <string name="scan_qr_code">Balayer le code QR</string>
     <string name="orbot_vpn">Orbot VPN</string>
     <string name="custom_bridges_description">Collez ci-dessous les adresses de pont que vous recevez, ou balayez le code QR pour les ajouter. Vos amis et amies peuvent obtenir des ponts pour vous sur %1$s.</string>
+    <string name="set_transport">Définir le transport</string>
 </resources>

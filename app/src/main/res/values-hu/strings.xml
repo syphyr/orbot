@@ -108,4 +108,5 @@
     <string name="status_shutting_down">A TorService leáll</string>
     <string name="couldn_t_start_tor_process_">Nem indítható el a Tor folyamat:</string>
     <string name="unable_to_start_tor">A Tor indítása sikertelen:</string>
+    <string name="set_transport">Átvitel beállítása</string>
 </resources>

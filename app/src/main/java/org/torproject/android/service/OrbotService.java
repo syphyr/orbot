@@ -3,7 +3,6 @@
 
 package org.torproject.android.service;
 
-
 import static org.torproject.android.service.OrbotConstants.*;
 
 import android.annotation.SuppressLint;
@@ -76,13 +75,6 @@ public class OrbotService extends VpnService {
     private NotificationCompat.Builder mNotifyBuilder;
     private File mV3OnionBasePath;
 
-    public void debug(String msg) {
-        Log.d(TAG, msg);
-        if (Prefs.useDebugLogging()) {
-            sendCallbackLogMessage(msg);
-        }
-    }
-
     @SuppressLint({"NewApi", "RestrictedApi"})
     protected void showToolbarNotification(String notifyMsg, int notifyType, int icon) {
         var intent = getPackageManager().getLaunchIntentForPackage(getPackageName());
@@ -111,11 +103,22 @@ public class OrbotService extends VpnService {
             // Tor connection is active
             if (conn != null && mCurrentStatus.equals(STATUS_ON)) { // only add new identity action when there is a connection
                 mNotifyBuilder.setProgress(0, 0, false); // removes progress bar
-                var pendingIntentNewNym = PendingIntent.getBroadcast(this, 0, new Intent(TorControlCommands.SIGNAL_NEWNYM), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+
+                var i = new Intent(this, OrbotService.class);
+                i.setAction(TorControlCommands.SIGNAL_NEWNYM);
+                i.putExtra(OrbotConstants.EXTRA_NOT_SYSTEM, true);
+
+                var pendingIntentNewNym = getServiceIntent(i);
+
                 mNotifyBuilder.addAction(R.drawable.ic_refresh_white_24dp, getString(R.string.menu_new_identity), pendingIntentNewNym);
             } // Tor connection is off
             else if (mCurrentStatus.equals(STATUS_OFF)) {
-                var pendingIntentConnect = PendingIntent.getBroadcast(this, 0, new Intent(LOCAL_ACTION_NOTIFICATION_START), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+                var i = new Intent(this, OrbotService.class);
+                i.setAction(ACTION_START);
+                i.putExtra(OrbotConstants.EXTRA_NOT_SYSTEM, true);
+
+                var pendingIntentConnect = getServiceIntent(i);
+
                 mNotifyBuilder
                         .addAction(R.drawable.ic_stat_tor, getString(R.string.connect_to_tor), pendingIntentConnect)
                         .setContentText(notifyMsg)
@@ -172,7 +175,7 @@ public class OrbotService extends VpnService {
     }
 
     private void stopTorAsync(boolean showNotification) {
-        debug("stopTorAsync");
+        Log.d(TAG, "stopTorAsync");
         if (showNotification) sendCallbackLogMessage(getString(R.string.status_shutting_down));
         Prefs.getTransport().stop();
         stopTor();
@@ -189,28 +192,32 @@ public class OrbotService extends VpnService {
         if (!showNotification) { // clear notifications and stopSelf
             if (mNotificationManager != null) mNotificationManager.cancelAll();
             if (mOrbotRawEventListener != null) mOrbotRawEventListener.getNodes().clear();
-            stopSelf();
+
         }
+
+        //ensure service is destroyed and we get a clean instance of TorService
+        stopSelf();
     }
 
     private void stopTorOnError(String message) {
-        stopTorAsync(false);
+      //  stopTorAsync(false);
         showToolbarNotification(getString(R.string.unable_to_start_tor) + ": " + message, ERROR_NOTIFY_ID, R.drawable.ic_stat_notifyerr);
     }
 
     // if someone stops during startup, we may have to wait for the conn port to be setup, so we can properly shutdown tor
     private void stopTor() {
-        if (shouldUnbindTorService) {
-            if (conn != null) {
-                try {
-                    //make sure Tor shuts down now - don't wait for service cleanup
-                    conn.shutdownTor(TorControlCommands.SIGNAL_SHUTDOWN);
-                } catch (IOException e) {
-                    debug ("error shutting down Tor from the control port");
-                }
-            }
 
-            debug("unbinding tor service");
+        if (conn != null) {
+            try {
+                //make sure Tor shuts down now - don't wait for service cleanup
+                conn.shutdownTor(TorControlCommands.SIGNAL_SHUTDOWN);
+            } catch (Exception e) {
+                Log.d(TAG, "error shutting down Tor from the control port");
+            }
+        }
+
+        if (shouldUnbindTorService) {
+            Log.d(TAG, "unbinding tor service");
             unbindService(torServiceConnection); //unbinding from the tor service will stop tor
             shouldUnbindTorService = false;
             conn = null;
@@ -257,11 +264,9 @@ public class OrbotService extends VpnService {
                 if (mNotificationManager == null)
                     mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-                var filter = new IntentFilter(TorControlCommands.SIGNAL_NEWNYM);
-                filter.addAction(CMD_ACTIVE);
+                var filter = new IntentFilter(CMD_ACTIVE);
                 filter.addAction(ACTION_STATUS);
                 filter.addAction(ACTION_ERROR);
-                filter.addAction(LOCAL_ACTION_NOTIFICATION_START);
 
                 mActionBroadcastReceiver = new ActionBroadcastReceiver();
                 ContextCompat.registerReceiver(this, mActionBroadcastReceiver, filter, ContextCompat.RECEIVER_NOT_EXPORTED);
@@ -308,7 +313,7 @@ public class OrbotService extends VpnService {
                 new File(appBinHome, GEOIP6_ASSET_KEY));
 
         logNotice(getString(R.string.log_notice_updating_torrc));
-        debug("torrc.custom=\n" + conf);
+        Log.d(TAG, "torrc.custom=\n" + conf);
 
         var fileTorRcCustom = TorService.getTorrc(this);
         DiskUtils.flushTextToFile(fileTorRcCustom, conf, false);
@@ -335,7 +340,8 @@ public class OrbotService extends VpnService {
         if (packageName != null)
             sendBroadcast(reply.setPackage(packageName));
 
-        LocalBroadcastManager.getInstance(this).sendBroadcast(reply.setAction(LOCAL_ACTION_STATUS));
+        sendBroadcast(reply.setAction(LOCAL_ACTION_STATUS).setPackage(getPackageName()));
+
         if (mPortSOCKS != -1 && mPortHTTP != -1)
             sendCallbackPorts(mPortSOCKS, mPortHTTP, mPortDns, mPortTrans);
     }
@@ -345,7 +351,7 @@ public class OrbotService extends VpnService {
     // The entire process for starting tor and related services is run from this method.
     private void startTor() {
         if (torServiceConnection != null && conn != null) {
-            debug("already started, ignoring start request");
+            Log.d(TAG, "already started, ignoring start request");
             mNotifyBuilder.setProgress(0, 0, false);
             showToolbarNotification(getString(R.string.status_activated), NOTIFY_ID, R.drawable.ic_stat_tor);
             return;
@@ -381,7 +387,7 @@ public class OrbotService extends VpnService {
                 logNotice(getString(R.string.unable_to_start_tor) + " " + e.getLocalizedMessage());
                 stopTorOnError(e.getLocalizedMessage());
             } else {
-                stopTorAsync(true);
+           //     stopTorAsync(true);
             }
 
             return Unit.INSTANCE;
@@ -405,8 +411,10 @@ public class OrbotService extends VpnService {
         // Down the line a better approach needs to happen for sending back the onion names' updated
         // status, perhaps just adding it as an extra to the normal Intent callback...
         var oldStatus = mCurrentStatus;
-        var intent = new Intent(LOCAL_ACTION_V3_NAMES_UPDATED);
-        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
+
+        sendBroadcast(new Intent(LOCAL_ACTION_V3_NAMES_UPDATED)
+                .setPackage(getPackageName()));
+
         mCurrentStatus = oldStatus;
     }
 
@@ -478,7 +486,7 @@ public class OrbotService extends VpnService {
         };
 
         var serviceIntent = new Intent(this, TorService.class);
-        debug("binding tor service");
+        Log.d(TAG, "binding tor service");
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
             shouldUnbindTorService = bindService(serviceIntent, torServiceConnection, BIND_AUTO_CREATE);
         else
@@ -486,8 +494,9 @@ public class OrbotService extends VpnService {
     }
 
     private void sendLocalStatusOffBroadcast() {
-        var localOffStatus = new Intent(LOCAL_ACTION_STATUS).putExtra(EXTRA_STATUS, STATUS_OFF);
-        LocalBroadcastManager.getInstance(this).sendBroadcast(localOffStatus);
+        sendBroadcast(new Intent(LOCAL_ACTION_STATUS)
+                .putExtra(EXTRA_STATUS, STATUS_OFF)
+                .setPackage(getPackageName()));
     }
 
     private void initControlConnection() {
@@ -543,7 +552,7 @@ public class OrbotService extends VpnService {
             try {
                 conn.signal("ACTIVE");
             } catch (IOException e) {
-                debug("error send active: " + e.getLocalizedMessage());
+                Log.d(TAG, "error send active: " + e.getLocalizedMessage());
             }
         }
     }
@@ -560,7 +569,7 @@ public class OrbotService extends VpnService {
                         conn.signal(TorControlCommands.SIGNAL_NEWNYM);
                     }
                 } catch (Exception ioe) {
-                    debug("error requesting newnym: " + ioe.getLocalizedMessage());
+                    Log.d(TAG, "error requesting newnym: " + ioe.getLocalizedMessage());
                 }
             }
         }.start();
@@ -568,7 +577,11 @@ public class OrbotService extends VpnService {
 
     private void sendCallbackLogMessage(final String logMessage) {
         var notificationMessage = logMessage;
-        var localIntent = new Intent(LOCAL_ACTION_LOG).putExtra(LOCAL_EXTRA_LOG, logMessage);
+
+        var localIntent = new Intent(LOCAL_ACTION_LOG)
+                .putExtra(LOCAL_EXTRA_LOG, logMessage)
+                .setPackage(getPackageName());
+
         if (logMessage.contains(LOG_NOTICE_HEADER)) {
             notificationMessage = notificationMessage.substring(LOG_NOTICE_HEADER.length());
             if (notificationMessage.contains(LOG_NOTICE_BOOTSTRAPPED)) {
@@ -581,14 +594,20 @@ public class OrbotService extends VpnService {
                 notificationMessage = notificationMessage.substring(notificationMessage.indexOf(':') + 1).trim();
             }
         }
-        //we shouldn't show all log messages in the notification area - can cause crashes
-       // showToolbarNotification(notificationMessage, NOTIFY_ID, R.drawable.ic_stat_tor);
-        mHandler.post(() -> LocalBroadcastManager.getInstance(OrbotService.this).sendBroadcast(localIntent));
+        showToolbarNotification(notificationMessage, NOTIFY_ID, R.drawable.ic_stat_tor);
+        mHandler.post(() -> sendBroadcast(localIntent));
     }
 
     private void sendCallbackPorts(int socksPort, int httpPort, int dnsPort, int transPort) {
-        var intent = new Intent(LOCAL_ACTION_PORTS).putExtra(EXTRA_SOCKS_PROXY_PORT, socksPort).putExtra(EXTRA_HTTP_PROXY_PORT, httpPort).putExtra(EXTRA_DNS_PORT, dnsPort).putExtra(EXTRA_TRANS_PORT, transPort);
-        LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
+        var intent = new Intent(LOCAL_ACTION_PORTS)
+                .putExtra(EXTRA_SOCKS_PROXY_PORT, socksPort)
+                .putExtra(EXTRA_HTTP_PROXY_PORT, httpPort)
+                .putExtra(EXTRA_DNS_PORT, dnsPort)
+                .putExtra(EXTRA_TRANS_PORT, transPort)
+                .setPackage(getPackageName());
+
+        sendBroadcast(intent);
+
         if (Prefs.useVpn() && mVpnManager != null) mVpnManager.handleIntent(new Builder(), intent);
     }
 
@@ -609,7 +628,7 @@ public class OrbotService extends VpnService {
         Prefs.putUseVpn(false);
         mVpnManager.handleIntent(new Builder(), new Intent(ACTION_STOP));
         // tell UI, if it's open, to update immediately (don't wait for onResume() in Activity...)
-        LocalBroadcastManager.getInstance(this).sendBroadcast(new Intent(ACTION_STOP));
+        sendBroadcast(new Intent(ACTION_STOP).setPackage(getPackageName()));
     }
 
     private void setExitNode(String newExits) {
@@ -644,6 +663,16 @@ public class OrbotService extends VpnService {
         }
     }
 
+    private PendingIntent getServiceIntent(Intent i) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            return PendingIntent.getForegroundService(this, 0, i,
+                    PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+        }
+
+        return PendingIntent.getService(this, 0, i,
+                PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
+    }
+
     private class IncomingIntentRouter implements Runnable {
         final Intent mIntent;
 
@@ -660,7 +689,7 @@ public class OrbotService extends VpnService {
                     transport.start(OrbotService.this);
                     startTor();
                     replyWithStatus(mIntent);
-                    if (!Prefs.useVpn()) {
+                    if (Prefs.useVpn()) {
                         if (mVpnManager != null && !mVpnManager.isStarted()) { // start VPN here
                             Intent vpnIntent = VpnService.prepare(OrbotService.this);
                             if (vpnIntent == null) { //then we can run the VPN
@@ -708,9 +737,7 @@ public class OrbotService extends VpnService {
             var action = intent.getAction();
             if (action == null) return;
             switch (action) {
-                case TorControlCommands.SIGNAL_NEWNYM -> newIdentity();
                 case CMD_ACTIVE -> sendSignalActive();
-                case LOCAL_ACTION_NOTIFICATION_START -> startTor();
                 case ACTION_ERROR -> {
                     if (showTorServiceErrorMsg) {
                         Toast.makeText(context, getString(R.string.orbot_config_invalid), Toast.LENGTH_LONG).show();
@@ -734,8 +761,9 @@ public class OrbotService extends VpnService {
                         SmartConnect.updateProgress(100);
                     }
 
-                    var localStatus = new Intent(LOCAL_ACTION_STATUS).putExtra(EXTRA_STATUS, mCurrentStatus);
-                    LocalBroadcastManager.getInstance(OrbotService.this).sendBroadcast(localStatus); // update the activity with what's new
+                    sendBroadcast(new Intent(LOCAL_ACTION_STATUS)
+                            .putExtra(EXTRA_STATUS, mCurrentStatus)
+                            .setPackage(getPackageName())); // update the activity with what's new
                 }
             }
         }

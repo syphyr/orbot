@@ -193,4 +193,5 @@
     <string name="status_shutting_down">Orbot se vypíná</string>
     <string name="couldn_t_start_tor_process_">Nelze spustit Tor proces:</string>
     <string name="unable_to_start_tor">Nelze spustit Tor:</string>
+    <string name="set_transport">Nastavit transport</string>
 </resources>

@@ -23,5 +23,5 @@
     <string name="license">Litsenziya:</string>
     <string name="status_starting_up">Orbot ishga tushirilmoqda…</string>
     <string name="status_activated">Tor tarmog\'iga ulangan</string>
-
+    <string name="set_transport">Transportni sozlash</string>
 </resources>

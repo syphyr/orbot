@@ -244,4 +244,5 @@
     <string name="log_notice_unable_to_update_onions">வெங்காய பெயர்களைப் பதிவேற்ற முடியவில்லை</string>
     <string name="log_notice_updating_torrc">டோர்க் தனிப்பயன் உள்ளமைவைப் புதுப்பித்தல்…</string>
     <string name="log_notice_connected_to_tor_control_port">TOR கட்டுப்பாட்டு துறைமுகத்துடன் இணைக்கப்பட்டுள்ளது</string>
+    <string name="set_transport">போக்குவரத்தை அமை</string>
 </resources>

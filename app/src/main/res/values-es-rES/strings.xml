@@ -196,4 +196,20 @@
     <string name="status_shutting_down">OrbotService se está cerrando</string>
     <string name="couldn_t_start_tor_process_">No se pudo iniciar el proceso de Tor: </string>
     <string name="unable_to_start_tor">No fue posible iniciar Tor: </string>
+    <string name="set_transport">Configurar transporte</string>
+    <string name="status_connected_control_port">El servicio Tor ha iniciado</string>
+    <string name="status_handshake">Conectando a la entrada de la red Tor</string>
+    <string name="status_handshake_done">Entrando a la red Tor</string>
+    <string name="status_circuit_create">Configurando conexión a través de la red Tor</string>
+    <string name="status_done">¡Listo!</string>
+    <string name="status_conn_pt">Buscando ruta alternativa a la red Tor</string>
+    <string name="status_conn_done_pt">Ruta alternativa establecida</string>
+    <string name="status_conn_done">Conectado a la entrada de la red Tor</string>
+    <string name="status_onehop_create">Accediendo al directorio de la red Tor</string>
+    <string name="status_enough_dirinfo">Directorio de la red Tor cargado</string>
+    <string name="status_requesting_status">Solicitando estado de la red a Tor</string>
+    <string name="status_loading_status">Cargando estado de la red</string>
+    <string name="status_loading_keys">Cargando claves de seguridad de la red</string>
+    <string name="status_requesting_descriptors">Solicitando información de servidores de la red</string>
+    <string name="status_loading_descriptors">Cargando información de servidores de la red</string>
 </resources>

@@ -9,4 +9,5 @@
     <!--TipsAndTricks screen-->
     <!--Transparent Proxy screen-->
     <string name="menu_settings">સેટિંગ્સ</string>
+    <string name="set_transport">પરિવહન સેટ કરો</string>
 </resources>

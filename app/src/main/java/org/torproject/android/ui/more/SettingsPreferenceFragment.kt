@@ -2,6 +2,9 @@
 package org.torproject.android.ui.more
 
 import android.os.Build
+import android.os.Bundle
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.os.LocaleListCompat
@@ -20,7 +23,20 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment() {
     override fun prefId(): Int = R.xml.preferences
     override fun rootTitleId(): Int = R.string.menu_settings
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        toolbar = view.findViewById(R.id.toolbar)
+        (context as AppCompatActivity).setSupportActionBar(toolbar)
+        toolbar?.setNavigationOnClickListener {
+            // do something when click navigation
+            onBackPressedCallback.handleOnBackPressed()
+        }
+        toolbar?.title = requireContext().getString(R.string.menu_settings)
+    }
+
     override fun initPrefs() {
+        super.initPrefs()
+
         val prefLocale = findPreference<ListPreference>("pref_default_locale")
         val languages = Languages[requireActivity()]
         prefLocale?.entries = languages?.allNames

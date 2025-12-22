@@ -37,4 +37,5 @@
     <string name="done">പൂര്‍ത്തിയായി!</string>
     <string name="enable">സജ്ജമാക്കുക</string>
     <string name="hidden_services">ഒണിയൻ സേവനങ്ങൾ</string>
+    <string name="set_transport">ഗതാഗതം സജ്ജമാക്കുക</string>
 </resources>

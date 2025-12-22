@@ -190,4 +190,5 @@
     <string name="status_disabled">Orbot ir deaktivēts</string>
     <string name="couldn_t_start_tor_process_">Neizdevās palaist Tor\'a procesu:</string>
     <string name="unable_to_start_tor">Nevar startēt Tor:</string>
+    <string name="set_transport">Iestatīt transportu</string>
 </resources>

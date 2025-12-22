@@ -66,4 +66,5 @@
     <string name="status_disabled">\"Orbot telah dinyah-aktifkan</string>
     <string name="couldn_t_start_tor_process_">Tidak boleh memulakan proses Tor:</string>
     <string name="unable_to_start_tor">Tidak dapat memulakan Tor:</string>
+    <string name="set_transport">Tetapkan Pengangkutan</string>
 </resources>

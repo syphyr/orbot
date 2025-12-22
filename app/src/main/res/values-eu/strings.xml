@@ -107,4 +107,5 @@
     <string name="status_disabled">\"Orbot desaktibatuta dago</string>
     <string name="couldn_t_start_tor_process_">Ezin izan da Tor prozesua hasi:</string>
     <string name="unable_to_start_tor">Ezin izan da Tor hasi:</string>
+    <string name="set_transport">Ezarri garraioa</string>
 </resources>

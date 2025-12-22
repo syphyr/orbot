@@ -110,7 +110,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
 
         alSuggested = OrbotConstants.VPN_SUGGESTED_APPS
 
-        toolbar = view.findViewById<Toolbar>(R.id.toolbar)
+        toolbar = view.findViewById(R.id.toolbar)
         (context as AppCompatActivity).setSupportActionBar(toolbar)
         toolbar?.setNavigationOnClickListener {
             // do something when click navigation
@@ -201,7 +201,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
         activity?.let {
             if (allApps == null) allApps =
                 getApps(it, mPrefs, null, alSuggested, retainedCheckedPackages)
-            TorifiedApp.Companion.sortAppsForTorifiedAndAbc(allApps)
+            TorifiedApp.sortAppsForTorifiedAndAbc(allApps)
             if (suggestedApps == null) suggestedApps =
                 getApps(it, mPrefs, alSuggested, null, retainedCheckedPackages)
             val inflater = layoutInflater

@@ -60,7 +60,7 @@
                 style="@style/BottomSheetRadioHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="6dp"
                 android:text="@string/not_sure"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -71,11 +71,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/btn_shape_round"
+                android:backgroundTint="@color/orbot_btn_disable_grey"
                 android:paddingStart="@dimen/button_horizontal_med_margin"
                 android:paddingEnd="@dimen/button_horizontal_med_margin"
                 android:text="@string/ask_tor"
                 android:textColor="@android:color/white"
-                app:backgroundTint="@color/orbot_btn_disable_grey"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent" />
 

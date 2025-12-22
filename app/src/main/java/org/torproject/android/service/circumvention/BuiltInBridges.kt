@@ -23,7 +23,7 @@ data class BuiltInBridges(
         }
 
     fun store(context: Context) {
-        getUpdateFile(context).writeText(Json.Default.encodeToString(this))
+        getUpdateFile(context).writeText(Json.encodeToString(this))
     }
 
 

@@ -249,4 +249,5 @@
     <string name="note_snowflake_doesn_t_support_proxies">注意: Snowflake はプロキシをサポートしていません。Snowflake ブリッジではプロキシ設定は無視されます。</string>
     <string name="search_for_apps">アプリを検索する</string>
     <string name="apps_updated_msg">アプリが更新されました</string>
+    <string name="set_transport">トランスポートを設定</string>
 </resources>

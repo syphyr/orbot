@@ -249,4 +249,5 @@
     <string name="note_snowflake_doesn_t_support_proxies">CATATAN: Snowflake tidak mendukung proxy. Pengaturan proxy akan diabaikan saat menggunakan jembatan Snowflake.</string>
     <string name="search_for_apps">Cari aplikasi</string>
     <string name="apps_updated_msg">Aplikasi Diperbarui</string>
+    <string name="set_transport">Atur Transportasi</string>
 </resources>

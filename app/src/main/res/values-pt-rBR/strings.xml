@@ -202,4 +202,5 @@
     <string name="unable_to_start_tor">Não é possível iniciar o Tor:</string>
     <string name="mebibyte_per_second">MiB/s</string>
     <string name="kibibyte_per_second">KiB/s</string>
+    <string name="set_transport">Definir transporte</string>
 </resources>

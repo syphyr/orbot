@@ -13,7 +13,6 @@ import android.util.Log
 import android.view.View
 import android.view.WindowInsetsController
 import androidx.activity.addCallback
-
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
@@ -21,27 +20,22 @@ import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.navigation.NavController
-import androidx.navigation.NavDestination
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.savedstate.SavedState
-
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scottyab.rootbeer.RootBeer
-
-import org.torproject.android.util.sendIntentToService
-import org.torproject.android.ui.core.BaseActivity
 import org.torproject.android.service.OrbotConstants
-import org.torproject.android.ui.kindness.SnowflakeProxyService
-import org.torproject.android.util.Prefs
-import org.torproject.android.util.showToast
-import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.android.ui.connect.ConnectViewModel
 import org.torproject.android.ui.connect.RequestPostNotificationPermission
+import org.torproject.android.ui.core.BaseActivity
 import org.torproject.android.ui.core.DeviceAuthenticationPrompt
+import org.torproject.android.ui.kindness.SnowflakeProxyService
+import org.torproject.android.ui.more.LogBottomSheet
+import org.torproject.android.util.Prefs
+import org.torproject.android.util.sendIntentToService
+import org.torproject.android.util.showToast
 
 class OrbotActivity : BaseActivity() {
 
@@ -118,20 +112,13 @@ class OrbotActivity : BaseActivity() {
 
         val bottomNavigationContainer = findViewById<View>(R.id.bottomNavContainer)
 
-        navController.addOnDestinationChangedListener(object : NavController.OnDestinationChangedListener {
-            override fun onDestinationChanged(
-                controller: NavController,
-                destination: NavDestination,
-                arguments: SavedState?
-            ) {
-                if (destination.id == R.id.connectFragment || destination.id == R.id.moreFragment || destination.id == R.id.kindnessFragment)
-                {
-                    bottomNavigationContainer.visibility = View.VISIBLE
-                } else {
-                    bottomNavigationContainer.visibility = View.GONE
-                }
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            if (destination.id == R.id.connectFragment || destination.id == R.id.moreFragment || destination.id == R.id.kindnessFragment) {
+                bottomNavigationContainer.visibility = View.VISIBLE
+            } else {
+                bottomNavigationContainer.visibility = View.GONE
             }
-        })
+        }
 
         val navOptionsLeftToRight = NavOptions.Builder().setEnterAnim(R.anim.slide_in_right)
             .setExitAnim(R.anim.slide_out_left).setPopEnterAnim(R.anim.slide_in_right)
@@ -162,17 +149,14 @@ class OrbotActivity : BaseActivity() {
             true
         }
 
-        with(LocalBroadcastManager.getInstance(this)) {
-            registerReceiver(
-                orbotServiceBroadcastReceiver, IntentFilter(OrbotConstants.LOCAL_ACTION_STATUS)
-            )
-            registerReceiver(
-                orbotServiceBroadcastReceiver, IntentFilter(OrbotConstants.LOCAL_ACTION_LOG)
-            )
-            registerReceiver(
-                orbotServiceBroadcastReceiver, IntentFilter(OrbotConstants.LOCAL_ACTION_PORTS)
-            )
+        val filter = IntentFilter().apply {
+            addAction(OrbotConstants.LOCAL_ACTION_STATUS)
+            addAction(OrbotConstants.LOCAL_ACTION_LOG)
+            addAction(OrbotConstants.LOCAL_ACTION_PORTS)
         }
+
+        ContextCompat.registerReceiver(this, orbotServiceBroadcastReceiver, filter,
+            ContextCompat.RECEIVER_NOT_EXPORTED)
 
         requestNotificationPermission()
 
@@ -265,7 +249,8 @@ class OrbotActivity : BaseActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        LocalBroadcastManager.getInstance(this).unregisterReceiver(orbotServiceBroadcastReceiver)
+
+        unregisterReceiver(orbotServiceBroadcastReceiver)
     }
 
     @Deprecated("Deprecated in Java")
@@ -294,6 +279,7 @@ class OrbotActivity : BaseActivity() {
                     }
                     intent.getStringExtra(OrbotConstants.LOCAL_EXTRA_LOG)?.let {
                         logBottomSheet.appendLog(it)
+                        connectViewModel.updateLogState(it)
                     }
                 }
 

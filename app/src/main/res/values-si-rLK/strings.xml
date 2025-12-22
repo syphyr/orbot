@@ -6,4 +6,5 @@
     <string name="status_disabled">Orbot ක්‍රියාවිරහිත කර ඇත </string>
     <string name="couldn_t_start_tor_process_">Tor ක්‍රියාවලින් ආරම්භ කිරීමට නොහැකි විය:</string>
     <string name="unable_to_start_tor">Tor ආරම්භ කිරීමට නොහැකිය:</string>
+    <string name="set_transport">ප්‍රවාහනය සකසන්න</string>
 </resources>

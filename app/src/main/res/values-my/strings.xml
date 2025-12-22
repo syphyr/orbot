@@ -30,4 +30,5 @@
     <string name="menu_more">နောက်ထပ်</string>
     <string name="confirm">အတည်ပြုရန်</string>
     <string name="app_name">Orbot</string>
+    <string name="set_transport">သယ်ယူပို့ဆောင်ရေး သတ်မှတ်ပါ</string>
 </resources>

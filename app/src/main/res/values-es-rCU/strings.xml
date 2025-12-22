@@ -187,4 +187,5 @@
     <string name="pref_detect_root_title">Detección de root</string>
     <string name="v3_import_auth_private">Importar .auth_private</string>
     <string name="copy_address_to_clipboard">Copiar dirección al portapapeles</string>
+    <string name="set_transport">Configurar transporte</string>
 </resources>

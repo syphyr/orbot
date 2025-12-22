@@ -178,7 +178,7 @@ public class OrbotVpnManager implements Handler.Callback {
 
         var tproxy_conf = "misc:\n" +
 //                "  log-file: /data/data/org.torproject.android.debug/cache/hev.log \n" +
-                "  log-level: debug\n" +
+                "  log-level: warn\n" + // set to "debug" when debugging
                 "  task-stack-size: " + TProxyService.TASK_SIZE + "\n" +
                 "tunnel:\n" +
                 "  ipv4: " + TProxyService.VIRTUAL_GATEWAY_IPV4 + "\n" +

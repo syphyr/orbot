@@ -39,7 +39,7 @@ class AboutDialogFragment : DialogFragment() {
         tvTor.text = getString(R.string.tor_url, OrbotService.BINARY_TOR_VERSION)
 
         val tvObfs4 = view.findViewById<TextView>(R.id.tvObfs4)
-        tvObfs4.text = getString(R.string.obfs4_url, IPtProxy.lyrebirdVersion())
+        tvObfs4.text = getString(R.string.obfs4_url, IPtProxy.lyrebirdVersion().substringAfter('-'))
 
         val tvSnowflake = view.findViewById<TextView>(R.id.tvSnowflake)
         tvSnowflake.text = getString(R.string.snowflake_url, IPtProxy.snowflakeVersion())

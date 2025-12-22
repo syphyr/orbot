@@ -13,6 +13,10 @@ import java.lang.RuntimeException
 class OnBootReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         try {
+            if (intent.action != "android.intent.action.QUICKBOOT_POWERON" &&
+                intent.action != "android.intent.action.BOOT_COMPLETED")
+                return
+
             if (Build.FINGERPRINT.contains("sdk_gphone")) {
                 // on pixels emulated in new android studio on boot
                 // gets launched every time you click run. this is annoying
@@ -38,7 +42,7 @@ class OnBootReceiver : BroadcastReceiver() {
             else {
                 context.startService(intent)
             }
-        } catch (re: RuntimeException) {
+        } catch (_: RuntimeException) {
             //catch this to avoid malicious launches as document Cure53 Audit: ORB-01-009 WP1/2: Orbot DoS via exported activity (High)
         }
     }

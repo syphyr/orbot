@@ -177,4 +177,5 @@ atl oquitlapatic</string>
     <string name="log_notice_unable_to_update_onions">Ahmo huel xictlecahuiz xonacatl itocalhuan</string>
     <string name="log_notice_updating_torrc">Mocentiliz torrc quenime mitzpactia, papatica.</string>
     <string name="log_notice_connected_to_tor_control_port">Ye octencui huelititzalantli</string>
+    <string name="set_transport">Set Transport</string>
 </resources>

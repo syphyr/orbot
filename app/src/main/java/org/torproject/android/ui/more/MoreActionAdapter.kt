@@ -15,7 +15,7 @@ class MoreActionAdapter(
     private val items: List<OrbotMenuAction>
 ) : RecyclerView.Adapter<MoreActionAdapter.ViewHolder>() {
 
-    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val icon: ImageView = view.findViewById(R.id.ivIcon)
         val label: TextView = view.findViewById(R.id.tvLabel)
         val card: CardView = view as CardView
