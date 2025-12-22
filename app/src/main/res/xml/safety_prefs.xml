@@ -26,7 +26,7 @@
 
     <CheckBoxPreference
         android:defaultValue="false"
-        android:enabled="false"
+        app:isPreferenceVisible="false"
         android:key="pref_auth_no_biometrics"
         android:summary="@string/setting_unlock_with_biometrics_description"
         android:title="@string/setting_unlock_with_biometrics_title"

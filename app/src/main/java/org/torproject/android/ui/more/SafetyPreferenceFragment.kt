@@ -33,10 +33,10 @@ class SafetyPreferenceFragment : AbstractPreferenceFragment() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
             biometricCheckbox?.isVisible = false
         } else {
-            biometricCheckbox?.isEnabled = passwordCheckbox?.isChecked == true
+            biometricCheckbox?.isVisible = passwordCheckbox?.isChecked == true
             passwordCheckbox?.onPreferenceChangeListener =
                 OnPreferenceChangeListener { _, newValue ->
-                    biometricCheckbox?.isEnabled = newValue as Boolean
+                    biometricCheckbox?.isVisible = newValue as Boolean
                     true
                 }
 
