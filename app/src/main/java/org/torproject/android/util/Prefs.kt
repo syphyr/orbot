@@ -69,7 +69,11 @@ object Prefs {
 
     fun initWeeklyWorker() {
         val myWorkBuilder =
-            PeriodicWorkRequest.Builder(ResetSnowflakesServedWeeklyWorker::class.java, 7, TimeUnit.DAYS)
+            PeriodicWorkRequest.Builder(
+                ResetSnowflakesServedWeeklyWorker::class.java,
+                7,
+                TimeUnit.DAYS
+            )
 
         val myWork = myWorkBuilder.build()
         WorkManager.getInstance()
@@ -108,7 +112,8 @@ object Prefs {
                 ?: emptyList()
         }
         set(value) {
-            putString(PREF_BRIDGES_LIST,
+            putString(
+                PREF_BRIDGES_LIST,
                 value.filter { it.isNotBlank() }.joinToString("\n") { it.trim() })
         }
 
@@ -213,7 +218,9 @@ object Prefs {
         /**
          * @return How Orbot is configured to attempt to connect to Tor
          */
-        get() = Transport.fromId(prefs?.getString(PREF_CONNECTION_PATHWAY, null) ?: Transport.NONE.id)
+        get() = Transport.fromId(
+            prefs?.getString(PREF_CONNECTION_PATHWAY, null) ?: Transport.NONE.id
+        )
         /**
          * Set how Orbot should initialize a tor connection (direct, with a PT, etc)
          */
@@ -258,7 +265,9 @@ object Prefs {
 
             val port = try {
                 prefs?.getString("pref_proxy_port", null)?.trim()?.toInt() ?: 0
-            } catch (_: Throwable) { 0 }
+            } catch (_: Throwable) {
+                0
+            }
 
             if (port in 1..<65536) {
                 url.append(":")
@@ -279,10 +288,17 @@ object Prefs {
 
     const val DEFAULT_CAMO_DISABLED_ACTIVITY: String = "org.torproject.android.OrbotActivity"
 
+    /**
+     * Returns true if a non-Orbot icon is in use (ie Birdie, Paint, etc)
+     * When true, conceal information about Tor in notifications
+     *
+     * Returns false if icon is changed to an alt Orbot icon
+     */
     @JvmStatic
     val isCamoEnabled: Boolean
         get() {
             val app = prefs?.getString(PREF_CAMO_APP_PACKAGE, DEFAULT_CAMO_DISABLED_ACTIVITY) ?: ""
+            if (camoAppAltIconIndex != -1) return false
             return app != DEFAULT_CAMO_DISABLED_ACTIVITY
         }
 

@@ -77,7 +77,6 @@ class MoreFragment : Fragment() {
         updateStatus()
 
         val rvMore = view.findViewById<RecyclerView>(R.id.rvMoreActions)
-
         val listItems = listOf(
 
             OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
