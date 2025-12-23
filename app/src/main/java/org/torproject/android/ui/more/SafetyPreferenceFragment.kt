@@ -29,7 +29,7 @@ class SafetyPreferenceFragment : AbstractPreferenceFragment() {
                 true
             }
 
-        // on Android < R you can't turn off biometric auth
+        // on Androids lower than API "R" you can't turn off biometric auth so hide it
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.R) {
             biometricCheckbox?.isVisible = false
         } else {

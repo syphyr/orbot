@@ -280,9 +280,9 @@
     <string name="setting_block_screenshot_title">Block Screenshots</string>
     <string name="setting_block_screenshot_description">Prevents anyone from taking screenshots of this app</string>
     <string name="setting_unlock_pass_title">Lock Screen</string>
-    <string name="setting_unlock_pass_description">Require your device Password, PIN, or biometrics to unlock Orbot</string>
-    <string name="setting_unlock_with_biometrics_title">Prevent Biometrics from Unlocking Orbot</string>
-    <string name="setting_unlock_with_biometrics_description">If you are using the Lock Screen setting, this stops any biometrics that you may have configured to unlock your phone - such as your fingerprint or Face ID - from unlocking Orbot</string>
+    <string name="setting_unlock_pass_description">Require your device\'s PIN, password, or swipe pattern to open Orbot</string>
+    <string name="setting_unlock_with_biometrics_title">Use Biometrics (optional)</string>
+    <string name="setting_unlock_with_biometrics_description">Unlock Orbot with your fingerprint or Face ID if setup on your device.</string>
     <string name="status_connected_control_port">Tor service has started</string>
     <string name="status_handshake">Connecting to Tor network entrance</string>
     <string name="status_handshake_done">Entering the Tor network</string>
