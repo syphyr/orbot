@@ -17,10 +17,11 @@ class CamoConfirmationDialogFragment : DialogFragment() {
         val mapping = CamoFragment.getCamoMapping(requireContext())
 
         val camoAppName = getString(args.getInt(BUNDLE_KEY_NAME))
+        val altIconValue = args.getInt(BUNDLE_KEY_ALT_ICON_VAL)
         return AlertDialog.Builder(context)
             .setIcon(args.getInt(BUNDLE_KEY_IMAGE_ID))
-            .setTitle(getTitle(camoAppName))
-            .setMessage(getMessage(camoAppName))
+            .setTitle(getString(R.string.app_icon_dialog_title, camoAppName))
+            .setMessage(R.string.app_icon_dialog_msg)
             .setNegativeButton(android.R.string.cancel) { _, _ ->
                 dismiss()
             }
@@ -28,6 +29,7 @@ class CamoConfirmationDialogFragment : DialogFragment() {
                 val activePackageName = mapping[camoAppName]
                 Prefs.setCamoAppPackage(activePackageName)
                 Prefs.camoAppDisplayName = camoAppName
+                Prefs.camoAppAltIconIndex = altIconValue
                 val disabledNames = mapping.values.filter { s -> s != activePackageName }
                 AppIconNameChanger.Builder(requireActivity())
                     .packageName(BuildConfig.APPLICATION_ID)
@@ -40,35 +42,20 @@ class CamoConfirmationDialogFragment : DialogFragment() {
             .create()
     }
 
-    private fun getTitle(camoAppName: String): String {
-        return if (camoAppName == getString(R.string.app_name))
-            getString(R.string.camo_dialog_disable_title)
-        else getString(
-            R.string.camo_dialog_title,
-            camoAppName
-        )
-    }
-
-    private fun getMessage(camoAppName: String): String {
-        return if (camoAppName == getString(R.string.app_name))
-            getString(R.string.camo_dialog_disable_confirm_msg)
-        else getString(
-            R.string.camo_dialog_enable_confirm_msg,
-            camoAppName, camoAppName
-        )
-    }
-
     companion object {
         const val BUNDLE_KEY_IMAGE_ID = "id"
         const val BUNDLE_KEY_NAME = "name"
+        const val BUNDLE_KEY_ALT_ICON_VAL = "alt"
         const val TAG = "CamoConfirmDialog"
         fun newInstance(
             drawableId: Int,
-            name: Int
+            name: Int,
+            altIconValue: Int
         ): CamoConfirmationDialogFragment = CamoConfirmationDialogFragment().apply {
             arguments = bundleOf(
                 BUNDLE_KEY_IMAGE_ID to drawableId,
-                BUNDLE_KEY_NAME to name
+                BUNDLE_KEY_NAME to name,
+                BUNDLE_KEY_ALT_ICON_VAL to altIconValue
             )
         }
     }

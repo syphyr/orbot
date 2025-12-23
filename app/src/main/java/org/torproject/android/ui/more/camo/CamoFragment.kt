@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,9 +28,7 @@ import kotlin.String
 class CamoFragment : Fragment() {
     private var selectedApp: String? = null
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_camo, container, false)
         val rvCamoApps = view.findViewById<RecyclerView>(R.id.rvCamoApps)
@@ -37,41 +36,35 @@ class CamoFragment : Fragment() {
         selectedApp = getCamoMapping(requireContext()).getKey(Prefs.selectedCamoApp)
         // add orbot to front of list, then sort rest of camo apps item by locale
         val listItems = mutableListOf(
-            createAppMenuItem(R.drawable.ic_launcher_foreground, R.string.app_name)
+            createAppMenuItem(R.drawable.ic_launcher_foreground, R.string.app_name),
+            createAppMenuItem(R.drawable.ic_launcher_foreground_alt1, R.string.app_name, 1),
+            createAppMenuItem(R.drawable.ic_launcher_foreground_alt2, R.string.app_name, 2),
+            createAppMenuItem(R.drawable.ic_launcher_foreground_alt3, R.string.app_name, 3),
+            createAppMenuItem(R.drawable.ic_launcher_foreground_alt4, R.string.app_name, 4),
+            createAppMenuItem(
+                R.drawable.ic_camouflage_paint,
+                R.string.app_icon_chooser_label_paint
+            ),
+            createAppMenuItem(
+                R.drawable.ic_camouflage_tetras, R.string.app_icon_chooser_label_tetras
+            ),
+            createAppMenuItem(
+                R.drawable.ic_camouflage_birdie, R.string.app_icon_chooser_label_birdie
+            ),
+
+            createAppMenuItem(
+                R.drawable.ic_camouflage_fitgrit, R.string.app_icon_chooser_label_fit_grit
+            ),
+            createAppMenuItem(
+                R.drawable.ic_camouflage_assistant, R.string.app_icon_chooser_label_assistant
+            ),
+            createAppMenuItem(
+                R.drawable.ic_camouflage_todo, R.string.app_icon_chooser_label_todo
+            ),
+            createAppMenuItem(
+                R.drawable.ic_camouflage_night_watch, R.string.app_icon_chooser_label_night_watch
+            )
         )
-        listItems.addAll(
-            listOf(
-                createAppMenuItem(
-                    R.drawable.ic_camouflage_todo,
-                    R.string.app_icon_chooser_label_todo
-                ),
-                createAppMenuItem(
-                    R.drawable.ic_camouflage_assistant,
-                    R.string.app_icon_chooser_label_assistant
-                ),
-                createAppMenuItem(
-                    R.drawable.ic_camouflage_tetras,
-                    R.string.app_icon_chooser_label_tetras
-                ),
-                createAppMenuItem(
-                    R.drawable.ic_camouflage_paint,
-                    R.string.app_icon_chooser_label_paint
-                ),
-                createAppMenuItem(
-                    R.drawable.ic_camouflage_night_watch,
-                    R.string.app_icon_chooser_label_night_watch
-                ),
-                createAppMenuItem(
-                    R.drawable.ic_camouflage_fitgrit,
-                    R.string.app_icon_chooser_label_fit_grit
-                ),
-                createAppMenuItem(
-                    R.drawable.ic_camouflage_birdie,
-                    R.string.app_icon_chooser_label_birdie
-                )
-            ).sortedBy {
-                requireContext().getString(it.textId)
-            })
         rvCamoApps.adapter = MoreActionAdapter(listItems)
         val spanCount = if (resources.configuration.screenWidthDp < 600) 2 else 4
         rvCamoApps.layoutManager = GridLayoutManager(requireContext(), spanCount)
@@ -80,8 +73,7 @@ class CamoFragment : Fragment() {
             tvSamsungOneUI.visibility = View.VISIBLE
             tvSamsungOneUI.setOnClickListener {
                 // open "Notifications part of Settings app
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
-                    startActivity(Intent(android.provider.Settings.ACTION_NOTIFICATION_ASSISTANT_SETTINGS))
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) startActivity(Intent(android.provider.Settings.ACTION_NOTIFICATION_ASSISTANT_SETTINGS))
                 else // just open the Settings app
                     startActivity(Intent(android.provider.Settings.ACTION_SETTINGS))
             }
@@ -97,19 +89,23 @@ class CamoFragment : Fragment() {
         return view
     }
 
-    private fun showDialog(@DrawableRes imageId: Int, @StringRes appName: Int) {
-        CamoConfirmationDialogFragment.newInstance(imageId, appName)
+    private fun showDialog(@DrawableRes imageId: Int, @StringRes appName: Int, altIconValue: Int) {
+        CamoConfirmationDialogFragment.newInstance(imageId, appName, altIconValue)
             .show(requireActivity().supportFragmentManager, CamoConfirmationDialogFragment.TAG)
     }
 
     private fun createAppMenuItem(
         @DrawableRes imageId: Int,
-        @StringRes appName: Int
+        @StringRes appName: Int,
+        altIconVal: Int = -1
     ): OrbotMenuAction {
         val isSelected = selectedApp == getString(appName)
         val item = OrbotMenuAction(appName, imageId, removeTint = true) {
             if (!isSelected) {
-                showDialog(imageId, appName)
+                var key = getString(appName)
+                if (altIconVal != -1) key += altIconVal
+                Log.wtf("bim", key)
+                showDialog(imageId, appName, altIconVal)
             }
         }
         if (isSelected) item.backgroundColor =
@@ -123,23 +119,23 @@ class CamoFragment : Fragment() {
             val semPlatformIntField: Field =
                 Build.VERSION::class.java.getDeclaredField("SEM_PLATFORM_INT")
             val version: Int = semPlatformIntField.getInt(null) - 90000
-            return Build.FINGERPRINT.contains("samsung") &&
-                    version >= 0
+            return Build.FINGERPRINT.contains("samsung") && version >= 0
         } catch (_: NoSuchFieldException) {
             return false
         }
     }
 
     companion object {
+        private const val BASE = "org.torproject.android.main."
         fun getCamoMapping(context: Context): Map<String?, String> = mapOf(
             context.getString(R.string.app_name) to Prefs.DEFAULT_CAMO_DISABLED_ACTIVITY,
-            context.getString(R.string.app_icon_chooser_label_fit_grit) to "org.torproject.android.main.FitGrit",
-            context.getString(R.string.app_icon_chooser_label_night_watch) to "org.torproject.android.main.NightWatch",
-            context.getString(R.string.app_icon_chooser_label_assistant) to "org.torproject.android.main.Assistant",
-            context.getString(R.string.app_icon_chooser_label_paint) to "org.torproject.android.main.Paint",
-            context.getString(R.string.app_icon_chooser_label_tetras) to "org.torproject.android.main.Tetras",
-            context.getString(R.string.app_icon_chooser_label_todo) to "org.torproject.android.main.ToDo",
-            context.getString(R.string.app_icon_chooser_label_birdie) to "org.torproject.android.main.Birdie"
+            context.getString(R.string.app_icon_chooser_label_fit_grit) to "${BASE}FitGrit",
+            context.getString(R.string.app_icon_chooser_label_night_watch) to "${BASE}NightWatch",
+            context.getString(R.string.app_icon_chooser_label_assistant) to "${BASE}Assistant",
+            context.getString(R.string.app_icon_chooser_label_paint) to "${BASE}Paint",
+            context.getString(R.string.app_icon_chooser_label_tetras) to "{$BASE}Tetras",
+            context.getString(R.string.app_icon_chooser_label_todo) to "${BASE}ToDo",
+            context.getString(R.string.app_icon_chooser_label_birdie) to "${BASE}Birdie"
         )
     }
 

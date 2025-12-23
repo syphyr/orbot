@@ -41,6 +41,7 @@ object Prefs {
 
     private const val PREF_CAMO_APP_PACKAGE = "pref_key_camo_app"
     private const val PREF_CAMO_APP_DISPLAY_NAME = "pref_key_camo_app_display_name"
+    private const val PREF_CAMO_APP_ALT_ICON_INDEX = "pref_key_camo_alticon"
     private const val PREF_REQUIRE_PASSWORD = "pref_require_password"
     private const val PREF_DISALLOW_BIOMETRIC_AUTH = "pref_auth_no_biometrics"
 
@@ -295,6 +296,11 @@ object Prefs {
     var camoAppDisplayName: String?
         get() = prefs?.getString(PREF_CAMO_APP_DISPLAY_NAME, "Android")
         set(name) = putString(PREF_CAMO_APP_DISPLAY_NAME, name)
+
+    var camoAppAltIconIndex: Int?
+        get() = prefs?.getInt(PREF_CAMO_APP_ALT_ICON_INDEX, -1)
+        set(index) = putInt(PREF_CAMO_APP_ALT_ICON_INDEX, index ?: -1)
+
 
     val requireDeviceAuthentication: Boolean
         get() = prefs?.getBoolean(PREF_REQUIRE_PASSWORD, false) ?: false
