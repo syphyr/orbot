@@ -220,10 +220,6 @@
     <string name="app_icon_chooser_label_todo">To-Do</string>
     <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
     <string name="app_icon_chooser_label_birdie">Birdie</string>
-    <string name="camo_dialog_title" formatted="true">Замаскироваться как %1$s</string>
-    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot замаскирует себя под приложение %1$s. Это спрячет все уводемления про Tor и изменит вид Orbot на вашем главном экране.\n\nМаскировка под %2$s перезапустит Orbot.</string>
-    <string name="camo_dialog_disable_confirm_msg">Orbot продолжит показывать уведомления про ваше Tor-соединение и будет выглядеть как Orbot без маскировки на вашем главном экране.\n\nОтключение режима маскировки перезапустит Orbot.</string>
-    <string name="camo_dialog_disable_title">Выключить режим маскировки</string>
     <string name="camo_samsung_instructions">На вашем устройстве Samsung Galaxy уведомления режима маскировки только будут работать если вы откроете настройки вашего телефона: Настройки -&gt; Уведомления -&gt; Дополнительные параметры и выключением опции \"Отображать значки оповещений\". Нажмите сюда, чтобы открыть Настройки Уведомлений.</string>
     <string name="power_user_mode_permission">Разрешение будильника и напоминателя нужны для режима большой пользователь</string>
     <string name="power_user_mode_permission_msg">Пожалуйста разрешите приложению Orbot заводить будильники и напоминатели, чтобы использовать режим большого пользователя. Это не создаст никакие будильники на вашем устройстве. Это разрешение нужно, чтобы система держала OrbotService включенным во время, когда Orbot не использован как VPN на всю систему.</string>

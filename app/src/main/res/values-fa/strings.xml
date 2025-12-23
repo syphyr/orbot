@@ -192,10 +192,6 @@
     <string name="snowflake_sqs">Snowflake SQS</string>
     <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
     <string name="app_icon_chooser_label_birdie">Birdie</string>
-    <string name="camo_dialog_title" formatted="true">استتار به‌شکل ‎%1$s</string>
-    <string name="camo_dialog_disable_confirm_msg">Orbot نمایش اطلاعات اعلان مربوط به اتصال Tor شما را از سر گرفته و روی صفحهٔ خانهٔ شما به‌صورت عادی ظاهر خواهد شد.\n\nغیرفعال‌سازی حالت استتار Orbot را راه‌اندازی مجدد خواهد کرد.</string>
-    <string name="camo_dialog_disable_title">غیرفعال‌سازی حالت استتار</string>
-    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot خودش را به‌شکل برنامهٔ ‎%1$s استتار می‌کند. این کار همهٔ جزئیات اعلان‌ها دربارهٔ Tor را پنهان می‌کند و چگونگی ظاهر Orbot را روی صفحهٔ خانهٔ شما تغییر خواهد داد.\n\nاستتار کردن به‌شکل ‎%2$s ‏Orbot را راه‌اندازی مجدد خواهد کرد.</string>
     <string name="power_user_mode_permission">نیازمند مجوز هشدارها و یادآوری‌ها برای حالت کاربر حرفه‌ای</string>
     <string name="power_user_mode_permission_msg">لطفاً برای استفاده از حالت کاربر حرفه‌ای به Orbot اجازه دهید هشدار و یادآوری را تنظیم کند. در حقیقت این برنامه هیچ هشداری روی دستگاه‌تان تنظیم نخواهد کرد. این مجوز برای درحال اجرا نگه‌داشتن سرویس Orbot ، در هنگامی که به‌عنوان VPN سراسری سیستم استفاده نمی‌شود، لازم است.</string>
     <string name="error_no_password_set">لطفاً برای استفاده از اصالت‌سنجی Orbot، دستگاه‌تان را امن کنید</string>

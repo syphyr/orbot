@@ -205,10 +205,6 @@
     <string name="app_icon_chooser_label_todo">Do zrobienia</string>
     <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
     <string name="app_icon_chooser_label_birdie">Birdie</string>
-    <string name="camo_dialog_title" formatted="true">Kamuflaż jako %1$s</string>
-    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot będzie się kamuflował jako aplikacja %1$s. Spowoduje to ukrycie wszystkich szczegółów powiadomień dotyczących sieci Tor i zmianę wyglądu Orbota na ekranie głównym.\n\nKamuflaż jako %2$s spowoduje ponowne uruchomienie Orbota.</string>
-    <string name="camo_dialog_disable_confirm_msg">Orbot wznowi wyświetlanie powiadomień o połączeniu z siecią Tor i będzie wyświetlany normalnie na ekranie głównym.\n\nWyłączenie trybu kamuflażu spowoduje ponowne uruchomienie Orbota.</string>
-    <string name="camo_dialog_disable_title">Wyłącz tryb kamuflażu</string>
     <string name="power_user_mode_permission">Alarmy i przypomnienia. Wymagane uprawnienia do trybu użytkownika zaawansowanego</string>
     <string name="power_user_mode_permission_msg">Zezwól Orbotowi na ustawianie alarmów i przypomnień, aby móc korzystać z trybu użytkownika zaawansowanego. Nie spowoduje to ustawienia żadnych alarmów na Twoim urządzeniu. To uprawnienie jest potrzebne, aby system mógł utrzymać działanie usługi Orbot, gdy Orbot nie jest używany jako ogólnosystemowa sieć VPN.</string>
     <string name="error_no_password_set">Aby móc korzystać z uwierzytelniania Orbota, zabezpiecz swoje urządzenie</string>

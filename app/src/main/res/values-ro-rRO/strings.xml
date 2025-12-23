@@ -201,10 +201,6 @@
     <string name="unlock_app_msg" formatted="true">Vă rugăm să deblocați dispozitivul pentru a utiliza %s</string>
     <string name="bridge_snowflake_sqs">Conectați-vă prin intermediul altor utilizatori Tor folosind Snowflake (Metoda 3 - SQS)</string>
     <string name="snowflake_sqs">Snowflake SQS</string>
-    <string name="camo_dialog_title" formatted="true">Camuflează ca %1$s</string>
-    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot se va camufla ca aplicația %1$s. Acest lucru va ascunde toate detaliile de notificare despre Tor și va schimba aspectul lui Orbot pe ecranul de pornire.\n\nCamuflare ca %2$s va reporni Orbot.</string>
-    <string name="camo_dialog_disable_confirm_msg">Orbot va relua afișarea informațiilor de notificare despre conexiunea Tor și va apărea în mod normal pe ecranul de pornire.\n\nDezactivarea modului de camuflare va reporni Orbot.</string>
-    <string name="camo_dialog_disable_title">Dezactivare mod de camuflaj</string>
     <string name="system_vpn_settings">Setări VPN Android</string>
     <string name="pref_isolate_keep_alive">Păstrează circuitele izolate active</string>
     <string name="pref_isolate_keep_alive_summary">Păstrează circuitele izolate active dacă au cel puțin un flux cu autentificare SOCKS activ</string>

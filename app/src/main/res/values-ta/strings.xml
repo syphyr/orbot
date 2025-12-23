@@ -192,10 +192,6 @@
     <string name="app_icon_chooser_label_todo">செய்ய வேண்டியவை</string>
     <string name="app_icon_chooser_label_fit_grit">Fitgrit</string>
     <string name="app_icon_chooser_label_birdie">பறவை</string>
-    <string name="camo_dialog_title" formatted="true">உருமறைப்பு %1$s</string>
-    <string name="camo_dialog_enable_confirm_msg" formatted="true">ஆர்போட் தன்னை %1$s ஆக மறைக்கும். இது TOR பற்றிய அனைத்து அறிவிப்பு விவரங்களையும் மறைத்து, உங்கள் முகப்புத் திரையில் ஆர்போட்டின் தோற்றத்தை எவ்வாறு மாற்றும். \n\n%2$s என உருமறைப்பது ஆர்போட்டை மறுதொடக்கம் செய்யும்.</string>
-    <string name="camo_dialog_disable_confirm_msg">ஆர்போட் உங்கள் TOR இணைப்பு பற்றிய அறிவிப்பு தகவல்களைக் காண்பிக்கும் மற்றும் உங்கள் முகப்புத் திரையில் இயல்பானதாகத் தோன்றும். \n\nஉருமறைப்பு பயன்முறையை முடக்குவது சுற்றுப்பாதையை மறுதொடக்கம் செய்யும்.</string>
-    <string name="camo_dialog_disable_title">உருமறைப்பு பயன்முறையை முடக்கு</string>
     <string name="power_user_mode_permission">பவர் பயனர் பயன்முறைக்கு அலாரங்கள் மற்றும் நினைவூட்டல் இசைவு தேவை</string>
     <string name="power_user_mode_permission_msg">ஆற்றல் பயனர் பயன்முறையைப் பயன்படுத்த அலாரங்கள் மற்றும் நினைவூட்டல்களை அமைக்க ஆர்போட்டை அனுமதிக்கவும். இது உண்மையில் உங்கள் சாதனத்தில் எந்த அலாரங்களையும் அமைக்காது. கணினி அளவிலான VPN ஆக ஆர்போட் பயன்படுத்தப்படாதபோது, கணினி ஆர்போட்சர்வீசை இயக்குவதற்கு இந்த இசைவு தேவை.</string>
     <string name="error_no_password_set">ஆர்போட் அங்கீகாரத்தைப் பயன்படுத்த உங்கள் சாதனத்தைப் பாதுகாக்கவும்</string>

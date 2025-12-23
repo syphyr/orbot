@@ -215,10 +215,6 @@
     <string name="app_icon_chooser_label_todo">Daftar Tugas</string>
     <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
     <string name="app_icon_chooser_label_birdie">Burung kecil</string>
-    <string name="camo_dialog_title" formatted="true">Kamuflase sebagai %1$s</string>
-    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot akan menyamar sebagai aplikasi %1$s. Hal ini akan menyembunyikan semua detail notifikasi tentang Tor dan mengubah tampilan Orbot di layar utama Anda.\n\nMenyamar sebagai %2$s akan me-restart Orbot.</string>
-    <string name="camo_dialog_disable_confirm_msg">Orbot akan kembali menampilkan informasi notifikasi tentang koneksi Tor Anda dan akan muncul seperti biasa di layar utama Anda.\n\nMenonaktifkan Mode Kamuflase akan me-restart Orbot.</string>
-    <string name="camo_dialog_disable_title">Nonaktifkan Mode Kamuflase</string>
     <string name="camo_samsung_instructions">Pada perangkat Samsung Galaxy Anda, notifikasi Mode Kamuflase hanya akan berfungsi dengan membuka Pengaturan -&gt; Notifikasi -&gt; Pengaturan Lanjutan dan menonaktifkan “Tampilkan ikon aplikasi di notifikasi”. Klik di sini untuk membuka Pengaturan Notifikasi.</string>
     <string name="power_user_mode_permission">Izin Alarm &amp; Pengingat Diperlukan untuk Mode Pengguna Lanjutan</string>
     <string name="power_user_mode_permission_msg">Silakan izinkan Orbot untuk mengatur alarm dan pengingat agar dapat menggunakan mode pengguna tingkat lanjut. Izin ini tidak akan benar-benar mengatur alarm di perangkat Anda. Izin ini diperlukan agar sistem dapat menjaga OrbotService tetap berjalan saat Orbot tidak digunakan sebagai VPN sistem.</string>

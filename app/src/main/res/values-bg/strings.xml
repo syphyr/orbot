@@ -187,14 +187,10 @@
     <string name="app_icon_chooser_label_assistant">Асистент</string>
     <string name="app_icon_chooser_label_birdie">Птиче</string>
     <string name="app_icon_chooser_label_fit_grit">Фитнес</string>
-    <string name="camo_dialog_title" formatted="true">Прикриване като %1$s</string>
     <string name="app_icon_chooser_label_todo">Задачи</string>
-    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot ще бъде прикрит като приложението „%1$s“. Това означава скриване на известията на Tor и пиктограмата на началния екран.\n\nПрикриването като %2$s ще рестартира Orbot.</string>
     <string name="app_icon_chooser_label_night_watch">Нощен пазач</string>
     <string name="app_icon_chooser_label_tetras">Тетрас</string>
     <string name="app_icon_chooser_label_paint">Боя</string>
-    <string name="camo_dialog_disable_confirm_msg">Orbot ще продължи да показва данни за връзката на Tor в известие и ще изглежда както обикновено на началния екран.\n\nИзключване на режим Камуфлаж ще рестартира Orbot.</string>
-    <string name="camo_dialog_disable_title">Изключване на режим Камуфлаж</string>
     <string name="pref_isolate_keep_alive_summary">Поддържа изолираните вериги, които имат най-малко един удостоверен през SOCKS поток</string>
     <string name="power_user_mode_permission">Режимът на опитен потребител изисква разрешение за будилници и напомняния</string>
     <string name="unlock_app_msg" formatted="true">За да използвате %s тключете устройството</string>

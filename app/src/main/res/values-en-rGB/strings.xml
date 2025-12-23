@@ -205,9 +205,6 @@
     <string name="app_icon_chooser_label_assistant">Assistant</string>
     <string name="app_icon_chooser_label_paint">Paint</string>
     <string name="app_icon_chooser_label_todo">To-Do</string>
-    <string name="camo_dialog_title" formatted="true">Camouflage as %1$s</string>
-    <string name="camo_dialog_disable_confirm_msg">Orbot will resume displaying notification information about your Tor connection and will appear as normal on your home screen.\n\nDisabling Camouflage Mode will restart Orbot.</string>
-    <string name="camo_dialog_disable_title">Disable Camouflage Mode</string>
     <string name="power_user_mode_permission">Alarms &amp; Reminders Permission Needed for Power User Mode</string>
     <string name="power_user_mode_permission_msg">Please allow Orbot to set alarms and reminders in order to use power user mode. This won\'t actually set any alarms on your device. This permission is needed to have the system keep OrbotService running when Orbot is not being used as a system-wide VPN.</string>
     <string name="error_no_password_set">Please secure your device in order to use Orbot Authentication</string>
@@ -231,7 +228,6 @@
     <string name="app_icon_chooser_label_tetras">Tetras</string>
     <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
     <string name="app_icon_chooser_label_birdie">Birdie</string>
-    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot will camouflage itself as the app %1$s. This will hide all notification details about Tor and change the appearance of Orbot on your home screen.\n\nCamouflaging as %2$s will restart Orbot.</string>
     <string name="camo_samsung_instructions">On your Samsung Galaxy device, Camouflage Mode\'s notifications will only work by opening your Settings -&gt; Notifications -&gt; Advanced Settings and disabling \"Show app icon in notifications\". Click here to open Notification Settings.</string>
     <string name="request_notification_permission">Please enable notifications for Orbot</string>
     <string name="request_notification_permission_msg">Without turning on notifications, Orbot can\'t act as a Tor VPN or use Kindness Mode.\n\nWhen enabled, we only show a single notification when Orbot is running.</string>

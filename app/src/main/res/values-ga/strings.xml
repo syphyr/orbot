@@ -207,10 +207,6 @@
     <string name="app_icon_chooser_label_todo">Le Déanamh</string>
     <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
     <string name="app_icon_chooser_label_birdie">Éinín</string>
-    <string name="camo_dialog_title" formatted="true">Duaithníocht mar %1$s</string>
-    <string name="camo_dialog_enable_confirm_msg" formatted="true">Déanfaidh Orbot é féin a dhúbláil mar an aip %1$s. Cuirfidh sé seo gach mionsonra fógra faoi Tor i bhfolach agus athróidh sé cuma Orbot ar do scáileán baile.\n\nMá dhúblaíonn tú mar %2$s, atosófar Orbot.</string>
-    <string name="camo_dialog_disable_confirm_msg">Leanfaidh Orbot ar aghaidh ag taispeáint faisnéise fógra faoi do nasc Tor agus beidh sé le feiceáil mar is gnách ar do scáileán baile.\n\nMá dhíchumasaítear Mód Camouflage, atosófar Orbot.</string>
-    <string name="camo_dialog_disable_title">Díchumasaigh Mód Duaithníochta</string>
     <string name="power_user_mode_permission_msg">Lig d\'Orbot aláraim agus meabhrúcháin a shocrú le go mbeidh tú in ann mód úsáideora cumhachta a úsáid. Ní shocróidh sé seo aon aláraim ar do ghléas i ndáiríre. Tá an cead seo ag teastáil chun go gcoinneoidh an córas OrbotService ag rith nuair nach bhfuil Orbot in úsáid mar VPN ar fud an chórais.</string>
     <string name="request_notification_permission">Cumasaigh fógraí le haghaidh Orbot le do thoil</string>
     <string name="request_notification_permission_msg">Gan fógraí a chasadh air, ní féidir le Orbot gníomhú mar VPN Tor ná Mód Cineáltais a úsáid.\n\nNuair a bhíonn sé cumasaithe, ní thaispeánaimid ach fógra amháin nuair a bhíonn Orbot ag rith.</string>

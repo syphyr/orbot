@@ -189,10 +189,6 @@
     <string name="snowflake_sqs">Snowflake SQS</string>
     <string name="app_icon_chooser_label_assistant">Assistente</string>
     <string name="app_icon_chooser_label_todo">Da fare</string>
-    <string name="camo_dialog_title" formatted="true">Camuffa come %1$s</string>
-    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot si camufferà come l\'app %1$s. Ciò nasconderà tutti i dettagli di notifica di Tor e cambierà l\'aspetto di Orbot nella schermata iniziale.\n\nIl camuffamento come %2$s riavvierà Orbot.</string>
-    <string name="camo_dialog_disable_confirm_msg">Orbot riprenderà la visualizzazione delle informazioni di notifica sulla tua connessione Tor e apparirà come normale nella schermata iniziale.\n\nLa disattivazione della modalità camuffamento riavvierà Orbot.</string>
-    <string name="camo_dialog_disable_title">Disattiva la modalità camuffamento</string>
     <string name="power_user_mode_permission">Necessaria l\'autorizzazione Allarmi &amp; Promemoria per la modalità Utente esperto</string>
     <string name="power_user_mode_permission_msg">Consenti a Orbot di impostare allarmi e promemoria per potere usare la modalità utente esperto. Ciò non imposterà alcun allarme sul dispositivo. Questa autorizzazione è necessaria affinché il sistema mantenga il servizio Orbot in esecuzione quando Orbot non viene usato come VPN a livello di sistema.</string>
     <string name="error_no_password_set">Si prega di proteggere il dispositivo per usare l\'autenticazione di Orbot</string>
