@@ -13,11 +13,10 @@ import org.torproject.android.util.Prefs
 class CamoConfirmationDialogFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val args = requireArguments()
-
         val mapping = CamoFragment.getCamoMapping(requireContext())
-
         val camoAppName = getString(args.getInt(BUNDLE_KEY_NAME))
         val altIconValue = args.getInt(BUNDLE_KEY_ALT_ICON_VAL)
+
         return AlertDialog.Builder(context)
             .setIcon(args.getInt(BUNDLE_KEY_IMAGE_ID))
             .setTitle(getString(R.string.app_icon_dialog_title, camoAppName))
@@ -26,7 +25,9 @@ class CamoConfirmationDialogFragment : DialogFragment() {
                 dismiss()
             }
             .setPositiveButton(android.R.string.ok) { _, _ ->
-                val activePackageName = mapping[camoAppName]
+                var key = camoAppName
+                if (altIconValue != -1) key += altIconValue
+                val activePackageName = mapping[key]
                 Prefs.setCamoAppPackage(activePackageName)
                 Prefs.camoAppDisplayName = camoAppName
                 Prefs.camoAppAltIconIndex = altIconValue

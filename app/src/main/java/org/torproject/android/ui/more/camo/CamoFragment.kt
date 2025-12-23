@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,7 +33,6 @@ class CamoFragment : Fragment() {
         val rvCamoApps = view.findViewById<RecyclerView>(R.id.rvCamoApps)
         // defaults to "Orbot" if user never selected anything, aka no camo
         selectedApp = getCamoMapping(requireContext()).getKey(Prefs.selectedCamoApp)
-        // add orbot to front of list, then sort rest of camo apps item by locale
         val listItems = mutableListOf(
             createAppMenuItem(R.drawable.ic_launcher_foreground, R.string.app_name),
             createAppMenuItem(R.drawable.ic_launcher_foreground_alt1, R.string.app_name, 1),
@@ -99,12 +97,13 @@ class CamoFragment : Fragment() {
         @StringRes appName: Int,
         altIconVal: Int = -1
     ): OrbotMenuAction {
-        val isSelected = selectedApp == getString(appName)
+        var altSuffix = ""
+        if (altIconVal != -1) altSuffix += altIconVal
+        val isSelected = selectedApp == (getString(appName) + altSuffix)
         val item = OrbotMenuAction(appName, imageId, removeTint = true) {
             if (!isSelected) {
                 var key = getString(appName)
                 if (altIconVal != -1) key += altIconVal
-                Log.wtf("bim", key)
                 showDialog(imageId, appName, altIconVal)
             }
         }
@@ -127,8 +126,13 @@ class CamoFragment : Fragment() {
 
     companion object {
         private const val BASE = "org.torproject.android.main."
+        private const val ORBOT_ALT ="${BASE}OrbotAlt"
         fun getCamoMapping(context: Context): Map<String?, String> = mapOf(
             context.getString(R.string.app_name) to Prefs.DEFAULT_CAMO_DISABLED_ACTIVITY,
+            "${context.getString(R.string.app_name)}1" to "${ORBOT_ALT}1",
+            "${context.getString(R.string.app_name)}2" to "${ORBOT_ALT}2",
+            "${context.getString(R.string.app_name)}3" to "${ORBOT_ALT}3",
+            "${context.getString(R.string.app_name)}4" to "${ORBOT_ALT}4",
             context.getString(R.string.app_icon_chooser_label_fit_grit) to "${BASE}FitGrit",
             context.getString(R.string.app_icon_chooser_label_night_watch) to "${BASE}NightWatch",
             context.getString(R.string.app_icon_chooser_label_assistant) to "${BASE}Assistant",
