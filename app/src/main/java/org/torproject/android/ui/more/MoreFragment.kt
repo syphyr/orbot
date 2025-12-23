@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -64,6 +66,12 @@ class MoreFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_more, container, false)
+
+        val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
+        (context as AppCompatActivity).setSupportActionBar(toolbar)
+        toolbar?.title = requireContext().getString(R.string.app_name)
+        view.findViewById<TextView>(R.id.tvExit)?.setOnClickListener { doExit() }
+
         tvStatus = view.findViewById(R.id.tvVersion)
 
         updateStatus()
@@ -101,13 +109,11 @@ class MoreFragment : Fragment() {
                     AboutDialogFragment.TAG
                 )
             },
-            OrbotMenuAction(R.string.menu_exit, R.drawable.ic_exit) { doExit() }
         )
         rvMore.adapter = MoreActionAdapter(listItems)
 
         val spanCount = if (resources.configuration.screenWidthDp < 600) 2 else 4
         rvMore.layoutManager = GridLayoutManager(requireContext(), spanCount)
-
 
         return view
     }
