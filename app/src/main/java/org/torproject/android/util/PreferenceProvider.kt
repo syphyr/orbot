@@ -21,16 +21,10 @@ class PreferenceProvider: ContentProvider() {
     companion object {
         private const val AUTHORITY = "${BuildConfig.APPLICATION_ID}.provider.preferences"
 
-        val CONTENT_URI: Uri = "content://$AUTHORITY".toUri()
+        val CONTENT_URI = "content://$AUTHORITY".toUri()
 
         const val ROW_TYPE = "type"
         const val ROW_VALUE = "value"
-
-        const val TYPE_STRING = "string"
-        const val TYPE_BOOLEAN = "boolean"
-        const val TYPE_INT = "int"
-        const val TYPE_LONG = "long"
-        const val TYPE_FLOAT = "float"
     }
 
     private val prefs: SharedPreferences?
@@ -58,10 +52,9 @@ class PreferenceProvider: ContentProvider() {
         val key = uri.lastPathSegment ?: return null
         if (!(prefs?.contains(key) ?: false)) return null
 
-        val cursor = MatrixCursor(arrayOf(ROW_VALUE))
-        cursor.addRow(arrayOf(prefs?.all[key]))
-
-        return cursor
+        return MatrixCursor(arrayOf(ROW_VALUE)).apply {
+            addRow(arrayOf(prefs?.all[key]))
+        }
     }
 
     @SuppressLint("UseKtx")
@@ -76,11 +69,11 @@ class PreferenceProvider: ContentProvider() {
         val editor = prefs?.edit() ?: return 0
 
         when (values.getAsString(ROW_TYPE)) {
-            TYPE_STRING -> editor.putString(key, values.getAsString(ROW_VALUE))
-            TYPE_BOOLEAN -> editor.putBoolean(key, values.getAsBoolean(ROW_VALUE))
-            TYPE_INT -> editor.putInt(key, values.getAsInteger(ROW_VALUE))
-            TYPE_LONG -> editor.putLong(key, values.getAsLong(ROW_VALUE))
-            TYPE_FLOAT -> editor.putFloat(key, values.getAsFloat(ROW_VALUE))
+            String::class.toString() -> editor.putString(key, values.getAsString(ROW_VALUE))
+            Boolean::class.toString() -> editor.putBoolean(key, values.getAsBoolean(ROW_VALUE))
+            Int::class.toString() -> editor.putInt(key, values.getAsInteger(ROW_VALUE))
+            Long::class.toString() -> editor.putLong(key, values.getAsLong(ROW_VALUE))
+            Float::class.toString() -> editor.putFloat(key, values.getAsFloat(ROW_VALUE))
             else -> return 0
         }
 
@@ -131,11 +124,9 @@ fun ContentResolver.getPrefString(key: String, default: String? = null): String?
 }
 
 fun ContentResolver.getPrefBoolean(key: String, default: Boolean = false): Boolean {
-    val v = getPref(key, { c, i -> c.getStringOrNull(i) })
+    val v = getPref(key, { c, i -> c.getStringOrNull(i) }) ?: return default
 
-    if (v == "true") return true
-
-    return default
+    return v == "true"
 }
 
 fun ContentResolver.getPrefInt(key: String, default: Int? = null): Int? {
@@ -159,21 +150,21 @@ private fun ContentResolver.putPref(key: String, values: ContentValues) {
 
 fun ContentResolver.putPref(key: String, value: String?) {
     putPref(key, ContentValues().apply {
-        put(PreferenceProvider.ROW_TYPE, PreferenceProvider.TYPE_STRING)
+        put(PreferenceProvider.ROW_TYPE, String::class.toString())
         put(PreferenceProvider.ROW_VALUE, value)
     })
 }
 
 fun ContentResolver.putPref(key: String, value: Boolean) {
     putPref(key, ContentValues().apply {
-        put(PreferenceProvider.ROW_TYPE, PreferenceProvider.TYPE_BOOLEAN)
+        put(PreferenceProvider.ROW_TYPE, Boolean::class.toString())
         put(PreferenceProvider.ROW_VALUE, value)
     })
 }
 
 fun ContentResolver.putPref(key: String, value: Int) {
     putPref(key, ContentValues().apply {
-        put(PreferenceProvider.ROW_TYPE, PreferenceProvider.TYPE_INT)
+        put(PreferenceProvider.ROW_TYPE, Int::class.toString())
         put(PreferenceProvider.ROW_VALUE, value)
     })
 }
@@ -181,7 +172,7 @@ fun ContentResolver.putPref(key: String, value: Int) {
 @Suppress("unused")
 fun ContentResolver.putPref(key: String, value: Long) {
     putPref(key, ContentValues().apply {
-        put(PreferenceProvider.ROW_TYPE, PreferenceProvider.TYPE_LONG)
+        put(PreferenceProvider.ROW_TYPE, Long::class.toString())
         put(PreferenceProvider.ROW_VALUE, value)
     })
 }
@@ -189,7 +180,7 @@ fun ContentResolver.putPref(key: String, value: Long) {
 @Suppress("unused")
 fun ContentResolver.putPref(key: String, value: Float) {
     putPref(key, ContentValues().apply {
-        put(PreferenceProvider.ROW_TYPE, PreferenceProvider.TYPE_FLOAT)
+        put(PreferenceProvider.ROW_TYPE, Float::class.toString())
         put(PreferenceProvider.ROW_VALUE, value)
     })
 }
