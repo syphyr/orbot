@@ -34,7 +34,7 @@ class CamoFragment : Fragment() {
         // defaults to "Orbot" if user never selected anything, aka no camo
         selectedApp = getCamoMapping(requireContext()).getKey(Prefs.selectedCamoApp)
         val listItems = mutableListOf(
-            createAppMenuItem(R.drawable.ic_launcher_foreground, R.string.app_name),
+            createAppMenuItem(R.mipmap.ic_launcher, R.string.app_name),
             createAppMenuItem(R.drawable.ic_launcher_foreground_alt1, R.string.app_name, 1),
             createAppMenuItem(R.drawable.ic_launcher_foreground_alt2, R.string.app_name, 2),
             createAppMenuItem(R.drawable.ic_launcher_foreground_alt3, R.string.app_name, 3),

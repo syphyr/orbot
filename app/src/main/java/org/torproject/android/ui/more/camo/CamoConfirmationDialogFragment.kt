@@ -20,7 +20,7 @@ class CamoConfirmationDialogFragment : DialogFragment() {
         return AlertDialog.Builder(context)
             .setIcon(args.getInt(BUNDLE_KEY_IMAGE_ID))
             .setTitle(getString(R.string.app_icon_dialog_title, camoAppName))
-            .setMessage(R.string.app_icon_dialog_msg)
+            .setMessage(getString(R.string.app_icon_dialog_msg, camoAppName))
             .setNegativeButton(android.R.string.cancel) { _, _ ->
                 dismiss()
             }
