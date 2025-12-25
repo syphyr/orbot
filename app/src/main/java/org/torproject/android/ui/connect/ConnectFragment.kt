@@ -17,7 +17,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.setFragmentResultListener
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -85,69 +84,7 @@ class ConnectFragment : Fragment(),
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.logState.collect { logline ->
-                    if (logline.isNotEmpty()) {
-
-                        if (logline.contains("Connected to tor control port"))
-                        {
-                            binding.tvSubtitle.text =
-                                getString(R.string.status_connected_control_port)
-                        }
-                        else if (logline.contains("(handshake)"))
-                        {
-                            binding.tvSubtitle.text = getString(R.string.status_handshake)
-                        }
-                        else if (logline.contains("(handshake_done)"))
-                        {
-                            binding.tvSubtitle.text = getString(R.string.status_handshake_done)
-                        }
-                        else if (logline.contains("(circuit_create)"))
-                        {
-                            binding.tvSubtitle.text = getString(R.string.status_circuit_create)
-                        }
-                        else if (logline.contains("(done)"))
-                        {
-                            binding.tvSubtitle.text = getString(R.string.status_done)
-                        }
-                        else if (logline.contains("(conn_pt)"))
-                        {
-                            binding.tvSubtitle.text = getString(R.string.status_conn_pt)
-                        }
-                        else if (logline.contains("(conn_done_pt)"))
-                        {
-                            binding.tvSubtitle.text = getString(R.string.status_conn_done_pt)
-                        }
-                        else if (logline.contains("(conn_done)"))
-                        {
-                            binding.tvSubtitle.text = getString(R.string.status_conn_done)
-                        }
-                        else if (logline.contains("(onehop_create)"))
-                        {
-                            binding.tvSubtitle.text = getString(R.string.status_onehop_create)
-                        }
-                        else if (logline.contains("(enough_dirinfo)"))
-                        {
-                            binding.tvSubtitle.text = getString(R.string.status_enough_dirinfo)
-                        }
-                        else if (logline.contains("(requesting_status)")) {
-                            binding.tvSubtitle.text = getString(R.string.status_requesting_status)
-                        }
-                        else if (logline.contains("(loading_status)")) {
-                            binding.tvSubtitle.text = getString(R.string.status_loading_status)
-                        }
-                        else if (logline.contains("(loading_keys)")) {
-                            binding.tvSubtitle.text = getString(R.string.status_loading_keys)
-                        }
-                        else if (logline.contains("(requesting_descriptors)")) {
-                            binding.tvSubtitle.text =
-                                getString(R.string.status_requesting_descriptors)
-                        }
-                        else if (logline.contains("(loading_descriptors)")) {
-                            binding.tvSubtitle.text = getString(R.string.status_loading_descriptors)
-                        }
-
-
-
-                    }
+                    LocalizedTorStatusLogs.setTextviewOnFormattedLog(logline, binding.tvSubtitle)
                 }
             }
 
