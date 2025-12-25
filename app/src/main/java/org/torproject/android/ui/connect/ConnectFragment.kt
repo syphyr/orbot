@@ -41,7 +41,7 @@ class ConnectFragment : Fragment(),
 
     private lateinit var binding: FragmentConnectBinding
 
-    private val viewModel: ConnectViewModel by activityViewModels()
+    val viewModel: ConnectViewModel by activityViewModels()
 
     private val lastStatus: String
         get() = (activity as? OrbotActivity)?.previousReceivedTorStatus ?: ""
@@ -75,6 +75,7 @@ class ConnectFragment : Fragment(),
                             lastState = OrbotConstants.ACTION_START
                             doLayoutOn(requireContext())
                         }
+
                         is ConnectUiState.Stopping -> {}
                     }
                 }
@@ -84,7 +85,11 @@ class ConnectFragment : Fragment(),
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.logState.collect { logline ->
-                    LocalizedLogsToDisplay.updateLabelIfDisplayed(logline, binding.tvSubtitle, context)
+                    LocalizedLogsToDisplay.updateLabelIfDisplayed(
+                        logline,
+                        binding.tvSubtitle,
+                        context
+                    )
                 }
             }
         }
@@ -98,17 +103,11 @@ class ConnectFragment : Fragment(),
             }
         }
 
-        binding.switchConnect.setOnCheckedChangeListener{ _, value ->
-
-            if (value == true)
-            {
+        binding.switchConnect.setOnCheckedChangeListener { _, value ->
+            if (value)
                 startTorAndVpn()
-            }
             else
-            {
                 stopTorAndVpn()
-            }
-
         }
         refreshMenuList(requireContext())
 
@@ -136,7 +135,7 @@ class ConnectFragment : Fragment(),
     fun stopTorAndVpn() {
         doLayoutOff()
         setState(OrbotConstants.ACTION_STOP)
-        binding.tvSubtitle.text=""
+        binding.tvSubtitle.text = ""
     }
 
     private fun stopAnimations() {
@@ -150,7 +149,6 @@ class ConnectFragment : Fragment(),
 
         lifecycleScope.launch(Dispatchers.Main) {
             delay(600)
-
             binding.ivStatus.animate().alpha(1f).duration = 500
         }
     }
@@ -183,13 +181,12 @@ class ConnectFragment : Fragment(),
         refreshMenuList(requireContext())
     }
 
-    private var lastState :String? = null
+    var lastState: String? = null
 
     @Synchronized
-    fun setState (newState: String) {
+    fun setState(newState: String) {
 
-        if (lastState != newState)
-        {
+        if (lastState != newState) {
             requireContext().sendIntentToService(newState)
             lastState = newState
         }
@@ -197,49 +194,36 @@ class ConnectFragment : Fragment(),
 
     fun refreshMenuList(context: Context) {
 
-        val connectStr: String
-
-        if (Prefs.smartConnect) {
-            connectStr = getString(R.string.smart_connect)
-        } else {
-            connectStr = when (Prefs.transport) {
-                Transport.NONE ->
-                    getString(R.string.direct_connect)
-
-                Transport.MEEK_AZURE ->
-                    getString(R.string.bridge_meek_azure)
-
-                Transport.OBFS4 ->
-                    getString(R.string.built_in_bridges_obfs4)
-
-                Transport.SNOWFLAKE ->
-                    getString(R.string.snowflake)
-
-                Transport.SNOWFLAKE_AMP ->
-                    getString(R.string.snowflake_amp)
-
-                Transport.SNOWFLAKE_SQS ->
-                    getString(R.string.snowflake_sqs)
-
-                Transport.WEBTUNNEL ->  Transport.WEBTUNNEL.id
-                Transport.CUSTOM ->
-                    getString(R.string.custom_bridges)
+        val connectStr =
+            if (Prefs.smartConnect) R.string.smart_connect else when (Prefs.transport) {
+                Transport.NONE -> R.string.direct_connect
+                Transport.MEEK_AZURE -> R.string.bridge_meek_azure
+                Transport.OBFS4 -> R.string.built_in_bridges_obfs4
+                Transport.SNOWFLAKE -> R.string.snowflake
+                Transport.SNOWFLAKE_AMP -> R.string.snowflake_amp
+                Transport.SNOWFLAKE_SQS -> R.string.snowflake_sqs
+                Transport.WEBTUNNEL -> TODO()
+                Transport.CUSTOM -> R.string.custom_bridges
             }
-        }
 
-        var connectStrLabel = getString(R.string.set_transport) + ": $connectStr"
+        // TODO this hardcodes left to right even if the locale is in farsi, arabic, other RTL etc
+        val connectStrLabel = getString(R.string.set_transport) + ": ${context.getString(connectStr)}"
 
         val listItems =
             arrayListOf(
-                OrbotMenuAction(R.string.btn_configure, R.drawable.ic_settings_gear, statusString = connectStrLabel) { openConfigureTorConnection() },
+                OrbotMenuAction(
+                    R.string.btn_configure,
+                    R.drawable.ic_settings_gear,
+                    statusString = connectStrLabel
+                ) { openConfigureTorConnection() },
                 OrbotMenuAction(R.string.btn_change_exit, 0) {
                     ExitNodeBottomSheet().show(
                         requireActivity().supportFragmentManager,
                         "ExitNodeBottomSheet"
                     )
                 },
-        OrbotMenuAction(R.string.btn_refresh, R.drawable.ic_refresh) { sendNewnymSignal() })
-             //   OrbotMenuAction(R.string.btn_tor_off, R.drawable.ic_power) { stopTorAndVpn() })
+                OrbotMenuAction(R.string.btn_refresh, R.drawable.ic_refresh) { sendNewnymSignal() })
+        //   OrbotMenuAction(R.string.btn_tor_off, R.drawable.ic_power) { stopTorAndVpn() })
         if (!Prefs.isPowerUserMode) listItems.add(
             0,
             OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
@@ -252,7 +236,7 @@ class ConnectFragment : Fragment(),
     private fun doLayoutNoInternet() {
 
         binding.ivStatus.setImageResource(R.drawable.orbiesleeping)
-        binding.ivStatus.setOnClickListener {  }
+        binding.ivStatus.setOnClickListener { }
         stopAnimations()
 
         binding.tvSubtitle.visibility = View.VISIBLE
@@ -261,7 +245,7 @@ class ConnectFragment : Fragment(),
         binding.tvTitle.text = getString(R.string.no_internet_title)
         binding.tvSubtitle.text = getString(R.string.no_internet_subtitle)
 
-       // binding.btnStart.visibility = View.GONE
+        // binding.btnStart.visibility = View.GONE
         binding.lvConnected.visibility = View.VISIBLE
 
     }
@@ -272,16 +256,16 @@ class ConnectFragment : Fragment(),
         binding.tvSubtitle.visibility = View.VISIBLE
         binding.progressBar.visibility = View.INVISIBLE
         binding.tvTitle.text = context.getString(R.string.connected_title)
-       // binding.btnStart.visibility = View.VISIBLE
+        // binding.btnStart.visibility = View.VISIBLE
         binding.lvConnected.visibility = View.VISIBLE
 
         refreshMenuList(context)
 
         with(binding.btnStart) {
-            if (Prefs.isPowerUserMode)
-                text = getString(R.string.btn_tor_off)
+            text = if (Prefs.isPowerUserMode)
+                getString(R.string.btn_tor_off)
             else
-                text = "Stop VPN"
+                "Stop VPN"
 
             isEnabled = true
             backgroundTintList = ColorStateList.valueOf(
@@ -301,12 +285,13 @@ class ConnectFragment : Fragment(),
 
     fun doLayoutOff() {
         binding.ivStatus.setImageResource(R.drawable.orbiesleeping)
+        refreshMenuList(requireContext())
         stopAnimations()
         binding.tvSubtitle.visibility = View.VISIBLE
         binding.progressBar.visibility = View.INVISIBLE
         binding.lvConnected.visibility = View.VISIBLE
         binding.tvTitle.text = getString(R.string.secure_your_connection_title)
-      //  binding.tvSubtitle.text = ""//getString(R.string.secure_your_connection_subtitle)
+        //  binding.tvSubtitle.text = ""//getString(R.string.secure_your_connection_subtitle)
         binding.btnStart.text = getString(R.string.btn_start_vpn)
 
         /**
@@ -314,8 +299,8 @@ class ConnectFragment : Fragment(),
         binding.swSmartConnect.visibility = View.VISIBLE
         binding.swSmartConnect.isChecked = Prefs.smartConnect
         binding.swSmartConnect.setOnCheckedChangeListener { _, value ->
-            Prefs.smartConnect = value
-            doLayoutOff()
+        Prefs.smartConnect = value
+        doLayoutOff()
         }**/
 
         /**
@@ -323,33 +308,33 @@ class ConnectFragment : Fragment(),
         binding.tvConfigure.text = getString(R.string.btn_configure)
         binding.tvConfigure.paintFlags = Paint.UNDERLINE_TEXT_FLAG
         binding.tvConfigure.setOnClickListener { openConfigureTorConnection()
-        **/
+         **/
 
         with(binding.btnStart) {
 
             val connectStr = ""
-/**
+            /**
             text = when {
-                Prefs.isPowerUserMode -> getString(R.string.connect)
-                connectStr.isEmpty() -> SpannableStringBuilder()
-                    .append(
-                        getString(R.string.btn_start_vpn),
-                        AbsoluteSizeSpan(18, true),
-                        Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-                    )
+            Prefs.isPowerUserMode -> getString(R.string.connect)
+            connectStr.isEmpty() -> SpannableStringBuilder()
+            .append(
+            getString(R.string.btn_start_vpn),
+            AbsoluteSizeSpan(18, true),
+            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
 
-                else -> SpannableStringBuilder()
-                    .append(
-                        getString(R.string.btn_start_vpn),
-                        AbsoluteSizeSpan(18, true),
-                        Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-                    )
-                    .append("\n")
-                    .append(
-                        connectStr,
-                        AbsoluteSizeSpan(12, true),
-                        Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-                    )
+            else -> SpannableStringBuilder()
+            .append(
+            getString(R.string.btn_start_vpn),
+            AbsoluteSizeSpan(18, true),
+            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+            .append("\n")
+            .append(
+            connectStr,
+            AbsoluteSizeSpan(12, true),
+            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
             }**/
 
             isEnabled = true
