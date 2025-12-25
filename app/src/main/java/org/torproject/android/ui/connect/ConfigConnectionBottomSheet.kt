@@ -199,10 +199,6 @@ class ConfigConnectionBottomSheet :
     }
 
     private fun selectRadioButtonFromPreference() {
-        if (Prefs.smartConnect) { // Smart Connect turns itself off upon completion
-            binding.rbSmart.isChecked
-            return
-        }
         when (Prefs.transport) {
             Transport.NONE -> binding.rbDirect.isChecked = true
             Transport.MEEK_AZURE -> binding.rbMeek.isChecked = true

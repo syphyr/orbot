@@ -251,6 +251,10 @@ class ConnectFragment : Fragment(),
     }
 
     fun doLayoutOn(context: Context) {
+        if (Prefs.smartConnect) {
+            Prefs.smartConnect = false
+            refreshMenuList(context)
+        }
         binding.ivStatus.setImageResource(R.drawable.orbieon)
 
         binding.tvSubtitle.visibility = View.VISIBLE
