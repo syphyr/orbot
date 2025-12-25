@@ -1,11 +1,12 @@
 package org.torproject.android.ui.connect
 
+import android.content.Context
 import android.widget.TextView
 import org.torproject.android.R
 
-object LocalizedTorStatusLogs {
-    private val logsWePrint = mapOf(
-        "Connected to tor control port" to R.string.status_connected_control_port,
+object LocalizedLogsToDisplay {
+
+    private val systemLogsToDisplay = mapOf(
         "(handshake)" to R.string.status_handshake,
         "(handshake_done)" to R.string.status_handshake_done,
         "(circuit_create)" to R.string.status_circuit_create,
@@ -22,11 +23,21 @@ object LocalizedTorStatusLogs {
         "(loading_descriptors)" to R.string.status_loading_descriptors,
     )
 
-    fun setTextviewOnFormattedLog(logline: String, label: TextView) {
-        logsWePrint.keys.forEach { key ->
+    private val localizedLogsToDisplay = listOf(R.string.status_connected_control_port)
+
+    fun updateLabelIfDisplayed(logline: String, label: TextView, context: Context?) {
+        if (logline.isBlank()) return
+        systemLogsToDisplay.keys.forEach { key ->
             if (logline.contains(key)) {
-                label.setText(logsWePrint[key]!!)
+                label.setText(systemLogsToDisplay[key]!!)
                 return
+            }
+        }
+        if (context == null) return
+        localizedLogsToDisplay.forEach {
+            val str = context.getString(it)
+            if (logline.contains(str)) {
+                label.text = str
             }
         }
     }

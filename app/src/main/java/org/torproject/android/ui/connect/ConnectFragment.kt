@@ -84,10 +84,9 @@ class ConnectFragment : Fragment(),
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.logState.collect { logline ->
-                    LocalizedTorStatusLogs.setTextviewOnFormattedLog(logline, binding.tvSubtitle)
+                    LocalizedLogsToDisplay.updateLabelIfDisplayed(logline, binding.tvSubtitle, context)
                 }
             }
-
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
