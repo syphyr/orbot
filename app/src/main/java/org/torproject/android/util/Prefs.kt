@@ -340,8 +340,8 @@ object Prefs {
     val disableIpv4: Boolean
         get() = cr?.getPrefBoolean(OrbotConstants.PREF_DISABLE_IPV4) ?: false
 
-    var torifiedApps: String?
-        get() = cr?.getPrefString(OrbotConstants.PREFS_KEY_TORIFIED)
+    var torifiedApps: String
+        get() = cr?.getPrefString(OrbotConstants.PREFS_KEY_TORIFIED, "") ?: ""
         set(value) = cr?.putPref(OrbotConstants.PREFS_KEY_TORIFIED, value) ?: Unit
 
     @JvmStatic
