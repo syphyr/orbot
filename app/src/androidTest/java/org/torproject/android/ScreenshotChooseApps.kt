@@ -14,11 +14,9 @@ import org.hamcrest.Matchers.`is`
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
 import org.torproject.android.util.Prefs
 import tools.fastlane.screengrab.Screengrab
 
-@RunWith(AndroidJUnit4::class)
 class ScreenshotChooseApps : BaseScreenshotTest() {
 
     @Before
