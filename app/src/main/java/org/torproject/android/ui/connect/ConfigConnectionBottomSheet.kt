@@ -19,6 +19,7 @@ import kotlinx.coroutines.withContext
 import org.torproject.android.R
 import org.torproject.android.databinding.ConfigConnectionBottomSheetBinding
 import org.torproject.android.service.OrbotConstants
+import org.torproject.android.service.OrbotConstants.STATUS_OFF
 import org.torproject.android.service.circumvention.AutoConf
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
@@ -188,8 +189,12 @@ class ConfigConnectionBottomSheet :
         dismiss()
         val navHostFragment = requireActivity().supportFragmentManager.fragments[0] as NavHostFragment
         val connectFrag = navHostFragment.childFragmentManager.fragments.last() as ConnectFragment
-        connectFrag.stopTorAndVpn()
-        Thread.sleep(3000)
+        if (connectFrag.viewModel.uiState == ConnectUiState.Off) {
+            // manually trigger UI update before this unclear to the user 3 second freeze
+            connectFrag.refreshMenuList(requireContext())
+            connectFrag.stopTorAndVpn()
+            Thread.sleep(3000)
+        }
         connectFrag.startTorAndVpn()
     }
 
