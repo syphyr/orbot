@@ -175,8 +175,6 @@
     <string name="btn_copy_log">Afrita atvikaskráningu</string>
     <string name="menu_kindness">Umhyggja</string>
     <string name="option_only_on_wifi">Aðeins á þráðlausu Wi-Fi</string>
-    <string name="pref_flag_secure_summary">Koma í veg fyrir að önnur forrit taki sjámyndir af Orbot</string>
-    <string name="pref_flag_secure_title">Öryggi skjás</string>
     <string name="setting_padding">Útvíkkun</string>
     <string name="root_warning">Orbot hefur skynjað að tækið þitt sé með rótaraðgangi (rooted), sem getur valdið öryggisvandamálum.</string>
     <string name="kindness_config_detail">Stilltu hvernig og hvenær tækið þitt getur unnið sem Snowflake-milliþjónn fyrir aðra Tor-notendur.</string>
@@ -192,7 +190,6 @@
     <string name="app_icon_chooser_label_tetras">Tetras</string>
     <string name="app_icon_chooser_label_birdie">Birdie</string>
     <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
-    <string name="camo_dialog_title" formatted="true">Dulbúast sem %1$s</string>
     <string name="status_starting_up">Orbot er að ræsa…</string>
     <string name="status_activated">Tengdur við Tor netið</string>
     <string name="status_disabled">Orbot er slökkt</string>

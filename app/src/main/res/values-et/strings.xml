@@ -183,8 +183,6 @@
     <string name="option_only_on_wifi">Ainult Wifi</string>
     <string name="option_only_when_charging">Ainult laadimisel</string>
     <string name="menu_kindness">Headus</string>
-    <string name="pref_flag_secure_summary">Vältige, et teised rakendused ei saaks Orbotist ekraanipilte teha</string>
-    <string name="pref_flag_secure_title">Ekraani turvalisus</string>
     <string name="root_warning">Orbot on tuvastanud, et teie seade on juurdunud, mis võib põhjustada turvaprobleeme.</string>
     <string name="btn_copy_log">Logi kopeerimine</string>
     <string name="pref_detect_root_summary">Kui antud seadmes on juurkasutaja õigused kasutusel, siis käivitamisel hoiata</string>

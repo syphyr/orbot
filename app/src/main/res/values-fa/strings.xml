@@ -177,8 +177,6 @@
     <string name="menu_kindness">مهربانی</string>
     <string name="option_only_on_wifi">فقط روی Wi-Fi</string>
     <string name="option_only_when_charging">فقط هنگام شارژ</string>
-    <string name="pref_flag_secure_summary">جلوگیری از گرفتن اسکرین‌شات از Orbot توسط دیگر برنامه‌ها</string>
-    <string name="pref_flag_secure_title">امنیت صفحه‌نمایش</string>
     <string name="root_warning">Orbot تشخیص داده که دستگاه شما روت (root) شده است، که می‌تواند باعث بروز مشکلات امنیتی شود.</string>
     <string name="pref_detect_root_summary">هشدار در آغازبه‌کار، درصورت فعال‌بودن مجوز‌های ریشه روی این دستگاه</string>
     <string name="pref_detect_root_title">تشخیص ریشه</string>
@@ -194,24 +192,14 @@
     <string name="snowflake_sqs">Snowflake SQS</string>
     <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
     <string name="app_icon_chooser_label_birdie">Birdie</string>
-    <string name="camo_dialog_title" formatted="true">استتار به‌شکل ‎%1$s</string>
-    <string name="camo_dialog_disable_confirm_msg">Orbot نمایش اطلاعات اعلان مربوط به اتصال Tor شما را از سر گرفته و روی صفحهٔ خانهٔ شما به‌صورت عادی ظاهر خواهد شد.\n\nغیرفعال‌سازی حالت استتار Orbot را راه‌اندازی مجدد خواهد کرد.</string>
-    <string name="camo_dialog_disable_title">غیرفعال‌سازی حالت استتار</string>
-    <string name="pref_camo_mode_title">حالت استتار</string>
-    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot خودش را به‌شکل برنامهٔ ‎%1$s استتار می‌کند. این کار همهٔ جزئیات اعلان‌ها دربارهٔ Tor را پنهان می‌کند و چگونگی ظاهر Orbot را روی صفحهٔ خانهٔ شما تغییر خواهد داد.\n\nاستتار کردن به‌شکل ‎%2$s ‏Orbot را راه‌اندازی مجدد خواهد کرد.</string>
     <string name="power_user_mode_permission">نیازمند مجوز هشدارها و یادآوری‌ها برای حالت کاربر حرفه‌ای</string>
     <string name="power_user_mode_permission_msg">لطفاً برای استفاده از حالت کاربر حرفه‌ای به Orbot اجازه دهید هشدار و یادآوری را تنظیم کند. در حقیقت این برنامه هیچ هشداری روی دستگاه‌تان تنظیم نخواهد کرد. این مجوز برای درحال اجرا نگه‌داشتن سرویس Orbot ، در هنگامی که به‌عنوان VPN سراسری سیستم استفاده نمی‌شود، لازم است.</string>
-    <string name="pref_require_password">اصالت‌سنجی Orbot</string>
-    <string name="pref_require_password_description">پیشگیری از دسترسی به Orbot تا زمانی که با وارد کردن گذرواژهٔ دستگاه یا اثرانگشت، اصالت‌سنجیتان شوید. این ویژگی می‌تواند با حالت استتار ترکیب شود تا به پنهان‌سازی نصب Orbot روی دستگاه‌تان کمک کند</string>
     <string name="error_no_password_set">لطفاً برای استفاده از اصالت‌سنجی Orbot، دستگاه‌تان را امن کنید</string>
     <string name="unlock_app_msg" formatted="true">لطفاً برای استفاده از ‎%s قفل دستگاه‌تان را باز کنید</string>
-    <string name="pref_camo_mode_description">چگونگی نمایش متن اعلان، عنوان و آیکن Orbot روی دستگاهتان را تغییر داده و مخفی کنید</string>
     <string name="error_asking_tor_for_bridges">خطا در پرسش از Tor برای چگونگی اتصال</string>
     <string name="invalid_bridge_format">قالب پل نامعتبر</string>
     <string name="device_lock_unsupported">اصالت‌سنجی Orbot روی دستگاه شما پشتیبانی نمی‌شود</string>
     <string name="device_lock_security_update_needed">برای استفاده از اصالت‌سنجی Orbot باید به‌روزرسانی‌های امنیتی اندروید را برای دستگاه‌تان بارگیری کنید</string>
-    <string name="pref_password_only_no_biometric">رد اجازهٔ زیست‌سنجی برای اصالت‌سنجی Orbot</string>
-    <string name="pref_password_only_no_biometric_description">این کار اصالت‌سنجی Orbot را وادار می‌کند که فقط گذرواژهٔ دستگاه را بخواهد، حتی اگر اصالت‌سنجی زیست‌سنجی‌ای، مانند اثرانگشت یا قفل‌گشایی چهره، روی دستگاه‌تان پیکربندی شده باشد.</string>
     <string name="enter_bridge_address">ورود نشانی پل</string>
     <string name="built_in_bridges_obfs4">پل توکار (obfs4)</string>
     <string name="bridges_via_telegram">پل‌های Tor ‏(obfs4) از طریق تلگرام</string>

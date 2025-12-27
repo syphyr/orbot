@@ -180,8 +180,6 @@
     <string name="option_only_on_wifi">Hanya pada Wi-Fi</string>
     <string name="option_only_when_charging">Hanya saat mengisi daya</string>
     <string name="root_warning">Orbot telah mendeteksi bahwa perangkat Anda telah di‐root, yang dapat membuat masalah keamanan.</string>
-    <string name="pref_flag_secure_summary">Cegah aplikasi lain mengambil tangkapan layar Orbot</string>
-    <string name="pref_flag_secure_title">Keamanan Layar</string>
     <string name="pref_detect_root_summary">Peringatkan pada pemulaian jika perizinan root diaktifkan di perangkat ini</string>
     <string name="pref_detect_root_title">Deteksi Root</string>
     <string name="status_starting_up">Orbot sedang dimulai…</string>
@@ -217,20 +215,12 @@
     <string name="app_icon_chooser_label_todo">Daftar Tugas</string>
     <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
     <string name="app_icon_chooser_label_birdie">Burung kecil</string>
-    <string name="camo_dialog_title" formatted="true">Kamuflase sebagai %1$s</string>
-    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot akan menyamar sebagai aplikasi %1$s. Hal ini akan menyembunyikan semua detail notifikasi tentang Tor dan mengubah tampilan Orbot di layar utama Anda.\n\nMenyamar sebagai %2$s akan me-restart Orbot.</string>
-    <string name="camo_dialog_disable_confirm_msg">Orbot akan kembali menampilkan informasi notifikasi tentang koneksi Tor Anda dan akan muncul seperti biasa di layar utama Anda.\n\nMenonaktifkan Mode Kamuflase akan me-restart Orbot.</string>
-    <string name="camo_dialog_disable_title">Nonaktifkan Mode Kamuflase</string>
     <string name="camo_samsung_instructions">Pada perangkat Samsung Galaxy Anda, notifikasi Mode Kamuflase hanya akan berfungsi dengan membuka Pengaturan -&gt; Notifikasi -&gt; Pengaturan Lanjutan dan menonaktifkan “Tampilkan ikon aplikasi di notifikasi”. Klik di sini untuk membuka Pengaturan Notifikasi.</string>
-    <string name="pref_camo_mode_title">Mode Kamuflase</string>
-    <string name="pref_camo_mode_description">Sembunyikan cara tampilan ikon, label, dan teks notifikasi Orbot di perangkat Anda</string>
     <string name="power_user_mode_permission">Izin Alarm &amp; Pengingat Diperlukan untuk Mode Pengguna Lanjutan</string>
     <string name="power_user_mode_permission_msg">Silakan izinkan Orbot untuk mengatur alarm dan pengingat agar dapat menggunakan mode pengguna tingkat lanjut. Izin ini tidak akan benar-benar mengatur alarm di perangkat Anda. Izin ini diperlukan agar sistem dapat menjaga OrbotService tetap berjalan saat Orbot tidak digunakan sebagai VPN sistem.</string>
     <string name="request_notification_permission">Silakan aktifkan notifikasi untuk Orbot</string>
     <string name="request_notification_permission_msg">Tanpa mengaktifkan notifikasi, Orbot tidak dapat berfungsi sebagai VPN Tor atau menggunakan Mode Kebaikan.\n\nSaat diaktifkan, kami hanya menampilkan satu notifikasi saat Orbot sedang berjalan.</string>
     <string name="open_settings">Buka Pengaturan</string>
-    <string name="pref_require_password">Otentikasi Orbot</string>
-    <string name="pref_require_password_description">Mencegah akses ke Orbot hingga Anda melakukan otentikasi dengan memasukkan kata sandi perangkat atau sidik jari Anda. Fitur ini dapat digabungkan dengan Mode Kamuflase untuk membantu menyembunyikan bahwa Orbot terpasang di perangkat Anda</string>
     <string name="error_no_password_set">Silakan amankan perangkat Anda untuk menggunakan Otentikasi Orbot</string>
     <string name="device_lock_unsupported">Otentikasi Orbot tidak didukung pada perangkat Anda</string>
     <string name="device_lock_security_update_needed">Anda harus mengunduh pembaruan keamanan Android untuk perangkat Anda agar dapat menggunakan Orbot Authentication</string>
@@ -240,8 +230,6 @@
     <string name="built_in_bridges_obfs4">Jembatan Terintegrasi (obfs4)</string>
     <string name="built_in_bridges_obfs4_subtitle">Menyembunyikan lalu lintas internet Anda. Mengatasi pemblokiran Tor. Berguna jika Anda menggunakan WiFi publik, tetapi di negara di mana Tor tidak diblokir.</string>
     <string name="unlock_app_msg" formatted="true">Silakan buka kunci perangkat Anda untuk menggunakan %s</string>
-    <string name="pref_password_only_no_biometric">Larang penggunaan biometrik untuk otentikasi Orbot</string>
-    <string name="pref_password_only_no_biometric_description">Hal ini memaksa Orbot Authentication untuk hanya meminta kata sandi perangkat Anda, bahkan jika autentikasi biometrik seperti sidik jari atau pemindaian wajah telah dikonfigurasi pada perangkat Anda.</string>
     <string name="run_smart_connect_">Jalankan Smart Connect untuk menemukan cara terbaik</string>
     <string name="scan_qr_code">Pindai Kode QR</string>
     <string name="orbot_vpn">Orbot VPN</string>

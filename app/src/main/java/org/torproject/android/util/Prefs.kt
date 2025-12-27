@@ -41,6 +41,7 @@ object Prefs {
 
     private const val PREF_CAMO_APP_PACKAGE = "pref_key_camo_app"
     private const val PREF_CAMO_APP_DISPLAY_NAME = "pref_key_camo_app_display_name"
+    private const val PREF_CAMO_APP_ALT_ICON_INDEX = "pref_key_camo_alticon"
     private const val PREF_REQUIRE_PASSWORD = "pref_require_password"
     private const val PREF_DISALLOW_BIOMETRIC_AUTH = "pref_auth_no_biometrics"
 
@@ -69,7 +70,11 @@ object Prefs {
 
     fun initWeeklyWorker() {
         val myWorkBuilder =
-            PeriodicWorkRequest.Builder(ResetSnowflakesServedWeeklyWorker::class.java, 7, TimeUnit.DAYS)
+            PeriodicWorkRequest.Builder(
+                ResetSnowflakesServedWeeklyWorker::class.java,
+                7,
+                TimeUnit.DAYS
+            )
 
         val myWork = myWorkBuilder.build()
         WorkManager.getInstance()
@@ -256,10 +261,17 @@ object Prefs {
 
     const val DEFAULT_CAMO_DISABLED_ACTIVITY: String = "org.torproject.android.OrbotActivity"
 
+    /**
+     * Returns true if a non-Orbot icon is in use (ie Birdie, Paint, etc)
+     * When true, conceal information about Tor in notifications
+     *
+     * Returns false if icon is changed to an alt Orbot icon
+     */
     @JvmStatic
     val isCamoEnabled: Boolean
         get() {
             val app = cr?.getPrefString(PREF_CAMO_APP_PACKAGE, DEFAULT_CAMO_DISABLED_ACTIVITY) ?: ""
+            if (camoAppAltIconIndex != -1) return false
             return app != DEFAULT_CAMO_DISABLED_ACTIVITY
         }
 
@@ -273,6 +285,11 @@ object Prefs {
     var camoAppDisplayName: String?
         get() = cr?.getPrefString(PREF_CAMO_APP_DISPLAY_NAME) ?: "Android"
         set(name) = cr?.putPref(PREF_CAMO_APP_DISPLAY_NAME, name) ?: Unit
+
+    var camoAppAltIconIndex: Int?
+        get() = cr?.getPrefInt(PREF_CAMO_APP_ALT_ICON_INDEX, -1)
+        set(index) = cr?.putPref(PREF_CAMO_APP_ALT_ICON_INDEX, index ?: -1) ?: Unit
+
 
     val requireDeviceAuthentication: Boolean
         get() = cr?.getPrefBoolean(PREF_REQUIRE_PASSWORD) ?: false

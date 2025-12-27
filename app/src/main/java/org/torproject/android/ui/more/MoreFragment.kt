@@ -8,6 +8,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -64,13 +66,26 @@ class MoreFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_more, container, false)
+
+        val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
+        (context as AppCompatActivity).setSupportActionBar(toolbar)
+        toolbar?.title = requireContext().getString(R.string.app_name)
+        view.findViewById<TextView>(R.id.tvExit)?.setOnClickListener { doExit() }
+
         tvStatus = view.findViewById(R.id.tvVersion)
 
         updateStatus()
 
         val rvMore = view.findViewById<RecyclerView>(R.id.rvMoreActions)
-
         val listItems = listOf(
+
+            OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
+                findNavController().navigate(R.id.more_to_apps)
+            },
+            OrbotMenuAction(R.string.title_safety, R.drawable.lock_24px) {
+                findNavController().navigate(R.id.more_to_safety)
+
+            },
             OrbotMenuAction(R.string.menu_settings, R.drawable.ic_settings_gear) {
                 findNavController().navigate(R.id.more_to_settings)
             },
@@ -79,9 +94,6 @@ class MoreFragment : Fragment() {
                     Intent("android.net.vpn.SETTINGS")
                         .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 )
-            },
-            OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
-                findNavController().navigate(R.id.more_to_apps)
             },
             OrbotMenuAction(R.string.menu_log, R.drawable.ic_log) { showLog() },
             OrbotMenuAction(R.string.v3_hosted_services, R.drawable.ic_menu_onion) {
@@ -96,13 +108,11 @@ class MoreFragment : Fragment() {
                     AboutDialogFragment.TAG
                 )
             },
-            OrbotMenuAction(R.string.menu_exit, R.drawable.ic_exit) { doExit() }
         )
         rvMore.adapter = MoreActionAdapter(listItems)
 
         val spanCount = if (resources.configuration.screenWidthDp < 600) 2 else 4
         rvMore.layoutManager = GridLayoutManager(requireContext(), spanCount)
-
 
         return view
     }
