@@ -189,11 +189,9 @@
     <string name="asking">KLAUSIAMA…</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="menu_kindness">Gerumas</string>
-    <string name="pref_flag_secure_title">Ekrano apsauga</string>
     <string name="root_warning">\"Orbot\" nustatė, kad jūsų įrenginys yra įsišaknijęs, o tai gali sukelti saugumo problemų.</string>
     <string name="kindness_config_detail">Konfigūruokite, kaip ir kada jūsų įrenginys gali veikti kaip \"Snowflake\" tarpinis serveris kitiems \"Tor\" naudotojams.</string>
     <string name="pref_isolate_protocol_summary">Kiekvienam jungiamajam protokolui naudokite skirtingą grandinę</string>
-    <string name="pref_flag_secure_summary">Neleiskite kitoms programoms daryti \"Orbot\" ekrano nuotraukų</string>
     <string name="many_ways">Yra daugybė būdų pasiekti Tor. Vieni iš jų jums gali tikti labiau nei kiti.</string>
     <string name="set_transport">Nustatyti transportą</string>
 </resources>

@@ -178,12 +178,10 @@
     <string name="setting_padding">Pehmustus</string>
     <string name="setting_debug">Vianselvitys</string>
     <string name="menu_more">Lisää</string>
-    <string name="pref_flag_secure_title">Näytön suojaus</string>
     <string name="option_only_on_wifi">Vain Wi-Fi-verkossa</string>
     <string name="option_only_when_charging">Vain ladattaessa</string>
     <string name="menu_kindness">Ystävällisyys</string>
     <string name="btn_copy_log">Kopioi loki</string>
-    <string name="pref_flag_secure_summary">Estä muita sovelluksia ottamasta kuvankaappauksia Orbotista.</string>
     <string name="root_warning">Orbot on havainnut laitteesi olevan rootattu ja tästä voi aiheutua tietoturvaongelmia.</string>
     <string name="pref_detect_root_summary">Varoita käynnistettäessä, jos laitetta käytetään root-oikeuksilla</string>
     <string name="pref_detect_root_title">Root-tunnistus</string>

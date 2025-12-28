@@ -1,6 +1,5 @@
 package org.torproject.android
 
-import androidx.core.content.edit
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
@@ -15,14 +14,10 @@ import org.hamcrest.Matchers.`is`
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.torproject.android.service.OrbotConstants
 import org.torproject.android.util.Prefs
 import tools.fastlane.screengrab.Screengrab
 
-@RunWith(AndroidJUnit4::class)
 class ScreenshotChooseApps : BaseScreenshotTest() {
-
 
     @Before
     fun setupVpnAppsInSharedPrefs() {
@@ -32,17 +27,7 @@ class ScreenshotChooseApps : BaseScreenshotTest() {
         // on your emulator, open Chrome and go to https://signal.org/android/apk and install it.
         Prefs.setContext(getContext())
         Prefs.isSecureWindow = false
-        val prefs = Prefs.getSharedPrefs(getContext())!!
-        prefs.edit {
-            // Signal, if installed, should be at the top of the list since it's suggested by Orbot
-            // Chrome, and whatever other non-suggested apps, will be alphabetized beneath signal.
-            // Then sorted list of non-selected non-suggested apps
-            putString(
-                OrbotConstants.PREFS_KEY_TORIFIED,
-                "org.thoughtcrime.securesms|com.android.chrome"
-            )
-
-        }
+        Prefs.torifiedApps = "org.thoughtcrime.securesms|com.android.chrome"
     }
 
     @get:Rule

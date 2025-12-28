@@ -188,8 +188,6 @@
     <string name="asking">A PERGUNTAR…</string>
     <string name="no_internet_subtitle">Precisa de uma ligação à Internet para utilizar o Orbot.</string>
     <string name="kindness_config_detail">Configure como e quando seu dispositivo pode atuar como um proxy Snowflake para outros usuários Tor.</string>
-    <string name="pref_flag_secure_summary">Impedir que as outras aplicações efetuem capturas de ecrã do Orbot</string>
-    <string name="pref_flag_secure_title">Segurança do Ecrã</string>
     <string name="root_warning">O Orbot detetou que o seu dispositivo foi \'\'rooted\'\', o que pode causar problemas de segurança.</string>
     <string name="pref_isolate_protocol_summary">Utilizar um circuito diferente para cada protocolo de ligação</string>
     <string name="snowflake_amp">Snowflake AMP</string>

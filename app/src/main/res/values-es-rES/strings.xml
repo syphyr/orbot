@@ -187,8 +187,6 @@
     <string name="btn_copy_log">Copiar registro</string>
     <string name="setting_padding">Acolchado</string>
     <string name="setting_debug">Depurar</string>
-    <string name="pref_flag_secure_summary">Evita que otras aplicaciones tomen capturas de pantalla de Orbot</string>
-    <string name="pref_flag_secure_title">Seguridad de la pantalla</string>
     <string name="root_warning">Orbot ha detectado que tu dispositivo está rooteado, lo que puede causar problemas de seguridad.</string>
     <string name="pref_detect_root_summary">Advertir al inicio si los permisos de root están habilitados en este dispositivo</string>
     <string name="pref_detect_root_title">Detección de root</string>

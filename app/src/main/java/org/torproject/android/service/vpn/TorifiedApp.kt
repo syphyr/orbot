@@ -2,16 +2,13 @@ package org.torproject.android.service.vpn
 
 import android.Manifest
 import android.content.Context
-import android.content.SharedPreferences
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
-
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
-
 import org.torproject.android.service.OrbotConstants
-
+import org.torproject.android.util.Prefs
 import java.text.Normalizer
 
 @Serializable
@@ -50,9 +47,8 @@ class TorifiedApp : Comparable<TorifiedApp> {
     override fun toString(): String = name ?: ""
 
     companion object {
-        fun getApps(context: Context, prefs: SharedPreferences): ArrayList<TorifiedApp> {
-            val torifiedPackages = prefs
-                .getString(OrbotConstants.PREFS_KEY_TORIFIED, "")
+        fun getApps(context: Context): ArrayList<TorifiedApp> {
+            val torifiedPackages = Prefs.torifiedApps
                 ?.split("|")
                 ?.filter { it.isNotBlank() }
                 ?.sorted()

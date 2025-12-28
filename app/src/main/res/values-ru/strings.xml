@@ -184,8 +184,6 @@
     <string name="menu_kindness">Доброта</string>
     <string name="setting_padding">Прокладка</string>
     <string name="setting_debug">Отладка</string>
-    <string name="pref_flag_secure_title">Защита экрана</string>
-    <string name="pref_flag_secure_summary">Не позволять другим приложениям получать снимки экрана Orbot</string>
     <string name="root_warning">Orbot обнаружил root-доступ на вашем устройстве, что снижает его защищённость.</string>
     <string name="pref_detect_root_title">Обнаружение root</string>
     <string name="pref_detect_root_summary">Предупреждать при запуске, если на устройстве включены права root-доступа</string>
@@ -222,20 +220,12 @@
     <string name="app_icon_chooser_label_todo">To-Do</string>
     <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
     <string name="app_icon_chooser_label_birdie">Birdie</string>
-    <string name="camo_dialog_title" formatted="true">Замаскироваться как %1$s</string>
-    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot замаскирует себя под приложение %1$s. Это спрячет все уводемления про Tor и изменит вид Orbot на вашем главном экране.\n\nМаскировка под %2$s перезапустит Orbot.</string>
-    <string name="camo_dialog_disable_confirm_msg">Orbot продолжит показывать уведомления про ваше Tor-соединение и будет выглядеть как Orbot без маскировки на вашем главном экране.\n\nОтключение режима маскировки перезапустит Orbot.</string>
-    <string name="camo_dialog_disable_title">Выключить режим маскировки</string>
     <string name="camo_samsung_instructions">На вашем устройстве Samsung Galaxy уведомления режима маскировки только будут работать если вы откроете настройки вашего телефона: Настройки -&gt; Уведомления -&gt; Дополнительные параметры и выключением опции \"Отображать значки оповещений\". Нажмите сюда, чтобы открыть Настройки Уведомлений.</string>
-    <string name="pref_camo_mode_title">Режим маскировки</string>
-    <string name="pref_camo_mode_description">Замаскировать как икнока, надпись и текст уведомления будут показаны на вашем устройстве</string>
     <string name="power_user_mode_permission">Разрешение будильника и напоминателя нужны для режима большой пользователь</string>
     <string name="power_user_mode_permission_msg">Пожалуйста разрешите приложению Orbot заводить будильники и напоминатели, чтобы использовать режим большого пользователя. Это не создаст никакие будильники на вашем устройстве. Это разрешение нужно, чтобы система держала OrbotService включенным во время, когда Orbot не использован как VPN на всю систему.</string>
     <string name="request_notification_permission">Пожалуйста включите уведомления для Orbot</string>
     <string name="request_notification_permission_msg">Без включения уведомлений приложения Orbot, он не может вести себя как Tor VPN или использовать Режим доброты.\n\nКогда они включены, мы только показываем одно уведомление когда Orbot работает.</string>
     <string name="open_settings">Открыть настройки</string>
-    <string name="pref_require_password">Аутентификация Orbot</string>
-    <string name="pref_require_password_description">Предотвратите доступ к Orbot до того как вы авторизуйтесь вводом своего пароля или отпечатком пальца на вашем устройстве. Это может быть использовано в комбинации с Режимом Маскировки, чтобы помочь спрятать факт того, что Orbot установлен на вашем устройстве</string>
     <string name="error_no_password_set">Пожалуйста защитите своё устройство, чтобы использовать Orbot Аутентификацию</string>
     <string name="device_lock_unsupported">Orbot Аутентификация не поддерживается на вашем устройстве</string>
     <string name="device_lock_security_update_needed">Вы должны скачивать обновления безопасности для вашего устройства, чтобы использовать Orbot Аутентификацию</string>
@@ -245,8 +235,6 @@
     <string name="built_in_bridges_obfs4">Встроенные мосты (obfs4)</string>
     <string name="built_in_bridges_obfs4_subtitle">Маскирует ваш трафик. Обходит некоторые блокировки Tor. Хорош, если вы на публичном Wi-Fi, но в стране где Tor не заблокирован.</string>
     <string name="unlock_app_msg" formatted="true">Пожалуйста разблокируйте ваше устройство, чтобы использовать %s</string>
-    <string name="pref_password_only_no_biometric">Не разрешать биометрию для Orbot Аутентификации</string>
-    <string name="pref_password_only_no_biometric_description">Это заставляет Orbot Аутентификацию только требовать пароль вашего устройство, даже если биометрическая аутентификация, такие как отпечаток пальца или разблокировка лицом, настроены на вашем устройстве.</string>
     <string name="run_smart_connect_">Использовать Умное Подключение, чтобы найти лучший путь</string>
     <string name="scan_qr_code">Сканировать QR-код</string>
     <string name="orbot_vpn">Orbot VPN</string>

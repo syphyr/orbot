@@ -25,7 +25,7 @@ class ScreenshotConnected : BaseScreenshotTest() {
 
     @Test
     fun screenshotConnected() {
-        mActivityScenarioRule.scenario.onActivity { activity ->
+        mActivityScenarioRule.scenario.onActivity { _ ->
             onView(withId(R.id.lvConnected)).isVisible()
             Thread.sleep(300)
             Screengrab.screenshot("A-orbot_connected")

@@ -15,7 +15,6 @@ class ScreenshotKindnessModeFragment : BaseScreenshotTest() {
     @get:Rule
     var mActivityScenarioRule = ActivityScenarioRule(OrbotActivity::class.java)
 
-
     @Test
     fun openKindnessModeFragment() {
         val label = getContext()?.getString(R.string.menu_kindness)

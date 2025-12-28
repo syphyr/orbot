@@ -149,8 +149,6 @@
     <string name="hide_apps">إخفاء التطبيقات من مراقبة الشبكة والوصول إليها عندما يتم حظرها.</string>
     <string name="log_copied">نُسِخ السجل</string>
     <string name="option_only_when_charging">فقط عند الشحن</string>
-    <string name="pref_flag_secure_summary">امنع التطبيقات الأخرى من التقاط لقطات شاشة من Orbot</string>
-    <string name="pref_flag_secure_title">أمان الشاشة</string>
     <string name="btn_copy_log">انسخ السجل</string>
     <string name="pref_reduced_connection_padding_summary">يغلق اتصالات الترحيل في وقت أقرب ويرسل حزم حشو أقل لتقليل استخدام البيانات والبطارية</string>
     <string name="pref_circuit_padding">حشوة المسار</string>
@@ -208,25 +206,15 @@
     <string name="bridge_snowflake_sqs">الاتصال من خلال مستخدمي تور الآخرين باستخدام Snowflake (الطريقة 3 - SQS)</string>
     <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
     <string name="app_icon_chooser_label_birdie">Birdie</string>
-    <string name="camo_dialog_title" formatted="true">التنكر كـ %1$s</string>
-    <string name="pref_camo_mode_title">وضع التنكر</string>
-    <string name="pref_camo_mode_description">تنكر كيفية ظهور أيقونة اوربوت وتسميته ونص الإشعارات على جهازك</string>
-    <string name="camo_dialog_disable_title">عطّل وضع التنكر</string>
     <string name="snowflake_sqs">Snowflake SQS</string>
-    <string name="camo_dialog_enable_confirm_msg" formatted="true">سوف يتنكر اوربوت كتطبيق %1$s. سيؤدي هذا إلى إخفاء جميع تفاصيل الإشعارات حول تور وتغيير مظهر اوربوت على شاشتك الرئيسية.\n\nإخفاء الهوية كتطبيق %2$s سيؤدي إلى إعادة تشغيل اوربوت.</string>
-    <string name="camo_dialog_disable_confirm_msg">سيستأنف اوربوت عرض معلومات الإشعارات حول اتصال تور الخاص بك وسيظهر بشكل طبيعي على شاشتك الرئيسية.\n\nسيؤدي تعطيل وضع التنكر إلى إعادة تشغيل اوربوت.</string>
     <string name="power_user_mode_permission">مطلوب إذن التنبيهات والتذكيرات لوضع المستخدم المتقدم</string>
     <string name="power_user_mode_permission_msg">الرجاء السماح لـ Orbot بضبط التنبيهات والتذكيرات لاستخدام وضع المستخدم المتقدم. لن يؤدي هذا فعليًا إلى ضبط أي تنبيهات على جهازك. هذه الصلاحية مطلوبة لجعل النظام يحافظ على تشغيل OrbotService عندما لا يتم استخدام Orbot كشبكة VPN على مستوى النظام.</string>
-    <string name="pref_require_password_description">امنع الوصول إلى Orbot حتى توثّق من خلال إدخال كلمة سر جهازك أو بصمة إصبعك. يمكن دمج هذا مع وضع التنكر للمساعدة في إخفاء أن Orbot مثبت على جهازك</string>
-    <string name="pref_require_password">استيثاق Orbot</string>
     <string name="error_no_password_set">الرجاء تأمين جهازك من أجل استخدام استيثاق Orbot</string>
     <string name="unlock_app_msg" formatted="true">الرجاء فتح جهازك لاستخدام %s</string>
     <string name="invalid_bridge_format">تنسيق الجسر غير صالح</string>
     <string name="error_asking_tor_for_bridges">خطأ في طلب كيفية الاتصال بتور</string>
     <string name="device_lock_unsupported">استيثاق Orbot غير مدعوم على جهازك</string>
     <string name="device_lock_security_update_needed">يجب عليك تنزيل تحديثات أمان أندرويد لجهازك لتتمكن من استخدام استيثاق Orbot</string>
-    <string name="pref_password_only_no_biometric">عدم السماح بالقياسات الحيوية لاستيثاق Orbot</string>
-    <string name="pref_password_only_no_biometric_description">هذا يجبر استيثاق Orbot على طلب كلمة سر جهازك فقط حتى لو ضُبط استيثاق البيومتري، مثل بصمة الإصبع أو فتح القفل بالوجه، على جهازك.</string>
     <string name="bridges_via_telegram">جسور تور (obfs4) عبر تيليجرام</string>
     <string name="bridges_via_telegram_subtitle">من المحتمل أن يبقيك متصلاً إذا كان تور محظورًا بشدة. سيؤدي استخدام هذه الطريقة إلى تشغيل قناة Tor Bot على تيليجرام. اضغط على \"ابدأ\" أو اكتب \"%1$s\" في الدردشة للحصول على عناوين الجسور.</string>
     <string name="bridges_via_email">جسور تور (obfs4) عبر البريد الإلكتروني</string>

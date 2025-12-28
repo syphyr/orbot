@@ -9,5 +9,5 @@
     <dimen name="button_horizontal_small_margin">16dp</dimen>
     <dimen name="button_horizontal_med_margin">32dp</dimen>
     <dimen name="button_horizontal_large_margin">64dp</dimen>
-
+    <dimen name="rounded_img_corner">8dp</dimen>
 </resources>

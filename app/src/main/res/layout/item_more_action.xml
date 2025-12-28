@@ -19,7 +19,7 @@
         android:padding="16dp"
         android:gravity="center_horizontal">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivIcon"
             android:layout_width="36dp"
             android:layout_height="36dp"
