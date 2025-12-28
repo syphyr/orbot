@@ -59,7 +59,7 @@
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">טביעות אצבע, כינויים, מדינות וכתובות להחרגה</string>
     <string name="ports_reachable_behind_a_restrictive_firewall">פתחות נגישות מאחורי חומת אש מגבילה</string>
     <string name="trying_to_connect_title">מתבצעת התחברות…</string>
-    <string name="btn_refresh">רענון</string>
+    <string name="btn_refresh">ריענון החיבור</string>
     <string name="connect">התחברות</string>
     <string name="title_choose_apps">בחירת יישומונים</string>
     <string name="pref_disable_network_title">שינה אוטומטית כשאין רשת</string>
