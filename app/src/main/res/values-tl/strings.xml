@@ -55,7 +55,6 @@
     <string name="menu_more">Karagdagan</string>
     <string name="connect">Kumonekta</string>
     <string name="hidden_services">Mga Serbisyo ng Onion</string>
-
     <string name="status_starting_up">Nagsisimula na ang Orbot…</string>
     <string name="status_activated">Konektado sa Tor network</string>
     <string name="status_disabled">Naka-deactivate ang Orbot</string>
