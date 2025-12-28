@@ -128,7 +128,7 @@
     <string name="volunteer_mode">حالت مهربانی</string>
     <string name="btn_choose_apps">انتخاب برنامه‌ها</string>
     <string name="btn_change_exit">تغییر خروج</string>
-    <string name="btn_refresh">تازه‌سازی</string>
+    <string name="btn_refresh">تازه سازی اتّصال</string>
     <string name="connected_title">متصل</string>
     <string name="secure_your_connection_subtitle">برنامه‌ها را از نظارت بر شبکه پنهان کنید و هنگام مسدودشدن، به آن‌ها دسترسی پیدا کنید.</string>
     <string name="trying_to_connect_title">در حال وصل‌شدن…</string>
@@ -140,8 +140,8 @@
     <string name="proxy_ports">درگاه‌های پراکسی</string>
     <string name="volunteer_mode_weekly_label">مجموع هفتگی</string>
     <string name="volunteer_mode_alltime_label">مجموع تمامی زمان‌ها</string>
-    <string name="smart_connect">اتصال هوشمند (پیش‌فرض)</string>
-    <string name="direct_connect">اتصال مستقیم به Tor</string>
+    <string name="smart_connect">اتّصال هوشمند</string>
+    <string name="direct_connect">اتّصال مستقیم</string>
     <string name="next">بعدی</string>
     <string name="ports_not_set">درگاه‌های تنظیم نشده</string>
     <string name="snowflake">Snowflake</string>
@@ -194,7 +194,7 @@
     <string name="app_icon_chooser_label_birdie">Birdie</string>
     <string name="power_user_mode_permission">نیازمند مجوز هشدارها و یادآوری‌ها برای حالت کاربر حرفه‌ای</string>
     <string name="power_user_mode_permission_msg">لطفاً برای استفاده از حالت کاربر حرفه‌ای به Orbot اجازه دهید هشدار و یادآوری را تنظیم کند. در حقیقت این برنامه هیچ هشداری روی دستگاه‌تان تنظیم نخواهد کرد. این مجوز برای درحال اجرا نگه‌داشتن سرویس Orbot ، در هنگامی که به‌عنوان VPN سراسری سیستم استفاده نمی‌شود، لازم است.</string>
-    <string name="error_no_password_set">لطفاً برای استفاده از اصالت‌سنجی Orbot، دستگاه‌تان را امن کنید</string>
+    <string name="error_no_password_set">برای استفاده از ویژگی صفحهٔ قفل باید گذرواژه‌ای برای افزارهٔ اندرویدیتان تنظیم کنید</string>
     <string name="unlock_app_msg" formatted="true">لطفاً برای استفاده از ‎%s قفل دستگاه‌تان را باز کنید</string>
     <string name="error_asking_tor_for_bridges">خطا در پرسش از Tor برای چگونگی اتصال</string>
     <string name="invalid_bridge_format">قالب پل نامعتبر</string>
@@ -223,10 +223,10 @@
     <string name="kindness_mode_is_running">در حال اجرای حالت مهربانی</string>
     <string name="kindness_mode_active_message" formatted="true">به %1$d نفر کمک کردید سانسور را دور بزنند</string>
     <string name="kindness_mode_disabled">حالت مهربانی از کار افتاده</string>
-    <string name="kindness_mode_starting">آغاز کردن…</string>
-    <string name="kindness_mode_disabled_internet">برای کمک به دیگران برای دور زدن سانسور به اینترنت وصل شوید</string>
-    <string name="kindness_mode_disabled_wifi">برای کمک به دیگران برای دور زدن سانسور به وای‌فای وصل شوید</string>
-    <string name="kindness_mode_disabled_power">برای کمک به دیگران برای دور زدن سانسور افزاره‌تان را به برق بزنید</string>
+    <string name="kindness_mode_starting">آغازیدن…</string>
+    <string name="kindness_mode_disabled_internet">وصل شدن به اینترنت برای کمک به دیگران برای دور زدن سانسور</string>
+    <string name="kindness_mode_disabled_wifi">وصل شدن به وای‌فای برای کمک به دیگران برای دور زدن سانسور</string>
+    <string name="kindness_mode_disabled_power">زدن افزاره به برق برای کمک به دیگران برای دور زدن سانسور</string>
     <string name="request_notification_permission">لطفاً آگاهی‌ها را برای روبوت پیازی به کار بیندازید</string>
     <string name="note_snowflake_doesn_t_support_proxies">نکته: دانه‌برفی از پیشکارها پشتیبانی نمی‌کند. تنظیمات پیشکار در پل‌های دانه‌برفی نادیده گرفته خواهند شد.</string>
     <string name="apps_updated_msg">کاره‌ها به‌روز شده</string>
@@ -242,21 +242,32 @@
     <string name="open_orbot_to_connect_to_tor">گشودن روبوت پیازی برای وصل شدن به تور</string>
     <string name="snowflake_proxy_client_connected_msg">%1$sحالت مهربانی به کسی در دور زدن سانسور کمک کرد%2$s</string>
     <string name="request_notification_permission_msg">بدون روشن کردن آگاهی‌ها روبوت پیازی نمی‌تواند به عنوان وی‌پی‌ان تور عمل کرده یا از یا حالت مهربانی استفاده کند.\n\nبا به کار انداختنش تنها یک آگاهی هنگام کار کردن روبوت پیازی نشان داده خواهد شد.</string>
-    <string name="camo_samsung_instructions">آگاهی‌های حالت استتار روی افزارهٔ گلکسی سامسونگتان تنها با گشودن تنظیمات -&gt; آگاهی‌ها -&gt; تنظیمات پیش‌رفته و از کار انداختن «نمایش نقشک کاره در آگاهی‌ها» کار خواهد کرد. برای گشودن تنظیمات آگاهی این‌جا را بزنید.</string>
-    <string name="set_transport">تنظیم حمل‌ونقل</string>
-    <string name="status_connected_control_port">سرویس تور شروع شده است</string>
-    <string name="status_handshake">در حال اتصال به ورودی شبکه تور</string>
-    <string name="status_handshake_done">در حال ورود به شبکه تور</string>
-    <string name="status_circuit_create">در حال برقراری اتصال از طریق شبکه تور</string>
+    <string name="camo_samsung_instructions">نقشک آگاهی‌های روبوت پیازی روی افزارهٔ گلکسی سامسونگتان تنها با گشودن تنظیمات -&gt; آگاهی‌ها -&gt; تنظیمات پیش‌رفته و از کار انداختن «نمایش نقشک کاره در آگاهی‌ها» عوض خواهد شد. برای گشودن تنظیمات آگاهی این‌جا را بزنید.</string>
+    <string name="set_transport">تنظیم جابه‌جاگر</string>
+    <string name="status_connected_control_port">خدمت تور آغاز شده</string>
+    <string name="status_handshake">وصل شدن به ورودی شبکهٔ تور</string>
+    <string name="status_handshake_done">وارد شدن به شبکهٔ تور</string>
+    <string name="status_circuit_create">برپا کردن اتّصال از درون شبکهٔ تور</string>
     <string name="status_done">آماده!</string>
-    <string name="status_conn_pt">در حال یافتن مسیر جایگزین به شبکه تور</string>
+    <string name="status_conn_pt">پیدا کردن مسیر جایگزین به شبکهٔ تور</string>
     <string name="status_conn_done_pt">مسیر جایگزین برقرار شد</string>
-    <string name="status_conn_done">به ورودی شبکه تور متصل شد</string>
-    <string name="status_onehop_create">در حال دسترسی به فهرست شبکه تور</string>
-    <string name="status_enough_dirinfo">فهرست شبکه تور بارگذاری شد</string>
-    <string name="status_requesting_status">درخواست وضعیت شبکه از تور</string>
-    <string name="status_loading_status">در حال بارگذاری وضعیت شبکه</string>
-    <string name="status_loading_keys">در حال بارگذاری کلیدهای امنیتی شبکه</string>
-    <string name="status_requesting_descriptors">درخواست اطلاعات سرورهای شبکه</string>
-    <string name="status_loading_descriptors">در حال بارگذاری اطلاعات سرورهای شبکه</string>
+    <string name="status_conn_done">وصل شده به ورودی شبکهٔ تور</string>
+    <string name="status_onehop_create">دسترسی یافتن به شاخهٔ شبکهٔ تور</string>
+    <string name="status_enough_dirinfo">شاخهٔ شبکهٔ تور بار شد</string>
+    <string name="status_requesting_status">پرسیدن وضعیت شبکه از تور</string>
+    <string name="status_loading_status">بار کردن وضعیت شبکه</string>
+    <string name="status_loading_keys">بار کردن کلیدهای امنیتی شبکه</string>
+    <string name="status_requesting_descriptors">درخواست کردن اطّلاعات کارساز شبکه</string>
+    <string name="status_loading_descriptors">بار کردن اطّلاعات کارساز شبکه</string>
+    <string name="app_icon_dialog_title" formatted="true">تغییر به %1$s</string>
+    <string name="app_icon_dialog_msg" formatted="true">تغییر دادن به %1$s کاره را دوباره آغاز خواهد کرد</string>
+    <string name="title_safety">ایمنی</string>
+    <string name="setting_app_icon_title">نقشک کاره</string>
+    <string name="setting_app_icon_description">گزینش چگونگی نمایش روبوت پیازی روی افزاره‌تان</string>
+    <string name="setting_block_screenshot_title">انسداد نماگرفت</string>
+    <string name="setting_block_screenshot_description">جلوگیری از برداشت نماگرفت این کاره</string>
+    <string name="setting_unlock_pass_title">صفحهٔ قفل</string>
+    <string name="setting_unlock_pass_description">نیازمند پین افزاره یا الگوی کشیدنی برای گشودن روبوت پیازی</string>
+    <string name="setting_unlock_with_biometrics_title">استفاده از زیست‌سنجی (اختیاری)</string>
+    <string name="setting_unlock_with_biometrics_description">قفل‌گشایی روبوت پیازی با اثرانگشت یا شناسهٔ صورت در صورت برپا بودن روی افزاره‌تان.</string>
 </resources>
