@@ -129,7 +129,7 @@
     <string name="volunteer_mode">Режим доброти</string>
     <string name="trying_to_connect_title">Під\'єднання…</string>
     <string name="btn_change_exit">Змінити вихід</string>
-    <string name="btn_refresh">Оновити</string>
+    <string name="btn_refresh">Оновити з\'єднання</string>
     <string name="btn_tor_off">Вимкнути Tor</string>
     <string name="btn_configure">Виберіть спосіб підключення</string>
     <string name="btn_choose_apps">Вибрати застосунки</string>
@@ -150,7 +150,7 @@
 \nпід\'єднуватися до Tor</string>
     <string name="volunteer_mode_alltime_label">Усього за весь час</string>
     <string name="smart_connect">Розумне підключення</string>
-    <string name="direct_connect">Безпосереднє з\'єднання з Tor</string>
+    <string name="direct_connect">Пряме підключення</string>
     <string name="snowflake_subtitle">З\'єднання через волонтерів Tor. Обходить деякі блокування Tor.</string>
     <string name="connect">Під\'єднати</string>
     <string name="power_user_mode">Режим досвідченого користувача</string>
@@ -201,7 +201,7 @@
     <string name="bridge_snowflake_sqs">Підключення через інших користувачів Tor за допомогою Snowflake (Спосіб 3 - SQS)</string>
     <string name="power_user_mode_permission">Сигнали та нагадування. Потрібен дозвіл для режиму досвідченого користувача</string>
     <string name="power_user_mode_permission_msg">Будь ласка, дозвольте Orbot встановлювати будильники та нагадування, щоб використовувати режим досвідченого користувача. Це фактично не встановить жодних будильників на вашому пристрої. Цей дозвіл потрібен для того, щоб система підтримувала роботу OrbotService, коли Orbot не використовується як VPN для всієї системи.</string>
-    <string name="error_no_password_set">Будь ласка, закріпіть свій пристрій, щоб використовувати автентифікацію ORBOT</string>
+    <string name="error_no_password_set">Щоб використовувати функцію блокування екрана, потрібно встановити пароль для свого пристрою Android</string>
     <string name="unlock_app_msg" formatted="true">Будь ласка, розблокуйте свій пристрій, щоб використовувати %s</string>
     <string name="invalid_bridge_format">Недійсний формат мосту</string>
     <string name="error_asking_tor_for_bridges">Помилка під час запиту Tor про підключення</string>
@@ -220,7 +220,7 @@
     <string name="built_in_bridges_obfs4_subtitle">Маскує ваш трафік. Допомагає обійти блокування Tor. Добре, якщо ви користуєтеся публічним Wi-Fi, але в країні, де Tor не заблоковано.</string>
     <string name="run_smart_connect_">Запустіть Smart Connect, щоб знайти найкращий шлях</string>
     <string name="scan_qr_code">Відскануйте QR-код</string>
-    <string name="camo_samsung_instructions">На вашому пристрої Samsung Galaxy сповіщення в режимі камуфляжу працюватимуть лише після відкриття Налаштувань -&gt; Сповіщення -&gt; Додаткові налаштування та вимкнення опції \"Показувати значок програми в сповіщеннях\". Натисніть тут, щоб відкрити Налаштування сповіщень.</string>
+    <string name="camo_samsung_instructions">На вашому пристрої Samsung Galaxy сповіщення Orbot змінюватимуть значки лише після відкриття меню «Налаштування» -&gt; «Сповіщення» -&gt; «Додаткові налаштування» та вимкнення опції «Показувати значок програми в сповіщеннях». Натисніть тут, щоб відкрити налаштування сповіщень.</string>
     <string name="status_starting_up">Запуск Orbot…</string>
     <string name="status_activated">Під\'єднаний до мережі Tor</string>
     <string name="status_disabled">«Orbot» від\'єднаний</string>
@@ -251,4 +251,29 @@
     <string name="search_for_apps">Пошук програм</string>
     <string name="apps_updated_msg">Оновлені програми</string>
     <string name="set_transport">Налаштувати транспорт</string>
+    <string name="app_icon_dialog_title" formatted="true">Перейти на %1$s</string>
+    <string name="app_icon_dialog_msg" formatted="true">Перехід на %1$s перезапустить програму</string>
+    <string name="title_safety">Безпека</string>
+    <string name="setting_app_icon_description">Виберіть, як Orbot відображатиметься на вашому пристрої</string>
+    <string name="setting_block_screenshot_title">Блокувати скріншоти</string>
+    <string name="setting_block_screenshot_description">Забороняє будь-кому робити скріншоти цього додатка</string>
+    <string name="setting_unlock_pass_title">Екран блокування</string>
+    <string name="setting_unlock_pass_description">Вимагати PIN-код, пароль або графічний ключ вашого пристрою для відкриття Orbot</string>
+    <string name="setting_unlock_with_biometrics_title">Використовуйте біометричні дані (необов\'язково)</string>
+    <string name="setting_unlock_with_biometrics_description">Розблокуйте Orbot за допомогою відбитка пальця або Face ID, якщо це налаштовано на вашому пристрої.</string>
+    <string name="status_connected_control_port">Сервіс Tor запущено</string>
+    <string name="status_handshake">Підключення до входу в мережу Tor</string>
+    <string name="status_handshake_done">Вхід у мережу Tor</string>
+    <string name="status_circuit_create">Налаштування з\'єднання через мережу Tor</string>
+    <string name="status_done">Готові до роботи!</string>
+    <string name="status_conn_pt">Пошук альтернативного маршруту до мережі Tor</string>
+    <string name="status_conn_done_pt">Встановлено альтернативний маршрут</string>
+    <string name="status_conn_done">Підключено до входу в мережу Tor</string>
+    <string name="status_onehop_create">Доступ до каталогу мережі Tor</string>
+    <string name="status_enough_dirinfo">Завантажено каталог мережі Tor</string>
+    <string name="status_requesting_status">Запит статусу мережі у Tor</string>
+    <string name="status_loading_status">Завантаження стану мережі</string>
+    <string name="status_loading_keys">Завантаження ключів безпеки мережі</string>
+    <string name="status_requesting_descriptors">Запит інформації про мережевий сервер</string>
+    <string name="status_loading_descriptors">Завантаження інформації про мережевий сервер</string>
 </resources>
