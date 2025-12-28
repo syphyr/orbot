@@ -34,35 +34,19 @@ class CamoFragment : Fragment() {
         // defaults to "Orbot" if user never selected anything, aka no camo
         selectedApp = getCamoMapping(requireContext()).getKey(Prefs.selectedCamoApp)
         val listItems = mutableListOf(
-            createAppMenuItem(R.mipmap.ic_launcher, R.string.app_name),
+            createAppMenuItem(R.drawable.ic_launcher_foreground_kludge, R.string.app_name,),
             createAppMenuItem(R.drawable.ic_launcher_foreground_alt1, R.string.app_name, 1),
             createAppMenuItem(R.drawable.ic_launcher_foreground_alt2, R.string.app_name, 2),
             createAppMenuItem(R.drawable.ic_launcher_foreground_alt3, R.string.app_name, 3),
             createAppMenuItem(R.drawable.ic_launcher_foreground_alt4, R.string.app_name, 4),
-            createAppMenuItem(
-                R.drawable.ic_camouflage_paint,
-                R.string.app_icon_chooser_label_paint
-            ),
-            createAppMenuItem(
-                R.drawable.ic_camouflage_tetras, R.string.app_icon_chooser_label_tetras
-            ),
-            createAppMenuItem(
-                R.drawable.ic_camouflage_birdie, R.string.app_icon_chooser_label_birdie
-            ),
-
-            createAppMenuItem(
-                R.drawable.ic_camouflage_fitgrit, R.string.app_icon_chooser_label_fit_grit
-            ),
-            createAppMenuItem(
-                R.drawable.ic_camouflage_assistant, R.string.app_icon_chooser_label_assistant
-            ),
-            createAppMenuItem(
-                R.drawable.ic_camouflage_todo, R.string.app_icon_chooser_label_todo
-            ),
-            createAppMenuItem(
-                R.drawable.ic_camouflage_night_watch, R.string.app_icon_chooser_label_night_watch
-            )
-        )
+            createAppMenuItem(R.drawable.ic_camouflage_paint, R.string.app_icon_chooser_label_paint),
+            createAppMenuItem(R.drawable.ic_camouflage_tetras, R.string.app_icon_chooser_label_tetras),
+            createAppMenuItem(R.drawable.ic_camouflage_birdie, R.string.app_icon_chooser_label_birdie),
+            createAppMenuItem(R.drawable.ic_camouflage_fitgrit, R.string.app_icon_chooser_label_fit_grit),
+            createAppMenuItem(R.drawable.ic_camouflage_assistant, R.string.app_icon_chooser_label_assistant),
+            createAppMenuItem(R.drawable.ic_camouflage_todo, R.string.app_icon_chooser_label_todo),
+            createAppMenuItem(R.drawable.ic_camouflage_night_watch, R.string.app_icon_chooser_label_night_watch)
+        ).onEach { it.roundImageCorner = true }
         rvCamoApps.adapter = MoreActionAdapter(listItems)
         val spanCount = if (resources.configuration.screenWidthDp < 600) 2 else 4
         rvCamoApps.layoutManager = GridLayoutManager(requireContext(), spanCount)
@@ -102,8 +86,6 @@ class CamoFragment : Fragment() {
         val isSelected = selectedApp == (getString(appName) + altSuffix)
         val item = OrbotMenuAction(appName, imageId, removeTint = true) {
             if (!isSelected) {
-                var key = getString(appName)
-                if (altIconVal != -1) key += altIconVal
                 showDialog(imageId, appName, altIconVal)
             }
         }
