@@ -276,4 +276,5 @@
     <string name="status_loading_keys">Завантаження ключів безпеки мережі</string>
     <string name="status_requesting_descriptors">Запит інформації про мережевий сервер</string>
     <string name="status_loading_descriptors">Завантаження інформації про мережевий сервер</string>
+    <string name="setting_app_icon_title">Значок програми</string>
 </resources>
