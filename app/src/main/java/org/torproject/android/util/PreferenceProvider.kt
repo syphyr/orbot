@@ -120,27 +120,27 @@ private fun <T> ContentResolver.getPref(key: String, converter: (Cursor, Int) ->
 }
 
 fun ContentResolver.getPrefString(key: String, default: String? = null): String? {
-    return getPref(key, { c, i ->  c.getStringOrNull(i) }) ?: default
+    return getPref(key) { c, i -> c.getStringOrNull(i) } ?: default
 }
 
 fun ContentResolver.getPrefBoolean(key: String, default: Boolean = false): Boolean {
-    val v = getPref(key, { c, i -> c.getStringOrNull(i) }) ?: return default
+    val v = getPref(key) { c, i -> c.getStringOrNull(i) } ?: return default
 
     return v == "true"
 }
 
 fun ContentResolver.getPrefInt(key: String, default: Int? = null): Int? {
-    return getPref(key, { c, i -> c.getIntOrNull(i) }) ?: default
+    return getPref(key) { c, i -> c.getIntOrNull(i) } ?: default
 }
 
 @Suppress("unused")
 fun ContentResolver.getPrefLong(key: String, default: Long? = null): Long? {
-    return getPref(key, { c, i -> c.getLongOrNull(i) }) ?: default
+    return getPref(key) { c, i -> c.getLongOrNull(i) } ?: default
 }
 
 @Suppress("unused")
 fun ContentResolver.getPrefFloat(key: String, default: Float? = null): Float? {
-    return getPref(key, { c, i -> c.getFloatOrNull(i) }) ?: default
+    return getPref(key) { c, i -> c.getFloatOrNull(i) } ?: default
 }
 
 private fun ContentResolver.putPref(key: String, values: ContentValues) {
