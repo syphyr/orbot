@@ -207,7 +207,7 @@
     <string name="app_icon_chooser_label_birdie">Birdie</string>
     <string name="power_user_mode_permission">Alarmy i przypomnienia. Wymagane uprawnienia do trybu użytkownika zaawansowanego</string>
     <string name="power_user_mode_permission_msg">Zezwól Orbotowi na ustawianie alarmów i przypomnień, aby móc korzystać z trybu użytkownika zaawansowanego. Nie spowoduje to ustawienia żadnych alarmów na Twoim urządzeniu. To uprawnienie jest potrzebne, aby system mógł utrzymać działanie usługi Orbot, gdy Orbot nie jest używany jako ogólnosystemowa sieć VPN.</string>
-    <string name="error_no_password_set">Aby móc korzystać z uwierzytelniania Orbota, zabezpiecz swoje urządzenie</string>
+    <string name="error_no_password_set">Aby móc korzystać z uwierzytelniania Orbota, zabezpiecz swoje urządzenie</string>
     <string name="device_lock_unsupported">Uwierzytelnianie Orbota nie jest obsługiwane na Twoim urządzeniu</string>
     <string name="device_lock_security_update_needed">Aby móc korzystać z uwierzytelniania Orbota, musisz pobrać aktualizacje zabezpieczeń systemu Android dla swojego urządzenia</string>
     <string name="invalid_bridge_format">Nieprawidłowy format mostka</string>

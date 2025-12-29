@@ -140,7 +140,7 @@
     <string name="trying_to_connect_title">Ag ceangal…</string>
     <string name="btn_choose_apps">Roghnaigh aipeanna</string>
     <string name="btn_change_exit">Athraigh an bealach amach</string>
-    <string name="btn_refresh">Athnuachan</string>
+    <string name="btn_refresh">Athnuachan an Nasc</string>
     <string name="btn_tor_off">Múch Tor</string>
     <string name="proxy_ports">Poirt Seachfhreastalaí</string>
     <string name="ports_not_set">Poirt Gan Socrú</string>
@@ -156,7 +156,7 @@
     <string name="kindness_mode_disabled_wifi">Ceangail le Wi-Fi chun cabhrú le daoine cinsireacht a sheachaint</string>
     <string name="kindness_mode_disabled_power">Ceangail do ghléas le cumhacht chun cabhrú le daoine cinsireacht a sheachaint</string>
     <string name="smart_connect">Ceangal Cliste</string>
-    <string name="direct_connect">Ceangal Díreach le Tor</string>
+    <string name="direct_connect">Ceangal Díreach</string>
     <string name="direct_connect_subtitle">An bealach is fearr chun ceangal le Tor. Bain úsáid as mura bhfuil Tor blocáilte.</string>
     <string name="snowflake">Calóg sneachta</string>
     <string name="snowflake_amp">Calóg Sneachta AMP</string>
@@ -211,7 +211,7 @@
     <string name="request_notification_permission">Cumasaigh fógraí le haghaidh Orbot le do thoil</string>
     <string name="request_notification_permission_msg">Gan fógraí a chasadh air, ní féidir le Orbot gníomhú mar VPN Tor ná Mód Cineáltais a úsáid.\n\nNuair a bhíonn sé cumasaithe, ní thaispeánaimid ach fógra amháin nuair a bhíonn Orbot ag rith.</string>
     <string name="open_settings">Oscail Socruithe</string>
-    <string name="error_no_password_set">Déan do ghléas a dhaingniú le go mbeidh tú in ann Fíordheimhniú Orbot a úsáid</string>
+    <string name="error_no_password_set">Ní mór duit pasfhocal a shocrú do do ghléas Android chun an ghné Glasála Scáileáin a úsáid</string>
     <string name="device_lock_unsupported">Ní thacaítear le fíordheimhniú Orbot ar do ghléas</string>
     <string name="device_lock_security_update_needed">Ní mór duit nuashonruithe slándála Android a íoslódáil le haghaidh do ghléas chun Orbot Fíordheimhniú a úsáid</string>
     <string name="invalid_bridge_format">Formáid droichid neamhbhailí</string>
@@ -222,7 +222,7 @@
     <string name="unlock_app_msg" formatted="true">Díghlasáil do ghléas le do thoil chun %s a úsáid</string>
     <string name="run_smart_connect_">Rith Smart Connect chun an bealach is fearr a aimsiú</string>
     <string name="scan_qr_code">Scanáil Cód QR</string>
-    <string name="camo_samsung_instructions">Ar do ghléas Samsung Galaxy, ní oibreoidh fógraí Camouflage Mode ach amháin trí do Socruithe -&gt; Fógraí -&gt; Socruithe Ardleibhéil a oscailt agus \"Taispeáin deilbhín an aip i bhfógraí\" a dhíchumasú. Cliceáil anseo chun Socruithe Fógra a oscailt.</string>
+    <string name="camo_samsung_instructions">Ar do ghléas Samsung Galaxy, ní athróidh fógraí Orbot deilbhíní ach amháin trí Socruithe -&gt; Fógraí -&gt; Socruithe Ardleibhéil a oscailt agus \"Taispeáin deilbhín aip i bhfógraí\" a dhíchumasú. Cliceáil anseo chun Socruithe Fógra a oscailt.</string>
     <string name="power_user_mode_permission">Cead Aláraim &amp; Meabhrúcháin Riachtanach le haghaidh Mód Úsáideora Cumhachta</string>
     <string name="orbot_vpn">VPN Orbot</string>
     <string name="status_starting_up">Tá Orbot ag tosú…</string>
@@ -244,4 +244,30 @@
     <string name="search_for_apps">Cuardaigh d\'aipeanna</string>
     <string name="apps_updated_msg">Aipeanna Nuashonraithe</string>
     <string name="set_transport">Socraigh Iompar</string>
+    <string name="app_icon_dialog_title" formatted="true">Athraigh go %1$s</string>
+    <string name="app_icon_dialog_msg" formatted="true">Atosófar an aip má athraíonn tú go %1$s</string>
+    <string name="title_safety">Sábháilteacht</string>
+    <string name="setting_app_icon_title">Deilbhín Aipe</string>
+    <string name="setting_app_icon_description">Roghnaigh conas a fheictear Orbot ar do ghléas</string>
+    <string name="setting_block_screenshot_title">Blocáil Scáileáin</string>
+    <string name="setting_block_screenshot_description">Coscann sé seo aon duine ó scáileáin a thógáil den aip seo</string>
+    <string name="setting_unlock_pass_title">Scáileán Glasála</string>
+    <string name="setting_unlock_pass_description">Éiligh PIN, pasfhocal nó patrún svaidhpeála do ghléis chun Orbot a oscailt</string>
+    <string name="setting_unlock_with_biometrics_title">Úsáid Bithmhéadracht (roghnach)</string>
+    <string name="setting_unlock_with_biometrics_description">Díghlasáil Orbot le do mhéarlorg nó le Face ID má tá sé socraithe ar do ghléas.</string>
+    <string name="status_connected_control_port">Tá seirbhís Tor tosaithe</string>
+    <string name="status_handshake">Ag ceangal le bealach isteach líonra Tor</string>
+    <string name="status_handshake_done">Ag dul isteach sa líonra Tor</string>
+    <string name="status_circuit_create">Ag bunú nasc trí líonra Tor</string>
+    <string name="status_done">Réidh le dul!</string>
+    <string name="status_conn_pt">Bealach malartach a aimsiú chuig líonra Tor</string>
+    <string name="status_conn_done_pt">Bealach malartach bunaithe</string>
+    <string name="status_conn_done">Ceangailte le bealach isteach líonra Tor</string>
+    <string name="status_onehop_create">Ag rochtain eolaire líonra Tor</string>
+    <string name="status_enough_dirinfo">Luchtaithe eolaire líonra Tor</string>
+    <string name="status_requesting_status">Ag iarraidh stádas líonra ar Tor</string>
+    <string name="status_loading_status">Stádas an líonra á lódáil</string>
+    <string name="status_loading_keys">Ag lódáil eochracha slándála líonra</string>
+    <string name="status_requesting_descriptors">Ag iarraidh eolais ar fhreastalaí líonra</string>
+    <string name="status_loading_descriptors">Ag lódáil faisnéis fhreastalaí líonra</string>
 </resources>
