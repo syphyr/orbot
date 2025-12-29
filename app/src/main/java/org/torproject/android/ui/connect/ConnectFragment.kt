@@ -59,6 +59,9 @@ class ConnectFragment : Fragment(),
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect { state ->
+                    if (state == ConnectUiState.NoInternet)
+                        binding.switchConnect.visibility = View.GONE
+                    else binding.switchConnect.visibility = View.VISIBLE
                     when (state) {
                         is ConnectUiState.NoInternet -> doLayoutNoInternet()
                         is ConnectUiState.Off -> doLayoutOff()
@@ -207,7 +210,8 @@ class ConnectFragment : Fragment(),
             }
 
         // TODO this hardcodes left to right even if the locale is in farsi, arabic, other RTL etc
-        val connectStrLabel = getString(R.string.set_transport) + ": ${context.getString(connectStr)}"
+        val connectStrLabel =
+            getString(R.string.set_transport) + ": ${context.getString(connectStr)}"
 
         val listItems =
             arrayListOf(
@@ -245,9 +249,7 @@ class ConnectFragment : Fragment(),
         binding.tvTitle.text = getString(R.string.no_internet_title)
         binding.tvSubtitle.text = getString(R.string.no_internet_subtitle)
 
-        // binding.btnStart.visibility = View.GONE
         binding.lvConnected.visibility = View.VISIBLE
-
     }
 
     fun doLayoutOn(context: Context) {
@@ -260,7 +262,6 @@ class ConnectFragment : Fragment(),
         binding.tvSubtitle.visibility = View.VISIBLE
         binding.progressBar.visibility = View.INVISIBLE
         binding.tvTitle.text = context.getString(R.string.connected_title)
-        // binding.btnStart.visibility = View.VISIBLE
         binding.lvConnected.visibility = View.VISIBLE
 
         refreshMenuList(context)
@@ -295,8 +296,7 @@ class ConnectFragment : Fragment(),
         binding.progressBar.visibility = View.INVISIBLE
         binding.lvConnected.visibility = View.VISIBLE
         binding.tvTitle.text = getString(R.string.secure_your_connection_title)
-        //  binding.tvSubtitle.text = ""//getString(R.string.secure_your_connection_subtitle)
-        binding.btnStart.text = getString(R.string.btn_start_vpn)
+        binding.tvSubtitle.text = getString(R.string.secure_your_connection_subtitle)
 
         /**
          * //TODO hide smart connect in the UI for now
@@ -316,8 +316,7 @@ class ConnectFragment : Fragment(),
 
         with(binding.btnStart) {
 
-            val connectStr = ""
-            /**
+            /** val connectStr = ""
             text = when {
             Prefs.isPowerUserMode -> getString(R.string.connect)
             connectStr.isEmpty() -> SpannableStringBuilder()
@@ -348,9 +347,7 @@ class ConnectFragment : Fragment(),
             setOnClickListener { startTorAndVpn() }
         }
 
-        binding.ivStatus.setOnClickListener {
-
-        }
+        binding.ivStatus.setOnClickListener(null)
     }
 
     fun doLayoutStarting(context: Context) {
