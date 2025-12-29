@@ -221,4 +221,18 @@
     <string name="status_enough_dirinfo">Tor-Netzwerk-Verzeichnis geladen</string>
     <string name="status_loading_keys">Netzwerksicherheitsschlüssel werden geladen</string>
     <string name="status_requesting_descriptors">Netzwerkserverinformationen werden angefordert</string>
+    <string name="app_icon_chooser_label_night_watch">Nachtwache</string>
+    <string name="app_icon_chooser_label_assistant">Assistent</string>
+    <string name="app_icon_chooser_label_tetras">Tetras</string>
+    <string name="app_icon_dialog_title" formatted="true">Zu %1$s wechseln</string>
+    <string name="open_settings">Einstellungen öffnen</string>
+    <string name="enter_bridge_address">Brückenadresse eingeben</string>
+    <string name="scan_qr_code">QR-Code scannen</string>
+    <string name="connect_to_tor">Mit Tor verbinden</string>
+    <string name="search_for_apps">Nach Apps suchen</string>
+    <string name="title_safety">Sicherheit</string>
+    <string name="setting_app_icon_title">App-Symbol</string>
+    <string name="setting_block_screenshot_title">Bildschirmfotos blockieren</string>
+    <string name="setting_unlock_pass_title">Sperrbildschirm</string>
+    <string name="status_loading_status">Netzwerkstatus wird geladen</string>
 </resources>
