@@ -194,7 +194,7 @@
     <string name="pref_isolate_keep_alive_summary">Поддържа изолираните вериги, които имат най-малко един удостоверен през SOCKS поток</string>
     <string name="power_user_mode_permission">Режимът на опитен потребител изисква разрешение за будилници и напомняния</string>
     <string name="unlock_app_msg" formatted="true">За да използвате %s тключете устройството</string>
-    <string name="error_no_password_set">За да удостоверите Orbot задайте парола на устройството</string>
+    <string name="error_no_password_set">За да използвате заключване на екрана трябва да зададете парола за устройството</string>
     <string name="power_user_mode_permission_msg">Дайте разрешение на Orbot да съзадава будилници и напомняния, за да използвате режима на опитния потребител. Няма да бъдат създадени будилници на устройство. Разрешението е необходимо, за да може системата да поддържа OrbotService в работен режим, когато Orbot не се използва като системна услуга за ВЧМ.</string>
     <string name="error_asking_tor_for_bridges">Грешка при запитване на Tor за начина на свързване</string>
     <string name="invalid_bridge_format">Неприемлив формат на мост</string>
@@ -213,7 +213,7 @@
     <string name="run_smart_connect_">Намира най-добрия начин чрез Smart Connect</string>
     <string name="built_in_bridges_obfs4_subtitle">Маскира трафик. Заобикаля някои ограничения на Tor. Добър вариант ако използвате отворена безжична мрежа и Tor не е ограничен в страната.</string>
     <string name="scan_qr_code">Сканиране на кода за QR</string>
-    <string name="camo_samsung_instructions">На вашия Самсунг Галакси известието в режим Камуфлаж ще работи само ако отворите Настройки → Известия → Разширени настройки и изключите „Показване пиктограмата на приложението в известията“. Докоснете, за да отворите настройките на известията.</string>
+    <string name="camo_samsung_instructions">На вашия Самсунг Галакси известието на Orbot ще смени иконата си само ако отворите Настройки → Известия → Разширени настройки и изключите „Показване пиктограмата на приложението в известията“. Докоснете, за да отворите настройките на известията.</string>
     <string name="status_starting_up">Орбот стартира…</string>
     <string name="status_activated">Има връзка с мрежата на Tor</string>
     <string name="status_disabled">Орбот е изключен</string>
@@ -243,5 +243,29 @@
     <string name="note_snowflake_doesn_t_support_proxies">ЗАБЕЛЕЖКА: Snowflake не поддържа прокси сървъри. Такива настройки ще бъдат пренебрегнати от мостовоте на Snowflake.</string>
     <string name="search_for_apps">Търсене на приложения</string>
     <string name="apps_updated_msg">Приложенията са обновени</string>
-    <string name="set_transport">Задай транспорт</string>
+    <string name="set_transport">Настройка на транспорт</string>
+    <string name="app_icon_dialog_title" formatted="true">Превключване на %1$s</string>
+    <string name="app_icon_dialog_msg" formatted="true">При превключване на %1$s приложението ще рестартира</string>
+    <string name="title_safety">Безопасност</string>
+    <string name="setting_app_icon_title">Икона на приложението</string>
+    <string name="setting_app_icon_description">Изберете как Orbot да изглежда в началния екран</string>
+    <string name="setting_block_screenshot_title">Забраняване на екранни снимки</string>
+    <string name="setting_block_screenshot_description">Предотвратява правенето на екранни снимки</string>
+    <string name="setting_unlock_pass_description">За да използвате Orbot изисква отключване на устройството с ПИН, парола или фигура</string>
+    <string name="setting_unlock_with_biometrics_title">Използване на биометрични данни (по желание)</string>
+    <string name="setting_unlock_with_biometrics_description">Отключване на Orbot посредством отпечатък или лицево разпознаване, ако са настроени.</string>
+    <string name="status_connected_control_port">Услугата на Tor работи</string>
+    <string name="status_handshake">Свързване към входната точка на мрежата на Tor</string>
+    <string name="status_handshake_done">Вход в мрежата на Tor</string>
+    <string name="status_circuit_create">Настройване на връзката през мрежата на Tor</string>
+    <string name="status_done">Всичко е готово!</string>
+    <string name="status_conn_pt">Търсене на алтернативен маршрут до мрежата на Tor</string>
+    <string name="status_conn_done_pt">Алтернативен маршрут е установен</string>
+    <string name="status_conn_done">Има връзка с входната точка на мрежата на Tor</string>
+    <string name="status_onehop_create">Директен достъп до мрежата на Tor</string>
+    <string name="status_enough_dirinfo">Списъкът с възли от мрежата на Tor е зареден</string>
+    <string name="status_requesting_status">Запитване към Tor за състоянието на мрежата</string>
+    <string name="status_loading_keys">Зареждане на ключовете за сигурност на мрежата</string>
+    <string name="status_requesting_descriptors">Запитване за информация за сървъра</string>
+    <string name="status_loading_descriptors">Зареждане на информация за сървъра</string>
 </resources>
