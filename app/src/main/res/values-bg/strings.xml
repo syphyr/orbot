@@ -268,4 +268,6 @@
     <string name="status_loading_keys">Зареждане на ключовете за сигурност на мрежата</string>
     <string name="status_requesting_descriptors">Запитване за информация за сървъра</string>
     <string name="status_loading_descriptors">Зареждане на информация за сървъра</string>
+    <string name="setting_unlock_pass_title">Заключване на екрана</string>
+    <string name="status_loading_status">Зареждане на състоянието на мрежата</string>
 </resources>
