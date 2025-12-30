@@ -108,4 +108,7 @@
     <string name="couldn_t_start_tor_process_">Nije moguće započeti Tor proces:</string>
     <string name="unable_to_start_tor">Nije moguće pokrenuti Tor:</string>
     <string name="set_transport">Postavi transport</string>
+    <string name="setting_app_icon_title">Ikona aplikacije</string>
+    <string name="search_for_apps">Traži aplikacije</string>
+    <string name="setting_unlock_pass_title">Zaključaj ekran</string>
 </resources>
