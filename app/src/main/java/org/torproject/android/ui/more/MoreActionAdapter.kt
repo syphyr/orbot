@@ -3,11 +3,12 @@ package org.torproject.android.ui.more
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.core.widget.ImageViewCompat
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.imageview.ShapeableImageView
+import com.google.android.material.shape.CornerFamily
 import org.torproject.android.R
 import org.torproject.android.ui.OrbotMenuAction
 
@@ -16,7 +17,7 @@ class MoreActionAdapter(
 ) : RecyclerView.Adapter<MoreActionAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val icon: ImageView = view.findViewById(R.id.ivIcon)
+        val icon: ShapeableImageView = view.findViewById(R.id.ivIcon)
         val label: TextView = view.findViewById(R.id.tvLabel)
         val card: CardView = view as CardView
     }
@@ -36,7 +37,15 @@ class MoreActionAdapter(
         if (item.backgroundColor != null) {
             holder.card.setCardBackgroundColor(item.backgroundColor!!)
         }
-        holder.icon.setImageResource(item.imgId)
+        holder.icon.apply {
+            setImageResource(item.imgId)
+            if (item.roundImageCorner) {
+                val cornerRadius = context.resources.getDimension(R.dimen.rounded_img_corner)
+                shapeAppearanceModel = shapeAppearanceModel.toBuilder()
+                    .setAllCorners(CornerFamily.ROUNDED, cornerRadius)
+                    .build()
+            }
+        }
         holder.label.setText(item.textId)
         holder.itemView.setOnClickListener { item.action() }
     }

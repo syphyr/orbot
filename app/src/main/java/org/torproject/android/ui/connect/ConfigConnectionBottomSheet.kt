@@ -188,8 +188,12 @@ class ConfigConnectionBottomSheet :
         dismiss()
         val navHostFragment = requireActivity().supportFragmentManager.fragments[0] as NavHostFragment
         val connectFrag = navHostFragment.childFragmentManager.fragments.last() as ConnectFragment
-        connectFrag.stopTorAndVpn()
-        Thread.sleep(3000)
+        if (connectFrag.viewModel.uiState == ConnectUiState.Off) {
+            // manually trigger UI update before this unclear to the user 3 second freeze
+            connectFrag.refreshMenuList(requireContext())
+            connectFrag.stopTorAndVpn()
+            Thread.sleep(3000)
+        }
         connectFrag.startTorAndVpn()
     }
 

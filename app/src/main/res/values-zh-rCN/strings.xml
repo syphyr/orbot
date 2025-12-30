@@ -133,7 +133,7 @@
     <string name="btn_configure">选择连接方式</string>
     <string name="btn_choose_apps">选择应用</string>
     <string name="btn_change_exit">更改出口</string>
-    <string name="btn_refresh">刷新</string>
+    <string name="btn_refresh">刷新连接</string>
     <string name="connect">连接</string>
     <string name="proxy_ports">代理端口</string>
     <string name="volunteer_mode_weekly_label">一周总计</string>
@@ -143,7 +143,7 @@
     <string name="volunteer_mode_subtitle_desc">善举模式可让您的设备成为他人的网桥，帮助人们在 Tor 被屏蔽的地方使用 Tor。\n\n• 不会耗尽电池电量\n• 不会减慢网速\n• 只通过 Wi-Fi 运行\n• 可随时关闭</string>
     <string name="snowflake">Snowflake</string>
     <string name="smart_connect">智能连接</string>
-    <string name="direct_connect">直接连接到 Tor</string>
+    <string name="direct_connect">直接连接</string>
     <string name="direct_connect_subtitle">连接 Tor 的最佳方式，在 Tor 未被屏蔽时使用。</string>
     <string name="next">下一步</string>
     <string name="snowflake_subtitle">通过 Tor 志愿者连接，绕过某些 Tor 屏蔽。</string>
@@ -178,8 +178,6 @@
     <string name="kindness_adjust_title">设置</string>
     <string name="option_only_on_wifi">仅使用 Wi-Fi 时</string>
     <string name="option_only_when_charging">仅在充电时</string>
-    <string name="pref_flag_secure_summary">防止其他应用对 Orbot 进行截屏</string>
-    <string name="pref_flag_secure_title">屏幕安全</string>
     <string name="root_warning">Orbot 检测到您的设备已取得 Root 权限，这可能会导致安全问题。</string>
     <string name="pref_detect_root_summary">如果此设备已启用 Root 权限，则启动时发出警告</string>
     <string name="pref_detect_root_title">Root 检测</string>
@@ -194,25 +192,15 @@
     <string name="snowflake_sqs">Snowflake SQS</string>
     <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
     <string name="app_icon_chooser_label_birdie">Birdie</string>
-    <string name="camo_dialog_title" formatted="true">伪装成 %1$s</string>
-    <string name="camo_dialog_enable_confirm_msg" formatted="true">Orbot 将伪装成应用 %1$s。这将隐藏所有关于 Tor 的通知详情，并更改 Orbot 在主屏幕上的显示方式。\n\n伪装成 %2$s 将重启 Orbot。</string>
-    <string name="camo_dialog_disable_title">禁用伪装模式</string>
-    <string name="pref_camo_mode_title">伪装模式</string>
-    <string name="camo_dialog_disable_confirm_msg">Orbot 将恢复显示关于您的 Tor 连接的通知信息，并在主屏幕上正常显示。\n\n禁用伪装模式将重启 Orbot。</string>
-    <string name="pref_camo_mode_description">伪装 Orbot 的图标、标签和通知文本在设备上的显示方式</string>
     <string name="bridge_snowflake_sqs">使用 Snowflake 通过其他 Tor 用户连接（方法 3 - SQS）</string>
     <string name="power_user_mode_permission">高级用户模式需要闹钟和提醒权限</string>
     <string name="power_user_mode_permission_msg">请允许 Orbot 设置闹钟和提醒以便使用高级用户模式。这实际上不会在您的设备上设置任何闹钟。当 Orbot 未作为系统范围的 VPN 使用时，需要此权限来让系统保持 Orbot 服务运行。</string>
-    <string name="pref_require_password_description">在您输入设备密码或指纹进行身份验证之前阻止访问 Orbot。这可以与伪装模式结合使用，以帮助隐藏设备上安装的 Orbot</string>
-    <string name="pref_require_password">Orbot 身份验证</string>
-    <string name="error_no_password_set">请确保您的设备安全，以便使用 Orbot 身份验证</string>
+    <string name="error_no_password_set">您需要为您的 Android 设备设置密码才能使用锁屏功能</string>
     <string name="unlock_app_msg" formatted="true">请解锁您的设备以便使用 %s</string>
     <string name="invalid_bridge_format">网桥格式无效</string>
     <string name="error_asking_tor_for_bridges">询问 Tor 如何连接时出错</string>
     <string name="device_lock_unsupported">您的设备不支持 Orbot 身份验证</string>
     <string name="device_lock_security_update_needed">您必须为您的设备下载 Android 安全更新，以便使用 Orbot 身份验证</string>
-    <string name="pref_password_only_no_biometric">不允许 Orbot 身份验证的生物识别</string>
-    <string name="pref_password_only_no_biometric_description">即使在您的设备上配置了指纹或人脸解锁等生物识别身份验证，此选项也会强制 Orbot 身份验证只要求使用设备密码。</string>
     <string name="action_use_">使用 %1$s</string>
     <string name="enter_bridge_address">输入网桥地址</string>
     <string name="scan_qr_code">扫描二维码</string>
@@ -226,7 +214,7 @@
     <string name="custom_bridges_description">将收到的网桥地址粘贴到下方，或扫描二维码添加。朋友可以通过 %1$s 帮您获取网桥。</string>
     <string name="built_in_bridges_obfs4_subtitle">伪装您的流量，绕过某些 Tor 屏蔽。如果您使用的是公共 Wi-Fi，但所在国家/地区没有屏蔽 Tor，这种方法效果很好。</string>
     <string name="run_smart_connect_">运行智能连接以查找最佳方式</string>
-    <string name="camo_samsung_instructions">在您的 Samsung Galaxy 设备上，伪装模式的通知仅在打开“设置”-&gt;“通知”-&gt;“高级设置”并禁用“在通知中显示应用图标”才能正常工作。点击此处打开“通知设置”。</string>
+    <string name="camo_samsung_instructions">在您的 Samsung Galaxy 设备上，Orbot 的通知只能通过打开“设置”-&gt;“通知”-&gt;“高级设置”并禁用“在通知中显示应用图标”来切换图标。点击此处打开“通知设置”。</string>
     <string name="open_settings">打开设置</string>
     <string name="status_starting_up">Orbot 正在启动…</string>
     <string name="status_activated">已连接到 Tor 网络</string>
@@ -257,4 +245,30 @@
     <string name="search_for_apps">搜索应用</string>
     <string name="apps_updated_msg">应用已更新</string>
     <string name="set_transport">设置传输方式</string>
+    <string name="app_icon_dialog_title" formatted="true">切换到 %1$s</string>
+    <string name="app_icon_dialog_msg" formatted="true">切换到 %1$s 将重启应用</string>
+    <string name="title_safety">安全</string>
+    <string name="setting_app_icon_title">应用图标</string>
+    <string name="setting_app_icon_description">选择 Orbot 在您的设备上的显示方式</string>
+    <string name="setting_block_screenshot_title">阻止截屏</string>
+    <string name="setting_block_screenshot_description">防止任何人截取此应用的屏幕截图</string>
+    <string name="setting_unlock_pass_title">锁定屏幕</string>
+    <string name="setting_unlock_pass_description">需要您的设备的 PIN 码、密码或滑动图案才能打开 Orbot</string>
+    <string name="setting_unlock_with_biometrics_title">使用生物识别（可选）</string>
+    <string name="setting_unlock_with_biometrics_description">如果您的设备已设置，则可以使用指纹或面容 ID 解锁 Orbot。</string>
+    <string name="status_connected_control_port">Tor 服务已启动</string>
+    <string name="status_handshake">正在连接到 Tor 网络入口</string>
+    <string name="status_handshake_done">正在进入 Tor 网络</string>
+    <string name="status_circuit_create">正在通过 Tor 网络设置连接</string>
+    <string name="status_done">准备就绪！</string>
+    <string name="status_conn_pt">正在查找到 Tor 网络的备用路线</string>
+    <string name="status_conn_done_pt">备用路线已建立</string>
+    <string name="status_conn_done">已连接到 Tor 网络入口</string>
+    <string name="status_onehop_create">正在访问 Tor 网络目录</string>
+    <string name="status_enough_dirinfo">Tor 网络目录已加载</string>
+    <string name="status_requesting_status">正在向 Tor 查询网络状态</string>
+    <string name="status_loading_status">正在加载网络状态</string>
+    <string name="status_loading_keys">正在加载网络安全密钥</string>
+    <string name="status_requesting_descriptors">正在请求网络服务器信息</string>
+    <string name="status_loading_descriptors">正在加载网络服务器信息</string>
 </resources>

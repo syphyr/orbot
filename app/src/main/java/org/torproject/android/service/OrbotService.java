@@ -52,7 +52,6 @@ import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.ServiceCompat;
 import androidx.core.content.ContextCompat;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import kotlin.Unit;
 
@@ -392,7 +391,7 @@ public class OrbotService extends VpnService {
 
             return Unit.INSTANCE;
         }, () -> {
-            if (Prefs.hostOnionServicesEnabled()) {
+            if (Prefs.getHostOnionServicesEnabled()) {
                 try {
                     updateV3OnionNames();
                 } catch (SecurityException se) {
@@ -461,7 +460,7 @@ public class OrbotService extends VpnService {
                     //override the TorService event listener
                     conn.addRawEventListener(mOrbotRawEventListener);
 
-                    logNotice(getString(R.string.log_notice_connected_to_tor_control_port));
+                    logNotice(getString(R.string.status_connected_control_port));
 
                     var events = new ArrayList<>(Arrays.asList(TorControlCommands.EVENT_OR_CONN_STATUS, TorControlCommands.EVENT_CIRCUIT_STATUS, TorControlCommands.EVENT_NOTICE_MSG, TorControlCommands.EVENT_WARN_MSG, TorControlCommands.EVENT_ERR_MSG, TorControlCommands.EVENT_BANDWIDTH_USED, TorControlCommands.EVENT_NEW_DESC, TorControlCommands.EVENT_ADDRMAP));
                     if (Prefs.useDebugLogging())
@@ -527,8 +526,7 @@ public class OrbotService extends VpnService {
                 confDns = confDns.substring(0, confDns.length() - 1);
                 mPortDns = Integer.parseInt(confDns);
 
-                var prefs = Prefs.getSharedPrefs(getApplicationContext());
-                if (prefs != null) prefs.edit().putInt(PREFS_DNS_PORT, mPortDns).apply();
+                Prefs.setTorDnsPortResolved(mPortDns);
             }
 
             var confTrans = conn.getInfo("net/listeners/trans");
