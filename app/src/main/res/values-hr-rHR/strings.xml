@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Orbot</string>
     <string name="app_description">Orbot je besplatna proxy aplikacija koja omogućuje ostalim aplikacijama da koriste internet sigurnije. Orbot koristi Tor za enkripciju Vašeg Internet prometa, a zatim ga skriva šaljući ga kroz seriju računala diljem svijeta. Tor je besplatan software i otvorena mreža koja pomaže u borbi protiv nadzora mreže koji ugrožava osobne slobode i privatnost, povjerljive poslovne aktivnosti i odnose, te pomaže u borbi protiv analize prometa.</string>
-    <string name="menu_settings">Postavke</string>
+    <string name="menu_settings">Orbot postavke</string>
     <string name="menu_log">Dnevnik</string>
     <string name="menu_about">Informacije</string>
     <string name="menu_exit">Izlaz</string>
@@ -72,7 +72,7 @@
     <string name="please_restart_Orbot_to_enable_the_changes">Ponovno pokrenite Orbot da bi omogućili promjene</string>
     <string name="hidden_services">Onion usluge</string>
     <string name="enable">Omogući</string>
-    <string name="btn_refresh">Osvježi</string>
+    <string name="btn_refresh">Osvježi vezu</string>
     <string name="action_activate">Aktiviraj</string>
     <string name="setting_debug">Otkloni grešku</string>
     <string name="menu_new_identity">Novi identitet</string>
@@ -90,14 +90,14 @@
     <string name="kindness_adjust_title">Postavke</string>
     <string name="v3_client_auth_activity_title">Autorizacija klijenta</string>
     <string name="btn_start_vpn">Pokreni VPN</string>
-    <string name="snowflake_amp">Snowflake (AMP)</string>
+    <string name="snowflake_amp">Snowflake AMP</string>
     <string name="volunteer_mode_alltime_label">Ukupno (svo vrijeme)</string>
-    <string name="direct_connect">Izravna veza s Torom</string>
+    <string name="direct_connect">Izravna veza</string>
     <string name="direct_connect_subtitle">Najbolji način povezivanja s Torom. Koristi ga ako Tor nije blokiran.</string>
-    <string name="smart_connect">Pametno povezivanje (standardno)</string>
+    <string name="smart_connect">Pametno povezivanje</string>
     <string name="volunteer_mode_title">Pomogni drugima
 \nda se povežu na Tor</string>
-    <string name="snowflake">Snowflake (Original)</string>
+    <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Povezuje se preko Tor volontera. Zaobilazi neka blokiranja Tor-a.</string>
     <string name="volunteer_mode_weekly_label">Ukupno (tjedno)</string>
     <string name="setting_padding">Unutarnji odmak</string>
@@ -108,4 +108,15 @@
     <string name="couldn_t_start_tor_process_">Nije moguće započeti Tor proces:</string>
     <string name="unable_to_start_tor">Nije moguće pokrenuti Tor:</string>
     <string name="set_transport">Postavi transport</string>
+    <string name="setting_app_icon_title">Ikona aplikacije</string>
+    <string name="search_for_apps">Traži aplikacije</string>
+    <string name="setting_unlock_pass_title">Zaključaj ekran</string>
+    <string name="setting_app_icon_description">Odaberi kako se Orbot prikazuje na tvom uređaju</string>
+    <string name="apps_updated_msg">Aplikacije su aktualizirane</string>
+    <string name="title_safety">Sigurnost</string>
+    <string name="setting_block_screenshot_title">Blokiraj snimanje ekrana</string>
+    <string name="setting_block_screenshot_description">Sprečava bilo koga da snima snimke ekrana ove aplikacije</string>
+    <string name="setting_unlock_pass_description">Za otvaranje Orbota zatraži unos PIN-a, lozinke ili potez prstom preko ekrana</string>
+    <string name="setting_unlock_with_biometrics_title">Koristi biometriju (opcionalno)</string>
+    <string name="setting_unlock_with_biometrics_description">Otključaj Orbot otiskom prsta ili Face ID-om ako su postavljeni na tvom uređaju.</string>
 </resources>
