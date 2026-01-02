@@ -184,7 +184,7 @@ afterEvaluate {
     }.configureEach {
         dependsOn(
             copyLicenseToAssets,
-            updateBuiltinBridges,
+            //updateBuiltinBridges,
         )
     }
 }
