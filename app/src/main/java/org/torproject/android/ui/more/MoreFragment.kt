@@ -70,9 +70,10 @@ class MoreFragment : Fragment() {
         val pm = requireActivity().packageManager
         val info = pm.getPackageInfo(requireActivity().packageName, 0)
         val normalizedVersion = info.versionName?.substringBefore("tor")?.dropLast(1)
+        val gitVersion = info.versionName?.substringAfter("tor")?.drop(1)
 
         rows += row("Orbot", "$normalizedVersion")
-        rows += row("Tor", getTorVersion())
+        rows += row("Tor", "$gitVersion")
 
         tvPortAndVersionInfo.text = rows.joinToString("\n")
     }
