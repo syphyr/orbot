@@ -143,7 +143,6 @@
     <string name="btn_refresh">Athnuachan an Nasc</string>
     <string name="btn_tor_off">Múch Tor</string>
     <string name="proxy_ports">Poirt Seachfhreastalaí</string>
-    <string name="ports_not_set">Poirt Gan Socrú</string>
     <string name="volunteer_mode_title">Cabhraigh le daoine eile\nceangal le Tor</string>
     <string name="volunteer_mode_weekly_label">Iomlán Seachtainiúil</string>
     <string name="volunteer_mode_alltime_label">Iomlán na nAmaí</string>

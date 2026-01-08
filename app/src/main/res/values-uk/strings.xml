@@ -135,7 +135,6 @@
     <string name="btn_choose_apps">Вибрати застосунки</string>
     <string name="btn_start_vpn">Запустити VPN</string>
     <string name="snowflake">Сніжинка</string>
-    <string name="ports_not_set">Порти не налаштовані</string>
     <string name="direct_connect_subtitle">Кращий спосіб під\'єднання до Tor. Використовуйте, якщо Tor не заблокований.</string>
     <string name="volunteer_mode_subtitle_desc">Режим доброти дозволяє вашому пристрою бути мостом для інших. Він допомагає людям користуватися Tor там, де він заблокований.
 \n

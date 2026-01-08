@@ -84,7 +84,6 @@
     <string name="option_only_when_charging">Solmente quando tu apparato es cargante</string>
     <string name="vpn_default_world">Global (Automatic)</string>
     <string name="proxy_ports">Portos de proxy</string>
-    <string name="ports_not_set">Portos non definite</string>
     <string name="v3_key_hash">Clave private x25519 in Base32</string>
     <string name="v3_onion">Dominio .onion</string>
     <string name="v3_import_auth_private">Importar .auth_private</string>

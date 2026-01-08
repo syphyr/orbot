@@ -92,7 +92,6 @@
     <string name="custom_bridges">Custom Bridges</string>
     <string name="snowflake_proxy_msg_title">Show Connection Notification</string>
     <string name="proxy_ports">Proxy Ports</string>
-    <string name="ports_not_set">Ports Not Set</string>
     <string name="volunteer_mode_title">Help others\nconnect to Tor</string>
     <string name="volunteer_mode_alltime_label">All Time Total</string>
     <string name="volunteer_mode_subtitle_desc">Kindness mode allows your device to be a bridge for others. It helps people use Tor in places where it is blocked.\n\n• It will not drain your battery\n• It will not slow down your internet\n• It can run only over wifi\n• It can be turned off anytime</string>

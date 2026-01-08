@@ -148,7 +148,6 @@
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Conecta-se através de voluntários do Tor. Contorna alguns bloqueios do Tor.</string>
     <string name="proxy_ports">Portas do proxy</string>
-    <string name="ports_not_set">Portas não definidas</string>
     <string name="volunteer_mode_title">Ajude outros
 \na se conectar ao Tor</string>
     <string name="volunteer_mode_subtitle_desc">O modo bondade permite que o seu aparelho seja uma ponte para os outros. Ajuda as pessoas a usar o Tor em lugares onde ele está bloqueado.

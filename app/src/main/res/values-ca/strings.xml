@@ -121,7 +121,6 @@
 \n• No alentirà la connexió a internet
 \n• Només pot anar amb Wi-Fi
 \n• Es pot desconnectar en qualsevol moment</string>
-    <string name="ports_not_set">No s\'ha definit cap port</string>
     <string name="ask_tor">Pregunteu al Tor</string>
     <string name="pref_http_dialog">Configuració del port HTTP</string>
     <string name="power_user_mode">Mode d\'usuari avançat</string>

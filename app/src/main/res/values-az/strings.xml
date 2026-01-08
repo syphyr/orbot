@@ -154,7 +154,6 @@
 \n• İnternetinizi yavaşlatmayacaq
 \n• Yalnız wifi üzərində işləyə bilər
 \n• İstənilən vaxt söndürülə bilər</string>
-    <string name="ports_not_set">Portlar Ayarlanmayıb</string>
     <string name="power_user_mode">Güc istifadəçi rejimi</string>
     <string name="smart_connect">Smart Connect (defolt)</string>
     <string name="apps_other_apps">Digər Proqramlar</string>

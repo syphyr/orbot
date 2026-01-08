@@ -153,7 +153,6 @@
     <string name="snowflake_subtitle">Muodostaa Tor-yhteyden vapaaehtoisten välityksellä. Kiertää joitakin Tor-estoja.</string>
     <string name="connect">Yhdistä</string>
     <string name="next">Seuraava</string>
-    <string name="ports_not_set">Portteja ei ole määritetty</string>
     <string name="volunteer_mode_subtitle_desc">Ystävällisyystila tekee laitteestasi sillan muille. Se auttaa muita käyttämään Toria paikoissa, joissa se on estetty.
 \n
 \n• Se ei kuluta akkuasi

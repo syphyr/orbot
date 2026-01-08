@@ -122,7 +122,6 @@
     <string name="bridge_snowflake_amp">Tengjast í gegnum aðra Tor-notendur með Snowflake (aðferð 2 - AMP)</string>
     <string name="snowflake_proxy_msg_title">Birta tilkynningu um tengingu</string>
     <string name="snowflake_proxy_msg_description">Birta skilaboð þegar þú hjálpar einhverjum að komast framhjá ritskoðun</string>
-    <string name="ports_not_set">Gáttir ekki stilltar</string>
     <string name="volunteer_mode">Vænleikahamur</string>
     <string name="connected_title">Tengt</string>
     <string name="btn_start_vpn">Ræsa VPN</string>

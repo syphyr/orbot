@@ -96,7 +96,6 @@
 \n- Nezpomalí váš internet
 \n- Může běžet pouze přes wifi
 \n- Lze ji kdykoli vypnout</string>
-    <string name="ports_not_set">Porty nejsou nastaveny</string>
     <string name="ask_tor">Zeptejte se Toru</string>
     <string name="pref_http_dialog">Konfigurace portu HTTP</string>
     <string name="consider_disable_battery_optimizations">Spuštěné hostované služby, zvažte vypnutí optimalizací baterie</string>

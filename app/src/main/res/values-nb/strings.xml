@@ -141,7 +141,6 @@
 \n- Den gjør ikke Internett langsommere
 \n- Den kan bare kjøres over wifi
 \n- Kan slås av når som helst</string>
-    <string name="ports_not_set">Porter ikke innstilt</string>
     <string name="ask_tor">Spør Tor</string>
     <string name="power_user_mode">Strømbrukermodus</string>
     <string name="btn_choose_apps">Velg apper</string>

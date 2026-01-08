@@ -162,7 +162,6 @@
     <string name="snowflake_subtitle">Anslutningar genom Tor-volontärer. Tar sig runt vissa Tor-blockeringar.</string>
     <string name="log_copied">Logg kopierad</string>
     <string name="next">Nästa</string>
-    <string name="ports_not_set">Portar inte inställda</string>
     <string name="volunteer_mode_subtitle_desc">Med läget för vänlighet kan din enhet bli en bro för andra. Det hjälper människor att använda Tor på platser där det är blockerat.
 \n
 \n- Det tömmer inte batteriet.

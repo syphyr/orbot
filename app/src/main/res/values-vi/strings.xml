@@ -137,7 +137,6 @@
     <string name="btn_configure">Lựa chọn làm cách nào để kết nối</string>
     <string name="btn_choose_apps">Lựa chọn app ứng dụng</string>
     <string name="btn_tor_off">Tắt Tor đi</string>
-    <string name="ports_not_set">Các cổng chưa được thiết đặt</string>
     <string name="volunteer_status_title">Ngày hôm nay tốt đẹp hơn
 \nlà do bạn.</string>
     <string name="option_only_on_wifi">Chỉ trên Wifi</string>

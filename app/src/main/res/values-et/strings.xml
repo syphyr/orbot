@@ -150,7 +150,6 @@
     <string name="pref_isolate_port">Eraldada sihtkoha sadamad</string>
     <string name="pref_isolate_port_summary">Kasutage iga sihtkoha jaoks erinevat vooluahelat</string>
     <string name="pref_isolate_protocol_summary">Kasutage iga ühendusprotokolli jaoks erinevat vooluahelat</string>
-    <string name="ports_not_set">Pordid ei ole määratud</string>
     <string name="pref_isolate_protocol">Isoleerida kliendiprotokollid</string>
     <string name="volunteer_mode_weekly_label">Kordi nädalas</string>
     <string name="hide_apps">Peida rakendused võrgu jälgimise eest ja saada juurdepääs, kui need on blokeeritud.</string>

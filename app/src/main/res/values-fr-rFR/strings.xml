@@ -176,7 +176,6 @@
     <string name="no_internet_title">Se connecter à l\'internet</string>
     <string name="menu_kindness">La gentillesse</string>
     <string name="option_only_on_wifi">Uniquement sur Wifi</string>
-    <string name="ports_not_set">Ports non définis</string>
     <string name="volunteer_mode">Mode gentillesse</string>
     <string name="hide_apps">Masquer les applications de la surveillance du réseau et y accéder lorsqu\'elles sont bloquées.</string>
     <string name="kindness_config_detail">Configurez quand et comment votre appareil peut agir en tant que proxy Snowflake pour les autres utilisateurs de Tor.</string>

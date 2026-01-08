@@ -81,7 +81,6 @@
     <string name="pref_dnsport_dialog">«DNS» մատույցի կարգավորում</string>
     <string name="v3_hosted_services">Հյուրընկալված Onion ծառայություններ</string>
     <string name="delete_service">Ջնջել ծառայությունը</string>
-    <string name="ports_not_set">Մատույցներ չեն դրվել</string>
     <string name="log_copied">Մատյանը պատճենվեց</string>
     <string name="ask_tor">Հարցրեք Tor-ին</string>
     <string name="kindness_adjust_title">Կարգավորումներ</string>

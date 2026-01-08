@@ -147,7 +147,6 @@
     <string name="direct_connect_subtitle">连接 Tor 的最佳方式，在 Tor 未被屏蔽时使用。</string>
     <string name="next">下一步</string>
     <string name="snowflake_subtitle">通过 Tor 志愿者连接，绕过某些 Tor 屏蔽。</string>
-    <string name="ports_not_set">端口未设置</string>
     <string name="power_user_mode">高级用户模式</string>
     <string name="power_user_description">适用于熟悉 Tor 的用户。允许您在不使用 VPN 设置的情况下启动 Orbot，并显示开放的 SOCKS 和 HTTP 端口</string>
     <string name="title_choose_apps">选择应用</string>

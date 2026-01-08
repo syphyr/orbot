@@ -141,8 +141,7 @@
   <string name="btn_refresh">Srɵ tamara pasrɵp</string>
   <string name="btn_tor_off">Torwan kuecha pasramik</string>
   <string name="proxy_ports">Proxy wam srɵl mera </string>
-  <string name="ports_not_set">Wam srɵlmera tamarikmelɵ kɵn</string>
-  <string name="volunteer_mode_title">Katɵkanelan purukumik wan ketlitsamikyu</string>
+    <string name="volunteer_mode_title">Katɵkanelan purukumik wan ketlitsamikyu</string>
   <string name="volunteer_mode_weekly_label">Truneyu ketriku purayeikwan eshkapik</string>
   <string name="volunteer_mode_alltime_label">Ketriku utɵmerayu purayeiklan eshkapik</string>
   <string name="volunteer_mode_subtitle_desc">Tap meitɵ kɵntrei tamara pasrikpe ñui wamsrupik pekelan piuntsik lateik mara purukuntrapik kɵn . 

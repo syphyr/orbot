@@ -144,7 +144,6 @@
     <string name="menu_new_identity">Νέα ταυτότητα</string>
     <string name="pref_isolate_port">Απομόνωση θυρών προορισμού</string>
     <string name="pref_isolate_protocol_summary">Χρησιμοποιήστε διαφορετικό κύκλωμα για κάθε πρωτόκολλο σύνδεσης</string>
-    <string name="ports_not_set">Θύρες που δεν έχουν οριστεί</string>
     <string name="proxy_ports">Θύρες διακομιστή μεσολάβησης</string>
     <string name="pref_isolate_port_summary">Χρήση διαφορετικού κυκλώματος για κάθε θύρα προορισμού</string>
     <string name="pref_isolate_protocol">Απομόνωση πρωτοκόλλων πελάτη</string>

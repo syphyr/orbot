@@ -145,7 +145,6 @@
 \n• זה לא יאט את האינטרנט שלך
 \n• זה יכול לפעול רק על wifi
 \n• ניתן לכבות אותו בכל עת</string>
-    <string name="ports_not_set">לא מוגדרות פתחות</string>
     <string name="ask_tor">לשאול את Tor</string>
     <string name="consider_disable_battery_optimizations">שירותים מתארחים פועלים, כדאי להשבית את מיטוב הסוללה</string>
     <string name="power_user_mode">מצב משתמש פיכח</string>

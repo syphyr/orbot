@@ -90,7 +90,6 @@
     <string name="pref_reduced_circuit_padding_summary">Utilizați algoritmi de umplutură cu costuri mai mici pentru a reduce utilizarea datelor și a bateriei</string>
     <string name="pref_prefer_ipv6_summary">Spune ieșirilor că sunt preferate adresele IPv6</string>
     <string name="pref_disable_ipv4">Dezactivați conexiunile IPv4</string>
-    <string name="ports_not_set">Porturile nu sunt setate</string>
     <string name="direct_connect">Conexiune directă la Tor</string>
     <string name="direct_connect_subtitle">Cel mai bun mod de a vă conecta la Tor. Utilizați dacă Tor nu este blocat.</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Permiteți colegilor Wi-Fi, dispozitivelor conectate și oricui altcuiva care se poate conecta la IP-ul dvs. să acceseze Tor</string>

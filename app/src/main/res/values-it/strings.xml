@@ -147,7 +147,6 @@
     <string name="volunteer_mode_subtitle_desc">La modalità altruismo consente al tuo dispositivo di fare da ponte per gli altri. Aiuta le persone ad usare Tor in luoghi dove viene bloccato. \n \n• Non consumerà la tua batteria \n• Non rallenterà il tuo internet \n• Può funzionare solo su wifi \n• Può essere spenta in qualsiasi momento</string>
     <string name="smart_connect">Connessione intelligente</string>
     <string name="snowflake_subtitle">Si connette tramite volontari di Tor. Aggira qualche blocco di Tor.</string>
-    <string name="ports_not_set">Porte non impostate</string>
     <string name="volunteer_mode">Modalità altruismo</string>
     <string name="btn_start_vpn">Avvia VPN</string>
     <string name="snowflake_proxy_msg_title">Mostra la notifica di connessione</string>

@@ -143,7 +143,6 @@
     <string name="smart_connect">اتّصال هوشمند</string>
     <string name="direct_connect">اتّصال مستقیم</string>
     <string name="next">بعدی</string>
-    <string name="ports_not_set">درگاه‌های تنظیم نشده</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">اتصال از طریق داوطلبان Tor. از برخی مسدودیت‌های Tor رد می‌شود.</string>
     <string name="direct_connect_subtitle">بهترین روش اتصال به Tor. درصورت مسدودنبودن Tor از آن استفاده کنید.</string>

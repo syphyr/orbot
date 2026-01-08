@@ -143,7 +143,6 @@
     <string name="connect">Свързване</string>
     <string name="next">Напред</string>
     <string name="proxy_ports">Портове на прокси</string>
-    <string name="ports_not_set">Няма зададени портове</string>
     <string name="volunteer_mode_subtitle_desc">Режимът на доброта дава възможност устройството ви да бъде използвано като мост. Така други потребители могат да ползват Тор, на места където е забранен.\n\n• не изразходва батерията\n• не забавя връзката с интернет\n• работи само през безжична мрежа\n• може да бъде спрян по всяко време</string>
     <string name="direct_connect">Директна връзка</string>
     <string name="direct_connect_subtitle">Най-добрия начин за свързване с Тор. Използвайте ако Тор не е забранен.</string>

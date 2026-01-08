@@ -159,7 +159,6 @@
     <string name="snowflake_subtitle">Verbindet sich durch Tor-Freiwillige. Umgeht einige Tor-Blockierungen.</string>
     <string name="connect">Verbinden</string>
     <string name="next">Weiter</string>
-    <string name="ports_not_set">Ports nicht eingestellt</string>
     <string name="volunteer_mode">Freundlichkeitsmodus</string>
     <string name="secure_your_connection_subtitle">Verstecke Apps vor der Netzwerküberwachung und erhalte Zugriff, wenn sie blockiert sind.</string>
     <string name="connected_title">Verbunden</string>

@@ -151,7 +151,6 @@
 \n- Tas nepalēninās jūsu interneta darbību
 \n- To var darbināt tikai wifi tīklā
 \n- To var izslēgt jebkurā laikā</string>
-    <string name="ports_not_set">Nav iestatīti porti</string>
     <string name="ask_tor">Jautājiet Toram</string>
     <string name="power_user_mode">Jaudas lietotāja režīms</string>
     <string name="smart_connect">Smart Connect (noklusējuma iestatījums)</string>

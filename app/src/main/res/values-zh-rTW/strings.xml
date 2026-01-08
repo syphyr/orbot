@@ -155,7 +155,6 @@
     <string name="btn_configure">選擇連接方式</string>
     <string name="btn_choose_apps">選擇應用程式</string>
     <string name="btn_tor_off">關閉 Tor</string>
-    <string name="ports_not_set">連接埠未設定</string>
     <string name="volunteer_mode_title">幫助其他人
 \n連接到 Tor</string>
     <string name="volunteer_mode_weekly_label">每週總計</string>

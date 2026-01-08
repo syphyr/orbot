@@ -54,7 +54,6 @@
     <string name="snowflake">Snowflake</string>
     <string name="connect">Lidhu</string>
     <string name="next">Pasuesi</string>
-    <string name="ports_not_set">Porta të Paujdisura</string>
     <string name="btn_start_vpn">Nise VPN-në</string>
     <string name="btn_configure">Zgjidhni Si të Lidhet</string>
     <string name="trying_to_connect_title">Po lidhjet…</string>
