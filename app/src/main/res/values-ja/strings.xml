@@ -116,7 +116,7 @@
     <string name="trying_to_connect_title">接続しています…</string>
     <string name="btn_choose_apps">アプリを選ぶ</string>
     <string name="btn_change_exit">出口を変更する</string>
-    <string name="btn_refresh">リフレッシュ</string>
+    <string name="btn_refresh">接続を更新する</string>
     <string name="btn_tor_off">Tor をオフにする</string>
     <string name="version">バージョン:</string>
     <string name="license">ライセンス:</string>
@@ -140,10 +140,10 @@
     <string name="volunteer_mode_title">他の人の Tor への
 \n接続を支援する</string>
     <string name="volunteer_mode_subtitle_desc">Kindness Mode は、あなたのデバイスが他のユーザーのためのブリッジとして機能するようにします。これにより、他のユーザーが Tor がブロックされている場所でも使えるようにします。 \n \n• バッテリーを消耗しません \n• インターネット速度を低下させることはありません \n• Wi-Fi のみで動作可能です \n• いつでもオフにできます</string>
-    <string name="smart_connect">スマート接続 (デフォルト)</string>
+    <string name="smart_connect">スマート接続</string>
     <string name="volunteer_mode_weekly_label">週間合計</string>
     <string name="volunteer_mode_alltime_label">全期間累計</string>
-    <string name="direct_connect">Tor に直接接続する</string>
+    <string name="direct_connect">直接接続</string>
     <string name="direct_connect_subtitle">Tor に接続する最良の手段です。Tor がブロックされてないときに使用します。</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Tor のボランティアを介した接続です。一部の Tor ブロッキングを回避できます。</string>
@@ -196,7 +196,7 @@
     <string name="bridge_snowflake_sqs">Snowflake を使用して他の Tor ユーザー経由で接続する (方法3 - SQS)</string>
     <string name="power_user_mode_permission">パワーユーザーモードにはアラームとリマインダーの許可が必要です</string>
     <string name="power_user_mode_permission_msg">パワーユーザーモードを使用するには、Orbot がアラームとリマインダーを設定できるようにしてください。これにより、実際にデバイスにアラームが設定されることはありません。この権限は、Orbot がシステム全体の VPN として使用されていないときに、システムが OrbotService を実行し続けるために必要です。</string>
-    <string name="error_no_password_set">Orbot 認証を使用するためにはデバイスのセキュリティ保護が必要です</string>
+    <string name="error_no_password_set">ロック画面機能を使用するには、Android デバイスのパスワードを設定する必要があります</string>
     <string name="unlock_app_msg" formatted="true">%s を使用するにはデバイスのロックを解除してください</string>
     <string name="device_lock_unsupported">お使いのデバイスでは Orbot 認証がサポートされていません</string>
     <string name="device_lock_security_update_needed">Orbot 認証を使用するには、Android のセキュリティアップデートをダウンロードする必要があります</string>
@@ -228,7 +228,7 @@
     <string name="kindness_mode_disabled_internet">インターネットに接続して、人々が検閲を回避するのをサポートしましょう</string>
     <string name="kindness_mode_disabled_wifi">Wi-Fi に接続して、人々が検閲を回避するのをサポートしましょう</string>
     <string name="kindness_mode_disabled_power">デバイスを電源に接続して、人々が検閲を回避するのをサポートしましょう</string>
-    <string name="camo_samsung_instructions">お使いの Samsung Galaxy 端末では、カモフラージュモードの通知は、設定 -&gt; 通知 -&gt; 詳細設定 を開き、「通知にアプリアイコンを表示」を無効にすることで動作します。通知設定を開くにはここをクリックしてください。</string>
+    <string name="camo_samsung_instructions">お使いの Samsung Galaxy 端末では、Orbot の通知アイコンを変更するには、設定 -&gt; 通知 -&gt; 詳細設定 を開き、「通知にアプリアイコンを表示」を無効にします。通知設定を開くにはここをクリックしてください。</string>
     <string name="request_notification_permission">Orbot の通知を有効にしてください</string>
     <string name="request_notification_permission_msg">通知を有効にしない場合、Orbot は Tor VPN として機能せず、Kindness Mode も使用できません。\n\n有効にすると、Orbot が実行中である場合にのみ通知を 1 回表示します。</string>
     <string name="open_settings">設定を開く</string>
@@ -246,4 +246,30 @@
     <string name="search_for_apps">アプリを検索する</string>
     <string name="apps_updated_msg">アプリが更新されました</string>
     <string name="set_transport">トランスポートを設定</string>
+    <string name="setting_app_icon_title">アプリのアイコン</string>
+    <string name="setting_block_screenshot_title">スクリーンショットをブロックする</string>
+    <string name="app_icon_dialog_title" formatted="true">%1$s に切り替える</string>
+    <string name="app_icon_dialog_msg" formatted="true">%1$s に切り替えるとアプリが再起動します</string>
+    <string name="title_safety">安全性</string>
+    <string name="setting_app_icon_description">デバイスでの Orbot の見た目を選択します</string>
+    <string name="setting_block_screenshot_description">このアプリのスクリーンショットを撮影できないようにします</string>
+    <string name="setting_unlock_pass_title">画面ロック</string>
+    <string name="setting_unlock_pass_description">Orbot を開くためにデバイスの PIN、パスワード、またはスワイプパターンを要求します</string>
+    <string name="setting_unlock_with_biometrics_title">生体認証を使用する (オプション)</string>
+    <string name="setting_unlock_with_biometrics_description">お使いのデバイスで設定されている場合は、指紋または Face ID で Orbot のロックを解除します。</string>
+    <string name="status_connected_control_port">Tor サービスが開始されました</string>
+    <string name="status_handshake">Tor ネットワークの入口に接続しています</string>
+    <string name="status_handshake_done">Tor ネットワークに接続しています</string>
+    <string name="status_circuit_create">Tor ネットワーク経由の接続を確立しています</string>
+    <string name="status_done">完了しました！</string>
+    <string name="status_conn_pt">Tor ネットワークへの代替ルートを探しています</string>
+    <string name="status_conn_done_pt">代替ルートが確立されました</string>
+    <string name="status_conn_done">Tor ネットワークの入口に接続しました</string>
+    <string name="status_onehop_create">Tor ネットワークディレクトリーにアクセスしています</string>
+    <string name="status_enough_dirinfo">Tor ネットワークディレクトリーが読み込まれました</string>
+    <string name="status_requesting_status">Tor にネットワークの状態を問い合わせています</string>
+    <string name="status_loading_status">ネットワークの状態を読み込んでいます</string>
+    <string name="status_loading_keys">ネットワークセキュリティキーを読み込んでいます</string>
+    <string name="status_requesting_descriptors">ネットワークサーバー情報をリクエストしています</string>
+    <string name="status_loading_descriptors">ネットワークサーバー情報を読み込んでいます</string>
 </resources>
