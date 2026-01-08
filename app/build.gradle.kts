@@ -75,7 +75,7 @@ android {
         getByName("release") {
             isShrinkResources = false
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.txt")
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.txt")
             signingConfig = signingConfigs.getByName("release")
         }
         getByName("debug") {
@@ -163,9 +163,6 @@ dependencies {
     api(libs.tor.android)
     // local tor-android:
     // api(files("../../tor-android/tor-android-binary/build/outputs/aar/tor-android-binary-debug.aar"))
-
-
-
 
     testImplementation(libs.junit.jupiter)
     androidTestImplementation(libs.androidx.junit)
