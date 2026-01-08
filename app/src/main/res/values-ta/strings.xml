@@ -47,7 +47,6 @@
     <string name="confirm_service_deletion">பணி நீக்குதலை உறுதிப்படுத்தவும்</string>
     <string name="custom_bridges">தனிப்பயன் பாலங்கள்</string>
     <string name="pref_start_boot_title">துவக்கத்தில் சுற்றுப்பாதையைத் தொடங்கவும்</string>
-    <string name="proxy_ports">பதிலாள் துறைமுகங்கள்</string>
     <string name="volunteer_mode_weekly_label">வாராந்திர மொத்தம்</string>
     <string name="volunteer_mode_alltime_label">எல்லா நேரமும் மொத்தம்</string>
     <string name="enter_exit_nodes">வெளியேறும் முனைகளை உள்ளிடவும்</string>
@@ -238,6 +237,5 @@
     <string name="snowflake_proxy_client_connected_msg">%1$s கருணை முறை தணிக்கை %2$s ஐத் தவிர்க்க உதவியது</string>
     <string name="log_notice_unable_to_update_onions">வெங்காய பெயர்களைப் பதிவேற்ற முடியவில்லை</string>
     <string name="log_notice_updating_torrc">டோர்க் தனிப்பயன் உள்ளமைவைப் புதுப்பித்தல்…</string>
-    <string name="log_notice_connected_to_tor_control_port">TOR கட்டுப்பாட்டு துறைமுகத்துடன் இணைக்கப்பட்டுள்ளது</string>
     <string name="set_transport">போக்குவரத்தை அமை</string>
 </resources>

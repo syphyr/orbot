@@ -188,7 +188,6 @@
     <string name="hide_apps">Skryte aplikácie pred monitorovaním siete a získajte k nim prístup, keď sú blokované.</string>
     <string name="log_copied">Záznam skopírovaný</string>
     <string name="root_warning">Orbot zistil, že vaše zariadenie je rootnuté, čo môže spôsobiť bezpečnostné problémy.</string>
-    <string name="proxy_ports">Proxy porty</string>
     <string name="volunteer_mode_weekly_label">Týždenný súčet</string>
     <string name="volunteer_mode_alltime_label">Celkovo za celý čas</string>
     <string name="direct_connect">Priame pripojenie k sieti Tor</string>

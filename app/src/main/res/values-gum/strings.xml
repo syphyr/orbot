@@ -140,7 +140,6 @@
   <string name="btn_change_exit">Wam wepipikwan yunɵmaramik</string>
   <string name="btn_refresh">Srɵ tamara pasrɵp</string>
   <string name="btn_tor_off">Torwan kuecha pasramik</string>
-  <string name="proxy_ports">Proxy wam srɵl mera </string>
     <string name="volunteer_mode_title">Katɵkanelan purukumik wan ketlitsamikyu</string>
   <string name="volunteer_mode_weekly_label">Truneyu ketriku purayeikwan eshkapik</string>
   <string name="volunteer_mode_alltime_label">Ketriku utɵmerayu purayeiklan eshkapik</string>
@@ -182,6 +181,5 @@ Toryu kepiam keik kasreik pasrɵpen pekelɵ kepamtreik purukupik kɵn \n\n-nakts
 
   <string name="log_notice_unable_to_update_onions">Ishik munchi meran asam kaik k​­ɵn</string>
   <string name="log_notice_updating_torrc">Torrcwan na isuikmai tamaramik</string>
-  <string name="log_notice_connected_to_tor_control_port">Control portwan kelitsik pasran</string>
     <string name="set_transport">Set Transport</string>
 </resources>

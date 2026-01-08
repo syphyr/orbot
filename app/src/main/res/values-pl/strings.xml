@@ -126,7 +126,6 @@
     <string name="v3_key_hash">Klucz prywatny x25519 w Base32</string>
     <string name="v3_backup_name_hint">Nazwa pliku kopii zapasowej…</string>
     <string name="v3_delete_client_authorization_confirm">Usuń autoryzację klienta</string>
-    <string name="proxy_ports">Porty proxy</string>
     <string name="volunteer_mode_weekly_label">Tygodniowo</string>
     <string name="snowflake_proxy_msg_description">Pokaż wiadomość, gdy pomagasz komuś obejść cenzurę</string>
     <string name="connect">Połącz</string>

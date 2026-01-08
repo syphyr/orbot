@@ -149,7 +149,6 @@
     <string name="no_internet_title">Anslut till internet</string>
     <string name="no_internet_subtitle">Du behöver en internetuppkoppling för att använda Orbot.</string>
     <string name="kindness_adjust_title">Inställningar</string>
-    <string name="proxy_ports">Proxy-portar</string>
     <string name="volunteer_mode_alltime_label">Alltid Totalt</string>
     <string name="smart_connect">Smart Connect (standard)</string>
     <string name="snowflake">Snowflake (original)</string>

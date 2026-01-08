@@ -91,7 +91,6 @@
     <string name="full_device_vpn">Full Device VPN</string>
     <string name="custom_bridges">Custom Bridges</string>
     <string name="snowflake_proxy_msg_title">Show Connection Notification</string>
-    <string name="proxy_ports">Proxy Ports</string>
     <string name="volunteer_mode_title">Help others\nconnect to Tor</string>
     <string name="volunteer_mode_alltime_label">All Time Total</string>
     <string name="volunteer_mode_subtitle_desc">Kindness mode allows your device to be a bridge for others. It helps people use Tor in places where it is blocked.\n\n• It will not drain your battery\n• It will not slow down your internet\n• It can run only over wifi\n• It can be turned off anytime</string>
@@ -246,7 +245,6 @@
     <string name="snowflake_proxy_client_connected_msg">%1$s Kindness Mode helped someone circumvent censorship %2$s</string>
     <string name="log_notice_unable_to_update_onions">unable to upload onion names</string>
     <string name="log_notice_updating_torrc">Updating torrc custom configuration…</string>
-    <string name="log_notice_connected_to_tor_control_port">Connected to Tor control port</string>
     <string name="note_snowflake_doesn_t_support_proxies">NOTE: Snowflake doesn\'t support proxies. Proxy settings will be ignored with Snowflake bridges.</string>
     <string name="search_for_apps">Search for apps</string>
     <string name="apps_updated_msg">Apps Updated</string>

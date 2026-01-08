@@ -144,7 +144,6 @@
     <string name="connect">Bağlan</string>
     <string name="next">Sonraki</string>
     <string name="volunteer_mode_weekly_label">Haftalık Toplam</string>
-    <string name="proxy_ports">Vekil Bağlantı Noktaları</string>
     <string name="volunteer_mode_subtitle_desc">Nezaket modu, aygıtınızın başkaları için bir köprü olmasını sağlar. İnsanların Tor\'u engellendiği yerlerde kullanmasına yardımcı olur.
 \n
 \n• Pilinizi boşaltmaz

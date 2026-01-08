@@ -131,7 +131,6 @@
     <string name="menu_more">Mer</string>
     <string name="trying_to_connect_title">Kobler til…</string>
     <string name="volunteer_mode_alltime_label">Total gjennom tidene</string>
-    <string name="proxy_ports">Proxy-porter</string>
     <string name="no_internet_subtitle">Du trenger en internettforbindelse for å bruke Orbot.</string>
     <string name="not_sure">Er du usikker\?</string>
     <string name="snowflake_subtitle">Kobler seg til via frivillige Tor-brukere. Omgår enkelte Tor-blokkeringer.</string>

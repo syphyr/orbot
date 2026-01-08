@@ -87,7 +87,6 @@
     <string name="reachable_addresses">Մատչելի հասցեներ</string>
     <string name="enter_ports">Մուտքագրեք մատույցները</string>
     <string name="project_home">Նախագծի տնէջ.</string>
-    <string name="proxy_ports">Փոխանորդի մատույցներ</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_http_title">Tor HTTP</string>
     <string name="pref_dnsport_title">Tor DNS մատույց</string>

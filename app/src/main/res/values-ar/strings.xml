@@ -143,7 +143,6 @@
     <string name="secure_your_connection_subtitle">إخفاء التطبيقات من مراقبة الشبكة والوصول إليها عندما يتم حظرها.</string>
     <string name="btn_start_vpn">ابدأ VPN</string>
     <string name="btn_tor_off">أوقف تشغيل تور</string>
-    <string name="proxy_ports">منافذ الوسيط</string>
     <string name="app_suggested_subtitle">يعمل Orbot بشكل أفضل مع تطبيقات المراسلة والتواصل الاجتماعي.</string>
     <string name="hide_apps">إخفاء التطبيقات من مراقبة الشبكة والوصول إليها عندما يتم حظرها.</string>
     <string name="log_copied">نُسِخ السجل</string>

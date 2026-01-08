@@ -134,7 +134,6 @@
     <string name="pref_circuit_padding_summary">אפשר להפעיל ריפוד מעגל כדי להגן מפני מגוון צורות של ניתוח תעבורה</string>
     <string name="pref_reduced_circuit_padding">ריפוד מעגל מופחת</string>
     <string name="volunteer_mode_alltime_label">סיכום לכל הזמן</string>
-    <string name="proxy_ports">פתחות מתווך</string>
     <string name="no_internet_subtitle">צריך חיבור לאינטרנט כדי להשתמש ב־Orbot.</string>
     <string name="not_sure">בספק\?</string>
     <string name="snowflake_subtitle">חיבור דרך מתנדבי Tor. מעקף חלק מחסימות Tor.</string>

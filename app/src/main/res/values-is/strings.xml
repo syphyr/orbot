@@ -132,7 +132,6 @@
     <string name="btn_refresh">Endurlesa</string>
     <string name="btn_choose_apps">Veldu forrit</string>
     <string name="btn_change_exit">Breyta útgangi</string>
-    <string name="proxy_ports">Gáttir milliþjóna</string>
     <string name="smart_connect">Snjalltenging (sjálfgefið)</string>
     <string name="direct_connect">Bein tenging við Tor</string>
     <string name="snowflake">Snowflake</string>

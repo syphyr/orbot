@@ -152,7 +152,6 @@
     <string name="btn_change_exit">Change exit</string>
     <string name="btn_refresh">Refresh Connection</string>
     <string name="btn_tor_off">Turn Tor off</string>
-    <string name="proxy_ports">Proxy Ports</string>
     <string name="globe" translatable="false">🌎</string>
     <string name="volunteer_mode_title">Help others\nconnect to Tor</string>
     <string name="volunteer_mode_weekly_label">Weekly Total</string>
@@ -265,7 +264,6 @@
 
     <string name="log_notice_unable_to_update_onions">unable to upload onion names</string>
     <string name="log_notice_updating_torrc">Updating torrc custom configuration…</string>
-    <string name="log_notice_connected_to_tor_control_port">Connected to tor control port</string>
     <string name="note_snowflake_doesn_t_support_proxies">NOTE: Snowflake doesn\'t support proxies. Proxy settings will be ignored with Snowflake bridges.</string>
 
     <string name="search_for_apps">Search for apps</string>

@@ -153,7 +153,6 @@
 \n• Nó chỉ có thể chạy trên wifi
 \n• Nó có thể được tắt đi bất kỳ lúc nào</string>
     <string name="strict_nodes_description">Hãy đối xử với các cài đặt \"Loại bỏ Nút giao mạng\" (Exclude Nodes) như một điều kiện để xây dựng tất cả các mạch nối. Điều này có thể sẽ làm phá vỡ chức năng nếu như không có mạch nối nào được phát sinh ra (generated) với các cài đặt Loại bỏ Nút giao mạng.</string>
-    <string name="proxy_ports">Các cổng Proxy</string>
     <string name="power_user_description">Đối với những người dùng đã quen thuộc với Tor. Cho phép bạn khởi động Orbot mà không cần cài đặt VPN và hiển thị các cổng SOCKS và HTTP mở khả dụng</string>
     <string name="direct_connect_subtitle">Cách tốt nhất để kết nối tới Tor. Sử dụng nếu như Tor không bị chặn.</string>
     <string name="snowflake">Snowflake (Chính gốc nguyên bản)</string>

@@ -152,7 +152,6 @@
     <string name="snowflake">Snowflake (Original)</string>
     <string name="connect">Conectar</string>
     <string name="next">Próximo</string>
-    <string name="proxy_ports">Portas do proxy</string>
     <string name="volunteer_mode_title">Ajude outros
 \na se conectar ao Tor</string>
     <string name="volunteer_mode_weekly_label">Total semanal</string>

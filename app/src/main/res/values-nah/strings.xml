@@ -140,7 +140,6 @@ atl oquitlapatic</string>
     <string name="btn_change_exit">Xipatla quizayan</string>
     <string name="btn_refresh">Papatia</string>
     <string name="btn_tor_off">XicehuiTor</string>
-    <string name="proxy_ports">Proxy tzalantli</string>
     <string name="volunteer_mode_title">Quipalehui occequintin/ahmo quicentia Tor</string>
     <string name="volunteer_mode_weekly_label">Chicueilhuitl centamachihua</string>
     <string name="volunteer_mode_alltime_label">Nochi cahuitl centamachihua</string>
@@ -175,6 +174,5 @@ atl oquitlapatic</string>
     <string name="snowflake_proxy_client_connected_msg">%1$sMocepayahuiproxy otepalehui oquitzicuini ahmo huelmati%2$s</string>
     <string name="log_notice_unable_to_update_onions">Ahmo huel xictlecahuiz xonacatl itocalhuan</string>
     <string name="log_notice_updating_torrc">Mocentiliz torrc quenime mitzpactia, papatica.</string>
-    <string name="log_notice_connected_to_tor_control_port">Ye octencui huelititzalantli</string>
     <string name="set_transport">Set Transport</string>
 </resources>
