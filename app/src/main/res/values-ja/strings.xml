@@ -246,4 +246,6 @@
     <string name="search_for_apps">アプリを検索する</string>
     <string name="apps_updated_msg">アプリが更新されました</string>
     <string name="set_transport">トランスポートを設定</string>
+    <string name="setting_app_icon_title">アプリのアイコン</string>
+    <string name="setting_block_screenshot_title">スクリーンショットをブロック</string>
 </resources>

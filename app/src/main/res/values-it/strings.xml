@@ -267,4 +267,9 @@
     <string name="status_loading_keys">Caricamento delle chiavi di sicurezza della rete</string>
     <string name="status_requesting_descriptors">Richiesta di informazioni sul server di rete</string>
     <string name="status_loading_descriptors">Caricamento delle informazioni del server di rete</string>
+    <string name="title_safety">Sicurezza</string>
+    <string name="setting_app_icon_title">Icona dell\'app</string>
+    <string name="setting_block_screenshot_title">Blocca le schermate</string>
+    <string name="setting_unlock_pass_title">Blocca schermo</string>
+    <string name="status_loading_status">Caricamento dello stato della rete</string>
 </resources>
