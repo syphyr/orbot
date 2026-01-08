@@ -114,7 +114,7 @@
     <string name="v3_hosted_services">Servizi nascosti ospitati</string>
     <string name="custom_bridges">Bridge personalizzati</string>
     <string name="license">Licenza:</string>
-    <string name="btn_refresh">Aggiorna</string>
+    <string name="btn_refresh">Aggiorna la connessione</string>
     <string name="connect">Connetti</string>
     <string name="next">Avanti</string>
     <string name="trying_to_connect_title">Connessione in corso…</string>
@@ -145,7 +145,7 @@
     <string name="option_only_on_wifi">Solo su Wifi</string>
     <string name="option_only_when_charging">Solo quando in carica</string>
     <string name="volunteer_mode_subtitle_desc">La modalità altruismo consente al tuo dispositivo di fare da ponte per gli altri. Aiuta le persone ad usare Tor in luoghi dove viene bloccato. \n \n• Non consumerà la tua batteria \n• Non rallenterà il tuo internet \n• Può funzionare solo su wifi \n• Può essere spenta in qualsiasi momento</string>
-    <string name="smart_connect">Connessione intelligente (predefinita)</string>
+    <string name="smart_connect">Connessione intelligente</string>
     <string name="snowflake_subtitle">Si connette tramite volontari di Tor. Aggira qualche blocco di Tor.</string>
     <string name="ports_not_set">Porte non impostate</string>
     <string name="volunteer_mode">Modalità altruismo</string>
@@ -161,7 +161,7 @@
     <string name="volunteer_mode_title">Aiuta altri a
 \nconnettersi a Tor</string>
     <string name="volunteer_mode_alltime_label">Totale assoluto</string>
-    <string name="direct_connect">Connessione diretta a Tor</string>
+    <string name="direct_connect">Connessione diretta</string>
     <string name="direct_connect_subtitle">Il modo migliore per connettersi a Tor. Usalo se Tor non viene bloccato.</string>
     <string name="snowflake">Snowflake (originale)</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
@@ -191,7 +191,7 @@
     <string name="app_icon_chooser_label_todo">Da fare</string>
     <string name="power_user_mode_permission">Necessaria l\'autorizzazione Allarmi &amp; Promemoria per la modalità Utente esperto</string>
     <string name="power_user_mode_permission_msg">Consenti a Orbot di impostare allarmi e promemoria per potere usare la modalità utente esperto. Ciò non imposterà alcun allarme sul dispositivo. Questa autorizzazione è necessaria affinché il sistema mantenga il servizio Orbot in esecuzione quando Orbot non viene usato come VPN a livello di sistema.</string>
-    <string name="error_no_password_set">Si prega di proteggere il dispositivo per usare l\'autenticazione di Orbot</string>
+    <string name="error_no_password_set">Devi impostare una password per il dispositivo Android per potere usare la funzione Blocca schermo</string>
     <string name="device_lock_unsupported">L\'autenticazione di Orbot non è supportata sul tuo dispositivo</string>
     <string name="device_lock_security_update_needed">Devi scaricare gli aggiornamenti di sicurezza di Android per il tuo dispositivo, per potere usare l\'autenticazione Orbot</string>
     <string name="invalid_bridge_format">Formato bridge non valido</string>
@@ -223,7 +223,7 @@
     <string name="app_icon_chooser_label_tetras">Tetra</string>
     <string name="app_icon_chooser_label_fit_grit">Fitness</string>
     <string name="app_icon_chooser_label_birdie">Uccellino</string>
-    <string name="camo_samsung_instructions">Le notifiche in modalità Camouflage funzioneranno nel tuo dispositivo Samsung Galaxy solo aprendo le impostazioni -&gt; Notifiche -&gt; Impostazioni avanzate e disattivando \"Mostra icona app in notifiche\". Clicca qui per aprire impostazioni di notifica.</string>
+    <string name="camo_samsung_instructions">Nel tuo dispositivo Samsung Galaxy, le notifiche di Orbot cambieranno le icone solo aprendo Impostazioni -&gt; Notifiche -&gt; Impostazioni avanzate e disattivando \"Mostra icona app in notifiche\". Clicca qui per aprire impostazioni di notifica.</string>
     <string name="request_notification_permission">Attiva le notifiche per Orbot</string>
     <string name="request_notification_permission_msg">Se non attivi le notifiche, Orbot non può agire come una VPN Tor o usare la modalità altruismo.\n\nQuando attive, mostriamo solo una singola notifica mentre Orbot è in esecuzione.</string>
     <string name="open_settings">Apri le impostazioni</string>
@@ -246,4 +246,30 @@
     <string name="search_for_apps">Cerca app</string>
     <string name="apps_updated_msg">App aggiornate</string>
     <string name="set_transport">Imposta trasporto</string>
+    <string name="app_icon_dialog_title" formatted="true">Passa a %1$s</string>
+    <string name="app_icon_dialog_msg" formatted="true">Il passaggio a %1$s riavvierà l\'app</string>
+    <string name="setting_app_icon_description">Scegli come appare Orbot sul tuo dispositivo</string>
+    <string name="setting_block_screenshot_description">Impedisce a chiunque di catturare schermate di questa app</string>
+    <string name="setting_unlock_pass_description">Richiedi il PIN, la password o la sequenza del tuo dispositivo per aprire Orbot</string>
+    <string name="setting_unlock_with_biometrics_title">Usa la biometria (facoltativo)</string>
+    <string name="setting_unlock_with_biometrics_description">Sblocca Orbot con l\'impronta digitale o Face ID se impostato sul dispositivo.</string>
+    <string name="status_connected_control_port">Il servizio Tor è in esecuzione</string>
+    <string name="status_handshake">Connessione all\'ingresso della rete Tor</string>
+    <string name="status_handshake_done">Ingresso nella rete Tor</string>
+    <string name="status_circuit_create">Impostazione della connessione tramite la rete Tor</string>
+    <string name="status_done">Tutto pronto!</string>
+    <string name="status_conn_pt">Ricerca di un percorso alternativo alla rete Tor</string>
+    <string name="status_conn_done_pt">Percorso alternativo stabilito</string>
+    <string name="status_conn_done">Connesso all\'ingresso della rete Tor</string>
+    <string name="status_onehop_create">Accesso alla directory della rete Tor</string>
+    <string name="status_enough_dirinfo">Directory della rete Tor caricata</string>
+    <string name="status_requesting_status">Richiesta a Tor dello stato della rete</string>
+    <string name="status_loading_keys">Caricamento delle chiavi di sicurezza della rete</string>
+    <string name="status_requesting_descriptors">Richiesta di informazioni sul server di rete</string>
+    <string name="status_loading_descriptors">Caricamento delle informazioni del server di rete</string>
+    <string name="title_safety">Sicurezza</string>
+    <string name="setting_app_icon_title">Icona dell\'app</string>
+    <string name="setting_block_screenshot_title">Blocca le schermate</string>
+    <string name="setting_unlock_pass_title">Blocca schermo</string>
+    <string name="status_loading_status">Caricamento dello stato della rete</string>
 </resources>
