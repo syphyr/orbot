@@ -57,6 +57,7 @@ import androidx.core.content.ContextCompat;
 
 import kotlin.Unit;
 
+@SuppressLint("VpnServicePolicy")
 public class OrbotService extends VpnService {
 
     public final static String BINARY_TOR_VERSION = TorService.VERSION_NAME;
