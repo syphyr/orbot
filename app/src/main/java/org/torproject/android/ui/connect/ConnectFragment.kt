@@ -7,6 +7,7 @@ import android.content.res.ColorStateList
 import android.net.VpnService
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,6 +38,7 @@ import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.jni.TorService
+private const val DEFAULT_THROTTLE_INTERVAL = 4000L
 
 class ConnectFragment : Fragment(),
     ExitNodeBottomSheet.ExitNodeSelectedCallback {
@@ -60,6 +62,7 @@ class ConnectFragment : Fragment(),
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                Log.d("bim", "in started")
                 viewModel.uiState.collect { state ->
                     if (state == ConnectUiState.NoInternet)
                         binding.switchConnect.visibility = View.GONE
@@ -85,6 +88,9 @@ class ConnectFragment : Fragment(),
                     }
                 }
             }
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.DESTROYED) {
+                Log.d("bim", "destroyed")
+            }
         }
 
         viewLifecycleOwner.lifecycleScope.launch {
@@ -107,8 +113,17 @@ class ConnectFragment : Fragment(),
                 }
             }
         }
-
-        binding.switchConnect.setOnThrottledCheckedChangeListener { _, value ->
+        binding.switchConnect.setOnClickListener {
+            it.isEnabled = false
+            it.alpha = 0.38f
+            binding.switchConnect.text = context?.getString(R.string.loading)
+            it.postDelayed({
+                it.isEnabled = true
+                it.alpha = 1f
+                binding.switchConnect.text = context?.getString(R.string.connect)
+            }, DEFAULT_THROTTLE_INTERVAL)
+        }
+        binding.switchConnect.setOnCheckedChangeListener { _, value ->
             if (value)
                 startTorAndVpn()
             else
@@ -369,27 +384,5 @@ class ConnectFragment : Fragment(),
         )
 
         refreshMenuList(requireContext())
-    }
-}
-
-private const val DEFAULT_THROTTLE_INTERVAL = 4000L
-
-/**
- * Prevents rapid consecutive checked-change calls while visually indicating cooldown
- */
-fun CompoundButton.setOnThrottledCheckedChangeListener(
-    onCheckedChange: (button: CompoundButton, isChecked: Boolean) -> Unit
-) {
-    setOnCheckedChangeListener { buttonView, isChecked ->
-        buttonView.isEnabled = false
-        buttonView.alpha = 0.38f
-        buttonView.text = context.getString(R.string.loading)
-        onCheckedChange(buttonView, isChecked)
-        // Restore after delay
-        buttonView.postDelayed({
-            buttonView.text = context.getString(R.string.connect)
-            buttonView.isEnabled = true
-            buttonView.alpha = 1f
-        }, DEFAULT_THROTTLE_INTERVAL)
     }
 }
