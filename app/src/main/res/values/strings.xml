@@ -297,4 +297,5 @@
     <string name="status_requesting_descriptors">Requesting network server information</string>
     <string name="status_loading_descriptors">Loading network server information</string>
     <string name="set_transport">Set Transport</string>
+    <string name="loading">Loading…</string>
 </resources>

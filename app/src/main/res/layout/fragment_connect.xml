@@ -2,16 +2,15 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:fillViewport="true"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="110dp"
-        android:backgroundTint="@color/new_background">
-
+        android:backgroundTint="@color/new_background"
+        android:paddingBottom="110dp">
 
 
         <ImageView
@@ -109,55 +108,26 @@
             android:paddingEnd="@dimen/button_horizontal_med_margin"
             android:paddingBottom="@dimen/button_horizontal_small_margin"
             android:text="@string/btn_start_vpn"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lvConnected"
-            tools:enabled="false"
-            android:visibility="gone"
-            />
+            tools:enabled="false" />
 
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/switchConnect"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_marginTop="32dp"
-            android:text="@string/connect"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lvConnected"
             android:background="@color/orbot_btn_enabled_purple"
             android:paddingStart="@dimen/button_horizontal_med_margin"
             android:paddingTop="@dimen/button_horizontal_small_margin"
             android:paddingEnd="@dimen/button_horizontal_med_margin"
             android:paddingBottom="@dimen/button_horizontal_small_margin"
-            />
-
-        <!--
-        <androidx.appcompat.widget.SwitchCompat
-            android:id="@+id/swSmartConnect"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            android:text="@string/run_smart_connect_"
+            android:text="@string/connect"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btnStart"
-            android:visibility="gone"
-            app:switchPadding="8dp" />
-
-        <TextView
-            android:id="@+id/tvConfigure"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/btn_configure"
-            android:textAllCaps="true"
-            android:visibility="gone"
-            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/swSmartConnect" />
--->
+            app:layout_constraintTop_toBottomOf="@+id/lvConnected" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
