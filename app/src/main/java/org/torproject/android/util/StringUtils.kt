@@ -4,10 +4,15 @@ package org.torproject.android.util
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.view.View
 import android.widget.Toast
+import androidx.core.text.TextUtilsCompat
 import java.util.Locale
 
 object StringUtils {
+
+    fun isLeftToRight(locale: Locale = Locale.getDefault()) : Boolean =
+        TextUtilsCompat.getLayoutDirectionFromLocale(locale) == View.LAYOUT_DIRECTION_LTR
 
     @JvmStatic
     fun convertCountryCodeToFlagEmoji(countryCode: String): String {

@@ -299,4 +299,6 @@
     <string name="set_transport">Set Transport</string>
     <string name="loading">Loading…</string>
     <string name="stop_vpn">Stop VPN</string>
+    <string name="http_port">HTTP Port</string>
+    <string name="socks_port">SOCKS Port</string>
 </resources>
