@@ -4,6 +4,8 @@
 package org.torproject.android.service;
 
 import static org.torproject.android.service.OrbotConstants.*;
+import static org.torproject.jni.TorService.*;
+import static org.torproject.jni.TorService.TAG;
 
 import android.annotation.SuppressLint;
 import android.app.Notification;

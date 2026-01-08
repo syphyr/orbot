@@ -36,6 +36,7 @@ import org.torproject.android.service.OrbotService
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotMenuAction
+import org.torproject.jni.TorService
 
 class ConnectFragment : Fragment(),
     ExitNodeBottomSheet.ExitNodeSelectedCallback {
@@ -76,7 +77,7 @@ class ConnectFragment : Fragment(),
 
                         is ConnectUiState.On -> {
                             binding.switchConnect.isChecked = true
-                            lastState = OrbotConstants.ACTION_START
+                            lastState = TorService.ACTION_START
                             doLayoutOn(requireContext())
                         }
 
@@ -180,7 +181,7 @@ class ConnectFragment : Fragment(),
                 }
             }
             doLayoutStarting(requireContext())
-            setState(OrbotConstants.ACTION_START)
+            setState(TorService.ACTION_START)
         }
         refreshMenuList(requireContext())
     }

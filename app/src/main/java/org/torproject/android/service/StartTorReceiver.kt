@@ -5,12 +5,12 @@ import android.content.Context
 import android.content.Intent
 import android.text.TextUtils
 import androidx.core.content.ContextCompat
-import org.torproject.android.service.OrbotConstants.ACTION_START
-import org.torproject.android.service.OrbotConstants.ACTION_STATUS
-import org.torproject.android.service.OrbotConstants.EXTRA_PACKAGE_NAME
-import org.torproject.android.service.OrbotConstants.EXTRA_STATUS
 import org.torproject.android.service.OrbotConstants.STATUS_STARTS_DISABLED
 import org.torproject.android.util.Prefs
+import org.torproject.jni.TorService.ACTION_START
+import org.torproject.jni.TorService.ACTION_STATUS
+import org.torproject.jni.TorService.EXTRA_PACKAGE_NAME
+import org.torproject.jni.TorService.EXTRA_STATUS
 
 class StartTorReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {

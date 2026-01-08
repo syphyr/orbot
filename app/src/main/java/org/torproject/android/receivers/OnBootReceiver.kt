@@ -8,6 +8,7 @@ import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.putNotSystem
+import org.torproject.jni.TorService.ACTION_START
 import java.lang.RuntimeException
 
 class OnBootReceiver : BroadcastReceiver() {
@@ -35,7 +36,7 @@ class OnBootReceiver : BroadcastReceiver() {
     private fun startService(context: Context) {
         try {
             val intent = Intent(context, OrbotService::class.java).apply {
-                this.action = OrbotConstants.ACTION_START
+                this.action = ACTION_START
             }.putNotSystem()
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
                 context.startForegroundService(intent)
