@@ -271,7 +271,7 @@ class ConnectFragment : Fragment(),
             text = if (Prefs.isPowerUserMode)
                 getString(R.string.btn_tor_off)
             else
-                "Stop VPN"
+                getString(R.string.stop_vpn)
 
             isEnabled = true
             backgroundTintList = ColorStateList.valueOf(
@@ -299,47 +299,8 @@ class ConnectFragment : Fragment(),
         binding.tvTitle.text = getString(R.string.secure_your_connection_title)
         binding.tvSubtitle.text = getString(R.string.secure_your_connection_subtitle)
 
-        /**
-         * //TODO hide smart connect in the UI for now
-        binding.swSmartConnect.visibility = View.VISIBLE
-        binding.swSmartConnect.isChecked = Prefs.smartConnect
-        binding.swSmartConnect.setOnCheckedChangeListener { _, value ->
-        Prefs.smartConnect = value
-        doLayoutOff()
-        }**/
-
-        /**
-        binding.tvConfigure.visibility = View.GONE
-        binding.tvConfigure.text = getString(R.string.btn_configure)
-        binding.tvConfigure.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-        binding.tvConfigure.setOnClickListener { openConfigureTorConnection()
-         **/
 
         with(binding.btnStart) {
-
-            /** val connectStr = ""
-            text = when {
-            Prefs.isPowerUserMode -> getString(R.string.connect)
-            connectStr.isEmpty() -> SpannableStringBuilder()
-            .append(
-            getString(R.string.btn_start_vpn),
-            AbsoluteSizeSpan(18, true),
-            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
-
-            else -> SpannableStringBuilder()
-            .append(
-            getString(R.string.btn_start_vpn),
-            AbsoluteSizeSpan(18, true),
-            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
-            .append("\n")
-            .append(
-            connectStr,
-            AbsoluteSizeSpan(12, true),
-            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
-            }**/
 
             isEnabled = true
             backgroundTintList = ColorStateList.valueOf(
