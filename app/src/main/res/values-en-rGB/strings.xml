@@ -94,8 +94,8 @@
     <string name="volunteer_mode_title">Help others\nconnect to Tor</string>
     <string name="volunteer_mode_alltime_label">All Time Total</string>
     <string name="volunteer_mode_subtitle_desc">Kindness mode allows your device to be a bridge for others. It helps people use Tor in places where it is blocked.\n\n• It will not drain your battery\n• It will not slow down your internet\n• It can run only over wifi\n• It can be turned off anytime</string>
-    <string name="smart_connect">Smart Connect (default)</string>
-    <string name="direct_connect">Direct Connection to Tor</string>
+    <string name="smart_connect">Smart Connect</string>
+    <string name="direct_connect">Direct Connection</string>
     <string name="direct_connect_subtitle">The best way to connect to Tor. Use if Tor is not blocked.</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Connects through Tor volunteers. Gets around some Tor blocking.</string>
@@ -109,7 +109,7 @@
     <string name="btn_configure">Choose How To Connect</string>
     <string name="btn_choose_apps">Choose apps</string>
     <string name="btn_change_exit">Change exit</string>
-    <string name="btn_refresh">Refresh</string>
+    <string name="btn_refresh">Refresh Connection</string>
     <string name="btn_tor_off">Turn Tor off</string>
     <string name="pref_start_boot_title">Start Orbot on Boot</string>
     <string name="pref_proxy_password_summary">Proxy Password (Optional)</string>
@@ -226,7 +226,7 @@
     <string name="app_icon_chooser_label_tetras">Tetras</string>
     <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
     <string name="app_icon_chooser_label_birdie">Birdie</string>
-    <string name="camo_samsung_instructions">On your Samsung Galaxy device, Camouflage Mode\'s notifications will only work by opening your Settings -&gt; Notifications -&gt; Advanced Settings and disabling \"Show app icon in notifications\". Click here to open Notification Settings.</string>
+    <string name="camo_samsung_instructions">On Your Samsung Galaxy device, Orbot\'s notifications will only switch icons by opening Settings -&gt; Notifications -&gt; Advanced Settings and disabling \"Show app icon in notifications\". Click here to open Notification Settings.</string>
     <string name="request_notification_permission">Please enable notifications for Orbot</string>
     <string name="request_notification_permission_msg">Without turning on notifications, Orbot can\'t act as a Tor VPN or use Kindness Mode.\n\nWhen enabled, we only show a single notification when Orbot is running.</string>
     <string name="open_settings">Open Settings</string>
@@ -249,4 +249,6 @@
     <string name="search_for_apps">Search for apps</string>
     <string name="apps_updated_msg">Apps Updated</string>
     <string name="set_transport">Set Transport</string>
+    <string name="app_icon_dialog_title" formatted="true">Switch to %1$s</string>
+    <string name="app_icon_dialog_msg" formatted="true">Switching to %1$s will restart the app</string>
 </resources>
