@@ -142,8 +142,6 @@
     <string name="btn_change_exit">Athraigh an bealach amach</string>
     <string name="btn_refresh">Athnuachan an Nasc</string>
     <string name="btn_tor_off">Múch Tor</string>
-    <string name="proxy_ports">Poirt Seachfhreastalaí</string>
-    <string name="ports_not_set">Poirt Gan Socrú</string>
     <string name="volunteer_mode_title">Cabhraigh le daoine eile\nceangal le Tor</string>
     <string name="volunteer_mode_weekly_label">Iomlán Seachtainiúil</string>
     <string name="volunteer_mode_alltime_label">Iomlán na nAmaí</string>
@@ -239,7 +237,6 @@
     <string name="snowflake_proxy_client_connected_msg">Chabhraigh Mód Cineáltais %1$s le duine éigin cinsireacht %2$s a sheachaint</string>
     <string name="log_notice_unable_to_update_onions">ní féidir ainmneacha oinniún a uaslódáil</string>
     <string name="log_notice_updating_torrc">Cumraíocht saincheaptha torrc á nuashonrú…</string>
-    <string name="log_notice_connected_to_tor_control_port">Ceangailte le port rialaithe tor</string>
     <string name="note_snowflake_doesn_t_support_proxies">NÓTA: Ní thacaíonn Snowflake le seachfhreastalaithe. Déanfar neamhaird ar shocruithe seachfhreastalaithe le droichid Snowflake.</string>
     <string name="search_for_apps">Cuardaigh d\'aipeanna</string>
     <string name="apps_updated_msg">Aipeanna Nuashonraithe</string>

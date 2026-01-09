@@ -48,13 +48,11 @@
     <string name="delete_service">Fshije Shërbimin</string>
     <string name="pref_isolate_dest">Izolo adresa vendmbërritje</string>
     <string name="secure_your_connection_title">Gati që të lidheni</string>
-    <string name="proxy_ports">Porta Ndërmjetësi</string>
     <string name="smart_connect">Lidhje e Mençur</string>
     <string name="direct_connect">Lidhje e Drejtpërdrejtë</string>
     <string name="snowflake">Snowflake</string>
     <string name="connect">Lidhu</string>
     <string name="next">Pasuesi</string>
-    <string name="ports_not_set">Porta të Paujdisura</string>
     <string name="btn_start_vpn">Nise VPN-në</string>
     <string name="btn_configure">Zgjidhni Si të Lidhet</string>
     <string name="trying_to_connect_title">Po lidhjet…</string>
@@ -247,7 +245,6 @@
     <string name="snowflake_proxy_client_connected_msg">Mënyra “Kindness” %1$s ndihmoi dikë të anashkalojë censurimin %2$s</string>
     <string name="log_notice_unable_to_update_onions">s’arrihet të ngarkohen emra Onion</string>
     <string name="log_notice_updating_torrc">Po përditësohet formësim vetjak i torrc-së…</string>
-    <string name="log_notice_connected_to_tor_control_port">I lidhur te porta e kontrollit të Tor-it</string>
     <string name="note_snowflake_doesn_t_support_proxies">SHËNIM: Snowflake s’mbulon ndërmjetës. Rregullimet për ndërmjetës do të shpërfillen nga ura Snowflake.</string>
     <string name="search_for_apps">Kërkoni për aplikacione</string>
     <string name="apps_updated_msg">Aplikacionet u Përditësuan</string>

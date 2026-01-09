@@ -21,12 +21,13 @@ import org.torproject.android.service.OrbotService
 import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.android.ui.v3onionservice.OnionServiceActivity
 import org.torproject.android.ui.v3onionservice.clientauth.ClientAuthActivity
+import org.torproject.android.util.StringUtils
 
 class MoreFragment : Fragment() {
     private var httpPort = -1
     private var socksPort = -1
 
-    private lateinit var tvStatus: TextView
+    private lateinit var tvPortAndVersionInfo: TextView
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -38,24 +39,29 @@ class MoreFragment : Fragment() {
     }
 
     private fun updateStatus() {
-        val labels = listOf("HTTP proxy", "SOCKS proxy", "Orbot", "Tor")
+        val labelHttp = getString(R.string.http_port)
+        val labelSocks = getString(R.string.socks_port)
+        val notSet = "——"
+        val labels = listOf(labelHttp, labelSocks, "Orbot", "Tor")
         val labelWidth = labels.maxOf { it.length } + 6
-
+        val isLeftToRight = StringUtils.isLeftToRight()
         fun row(label: String, value: String): String {
-            return label.padEnd(labelWidth) + value
+            return if (isLeftToRight)
+                label.padEnd(labelWidth) + value
+            else value.padEnd(labelWidth) + label
         }
 
         val rows = mutableListOf<String>()
 
         rows += if (httpPort != -1 && socksPort != -1) {
             listOf(
-                row("HTTP proxy", httpPort.toString()),
-                row("SOCKS proxy", socksPort.toString())
+                row(labelHttp, httpPort.toString()),
+                row(labelSocks, socksPort.toString())
             )
         } else {
             listOf(
-                row("HTTP proxy", getString(R.string.ports_not_set)),
-                row("SOCKS proxy", getString(R.string.ports_not_set))
+                row(labelHttp, notSet),
+                row(labelSocks, notSet)
             )
         }
 
@@ -63,10 +69,10 @@ class MoreFragment : Fragment() {
         val info = pm.getPackageInfo(requireActivity().packageName, 0)
         val normalizedVersion = info.versionName?.substringBefore("tor")?.dropLast(1)
 
-        rows += row("Orbot", "v$normalizedVersion")
-        rows += row("Tor", "v${getTorVersion()}")
+        rows += row("Orbot", "$normalizedVersion")
+        rows += row("Tor", getTorVersion())
 
-        tvStatus.text = rows.joinToString("\n")
+        tvPortAndVersionInfo.text = rows.joinToString("\n")
     }
 
     override fun onCreateView(
@@ -81,7 +87,7 @@ class MoreFragment : Fragment() {
         toolbar?.title = requireContext().getString(R.string.app_name)
         view.findViewById<TextView>(R.id.tvExit)?.setOnClickListener { doExit() }
 
-        tvStatus = view.findViewById(R.id.tvVersion)
+        tvPortAndVersionInfo = view.findViewById(R.id.tvPortAndVersionInfo)
 
         updateStatus()
 

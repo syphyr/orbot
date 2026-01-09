@@ -1,10 +1,11 @@
 package org.torproject.android.service
 
 import androidx.core.net.toUri
-import org.torproject.jni.TorService
 
 object OrbotConstants {
     const val TAG = "Orbot"
+
+    const val ACTION_STOP = "org.torproject.android.intent.action.STOP"
 
     const val PREF_REACHABLE_ADDRESSES = "pref_reachable_addresses"
     const val PREF_REACHABLE_ADDRESSES_PORTS = "pref_reachable_addresses_ports"
@@ -45,11 +46,6 @@ object OrbotConstants {
     const val LOG_NOTICE_HEADER = "NOTICE: "
     const val LOG_NOTICE_BOOTSTRAPPED = "Bootstrapped"
 
-    /**
-     * A request to Orbot to transparently start Tor services
-     */
-    const val ACTION_START = TorService.ACTION_START
-    const val ACTION_STOP = "org.torproject.android.intent.action.STOP"
 
     // needed when Orbot exits and tor is not running, but the notification is still active
     const val ACTION_STOP_FOREGROUND_TASK = "org.torproject.android.intent.action.STOP_FOREGROUND_TASK"
@@ -60,25 +56,6 @@ object OrbotConstants {
 
     const val ACTION_UPDATE_ONION_NAMES = "org.torproject.android.intent.action.UPDATE_ONION_NAMES"
 
-    /**
-     * Intent send by Orbot with `ON/OFF/STARTING/STOPPING` status
-     */
-    const val ACTION_STATUS = TorService.ACTION_STATUS
-
-    const val ACTION_ERROR = TorService.ACTION_ERROR
-
-    /**
-     * `String` that contains a status constant: [.STATUS_ON],
-     * [.STATUS_OFF], [.STATUS_STARTING], or
-     * [.STATUS_STOPPING]
-     */
-    const val EXTRA_STATUS = TorService.EXTRA_STATUS
-
-    /**
-     * A [String] `packageName` for Orbot to direct its status reply
-     * to, used in [.ACTION_START] Intents sent to Orbot
-     */
-    const val EXTRA_PACKAGE_NAME = TorService.EXTRA_PACKAGE_NAME
 
     /**
      * The SOCKS proxy settings in URL form.
@@ -118,17 +95,6 @@ object OrbotConstants {
     const val LOCAL_ACTION_V3_NAMES_UPDATED = "V3_NAMES_UPDATED"
 
 
-    /**
-     * All tor-related services and daemons are stopped
-     */
-    const val STATUS_OFF = TorService.STATUS_OFF
-
-    /**
-     * All tor-related services and daemons have completed starting
-     */
-    const val STATUS_ON = TorService.STATUS_ON
-    const val STATUS_STARTING = TorService.STATUS_STARTING
-    const val STATUS_STOPPING = TorService.STATUS_STOPPING
 
     /**
      * The user has disabled the ability for background starts triggered by

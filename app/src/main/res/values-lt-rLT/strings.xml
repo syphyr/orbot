@@ -142,12 +142,10 @@
     <string name="bridge_snowflake_amp">Prisijungimas per kitus „Tor“ naudotojus naudojant „Snowflake“ (2 būdas)</string>
     <string name="snowflake_proxy_msg_title">Rodyti pranešimą apie ryšį</string>
     <string name="snowflake_proxy_msg_description">Rodyti pranešimą, kai padedate kam nors apeiti cenzūrą</string>
-    <string name="proxy_ports">Įgaliotojo serverio prievadai</string>
     <string name="volunteer_mode_title">Padėkite kitiems
 \nprisijungti prie „Tor“</string>
     <string name="volunteer_mode_weekly_label">Iš viso per savaitę</string>
     <string name="volunteer_mode_alltime_label">Iš viso per visą laiką</string>
-    <string name="ports_not_set">Prievadai nenustatyti</string>
     <string name="power_user_mode">Patyrusio vartotojo režimas</string>
     <string name="action_activate">Aktyvuoti</string>
     <string name="volunteer_status_title">Šiandiena yra geresnė

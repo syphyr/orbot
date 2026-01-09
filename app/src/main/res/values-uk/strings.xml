@@ -135,7 +135,6 @@
     <string name="btn_choose_apps">Вибрати застосунки</string>
     <string name="btn_start_vpn">Запустити VPN</string>
     <string name="snowflake">Сніжинка</string>
-    <string name="ports_not_set">Порти не налаштовані</string>
     <string name="direct_connect_subtitle">Кращий спосіб під\'єднання до Tor. Використовуйте, якщо Tor не заблокований.</string>
     <string name="volunteer_mode_subtitle_desc">Режим доброти дозволяє вашому пристрою бути мостом для інших. Він допомагає людям користуватися Tor там, де він заблокований.
 \n
@@ -143,7 +142,6 @@
 \n- Не сповільнює ваш інтернет
 \n- Він може працювати тільки через Wi-Fi
 \n- Його можна вимкнути в будь-який час</string>
-    <string name="proxy_ports">Порти проксі</string>
     <string name="volunteer_mode_weekly_label">Усього за тиждень</string>
     <string name="next">Далі</string>
     <string name="volunteer_mode_title">Допомагайте іншим
@@ -246,7 +244,6 @@
     <string name="snowflake_proxy_client_connected_msg">%1$s Режим доброти допоміг комусь обійти цензуру %2$s</string>
     <string name="log_notice_unable_to_update_onions">неможливо завантажити назви цибулі</string>
     <string name="log_notice_updating_torrc">Оновлення користувацької конфігурації torrc…</string>
-    <string name="log_notice_connected_to_tor_control_port">Підключено до порту керування Tor</string>
     <string name="note_snowflake_doesn_t_support_proxies">ПРИМІТКА. Snowflake не підтримує проксі-сервери. Налаштування проксі-сервера будуть ігноруватися мостами Snowflake.</string>
     <string name="search_for_apps">Пошук програм</string>
     <string name="apps_updated_msg">Оновлені програми</string>

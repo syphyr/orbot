@@ -139,9 +139,7 @@ punjulaa apps, jupula  anaijatuin  pu kachuerrase</string>
   <string name="btn_change_exit">  Awuanajawua  ajui\'tia</string>
   <string name="btn_refresh">Jekets juchikuaaya </string>
   <string name="btn_tor_off">Oyokujaa TOR</string>
-  <string name="proxy_ports">Jüntiale Proxy</string>
-  <string name="ports_not_set">Antule nojots ketta\'in</string>
-  <string name="volunteer_mode_title">pukalijaa  waneirrüa  junain apainjirrawua numa Tor</string>
+    <string name="volunteer_mode_title">pukalijaa  waneirrüa  junain apainjirrawua numa Tor</string>
   <string name="volunteer_mode_weekly_label">Jupushua  semanaka.</string>
   <string name="volunteer_mode_alltime_label">Jupushua  akalia\'a</string>
   <string name="volunteer_mode_subtitle_desc">Tor akalijúsh erre\'e suttuin , nojots ajattuín tu bateriaka, kawuatirras tu internetka,pulatiruín juma WIFI, es jupüla puyokujain</string>
@@ -180,6 +178,5 @@ punjulaa apps, jupula  anaijatuin  pu kachuerrase</string>
 
   <string name="log_notice_unable_to_update_onions">Nojoluinjat  aitanüin junulia cewoolla.</string>
   <string name="log_notice_updating_torrc">Jeketerr  tu anatiakal  tu ipünamiukal C</string>
-  <string name="log_notice_connected_to_tor_control_port">Antirrashi  Tor  juma ipunamuika eki.</string>
     <string name="set_transport">Set Transport</string>
 </resources>

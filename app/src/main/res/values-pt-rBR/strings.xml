@@ -152,12 +152,10 @@
     <string name="snowflake">Snowflake (Original)</string>
     <string name="connect">Conectar</string>
     <string name="next">Próximo</string>
-    <string name="proxy_ports">Portas do proxy</string>
     <string name="volunteer_mode_title">Ajude outros
 \na se conectar ao Tor</string>
     <string name="volunteer_mode_weekly_label">Total semanal</string>
     <string name="volunteer_mode_alltime_label">Total de todos os períodos</string>
-    <string name="ports_not_set">Portas não definidas</string>
     <string name="smart_connect">Conexão inteligente (padrão)</string>
     <string name="direct_connect_subtitle">A melhor maneira de se conectar ao Tor. Use caso o Tor não esteja bloqueado.</string>
     <string name="snowflake_subtitle">Conecta-se através de voluntários do Tor. Contorna alguns bloqueios do Tor.</string>

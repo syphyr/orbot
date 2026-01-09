@@ -143,8 +143,6 @@
     <string name="next">Далее</string>
     <string name="snowflake_subtitle">Подключение через добровольцев Tor. Обходит некоторые блокировки Tor.</string>
     <string name="direct_connect_subtitle">Лучший способ подключения к Tor. Используйте, если Tor не заблокирован.</string>
-    <string name="proxy_ports">Порты прокси</string>
-    <string name="ports_not_set">Порты не указаны</string>
     <string name="volunteer_mode_subtitle_desc">Режим доброты позволяет вашему устройству быть мостом для других. Это помогает людям использовать Tor в местах, где он заблокирован.
 \n
 \n• Он не расходует заряд батареи
@@ -246,6 +244,5 @@
     <string name="snowflake_proxy_client_connected_msg">%1$s Режим доброты помог кому-то обойти цензуру %2$s</string>
     <string name="log_notice_unable_to_update_onions">не получилось загрузить onion имена</string>
     <string name="log_notice_updating_torrc">Обновление пользовательских настроек torrc…</string>
-    <string name="log_notice_connected_to_tor_control_port">Подключены к tor control port</string>
     <string name="set_transport">Настроить транспорт</string>
 </resources>

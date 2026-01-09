@@ -82,7 +82,6 @@
     <string name="trying_to_connect_title">Připojování…</string>
     <string name="btn_refresh">Obnovit</string>
     <string name="volunteer_mode_alltime_label">Celkově za celou dobu</string>
-    <string name="proxy_ports">Proxy porty</string>
     <string name="pref_circuit_padding">Vycpávky obvodů</string>
     <string name="no_internet_subtitle">K používání služby Orbot potřebujete připojení k internetu.</string>
     <string name="pref_isolate_dest_summary">Pro každou cílovou adresu použijte jiný okruh</string>
@@ -96,7 +95,6 @@
 \n- Nezpomalí váš internet
 \n- Může běžet pouze přes wifi
 \n- Lze ji kdykoli vypnout</string>
-    <string name="ports_not_set">Porty nejsou nastaveny</string>
     <string name="ask_tor">Zeptejte se Toru</string>
     <string name="pref_http_dialog">Konfigurace portu HTTP</string>
     <string name="consider_disable_battery_optimizations">Spuštěné hostované služby, zvažte vypnutí optimalizací baterie</string>

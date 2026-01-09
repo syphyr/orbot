@@ -81,14 +81,12 @@
     <string name="pref_dnsport_dialog">«DNS» մատույցի կարգավորում</string>
     <string name="v3_hosted_services">Հյուրընկալված Onion ծառայություններ</string>
     <string name="delete_service">Ջնջել ծառայությունը</string>
-    <string name="ports_not_set">Մատույցներ չեն դրվել</string>
     <string name="log_copied">Մատյանը պատճենվեց</string>
     <string name="ask_tor">Հարցրեք Tor-ին</string>
     <string name="kindness_adjust_title">Կարգավորումներ</string>
     <string name="reachable_addresses">Մատչելի հասցեներ</string>
     <string name="enter_ports">Մուտքագրեք մատույցները</string>
     <string name="project_home">Նախագծի տնէջ.</string>
-    <string name="proxy_ports">Փոխանորդի մատույցներ</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_http_title">Tor HTTP</string>
     <string name="pref_dnsport_title">Tor DNS մատույց</string>

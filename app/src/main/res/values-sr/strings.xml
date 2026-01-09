@@ -126,7 +126,6 @@
     <string name="option_only_on_wifi">Само на Wifi</string>
     <string name="v3_backup_key">Резервна копија кључа за клијентску ауторизацију</string>
     <string name="v3_delete_client_authorization_confirm">Обриши клијентску ауторизацију</string>
-    <string name="proxy_ports">Прокси портови</string>
     <string name="pref_http_title">Тор HTTP</string>
     <string name="pref_disable_ipv4">Онемогући IPv4 везе</string>
     <string name="pref_circuit_padding">Пуњење кола</string>
@@ -139,7 +138,6 @@
     <string name="backup_port_exist">Грешка: Onion услуга већ користи порт %s</string>
     <string name="bridge_snowflake_amp">Повежи се преко других Тор корисника користећи Snowflake (Метод 2 - AMP)</string>
     <string name="snowflake_proxy_msg_title">Прикажи обавештење о вези</string>
-    <string name="ports_not_set">Портови нису подешени</string>
     <string name="option_only_when_charging">Само када се пуни</string>
     <string name="pref_http_dialog">Конфигурација HTTP порта</string>
     <string name="pref_disable_ipv4_summary">Обавештава излазе да се не повезују на IPv4 адресе</string>

@@ -142,7 +142,6 @@
     <string name="secure_your_connection_title">Listo para conectar</string>
     <string name="secure_your_connection_subtitle">Oculta as apps da supervisión da rede e obteña acceso cando estén bloqueadas.</string>
     <string name="btn_change_exit">Cambiar saída</string>
-    <string name="proxy_ports">Porto do Proxy</string>
     <string name="direct_connect_subtitle">A mellor maneira de conectarse a Tor. Utilizar se Tor non está bloqueado.</string>
     <string name="btn_start_vpn">Iniciar VPN</string>
     <string name="snowflake_proxy_msg_title">Amosar notificación de conexión</string>
@@ -163,7 +162,6 @@
 \n
 \n• Pode apagarse en calquer momento</string>
     <string name="direct_connect">Conexión directa con Tor</string>
-    <string name="ports_not_set">Portos non configurados</string>
     <string name="volunteer_mode_title">Axude a outros
 \na conectarse a Tor</string>
     <string name="volunteer_mode_weekly_label">Total semanal</string>

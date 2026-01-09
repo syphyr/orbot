@@ -7,11 +7,13 @@ import android.content.res.ColorStateList
 import android.net.VpnService
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.CompoundButton
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -35,6 +37,8 @@ import org.torproject.android.service.OrbotService
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotMenuAction
+import org.torproject.jni.TorService
+private const val DEFAULT_THROTTLE_INTERVAL = 4000L
 
 class ConnectFragment : Fragment(),
     ExitNodeBottomSheet.ExitNodeSelectedCallback {
@@ -58,6 +62,7 @@ class ConnectFragment : Fragment(),
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                Log.d("bim", "in started")
                 viewModel.uiState.collect { state ->
                     if (state == ConnectUiState.NoInternet)
                         binding.switchConnect.visibility = View.GONE
@@ -75,13 +80,16 @@ class ConnectFragment : Fragment(),
 
                         is ConnectUiState.On -> {
                             binding.switchConnect.isChecked = true
-                            lastState = OrbotConstants.ACTION_START
+                            lastState = TorService.ACTION_START
                             doLayoutOn(requireContext())
                         }
 
                         is ConnectUiState.Stopping -> {}
                     }
                 }
+            }
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.DESTROYED) {
+                Log.d("bim", "destroyed")
             }
         }
 
@@ -105,7 +113,16 @@ class ConnectFragment : Fragment(),
                 }
             }
         }
-
+        binding.switchConnect.setOnClickListener {
+            it.isEnabled = false
+            it.alpha = 0.38f
+            binding.switchConnect.text = context?.getString(R.string.loading)
+            it.postDelayed({
+                it.isEnabled = true
+                it.alpha = 1f
+                binding.switchConnect.text = context?.getString(R.string.connect)
+            }, DEFAULT_THROTTLE_INTERVAL)
+        }
         binding.switchConnect.setOnCheckedChangeListener { _, value ->
             if (value)
                 startTorAndVpn()
@@ -179,7 +196,7 @@ class ConnectFragment : Fragment(),
                 }
             }
             doLayoutStarting(requireContext())
-            setState(OrbotConstants.ACTION_START)
+            setState(TorService.ACTION_START)
         }
         refreshMenuList(requireContext())
     }
@@ -270,7 +287,7 @@ class ConnectFragment : Fragment(),
             text = if (Prefs.isPowerUserMode)
                 getString(R.string.btn_tor_off)
             else
-                "Stop VPN"
+                getString(R.string.stop_vpn)
 
             isEnabled = true
             backgroundTintList = ColorStateList.valueOf(
@@ -298,47 +315,8 @@ class ConnectFragment : Fragment(),
         binding.tvTitle.text = getString(R.string.secure_your_connection_title)
         binding.tvSubtitle.text = getString(R.string.secure_your_connection_subtitle)
 
-        /**
-         * //TODO hide smart connect in the UI for now
-        binding.swSmartConnect.visibility = View.VISIBLE
-        binding.swSmartConnect.isChecked = Prefs.smartConnect
-        binding.swSmartConnect.setOnCheckedChangeListener { _, value ->
-        Prefs.smartConnect = value
-        doLayoutOff()
-        }**/
-
-        /**
-        binding.tvConfigure.visibility = View.GONE
-        binding.tvConfigure.text = getString(R.string.btn_configure)
-        binding.tvConfigure.paintFlags = Paint.UNDERLINE_TEXT_FLAG
-        binding.tvConfigure.setOnClickListener { openConfigureTorConnection()
-         **/
 
         with(binding.btnStart) {
-
-            /** val connectStr = ""
-            text = when {
-            Prefs.isPowerUserMode -> getString(R.string.connect)
-            connectStr.isEmpty() -> SpannableStringBuilder()
-            .append(
-            getString(R.string.btn_start_vpn),
-            AbsoluteSizeSpan(18, true),
-            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
-
-            else -> SpannableStringBuilder()
-            .append(
-            getString(R.string.btn_start_vpn),
-            AbsoluteSizeSpan(18, true),
-            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
-            .append("\n")
-            .append(
-            connectStr,
-            AbsoluteSizeSpan(12, true),
-            Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
-            )
-            }**/
 
             isEnabled = true
             backgroundTintList = ColorStateList.valueOf(

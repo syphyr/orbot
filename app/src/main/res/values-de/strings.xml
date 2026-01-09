@@ -147,7 +147,6 @@
 \nwegen dir.</string>
     <string name="app_suggested_subtitle">Orbot funktioniert am besten mit Messaging- und Social-Media-Apps.</string>
     <string name="apps_other_apps">Andere Apps</string>
-    <string name="proxy_ports">Proxy-Anschlüsse</string>
     <string name="volunteer_mode_title">Anderen helfen,
 \nsich mit Tor zu verbinden</string>
     <string name="volunteer_mode_weekly_label">Wöchentlich Insgesamt</string>
@@ -159,7 +158,6 @@
     <string name="snowflake_subtitle">Verbindet sich durch Tor-Freiwillige. Umgeht einige Tor-Blockierungen.</string>
     <string name="connect">Verbinden</string>
     <string name="next">Weiter</string>
-    <string name="ports_not_set">Ports nicht eingestellt</string>
     <string name="volunteer_mode">Freundlichkeitsmodus</string>
     <string name="secure_your_connection_subtitle">Verstecke Apps vor der Netzwerküberwachung und erhalte Zugriff, wenn sie blockiert sind.</string>
     <string name="connected_title">Verbunden</string>

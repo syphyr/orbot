@@ -47,7 +47,6 @@
     <string name="confirm_service_deletion">பணி நீக்குதலை உறுதிப்படுத்தவும்</string>
     <string name="custom_bridges">தனிப்பயன் பாலங்கள்</string>
     <string name="pref_start_boot_title">துவக்கத்தில் சுற்றுப்பாதையைத் தொடங்கவும்</string>
-    <string name="proxy_ports">பதிலாள் துறைமுகங்கள்</string>
     <string name="volunteer_mode_weekly_label">வாராந்திர மொத்தம்</string>
     <string name="volunteer_mode_alltime_label">எல்லா நேரமும் மொத்தம்</string>
     <string name="enter_exit_nodes">வெளியேறும் முனைகளை உள்ளிடவும்</string>
@@ -103,7 +102,6 @@
     <string name="pref_circuit_padding">சுற்று திணிப்பு</string>
     <string name="pref_circuit_padding_summary">சில வகையான போக்குவரத்து பகுப்பாய்விற்கு எதிராக பாதுகாக்க சர்க்யூட் பேடிங்கை இயக்கவும்</string>
     <string name="pref_prefer_ipv6">IPv6 இணைப்புகளை விரும்புங்கள்</string>
-    <string name="ports_not_set">துறைமுகங்கள் அமைக்கப்படவில்லை</string>
     <string name="volunteer_mode_title">மற்றவர்களுக்கு உதவுங்கள்\n TOR உடன் இணைக்கவும்</string>
     <string name="volunteer_mode_subtitle_desc">கருணை பயன்முறை உங்கள் சாதனம் மற்றவர்களுக்கு ஒரு பாலமாக இருக்க அனுமதிக்கிறது. இது தடுக்கப்பட்ட இடங்களில் டோர் பயன்படுத்த மக்களுக்கு உதவுகிறது.\n\n • இது உங்கள் பேட்டரியை வடிகட்டாது\n • இது உங்கள் இணையத்தை மெதுவாக்காது\n • இது வைஃபை மீது மட்டுமே இயங்க முடியும்\n • இதை எப்போது வேண்டுமானாலும் அணைக்கலாம்</string>
     <string name="smart_connect">அறிவுள்ள கனெக்ட் (இயல்புநிலை)</string>
@@ -239,6 +237,5 @@
     <string name="snowflake_proxy_client_connected_msg">%1$s கருணை முறை தணிக்கை %2$s ஐத் தவிர்க்க உதவியது</string>
     <string name="log_notice_unable_to_update_onions">வெங்காய பெயர்களைப் பதிவேற்ற முடியவில்லை</string>
     <string name="log_notice_updating_torrc">டோர்க் தனிப்பயன் உள்ளமைவைப் புதுப்பித்தல்…</string>
-    <string name="log_notice_connected_to_tor_control_port">TOR கட்டுப்பாட்டு துறைமுகத்துடன் இணைக்கப்பட்டுள்ளது</string>
     <string name="set_transport">போக்குவரத்தை அமை</string>
 </resources>

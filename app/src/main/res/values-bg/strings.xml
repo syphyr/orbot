@@ -142,8 +142,6 @@
     <string name="snowflake_subtitle">Връзката се осъществява през доброволци на Тор. Заобикаля някои забрани на Тор.</string>
     <string name="connect">Свързване</string>
     <string name="next">Напред</string>
-    <string name="proxy_ports">Портове на прокси</string>
-    <string name="ports_not_set">Няма зададени портове</string>
     <string name="volunteer_mode_subtitle_desc">Режимът на доброта дава възможност устройството ви да бъде използвано като мост. Така други потребители могат да ползват Тор, на места където е забранен.\n\n• не изразходва батерията\n• не забавя връзката с интернет\n• работи само през безжична мрежа\n• може да бъде спрян по всяко време</string>
     <string name="direct_connect">Директна връзка</string>
     <string name="direct_connect_subtitle">Най-добрия начин за свързване с Тор. Използвайте ако Тор не е забранен.</string>
@@ -239,7 +237,6 @@
     <string name="snowflake_proxy_client_connected_msg">%1$s Режимът на доброта помогна на някого да заобиколи цензурата %2$s</string>
     <string name="log_notice_unable_to_update_onions">Грешка при изпращане имената на Onion</string>
     <string name="log_notice_updating_torrc">Обновяване потребителските настройки от torrc…</string>
-    <string name="log_notice_connected_to_tor_control_port">Свързване към управляващия порт на Tor</string>
     <string name="note_snowflake_doesn_t_support_proxies">ЗАБЕЛЕЖКА: Snowflake не поддържа прокси сървъри. Такива настройки ще бъдат пренебрегнати от мостовоте на Snowflake.</string>
     <string name="search_for_apps">Търсене на приложения</string>
     <string name="apps_updated_msg">Приложенията са обновени</string>

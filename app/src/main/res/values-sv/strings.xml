@@ -149,7 +149,6 @@
     <string name="no_internet_title">Anslut till internet</string>
     <string name="no_internet_subtitle">Du behöver en internetuppkoppling för att använda Orbot.</string>
     <string name="kindness_adjust_title">Inställningar</string>
-    <string name="proxy_ports">Proxy-portar</string>
     <string name="volunteer_mode_alltime_label">Alltid Totalt</string>
     <string name="smart_connect">Smart Connect (standard)</string>
     <string name="snowflake">Snowflake (original)</string>
@@ -162,7 +161,6 @@
     <string name="snowflake_subtitle">Anslutningar genom Tor-volontärer. Tar sig runt vissa Tor-blockeringar.</string>
     <string name="log_copied">Logg kopierad</string>
     <string name="next">Nästa</string>
-    <string name="ports_not_set">Portar inte inställda</string>
     <string name="volunteer_mode_subtitle_desc">Med läget för vänlighet kan din enhet bli en bro för andra. Det hjälper människor att använda Tor på platser där det är blockerat.
 \n
 \n- Det tömmer inte batteriet.

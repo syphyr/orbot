@@ -135,7 +135,6 @@
     <string name="btn_change_exit">更改出口</string>
     <string name="btn_refresh">刷新连接</string>
     <string name="connect">连接</string>
-    <string name="proxy_ports">代理端口</string>
     <string name="volunteer_mode_weekly_label">一周总计</string>
     <string name="volunteer_mode_title">帮助他人
 \n连接到 Tor</string>
@@ -147,7 +146,6 @@
     <string name="direct_connect_subtitle">连接 Tor 的最佳方式，在 Tor 未被屏蔽时使用。</string>
     <string name="next">下一步</string>
     <string name="snowflake_subtitle">通过 Tor 志愿者连接，绕过某些 Tor 屏蔽。</string>
-    <string name="ports_not_set">端口未设置</string>
     <string name="power_user_mode">高级用户模式</string>
     <string name="power_user_description">适用于熟悉 Tor 的用户。允许您在不使用 VPN 设置的情况下启动 Orbot，并显示开放的 SOCKS 和 HTTP 端口</string>
     <string name="title_choose_apps">选择应用</string>
@@ -240,7 +238,6 @@
     <string name="snowflake_proxy_client_connected_msg">%1$s 善举模式帮助某人规避审查 %2$s</string>
     <string name="log_notice_unable_to_update_onions">无法上传洋葱名称</string>
     <string name="log_notice_updating_torrc">正在更新 torrc 自定义配置…</string>
-    <string name="log_notice_connected_to_tor_control_port">已连接到 tor 控制端口</string>
     <string name="note_snowflake_doesn_t_support_proxies">注意：Snowflake 不支持代理。使用 Snowflake 网桥时，代理设置将被忽略。</string>
     <string name="search_for_apps">搜索应用</string>
     <string name="apps_updated_msg">应用已更新</string>

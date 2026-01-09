@@ -108,7 +108,6 @@
     <string name="license">Llicència:</string>
     <string name="custom_bridges">Ponts personalitzats</string>
     <string name="volunteer_mode_alltime_label">Total global</string>
-    <string name="proxy_ports">Ports proxy</string>
     <string name="pref_circuit_padding">Farciment del circuit</string>
     <string name="no_internet_subtitle">Us cal una connexió a internet per a utilitzar l\'Orbot.</string>
     <string name="v3_hosted_services">Serveis Onion hostatjats</string>
@@ -121,7 +120,6 @@
 \n• No alentirà la connexió a internet
 \n• Només pot anar amb Wi-Fi
 \n• Es pot desconnectar en qualsevol moment</string>
-    <string name="ports_not_set">No s\'ha definit cap port</string>
     <string name="ask_tor">Pregunteu al Tor</string>
     <string name="pref_http_dialog">Configuració del port HTTP</string>
     <string name="power_user_mode">Mode d\'usuari avançat</string>
@@ -246,7 +244,6 @@
     <string name="snowflake_proxy_client_connected_msg">%1$s El mode altruista ha ajudat algú a circumval·lar la censura %2$s</string>
     <string name="log_notice_unable_to_update_onions">no s\'ha pogut actualitzar els noms onion</string>
     <string name="log_notice_updating_torrc">S\'està actualitzant la configuració personalitzada del torrc…</string>
-    <string name="log_notice_connected_to_tor_control_port">S\'ha connectat al port de control del Tor</string>
     <string name="note_snowflake_doesn_t_support_proxies">NOTA: Snowflake no és compatible amb els servidors intermediaris (proxy). La configuració del servidor intermediari s\'ignorarà als ponts del Snowflake.</string>
     <string name="set_transport">Estableix el transport</string>
 </resources>

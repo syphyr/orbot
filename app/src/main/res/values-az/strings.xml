@@ -145,7 +145,6 @@
     <string name="secure_your_connection_title">Qoşulmağa hazırdır</string>
     <string name="hide_apps">Tətbiqləri şəbəkə monitorinqindən gizlədin və bloklandıqda giriş əldə edin.</string>
     <string name="volunteer_mode_alltime_label">Bütün Zamanların Cəmi</string>
-    <string name="proxy_ports">Proksi Portlar</string>
     <string name="not_sure">Əmin deyilsiniz?</string>
     <string name="snowflake_subtitle">Tor könüllüləri vasitəsilə bağlanır. Bəzi Tor bloklamalarının ətrafında olur.</string>
     <string name="volunteer_mode_subtitle_desc">Xeyirxahlıq rejimi cihazınızın başqaları üçün körpü olmasına imkan verir. Bu, insanlara Torun bloklandığı yerlərdə istifadə etməyə kömək edir.
@@ -154,7 +153,6 @@
 \n• İnternetinizi yavaşlatmayacaq
 \n• Yalnız wifi üzərində işləyə bilər
 \n• İstənilən vaxt söndürülə bilər</string>
-    <string name="ports_not_set">Portlar Ayarlanmayıb</string>
     <string name="power_user_mode">Güc istifadəçi rejimi</string>
     <string name="smart_connect">Smart Connect (defolt)</string>
     <string name="apps_other_apps">Digər Proqramlar</string>

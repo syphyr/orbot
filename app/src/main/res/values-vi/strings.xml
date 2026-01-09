@@ -137,7 +137,6 @@
     <string name="btn_configure">Lựa chọn làm cách nào để kết nối</string>
     <string name="btn_choose_apps">Lựa chọn app ứng dụng</string>
     <string name="btn_tor_off">Tắt Tor đi</string>
-    <string name="ports_not_set">Các cổng chưa được thiết đặt</string>
     <string name="volunteer_status_title">Ngày hôm nay tốt đẹp hơn
 \nlà do bạn.</string>
     <string name="option_only_on_wifi">Chỉ trên Wifi</string>
@@ -154,7 +153,6 @@
 \n• Nó chỉ có thể chạy trên wifi
 \n• Nó có thể được tắt đi bất kỳ lúc nào</string>
     <string name="strict_nodes_description">Hãy đối xử với các cài đặt \"Loại bỏ Nút giao mạng\" (Exclude Nodes) như một điều kiện để xây dựng tất cả các mạch nối. Điều này có thể sẽ làm phá vỡ chức năng nếu như không có mạch nối nào được phát sinh ra (generated) với các cài đặt Loại bỏ Nút giao mạng.</string>
-    <string name="proxy_ports">Các cổng Proxy</string>
     <string name="power_user_description">Đối với những người dùng đã quen thuộc với Tor. Cho phép bạn khởi động Orbot mà không cần cài đặt VPN và hiển thị các cổng SOCKS và HTTP mở khả dụng</string>
     <string name="direct_connect_subtitle">Cách tốt nhất để kết nối tới Tor. Sử dụng nếu như Tor không bị chặn.</string>
     <string name="snowflake">Snowflake (Chính gốc nguyên bản)</string>

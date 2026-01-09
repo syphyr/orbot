@@ -36,6 +36,7 @@ import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.sendIntentToService
 import org.torproject.android.util.showToast
+import org.torproject.jni.TorService
 
 class OrbotActivity : BaseActivity() {
 
@@ -264,7 +265,7 @@ class OrbotActivity : BaseActivity() {
     private val orbotServiceBroadcastReceiver = object : BroadcastReceiver() {
         @SuppressLint("SetTextI18n")
         override fun onReceive(context: Context?, intent: Intent?) {
-            val status = intent?.getStringExtra(OrbotConstants.EXTRA_STATUS)
+            val status = intent?.getStringExtra(TorService.EXTRA_STATUS)
             when (intent?.action) {
                 OrbotConstants.LOCAL_ACTION_STATUS -> {
                     if (status != previousReceivedTorStatus) {

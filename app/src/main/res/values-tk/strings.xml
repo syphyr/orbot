@@ -135,7 +135,6 @@
     <string name="volunteer_mode_title">Başgalaryna kömek ediň
 \nTor bilen birikdiriň</string>
     <string name="volunteer_mode_weekly_label">Hepdelik Jemi</string>
-    <string name="ports_not_set">Portlar düzülmedi</string>
     <string name="pref_detect_root_title">Köki Kesgitlemek</string>
     <string name="snowflake">Snowflake (Hakyky)</string>
     <string name="pref_detect_root_summary">Bu enjam kökli bolsa, başlangyçda duýduryş beriň</string>
@@ -174,7 +173,6 @@
     <string name="pref_prefer_ipv6_summary">IPv6 salgylarynyň ileri tutulýandygyny görkezýän nokatlaryny aýdýar</string>
     <string name="pref_disable_ipv4_summary">Çykyş nokatlaryna IPv4 salgylaryna birikmezligi aýdýar</string>
     <string name="full_device_vpn">Bütin enjamyňyz üçin VPN</string>
-    <string name="proxy_ports">Proksi Portlar</string>
     <string name="strict_nodes_description">Aýrylan düwünleriň sazlamalaryny ähli zynjyrlary gurmak üçin talap hökmünde görüň. Sazlamalaryňyz bilen hiç hili zynjyr döredilip bilinmese, bu işlemegi bozup biler.</string>
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Düzediş ýazgysyny işjeňleşdiriň (görmek üçin adb ýa-da aLogCat talap eder)</string>
     <string name="power_user_description">Tor bilen tanyş ulanyjylar üçin. Orbot-a VPN sazlamasyz başlamaga mümkinçilik berýär we açyk SOCKS we HTTP portlaryny görkezýär</string>

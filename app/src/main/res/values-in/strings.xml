@@ -89,7 +89,6 @@
     <string name="bridge_snowflake_amp">Hubungkan melalui pengguna Tor lain menggunakan Snowflake (Metode 2 - AMP)</string>
     <string name="snowflake_proxy_msg_title">Tampilkan Notifikasi Koneksi</string>
     <string name="snowflake_proxy_msg_description">Tampilkan pesan ketika Anda membantu seseorang melewati sensor</string>
-    <string name="proxy_ports">Porta Proksi</string>
     <string name="volunteer_mode_title">Bantu orang lain
 \nmenghubung ke Tor</string>
     <string name="volunteer_mode_weekly_label">Jumlah Setiap Minggu</string>
@@ -101,7 +100,6 @@
     <string name="snowflake_subtitle">Menghubungkan melalui sukarelawan Tor. Melewati beberapa pemblokiran Tor.</string>
     <string name="connect">Hubungkan</string>
     <string name="next">Lanjutkan</string>
-    <string name="ports_not_set">Porta Tidak Ditetapkan</string>
     <string name="secure_your_connection_title">Siap untuk menghubungkan</string>
     <string name="connected_title">Terhubung</string>
     <string name="btn_start_vpn">Mulai VPN</string>
@@ -241,7 +239,6 @@
     <string name="snowflake_proxy_client_connected_msg">%1$s Mode Kebaikan membantu seseorang menghindari sensor %2$s</string>
     <string name="log_notice_unable_to_update_onions">tidak dapat mengunggah nama onion</string>
     <string name="log_notice_updating_torrc">Memperbarui konfigurasi kustom torrc…</string>
-    <string name="log_notice_connected_to_tor_control_port">Terhubung ke port kontrol Tor</string>
     <string name="note_snowflake_doesn_t_support_proxies">CATATAN: Snowflake tidak mendukung proxy. Pengaturan proxy akan diabaikan saat menggunakan jembatan Snowflake.</string>
     <string name="search_for_apps">Cari aplikasi</string>
     <string name="apps_updated_msg">Aplikasi Diperbarui</string>

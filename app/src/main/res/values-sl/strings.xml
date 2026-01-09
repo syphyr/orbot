@@ -175,7 +175,6 @@
     <string name="kindness_config_detail">Konfigurirajte, kako in kdaj lahko vaša naprava deluje kot proksi snežinka za druge uporabnike Tora.</string>
     <string name="root_warning">Orbot je zaznal, da je vaša naprava korenirana, kar lahko povzroči varnostne težave.</string>
     <string name="direct_connect">Neposredna povezava s Torom</string>
-    <string name="ports_not_set">Vrata niso nastavljena</string>
     <string name="hide_apps">Skrijte aplikacije pred nadzorom omrežja in pridobite dostop, ko so blokirane.</string>
     <string name="volunteer_status_title">Danes je bolje
 \nzaradi tebe.</string>
@@ -186,7 +185,6 @@
     <string name="many_ways">Tor lahko dosežete na več načinov. Nekateri morda za vas delujejo bolje kot drugi.</string>
     <string name="kindness_adjust_title">Prilagodite, ko teče …</string>
     <string name="snowflake">Snežinka (originalno)</string>
-    <string name="proxy_ports">Proksi vrata</string>
     <string name="volunteer_mode_weekly_label">Skupaj tedensko</string>
     <string name="volunteer_mode_alltime_label">Skupaj vseh časov</string>
     <string name="smart_connect">Pametno poveži (privzeto)</string>

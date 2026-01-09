@@ -137,13 +137,11 @@
     <string name="connect">وصل‌شدن</string>
     <string name="volunteer_mode_title">کمک به دیگران در \nوصل‌شدن به Tor</string>
     <string name="volunteer_mode_subtitle_desc">حالت مهربانی اجازه می‌دهد تا دستگاه‌تان یک پل برای دیگران باشد‌. این کار به کمک می‌کند تا افراد در مکان‌هایی که Tor مسدود شده از آن استفاده کنند. \n \n- باتریتان را تخلیه نخواهد کرد\n- اینترنتتان را کند نخواهد کرد \n- فقط می‌تواند روی Wi-Fi اجرا شود \n- می‌تواند هر زمانی خاموش شود</string>
-    <string name="proxy_ports">درگاه‌های پراکسی</string>
     <string name="volunteer_mode_weekly_label">مجموع هفتگی</string>
     <string name="volunteer_mode_alltime_label">مجموع تمامی زمان‌ها</string>
     <string name="smart_connect">اتّصال هوشمند</string>
     <string name="direct_connect">اتّصال مستقیم</string>
     <string name="next">بعدی</string>
-    <string name="ports_not_set">درگاه‌های تنظیم نشده</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">اتصال از طریق داوطلبان Tor. از برخی مسدودیت‌های Tor رد می‌شود.</string>
     <string name="direct_connect_subtitle">بهترین روش اتصال به Tor. درصورت مسدودنبودن Tor از آن استفاده کنید.</string>
@@ -238,7 +236,6 @@
     <string name="search_for_apps">جست‌وجوی کاره‌ها</string>
     <string name="log_notice_updating_torrc">به‌روز رسانی پیکربندی سفارشی torrc…</string>
     <string name="log_notice_unable_to_update_onions">ناتوان در بارگذاری نام‌های پیازی</string>
-    <string name="log_notice_connected_to_tor_control_port">وصل شده به درگاه واپایش تور</string>
     <string name="open_orbot_to_connect_to_tor">گشودن روبوت پیازی برای وصل شدن به تور</string>
     <string name="snowflake_proxy_client_connected_msg">%1$sحالت مهربانی به کسی در دور زدن سانسور کمک کرد%2$s</string>
     <string name="request_notification_permission_msg">بدون روشن کردن آگاهی‌ها روبوت پیازی نمی‌تواند به عنوان وی‌پی‌ان تور عمل کرده یا از یا حالت مهربانی استفاده کند.\n\nبا به کار انداختنش تنها یک آگاهی هنگام کار کردن روبوت پیازی نشان داده خواهد شد.</string>

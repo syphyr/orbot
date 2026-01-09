@@ -4,6 +4,8 @@
 package org.torproject.android.service;
 
 import static org.torproject.android.service.OrbotConstants.*;
+import static org.torproject.jni.TorService.*;
+import static org.torproject.jni.TorService.TAG;
 
 import android.annotation.SuppressLint;
 import android.app.Notification;
@@ -55,6 +57,7 @@ import androidx.core.content.ContextCompat;
 
 import kotlin.Unit;
 
+@SuppressLint("VpnServicePolicy")
 public class OrbotService extends VpnService {
 
     public final static String BINARY_TOR_VERSION = TorService.VERSION_NAME;

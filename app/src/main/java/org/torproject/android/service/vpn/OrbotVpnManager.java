@@ -36,6 +36,7 @@ import org.torproject.android.service.OrbotService;
 import org.torproject.android.service.TProxyService;
 import org.torproject.android.service.Notifications;
 import org.torproject.android.util.Prefs;
+import org.torproject.jni.TorService;
 
 import java.io.DataOutputStream;
 import java.io.File;
@@ -64,7 +65,7 @@ public class OrbotVpnManager implements Handler.Callback {
         var action = intent.getAction();
         if (action == null) return;
         switch (action) {
-            case ACTION_START -> {
+            case TorService.ACTION_START -> {
                 Log.d(TAG, "starting VPN");
                 isStarted = true;
             }
