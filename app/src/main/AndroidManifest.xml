@@ -150,7 +150,7 @@
 
 
         <activity-alias
-            android:name=".main.NightWatch"
+            android:name="org.torproject.android.main.NightWatch"
             android:enabled="false"
             android:exported="true"
             android:icon="@drawable/ic_camouflage_night_watch"
@@ -163,7 +163,7 @@
 
         </activity-alias>
         <activity-alias
-            android:name=".main.Assistant"
+            android:name="org.torproject.android.main.Assistant"
             android:enabled="false"
             android:exported="true"
             android:icon="@drawable/ic_camouflage_assistant"
@@ -176,7 +176,7 @@
 
         </activity-alias>
         <activity-alias
-            android:name=".main.Paint"
+            android:name="org.torproject.android.main.Paint"
             android:enabled="false"
             android:exported="true"
             android:icon="@drawable/ic_camouflage_paint"
@@ -189,7 +189,7 @@
 
         </activity-alias>
         <activity-alias
-            android:name=".main.Tetras"
+            android:name="org.torproject.android.main.Tetras"
             android:enabled="false"
             android:exported="true"
             android:icon="@drawable/ic_camouflage_tetras"
@@ -199,7 +199,6 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity-alias>
         <activity-alias
             android:name="org.torproject.android.main.ToDo"
@@ -241,7 +240,7 @@
             android:name="org.torproject.android.main.OrbotAlt1"
             android:enabled="false"
             android:exported="true"
-            android:icon="@drawable/ic_launcher_foreground_alt1"
+            android:icon="@mipmap/ic_launcher_foreground_alt1"
             android:label="@string/app_name"
             android:targetActivity="org.torproject.android.OrbotActivity">
             <intent-filter>
@@ -253,7 +252,7 @@
             android:name="org.torproject.android.main.OrbotAlt2"
             android:enabled="false"
             android:exported="true"
-            android:icon="@drawable/ic_launcher_foreground_alt2"
+            android:icon="@mipmap/ic_launcher_foreground_alt2"
             android:label="@string/app_name"
             android:targetActivity="org.torproject.android.OrbotActivity">
             <intent-filter>
@@ -265,7 +264,7 @@
             android:name="org.torproject.android.main.OrbotAlt3"
             android:enabled="false"
             android:exported="true"
-            android:icon="@drawable/ic_launcher_foreground_alt3"
+            android:icon="@mipmap/ic_launcher_foreground_alt3"
             android:label="@string/app_name"
             android:targetActivity="org.torproject.android.OrbotActivity">
             <intent-filter>
@@ -277,7 +276,7 @@
             android:name="org.torproject.android.main.OrbotAlt4"
             android:enabled="false"
             android:exported="true"
-            android:icon="@drawable/ic_launcher_foreground_alt4"
+            android:icon="@mipmap/ic_launcher_foreground_alt4"
             android:label="@string/app_name"
             android:targetActivity="org.torproject.android.OrbotActivity">
             <intent-filter>

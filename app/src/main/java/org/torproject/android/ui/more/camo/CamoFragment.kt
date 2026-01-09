@@ -119,7 +119,7 @@ class CamoFragment : Fragment() {
             context.getString(R.string.app_icon_chooser_label_night_watch) to "${BASE}NightWatch",
             context.getString(R.string.app_icon_chooser_label_assistant) to "${BASE}Assistant",
             context.getString(R.string.app_icon_chooser_label_paint) to "${BASE}Paint",
-            context.getString(R.string.app_icon_chooser_label_tetras) to "{$BASE}Tetras",
+            context.getString(R.string.app_icon_chooser_label_tetras) to "${BASE}Tetras",
             context.getString(R.string.app_icon_chooser_label_todo) to "${BASE}ToDo",
             context.getString(R.string.app_icon_chooser_label_birdie) to "${BASE}Birdie"
         )
