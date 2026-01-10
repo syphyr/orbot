@@ -60,4 +60,4 @@ git submodule update --init --recursive
 ```
 
 
-**Copyright &#169; 2009-2025, Nathan Freitas, The Guardian Project**
+**Copyright &#169; 2009-2026, Nathan Freitas, The Guardian Project**
