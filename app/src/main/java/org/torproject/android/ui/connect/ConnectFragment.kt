@@ -226,7 +226,6 @@ class ConnectFragment : Fragment(),
                 Transport.CUSTOM -> R.string.custom_bridges
             }
 
-        // TODO this hardcodes left to right even if the locale is in farsi, arabic, other RTL etc
         val connectStrLabel =
             getString(R.string.set_transport) + ": ${context.getString(connectStr)}"
 
