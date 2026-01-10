@@ -126,7 +126,7 @@
     <string name="connected_title">已连接</string>
     <string name="strict_nodes_description">将“排除节点”设置视为构建所有线路的要求。如果“排除节点”设置无法生成线路，可能会破坏功能。</string>
     <string name="volunteer_mode">善举模式</string>
-    <string name="trying_to_connect_title">连接中…</string>
+    <string name="trying_to_connect_title">正在连接…</string>
     <string name="btn_tor_off">关闭 Tor</string>
     <string name="secure_your_connection_subtitle">隐藏应用以规避网络监控，并在应用被屏蔽时获取访问权限。</string>
     <string name="btn_start_vpn">启动 VPN</string>
@@ -268,4 +268,8 @@
     <string name="status_loading_keys">正在加载网络安全密钥</string>
     <string name="status_requesting_descriptors">正在请求网络服务器信息</string>
     <string name="status_loading_descriptors">正在加载网络服务器信息</string>
+    <string name="loading">正在加载…</string>
+    <string name="stop_vpn">停止 VPN</string>
+    <string name="http_port">HTTP 端口</string>
+    <string name="socks_port">SOCKS 端口</string>
 </resources>
