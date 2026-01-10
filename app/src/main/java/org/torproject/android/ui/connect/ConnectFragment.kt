@@ -13,7 +13,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.CompoundButton
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -243,7 +242,6 @@ class ConnectFragment : Fragment(),
                     )
                 },
                 OrbotMenuAction(R.string.btn_refresh, R.drawable.ic_refresh) { sendNewnymSignal() })
-        //   OrbotMenuAction(R.string.btn_tor_off, R.drawable.ic_power) { stopTorAndVpn() })
         if (!Prefs.isPowerUserMode) listItems.add(
             0,
             OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
