@@ -274,4 +274,8 @@
     <string name="status_requesting_descriptors">Запит інформації про мережевий сервер</string>
     <string name="status_loading_descriptors">Завантаження інформації про мережевий сервер</string>
     <string name="setting_app_icon_title">Значок програми</string>
+    <string name="loading">Завантаження…</string>
+    <string name="stop_vpn">Зупинити VPN</string>
+    <string name="http_port">HTTP-порт</string>
+    <string name="socks_port">Порт SOCKS</string>
 </resources>
