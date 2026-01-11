@@ -69,7 +69,7 @@ public class OrbotVpnManager implements Handler.Callback {
                 Log.d(TAG, "starting VPN");
                 isStarted = true;
             }
-            case ACTION_STOP -> {
+            case TorService.ACTION_STOP -> {
                 isStarted = false;
                 Log.d(TAG, "stopping VPN");
                 stopVPN();

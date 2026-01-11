@@ -5,8 +5,6 @@ import androidx.core.net.toUri
 object OrbotConstants {
     const val TAG = "Orbot"
 
-    const val ACTION_STOP = "org.torproject.android.intent.action.STOP"
-
     const val PREF_REACHABLE_ADDRESSES = "pref_reachable_addresses"
     const val PREF_REACHABLE_ADDRESSES_PORTS = "pref_reachable_addresses_ports"
 
