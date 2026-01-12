@@ -272,4 +272,5 @@
     <string name="stop_vpn">VPN を停止する</string>
     <string name="loading">読み込み中…</string>
     <string name="socks_port">SOCKS ポート</string>
+    <string name="http_port">HTTP ポート</string>
 </resources>
