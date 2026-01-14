@@ -214,4 +214,7 @@
     <string name="open_settings">Ouvrir les paramètres</string>
     <string name="setting_app_icon_title">Icône de l’appli</string>
     <string name="title_safety">Sécurité</string>
+    <string name="setting_block_screenshot_title">Bloquer les captures d’écran</string>
+    <string name="setting_unlock_pass_title">Verrouiller l’écran</string>
+    <string name="status_loading_status">Chargement de l’état du réseau</string>
 </resources>
