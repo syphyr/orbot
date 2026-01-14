@@ -210,4 +210,7 @@
     <string name="http_port">Port HTTP</string>
     <string name="stop_vpn">Arrêter le VPN/RPV</string>
     <string name="loading">Chargement…</string>
+    <string name="kindness_mode_starting">Démarrage…</string>
+    <string name="open_settings">Ouvrir les paramètres</string>
+    <string name="setting_app_icon_title">Icône de l\'application</string>
 </resources>
