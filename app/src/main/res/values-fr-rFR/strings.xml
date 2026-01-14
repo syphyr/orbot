@@ -62,7 +62,7 @@
     <string name="save">Enregistrer</string>
     <string name="name">Nom</string>
     <string name="please_restart_Orbot_to_enable_the_changes">Veuillez redémarrer Orbot pour activer les changements</string>
-    <string name="wizard_details_msg">Orbot est une application à code source ouvert qui comprend Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks et LibEvent. Elle fournit un tunnel RPV/VPN, un mandataire HTTP Connect local (HTTPS seulement sur le port 8118) et un mandataire SOCKS (9050) vers le réseau Tor.</string>
+    <string name="wizard_details_msg">Orbot est une application à code source ouvert qui comprend Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel et LibEvent. Elle fournit un tunnel VPN/RPV, un mandataire HTTP Connect local (HTTPS seulement sur le port 8118) et un mandataire SOCKS (9050) vers le réseau Tor.</string>
     <string name="hidden_service_request">Une appli veut ouvrir le serveur onion sur le port %1$s au réseau Tor. Cette action est sûre si vous faites confiance à cette appli.</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Ouvrir le mandataire sur toutes les interfaces</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Autoriser l’accès à Tor aux pairs Wi-Fi, aux appareils qui utilisent la fonction modem et à quiconque peut se connecter à votre IP</string>
@@ -75,7 +75,7 @@
     <string name="onion_port">Port onion</string>
     <string name="done">Terminé</string>
     <string name="copy_address_to_clipboard">Copier l’adresse dans le presse-papiers</string>
-    <string name="backup_service">Sauvegarder le service <i>(Avertissement : La configuration de votre service pourrait être exposée à d’autres applis)</i></string>
+    <string name="backup_service">Service de sauvegarde (avertissement : cela pourrait exposer la configuration de votre service à d’autres applis)</string>
     <string name="delete_service">Supprimer le service</string>
     <string name="backup_saved_at_external_storage">La sauvegarde a été enregistrée sur la mémoire externe</string>
     <string name="backup_restored">La sauvegarde a été restaurée</string>
@@ -139,8 +139,8 @@
 \n- Il ne ralentit pas l\'accès à l\'internet
 \n- Il ne peut fonctionner qu\'en wifi
 \n- Il peut être désactivé à tout moment</string>
-    <string name="smart_connect">Connexion intelligente (par défault)</string>
-    <string name="direct_connect">Connexion directe à Tor</string>
+    <string name="smart_connect">Connexion intelligente</string>
+    <string name="direct_connect">Connexion directe</string>
     <string name="direct_connect_subtitle">La meilleure façon de se connecter à Tor. À utiliser si Tor n’est pas bloqué.</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Se connecte à des bénévoles Tor. Contourne certains blocages de Tor.</string>
@@ -151,7 +151,7 @@
     <string name="trying_to_connect_title">Connexion…</string>
     <string name="btn_choose_apps">Choisir des applications</string>
     <string name="btn_change_exit">Changer la sortie</string>
-    <string name="btn_refresh">Actualiser</string>
+    <string name="btn_refresh">Actualiser la connexion</string>
     <string name="btn_tor_off">Éteindre Tor</string>
     <string name="secure_your_connection_title">Prêt à se connecter</string>
     <string name="secure_your_connection_subtitle">Soustraire les applis à la surveillance du réseau et obtenir l’accès si elles sont bloquées.</string>
@@ -169,7 +169,7 @@
     <string name="option_only_when_charging">Uniquement en cas de charge</string>
     <string name="pref_isolate_port_summary">Utiliser un circuit différent pour chaque port de destination</string>
     <string name="pref_isolate_protocol_summary">Utiliser un circuit différent pour chaque protocole de connexion</string>
-    <string name="snowflake_amp">Snowflake (AMP méthode)</string>
+    <string name="snowflake_amp">Snowflake AMP</string>
     <string name="many_ways">Il existe de nombreuses façons d\'atteindre Tor. Certaines peuvent fonctionner mieux que d\'autres pour vous.</string>
     <string name="power_user_description">Pour les utilisateurs familiers avec Tor. Permet de démarrer Orbot sans le paramètre VPN et montre les ports SOCKS et HTTP ouverts</string>
     <string name="no_internet_title">Se connecter à l\'internet</string>
@@ -212,5 +212,6 @@
     <string name="loading">Chargement…</string>
     <string name="kindness_mode_starting">Démarrage…</string>
     <string name="open_settings">Ouvrir les paramètres</string>
-    <string name="setting_app_icon_title">Icône de l\'application</string>
+    <string name="setting_app_icon_title">Icône de l’appli</string>
+    <string name="title_safety">Sécurité</string>
 </resources>
