@@ -270,5 +270,7 @@
     <string name="setting_unlock_pass_title">Blocca schermo</string>
     <string name="status_loading_status">Caricamento dello stato della rete</string>
     <string name="loading">Caricamento…</string>
-    <string name="http_port">Porto HTTP</string>
+    <string name="http_port">Porta HTTP</string>
+    <string name="stop_vpn">Ferma VPN</string>
+    <string name="socks_port">Porta SOCKS</string>
 </resources>
