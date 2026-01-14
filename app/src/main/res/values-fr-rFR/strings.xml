@@ -206,4 +206,8 @@
     <string name="orbot_vpn">Orbot VPN</string>
     <string name="custom_bridges_description">Collez ci-dessous les adresses de pont que vous recevez, ou balayez le code QR pour les ajouter. Vos amis et amies peuvent obtenir des ponts pour vous sur %1$s.</string>
     <string name="set_transport">Définir le transport</string>
+    <string name="socks_port">Port SOCKS</string>
+    <string name="http_port">Port HTTP</string>
+    <string name="stop_vpn">Arrêter le VPN/RPV</string>
+    <string name="loading">Chargement…</string>
 </resources>
