@@ -154,7 +154,6 @@ dependencies {
     implementation(libs.rootbeer.lib)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.serialization.json)
-    implementation(libs.appiconnamechanger)
     implementation(libs.androidx.work.kotlin)
     implementation(libs.upnp)
     implementation(libs.iptproxy)
