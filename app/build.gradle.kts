@@ -75,7 +75,10 @@ android {
         getByName("release") {
             isShrinkResources = false
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.txt")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.txt"
+            )
             signingConfig = signingConfigs.getByName("release")
         }
         getByName("debug") {
@@ -92,8 +95,8 @@ android {
     }
 
     productFlavors {
-        create("fullperm") { 
-	    dimension = "free"
+        create("fullperm") {
+            dimension = "free"
         }
         create("nightly") {
             dimension = "free"
@@ -130,9 +133,10 @@ android.applicationVariants.all {
             val increment = incrementMap[filters.find { it.filterType == "ABI" }?.identifier] ?: 0
             (this as ApkVariantOutputImpl).versionCodeOverride = orbotBaseVersionCode + increment
         }
-        
+
         // Set custom APK output name with version
-        (this as ApkVariantOutputImpl).outputFileName = outputFileName.replace("app-", "Orbot-${versionName}-")
+        (this as ApkVariantOutputImpl).outputFileName =
+            outputFileName.replace("app-", "Orbot-${versionName}-")
     }
 }
 
@@ -176,11 +180,11 @@ dependencies {
 afterEvaluate {
     tasks.matching {
         it.name == "preFullpermReleaseBuild" ||
-        it.name == "preNightlyReleaseBuild"
+                it.name == "preNightlyReleaseBuild"
     }.configureEach {
         dependsOn(
             copyLicenseToAssets,
-            //updateBuiltinBridges,
+            updateBuiltinBridges,
         )
     }
 }
@@ -193,19 +197,23 @@ val copyLicenseToAssets by tasks.registering(Copy::class) {
 val updateBuiltinBridges by tasks.registering {
     val assetsDir = layout.projectDirectory.dir("src/main/assets")
     val outputFile = assetsDir.file("builtin-bridges.json").asFile
-
     outputs.file(outputFile)
 
     doLast {
         assetsDir.asFile.mkdirs()
-
-        val oneDay = 24 * 60 * 60 * 1000L
-        val isOld = !outputFile.exists() || System.currentTimeMillis() - outputFile.lastModified() > oneDay
-
-        if (isOld) {
-            println("builtin-bridges.json missing or older than 24h, downloading...")
+        val oneDay = 60 * 60 * 24
+        val log: String =
+            providers.exec {
+                commandLine("git", "log", "-n", "1", "--date=unix", "$outputFile")
+            }.standardOutput.asText.get().trim()
+        val dateStr = log.split("\n").filter { it.contains("Date:") }[0]
+        val dateAsSeconds = dateStr.substring("Date:".length).trim().split(" ")[0].toLong()
+        val stale = Date().time/1000 - dateAsSeconds > oneDay
+        if (!outputFile.exists() || stale) {
+            val bridgeUri = "https://bridges.torproject.org/moat/circumvention/builtin"
+            println("builtin-bridges.json missing or older than 24h, checking $bridgeUri for bridges...")
             try {
-                URI("https://bridges.torproject.org/moat/circumvention/builtin")
+                URI(bridgeUri)
                     .toURL()
                     .openStream()
                     .use { input ->
@@ -232,7 +240,9 @@ val updateBuiltinBridges by tasks.registering {
         if (statusOutput.isNotEmpty()) {
             throw GradleException(
                 """
-                ERROR: Your working tree contains uncommitted changes.
+                ERROR: Your working tree contains ${statusOutput.split("\n").size} uncommitted changes:
+                
+                $statusOutput
 
                 Please commit all changes (including builtin-bridges.json if updated)
                 BEFORE running a release build.
