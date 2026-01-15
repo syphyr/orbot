@@ -11,7 +11,6 @@ import java.io.File
 object TorConfig {
 
     @JvmStatic
-    @Suppress("NullableBooleanElvis")
     fun build(context: ContextWrapper, geoIpFile: File, geoIp6File: File): String {
         val conf = mutableListOf(
             "RunAsDaemon 1",
@@ -119,7 +118,6 @@ object TorConfig {
         return NetworkUtils.checkPortOrAuto(port)
     }
 
-    @Suppress("NullableBooleanElvis")
     private fun getIsolation(): String {
         val isolate = mutableListOf<String>()
 
@@ -139,7 +137,6 @@ object TorConfig {
         return isolate.joinToString(" ")
     }
 
-    @Suppress("NullableBooleanElvis")
     private fun getIpv6(): String {
         val ipv6Pref = mutableSetOf<String>()
 
