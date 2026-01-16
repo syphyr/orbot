@@ -24,6 +24,10 @@ rbenv init # one-time setup of rbenv for your shell
 ruby --version 
 # rbenv: version `3.4.7' is not installed (set by orbot/.ruby-version)
 rbenv install 3.4.7 # if it's missing, grab a copy of ruby version 3.4.7
+
+# if psych component fails you may need to install libyaml
+# sudo apt install libyaml-dev && rbenv install 3.4.7
+
 bundle install #bundle is part of ruby 3.4.7 installs fastlane screengrab deps specified in Gemfile/Gemfile.lock
 ```
 

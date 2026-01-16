@@ -5,7 +5,6 @@ import android.app.Dialog
 import android.os.Bundle
 import androidx.core.os.bundleOf
 import androidx.fragment.app.DialogFragment
-import `in`.myinnos.library.AppIconNameChanger
 import org.torproject.android.BuildConfig
 import org.torproject.android.R
 import org.torproject.android.util.Prefs
@@ -27,17 +26,12 @@ class CamoConfirmationDialogFragment : DialogFragment() {
             .setPositiveButton(android.R.string.ok) { _, _ ->
                 var key = camoAppName
                 if (altIconValue != -1) key += altIconValue
-                val activePackageName = mapping[key]
+                val activePackageName = mapping[key]!!
                 Prefs.setCamoAppPackage(activePackageName)
                 Prefs.camoAppDisplayName = camoAppName
                 Prefs.camoAppAltIconIndex = altIconValue
                 val disabledNames = mapping.values.filter { s -> s != activePackageName }
-                AppIconNameChanger.Builder(requireActivity())
-                    .packageName(BuildConfig.APPLICATION_ID)
-                    .activeName(activePackageName)
-                    .disableNames(disabledNames)
-                    .build()
-                    .setNow()
+                AppIconNameChanger.changeAppIcon(requireActivity(), BuildConfig.APPLICATION_ID, activePackageName, disabledNames)
                 activity?.finishAffinity()
             }
             .create()

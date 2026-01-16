@@ -267,4 +267,8 @@
     <string name="status_loading_descriptors">Зареждане на информация за сървъра</string>
     <string name="setting_unlock_pass_title">Заключване на екрана</string>
     <string name="status_loading_status">Зареждане на състоянието на мрежата</string>
+    <string name="loading">Зареждане…</string>
+    <string name="stop_vpn">Спиране на ВЧМ</string>
+    <string name="http_port">Порт на HTTP</string>
+    <string name="socks_port">Порт на SOCKS</string>
 </resources>

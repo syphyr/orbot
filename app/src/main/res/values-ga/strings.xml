@@ -267,4 +267,8 @@
     <string name="status_loading_keys">Ag lódáil eochracha slándála líonra</string>
     <string name="status_requesting_descriptors">Ag iarraidh eolais ar fhreastalaí líonra</string>
     <string name="status_loading_descriptors">Ag lódáil faisnéis fhreastalaí líonra</string>
+    <string name="loading">Ag lódáil…</string>
+    <string name="stop_vpn">Stad VPN</string>
+    <string name="http_port">Port HTTP</string>
+    <string name="socks_port">Port SOCKS</string>
 </resources>

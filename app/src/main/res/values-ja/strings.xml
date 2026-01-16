@@ -269,4 +269,8 @@
     <string name="status_loading_keys">ネットワークセキュリティキーを読み込んでいます</string>
     <string name="status_requesting_descriptors">ネットワークサーバー情報をリクエストしています</string>
     <string name="status_loading_descriptors">ネットワークサーバー情報を読み込んでいます</string>
+    <string name="stop_vpn">VPN を停止する</string>
+    <string name="loading">読み込み中…</string>
+    <string name="socks_port">SOCKS ポート</string>
+    <string name="http_port">HTTP ポート</string>
 </resources>

@@ -7,13 +7,11 @@ import android.content.res.ColorStateList
 import android.net.VpnService
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.CompoundButton
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -62,7 +60,6 @@ class ConnectFragment : Fragment(),
 
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                Log.d("bim", "in started")
                 viewModel.uiState.collect { state ->
                     if (state == ConnectUiState.NoInternet)
                         binding.switchConnect.visibility = View.GONE
@@ -87,9 +84,6 @@ class ConnectFragment : Fragment(),
                         is ConnectUiState.Stopping -> {}
                     }
                 }
-            }
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.DESTROYED) {
-                Log.d("bim", "destroyed")
             }
         }
 
@@ -226,7 +220,6 @@ class ConnectFragment : Fragment(),
                 Transport.CUSTOM -> R.string.custom_bridges
             }
 
-        // TODO this hardcodes left to right even if the locale is in farsi, arabic, other RTL etc
         val connectStrLabel =
             getString(R.string.set_transport) + ": ${context.getString(connectStr)}"
 
@@ -244,7 +237,6 @@ class ConnectFragment : Fragment(),
                     )
                 },
                 OrbotMenuAction(R.string.btn_refresh, R.drawable.ic_refresh) { sendNewnymSignal() })
-        //   OrbotMenuAction(R.string.btn_tor_off, R.drawable.ic_power) { stopTorAndVpn() })
         if (!Prefs.isPowerUserMode) listItems.add(
             0,
             OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
