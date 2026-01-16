@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.text.TextUtils
 import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -80,7 +81,7 @@ class ConnectMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction
         if (!TextUtils.isEmpty(tordAppString)) {
 
             val packageManager: PackageManager = context.packageManager
-            val tordApps = tordAppString!!.split("|").toTypedArray()
+            val tordApps = tordAppString.split("|").toTypedArray()
             val container = llBoxShortcuts.getChildAt(0) as LinearLayout
 
             llBoxShortcuts.visibility = View.VISIBLE
@@ -98,9 +99,9 @@ class ConnectMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction
                             LinearLayout.LayoutParams.WRAP_CONTENT,
                             LinearLayout.LayoutParams.WRAP_CONTENT
                         )
-                        params.height = 80
-                        params.width = 80
-                        params.setMargins(1, 10, 1, 1)
+                        params.height = 40
+                        params.width = 40
+                        params.gravity = Gravity.CENTER
                         iv.layoutParams = params
 
                         iv.setOnClickListener { _: View? ->
