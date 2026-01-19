@@ -205,7 +205,7 @@
     <string name="app_icon_chooser_label_todo">To-Do</string>
     <string name="power_user_mode_permission">Alarms &amp; Reminders Permission Needed for Power User Mode</string>
     <string name="power_user_mode_permission_msg">Please allow Orbot to set alarms and reminders in order to use power user mode. This won\'t actually set any alarms on your device. This permission is needed to have the system keep OrbotService running when Orbot is not being used as a system-wide VPN.</string>
-    <string name="error_no_password_set">Please secure your device in order to use Orbot Authentication</string>
+    <string name="error_no_password_set">You need to set a password for your Android device in order to use the Lock Screen feature</string>
     <string name="device_lock_unsupported">Orbot Authentication is not supported on your device</string>
     <string name="device_lock_security_update_needed">You must download Android security updates for your device in order to use Orbot Authentication</string>
     <string name="invalid_bridge_format">Invalid bridge format</string>
@@ -251,4 +251,16 @@
     <string name="set_transport">Set Transport</string>
     <string name="app_icon_dialog_title" formatted="true">Switch to %1$s</string>
     <string name="app_icon_dialog_msg" formatted="true">Switching to %1$s will restart the app</string>
+    <string name="title_safety">Safety</string>
+    <string name="setting_app_icon_title">App Icon</string>
+    <string name="setting_app_icon_description">Choose how Orbot appears on your device</string>
+    <string name="setting_block_screenshot_title">Block Screenshots</string>
+    <string name="setting_block_screenshot_description">Prevents anyone from taking screenshots of this app</string>
+    <string name="setting_unlock_pass_title">Lock Screen</string>
+    <string name="setting_unlock_pass_description">Require your device\'s PIN, password, or swipe pattern to open Orbot</string>
+    <string name="setting_unlock_with_biometrics_title">Use Biometrics (optional)</string>
+    <string name="setting_unlock_with_biometrics_description">Unlock Orbot with your fingerprint or Face ID if set up on your device.</string>
+    <string name="status_connected_control_port">Tor service has started</string>
+    <string name="status_handshake">Connecting to Tor network entrance</string>
+    <string name="status_handshake_done">Entering the Tor network</string>
 </resources>
