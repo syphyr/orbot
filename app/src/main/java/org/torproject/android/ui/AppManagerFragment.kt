@@ -339,7 +339,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
                 response.putExtra(tApp.packageName, true)
             }
         }
-        val appStringOld = Prefs.torifiedApps ?: ""
+        val appStringOld = Prefs.torifiedApps
         val appStringNew = tordApps.toString()
 
         var shouldSave = false
