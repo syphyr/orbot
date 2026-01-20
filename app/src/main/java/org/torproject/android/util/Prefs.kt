@@ -83,7 +83,7 @@ object Prefs {
 
     @JvmStatic
     var hostOnionServicesEnabled: Boolean
-        get() = cr?.getPrefBoolean(PREF_HOST_ONION_SERVICES, true) ?: true
+        get() = cr?.getPrefBoolean(PREF_HOST_ONION_SERVICES, false) ?: false
         set(value) = cr?.putPref(PREF_HOST_ONION_SERVICES, value) ?: Unit
 
     @JvmStatic
