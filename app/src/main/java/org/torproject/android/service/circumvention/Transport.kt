@@ -2,7 +2,7 @@ package org.torproject.android.service.circumvention
 
 import IPtProxy.Controller
 import IPtProxy.IPtProxy
-import IPtProxy.OnTransportStopped
+import IPtProxy.OnTransportEvents
 import android.content.Context
 import android.util.Log
 import org.torproject.android.util.Prefs
@@ -46,6 +46,8 @@ enum class Transport(val id: String) {
         @JvmStatic
         var stateLocation = ""
 
+        const val TAG = "Transport"
+
         val controller: Controller by lazy {
             Controller(stateLocation, true, false, "INFO", statusCollector)
         }
@@ -63,18 +65,27 @@ enum class Transport(val id: String) {
             }
         }
 
-        private val statusCollector = object : OnTransportStopped {
-            override fun stopped(name: String?, exception: Exception?) {
+        private val statusCollector = object : OnTransportEvents {
+            override fun connected(name: String?) {
+                Log.d(TAG, "$name connected")
+            }
+
+            override fun error(name: String?, error: Exception?) {
+                Log.e(TAG, "$name error: $error")
+            }
+
+            override fun stopped(name: String?, error: Exception?) {
                 if (name == null) return
 
-                if (exception != null) {
-                    Log.e(Transport::class.toString(),
-                        "$name stopped: ${exception.localizedMessage}")
+                if (error != null) {
+                    Log.e(TAG,
+                        "$name stopped: ${error.localizedMessage}")
                 }
                 else {
-                    Log.d(Transport::class.toString(), "$name stopped.")
+                    Log.d(TAG, "$name stopped.")
                 }
             }
+
         }
 
         /**
