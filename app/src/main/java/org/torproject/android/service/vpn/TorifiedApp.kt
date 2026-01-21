@@ -49,10 +49,9 @@ class TorifiedApp : Comparable<TorifiedApp> {
     companion object {
         fun getApps(context: Context): ArrayList<TorifiedApp> {
             val torifiedPackages = Prefs.torifiedApps
-                ?.split("|")
-                ?.filter { it.isNotBlank() }
-                ?.sorted()
-                ?: emptyList()
+                .split("|")
+                .filter { it.isNotBlank() }
+                .sorted()
 
             val pMgr = context.packageManager
             val lAppInfo = pMgr.getInstalledApplications(0)

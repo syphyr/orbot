@@ -68,7 +68,7 @@ object Prefs {
         if (cr == null) cr = context?.contentResolver
     }
 
-    fun initWeeklyWorker() {
+    fun initWeeklyWorker(context: Context) {
         val myWorkBuilder =
             PeriodicWorkRequest.Builder(
                 ResetSnowflakesServedWeeklyWorker::class.java,
@@ -77,7 +77,7 @@ object Prefs {
             )
 
         val myWork = myWorkBuilder.build()
-        WorkManager.getInstance()
+        WorkManager.getInstance(context)
             .enqueueUniquePeriodicWork("prefsWeeklyWorker", ExistingPeriodicWorkPolicy.KEEP, myWork)
     }
 

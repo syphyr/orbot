@@ -64,6 +64,8 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
     private var toolbar: Toolbar? = null
 
     private val scope = CoroutineScope(Dispatchers.Main + job)
+
+    @kotlinx.coroutines.FlowPreview
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
