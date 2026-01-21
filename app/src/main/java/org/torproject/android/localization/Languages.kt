@@ -1,12 +1,13 @@
 package org.torproject.android.localization
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ContextWrapper
 import android.content.res.Resources
 import android.text.TextUtils
 import android.util.DisplayMetrics
-import java.util.*
+import java.util.Collections
+import java.util.Locale
+import java.util.TreeMap
 
 class Languages private constructor(activity: Activity) {
     /**
@@ -25,54 +26,111 @@ class Languages private constructor(activity: Activity) {
         }
 
     companion object {
+
+        fun buildLocaleForLanguage(language: String): Locale {
+            return Locale.Builder()
+                .setLanguage(language)
+                .build()
+        }
+
         private var defaultLocale: Locale? = null
-        val TIBETAN = Locale("bo")
+        val TIBETAN = buildLocaleForLanguage("bo")
         val localesToTest = arrayOf(
-            Locale.ENGLISH, Locale.FRENCH, Locale.GERMAN,
-            Locale.ITALIAN, Locale.JAPANESE, Locale.KOREAN,
-            Locale.TRADITIONAL_CHINESE, Locale.SIMPLIFIED_CHINESE,
-            TIBETAN, Locale("af"), Locale("am"),
-            Locale("ar"), Locale("ay"), Locale("az"),
-            Locale("bg"), Locale("be"), Locale("bn", "BD"),
+            Locale.ENGLISH,
+            Locale.FRENCH,
+            Locale.GERMAN,
+            Locale.ITALIAN,
+            Locale.JAPANESE,
+            Locale.KOREAN,
+            Locale.TRADITIONAL_CHINESE,
+            Locale.SIMPLIFIED_CHINESE,
+            TIBETAN,
+            buildLocaleForLanguage("af"),
+            buildLocaleForLanguage("am"),
+            buildLocaleForLanguage("ar"),
+            buildLocaleForLanguage("ay"),
+            buildLocaleForLanguage("az"),
+            buildLocaleForLanguage("bg"),
+            buildLocaleForLanguage("be"),
+            Locale("bn", "BD"),
             Locale("bn", "IN"),
-            Locale("bn"), Locale("ca"), Locale("cs"),
-            Locale("da"), Locale("el"), Locale("es"),
+            buildLocaleForLanguage("bn"),
+            buildLocaleForLanguage("ca"),
+            buildLocaleForLanguage("cs"),
+            buildLocaleForLanguage("da"),
+            buildLocaleForLanguage("el"),
+            buildLocaleForLanguage("es"),
             Locale("es", "MX"),
             Locale("es", "CU"),
 
             Locale("es", "AR"),
             Locale("en", "GB"),
-            Locale("eo"),
-            Locale("et"), Locale("eu"), Locale("fa"),
-            Locale("fr"),
-            Locale("fi"), Locale("gl"),
-            Locale("gu"),
-            Locale("guc"),
-            Locale("gum"),
-            Locale("nah"),
-            Locale("hi"),
-            Locale("hr"), Locale("hu"), Locale("hy", "AM"),
-            Locale("ia"),
-            Locale("in"), Locale("hy"), Locale("in"),
-            Locale("is"), Locale("it"), Locale("iw"),
-            Locale("ka"), Locale("kk"), Locale("km"),
-            Locale("kn"), Locale("ky"), Locale("lo"),
-            Locale("lt"), Locale("lv"), Locale("mk"),
-            Locale("ml"), Locale("mn"), Locale("mr"),
-            Locale("ms"), Locale("my"), Locale("nb"),
-            Locale("ne"), Locale("nl"),
-            Locale("pa"),
-            Locale("pbb"),
+            buildLocaleForLanguage("eo"),
+            buildLocaleForLanguage("et"),
+            buildLocaleForLanguage("eu"),
+            buildLocaleForLanguage("fa"),
+            buildLocaleForLanguage("fr"),
+            buildLocaleForLanguage("fi"),
+            buildLocaleForLanguage("gl"),
+            buildLocaleForLanguage("gu"),
+            buildLocaleForLanguage("guc"),
+            buildLocaleForLanguage("gum"),
+            buildLocaleForLanguage("nah"),
+            buildLocaleForLanguage("hi"),
+            buildLocaleForLanguage("hr"),
+            buildLocaleForLanguage("hu"),
+            Locale("hy", "AM"),
+            buildLocaleForLanguage("ia"),
+            buildLocaleForLanguage("in"),
+            buildLocaleForLanguage("hy"),
+            buildLocaleForLanguage("in"),
+            buildLocaleForLanguage("is"),
+            buildLocaleForLanguage("it"),
+            buildLocaleForLanguage("iw"),
+            buildLocaleForLanguage("ka"),
+            buildLocaleForLanguage("kk"),
+            buildLocaleForLanguage("km"),
+            buildLocaleForLanguage("kn"),
+            buildLocaleForLanguage("ky"),
+            buildLocaleForLanguage("lo"),
+            buildLocaleForLanguage("lt"),
+            buildLocaleForLanguage("lv"),
+            buildLocaleForLanguage("mk"),
+            buildLocaleForLanguage("ml"),
+            buildLocaleForLanguage("mn"),
+            buildLocaleForLanguage("mr"),
+            buildLocaleForLanguage("ms"),
+            buildLocaleForLanguage("my"),
+            buildLocaleForLanguage("nb"),
+            buildLocaleForLanguage("ne"),
+            buildLocaleForLanguage("nl"),
+            buildLocaleForLanguage("pa"),
+            buildLocaleForLanguage("pbb"),
 
-            Locale("pl"),
+            buildLocaleForLanguage("pl"),
             Locale("pt", "BR"),
-            Locale("pt"), Locale("rm"), Locale("ro"),
-            Locale("ru"), Locale("si", "LK"), Locale("sk"),
-            Locale("sl"), Locale("sn"), Locale("sq"), Locale("sr"),
-            Locale("sv"), Locale("sw"), Locale("ta"),
-            Locale("te"), Locale("th"), Locale("tl"),
-            Locale("tr"), Locale("uk"), Locale("ur"),
-            Locale("uz"), Locale("vi"), Locale("zu")
+            buildLocaleForLanguage("pt"),
+            buildLocaleForLanguage("rm"),
+            buildLocaleForLanguage("ro"),
+            buildLocaleForLanguage("ru"),
+            Locale("si", "LK"),
+            buildLocaleForLanguage("sk"),
+            buildLocaleForLanguage("sl"),
+            buildLocaleForLanguage("sn"),
+            buildLocaleForLanguage("sq"),
+            buildLocaleForLanguage("sr"),
+            buildLocaleForLanguage("sv"),
+            buildLocaleForLanguage("sw"),
+            buildLocaleForLanguage("ta"),
+            buildLocaleForLanguage("te"),
+            buildLocaleForLanguage("th"),
+            buildLocaleForLanguage("tl"),
+            buildLocaleForLanguage("tr"),
+            buildLocaleForLanguage("uk"),
+            buildLocaleForLanguage("ur"),
+            buildLocaleForLanguage("uz"),
+            buildLocaleForLanguage("vi"),
+            buildLocaleForLanguage("zu")
         )
         private const val USE_SYSTEM_DEFAULT = ""
         private const val DEFAULT_STRING = "Use System Default"
@@ -127,8 +185,6 @@ class Languages private constructor(activity: Activity) {
             return singleton
         }
 
-        @JvmStatic
-        @SuppressLint("NewApi")
         fun setLanguage(contextWrapper: ContextWrapper, language: String?, refresh: Boolean) {
             locale =
                 if (locale != null && TextUtils.equals(locale!!.language, language) && !refresh) {
@@ -141,7 +197,7 @@ class Languages private constructor(activity: Activity) {
                     if (localeSplit.size > 1) {
                         Locale(localeSplit[0], localeSplit[1])
                     } else {
-                        Locale(language)
+                        buildLocaleForLanguage(language)
                     }
                 }
             setLocale(contextWrapper, locale)
