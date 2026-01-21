@@ -365,7 +365,7 @@ class ConnectFragment : Fragment(),
             .show(requireActivity().supportFragmentManager, ConfigConnectionBottomSheet.TAG)
     }
 
-    override fun onExitNodeSelected(countryCode: String, displayCountryName: String) {
+    override fun onExitNodeSelected(countryCode: String) {
 
         //tor format expects "{" for country code
         Prefs.exitNodes = "{$countryCode}"

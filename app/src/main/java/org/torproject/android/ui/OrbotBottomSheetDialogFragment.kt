@@ -31,7 +31,7 @@ open class OrbotBottomSheetDialogFragment : BottomSheetDialogFragment() {
                 it.setBackgroundResource(R.drawable.bottom_sheet_rounded)
                 it.setBackgroundColor(Color.TRANSPARENT)
                 setHeightIfAttached(activity, it)
-                val behavior = BottomSheetBehavior.from<FrameLayout>(it)
+                val behavior = BottomSheetBehavior.from(it)
                 behavior.state = BottomSheetBehavior.STATE_EXPANDED
             }
         }
