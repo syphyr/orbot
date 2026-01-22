@@ -141,13 +141,7 @@ class ConnectFragment : Fragment(),
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentConnectBinding.inflate(inflater, container, false)
-
-        if (Prefs.isPowerUserMode) {
-            binding.btnStart.text = getString(R.string.connect)
-        }
-
         viewModel.updateState(requireContext(), lastStatus)
-
         return binding.root
     }
 
@@ -194,9 +188,6 @@ class ConnectFragment : Fragment(),
                     return // user can try again after granting permission
                 } else {
                     binding.ivStatus.setImageResource(R.drawable.orbieon)
-                    with(binding.btnStart) {
-                        text = context.getString(android.R.string.cancel)
-                    }
                 }
             }
             doLayoutStarting(requireContext())
@@ -277,30 +268,12 @@ class ConnectFragment : Fragment(),
             refreshMenuList(context)
         }
         binding.ivStatus.setImageResource(R.drawable.orbieon)
-
         binding.tvSubtitle.visibility = View.VISIBLE
         binding.progressBar.visibility = View.INVISIBLE
         binding.tvTitle.text = context.getString(R.string.connected_title)
         binding.lvConnected.visibility = View.VISIBLE
 
         refreshMenuList(context)
-
-        with(binding.btnStart) {
-            text = if (Prefs.isPowerUserMode)
-                getString(R.string.btn_tor_off)
-            else
-                getString(R.string.stop_vpn)
-
-            isEnabled = true
-            backgroundTintList = ColorStateList.valueOf(
-                ContextCompat.getColor(
-                    context, R.color.orbot_btn_enabled_purple
-                )
-            )
-            setOnClickListener {
-                stopTorAndVpn()
-            }
-        }
 
         binding.ivStatus.setOnClickListener {
             (activity as OrbotActivity).showLog()
@@ -316,17 +289,6 @@ class ConnectFragment : Fragment(),
         binding.lvConnected.visibility = View.VISIBLE
         binding.tvTitle.text = getString(R.string.secure_your_connection_title)
         binding.tvSubtitle.text = getString(R.string.secure_your_connection_subtitle)
-
-
-        with(binding.btnStart) {
-
-            isEnabled = true
-            backgroundTintList = ColorStateList.valueOf(
-                ContextCompat.getColor(requireContext(), R.color.orbot_btn_enabled_purple)
-            )
-            setOnClickListener { startTorAndVpn() }
-        }
-
         binding.ivStatus.setOnClickListener(null)
     }
 
@@ -349,21 +311,7 @@ class ConnectFragment : Fragment(),
         animShadow.repeatMode = Animation.REVERSE
         binding.ivShadow.animation = animShadow
         animShadow.start()
-
         binding.tvTitle.text = context.getString(R.string.trying_to_connect_title)
-        with(binding.btnStart) {
-            text = context.getString(android.R.string.cancel)
-            isEnabled = true
-            backgroundTintList = ColorStateList.valueOf(
-                ContextCompat.getColor(
-                    context, R.color.orbot_btn_enabled_purple
-                )
-            )
-            setOnClickListener {
-                stopTorAndVpn()
-            }
-        }
-
         binding.tvSubtitle.setOnClickListener {
             (activity as OrbotActivity).showLog()
         }
