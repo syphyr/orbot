@@ -8,6 +8,7 @@ import androidx.work.WorkManager
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.Transport
 import java.net.URI
+import java.net.URISyntaxException
 import java.util.Locale
 import java.util.concurrent.TimeUnit
 
@@ -65,7 +66,9 @@ object Prefs {
 
     @JvmStatic
     fun setContext(context: Context?) {
-        if (cr == null) cr = context?.contentResolver
+        if (cr == null) {
+            cr = context?.contentResolver
+        }
     }
 
     fun initWeeklyWorker(context: Context) {
@@ -96,7 +99,8 @@ object Prefs {
                 ?: emptyList()
         }
         set(value) {
-            cr?.putPref(PREF_BRIDGES_LIST,
+            cr?.putPref(
+                PREF_BRIDGES_LIST,
                 value.filter { it.isNotBlank() }.joinToString("\n") { it.trim() })
         }
 
@@ -209,13 +213,14 @@ object Prefs {
         get() = cr?.getPrefInt(PREF_SMART_CONNECT_TIMEOUT) ?: 30
         set(value) = cr?.putPref(PREF_SMART_CONNECT_TIMEOUT, value) ?: Unit
 
-    val proxy: URI?
+    // URI, if config present + valid, malformed URL string if config present + invalid
+    val outboundProxy: Pair<URI?, String?>
         get() {
             val scheme = cr?.getPrefString("pref_proxy_type")?.lowercase()?.trim()
-            if (scheme.isNullOrEmpty()) return null
+            if (scheme.isNullOrEmpty()) return Pair(null, null)
 
             val host = cr?.getPrefString("pref_proxy_host")?.trim()
-            if (host.isNullOrEmpty()) return null
+            if (host.isNullOrEmpty()) return Pair(null, null)
 
             val url = StringBuilder(scheme)
             url.append("://")
@@ -240,7 +245,9 @@ object Prefs {
 
             val port = try {
                 cr?.getPrefString("pref_proxy_port")?.trim()?.toInt() ?: 0
-            } catch (_: Throwable) { 0 }
+            } catch (_: Throwable) {
+                0
+            }
 
             if (port in 1..<65536) {
                 url.append(":")
@@ -249,7 +256,17 @@ object Prefs {
 
             url.append("/")
 
-            return URI(url.toString())
+            return try {
+                Pair(URI(url.toString()), null)
+            } catch (_: URISyntaxException) {
+                // can happen when you say put a space in the hostname
+                // https://github.com/guardianproject/orbot-android/issues/1563
+                // https://www.rfc-editor.org/rfc/inline-errata/rfc3986.html
+                Pair(
+                    null,
+                    url.toString()
+                )
+            }
         }
 
     val isPowerUserMode: Boolean

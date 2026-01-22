@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -36,6 +37,7 @@ import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.jni.TorService
+
 private const val DEFAULT_THROTTLE_INTERVAL = 4000L
 
 class ConnectFragment : Fragment(),
@@ -118,9 +120,17 @@ class ConnectFragment : Fragment(),
             }, DEFAULT_THROTTLE_INTERVAL)
         }
         binding.switchConnect.setOnCheckedChangeListener { _, value ->
-            if (value)
+            if (value) {
+                // display msg if optional outbound proxy config is invalid
+                Prefs.outboundProxy.second.let {
+                    Toast.makeText(
+                        activity,
+                        getString(R.string.invalid_outbound_proxy_config),
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
                 startTorAndVpn()
-            else
+            } else
                 stopTorAndVpn()
         }
         refreshMenuList(requireContext())
