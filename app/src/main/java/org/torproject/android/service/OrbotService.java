@@ -5,7 +5,6 @@ package org.torproject.android.service;
 
 import static org.torproject.android.service.OrbotConstants.*;
 import static org.torproject.jni.TorService.*;
-import static org.torproject.jni.TorService.TAG;
 
 import android.annotation.SuppressLint;
 import android.app.Notification;
@@ -76,6 +75,7 @@ public class OrbotService extends VpnService {
     private NotificationManager mNotificationManager = null;
     private NotificationCompat.Builder mNotifyBuilder;
     private File mV3OnionBasePath;
+    private static final String TAG = "OrbotService";
 
     @SuppressLint({"NewApi", "RestrictedApi"})
     protected void showToolbarNotification(String notifyMsg, int notifyType, int icon) {
