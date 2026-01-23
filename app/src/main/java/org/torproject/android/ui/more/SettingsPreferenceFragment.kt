@@ -37,7 +37,7 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
 
     // If these EditTextPrefs exist, use a numerical keyboard
     private val numericalPortPrefs =
-        listOf(Prefs.PREF_SOCKS, Prefs.PREF_HTTP, Prefs.PREF_PROXY_PORT)
+        listOf(Prefs.PREF_SOCKS, Prefs.PREF_HTTP, Prefs.PREF_PROXY_PORT, Prefs.PREF_OR_PORT)
 
     // render these EditTextPreferences, if they exist, as passwords
     private val passwordPrefs = listOf(Prefs.PREF_PROXY_PASSWORD)
