@@ -2,6 +2,7 @@ package org.torproject.android.ui.more
 
 import android.os.Build
 import android.os.Bundle
+import android.text.InputFilter
 import android.text.InputType
 import android.view.View
 import android.view.inputmethod.EditorInfo
@@ -26,8 +27,8 @@ abstract class AbstractPreferenceFragment : PreferenceFragmentCompat() {
     }
 
 
-    protected fun bindNumericalPrefs(prefs: List<String> = emptyList()) =
-        bindInputType(prefs, InputType.TYPE_CLASS_NUMBER)
+    protected fun bindNumericaPrefs(prefs: List<String> = emptyList(), maxLength: Int? = null) =
+        bindInputType(prefs, InputType.TYPE_CLASS_NUMBER, maxLength)
 
     protected fun bindPasswordPrefs(prefs: List<String> = emptyList()) {
         prefs.forEach { pref ->
@@ -49,11 +50,18 @@ abstract class AbstractPreferenceFragment : PreferenceFragmentCompat() {
         }
     }
 
-    protected fun bindInputType(prefIds: List<String> = emptyList(), inputType: Int) {
+    protected fun bindInputType(
+        prefIds: List<String> = emptyList(),
+        inputType: Int,
+        maxLength: Int? = null
+    ) {
         prefIds.forEach { pref ->
             val pref = findPreference<EditTextPreference?>(pref)
             pref?.setOnBindEditTextListener {
                 it.inputType = inputType
+                if (maxLength != null) {
+                    it.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
+                }
             }
         }
     }

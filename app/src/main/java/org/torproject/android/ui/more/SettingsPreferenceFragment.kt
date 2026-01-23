@@ -18,7 +18,6 @@ import org.torproject.android.localization.Languages
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.sendIntentToService
-import java.util.Locale
 
 class SettingsPreferenceFragment : AbstractPreferenceFragment() {
     private var toolbar: Toolbar? = null
@@ -26,7 +25,7 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment() {
     override fun rootTitleId(): Int = R.string.menu_settings
 
     // If these EditTextPrefs exist, use a numerical keyboard
-    val numericalPrefs = listOf(
+    val numericalPortPrefs = listOf(
         "pref_socks", "pref_http", "pref_proxy_port"
     )
 
@@ -74,7 +73,7 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment() {
                 false
             }
 
-        bindNumericalPrefs(numericalPrefs)
+        bindNumericaPrefs(numericalPortPrefs, 5)
         bindPasswordPrefs(passwordPrefs)
         bindInputType(
             listOf("pref_proxy_host"),
