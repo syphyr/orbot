@@ -37,8 +37,12 @@ abstract class AbstractPreferenceFragment : PreferenceFragmentCompat() {
                     it.inputType =
                         InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
                 }
+                // retain "Not set" text when there's no password supplied
+                val oldSummaryProvider = pref.summaryProvider
                 pref.summaryProvider = Preference.SummaryProvider<EditTextPreference> {
-                    pref.text.toString()
+                    if (pref.text.toString().isEmpty()) {
+                        oldSummaryProvider?.provideSummary(pref)
+                    } else pref.text.toString()
                         .map { _ -> "•" }.joinToString("")
                 }
             }

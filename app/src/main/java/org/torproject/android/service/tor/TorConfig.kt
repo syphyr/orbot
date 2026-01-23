@@ -112,7 +112,6 @@ object TorConfig {
 
     private fun getPort(port: String): String {
         var port = port
-
         if (port.indexOf(':') != -1) port = port.split(":").toTypedArray()[1]
 
         return NetworkUtils.checkPortOrAuto(port)

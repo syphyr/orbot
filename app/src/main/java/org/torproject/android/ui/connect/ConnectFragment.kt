@@ -3,7 +3,6 @@ package org.torproject.android.ui.connect
 import android.app.AlarmManager
 import android.content.Context
 import android.content.Intent
-import android.content.res.ColorStateList
 import android.net.VpnService
 import android.os.Build
 import android.os.Bundle
@@ -15,7 +14,6 @@ import android.view.animation.AnimationUtils
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
@@ -122,7 +120,8 @@ class ConnectFragment : Fragment(),
         binding.switchConnect.setOnCheckedChangeListener { _, value ->
             if (value) {
                 // display msg if optional outbound proxy config is invalid
-                Prefs.outboundProxy.second.let {
+                if (Prefs.outboundProxy.second != null) {
+
                     Toast.makeText(
                         activity,
                         getString(R.string.invalid_outbound_proxy_config),
