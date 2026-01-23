@@ -135,13 +135,11 @@
     <string name="connected_title">Conectado</string>
     <string name="secure_your_connection_subtitle">Oculte o aplicativos do monitoramento da rede e obtenha acesso quando eles estiverem bloqueados.</string>
     <string name="btn_configure">Escolha como se conectar</string>
-    <string name="btn_start_vpn">Iniciar a VPN</string>
     <string name="volunteer_mode">Modo Bondade</string>
     <string name="trying_to_connect_title">Conectando…</string>
     <string name="btn_change_exit">Altere a saída</string>
     <string name="btn_choose_apps">Escolha os aplicativos</string>
     <string name="btn_refresh">Atualizar</string>
-    <string name="btn_tor_off">Desligar o Tor</string>
     <string name="volunteer_mode_subtitle_desc">O modo Bondade permite que o seu dispositivo seja uma ponte para os outros. Ajuda as pessoas a usar o Tor em lugares onde ele esteja bloqueado.
 \n
 \n• Não drena a sua bateria

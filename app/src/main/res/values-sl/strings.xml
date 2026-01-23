@@ -38,14 +38,12 @@
     <string name="secure_your_connection_title">Pripravljen na povezavo</string>
     <string name="secure_your_connection_subtitle">Skrijte aplikacije pred nadzorom omrežja in pridobite dostop, ko so blokirane.</string>
     <string name="connected_title">Povezano</string>
-    <string name="btn_start_vpn">Začetek omrežja VPN</string>
     <string name="btn_configure">Izberi kako se povezati</string>
     <string name="volunteer_mode">Način prijaznosti</string>
     <string name="trying_to_connect_title">Povezovanje …</string>
     <string name="btn_choose_apps">Izberite aplikacije</string>
     <string name="btn_change_exit">Sprememba izhoda</string>
     <string name="btn_refresh">Osvežitev</string>
-    <string name="btn_tor_off">Izklop storitve Tor</string>
     <string name="pref_start_boot_summary">Samodejno zaženite Orbot in povežite Tor, ko se naprava s sistemom Android zažene</string>
     <string name="pref_entrance_node">Vstopna vozlišča</string>
     <string name="pref_entrance_node_dialog">Vstopite v vstopna vozlišča</string>

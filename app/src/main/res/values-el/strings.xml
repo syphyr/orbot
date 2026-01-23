@@ -104,14 +104,12 @@
     <string name="secure_your_connection_title">Ετοιμοι για σύνδεση</string>
     <string name="secure_your_connection_subtitle">Απόκρυψη εφαρμογών από την παρακολούθηση του δικτύου και πρόσβαση σε αυτές όταν είναι μπλοκαρισμένες.</string>
     <string name="connected_title">Συνδεδεμένο</string>
-    <string name="btn_start_vpn">Έναρξη VPN</string>
     <string name="btn_configure">Επιλέξτε τον τρόπο σύνδεσης</string>
     <string name="volunteer_mode">Λειτουργία Kindness</string>
     <string name="trying_to_connect_title">Σύνδεση…</string>
     <string name="btn_choose_apps">Επιλέξτε εφαρμογές</string>
     <string name="btn_change_exit">Αλλαγή εξόδου</string>
     <string name="btn_refresh">Ανανέωση</string>
-    <string name="btn_tor_off">Απενεργοποιήστε το Tor</string>
     <string name="v3_hosted_services">Υπηρεσίες Onion</string>
     <string name="v3_backup_key_warning">Προειδοποίηση: Αυτό μπορεί να εκθέσει το κλειδί σας σε άλλες εφαρμογές</string>
     <string name="backup_port_exist">Σφάλμα: Μια υπηρεσία Onion χρησιμοποιεί ήδη τη θύρα %s</string>

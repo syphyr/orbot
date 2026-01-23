@@ -130,13 +130,11 @@
     <string name="secure_your_connection_title">Paruošta prisijungti</string>
     <string name="secure_your_connection_subtitle">Paslėpkite programėles nuo tinklo stebėjimo ir gaukite prieigą, kai jos blokuojamos.</string>
     <string name="connected_title">Prisijungta</string>
-    <string name="btn_start_vpn">Pradėti VPN</string>
     <string name="btn_configure">Pasirinkite, kaip prisijungti</string>
     <string name="volunteer_mode">Gerumo režimas</string>
     <string name="trying_to_connect_title">Prisijungiama…</string>
     <string name="btn_choose_apps">Pasirinkite programėles</string>
     <string name="btn_change_exit">Keisti išėjimą</string>
-    <string name="btn_tor_off">Išjunkite „Tor“</string>
     <string name="btn_refresh">Atnaujinti</string>
     <string name="strict_nodes_description">Išskirti mazgų nustatymus vertinkite kaip reikalavimą kuriant visas grandines. Tai gali sutrikdyti funkcionalumą, jei nepavyks sugeneruoti jokių grandinių, naudojant nustatymus Išskirti mazgus.</string>
     <string name="bridge_snowflake_amp">Prisijungimas per kitus „Tor“ naudotojus naudojant „Snowflake“ (2 būdas)</string>

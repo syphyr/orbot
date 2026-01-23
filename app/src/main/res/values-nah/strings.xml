@@ -133,13 +133,11 @@ atl oquitlapatic</string>
     <string name="secure_your_connection_title">Ye cualli inic quicentia</string>
     <string name="secure_your_connection_subtitle">Xicnetlatia apps tlein quitlapiya in matlatl ihuan quipia calaquiliztli ihcuac ye otlatzacuilic</string>
     <string name="connected_title">Tencuitica</string>
-    <string name="btn_start_vpn">Pehualtia VPN</string>
     <string name="btn_configure">Mocentilia</string>
     <string name="trying_to_connect_title">Tencuitica…</string>
     <string name="btn_choose_apps">Xicpepena tepoztlatlatquitl</string>
     <string name="btn_change_exit">Xipatla quizayan</string>
     <string name="btn_refresh">Papatia</string>
-    <string name="btn_tor_off">XicehuiTor</string>
     <string name="volunteer_mode_title">Quipalehui occequintin/ahmo quicentia Tor</string>
     <string name="volunteer_mode_weekly_label">Chicueilhuitl centamachihua</string>
     <string name="volunteer_mode_alltime_label">Nochi cahuitl centamachihua</string>

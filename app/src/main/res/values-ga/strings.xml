@@ -135,13 +135,11 @@
     <string name="secure_your_connection_title">Réidh le ceangal</string>
     <string name="secure_your_connection_subtitle">Folaigh aipeanna ó mhonatóireacht líonra agus faigh rochtain nuair a bhíonn siad blocáilte.</string>
     <string name="connected_title">Ceangailte</string>
-    <string name="btn_start_vpn">Tosaigh VPN</string>
     <string name="btn_configure">Roghnaigh Conas Ceangal a Dhéanamh</string>
     <string name="trying_to_connect_title">Ag ceangal…</string>
     <string name="btn_choose_apps">Roghnaigh aipeanna</string>
     <string name="btn_change_exit">Athraigh an bealach amach</string>
     <string name="btn_refresh">Athnuachan an Nasc</string>
-    <string name="btn_tor_off">Múch Tor</string>
     <string name="volunteer_mode_title">Cabhraigh le daoine eile\nceangal le Tor</string>
     <string name="volunteer_mode_weekly_label">Iomlán Seachtainiúil</string>
     <string name="volunteer_mode_alltime_label">Iomlán na nAmaí</string>
@@ -183,7 +181,6 @@
     <string name="not_sure">Níl tú cinnte?</string>
     <string name="ask_tor">Iarr ar Tor</string>
     <string name="many_ways">Tá go leor bealaí ann chun teacht ar Tor. D’fhéadfadh cuid acu a bheith níos fearr ná a chéile duit.</string>
-    <string name="action_use_">Úsáid %1$s</string>
     <string name="asking">AG CEIST…</string>
     <string name="no_internet_title">Ceangail leis an idirlíon</string>
     <string name="no_internet_subtitle">Teastaíonn nasc idirlín uait chun Orbot a úsáid.</string>
@@ -264,11 +261,9 @@
     <string name="status_enough_dirinfo">Luchtaithe eolaire líonra Tor</string>
     <string name="status_requesting_status">Ag iarraidh stádas líonra ar Tor</string>
     <string name="status_loading_status">Stádas an líonra á lódáil</string>
-    <string name="status_loading_keys">Ag lódáil eochracha slándála líonra</string>
     <string name="status_requesting_descriptors">Ag iarraidh eolais ar fhreastalaí líonra</string>
     <string name="status_loading_descriptors">Ag lódáil faisnéis fhreastalaí líonra</string>
     <string name="loading">Ag lódáil…</string>
-    <string name="stop_vpn">Stad VPN</string>
     <string name="http_port">Port HTTP</string>
     <string name="socks_port">Port SOCKS</string>
 </resources>

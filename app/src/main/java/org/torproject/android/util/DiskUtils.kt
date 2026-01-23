@@ -14,7 +14,6 @@ import java.io.PrintWriter
 
 object DiskUtils {
 
-    @JvmStatic
     @Throws(IOException::class)
     fun readFileFromAssets(assetFilename: String, context: Context): String {
         val reader = BufferedReader(InputStreamReader(context.assets.open(assetFilename)))
@@ -56,7 +55,6 @@ object DiskUtils {
         return directory.delete()
     }
 
-    @JvmStatic
     fun readInputStreamAsString(stream: InputStream?): String {
         var line: String?
         val out = StringBuilder()

@@ -133,10 +133,8 @@
     <string name="next">Tiếp theo</string>
     <string name="pref_isolate_protocol">Cô lập các Protocol máy/ứng dụng khách</string>
     <string name="secure_your_connection_subtitle">Ẩn giấu các app ứng dụng khỏi việc bị theo dõi mạng và lấy lại khả năng truy cập khi chúng bị chặn.</string>
-    <string name="btn_start_vpn">Khởi động VPN</string>
     <string name="btn_configure">Lựa chọn làm cách nào để kết nối</string>
     <string name="btn_choose_apps">Lựa chọn app ứng dụng</string>
-    <string name="btn_tor_off">Tắt Tor đi</string>
     <string name="volunteer_status_title">Ngày hôm nay tốt đẹp hơn
 \nlà do bạn.</string>
     <string name="option_only_on_wifi">Chỉ trên Wifi</string>

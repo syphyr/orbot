@@ -75,13 +75,11 @@
     <string name="wizard_details_msg">Orbot ir atvērtā koda lietojumprogramma, kas satur Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks un LibEvent. Tā nodrošina VPN tuneli, vietējo HTTP Connect proxy (tikai HTTPS portā 8118) un SOCKS proxy (9050) uz Tor tīklu.</string>
     <string name="secure_your_connection_subtitle">Paslēpiet lietotnes no tīkla uzraudzības un iegūstiet piekļuvi, ja tās ir bloķētas.</string>
     <string name="connected_title">Savienots</string>
-    <string name="btn_start_vpn">VPN sākšana</string>
     <string name="btn_configure">Izvēlieties, kā pieslēgties</string>
     <string name="volunteer_mode">Labestības režīms</string>
     <string name="btn_choose_apps">Izvēlieties lietotnes</string>
     <string name="btn_change_exit">Mainīt izeju</string>
     <string name="btn_refresh">Atjaunināt</string>
-    <string name="btn_tor_off">Tor izslēgšana</string>
     <string name="hidden_service_request">Programma vēlas atvērt sīpolu serveri Tor tīklā porta %1$s. Tas ir droši, ja lietotnei uzticaties.</string>
     <string name="v3_backup_name_hint">Rezerves kopijas faila nosaukums…</string>
     <string name="pref_circuit_padding">Ķēdes polsterējums</string>

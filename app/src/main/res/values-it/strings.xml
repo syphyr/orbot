@@ -147,7 +147,6 @@
     <string name="smart_connect">Connessione intelligente</string>
     <string name="snowflake_subtitle">Si connette tramite volontari di Tor. Aggira qualche blocco di Tor.</string>
     <string name="volunteer_mode">Modalità altruismo</string>
-    <string name="btn_start_vpn">Avvia VPN</string>
     <string name="snowflake_proxy_msg_title">Mostra la notifica di connessione</string>
     <string name="snowflake_proxy_msg_description">Mostra un messaggio quando aiuti qualcuno ad aggirare la censura</string>
     <string name="btn_copy_log">Copia log</string>
@@ -155,7 +154,6 @@
     <string name="kindness_config_detail">Configura come e quando il dispositivo può agire da proxy Snowflake per altri utenti Tor.</string>
     <string name="log_copied">Log copiato</string>
     <string name="btn_change_exit">Cambia uscita</string>
-    <string name="btn_tor_off">Spegni Tor</string>
     <string name="volunteer_mode_title">Aiuta altri a
 \nconnettersi a Tor</string>
     <string name="volunteer_mode_alltime_label">Totale assoluto</string>
@@ -215,7 +213,6 @@
     <string name="bridge_meek_azure_subtitle">Camuffa il tuo traffico. Aggira qualche blocco di Tor. Potrebbe essere molto lento.</string>
     <string name="custom_bridges_subtitle">Chiedi all\'interno delle tue reti e organizzazioni di fiducia se qualcuno sta ospitando un bridge. Altrimenti, un tuo amico può ricevere i bridge per te.</string>
     <string name="custom_bridges_description">Incolla qua sotto gli indirizzi dei bridge che ricevi. Oppure scansiona il codice QR per aggiungerli. I tuoi amici possono ricevere bridge per te su %1$s.</string>
-    <string name="action_use_">Usa %1$s</string>
     <string name="app_icon_chooser_label_night_watch">Orologio notturno</string>
     <string name="app_icon_chooser_label_paint">Vernice</string>
     <string name="app_icon_chooser_label_tetras">Tetra</string>
@@ -261,7 +258,6 @@
     <string name="status_onehop_create">Accesso alla directory della rete Tor</string>
     <string name="status_enough_dirinfo">Directory della rete Tor caricata</string>
     <string name="status_requesting_status">Richiesta a Tor dello stato della rete</string>
-    <string name="status_loading_keys">Caricamento delle chiavi di sicurezza della rete</string>
     <string name="status_requesting_descriptors">Richiesta di informazioni sul server di rete</string>
     <string name="status_loading_descriptors">Caricamento delle informazioni del server di rete</string>
     <string name="title_safety">Sicurezza</string>
@@ -271,6 +267,5 @@
     <string name="status_loading_status">Caricamento dello stato della rete</string>
     <string name="loading">Caricamento…</string>
     <string name="http_port">Porta HTTP</string>
-    <string name="stop_vpn">Ferma VPN</string>
     <string name="socks_port">Porta SOCKS</string>
 </resources>

@@ -105,12 +105,10 @@
     <string name="volunteer_mode">Kindness Mode</string>
     <string name="secure_your_connection_title">Ready to connect</string>
     <string name="secure_your_connection_subtitle">Hide apps from network monitoring and get access when they are blocked.</string>
-    <string name="btn_start_vpn">Start VPN</string>
     <string name="btn_configure">Choose How To Connect</string>
     <string name="btn_choose_apps">Choose apps</string>
     <string name="btn_change_exit">Change exit</string>
     <string name="btn_refresh">Refresh Connection</string>
-    <string name="btn_tor_off">Turn Tor off</string>
     <string name="pref_start_boot_title">Start Orbot on Boot</string>
     <string name="pref_proxy_password_summary">Proxy Password (Optional)</string>
     <string name="exclude_nodes">Exclude Nodes</string>
@@ -198,7 +196,6 @@
     <string name="bridge_meek_azure_subtitle">Cloaks your traffic. Gets around some Tor blocking. May be very slow.</string>
     <string name="custom_bridges_subtitle">Ask within your trusted networks and organisations to see if anyone is hosting a bridge. If not, a friend can get bridges for you.</string>
     <string name="custom_bridges_description">Paste the bridge addresses you receive below, or scan the QR code to add them. Friends can get bridges for you at %1$s.</string>
-    <string name="action_use_">Use %1$s</string>
     <string name="app_icon_chooser_label_night_watch">Night Watch</string>
     <string name="app_icon_chooser_label_assistant">Assistant</string>
     <string name="app_icon_chooser_label_paint">Paint</string>
@@ -272,11 +269,9 @@
     <string name="status_enough_dirinfo">Tor network directory loaded</string>
     <string name="status_requesting_status">Asking Tor for network status</string>
     <string name="status_loading_status">Loading network status</string>
-    <string name="status_loading_keys">Loading network security keys</string>
     <string name="status_requesting_descriptors">Requesting network server information</string>
     <string name="status_loading_descriptors">Loading network server information</string>
     <string name="loading">Loading…</string>
-    <string name="stop_vpn">Stop VPN</string>
     <string name="http_port">HTTP Port</string>
     <string name="socks_port">SOCKS Port</string>
 </resources>

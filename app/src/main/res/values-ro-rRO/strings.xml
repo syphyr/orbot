@@ -121,7 +121,6 @@
     <string name="app_services">Servicii de aplicații</string>
     <string name="custom_bridges">Punți personalizate</string>
     <string name="bridge_snowflake_amp">Conectați-vă prin intermediul altor utilizatori Tor folosind Snowflake (Metoda 2 - AMP)</string>
-    <string name="btn_start_vpn">Pornire VPN</string>
     <string name="trying_to_connect_title">Se conectează…</string>
     <string name="btn_choose_apps">Alegere aplicații</string>
     <string name="btn_change_exit">Schimbare ieșire</string>
@@ -149,7 +148,6 @@
     <string name="pref_isolate_protocol">Izolați protocoalele clienților</string>
     <string name="v3_hosted_services">Servicii găzduite de Onion</string>
     <string name="btn_refresh">Actualizează</string>
-    <string name="btn_tor_off">Dezactivați Tor</string>
     <string name="volunteer_mode_alltime_label">Tot timpul total</string>
     <string name="pref_http_title">Tor HTTP</string>
     <string name="pref_http_dialog">Configurarea portului HTTP</string>
@@ -210,7 +208,6 @@
     <string name="bridge_meek_azure_subtitle">Vă camuflează traficul. Evită unele moduri de blocare Tor. Poate fi foarte lent.</string>
     <string name="custom_bridges_subtitle">Întrebați în cadrul rețelelor și organizațiilor de încredere ale dvs. pentru a vedea dacă cineva găzduiește o punte. Dacă nu, un prieten poate obține punți pentru voi.</string>
     <string name="custom_bridges_description">Lipiți adresele de punți pe care le primiți mai jos. Sau scanați codul QR pentru a le adăuga. Prietenii vă pot obține punți %1$s.</string>
-    <string name="action_use_">Folosește %1$s</string>
     <string name="app_icon_chooser_label_night_watch">Night Watch</string>
     <string name="app_icon_chooser_label_paint">Paint</string>
     <string name="app_icon_chooser_label_tetras">Tetras</string>
