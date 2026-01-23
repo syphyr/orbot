@@ -250,7 +250,6 @@
 
         <EditTextPreference
             android:dialogTitle="@string/pref_proxy_port_summary"
-            android:inputType="number"
             android:key="pref_proxy_port"
             android:title="@string/pref_proxy_port_title"
             app:iconSpaceReserved="false"
@@ -265,7 +264,6 @@
 
         <EditTextPreference
             android:dialogTitle="@string/pref_proxy_password_summary"
-            android:inputType="textPassword"
             android:key="pref_proxy_password"
             android:title="@string/pref_proxy_password_title"
             app:iconSpaceReserved="false"
@@ -281,7 +279,6 @@
         <EditTextPreference
             android:defaultValue="9050"
             android:dialogTitle="@string/pref_socks_dialog"
-            android:inputType="number"
             android:key="pref_socks"
             android:summary="@string/pref_socks_summary"
             android:title="@string/pref_socks_title"
@@ -290,7 +287,6 @@
         <EditTextPreference
             android:defaultValue="8118"
             android:dialogTitle="@string/pref_http_dialog"
-            android:inputType="number"
             android:key="pref_http"
             android:summary="@string/pref_http_summary"
             android:title="@string/pref_http_title"
@@ -314,7 +310,6 @@
 
         <EditTextPreference
             android:dialogTitle="@string/pref_torrc_dialog"
-            android:inputType="textMultiLine|textNoSuggestions"
             android:key="pref_custom_torrc"
             android:summary="@string/pref_torrc_summary"
             android:title="@string/pref_torrc_title"

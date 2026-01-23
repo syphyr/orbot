@@ -3,6 +3,7 @@ package org.torproject.android.ui.more
 
 import android.os.Build
 import android.os.Bundle
+import android.text.InputType
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -22,6 +23,16 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment() {
     private var toolbar: Toolbar? = null
     override fun prefId(): Int = R.xml.preferences
     override fun rootTitleId(): Int = R.string.menu_settings
+
+    // If these EditTextPrefs exist, use a numerical keyboard
+    val numericalPrefs = listOf(
+        "pref_socks", "pref_http", "pref_proxy_port"
+    )
+
+    // render these EditTextPreferences, if they exist, as passwords
+    val passwordPrefs = listOf(
+        "pref_proxy_password"
+    )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -57,6 +68,17 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment() {
                 }
                 false
             }
+
+        bindNumericalPrefs(numericalPrefs)
+        bindPasswordPrefs(passwordPrefs)
+        bindInputType(
+            listOf("pref_proxy_host"),
+            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_URI
+        )
+        bindInputType(
+            listOf("pref_custom_torrc"),
+            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE
+        )
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             // if defined in XML, disable the persistent notification preference on Oreo+

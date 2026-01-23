@@ -2,16 +2,19 @@ package org.torproject.android.ui.more
 
 import android.os.Build
 import android.os.Bundle
+import android.text.InputType
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.preference.EditTextPreference
+import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceScreen
 import org.torproject.android.R
+
 
 abstract class AbstractPreferenceFragment : PreferenceFragmentCompat() {
     private var toolbar: Toolbar? = null
@@ -22,6 +25,34 @@ abstract class AbstractPreferenceFragment : PreferenceFragmentCompat() {
         setNoPersonalizedLearningOnEditTextPreferences()
     }
 
+
+    protected fun bindNumericalPrefs(prefs: List<String> = emptyList()) =
+        bindInputType(prefs, InputType.TYPE_CLASS_NUMBER)
+
+    protected fun bindPasswordPrefs(prefs: List<String> = emptyList()) {
+        prefs.forEach { pref ->
+            val pref = findPreference<EditTextPreference?>(pref)
+            pref?.let { pref ->
+                pref.setOnBindEditTextListener {
+                    it.inputType =
+                        InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                }
+                pref.summaryProvider = Preference.SummaryProvider<EditTextPreference> {
+                    pref.text.toString()
+                        .map { _ -> "•" }.joinToString("")
+                }
+            }
+        }
+    }
+
+    protected fun bindInputType(prefIds: List<String> = emptyList(), inputType: Int) {
+        prefIds.forEach { pref ->
+            val pref = findPreference<EditTextPreference?>(pref)
+            pref?.setOnBindEditTextListener {
+                it.inputType = inputType
+            }
+        }
+    }
 
     private fun setNoPersonalizedLearningOnEditTextPreferences() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
@@ -64,6 +95,7 @@ abstract class AbstractPreferenceFragment : PreferenceFragmentCompat() {
         isSubscreen = true
         toolbar?.title = preferenceScreen.title
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         toolbar = view.findViewById(R.id.toolbar)
