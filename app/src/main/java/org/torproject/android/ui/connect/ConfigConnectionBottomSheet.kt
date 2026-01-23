@@ -66,12 +66,18 @@ class ConfigConnectionBottomSheet :
             android.R.layout.simple_dropdown_item_1line,
             countryMap.keys.sortedBy { it.substring(5) }))
 
+        selectedCountryCode = Prefs.bridgeCountry
+
+        if (selectedCountryCode != null) {
+            binding.acCountry.setText(countryMap.filterValues { it == selectedCountryCode }.keys.firstOrNull())
+        }
+
         binding.acCountry.setOnClickListener(this)
         binding.acCountry.setOnKeyListener(this)
         binding.acCountry.onFocusChangeListener = this
         binding.acCountry.onItemClickListener = this
 
-        binding.dnsttContainer.visibility = View.GONE
+        binding.dnsttContainer.visibility = if (selectedCountryCode == "IR") View.VISIBLE else View.GONE
 
         radios = arrayListOf(
             binding.rbDirect,
@@ -251,14 +257,24 @@ class ConfigConnectionBottomSheet :
             if (currentText.isNotEmpty() && countryDisplay != null) {
                 binding.acCountry.setText(countryDisplay)
                 selectedCountryCode = countryMap[countryDisplay]
-
-                // TODO: DNSTT is currently only shown for Iranian users.
-                binding.dnsttContainer.visibility = if (selectedCountryCode == "IR") View.VISIBLE else View.GONE
             }
             else {
                 binding.acCountry.text = null
                 selectedCountryCode = null
             }
+
+            // TODO: DNSTT is currently only shown for Iranian users.
+            if (selectedCountryCode == "IR") {
+                binding.dnsttContainer.visibility = View.VISIBLE
+            } else {
+                binding.dnsttContainer.visibility = View.GONE
+
+                if (binding.rbDnstt.isChecked) {
+                    binding.rbDirect.isChecked = true
+                }
+            }
+
+            Prefs.bridgeCountry = selectedCountryCode
         }
     }
 
