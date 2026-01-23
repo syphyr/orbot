@@ -113,7 +113,6 @@ object Prefs {
         return cr?.getPrefBoolean(PREF_DETECT_ROOT, true) ?: true
     }
 
-    @JvmStatic
     fun beSnowflakeProxy(): Boolean {
         return cr?.getPrefBoolean(PREF_BE_A_SNOWFLAKE) ?: false
     }
@@ -122,7 +121,6 @@ object Prefs {
         return cr?.getPrefBoolean(PREF_SHOW_SNOWFLAKE_MSG) ?: false
     }
 
-    @JvmStatic
     fun setBeSnowflakeProxy(beSnowflakeProxy: Boolean) {
         cr?.putPref(PREF_BE_A_SNOWFLAKE, beSnowflakeProxy)
     }
@@ -135,12 +133,10 @@ object Prefs {
         cr?.putPref(PREF_BE_A_SNOWFLAKE_LIMIT_CHARGING, beSnowflakeProxy)
     }
 
-    @JvmStatic
     fun limitSnowflakeProxyingWifi(): Boolean {
         return cr?.getPrefBoolean(PREF_BE_A_SNOWFLAKE_LIMIT_WIFI) ?: false
     }
 
-    @JvmStatic
     fun limitSnowflakeProxyingCharging(): Boolean {
         return cr?.getPrefBoolean(PREF_BE_A_SNOWFLAKE_LIMIT_CHARGING) ?: false
     }
@@ -154,7 +150,6 @@ object Prefs {
         return cr?.getPrefBoolean(PREF_ALLOW_BACKGROUND_STARTS, true) ?: true
     }
 
-    @JvmStatic
     fun openProxyOnAllInterfaces(): Boolean {
         return cr?.getPrefBoolean(PREF_OPEN_PROXY_ON_ALL_INTERFACES) ?: false
     }

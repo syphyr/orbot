@@ -161,7 +161,6 @@ class Languages private constructor(activity: Activity) {
          * e.g. `R.string.use_system_default`
          * @return
          */
-        @JvmStatic
         fun setup(clazz: Class<*>?, resId: Int) {
             defaultLocale = Locale.getDefault()
             if (Companion.clazz == null) {
@@ -178,7 +177,6 @@ class Languages private constructor(activity: Activity) {
          * @param activity the [Activity] this is working as part of
          * @return
          */
-        @JvmStatic
         operator fun get(activity: Activity): Languages? {
             if (singleton == null) {
                 singleton = Languages(activity)

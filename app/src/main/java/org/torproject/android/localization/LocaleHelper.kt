@@ -19,7 +19,6 @@ import java.util.*
  * https://gunhansancar.com/change-language-programmatically-in-android/
  */
 object LocaleHelper {
-    @JvmStatic
     fun onAttach(context: Context): Context = setLocale(context, Prefs.defaultLocale)
 
     private fun setLocale(context: Context, language: String): Context {
