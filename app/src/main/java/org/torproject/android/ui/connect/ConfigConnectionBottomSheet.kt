@@ -13,6 +13,7 @@ import android.widget.ArrayAdapter
 import android.widget.CompoundButton
 import android.widget.RadioButton
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.net.toUri
 import androidx.lifecycle.lifecycleScope
@@ -201,7 +202,16 @@ class ConfigConnectionBottomSheet :
             else if (binding.rbDnstt.isChecked) {
                 Prefs.transport = Transport.DNSTT
                 Prefs.smartConnect = false
-                closeAndConnect()
+
+                AlertDialog.Builder(requireContext())
+                    .setTitle(R.string.limit_dns_tunnel_use)
+                    .setMessage(R.string.dns_tunnel_usage_description)
+                    .setPositiveButton(R.string.connect) { _, _ ->
+                        closeAndConnect()
+                    }
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .setIconAttribute(android.R.attr.alertDialogIcon)
+                    .show()
             }
 
             if (binding.rbTelegram.isChecked || binding.rbEmail.isChecked || binding.rbCustom.isChecked) {
