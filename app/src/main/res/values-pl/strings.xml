@@ -135,12 +135,10 @@
     <string name="direct_connect">Bezpośrednie połączenie z Tor</string>
     <string name="smart_connect">Inteligentne połączenie (domyślne)</string>
     <string name="secure_your_connection_title">Gotowy do połączenia</string>
-    <string name="btn_start_vpn">Uruchom VPN</string>
     <string name="btn_configure">Wybierz sposób połączenia</string>
     <string name="btn_choose_apps">Wybierz aplikacje</string>
     <string name="btn_refresh">Odśwież</string>
     <string name="volunteer_mode">Tryb życzliwości</string>
-    <string name="btn_tor_off">Wyłącz Tor</string>
     <string name="btn_change_exit">Zmiana wyjścia</string>
     <string name="license">Licencja:</string>
     <string name="version">Wersja:</string>
@@ -197,7 +195,6 @@
     <string name="bridge_meek_azure_subtitle">Maskuje ruch. Omija niektóre blokady sieci Tor. Może być bardzo powolne.</string>
     <string name="custom_bridges_subtitle">Zapytaj w zaufanych sieciach i organizacjach, czy ktoś hostuje mostek. Jeśli nie, znajomy może Ci pomóc.</string>
     <string name="custom_bridges_description">Wklej adresy mostków, które otrzymasz poniżej. Lub zeskanuj kod QR, aby je dodać. Znajomi mogą zdobyć dla Ciebie mostki na %1$s.</string>
-    <string name="action_use_">Użyj %1$s</string>
     <string name="app_icon_chooser_label_night_watch">Nocna straż</string>
     <string name="app_icon_chooser_label_tetras">Tetry</string>
     <string name="app_icon_chooser_label_todo">Do zrobienia</string>

@@ -130,10 +130,8 @@
     <string name="trying_to_connect_title">Під\'єднання…</string>
     <string name="btn_change_exit">Змінити вихід</string>
     <string name="btn_refresh">Оновити з\'єднання</string>
-    <string name="btn_tor_off">Вимкнути Tor</string>
     <string name="btn_configure">Виберіть спосіб підключення</string>
     <string name="btn_choose_apps">Вибрати застосунки</string>
-    <string name="btn_start_vpn">Запустити VPN</string>
     <string name="snowflake">Сніжинка</string>
     <string name="direct_connect_subtitle">Кращий спосіб під\'єднання до Tor. Використовуйте, якщо Tor не заблокований.</string>
     <string name="volunteer_mode_subtitle_desc">Режим доброти дозволяє вашому пристрою бути мостом для інших. Він допомагає людям користуватися Tor там, де він заблокований.
@@ -212,7 +210,6 @@
     <string name="bridge_meek_azure_subtitle">Маскує ваш трафік. Обходить деякі блокування Tor. Може бути дуже повільним.</string>
     <string name="custom_bridges_subtitle">Запитайте у своїх надійних мережах та організаціях, чи хтось пропонує міст. Якщо ні, друг може його вам розмістити.</string>
     <string name="custom_bridges_description">Вставте нижче отримані адреси мостів. Або проскануйте QR-код, щоб додати їх. Друзі можуть отримати мости для вас на %1$s.</string>
-    <string name="action_use_">Використання %1$s</string>
     <string name="enter_bridge_address">Введіть адресу мосту</string>
     <string name="built_in_bridges_obfs4">Вбудовані мости (obfs4)</string>
     <string name="built_in_bridges_obfs4_subtitle">Маскує ваш трафік. Допомагає обійти блокування Tor. Добре, якщо ви користуєтеся публічним Wi-Fi, але в країні, де Tor не заблоковано.</string>
@@ -270,12 +267,10 @@
     <string name="status_enough_dirinfo">Завантажено каталог мережі Tor</string>
     <string name="status_requesting_status">Запит статусу мережі у Tor</string>
     <string name="status_loading_status">Завантаження стану мережі</string>
-    <string name="status_loading_keys">Завантаження ключів безпеки мережі</string>
     <string name="status_requesting_descriptors">Запит інформації про мережевий сервер</string>
     <string name="status_loading_descriptors">Завантаження інформації про мережевий сервер</string>
     <string name="setting_app_icon_title">Значок програми</string>
     <string name="loading">Завантаження…</string>
-    <string name="stop_vpn">Зупинити VPN</string>
     <string name="http_port">HTTP-порт</string>
     <string name="socks_port">Порт SOCKS</string>
 </resources>

@@ -146,12 +146,10 @@
     <string name="volunteer_mode">Modo Solidario</string>
     <string name="secure_your_connection_title">Listo para conectarse</string>
     <string name="connected_title">Connectado</string>
-    <string name="btn_start_vpn">Iniciar el VPN</string>
     <string name="btn_configure">Elija cómo conectarse</string>
     <string name="trying_to_connect_title">Conectando…</string>
     <string name="btn_choose_apps">Elegir aplicaciones</string>
     <string name="btn_refresh">Actualizar</string>
-    <string name="btn_tor_off">Desactiva Tor</string>
     <string name="volunteer_mode_title">Ayuda a otres
 \na conectarse a Tor</string>
     <string name="volunteer_mode_weekly_label">Total Semanal</string>

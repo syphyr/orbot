@@ -159,11 +159,9 @@
     <string name="volunteer_mode">Vriendelijkheidsmodus</string>
     <string name="secure_your_connection_title">Klaar om verbinding te maken</string>
     <string name="secure_your_connection_subtitle">Verberg apps voor netwerkmonitoring en krijg toegang wanneer ze worden geblokkeerd.</string>
-    <string name="btn_start_vpn">VPN starten</string>
     <string name="btn_configure">Kies hoe u verbinding wilt maken</string>
     <string name="btn_choose_apps">Kies apps</string>
     <string name="btn_change_exit">Wijzig uitgang</string>
-    <string name="btn_tor_off">Schakel Tor uit</string>
     <string name="volunteer_mode_title">Help anderen\nverbinding te maken met Tor</string>
     <string name="volunteer_mode_weekly_label">Wekelijks totaal</string>
     <string name="volunteer_mode_alltime_label">Totaal aller tijden</string>
@@ -201,7 +199,6 @@
     <string name="not_sure">Twijfel je nog?</string>
     <string name="ask_tor">Vraag het aan Tor</string>
     <string name="many_ways">Er zijn veel manieren om Tor te bereiken. Sommige werken misschien beter voor u dan andere.</string>
-    <string name="action_use_">Gebruik %1$s</string>
     <string name="asking">VRAGEN…</string>
     <string name="no_internet_title">Verbinding maken met internet</string>
     <string name="no_internet_subtitle">Je hebt een internetverbinding nodig om Orbot te kunnen gebruiken.</string>
@@ -272,11 +269,9 @@
     <string name="status_enough_dirinfo">Tor-netwerkdirectory geladen</string>
     <string name="status_requesting_status">Tor vragen naar netwerkstatus</string>
     <string name="status_loading_status">Netwerkstatus wordt geladen</string>
-    <string name="status_loading_keys">Netwerkbeveiligingssleutels laden</string>
     <string name="status_requesting_descriptors">Netwerkserverinformatie opvragen</string>
     <string name="status_loading_descriptors">Netwerkserverinformatie wordt geladen</string>
     <string name="loading">Bezig met laden…</string>
-    <string name="stop_vpn">Stop VPN</string>
     <string name="http_port">HTTP Port</string>
     <string name="socks_port">SOCKS Port</string>
 </resources>

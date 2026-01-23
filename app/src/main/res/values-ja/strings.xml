@@ -110,14 +110,12 @@
     <string name="secure_your_connection_title">接続準備完了</string>
     <string name="secure_your_connection_subtitle">アプリをネットワーク監視から隠し、遮断されているときにはアクセスできるようにします。</string>
     <string name="connected_title">接続されました</string>
-    <string name="btn_start_vpn">VPN を起動</string>
     <string name="btn_configure">接続方法を選択する</string>
     <string name="volunteer_mode">Kindness Mode</string>
     <string name="trying_to_connect_title">接続しています…</string>
     <string name="btn_choose_apps">アプリを選ぶ</string>
     <string name="btn_change_exit">出口を変更する</string>
     <string name="btn_refresh">接続を更新する</string>
-    <string name="btn_tor_off">Tor をオフにする</string>
     <string name="version">バージョン:</string>
     <string name="license">ライセンス:</string>
     <string name="pref_reduced_circuit_padding">縮小されたサーキットパディング</string>
@@ -207,7 +205,6 @@
     <string name="bridge_meek_azure_subtitle">トラフィックをカモフラージュします。一部の Tor ブロックを回避します。非常に遅い可能性があります。</string>
     <string name="custom_bridges_subtitle">信頼できる人脈や組織内に尋ねて、ブリッジを運用している人がいないかご確認ください。もしいない場合は、友人がブリッジを用意してくれるかもしれません。</string>
     <string name="custom_bridges_description">受け取ったブリッジアドレスを以下に貼り付けます。または、QR コードをスキャンして追加することもできます。友達は %1$s であなたにブリッジを提供できます。</string>
-    <string name="action_use_">%1$s を使う</string>
     <string name="built_in_bridges_obfs4">内蔵ブリッジ (obfs4)</string>
     <string name="built_in_bridges_obfs4_subtitle">トラフィックをカモフラージュします。一部の Tor ブロックを回避します。公衆 WiFi を使っていても、Tor がブロックされていない国では問題ありません。</string>
     <string name="run_smart_connect_">Smart Connect を実行して最適な方法を見つける</string>
@@ -266,10 +263,8 @@
     <string name="status_enough_dirinfo">Tor ネットワークディレクトリーが読み込まれました</string>
     <string name="status_requesting_status">Tor にネットワークの状態を問い合わせています</string>
     <string name="status_loading_status">ネットワークの状態を読み込んでいます</string>
-    <string name="status_loading_keys">ネットワークセキュリティキーを読み込んでいます</string>
     <string name="status_requesting_descriptors">ネットワークサーバー情報をリクエストしています</string>
     <string name="status_loading_descriptors">ネットワークサーバー情報を読み込んでいます</string>
-    <string name="stop_vpn">VPN を停止する</string>
     <string name="loading">読み込み中…</string>
     <string name="socks_port">SOCKS ポート</string>
     <string name="http_port">HTTP ポート</string>

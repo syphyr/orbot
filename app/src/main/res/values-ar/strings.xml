@@ -141,8 +141,6 @@
     <string name="pref_prefer_ipv6">تفضيل اتصالات IPv6</string>
     <string name="pref_prefer_ipv6_summary">يخبر المخارج أن عناوين IPv6 مفضلة</string>
     <string name="secure_your_connection_subtitle">إخفاء التطبيقات من مراقبة الشبكة والوصول إليها عندما يتم حظرها.</string>
-    <string name="btn_start_vpn">ابدأ VPN</string>
-    <string name="btn_tor_off">أوقف تشغيل تور</string>
     <string name="app_suggested_subtitle">يعمل Orbot بشكل أفضل مع تطبيقات المراسلة والتواصل الاجتماعي.</string>
     <string name="hide_apps">إخفاء التطبيقات من مراقبة الشبكة والوصول إليها عندما يتم حظرها.</string>
     <string name="log_copied">نُسِخ السجل</string>
@@ -220,7 +218,6 @@
     <string name="bridge_meek_azure_subtitle">يخفي حركة بياناتك. يتجاوز بعض حجب تور. قد يكون بطيئًا جدًا.</string>
     <string name="custom_bridges_subtitle">اسأل داخل شبكاتك ومنظماتك الموثوقة لمعرفة ما إذا كان أي شخص يستضيف جسرًا. إذا لم يكن كذلك، يمكن لصديق الحصول على الجسور لك.</string>
     <string name="custom_bridges_description">ألصق عناوين الجسور التي تتلقاها أدناه. أو امسح رمز QR لإضافته. يمكن للأصدقاء الحصول على جسور لك في %1$s.</string>
-    <string name="action_use_">استخدم %1$s</string>
     <string name="built_in_bridges_obfs4">الجسور المضمّنة (obfs4)</string>
     <string name="built_in_bridges_obfs4_subtitle">يخفي حركة بياناتك. يتجاوز بعض حجب تور. جيد إذا كنت تستخدم شبكة واي فاي عامة، ولكن في بلد لا يتم فيه حجب تور.</string>
     <string name="run_smart_connect_">شغل الاتصال الذكي لإيجاد أفضل طريقة</string>

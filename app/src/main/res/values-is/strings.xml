@@ -124,9 +124,7 @@
     <string name="snowflake_proxy_msg_description">Birta skilaboð þegar þú hjálpar einhverjum að komast framhjá ritskoðun</string>
     <string name="volunteer_mode">Vænleikahamur</string>
     <string name="connected_title">Tengt</string>
-    <string name="btn_start_vpn">Ræsa VPN</string>
     <string name="btn_configure">Veldu hvernig á að tengjast</string>
-    <string name="btn_tor_off">Slökkva á Tor</string>
     <string name="secure_your_connection_title">Tilbúið að tengjast</string>
     <string name="trying_to_connect_title">Tengist…</string>
     <string name="btn_refresh">Endurlesa</string>

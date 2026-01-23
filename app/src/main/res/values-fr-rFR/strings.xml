@@ -147,12 +147,10 @@
     <string name="connect">Se connecter</string>
     <string name="next">Suivant</string>
     <string name="connected_title">Connecté</string>
-    <string name="btn_start_vpn">Démarrer le RPV</string>
     <string name="trying_to_connect_title">Connexion…</string>
     <string name="btn_choose_apps">Choisir des applications</string>
     <string name="btn_change_exit">Changer la sortie</string>
     <string name="btn_refresh">Actualiser la connexion</string>
-    <string name="btn_tor_off">Éteindre Tor</string>
     <string name="secure_your_connection_title">Prêt à se connecter</string>
     <string name="secure_your_connection_subtitle">Soustraire les applis à la surveillance du réseau et obtenir l’accès si elles sont bloquées.</string>
     <string name="pref_isolate_port">Isoler les ports de destination</string>
@@ -208,7 +206,6 @@
     <string name="set_transport">Définir le transport</string>
     <string name="socks_port">Port SOCKS</string>
     <string name="http_port">Port HTTP</string>
-    <string name="stop_vpn">Arrêter le VPN/RPV</string>
     <string name="loading">Chargement…</string>
     <string name="kindness_mode_starting">Démarrage…</string>
     <string name="open_settings">Ouvrir les paramètres</string>

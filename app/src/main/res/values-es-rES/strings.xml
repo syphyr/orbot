@@ -107,7 +107,6 @@
     <string name="v3_delete_client_authorization_confirm">Borrar la autorización del cliente</string>
     <string name="secure_your_connection_title">Listo para conectar</string>
     <string name="connected_title">Conectado</string>
-    <string name="btn_start_vpn">Iniciar VPN</string>
     <string name="btn_configure">Escoge como conectarte</string>
     <string name="volunteer_mode">Modo Altruista</string>
     <string name="trying_to_connect_title">Conectando…</string>
@@ -132,7 +131,6 @@
     <string name="v3_onion">Dominio .onion</string>
     <string name="strict_nodes_description">Trate la configuración de los Nodos Excluidos como un requisito para construir todos los circuitos. Esto puede romper la funcionalidad si no se pueden generar circuitos con su configuración de Nodos Excluidos.</string>
     <string name="btn_refresh">Actualizar</string>
-    <string name="btn_tor_off">Apagar Tor</string>
     <string name="secure_your_connection_subtitle">Oculta las aplicaciones de la supervisión de la red y obten acceso cuando estén bloqueadas.</string>
     <string name="direct_connect_subtitle">La mejor manera de conectarse a Tor. Usar si Tor no está bloqueado.</string>
     <string name="snowflake_subtitle">Se conecta a través de los voluntarios de Tor. Evita algunos bloqueos de Tor.</string>
@@ -207,7 +205,6 @@
     <string name="status_enough_dirinfo">Directorio de la red Tor cargado</string>
     <string name="status_requesting_status">Solicitando estado de la red a Tor</string>
     <string name="status_loading_status">Cargando estado de la red</string>
-    <string name="status_loading_keys">Cargando claves de seguridad de la red</string>
     <string name="status_requesting_descriptors">Solicitando información de servidores de la red</string>
     <string name="status_loading_descriptors">Cargando información de servidores de la red</string>
 </resources>

@@ -137,13 +137,11 @@
     <string name="secure_your_connection_title">Listo para conectar</string>
     <string name="secure_your_connection_subtitle">Ocultar aplicaciones del monitoreo de red y obtener acceso cuando están bloqueadas.</string>
     <string name="connected_title">Conectado</string>
-    <string name="btn_start_vpn">Iniciar VPN</string>
     <string name="btn_configure">Elegir cómo conectarse</string>
     <string name="trying_to_connect_title">Conectando…</string>
     <string name="btn_choose_apps">Elegir aplicaciones</string>
     <string name="btn_change_exit">Cambiar nodo de salida</string>
     <string name="btn_refresh">Refrescar</string>
-    <string name="btn_tor_off">Desactivar Tor</string>
     <string name="snowflake_proxy_msg_description">Mostrar un mensaje cuando estés ayudando a alguien a evitar la censura</string>
     <string name="volunteer_mode_title">Ayudar a otros
 \nconectarse a Tor</string>

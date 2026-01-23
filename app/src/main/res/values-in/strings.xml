@@ -102,12 +102,10 @@
     <string name="next">Lanjutkan</string>
     <string name="secure_your_connection_title">Siap untuk menghubungkan</string>
     <string name="connected_title">Terhubung</string>
-    <string name="btn_start_vpn">Mulai VPN</string>
     <string name="btn_configure">Pilih Cara Menghubungkan</string>
     <string name="trying_to_connect_title">Menghubungkan…</string>
     <string name="btn_change_exit">Pilih nodus keluar</string>
     <string name="btn_refresh">Muat ulang</string>
-    <string name="btn_tor_off">Matikan Tor</string>
     <string name="pref_connection_padding">Lapisan koneksi</string>
     <string name="pref_reduced_connection_padding_summary">Menutup koneksi penyampaian lebih cepat dan mengirim lebih sedikit paket lapisan untuk mengurangi penggunaan data dan baterai</string>
     <string name="pref_circuit_padding">Lapisan sirkuit</string>
@@ -205,7 +203,6 @@
     <string name="bridge_meek_azure_subtitle">Menyembunyikan lalu lintas Anda. Mengatasi pemblokiran Tor. Mungkin sangat lambat.</string>
     <string name="custom_bridges_subtitle">Tanyakan kepada jaringan dan organisasi tepercaya Anda untuk melihat apakah ada yang menyediakan jembatan. Jika tidak, seorang teman dapat membantu Anda mendapatkan jembatan.</string>
     <string name="custom_bridges_description">Tempelkan alamat jembatan yang Anda terima di bawah ini. Atau pindai kode QR untuk menambahkannya. Teman-teman Anda dapat memberikan jembatan untuk Anda di %1$s.</string>
-    <string name="action_use_">Gunakan %1$s</string>
     <string name="app_icon_chooser_label_night_watch">Patroli Malam</string>
     <string name="app_icon_chooser_label_assistant">Asisten</string>
     <string name="app_icon_chooser_label_paint">Cat</string>
@@ -266,7 +263,6 @@
     <string name="status_enough_dirinfo">Direktori jaringan Tor dimuat</string>
     <string name="status_requesting_status">Meminta status jaringan dari Tor</string>
     <string name="status_loading_status">Memuat status jaringan</string>
-    <string name="status_loading_keys">Memuat kunci keamanan jaringan</string>
     <string name="status_requesting_descriptors">Meminta informasi server jaringan</string>
     <string name="status_loading_descriptors">Memuat informasi server jaringan</string>
 </resources>

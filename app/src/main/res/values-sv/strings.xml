@@ -108,14 +108,12 @@
     <string name="pref_circuit_padding">Kretsstoppning</string>
     <string name="pref_reduced_circuit_padding">Minskad kretsstoppning</string>
     <string name="connected_title">Ansluten</string>
-    <string name="btn_start_vpn">Starta VPN</string>
     <string name="btn_configure">Välj hur du ansluter</string>
     <string name="volunteer_mode">Läge för vänlighet</string>
     <string name="trying_to_connect_title">Anslutning…</string>
     <string name="btn_choose_apps">Välj appar</string>
     <string name="btn_change_exit">Ändra utgång</string>
     <string name="btn_refresh">Uppdatera</string>
-    <string name="btn_tor_off">Stäng av Tor</string>
     <string name="version">Version:</string>
     <string name="license">Licens:</string>
     <string name="bridge_snowflake_amp">Anslut via andra Tor-användare med Snowflake (metod 2)</string>

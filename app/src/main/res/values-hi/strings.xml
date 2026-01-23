@@ -188,8 +188,6 @@
     <string name="v3_delete_client_authorization_confirm">क्लाइंट प्रमाणिकरण मिटाएं</string>
     <string name="btn_choose_apps">ऐप चुनें</string>
     <string name="btn_change_exit">आखिरी नोड बदलें</string>
-    <string name="btn_tor_off">टॉर बंद करें</string>
-    <string name="btn_start_vpn">वीपीएन शुरू करें</string>
     <string name="strict_nodes_description">सभी सर्किटों के निर्माण के लिए बहिष्कृत नोड्स सेटिंग्स को एक आवश्यकता के रूप में मानें। यदि आपकी बहिष्कृत नोड्स सेटिंग्स के साथ कोई सर्किट उत्पन्न नहीं हो पाता है तो यह कार्यक्षमता को तोड़ सकता है।</string>
     <string name="set_transport">ट्रांसपोर्ट सेट करें</string>
 </resources>
