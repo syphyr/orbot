@@ -5,7 +5,6 @@ import android.app.Activity
 import android.app.Dialog
 import android.graphics.Color
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
@@ -42,6 +41,7 @@ open class OrbotBottomSheetDialogFragment : BottomSheetDialogFragment() {
     private fun setHeightIfAttached(activity: Activity?, bottomSheet: View) {
         activity?.let {
             val container =
+
                 requireActivity().windowManager.currentWindowMetrics.bounds
             val height = (container.height() * getHeightRatio()).toInt()
             val layoutParams = bottomSheet.layoutParams

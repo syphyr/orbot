@@ -1,3 +1,5 @@
+@file:Suppress("SameParameterValue")
+
 package org.torproject.android.ui.more
 
 import android.os.Build
