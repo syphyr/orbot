@@ -18,6 +18,7 @@ import org.torproject.android.localization.Languages
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.sendIntentToService
+import java.util.Locale
 
 class SettingsPreferenceFragment : AbstractPreferenceFragment() {
     private var toolbar: Toolbar? = null
@@ -55,11 +56,15 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment() {
         prefLocale?.value = Prefs.defaultLocale
         prefLocale?.onPreferenceChangeListener =
             OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
-                val language = newValue as String?
-                Prefs.defaultLocale = newValue ?: ""
+                val language = newValue as String
+                Prefs.defaultLocale = newValue
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                    val newLocale = LocaleListCompat.forLanguageTags(language)
-                    AppCompatDelegate.setApplicationLocales(newLocale)
+                    val split = language.split("_")
+                    val lang = split[0]
+                    var region = ""
+                    if (split.size > 1) region = split[1]
+                    val newLocale = Languages.buildLocaleForLanguage(lang, region)
+                    AppCompatDelegate.setApplicationLocales(LocaleListCompat.create(newLocale))
                     toolbar?.title = requireContext().getString(rootTitleId())
                 } else {
                     requireActivity().sendIntentToService(OrbotConstants.ACTION_LOCAL_LOCALE_SET)

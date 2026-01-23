@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import org.torproject.android.R
+import org.torproject.android.localization.Languages
 import org.torproject.android.util.StringUtils
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
@@ -53,7 +54,7 @@ class ExitNodeBottomSheet : OrbotBottomSheetDialogFragment() {
         items.add("" to getString(R.string.globe) + " " + getString(R.string.vpn_default_world))
 
         COUNTRY_CODES.forEach {
-            val locale = Locale("", it)
+            val locale = Languages.buildLocaleForLanguage("", it)
             sortedCountries[locale.displayCountry] = locale
         }
 

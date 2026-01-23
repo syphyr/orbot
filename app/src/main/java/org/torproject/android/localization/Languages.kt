@@ -27,9 +27,10 @@ class Languages private constructor(activity: Activity) {
 
     companion object {
 
-        fun buildLocaleForLanguage(language: String): Locale {
+        fun buildLocaleForLanguage(language: String, region: String? = null): Locale {
             return Locale.Builder()
                 .setLanguage(language)
+                .setRegion(region)
                 .build()
         }
 
@@ -52,19 +53,19 @@ class Languages private constructor(activity: Activity) {
             buildLocaleForLanguage("az"),
             buildLocaleForLanguage("bg"),
             buildLocaleForLanguage("be"),
-            Locale("bn", "BD"),
-            Locale("bn", "IN"),
+            buildLocaleForLanguage("bn", "BD"),
+            buildLocaleForLanguage("bn", "IN"),
             buildLocaleForLanguage("bn"),
             buildLocaleForLanguage("ca"),
             buildLocaleForLanguage("cs"),
             buildLocaleForLanguage("da"),
             buildLocaleForLanguage("el"),
             buildLocaleForLanguage("es"),
-            Locale("es", "MX"),
-            Locale("es", "CU"),
+            buildLocaleForLanguage("es", "MX"),
+            buildLocaleForLanguage("es", "CU"),
 
-            Locale("es", "AR"),
-            Locale("en", "GB"),
+            buildLocaleForLanguage("es", "AR"),
+            buildLocaleForLanguage("en", "GB"),
             buildLocaleForLanguage("eo"),
             buildLocaleForLanguage("et"),
             buildLocaleForLanguage("eu"),
@@ -79,7 +80,7 @@ class Languages private constructor(activity: Activity) {
             buildLocaleForLanguage("hi"),
             buildLocaleForLanguage("hr"),
             buildLocaleForLanguage("hu"),
-            Locale("hy", "AM"),
+            buildLocaleForLanguage("hy", "AM"),
             buildLocaleForLanguage("ia"),
             buildLocaleForLanguage("in"),
             buildLocaleForLanguage("hy"),
@@ -108,12 +109,12 @@ class Languages private constructor(activity: Activity) {
             buildLocaleForLanguage("pbb"),
 
             buildLocaleForLanguage("pl"),
-            Locale("pt", "BR"),
+            buildLocaleForLanguage("pt", "BR"),
             buildLocaleForLanguage("pt"),
             buildLocaleForLanguage("rm"),
             buildLocaleForLanguage("ro"),
             buildLocaleForLanguage("ru"),
-            Locale("si", "LK"),
+            buildLocaleForLanguage("si", "LK"),
             buildLocaleForLanguage("sk"),
             buildLocaleForLanguage("sl"),
             buildLocaleForLanguage("sn"),
@@ -195,7 +196,7 @@ class Languages private constructor(activity: Activity) {
                     /* handle locales with the country in it, i.e. zh_CN, zh_TW, etc */
                     val localeSplit = language.split("_".toRegex()).toTypedArray()
                     if (localeSplit.size > 1) {
-                        Locale(localeSplit[0], localeSplit[1])
+                        buildLocaleForLanguage(localeSplit[0], localeSplit[1])
                     } else {
                         buildLocaleForLanguage(language)
                     }

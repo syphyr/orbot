@@ -48,9 +48,7 @@ class OrbotApp : Application() {
 
         Languages.setup(OrbotActivity::class.java, R.string.menu_settings)
 
-        if (Prefs.defaultLocale != Locale.getDefault().language) {
-            Languages.setLanguage(this, Prefs.defaultLocale, true)
-        }
+        setLocale()
 
         // this code only runs on first install and app updates
         if (Prefs.currentVersionForUpdate < BuildConfig.VERSION_CODE) {
@@ -65,15 +63,12 @@ class OrbotApp : Application() {
     override fun onConfigurationChanged(newConfig: Configuration) {
         super.onConfigurationChanged(newConfig)
 
-        if (Prefs.defaultLocale != Locale.getDefault().language) {
-            Languages.setLanguage(this, Prefs.defaultLocale, true)
-        }
+        setLocale()
     }
 
     fun setLocale() {
         val appLocale = Prefs.defaultLocale
         val systemLoc = Locale.getDefault().language
-
         if (appLocale != systemLoc) {
             Languages.setLanguage(this, appLocale, true)
         }
