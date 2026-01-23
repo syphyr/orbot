@@ -119,7 +119,6 @@
         <EditTextPreference
             android:defaultValue="9001"
             android:dialogTitle="@string/enter_or_port"
-            android:inputType="number"
             android:key="pref_or_port"
             android:summary="@string/listening_port_for_your_tor_relay"
             android:title="@string/relay_port"
