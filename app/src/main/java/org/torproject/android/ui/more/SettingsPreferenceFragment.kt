@@ -3,6 +3,7 @@ package org.torproject.android.ui.more
 
 import android.os.Build
 import android.os.Bundle
+import android.text.InputType
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -22,6 +23,16 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment() {
     private var toolbar: Toolbar? = null
     override fun prefId(): Int = R.xml.preferences
     override fun rootTitleId(): Int = R.string.menu_settings
+
+    // If these EditTextPrefs exist, use a numerical keyboard
+    val numericalPortPrefs = listOf(
+        "pref_socks", "pref_http", "pref_proxy_port"
+    )
+
+    // render these EditTextPreferences, if they exist, as passwords
+    val passwordPrefs = listOf(
+        "pref_proxy_password"
+    )
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -44,11 +55,15 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment() {
         prefLocale?.value = Prefs.defaultLocale
         prefLocale?.onPreferenceChangeListener =
             OnPreferenceChangeListener { _: Preference?, newValue: Any? ->
-                val language = newValue as String?
-                Prefs.defaultLocale = newValue ?: ""
+                val language = newValue as String
+                Prefs.defaultLocale = newValue
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                    val newLocale = LocaleListCompat.forLanguageTags(language)
-                    AppCompatDelegate.setApplicationLocales(newLocale)
+                    val split = language.split("_")
+                    val lang = split[0]
+                    var region = ""
+                    if (split.size > 1) region = split[1]
+                    val newLocale = Languages.buildLocaleForLanguage(lang, region)
+                    AppCompatDelegate.setApplicationLocales(LocaleListCompat.create(newLocale))
                     toolbar?.title = requireContext().getString(rootTitleId())
                 } else {
                     requireActivity().sendIntentToService(OrbotConstants.ACTION_LOCAL_LOCALE_SET)
@@ -57,6 +72,17 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment() {
                 }
                 false
             }
+
+        bindNumericaPrefs(numericalPortPrefs, 5)
+        bindPasswordPrefs(passwordPrefs)
+        bindInputType(
+            listOf("pref_proxy_host"),
+            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_URI
+        )
+        bindInputType(
+            listOf("pref_custom_torrc"),
+            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE
+        )
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             // if defined in XML, disable the persistent notification preference on Oreo+

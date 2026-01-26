@@ -5,7 +5,6 @@ package org.torproject.android.service;
 
 import static org.torproject.android.service.OrbotConstants.*;
 import static org.torproject.jni.TorService.*;
-import static org.torproject.jni.TorService.TAG;
 
 import android.annotation.SuppressLint;
 import android.app.Notification;
@@ -76,6 +75,7 @@ public class OrbotService extends VpnService {
     private NotificationManager mNotificationManager = null;
     private NotificationCompat.Builder mNotifyBuilder;
     private File mV3OnionBasePath;
+    private static final String TAG = "OrbotService";
 
     @SuppressLint({"NewApi", "RestrictedApi"})
     protected void showToolbarNotification(String notifyMsg, int notifyType, int icon) {
@@ -202,7 +202,7 @@ public class OrbotService extends VpnService {
     }
 
     private void stopTorOnError(String message) {
-      //  stopTorAsync(false);
+        //  stopTorAsync(false);
         showToolbarNotification(getString(R.string.unable_to_start_tor) + ": " + message, ERROR_NOTIFY_ID, R.drawable.ic_stat_notifyerr);
     }
 
@@ -361,49 +361,56 @@ public class OrbotService extends VpnService {
         mNotifyBuilder.setProgress(100, 0, false);
         showToolbarNotification("", NOTIFY_ID, R.drawable.ic_stat_tor);
 
-        SmartConnect.handle(this, () -> {
-            try {
-                startTorService();
-                showTorServiceErrorMsg = true;
-            } catch (Exception e) {
-                return e;
-            }
+        SmartConnect.handle(this,
+                /* startTor: () -> Exception? */
+                () -> {
+                    try {
+                        startTorService();
+                        showTorServiceErrorMsg = true;
+                    } catch (Exception e) {
+                        return e;
+                    }
 
-            return null;
-        }, () -> {
-            if (conn == null) return false;
+                    return null;
+                },
+                /* reconfigure: () -> Boolean */
+                () -> {
+                    if (conn == null) return false;
 
-            try {
-                conn.resetConf(Arrays.asList("UseBridges", "ClientTransportPlugin", "Bridge"));
-                conn.setConf(Prefs.getTransport().getTorConfig(this));
-            }
-            catch (IOException e) {
-                logNotice(e.getLocalizedMessage());
+                    try {
+                        conn.resetConf(Arrays.asList("UseBridges", "ClientTransportPlugin", "Bridge"));
+                        conn.setConf(Prefs.getTransport().getTorConfig(this));
+                    } catch (IOException e) {
+                        logNotice(e.getLocalizedMessage());
 
-                return false;
-            }
+                        return false;
+                    }
 
-            return true;
-        }, (Exception e) -> {
-            if (e != null) {
-                logNotice(getString(R.string.unable_to_start_tor) + " " + e.getLocalizedMessage());
-                stopTorOnError(e.getLocalizedMessage());
-            } else {
-           //     stopTorAsync(true);
-            }
+                    return true;
+                },
+                /* stopTor: (e: Exception?) -> Unit */
+                (Exception e) -> {
+                    if (e != null) {
+                        logNotice(getString(R.string.unable_to_start_tor) + " " + e.getLocalizedMessage());
+                        stopTorOnError(e.getLocalizedMessage());
+                    } else {
+                        //     stopTorAsync(true);
+                    }
 
-            return Unit.INSTANCE;
-        }, () -> {
-            if (Prefs.getHostOnionServicesEnabled()) {
-                try {
-                    updateV3OnionNames();
-                } catch (SecurityException se) {
-                    logNotice(getString(R.string.log_notice_unable_to_update_onions));
-                }
-            }
+                    return Unit.INSTANCE;
+                },
+                /* completed: () -> Unit)  */
+                () -> {
+                    if (Prefs.getHostOnionServicesEnabled()) {
+                        try {
+                            updateV3OnionNames();
+                        } catch (SecurityException se) {
+                            logNotice(getString(R.string.log_notice_unable_to_update_onions));
+                        }
+                    }
 
-            return Unit.INSTANCE;
-        });
+                    return Unit.INSTANCE;
+                });
     }
 
     private void updateV3OnionNames() {

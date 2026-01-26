@@ -123,7 +123,6 @@
     <string name="snowflake_proxy_msg_description">نمایش یک پیام هنگامی که شما به کسی در دور زدن سانسور کمک می‌کنید</string>
     <string name="snowflake_proxy_msg_title">نمایش اعلان اتصال</string>
     <string name="secure_your_connection_title">آمادهٔ وصل‌شدن</string>
-    <string name="btn_start_vpn">شروع VPN</string>
     <string name="btn_configure">نحوهٔ اتصال را انتخاب کنید</string>
     <string name="volunteer_mode">حالت مهربانی</string>
     <string name="btn_choose_apps">انتخاب برنامه‌ها</string>
@@ -132,7 +131,6 @@
     <string name="connected_title">متصل</string>
     <string name="secure_your_connection_subtitle">برنامه‌ها را از نظارت بر شبکه پنهان کنید و هنگام مسدودشدن، به آن‌ها دسترسی پیدا کنید.</string>
     <string name="trying_to_connect_title">در حال وصل‌شدن…</string>
-    <string name="btn_tor_off">Tor را خاموش کنید</string>
     <string name="strict_nodes_description">با تنظیمات گره‌های مستثنی به‌عنوان یک الزام برای ساخت همه مدارها برخورد کنید. درصورتی که با تنظیمات گره‌های مستثنی شما، هیچ مداری نتواند تولید شود، ممکن است عملکرد را از بین ببرد.</string>
     <string name="connect">وصل‌شدن</string>
     <string name="volunteer_mode_title">کمک به دیگران در \nوصل‌شدن به Tor</string>
@@ -207,7 +205,6 @@
     <string name="bridge_meek_azure_subtitle">ترافیک شما را مخفی می‌کند. به دور زدن برخی از مسدودسازی‌های Tor کمک می‌کند. امکان دارد بسیار کند باشد.</string>
     <string name="custom_bridges_subtitle">از شبکه‌ها و سازمان‌های مورد اعتمادتان بپرسید تا ببینید کسی پلی را میزبانی می‌کند یا خیر. در غیر این صورت یک دوست می‌تواند پل‌ها را برایتان بگیرد.</string>
     <string name="custom_bridges_description">نشانی‌های پلی را که گرفته‌اید در زیر جای‌گذاری کنید. یا کد QR را برای افزودن آن‌ها اسکن کنید. دوستان می‌توانند از طریق ‎%1$s برایتان پل بگیرند.</string>
-    <string name="action_use_">استفاده از ‎%1$s</string>
     <string name="built_in_bridges_obfs4_subtitle">ترافیک شما را مخفی می‌کند. به دور زدن برخی از مسدودسازی‌های Tor کمک می‌کند. مناسب برای Wi-Fi‌های عمومی؛ اما درصورتی که در کشوری که Tor مسدود نشده، قرار گرفته باشید.</string>
     <string name="run_smart_connect_">اجرای اتصال هوشمند برای یافتن بهترین راه</string>
     <string name="scan_qr_code">اسکن کد QR</string>
@@ -253,7 +250,6 @@
     <string name="status_enough_dirinfo">شاخهٔ شبکهٔ تور بار شد</string>
     <string name="status_requesting_status">پرسیدن وضعیت شبکه از تور</string>
     <string name="status_loading_status">بار کردن وضعیت شبکه</string>
-    <string name="status_loading_keys">بار کردن کلیدهای امنیتی شبکه</string>
     <string name="status_requesting_descriptors">درخواست کردن اطّلاعات کارساز شبکه</string>
     <string name="status_loading_descriptors">بار کردن اطّلاعات کارساز شبکه</string>
     <string name="app_icon_dialog_title" formatted="true">تغییر به %1$s</string>
@@ -267,4 +263,7 @@
     <string name="setting_unlock_pass_description">نیازمند پین افزاره یا الگوی کشیدنی برای گشودن روبوت پیازی</string>
     <string name="setting_unlock_with_biometrics_title">استفاده از زیست‌سنجی (اختیاری)</string>
     <string name="setting_unlock_with_biometrics_description">قفل‌گشایی روبوت پیازی با اثرانگشت یا شناسهٔ صورت در صورت برپا بودن روی افزاره‌تان.</string>
+    <string name="loading">در حال بارگذاری…</string>
+    <string name="http_port">پورت HTTP</string>
+    <string name="socks_port">پورت SOCKS</string>
 </resources>

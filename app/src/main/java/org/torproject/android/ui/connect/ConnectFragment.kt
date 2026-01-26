@@ -3,7 +3,6 @@ package org.torproject.android.ui.connect
 import android.app.AlarmManager
 import android.content.Context
 import android.content.Intent
-import android.content.res.ColorStateList
 import android.net.VpnService
 import android.os.Build
 import android.os.Bundle
@@ -12,9 +11,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
@@ -36,6 +35,7 @@ import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.jni.TorService
+
 private const val DEFAULT_THROTTLE_INTERVAL = 4000L
 
 class ConnectFragment : Fragment(),
@@ -118,9 +118,18 @@ class ConnectFragment : Fragment(),
             }, DEFAULT_THROTTLE_INTERVAL)
         }
         binding.switchConnect.setOnCheckedChangeListener { _, value ->
-            if (value)
+            if (value) {
+                // display msg if optional outbound proxy config is invalid
+                if (Prefs.outboundProxy.second != null) {
+
+                    Toast.makeText(
+                        activity,
+                        getString(R.string.invalid_outbound_proxy_config),
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
                 startTorAndVpn()
-            else
+            } else
                 stopTorAndVpn()
         }
         refreshMenuList(requireContext())
@@ -131,13 +140,7 @@ class ConnectFragment : Fragment(),
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentConnectBinding.inflate(inflater, container, false)
-
-        if (Prefs.isPowerUserMode) {
-            binding.btnStart.text = getString(R.string.connect)
-        }
-
         viewModel.updateState(requireContext(), lastStatus)
-
         return binding.root
     }
 
@@ -184,9 +187,6 @@ class ConnectFragment : Fragment(),
                     return // user can try again after granting permission
                 } else {
                     binding.ivStatus.setImageResource(R.drawable.orbieon)
-                    with(binding.btnStart) {
-                        text = context.getString(android.R.string.cancel)
-                    }
                 }
             }
             doLayoutStarting(requireContext())
@@ -267,30 +267,12 @@ class ConnectFragment : Fragment(),
             refreshMenuList(context)
         }
         binding.ivStatus.setImageResource(R.drawable.orbieon)
-
         binding.tvSubtitle.visibility = View.VISIBLE
         binding.progressBar.visibility = View.INVISIBLE
         binding.tvTitle.text = context.getString(R.string.connected_title)
         binding.lvConnected.visibility = View.VISIBLE
 
         refreshMenuList(context)
-
-        with(binding.btnStart) {
-            text = if (Prefs.isPowerUserMode)
-                getString(R.string.btn_tor_off)
-            else
-                getString(R.string.stop_vpn)
-
-            isEnabled = true
-            backgroundTintList = ColorStateList.valueOf(
-                ContextCompat.getColor(
-                    context, R.color.orbot_btn_enabled_purple
-                )
-            )
-            setOnClickListener {
-                stopTorAndVpn()
-            }
-        }
 
         binding.ivStatus.setOnClickListener {
             (activity as OrbotActivity).showLog()
@@ -306,17 +288,6 @@ class ConnectFragment : Fragment(),
         binding.lvConnected.visibility = View.VISIBLE
         binding.tvTitle.text = getString(R.string.secure_your_connection_title)
         binding.tvSubtitle.text = getString(R.string.secure_your_connection_subtitle)
-
-
-        with(binding.btnStart) {
-
-            isEnabled = true
-            backgroundTintList = ColorStateList.valueOf(
-                ContextCompat.getColor(requireContext(), R.color.orbot_btn_enabled_purple)
-            )
-            setOnClickListener { startTorAndVpn() }
-        }
-
         binding.ivStatus.setOnClickListener(null)
     }
 
@@ -339,21 +310,7 @@ class ConnectFragment : Fragment(),
         animShadow.repeatMode = Animation.REVERSE
         binding.ivShadow.animation = animShadow
         animShadow.start()
-
         binding.tvTitle.text = context.getString(R.string.trying_to_connect_title)
-        with(binding.btnStart) {
-            text = context.getString(android.R.string.cancel)
-            isEnabled = true
-            backgroundTintList = ColorStateList.valueOf(
-                ContextCompat.getColor(
-                    context, R.color.orbot_btn_enabled_purple
-                )
-            )
-            setOnClickListener {
-                stopTorAndVpn()
-            }
-        }
-
         binding.tvSubtitle.setOnClickListener {
             (activity as OrbotActivity).showLog()
         }
@@ -365,7 +322,7 @@ class ConnectFragment : Fragment(),
             .show(requireActivity().supportFragmentManager, ConfigConnectionBottomSheet.TAG)
     }
 
-    override fun onExitNodeSelected(countryCode: String, displayCountryName: String) {
+    override fun onExitNodeSelected(countryCode: String) {
 
         //tor format expects "{" for country code
         Prefs.exitNodes = "{$countryCode}"

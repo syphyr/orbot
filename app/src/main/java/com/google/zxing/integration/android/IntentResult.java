@@ -23,7 +23,7 @@ import androidx.annotation.Nullable;
  * <p>Encapsulates the result of a barcode scan invoked through {@link IntentIntegrator}.</p>
  *
  * @author Sean Owen
- * @noinspection unused
+ * @noinspection unused, ClassCanBeRecord
  */
 public final class IntentResult {
 

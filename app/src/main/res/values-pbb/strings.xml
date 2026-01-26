@@ -130,13 +130,11 @@
     <string name="secure_your_connection_title">Açhwa’ ewyã’ja’</string>
     <string name="secure_your_connection_subtitle">Msũuth Appetx paathegkameen. jĩiçxa’ me’ka kaajxkhewũ’jnximee ũste.</string>
     <string name="connected_title">Kitxanxi ũsa’</string>
-    <string name="btn_start_vpn">VPN mpu’tx</string>
     <string name="btn_configure">Mphuse\'j</string>
     <string name="trying_to_connect_title">Açhnaa…</string>
     <string name="btn_choose_apps">Appetx mtxhitxh</string>
     <string name="btn_change_exit">Kase’jnxi\'s myu’pthe’j </string>
     <string name="btn_refresh">Miikphuusẽe</string>
-    <string name="btn_tor_off">Tora’s mfxĩçxha</string>
     <string name="volunteer_mode_title">Vxitetx mpu’çxh Torte açya’ ewuukan</string>
     <string name="volunteer_mode_weekly_label">Ki\'su jxuka</string>
     <string name="volunteer_mode_alltime_label">Een jxuka</string>

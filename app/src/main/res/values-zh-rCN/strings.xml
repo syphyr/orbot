@@ -127,9 +127,7 @@
     <string name="strict_nodes_description">将“排除节点”设置视为构建所有线路的要求。如果“排除节点”设置无法生成线路，可能会破坏功能。</string>
     <string name="volunteer_mode">善举模式</string>
     <string name="trying_to_connect_title">正在连接…</string>
-    <string name="btn_tor_off">关闭 Tor</string>
     <string name="secure_your_connection_subtitle">隐藏应用以规避网络监控，并在应用被屏蔽时获取访问权限。</string>
-    <string name="btn_start_vpn">启动 VPN</string>
     <string name="btn_configure">选择连接方式</string>
     <string name="btn_choose_apps">选择应用</string>
     <string name="btn_change_exit">更改出口</string>
@@ -199,7 +197,6 @@
     <string name="error_asking_tor_for_bridges">询问 Tor 如何连接时出错</string>
     <string name="device_lock_unsupported">您的设备不支持 Orbot 身份验证</string>
     <string name="device_lock_security_update_needed">您必须为您的设备下载 Android 安全更新，以便使用 Orbot 身份验证</string>
-    <string name="action_use_">使用 %1$s</string>
     <string name="enter_bridge_address">输入网桥地址</string>
     <string name="scan_qr_code">扫描二维码</string>
     <string name="built_in_bridges_obfs4">内置 obfs4 网桥</string>
@@ -241,7 +238,7 @@
     <string name="note_snowflake_doesn_t_support_proxies">注意：Snowflake 不支持代理。使用 Snowflake 网桥时，代理设置将被忽略。</string>
     <string name="search_for_apps">搜索应用</string>
     <string name="apps_updated_msg">应用已更新</string>
-    <string name="set_transport">设置传输方式</string>
+    <string name="set_transport">设置传输</string>
     <string name="app_icon_dialog_title" formatted="true">切换到 %1$s</string>
     <string name="app_icon_dialog_msg" formatted="true">切换到 %1$s 将重启应用</string>
     <string name="title_safety">安全</string>
@@ -265,11 +262,10 @@
     <string name="status_enough_dirinfo">Tor 网络目录已加载</string>
     <string name="status_requesting_status">正在向 Tor 查询网络状态</string>
     <string name="status_loading_status">正在加载网络状态</string>
-    <string name="status_loading_keys">正在加载网络安全密钥</string>
     <string name="status_requesting_descriptors">正在请求网络服务器信息</string>
     <string name="status_loading_descriptors">正在加载网络服务器信息</string>
     <string name="loading">正在加载…</string>
-    <string name="stop_vpn">停止 VPN</string>
     <string name="http_port">HTTP 端口</string>
     <string name="socks_port">SOCKS 端口</string>
+    <string name="invalid_outbound_proxy_config">出站代理配置无效</string>
 </resources>

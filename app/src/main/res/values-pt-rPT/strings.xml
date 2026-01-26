@@ -129,11 +129,9 @@
     <string name="secure_your_connection_title">Pronto para conectar</string>
     <string name="secure_your_connection_subtitle">Oculte apps do monitoramento da rede e obtenha acesso quando eles estiverem bloqueados.</string>
     <string name="connected_title">Conectado</string>
-    <string name="btn_start_vpn">Iniciar VPN</string>
     <string name="btn_configure">Escolha como se ligar</string>
     <string name="volunteer_mode">Modo bondade</string>
     <string name="trying_to_connect_title">Conectando…</string>
-    <string name="btn_tor_off">Desligar o Tor</string>
     <string name="btn_choose_apps">Escolher aplicações</string>
     <string name="btn_change_exit">Mudar saída</string>
     <string name="btn_refresh">Actualizar</string>

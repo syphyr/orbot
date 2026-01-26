@@ -74,14 +74,12 @@
     <string name="secure_your_connection_title">Sikre din forbindelse med Tor</string>
     <string name="secure_your_connection_subtitle">Orbot giver dig en sikker, uafbrudt forbindelse til dine apps.</string>
     <string name="connected_title">Du er forbundet!</string>
-    <string name="btn_start_vpn">Start VPN</string>
     <string name="btn_configure">Konfigurer</string>
     <string name="volunteer_mode">Patreon-tilstand</string>
     <string name="trying_to_connect_title">Forsøger at oprette forbindelse til Tor…</string>
     <string name="btn_choose_apps">Vælg apps</string>
     <string name="btn_change_exit">Ændring af udgang</string>
     <string name="btn_refresh">Opdater</string>
-    <string name="btn_tor_off">Slå Tor fra</string>
     <string name="pref_allow_background_starts_summary">Lad en hvilken som helst app fortælle Orbot, at Tor og relaterede tjenester skal startes</string>
     <string name="version">Version:</string>
     <string name="license">Licens:</string>

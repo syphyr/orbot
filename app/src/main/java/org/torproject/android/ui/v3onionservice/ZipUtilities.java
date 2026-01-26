@@ -21,6 +21,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
+@SuppressWarnings("ClassCanBeRecord")
 public class ZipUtilities {
     private static final int BUFFER = 2048;
     public static final String ZIP_MIME_TYPE = "application/zip";

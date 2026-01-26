@@ -141,7 +141,6 @@
     <string name="v3_backup_key">備份用戶軟體驗證金鑰</string>
     <string name="v3_delete_client_authorization">刪除用戶軟體驗證金鑰</string>
     <string name="pref_reduced_circuit_padding_summary">使用較低開銷的填充演算法來減少資料和電池的使用</string>
-    <string name="btn_start_vpn">啟動 VPN</string>
     <string name="ask_tor">詢問 Tor</string>
     <string name="asking">正在詢問…</string>
     <string name="option_only_when_charging">僅在充電時</string>
@@ -154,7 +153,6 @@
     <string name="not_sure">不確定？</string>
     <string name="btn_configure">選擇連接方式</string>
     <string name="btn_choose_apps">選擇應用程式</string>
-    <string name="btn_tor_off">關閉 Tor</string>
     <string name="volunteer_mode_title">幫助其他人
 \n連接到 Tor</string>
     <string name="volunteer_mode_weekly_label">每週總計</string>

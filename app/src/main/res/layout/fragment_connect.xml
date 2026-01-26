@@ -95,31 +95,13 @@
             app:layout_constraintTop_toBottomOf="@+id/tvSubtitle"
             tools:visibility="visible" />
 
-        <Button
-            android:id="@+id/btnStart"
-            android:layout_width="200dp"
-            android:layout_height="60dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/btn_shape_round"
-            android:backgroundTint="@color/orbot_btn_enabled_purple"
-            android:maxLines="3"
-            android:paddingStart="@dimen/button_horizontal_med_margin"
-            android:paddingTop="@dimen/button_horizontal_small_margin"
-            android:paddingEnd="@dimen/button_horizontal_med_margin"
-            android:paddingBottom="@dimen/button_horizontal_small_margin"
-            android:text="@string/btn_start_vpn"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lvConnected"
-            tools:enabled="false" />
-
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/switchConnect"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:layout_marginTop="32dp"
-            android:background="@color/orbot_btn_enabled_purple"
+            android:background="@drawable/btn_shape_round"
+            android:backgroundTint="@color/orbot_btn_enabled_purple"
             android:paddingStart="@dimen/button_horizontal_med_margin"
             android:paddingTop="@dimen/button_horizontal_small_margin"
             android:paddingEnd="@dimen/button_horizontal_med_margin"

@@ -129,10 +129,8 @@
     <string name="secure_your_connection_subtitle">Скрийте приложенията от наблюдение на мрежата и получете достъп, когато са блокирани.</string>
     <string name="volunteer_mode">Режим на доброта</string>
     <string name="secure_your_connection_title">Готови за свързване</string>
-    <string name="btn_start_vpn">Пускане на VPN</string>
     <string name="connected_title">Свързани</string>
     <string name="btn_configure">Настройки на връзката</string>
-    <string name="btn_tor_off">Изключване на Тор</string>
     <string name="btn_refresh">Презареждане на връзката</string>
     <string name="volunteer_mode_title">Помогнете на другите\nда се свържат с Тор</string>
     <string name="volunteer_mode_weekly_label">Общо седмично</string>
@@ -205,7 +203,6 @@
     <string name="bridge_meek_azure_subtitle">Маскира трафик. Заобикаля някои ограничения на Tor. Може да е бавно.</string>
     <string name="custom_bridges_subtitle">Попитайте в доверените мрежи и организации дали някой от тях не предлага мост. Ако не, някой приятел може да ви предостави мост.</string>
     <string name="custom_bridges_description">Поставете адресите на мостовете, които сте получили, по-долу или сканирайте кода на QR, за да ги добавите. Приятелите ви могат да ви предоставят мостове от %1$s.</string>
-    <string name="action_use_">Използване на %1$s</string>
     <string name="enter_bridge_address">Въведете адрес на мост</string>
     <string name="built_in_bridges_obfs4">Вградени мостове (obfs4)</string>
     <string name="run_smart_connect_">Намира най-добрия начин чрез Smart Connect</string>
@@ -262,13 +259,11 @@
     <string name="status_onehop_create">Директен достъп до мрежата на Tor</string>
     <string name="status_enough_dirinfo">Списъкът с възли от мрежата на Tor е зареден</string>
     <string name="status_requesting_status">Запитване към Tor за състоянието на мрежата</string>
-    <string name="status_loading_keys">Зареждане на ключовете за сигурност на мрежата</string>
     <string name="status_requesting_descriptors">Запитване за информация за сървъра</string>
     <string name="status_loading_descriptors">Зареждане на информация за сървъра</string>
     <string name="setting_unlock_pass_title">Заключване на екрана</string>
     <string name="status_loading_status">Зареждане на състоянието на мрежата</string>
     <string name="loading">Зареждане…</string>
-    <string name="stop_vpn">Спиране на ВЧМ</string>
     <string name="http_port">Порт на HTTP</string>
     <string name="socks_port">Порт на SOCKS</string>
 </resources>

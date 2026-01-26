@@ -141,7 +141,6 @@
     <string name="log_copied">S\'ha copiat el registre</string>
     <string name="btn_copy_log">Copia el registre</string>
     <string name="setting_padding">Farciment</string>
-    <string name="btn_tor_off">Desconnecta el Tor</string>
     <string name="btn_configure">Trieu el tipus de connexió</string>
     <string name="option_only_on_wifi">Només amb Wi-Fi</string>
     <string name="direct_connect">Connexió directa al Tor</string>
@@ -169,7 +168,6 @@
     <string name="pref_isolate_protocol_summary">Utilitza un circuit diferent per a cada protocol de connexió</string>
     <string name="bridge_snowflake_amp">Connecta a través d\'altres usuaris del Tor mitjançant l\'Snowflake (Mètode 2 - AMP)</string>
     <string name="volunteer_mode">Mode altruista</string>
-    <string name="btn_start_vpn">Inicia la VPN</string>
     <string name="strict_nodes_description">Tracta els paràmetres d\'exclusió de nodes com a requeriment per a construir tots els circuits. Podria trencar la funcionalitat si no es pot generar cap circuit amb aquests paràmetres.</string>
     <string name="app_suggested_subtitle">L\'Orbot funciona millor amb aplicacions de missatgeria i xarxes socials.</string>
     <string name="secure_your_connection_title">Preparat per a connectar</string>
@@ -222,7 +220,6 @@
     <string name="bridge_meek_azure_subtitle">Emmascara el vostre tràfic. Evita alguns blocatges del Tor. Podria ser molt lent.</string>
     <string name="custom_bridges_subtitle">Demaneu en les vostres xarxes i organitzacions de confiança si algú hostatja un pont. Si no, una amistat us pot aconseguir ponts.</string>
     <string name="custom_bridges_description">Enganxeu a sota les adreces dels ponts que rebeu. O escanegeu el codi QR per a afegir-les. Les amistats us poden aconseguir ponts a %1$s.</string>
-    <string name="action_use_">Utilitza %1$s</string>
     <string name="camo_samsung_instructions">Al vostre dispositiu Samsung Galaxy, les notificacions del Mode Camuflatge només funcionaran si obriu la Configuració -&gt; Notificacions -&gt; Configuració avançada i desactiveu «Mostra la icona de l\'aplicació a les notificacions». Feu clic aquí per a obrir la configuració de notificacions.</string>
     <string name="request_notification_permission">Activeu les notificacions per a l\'Orbot</string>
     <string name="request_notification_permission_msg">Si no activeu les notificacions, l\'Orbot no pot actuar com a una VPN Tor o utilitzar el mode altruista.\n\nEn activar-les, només mostrarem una única notificació en iniciar l\'Orbot.</string>

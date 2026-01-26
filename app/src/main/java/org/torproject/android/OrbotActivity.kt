@@ -161,7 +161,7 @@ class OrbotActivity : BaseActivity() {
 
         requestNotificationPermission()
 
-        Prefs.initWeeklyWorker()
+        Prefs.initWeeklyWorker(this)
 
         if (!rootDetectionShown && Prefs.detectRoot() && RootBeer(this).isRooted) {
             //we found indication of root

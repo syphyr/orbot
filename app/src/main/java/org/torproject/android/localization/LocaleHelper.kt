@@ -19,7 +19,6 @@ import java.util.*
  * https://gunhansancar.com/change-language-programmatically-in-android/
  */
 object LocaleHelper {
-    @JvmStatic
     fun onAttach(context: Context): Context = setLocale(context, Prefs.defaultLocale)
 
     private fun setLocale(context: Context, language: String): Context {
@@ -32,7 +31,6 @@ object LocaleHelper {
 
     private fun updateResources(context: Context, locale: String): Context {
 
-        AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(locale))
         var language = locale
         var region = ""
 
@@ -42,7 +40,8 @@ object LocaleHelper {
             region = parts[1]
         }
 
-        val localeObj = Locale(language, region)
+        val localeObj = Languages.buildLocaleForLanguage(language, region)
+        AppCompatDelegate.setApplicationLocales(LocaleListCompat.create(localeObj))
         Locale.setDefault(localeObj)
         val configuration = context.resources.configuration
         configuration.setLocale(localeObj)

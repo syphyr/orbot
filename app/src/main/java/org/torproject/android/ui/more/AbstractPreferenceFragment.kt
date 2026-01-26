@@ -1,17 +1,23 @@
+@file:Suppress("SameParameterValue")
+
 package org.torproject.android.ui.more
 
 import android.os.Build
 import android.os.Bundle
+import android.text.InputFilter
+import android.text.InputType
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.preference.EditTextPreference
+import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
 import androidx.preference.PreferenceScreen
 import org.torproject.android.R
+
 
 abstract class AbstractPreferenceFragment : PreferenceFragmentCompat() {
     private var toolbar: Toolbar? = null
@@ -22,6 +28,45 @@ abstract class AbstractPreferenceFragment : PreferenceFragmentCompat() {
         setNoPersonalizedLearningOnEditTextPreferences()
     }
 
+
+    protected fun bindNumericaPrefs(prefs: List<String> = emptyList(), maxLength: Int? = null) =
+        bindInputType(prefs, InputType.TYPE_CLASS_NUMBER, maxLength)
+
+    protected fun bindPasswordPrefs(prefs: List<String> = emptyList()) {
+        prefs.forEach { pref ->
+            val pref = findPreference<EditTextPreference?>(pref)
+            pref?.let { pref ->
+                pref.setOnBindEditTextListener {
+                    it.inputType =
+                        InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                }
+                // retain "Not set" text when there's no password supplied
+                val oldSummaryProvider = pref.summaryProvider
+                pref.summaryProvider = Preference.SummaryProvider<EditTextPreference> {
+                    if (pref.text.toString().isEmpty()) {
+                        oldSummaryProvider?.provideSummary(pref)
+                    } else pref.text.toString()
+                        .map { _ -> "•" }.joinToString("")
+                }
+            }
+        }
+    }
+
+    protected fun bindInputType(
+        prefIds: List<String> = emptyList(),
+        inputType: Int,
+        maxLength: Int? = null
+    ) {
+        prefIds.forEach { pref ->
+            val pref = findPreference<EditTextPreference?>(pref)
+            pref?.setOnBindEditTextListener {
+                it.inputType = inputType
+                if (maxLength != null) {
+                    it.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(maxLength))
+                }
+            }
+        }
+    }
 
     private fun setNoPersonalizedLearningOnEditTextPreferences() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O)
@@ -64,6 +109,7 @@ abstract class AbstractPreferenceFragment : PreferenceFragmentCompat() {
         isSubscreen = true
         toolbar?.title = preferenceScreen.title
     }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         toolbar = view.findViewById(R.id.toolbar)

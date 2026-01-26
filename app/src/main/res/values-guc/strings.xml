@@ -132,13 +132,11 @@
   <string name="secure_your_connection_subtitle">Oculte aplicaciones del monitoreo de red y obtenga acceso cuando estén bloqueadas.
 punjulaa apps, jupula  anaijatuin  pu kachuerrase</string>
   <string name="connected_title">Apai\'injirrawua.</string>
-  <string name="btn_start_vpn"> Ottirra\'a VPN</string>
-  <string name="btn_configure">Anata\'aa</string>
+    <string name="btn_configure">Anata\'aa</string>
   <string name="trying_to_connect_title">Apai\'injirrawua.</string>
   <string name="btn_choose_apps">Apawua app</string>
   <string name="btn_change_exit">  Awuanajawua  ajui\'tia</string>
   <string name="btn_refresh">Jekets juchikuaaya </string>
-  <string name="btn_tor_off">Oyokujaa TOR</string>
     <string name="volunteer_mode_title">pukalijaa  waneirrüa  junain apainjirrawua numa Tor</string>
   <string name="volunteer_mode_weekly_label">Jupushua  semanaka.</string>
   <string name="volunteer_mode_alltime_label">Jupushua  akalia\'a</string>

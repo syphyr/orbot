@@ -143,13 +143,11 @@
     <string name="secure_your_connection_subtitle">Oculta as apps da supervisión da rede e obteña acceso cando estén bloqueadas.</string>
     <string name="btn_change_exit">Cambiar saída</string>
     <string name="direct_connect_subtitle">A mellor maneira de conectarse a Tor. Utilizar se Tor non está bloqueado.</string>
-    <string name="btn_start_vpn">Iniciar VPN</string>
     <string name="snowflake_proxy_msg_title">Amosar notificación de conexión</string>
     <string name="btn_configure">Escoller como conectarse</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="snowflake_subtitle">Conectarse a través de voluntarios de Tor. Evita algúns bloqueos.</string>
     <string name="no_internet_subtitle">Precísase conexión a Internet para utilizar Orbot.</string>
-    <string name="btn_tor_off">Desconectar Tor</string>
     <string name="pref_circuit_padding_summary">Activar o recheo do circuito para defenderse contra algunhas formas de análise de tráfico</string>
     <string name="volunteer_mode_subtitle_desc">O modo bondade permite o uso do teu dispositivo coma ponte para outros. Axuda á xente a utilizar Tor en lugares onde está bloqueado.
 \n

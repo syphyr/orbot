@@ -119,7 +119,6 @@
     <string name="setting_debug">ניפוי שגיאות</string>
     <string name="action_activate">הפעלה</string>
     <string name="version">גרסה:</string>
-    <string name="btn_tor_off">כיבוי Tor</string>
     <string name="pref_isolate_protocol_summary">להשתמש במעגל שונה לכל פרוטוקול חיבור</string>
     <string name="pref_isolate_port">בידוד פתחות יעד</string>
     <string name="pref_isolate_port_summary">להשתמש במעגל נפרד לכל פתחת יעד</string>
@@ -180,7 +179,6 @@
     <string name="v3_delete_client_authorization">מחיקת מפתח הרשאת לקוח</string>
     <string name="bridge_snowflake_amp">התחברות דרך משתמשי Tor אחרים באמצעות Snowflake (שיטה 2 - AMP)</string>
     <string name="volunteer_mode">מצב חסד</string>
-    <string name="btn_start_vpn">התחלת VPN</string>
     <string name="strict_nodes_description">התייחסות להגדרות החרגה של צמתים כדרישה לבניית כל המעגלים. זה עלול לשבור את הפעילות אם לא ניתן ליצור מעגלים עם הגדרות החרגת הצמתים שנקבעו.</string>
     <string name="app_suggested_subtitle">Orbot עובד הכי טוב עם יישומוני הודעות ומדיה חברתית.</string>
     <string name="secure_your_connection_title">מוכן להתחבר</string>

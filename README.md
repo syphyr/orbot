@@ -41,7 +41,6 @@ learn to configure it properly. Learn more: <https://torproject.org/>
   </table>
 </div>
 
-
 ### Build Instructions
 
 Orbot is built with [hev-socks5-tunnel](https://github.com/heiher/hev-socks5-tunnel). Before you can build Orbot, you'll need to clone the submodule
@@ -59,5 +58,40 @@ git pull
 git submodule update --init --recursive
 ```
 
+If you pull and see that there are changes to `app/src/main/jni/hev-socks5-tunnel` that means that `hev-socks5-tunnel` was updated. You need to re-run `git submodule update --init --recursive` to fetch the latest changes and then rebuild Orbot.
+
+### Viewing Logs 
+
+Recently `tor` was added to be its own Linux process on Android instead of having it run within the primary app process. That measn that you will no longer see logs from `tor`, `OrbotService`, `OrbotVPNManager` etc within Android Studio. In order to see these logs you can use:
+
+
+`adb logcat  --pid=$(adb shell pidof -s "org.torproject.android.debug") -v color` to see the app logs in your terminal
+
+`adb logcat  --pid=$(adb shell pidof -s "org.torproject.android.debug:tor") -v color` and to see the `tor` process logs.
+
+**There is a helper script to get both of these logs printed side-by-side with `tmux`. From the root directory run:
+
+```bash
+./scripts/view_logs_tmux.sh
+```
+
+You may need to initially do some configuration to obtain `tmux` and add `adb` to your `PATH`:
+
+```bash
+# on Mac OS 
+brew install tmux 
+
+
+# on debian + friends:
+sudo apt intstall tmux 
+
+# then make sure adb is in your path in your .bashrc or similar file:
+export ANDROID_HOME=~/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+
+# on mac you do the above or instead get an adb instance from brew...
+brew install android-platform-tools
+```
 
 **Copyright &#169; 2009-2026, Nathan Freitas, The Guardian Project**

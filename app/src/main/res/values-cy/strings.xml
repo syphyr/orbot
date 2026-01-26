@@ -99,7 +99,6 @@
     <string name="pref_circuit_padding_summary">Galluogi padin cylched i amddiffyn rhag rhai mathau o ddadansoddi traffig</string>
     <string name="full_device_vpn">VPN Dyfais Llawn</string>
     <string name="pref_prefer_ipv6">Gwell cysylltiadau IPv6</string>
-    <string name="btn_tor_off">Trowch Tor i ffwrdd</string>
     <string name="btn_configure">Dewiswch Sut i Gysylltu</string>
     <string name="consider_enable_battery_optimizations">Dim gwasanaethau lletyol yn rhedeg, ystyriwch alluogi optimeiddio batri</string>
     <string name="delete_service">Dileu Gwasanaeth</string>
@@ -134,7 +133,6 @@
     <string name="confirm_service_deletion">Cadarnhau dileu gwasanaeth</string>
     <string name="bridge_snowflake_amp">Cysylltwch trwy ddefnyddwyr Tor eraill gan ddefnyddio Snowflake (Dull 2 - AMP)</string>
     <string name="volunteer_mode">Modd Caredigrwydd</string>
-    <string name="btn_start_vpn">Cychwyn VPN</string>
     <string name="secure_your_connection_title">Yn barod i gysylltu</string>
     <string name="v3_delete_client_authorization_confirm">Dileu Awdurdodiad Cleient</string>
     <string name="pref_http_summary">Porth y mae Tor yn cynnig ei ddirprwy HTTP arno (diofyn: 8118 neu 0 i\'w analluogi)</string>

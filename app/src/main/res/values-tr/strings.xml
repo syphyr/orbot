@@ -128,12 +128,10 @@
     <string name="btn_configure">Nasıl Bağlanılacağını Seç</string>
     <string name="volunteer_mode">Nezaket Modu</string>
     <string name="trying_to_connect_title">Bağlanıyor…</string>
-    <string name="btn_start_vpn">VPN\'i başlat</string>
     <string name="secure_your_connection_title">Bağlanmaya hazır</string>
     <string name="btn_choose_apps">Uygulamaları seç</string>
     <string name="btn_change_exit">Çıkışı değiştir</string>
     <string name="btn_refresh">Yenile</string>
-    <string name="btn_tor_off">Tor\'u kapat</string>
     <string name="volunteer_mode_title">Başkalarının Tor\'a
 \nbağlanmasına yardımcı olun</string>
     <string name="volunteer_mode_alltime_label">Tüm Zamanlar Toplamı</string>

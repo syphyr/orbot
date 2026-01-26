@@ -125,7 +125,6 @@
     <string name="log_copied">Zkopírovaný záznam</string>
     <string name="btn_copy_log">Kopírovat protokol</string>
     <string name="pref_prefer_ipv6">Preferování připojení IPv6</string>
-    <string name="btn_tor_off">Vypnutí Tor</string>
     <string name="btn_configure">Zvolte si, jak se připojit</string>
     <string name="option_only_on_wifi">Pouze v síti Wifi</string>
     <string name="consider_enable_battery_optimizations">Nejsou spuštěny žádné hostované služby, zvažte zapnutí optimalizace baterie</string>
@@ -165,7 +164,6 @@
     <string name="confirm_service_deletion">Potvrzení odstranění služby</string>
     <string name="bridge_snowflake_amp">Připojení přes jiné uživatele Toru pomocí aplikace Snowflake (metoda 2 - AMP)</string>
     <string name="volunteer_mode">Režim laskavosti</string>
-    <string name="btn_start_vpn">Spuštění sítě VPN</string>
     <string name="strict_nodes_description">Nastavení Vyloučit uzly považujte za požadavek pro sestavení všech obvodů. To může narušit funkčnost, pokud s nastavením Exclude Nodes nebude možné vygenerovat žádné obvody.</string>
     <string name="app_suggested_subtitle">Orbot nejlépe funguje s aplikacemi pro zasílání zpráv a sociální sítě.</string>
     <string name="secure_your_connection_title">Připraveno k připojení</string>

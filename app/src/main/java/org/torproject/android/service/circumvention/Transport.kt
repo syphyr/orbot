@@ -2,7 +2,7 @@ package org.torproject.android.service.circumvention
 
 import IPtProxy.Controller
 import IPtProxy.IPtProxy
-import IPtProxy.OnTransportStopped
+import IPtProxy.OnTransportEvents
 import android.content.Context
 import android.util.Log
 import org.torproject.android.util.Prefs
@@ -46,6 +46,8 @@ enum class Transport(val id: String) {
         @JvmStatic
         var stateLocation = ""
 
+        const val TAG = "Transport"
+
         val controller: Controller by lazy {
             Controller(stateLocation, true, false, "INFO", statusCollector)
         }
@@ -63,18 +65,28 @@ enum class Transport(val id: String) {
             }
         }
 
-        private val statusCollector = object : OnTransportStopped {
-            override fun stopped(name: String?, exception: Exception?) {
+        private val statusCollector = object : OnTransportEvents {
+            override fun connected(name: String?) {
+                Log.d(TAG, "$name connected")
+            }
+
+            override fun error(name: String?, error: Exception?) {
+                Log.e(TAG, "$name error: $error")
+            }
+
+            override fun stopped(name: String?, error: Exception?) {
                 if (name == null) return
 
-                if (exception != null) {
-                    Log.e(Transport::class.toString(),
-                        "$name stopped: ${exception.localizedMessage}")
-                }
-                else {
-                    Log.d(Transport::class.toString(), "$name stopped.")
+                if (error != null) {
+                    Log.e(
+                        TAG,
+                        "$name stopped: ${error.localizedMessage}"
+                    )
+                } else {
+                    Log.d(TAG, "$name stopped.")
                 }
             }
+
         }
 
         /**
@@ -85,8 +97,10 @@ enum class Transport(val id: String) {
         private const val AMP_BROKER = "https://snowflake-broker.torproject.net/"
         private val ampFronts = listOf("www.google.com")
         private const val AMP_CACHE = "https://cdn.ampproject.org/"
-        private const val SQS_QUEUE = "https://sqs.us-east-1.amazonaws.com/893902434899/snowflake-broker"
-        private const val SQS_CREDENTIALS = "eyJhd3MtYWNjZXNzLWtleS1pZCI6IkFLSUE1QUlGNFdKSlhTN1lIRUczIiwiYXdzLXNlY3JldC1rZXkiOiI3U0RNc0pBNHM1RitXZWJ1L3pMOHZrMFFXV0lsa1c2Y1dOZlVsQ0tRIn0="
+        private const val SQS_QUEUE =
+            "https://sqs.us-east-1.amazonaws.com/893902434899/snowflake-broker"
+        private const val SQS_CREDENTIALS =
+            "eyJhd3MtYWNjZXNzLWtleS1pZCI6IkFLSUE1QUlGNFdKSlhTN1lIRUczIiwiYXdzLXNlY3JldC1rZXkiOiI3U0RNc0pBNHM1RitXZWJ1L3pMOHZrMFFXV0lsa1c2Y1dOZlVsQ0tRIn0="
     }
 
     val transportNames: Set<String>
@@ -102,6 +116,7 @@ enum class Transport(val id: String) {
                         .filter { it.isNotBlank() }
                         .toSet()
                 }
+
                 else -> setOf(IPtProxy.Snowflake)
             }
         }
@@ -120,14 +135,19 @@ enum class Transport(val id: String) {
         for (transport in transportNames) {
 
             //sometimes there is a 0 for the port, which is invalid
-            if (controller.port(transport)>0)
-                result.add("ClientTransportPlugin $transport socks5 127.0.0.1:${controller.port(transport)}")
+            if (controller.port(transport) > 0)
+                result.add(
+                    "ClientTransportPlugin $transport socks5 127.0.0.1:${
+                        controller.port(
+                            transport
+                        )
+                    }"
+                )
         }
 
         when (this) {
             NONE -> {
-                val proxy = Prefs.proxy
-
+                val proxy = Prefs.outboundProxy.first
                 if (proxy != null) {
                     var hostPort = proxy.host
                     if (proxy.port in 1..<65536) hostPort += ":${proxy.port}"
@@ -141,9 +161,11 @@ enum class Transport(val id: String) {
                                 result.add("HTTPSProxyAuthenticator ${proxy.userInfo}")
                             }
                         }
+
                         "socks4" -> {
                             result.add("Socks4Proxy $hostPort")
                         }
+
                         "socks5" -> {
                             result.add("Socks5Proxy $hostPort")
 
@@ -161,16 +183,19 @@ enum class Transport(val id: String) {
                     }
                 }
             }
+
             MEEK_AZURE -> {
                 BuiltInBridges.getInstance(context)?.meekAzure?.forEach {
                     result.add("Bridge ${it.raw}")
                 }
             }
+
             OBFS4 -> {
                 BuiltInBridges.getInstance(context)?.obfs4?.forEach {
                     result.add("Bridge ${it.raw}")
                 }
             }
+
             SNOWFLAKE -> {
                 BuiltInBridges.getInstance(context)?.snowflake?.forEach {
                     val builder = Bridge.Builder(it)
@@ -179,6 +204,7 @@ enum class Transport(val id: String) {
                     result.add("Bridge ${builder.build().raw}")
                 }
             }
+
             SNOWFLAKE_AMP -> {
                 BuiltInBridges.getInstance(context)?.snowflake?.forEachIndexed { idx, it ->
                     val builder = Bridge.Builder(it)
@@ -189,6 +215,7 @@ enum class Transport(val id: String) {
                     result.add("Bridge ${builder.build().raw}")
                 }
             }
+
             SNOWFLAKE_SQS -> {
                 BuiltInBridges.getInstance(context)?.snowflake?.forEachIndexed { idx, it ->
                     val builder = Bridge.Builder(it)
@@ -199,11 +226,13 @@ enum class Transport(val id: String) {
                     result.add("Bridge ${builder.build().raw}")
                 }
             }
+
             WEBTUNNEL -> {
                 BuiltInBridges.getInstance(context)?.webtunnel?.forEach {
                     result.add("Bridge ${it.raw}")
                 }
             }
+
             CUSTOM -> {
                 Prefs.bridgesList.forEach {
                     result.add("Bridge $it")
@@ -235,14 +264,17 @@ enum class Transport(val id: String) {
                 controller.snowflakeSqsUrl = ""
                 controller.snowflakeSqsCreds = ""
             }
+
             SNOWFLAKE_AMP -> {
-                controller.snowflakeIceServers = BuiltInBridges.getInstance(context)?.snowflake?.firstOrNull()?.ice ?: ""
+                controller.snowflakeIceServers =
+                    BuiltInBridges.getInstance(context)?.snowflake?.firstOrNull()?.ice ?: ""
                 controller.snowflakeBrokerUrl = AMP_BROKER
                 controller.snowflakeFrontDomains = ampFronts.joinToString(",")
                 controller.snowflakeAmpCacheUrl = AMP_CACHE
                 controller.snowflakeSqsUrl = ""
                 controller.snowflakeSqsCreds = ""
             }
+
             SNOWFLAKE_SQS -> {
                 /* TODO Make sure SQS queue and credentials are up to date in assets/fronts when
                     re-enabling this feature. also remove android:visibility="gone" from the SQS
@@ -250,17 +282,20 @@ enum class Transport(val id: String) {
                     */
                 throw RuntimeException("Snowflake SQS Not supported right now https://github.com/guardianproject/orbot-android/issues/1320")
 
-                controller.snowflakeIceServers = BuiltInBridges.getInstance(context)?.snowflake?.firstOrNull()?.ice ?: ""
+                controller.snowflakeIceServers =
+                    BuiltInBridges.getInstance(context)?.snowflake?.firstOrNull()?.ice ?: ""
                 controller.snowflakeBrokerUrl = ""
                 controller.snowflakeFrontDomains = ""
                 controller.snowflakeAmpCacheUrl = ""
                 controller.snowflakeSqsUrl = SQS_QUEUE
                 controller.snowflakeSqsCreds = SQS_CREDENTIALS
             }
+
             else -> Unit
         }
 
-        val proxy = Prefs.proxy?.toString()
+        val pair = Prefs.outboundProxy
+        val proxy: String? = if (pair.first == null) null else pair.first.toString()
 
         for (transport in transportNames) {
             controller.start(transport, if (transport == IPtProxy.Snowflake) null else proxy)

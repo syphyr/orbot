@@ -105,7 +105,6 @@
     <string name="app_services">Апликацијске услуге</string>
     <string name="secure_your_connection_title">Спреман за повезивање</string>
     <string name="secure_your_connection_subtitle">Сакриј апликације од надзора мреже и добиј приступ када су блокиране.</string>
-    <string name="btn_start_vpn">Покрени VPN</string>
     <string name="btn_configure">Изабери како да се повежеш</string>
     <string name="volunteer_mode_title">Помози другима
 \nда се повежу на Тор</string>
@@ -153,7 +152,6 @@
     <string name="v3_hosted_services">Хостоване Onion услуге</string>
     <string name="pref_reduced_connection_padding">Смањено пуњење везе</string>
     <string name="v3_delete_client_authorization">Обриши кључ за клијентску ауторизацију</string>
-    <string name="btn_tor_off">Искључи Тор</string>
     <string name="snowflake_subtitle">Повезује се преко Тор волонтера. Заобилази неке блокаде Тора.</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="volunteer_status_title">Данас је бољи

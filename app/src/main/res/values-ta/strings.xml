@@ -25,7 +25,7 @@
     <string name="hidden_services">Onion சேவைகள்</string>
     <string name="connected_title">இணைக்கப்பட்டது</string>
     <string name="trying_to_connect_title">இணைக்கிறது…</string>
-    <string name="btn_refresh">புதுப்பி</string>
+    <string name="btn_refresh">இணைப்பைப் புதுப்பிக்கவும்</string>
     <string name="setting_debug">வழுநீக்கு</string>
     <string name="menu_new_identity">புதிய அடையாளம்</string>
     <string name="confirm">உறுதிப்படுத்தவும்</string>
@@ -37,7 +37,6 @@
     <string name="pref_disable_ipv4_summary">ஐபிவி 4 முகவரிகளுடன் இணைக்க வேண்டாம் என்று வெளியேறுகிறது</string>
     <string name="app_services">பயன்பாட்டு சேவைகள்</string>
     <string name="btn_configure">எவ்வாறு இணைப்பது என்பதைத் தேர்வுசெய்க</string>
-    <string name="btn_tor_off">அணைக்கவும்</string>
     <string name="power_user_mode">பவர் பயனர் பயன்முறை</string>
     <string name="power_user_description">டோர் நன்கு அறிந்த பயனர்களுக்கு. VPN அமைப்பு இல்லாமல் ஆர்போட் தொடங்க உங்களை அனுமதிக்கிறது மற்றும் திறந்த சாக்ச் மற்றும் HTTP போர்ட்களைக் காட்டுகிறது</string>
     <string name="asking">கேட்கிறது…</string>
@@ -85,7 +84,7 @@
     <string name="pref_transport_summary">துறைமுகம் அந்த டோர் அதன் வெளிப்படையான ப்ராக்சியை வழங்குகிறது (இயல்புநிலை: முடக்க 9040 அல்லது 0)</string>
     <string name="pref_transport_dialog">டிரான்ச்ப்ராக்சி துறைமுகம் கட்டமைப்பு</string>
     <string name="pref_dnsport_title">டோர் டிஎன்எச் துறைமுகம்</string>
-    <string name="direct_connect">TOR உடன் நேரடி இணைப்பு</string>
+    <string name="direct_connect">நேரடி இணைப்பு</string>
     <string name="direct_connect_subtitle">TOR உடன் இணைக்க சிறந்த வழி. டோர் தடுக்கப்படாவிட்டால் பயன்படுத்தவும்.</string>
     <string name="snowflake_amp">ச்னோஃப்ளேக் ஆம்ப்</string>
     <string name="snowflake_subtitle">டோர் தன்னார்வலர்கள் மூலம் இணைகிறது. தடுப்பதற்காக யாரையாவது சுற்றி வருக.</string>
@@ -104,7 +103,7 @@
     <string name="pref_prefer_ipv6">IPv6 இணைப்புகளை விரும்புங்கள்</string>
     <string name="volunteer_mode_title">மற்றவர்களுக்கு உதவுங்கள்\n TOR உடன் இணைக்கவும்</string>
     <string name="volunteer_mode_subtitle_desc">கருணை பயன்முறை உங்கள் சாதனம் மற்றவர்களுக்கு ஒரு பாலமாக இருக்க அனுமதிக்கிறது. இது தடுக்கப்பட்ட இடங்களில் டோர் பயன்படுத்த மக்களுக்கு உதவுகிறது.\n\n • இது உங்கள் பேட்டரியை வடிகட்டாது\n • இது உங்கள் இணையத்தை மெதுவாக்காது\n • இது வைஃபை மீது மட்டுமே இயங்க முடியும்\n • இதை எப்போது வேண்டுமானாலும் அணைக்கலாம்</string>
-    <string name="smart_connect">அறிவுள்ள கனெக்ட் (இயல்புநிலை)</string>
+    <string name="smart_connect">அறிவுள்ள கனெக்ட்</string>
     <string name="hide_apps">பிணைய கண்காணிப்பிலிருந்து பயன்பாடுகளை மறைத்து, அவை தடுக்கப்படும்போது அணுகலைப் பெறுங்கள்.</string>
     <string name="btn_copy_log">நகல் பதிவு</string>
     <string name="pref_detect_root_summary">இந்த சாதனத்தில் ரூட் அனுமதிகள் இயக்கப்பட்டிருந்தால் தொடக்கத்தைப் பற்றி எச்சரிக்கவும்</string>
@@ -164,7 +163,6 @@
     <string name="user_services">பயனர் சேவைகள்</string>
     <string name="bridge_snowflake_amp">ச்னோஃப்ளேக்கைப் பயன்படுத்தி பிற டோர் பயனர்கள் மூலம் இணைக்கவும் (முறை 2 - ஆம்ப்)</string>
     <string name="volunteer_mode">கருணை முறை</string>
-    <string name="btn_start_vpn">VPN ஐத் தொடங்குங்கள்</string>
     <string name="btn_choose_apps">பயன்பாடுகளைத் தேர்வுசெய்க</string>
     <string name="btn_change_exit">வெளியேறவும்</string>
     <string name="volunteer_status_title">இன்று சிறந்தது\n நீங்கள் காரணமாக.</string>
@@ -192,7 +190,7 @@
     <string name="app_icon_chooser_label_birdie">பறவை</string>
     <string name="power_user_mode_permission">பவர் பயனர் பயன்முறைக்கு அலாரங்கள் மற்றும் நினைவூட்டல் இசைவு தேவை</string>
     <string name="power_user_mode_permission_msg">ஆற்றல் பயனர் பயன்முறையைப் பயன்படுத்த அலாரங்கள் மற்றும் நினைவூட்டல்களை அமைக்க ஆர்போட்டை அனுமதிக்கவும். இது உண்மையில் உங்கள் சாதனத்தில் எந்த அலாரங்களையும் அமைக்காது. கணினி அளவிலான VPN ஆக ஆர்போட் பயன்படுத்தப்படாதபோது, கணினி ஆர்போட்சர்வீசை இயக்குவதற்கு இந்த இசைவு தேவை.</string>
-    <string name="error_no_password_set">ஆர்போட் அங்கீகாரத்தைப் பயன்படுத்த உங்கள் சாதனத்தைப் பாதுகாக்கவும்</string>
+    <string name="error_no_password_set">லாக் திரை அம்சத்தைப் பயன்படுத்த, உங்கள் ஆண்ட்ராய்டு சாதனத்திற்கு கடவுச்சொல்லை அமைக்க வேண்டும்</string>
     <string name="unlock_app_msg" formatted="true">%s ஐப் பயன்படுத்த உங்கள் சாதனத்தைத் திறக்கவும்</string>
     <string name="invalid_bridge_format">தவறான பாலம் வடிவம்</string>
     <string name="error_asking_tor_for_bridges">எவ்வாறு இணைப்பது என்று டோர் கேட்பது</string>
@@ -215,8 +213,7 @@
     <string name="bridge_meek_azure_subtitle">உங்கள் போக்குவரத்தை மூடுகிறது. சில டோர் தடுப்புகளைச் சுற்றி வருகிறது. மிகவும் மெதுவாக இருக்கலாம்.</string>
     <string name="custom_bridges_subtitle">உங்கள் நம்பகமான நெட்வொர்க்குகள் மற்றும் அமைப்புகளுக்குள் யாராவது ஒரு பாலத்தை புரவலன் செய்கிறார்களா என்று கேளுங்கள். இல்லையென்றால், ஒரு நண்பர் உங்களுக்காக பாலங்களைப் பெறலாம்.</string>
     <string name="custom_bridges_description">நீங்கள் கீழே பெறும் பாலம் முகவரிகளை ஒட்டவும். அல்லது அவற்றைச் சேர்க்க QR குறியீட்டை வருடு செய்யுங்கள். நண்பர்கள் உங்களுக்கான பாலங்களை %1$s இல் பெறலாம்.</string>
-    <string name="action_use_">%1$s ஐப் பயன்படுத்தவும்</string>
-    <string name="camo_samsung_instructions">உங்கள் சாம்சங் கேலக்சி சாதனத்தில் உருமறைப்பு பயன்முறையின் அறிவிப்புகள் உங்கள் அமைப்புகளைத் திறப்பதன் மூலம் மட்டுமே செயல்படும் -&gt; அறிவிப்புகள் -&gt; மேம்பட்ட அமைப்புகள் மற்றும் \"அறிவிப்புகளில் பயன்பாட்டு ஐகானைக் காட்டு\" என்பதை முடக்குகின்றன. அறிவிப்பு அமைப்புகளைத் திறக்க இங்கே சொடுக்கு செய்க.</string>
+    <string name="camo_samsung_instructions">உங்கள் Samsung விண்மீன் மண்டலம்/விண்மீன் கூட்டம்/விண்மீன் திரள் சாதனத்தில், Orbot இன் அறிவிப்புகள் அமைப்புகள் -&gt; அறிவிப்புகள் -&gt; மேம்பட்ட அமைப்புகளைத் திறந்து \"அறிவிப்புகளில் பயன்பாட்டு ஐகானைக் காட்டு\" என்பதை முடக்குவதன் மூலம் மட்டுமே ஐகான்களை மாற்றும். அறிவிப்பு அமைப்புகளைத் திறக்க இங்கே சொடுக்கு செய்யவும்.</string>
     <string name="request_notification_permission">ஆர்போட்டிற்கான அறிவிப்புகளை இயக்கவும்</string>
     <string name="request_notification_permission_msg">அறிவிப்புகளை இயக்காமல் ஆர்போட் ஒரு டோர் வி.பி.என் ஆக செயல்பட முடியாது அல்லது கருணை பயன்முறையைப் பயன்படுத்த முடியாது. \n\nஇயக்கப்பட்டால், ஆர்போட் இயங்கும்போது மட்டுமே ஒரு அறிவிப்பைக் காண்பிப்போம்.</string>
     <string name="open_settings">திறந்த அமைப்புகள்</string>
@@ -238,4 +235,36 @@
     <string name="log_notice_unable_to_update_onions">வெங்காய பெயர்களைப் பதிவேற்ற முடியவில்லை</string>
     <string name="log_notice_updating_torrc">டோர்க் தனிப்பயன் உள்ளமைவைப் புதுப்பித்தல்…</string>
     <string name="set_transport">போக்குவரத்தை அமை</string>
+    <string name="app_icon_dialog_title" formatted="true">%1$sக்கு மாறவும்</string>
+    <string name="app_icon_dialog_msg" formatted="true">%1$sக்கு மாறினால், ஆப்ச் மீண்டும் தொடங்கும்</string>
+    <string name="note_snowflake_doesn_t_support_proxies">குறிப்பு: ச்னோஃப்ளேக் ப்ராக்சிகளை ஆதரிக்காது. ச்னோஃப்ளேக் பிரிட்ச்களுடன் பதிலாள் அமைப்புகள் புறக்கணிக்கப்படும்.</string>
+    <string name="search_for_apps">பயன்பாடுகளைத் தேடுங்கள்</string>
+    <string name="apps_updated_msg">ஆப்ச் புதுப்பிக்கப்பட்டது</string>
+    <string name="title_safety">பாதுகாப்பு</string>
+    <string name="setting_app_icon_title">பயன்பாட்டு படவுரு</string>
+    <string name="setting_app_icon_description">ஆர்போட் உங்கள் சாதனத்தில் எப்படித் தோன்றும் என்பதைத் தேர்வுசெய்யவும்</string>
+    <string name="setting_block_screenshot_title">ச்கிரீன்சாட்களைத் தடு</string>
+    <string name="setting_block_screenshot_description">இந்த பயன்பாட்டின் ச்கிரீன்சாட்களை யாரும் எடுப்பதைத் தடுக்கிறது</string>
+    <string name="setting_unlock_pass_title">பூட்டு திரை</string>
+    <string name="setting_unlock_pass_description">ஆர்போட்டைத் திறக்க, உங்கள் சாதனத்தின் பின், கடவுச்சொல் அல்லது ச்வைப் பேட்டர்ன் தேவை</string>
+    <string name="setting_unlock_with_biometrics_title">பயோமெட்ரிக்சைப் பயன்படுத்தவும் (விரும்பினால்)</string>
+    <string name="setting_unlock_with_biometrics_description">உங்கள் சாதனத்தில் அமைத்தால், உங்கள் கைரேகை அல்லது முக அடையாளம் மூலம் ஆர்போட்டைத் திறக்கவும்.</string>
+    <string name="status_connected_control_port">டோர் பணி தொடங்கப்பட்டுள்ளது</string>
+    <string name="status_handshake">டோர் பிணையம் நுழைவாயிலுடன் இணைக்கிறது</string>
+    <string name="status_handshake_done">டோர் நெட்வொர்க்கில் நுழைகிறது</string>
+    <string name="status_circuit_create">டோர் பிணையம் மூலம் இணைப்பை அமைத்தல்</string>
+    <string name="status_done">செல்ல தயார்!</string>
+    <string name="status_conn_pt">Tor நெட்வொர்க்கிற்கு மாற்று வழியைக் கண்டறிதல்</string>
+    <string name="status_conn_done_pt">மாற்று பாதை அமைக்கப்பட்டுள்ளது</string>
+    <string name="status_conn_done">Tor பிணையம் நுழைவாயிலுடன் இணைக்கப்பட்டுள்ளது</string>
+    <string name="status_onehop_create">டோர் பிணையம் கோப்பகத்தை அணுகுகிறது</string>
+    <string name="status_enough_dirinfo">டோர் பிணையம் கோப்பகம் ஏற்றப்பட்டது</string>
+    <string name="status_requesting_status">டோரிடம் பிணையம் நிலையைக் கேட்கிறது</string>
+    <string name="status_loading_status">பிணைய நிலையை ஏற்றுகிறது</string>
+    <string name="status_requesting_descriptors">பிணையம் சர்வர் தகவலைக் கோருகிறது</string>
+    <string name="status_loading_descriptors">பிணையம் சர்வர் தகவலை ஏற்றுகிறது</string>
+    <string name="loading">ஏற்றுகிறது…</string>
+    <string name="http_port">HTTP துறைமுகம்</string>
+    <string name="socks_port">சாக்ச் துறைமுகம்</string>
+    <string name="invalid_outbound_proxy_config">தவறான வெளிச்செல்லும் பதிலாள் கட்டமைப்பு</string>
 </resources>

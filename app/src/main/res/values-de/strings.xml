@@ -161,13 +161,11 @@
     <string name="volunteer_mode">Freundlichkeitsmodus</string>
     <string name="secure_your_connection_subtitle">Verstecke Apps vor der Netzwerküberwachung und erhalte Zugriff, wenn sie blockiert sind.</string>
     <string name="connected_title">Verbunden</string>
-    <string name="btn_start_vpn">VPN starten</string>
     <string name="btn_configure">Wähle die Art der Verbindung</string>
     <string name="trying_to_connect_title">Verbinden…</string>
     <string name="btn_choose_apps">Anwendungen auswählen</string>
     <string name="btn_change_exit">Ausgang ändern</string>
     <string name="btn_refresh">Verbindung auffrischen</string>
-    <string name="btn_tor_off">Tor ausschalten</string>
     <string name="hide_apps">Verstecke Apps vor der Netzwerküberwachung und erhalte Zugriff, wenn sie blockiert sind.</string>
     <string name="pref_isolate_port">Zielports isolieren</string>
     <string name="pref_isolate_protocol">Client-Protokolle isolieren</string>
@@ -206,7 +204,6 @@
     <string name="status_loading_descriptors">Netzwerkserverinformationen werden geladen</string>
     <string name="kindness_mode_starting">Wird gestartet…</string>
     <string name="snowflake_sqs">Snowflake SQS</string>
-    <string name="action_use_">%1$s verwenden</string>
     <string name="orbot_vpn">Orbot VPN</string>
     <string name="orbot_config_invalid">Orbot-Konfiguration ungültig</string>
     <string name="apps_updated_msg">Apps aktualisiert</string>
@@ -217,7 +214,6 @@
     <string name="status_conn_done_pt">Alternative Route eingerichtet</string>
     <string name="status_conn_done">Mit Tor-Netzwerk-Eingang verbunden</string>
     <string name="status_enough_dirinfo">Tor-Netzwerk-Verzeichnis geladen</string>
-    <string name="status_loading_keys">Netzwerksicherheitsschlüssel werden geladen</string>
     <string name="status_requesting_descriptors">Netzwerkserverinformationen werden angefordert</string>
     <string name="app_icon_chooser_label_night_watch">Nachtwache</string>
     <string name="app_icon_chooser_label_assistant">Assistent</string>

@@ -41,6 +41,7 @@ import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.vpn.TorifiedApp
 import org.torproject.android.service.vpn.TorifiedAppWrapper
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.haveIBeenDetached
 import org.torproject.android.util.normalizie
 import org.torproject.android.util.sendIntentToService
 import java.util.Arrays
@@ -64,6 +65,8 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
     private var toolbar: Toolbar? = null
 
     private val scope = CoroutineScope(Dispatchers.Main + job)
+
+    @kotlinx.coroutines.FlowPreview
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -201,6 +204,10 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
             TorifiedApp.sortAppsForTorifiedAndAbc(allApps)
             if (suggestedApps == null) suggestedApps =
                 getApps(it, alSuggested, null, retainedCheckedPackages)
+
+            // https://github.com/guardianproject/orbot-android/issues/1564
+            if (haveIBeenDetached()) return
+
             val inflater = layoutInflater
             if (allUnfilteredUiItems.isEmpty()) {
                 // only show suggested apps, text, etc and other apps header if there are any suggested apps installed...
@@ -339,7 +346,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
                 response.putExtra(tApp.packageName, true)
             }
         }
-        val appStringOld = Prefs.torifiedApps ?: ""
+        val appStringOld = Prefs.torifiedApps
         val appStringNew = tordApps.toString()
 
         var shouldSave = false

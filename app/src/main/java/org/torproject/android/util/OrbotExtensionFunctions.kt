@@ -9,6 +9,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.Fragment
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 import java.text.Normalizer
@@ -93,3 +94,18 @@ fun Context.showToast(@StringRes msgId: Int) =
 fun String.normalizie() : String =
     Normalizer.normalize(this, Normalizer.Form.NFD)
         .replace("\\p{Mn}+".toRegex(), "")
+
+/**
+ * Useful when Fragment is being modified in another Scope/Thread ie an API Call, or IO Scope
+ * Make sure it's added before accessing its UI... Returns true if unsafe to access
+ *
+ * https://github.com/guardianproject/orbot-android/issues/1564
+ * https://stackoverflow.com/questions/50213823/ongetlayoutinflater-cannot-be-executed-until-the-fragment-is-attached-to-the-f
+ *
+ */
+fun Fragment.haveIBeenDetached() : Boolean {
+    val retVal = activity == null || isDetached || isRemoving
+    if (retVal)
+        Log.d(javaClass.simpleName, "has been detached on (other) Thread, aborting...")
+    return retVal
+}

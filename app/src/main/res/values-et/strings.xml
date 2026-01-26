@@ -68,14 +68,12 @@
     <string name="secure_your_connection_title">Valmis ühendamiseks</string>
     <string name="secure_your_connection_subtitle">Peida rakendused võrgu jälgimise eest ja saada juurdepääs, kui need on blokeeritud.</string>
     <string name="connected_title">Ühendatud</string>
-    <string name="btn_start_vpn">VPN-i käivitamine</string>
     <string name="btn_configure">Valige, kuidas ühendada</string>
     <string name="volunteer_mode">Sõbralikkuse režiim</string>
     <string name="trying_to_connect_title">Ühendamine…</string>
     <string name="btn_choose_apps">Vali rakendused</string>
     <string name="btn_change_exit">Muuda väljumist</string>
     <string name="btn_refresh">Värskenda</string>
-    <string name="btn_tor_off">Lülita Tor välja</string>
     <string name="wizard_details_msg">Orbot on avatud lähtekoodiga rakendus, mis sisaldab Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks ja LibEvent. Ta võimaldab kasutada VPN-tunnelit, lokaalset HTTP Connect proksit (HTTPS ainult pordis 8118) ja SOCKS-proksit (9050) Tor-võrku.</string>
     <string name="hidden_service_request">Rakendus soovib avada Tor-võrku sibulaserveri sadamas %1$s. See on turvaline, kui te rakendust usaldate.</string>
     <string name="pref_http_dialog">HTTP portide konfigureerimine</string>

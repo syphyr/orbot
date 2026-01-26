@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import org.torproject.android.R
+import org.torproject.android.localization.Languages
 import org.torproject.android.util.StringUtils
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
@@ -23,7 +24,7 @@ import java.util.TreeMap
 class ExitNodeBottomSheet : OrbotBottomSheetDialogFragment() {
 
     interface ExitNodeSelectedCallback {
-        fun onExitNodeSelected(countryCode: String, displayCountryName: String)
+        fun onExitNodeSelected(countryCode: String)
     }
 
     private val sortedCountries = TreeMap<String, Locale>(Collator.getInstance())
@@ -53,7 +54,7 @@ class ExitNodeBottomSheet : OrbotBottomSheetDialogFragment() {
         items.add("" to getString(R.string.globe) + " " + getString(R.string.vpn_default_world))
 
         COUNTRY_CODES.forEach {
-            val locale = Locale("", it)
+            val locale = Languages.buildLocaleForLanguage("", it)
             sortedCountries[locale.displayCountry] = locale
         }
 
@@ -96,7 +97,7 @@ class ExitNodeBottomSheet : OrbotBottomSheetDialogFragment() {
                 val navHostFragment = requireActivity().supportFragmentManager.fragments[0] as NavHostFragment
                 val connectFrag = navHostFragment.childFragmentManager.fragments.last() as ConnectFragment
                 notifyItemChanged(position)
-                connectFrag.onExitNodeSelected(code, displayName)
+                connectFrag.onExitNodeSelected(code)
                 dismiss()
             }
         }

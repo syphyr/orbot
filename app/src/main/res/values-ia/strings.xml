@@ -55,10 +55,8 @@
     <string name="secure_your_connection_title">Preste pro connecter</string>
     <string name="snowflake_proxy_msg_title">Monstrar notification de connexion</string>
     <string name="volunteer_mode">Modo amabilitate</string>
-    <string name="btn_start_vpn">Initiar le VPN</string>
     <string name="trying_to_connect_title">Connectente…</string>
     <string name="btn_choose_apps">Seliger le applicationes</string>
-    <string name="btn_tor_off">Disactivar Tor</string>
     <string name="btn_change_exit">Cambiar le sortita</string>
     <string name="btn_configure">Selige le typo de connexion</string>
     <string name="menu_log">Registro</string>

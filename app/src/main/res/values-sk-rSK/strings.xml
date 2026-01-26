@@ -33,7 +33,6 @@
     <string name="btn_choose_apps">Výber aplikácií</string>
     <string name="btn_change_exit">Zmena výstupu</string>
     <string name="btn_refresh">Obnoviť</string>
-    <string name="btn_tor_off">Vypnutie Tor</string>
     <string name="pref_node_configuration_summary">Toto sú pokročilé nastavenia, ktoré môžu znížiť vašu anonymitu</string>
     <string name="pref_entrance_node">Vstupné uzly</string>
     <string name="pref_entrance_node_dialog">Zadajte vstupné uzly</string>
@@ -133,7 +132,6 @@
     <string name="v3_backup_key_warning">Varovanie: To môže váš kľúč odhaliť pre iné aplikácie</string>
     <string name="pref_prefer_ipv6_summary">Oznamuje odchodom, že sa uprednostňujú adresy IPv6</string>
     <string name="pref_connection_padding_summary">Vždy umožňuje vypĺňanie pripojenia na ochranu pred niektorými formami analýzy prevádzky. Predvolené nastavenie: auto</string>
-    <string name="btn_start_vpn">Spustenie siete VPN</string>
     <string name="name">Názov</string>
     <string name="backup_port_exist">Chyba: Služba Onion už používa port %s</string>
     <string name="confirm_service_deletion">Potvrdenie odstránenia služby</string>
