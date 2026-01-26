@@ -99,8 +99,9 @@ class ConnectMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction
                             LinearLayout.LayoutParams.WRAP_CONTENT,
                             LinearLayout.LayoutParams.WRAP_CONTENT
                         )
-                        params.height = 40
-                        params.width = 40
+                        params.height = 50
+                        params.width = 50
+                        params.marginEnd = 20
                         params.gravity = Gravity.CENTER
                         iv.layoutParams = params
 
