@@ -195,6 +195,7 @@ class CustomBridgeBottomSheet : OrbotBottomSheetDialogFragment() {
             "meek_lite" -> "meek_lite"
             "snowflake" -> "snowflake"
             "webtunnel" -> "webtunnel"
+            "dnstt" -> "dnstt"
             else -> {
                 if (isValidBridge(firstLine)) "vanilla" else null
             }
