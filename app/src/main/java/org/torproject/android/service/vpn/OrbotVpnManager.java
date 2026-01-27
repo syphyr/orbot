@@ -17,6 +17,7 @@
 package org.torproject.android.service.vpn;
 
 import static org.torproject.android.service.OrbotConstants.*;
+import static org.torproject.jni.TorService.ACTION_STOP;
 
 import android.content.Intent;
 import android.content.pm.PackageManager.NameNotFoundException;

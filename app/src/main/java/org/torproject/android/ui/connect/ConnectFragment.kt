@@ -151,7 +151,7 @@ class ConnectFragment : Fragment(),
 
     fun stopTorAndVpn() {
         doLayoutOff()
-        setState(OrbotConstants.ACTION_STOP)
+        setState(TorService.ACTION_STOP)
         binding.tvSubtitle.text = ""
     }
 

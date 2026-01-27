@@ -22,6 +22,7 @@ import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.android.ui.v3onionservice.OnionServiceActivity
 import org.torproject.android.ui.v3onionservice.clientauth.ClientAuthActivity
 import org.torproject.android.util.StringUtils
+import org.torproject.jni.TorService
 
 class MoreFragment : Fragment() {
     private var httpPort = -1
@@ -139,7 +140,7 @@ class MoreFragment : Fragment() {
     private fun doExit() {
         val killIntent = Intent(
             requireActivity(), OrbotService::class.java
-        ).setAction(OrbotConstants.ACTION_STOP)
+        ).setAction(TorService.ACTION_STOP)
             .putExtra(OrbotConstants.ACTION_STOP_FOREGROUND_TASK, true)
         requireContext().sendIntentToService(killIntent)
         requireActivity().finish()
