@@ -55,7 +55,6 @@ class ConfigConnectionBottomSheet :
 
     companion object {
         const val TAG = "ConfigConnectionBttmSheet"
-        private val COUNTRIES_WITH_DNSTT_ENABLED = listOf("IR")
     }
 
     override fun onCreateView(
@@ -81,8 +80,7 @@ class ConfigConnectionBottomSheet :
         binding.acCountry.onFocusChangeListener = this
         binding.acCountry.onItemClickListener = this
 
-        binding.dnsttContainer.visibility =
-            if (COUNTRIES_WITH_DNSTT_ENABLED.contains(selectedCountryCode)) View.VISIBLE else View.GONE
+        binding.dnsttContainer.visibility = View.VISIBLE
 
         radios = arrayListOf(
             binding.rbDirect,
@@ -270,16 +268,7 @@ class ConfigConnectionBottomSheet :
             selectedCountryCode = null
         }
 
-        // TODO: DNSTT is currently only shown for Iranian users.
-        if (COUNTRIES_WITH_DNSTT_ENABLED.contains(selectedCountryCode)) {
-            binding.dnsttContainer.visibility = View.VISIBLE
-        } else {
-            binding.dnsttContainer.visibility = View.GONE
-
-            if (binding.rbDnstt.isChecked) {
-                binding.rbDirect.isChecked = true
-            }
-        }
+        binding.dnsttContainer.visibility = View.VISIBLE
 
         Prefs.bridgeCountry = selectedCountryCode
     }
