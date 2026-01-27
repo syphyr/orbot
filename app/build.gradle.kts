@@ -164,7 +164,7 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.work.kotlin)
     implementation(libs.upnp)
-    implementation(files("../libs/IPtProxy.aar"))
+    implementation(libs.iptproxy)
     implementation(files("../libs/geoip.jar"))
     api(libs.guardian.jtorctl)
     api(libs.tor.android)
