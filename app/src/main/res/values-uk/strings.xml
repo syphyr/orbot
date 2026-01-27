@@ -273,4 +273,5 @@
     <string name="loading">Завантаження…</string>
     <string name="http_port">HTTP-порт</string>
     <string name="socks_port">Порт SOCKS</string>
+    <string name="invalid_outbound_proxy_config">Недійсна конфігурація вихідного проксі-сервера</string>
 </resources>
