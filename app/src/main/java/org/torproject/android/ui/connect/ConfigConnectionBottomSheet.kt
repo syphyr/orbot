@@ -427,14 +427,6 @@ class ConfigConnectionBottomSheet :
     }
 
     private fun updateDnsttVisibility() {
-        if (Regionalization.countriesWithDnsttSupport.contains(selectedCountryCode)) {
-            binding.dnsttContainer.visibility = View.VISIBLE
-        } else {
-            binding.dnsttContainer.visibility = View.GONE
-
-            if (binding.rbDnstt.isChecked) {
-                binding.rbDirect.isChecked = true
-            }
-        }
+        binding.dnsttContainer.visibility = View.VISIBLE
     }
 }
