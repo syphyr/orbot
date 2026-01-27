@@ -130,6 +130,7 @@ object OrbotConstants {
 
     val VPN_SUGGESTED_APPS = mutableListOf(
         "org.thoughtcrime.securesms",  // Signal
+        // "com.android.vending", // google play store
         "com.duckduckgo.mobile.android",
         "com.whatsapp",
         "com.instagram.android",
