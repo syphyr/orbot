@@ -90,8 +90,7 @@ class ConfigConnectionBottomSheet :
         binding.acCountry.onFocusChangeListener = this
         binding.acCountry.onItemClickListener = this
 
-        binding.dnsttContainer.visibility =
-            if (BuiltInBridges.dnsCountries.contains(selectedCountryCode?.lowercase())) View.VISIBLE else View.GONE
+        binding.dnsttContainer.visibility = View.VISIBLE
 
         radios = arrayListOf(
             binding.rbDirect,
@@ -429,14 +428,6 @@ class ConfigConnectionBottomSheet :
     }
 
     private fun updateDnsttVisibility() {
-        if (BuiltInBridges.dnsCountries.contains(selectedCountryCode?.lowercase())) {
             binding.dnsttContainer.visibility = View.VISIBLE
-        } else {
-            binding.dnsttContainer.visibility = View.GONE
-
-            if (binding.rbDnstt.isChecked) {
-                binding.rbDirect.isChecked = true
-            }
-        }
     }
 }
