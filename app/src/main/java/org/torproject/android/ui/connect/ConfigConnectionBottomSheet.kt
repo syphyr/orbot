@@ -254,6 +254,8 @@ class ConfigConnectionBottomSheet :
     }
 
     override fun onFocusChange(view: View?, hasFocus: Boolean) {
+        if (hasFocus) return
+
         val currentText = binding.acCountry.text.toString()
 
         val countryDisplay = countryMap.keys.firstOrNull {
