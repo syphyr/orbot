@@ -254,38 +254,34 @@ class ConfigConnectionBottomSheet :
     }
 
     override fun onFocusChange(view: View?, hasFocus: Boolean) {
-        if (hasFocus) {
-            binding.acCountry.showDropDown()
-        } else {
-            val currentText = binding.acCountry.text.toString()
+        val currentText = binding.acCountry.text.toString()
 
-            val countryDisplay = countryMap.keys.firstOrNull {
-                it.equals(currentText, true)
-                        || it.substring(5).startsWith(currentText, true)
-            }
-
-            if (currentText.isNotEmpty() && countryDisplay != null) {
-                binding.acCountry.setText(countryDisplay)
-                selectedCountryCode = countryMap[countryDisplay]
-            }
-            else {
-                binding.acCountry.text = null
-                selectedCountryCode = null
-            }
-
-            // TODO: DNSTT is currently only shown for Iranian users.
-            if (selectedCountryCode == "IR") {
-                binding.dnsttContainer.visibility = View.VISIBLE
-            } else {
-                binding.dnsttContainer.visibility = View.GONE
-
-                if (binding.rbDnstt.isChecked) {
-                    binding.rbDirect.isChecked = true
-                }
-            }
-
-            Prefs.bridgeCountry = selectedCountryCode
+        val countryDisplay = countryMap.keys.firstOrNull {
+            it.equals(currentText, true)
+                    || it.substring(5).startsWith(currentText, true)
         }
+
+        if (currentText.isNotEmpty() && countryDisplay != null) {
+            binding.acCountry.setText(countryDisplay)
+            selectedCountryCode = countryMap[countryDisplay]
+        }
+        else {
+            binding.acCountry.text = null
+            selectedCountryCode = null
+        }
+
+        // TODO: DNSTT is currently only shown for Iranian users.
+        if (selectedCountryCode == "IR") {
+            binding.dnsttContainer.visibility = View.VISIBLE
+        } else {
+            binding.dnsttContainer.visibility = View.GONE
+
+            if (binding.rbDnstt.isChecked) {
+                binding.rbDirect.isChecked = true
+            }
+        }
+
+        Prefs.bridgeCountry = selectedCountryCode
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
