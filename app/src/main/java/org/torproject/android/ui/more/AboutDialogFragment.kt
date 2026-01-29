@@ -14,7 +14,7 @@ import androidx.fragment.app.DialogFragment
 import org.torproject.android.BuildConfig
 import org.torproject.android.R
 import org.torproject.android.util.DiskUtils
-import org.torproject.android.service.OrbotService
+import org.torproject.jni.TorService
 import java.io.IOException
 
 class AboutDialogFragment : DialogFragment() {
@@ -36,7 +36,7 @@ class AboutDialogFragment : DialogFragment() {
         tvAbout = view?.findViewById(R.id.aboutother)!!
 
         val tvTor = view.findViewById<TextView>(R.id.tvTor)
-        tvTor.text = getString(R.string.tor_url, OrbotService.BINARY_TOR_VERSION)
+        tvTor.text = getString(R.string.tor_url, TorService.VERSION_NAME)
 
         val tvObfs4 = view.findViewById<TextView>(R.id.tvObfs4)
         tvObfs4.text = getString(R.string.obfs4_url, IPtProxy.lyrebirdVersion().substringAfter('-'))

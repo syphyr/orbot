@@ -59,7 +59,6 @@ import kotlin.Unit;
 @SuppressLint("VpnServicePolicy")
 public class OrbotService extends VpnService {
 
-    public final static String BINARY_TOR_VERSION = TorService.VERSION_NAME;
     static final int NOTIFY_ID = 1, ERROR_NOTIFY_ID = 3;
     public static int mPortSOCKS = -1, mPortHTTP = -1, mPortDns = -1, mPortTrans = -1;
     public static File appBinHome, appCacheHome;
