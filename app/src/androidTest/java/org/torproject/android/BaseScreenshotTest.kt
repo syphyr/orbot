@@ -4,7 +4,6 @@ import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import androidx.test.espresso.ViewAssertion
-import androidx.test.espresso.ViewInteraction
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -20,7 +19,6 @@ import org.junit.runner.RunWith
 import org.torproject.android.util.Prefs
 import tools.fastlane.screengrab.locale.LocaleTestRule
 
-
 @LargeTest
 @RunWith(AndroidJUnit4::class)
 abstract class BaseScreenshotTest {
@@ -28,11 +26,11 @@ abstract class BaseScreenshotTest {
     @Rule @JvmField
     val localeTestRule = LocaleTestRule()
 
-    fun ViewInteraction.isGone() = getViewAssertion(ViewMatchers.Visibility.GONE)
+    fun isGone() = getViewAssertion(ViewMatchers.Visibility.GONE)
 
-    fun ViewInteraction.isVisible() = getViewAssertion(ViewMatchers.Visibility.VISIBLE)
+    fun isVisible() = getViewAssertion(ViewMatchers.Visibility.VISIBLE)
 
-    fun ViewInteraction.isInvisible() = getViewAssertion(ViewMatchers.Visibility.INVISIBLE)
+    fun isInvisible() = getViewAssertion(ViewMatchers.Visibility.INVISIBLE)
 
 
     // all tests need this for OrbotService's notification

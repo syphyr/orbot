@@ -1,7 +1,6 @@
 package org.torproject.android
 
 import androidx.test.espresso.Espresso.onData
-import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.scrollTo
 import androidx.test.espresso.matcher.ViewMatchers.withClassName
@@ -10,14 +9,24 @@ import androidx.test.ext.junit.rules.ActivityScenarioRule
 import org.hamcrest.Matchers.allOf
 import org.hamcrest.Matchers.anything
 import org.hamcrest.Matchers.`is`
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.torproject.android.util.Prefs
 import tools.fastlane.screengrab.Screengrab
 
 class ScreenshotChooseHowToConnect : BaseScreenshotTest() {
 
     @get:Rule
     var mActivityScenarioRule = ActivityScenarioRule(OrbotActivity::class.java)
+
+    @Before
+    fun setup() {
+        when (Screengrab.getLocale()) {
+            "fa" -> Prefs.bridgeCountry = "IR"
+            "en-US" -> Prefs.bridgeCountry = "US"
+        }
+    }
 
     @Test
     fun screenshotChooseHowToConnect() {
@@ -34,7 +43,7 @@ class ScreenshotChooseHowToConnect : BaseScreenshotTest() {
             .atPosition(1)
         linearLayout.perform(scrollTo(), click())
 
-        onView(withId(R.id.rbDirect)).isVisible()
+        isVisible()
         Screengrab.screenshot("B-choose-how")
     }
 }

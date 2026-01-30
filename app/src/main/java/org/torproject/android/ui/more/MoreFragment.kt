@@ -134,7 +134,7 @@ class MoreFragment : Fragment() {
     }
 
     private fun getTorVersion(): String {
-        return OrbotService.BINARY_TOR_VERSION.split("-").toTypedArray()[0]
+        return TorService.VERSION_NAME.split("-").toTypedArray()[0]
     }
 
     private fun doExit() {

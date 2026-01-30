@@ -1,7 +1,5 @@
 package org.torproject.android
 
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import org.junit.Before
 import org.junit.Rule
@@ -26,7 +24,7 @@ class ScreenshotConnected : BaseScreenshotTest() {
     @Test
     fun screenshotConnected() {
         mActivityScenarioRule.scenario.onActivity { _ ->
-            onView(withId(R.id.lvConnected)).isVisible()
+            isVisible()
             Thread.sleep(300)
             Screengrab.screenshot("A-orbot_connected")
         }

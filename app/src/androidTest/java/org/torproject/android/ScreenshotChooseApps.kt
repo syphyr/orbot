@@ -55,12 +55,12 @@ class ScreenshotChooseApps : BaseScreenshotTest() {
                 withId(R.id.rvMoreActions),
                 childAtPosition(
                     withClassName(`is`("android.widget.LinearLayout")),
-                    0
+                    1
                 )
             )
         )
-        recyclerView.perform(actionOnItemAtPosition<ViewHolder>(2, click()))
-        Thread.sleep(1750) // wait a long time for apps to load on the "Choose Apps" screen
+        recyclerView.perform(actionOnItemAtPosition<ViewHolder>(0, click()))
+        Thread.sleep(1650) // wait a long time for apps to load on the "Choose Apps" screen
         // TODO properly wait for desired view to appear in a proper espresso/unit-testy way
         Screengrab.screenshot("C-Choose_Apps")
     }

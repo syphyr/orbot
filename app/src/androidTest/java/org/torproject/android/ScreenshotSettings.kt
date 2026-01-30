@@ -40,23 +40,11 @@ class ScreenshotSettings : BaseScreenshotTest() {
                 withId(R.id.rvMoreActions),
                 childAtPosition(
                     withClassName(`is`("android.widget.LinearLayout")),
-                    0
+                    1
                 )
             )
         )
-        recyclerView.perform(actionOnItemAtPosition<ViewHolder>(0, click()))
-
-        val recyclerView2 = onView(
-            allOf(
-                withId(androidx.preference.R.id.recycler_view),
-                childAtPosition(
-                    withId(android.R.id.list_container),
-                    0
-                )
-            )
-        )
-        recyclerView2.perform(actionOnItemAtPosition<ViewHolder>(0, click()))
-
+        recyclerView.perform(actionOnItemAtPosition<ViewHolder>(2, click()))
         Thread.sleep(300)
 
         Screengrab.screenshot("F-settings_screen")
