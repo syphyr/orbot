@@ -91,15 +91,16 @@ object TorConfig {
             conf.add("ReachableAddresses $reachableAddressesPorts")
         }
 
+        // Always add client authorization config if any entries exist.
+        val clientAuthLines = StringBuffer()
+        V3ClientAuthColumns.addClientAuthToTorrc(clientAuthLines, context,
+            V3ClientAuthColumns.createV3AuthDir(context))
+        conf.addAll(clientAuthLines.split("\n"))
+
         if (Prefs.hostOnionServicesEnabled) {
             val extraLines = StringBuffer()
-
-            // Add any needed client authorization and hosted onion service config lines to torrc.
-            V3ClientAuthColumns.addClientAuthToTorrc(extraLines, context,
-                V3ClientAuthColumns.createV3AuthDir(context))
             OnionServiceColumns.addV3OnionServicesToTorrc(extraLines, context,
                 OnionServiceColumns.createV3OnionDir(context))
-
             conf.addAll(extraLines.split("\n"))
         }
 
