@@ -211,7 +211,7 @@ class ConnectFragment : Fragment(),
         val connectStr =
             if (Prefs.smartConnect) R.string.smart_connect else when (Prefs.transport) {
                 Transport.NONE -> R.string.direct_connect
-                Transport.MEEK_AZURE -> R.string.bridge_meek_azure
+                Transport.MEEK -> R.string.bridge_meek_azure
                 Transport.OBFS4 -> R.string.built_in_bridges_obfs4
                 Transport.SNOWFLAKE -> R.string.snowflake
                 Transport.SNOWFLAKE_AMP -> R.string.snowflake_amp

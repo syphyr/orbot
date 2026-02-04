@@ -14,7 +14,7 @@ enum class Transport(val id: String) {
      */
     NONE("direct"),
 
-    MEEK_AZURE("meek"),
+    MEEK("meek"),
     OBFS4("obfs4"),
 
     /**
@@ -56,7 +56,7 @@ enum class Transport(val id: String) {
 
         fun fromId(id: String): Transport {
             return when (id) {
-                MEEK_AZURE.id -> MEEK_AZURE
+                MEEK.id -> MEEK
                 OBFS4.id -> OBFS4
                 SNOWFLAKE.id -> SNOWFLAKE
                 SNOWFLAKE_AMP.id -> SNOWFLAKE_AMP
@@ -124,7 +124,7 @@ enum class Transport(val id: String) {
         get() {
             return when (this) {
                 NONE -> emptySet()
-                MEEK_AZURE -> setOf(IPtProxy.MeekLite)
+                MEEK -> setOf(IPtProxy.MeekLite)
                 OBFS4 -> setOf(IPtProxy.Obfs4)
                 WEBTUNNEL -> setOf(IPtProxy.Webtunnel)
                 DNSTT -> setOf(IPtProxy.Dnstt)
@@ -202,7 +202,7 @@ enum class Transport(val id: String) {
                 }
             }
 
-            MEEK_AZURE -> {
+            MEEK -> {
                 BuiltInBridges.getInstance(context)?.meek?.forEach {
                     result.add("Bridge ${it.raw}")
                 }

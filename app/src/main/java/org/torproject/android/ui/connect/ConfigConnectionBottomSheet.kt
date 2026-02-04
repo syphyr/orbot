@@ -195,7 +195,7 @@ class ConfigConnectionBottomSheet :
                 }
             }
             else if (binding.rbMeek.isChecked) {
-                Prefs.transport = Transport.MEEK_AZURE
+                Prefs.transport = Transport.MEEK
                 Prefs.smartConnect = false
                 closeAndConnect()
             }
@@ -306,7 +306,7 @@ class ConfigConnectionBottomSheet :
     private fun selectRadioButtonFromPreference() {
         when (Prefs.transport) {
             Transport.NONE -> binding.rbDirect.isChecked = true
-            Transport.MEEK_AZURE -> binding.rbMeek.isChecked = true
+            Transport.MEEK -> binding.rbMeek.isChecked = true
             Transport.OBFS4 -> binding.rbObfs4.isChecked = true
             Transport.SNOWFLAKE -> binding.rbSnowflake.isChecked = true
             Transport.SNOWFLAKE_AMP -> binding.rbSnowflakeAmp.isChecked = true
@@ -349,7 +349,7 @@ class ConfigConnectionBottomSheet :
                         Transport.NONE -> {
                             binding.rbDirect.isChecked = true
                         }
-                        Transport.MEEK_AZURE -> {
+                        Transport.MEEK -> {
                             binding.rbMeek.isChecked = true
                         }
                         Transport.OBFS4 -> {
