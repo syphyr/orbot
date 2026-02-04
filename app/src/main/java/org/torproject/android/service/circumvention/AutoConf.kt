@@ -7,8 +7,6 @@ import java.net.PasswordAuthentication
 
 object AutoConf {
 
-    private const val MEEK_PARAMETERS = "url=https://1723079976.rsc.cdn77.org;front=www.phpmyadmin.net"
-
     /**
      * Tries to automatically configure Pluggable Transports, if the MOAT service decides, that in your country one is needed.
      *
@@ -27,24 +25,26 @@ object AutoConf {
     ): Pair<Transport, List<String>>? {
         var cannotConnectWithoutPt = cannotConnectWithoutPt
 
+        val tunnel = MoatTunnel.TOR_PROJECT
+
         val done = fun(conf: Pair<Transport, List<String>>?): Pair<Transport, List<String>>? {
-            Transport.controller.stop(IPtProxy.MeekLite)
+            tunnel.stop()
             Authenticator.setDefault(null)
 
             return conf
         }
 
-        Transport.controller.start(IPtProxy.MeekLite, null)
+        tunnel.start()
 
         val authenticator = object : Authenticator() {
             override fun getPasswordAuthentication(): PasswordAuthentication {
-                return PasswordAuthentication(MEEK_PARAMETERS, "\u0000".toCharArray())
+                return PasswordAuthentication(tunnel.config, "\u0000".toCharArray())
             }
         }
 
         Authenticator.setDefault(authenticator)
 
-        val api = MoatApi.getInstance(context, Transport.controller.port(IPtProxy.MeekLite).toInt())
+        val api = MoatApi.getInstance(context, tunnel)
 
         // First, try updating built-ins.
         if (BuiltInBridges.isOutdated(context)) {

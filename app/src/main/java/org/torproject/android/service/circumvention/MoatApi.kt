@@ -27,14 +27,12 @@ import javax.net.ssl.X509TrustManager
 interface MoatApi {
 
     companion object {
-        private const val URL = "https://bridges.torproject.org/moat/circumvention/"
-
         val json = Json {
             ignoreUnknownKeys = true
         }
 
-        fun getInstance(context: Context, proxyPort: Int): MoatApi {
-            val proxy = Proxy(Proxy.Type.SOCKS, InetSocketAddress("127.0.0.1", proxyPort))
+        fun getInstance(context: Context, tunnel: MoatTunnel): MoatApi {
+            val proxy = Proxy(Proxy.Type.SOCKS, InetSocketAddress("127.0.0.1", tunnel.port))
 
             val filename = "ISRG Root X1.cer"
             var trustManager: X509TrustManager? = null
@@ -77,7 +75,7 @@ interface MoatApi {
             }
 
             return Retrofit.Builder()
-                .baseUrl(URL)
+                .baseUrl(tunnel.baseUrl)
                 .addConverterFactory(json.asConverterFactory("application/vnd.api+json".toMediaType()))
                 .client(clientBuilder.build())
                 .build()
