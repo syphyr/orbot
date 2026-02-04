@@ -41,7 +41,6 @@ object AutoConf {
                 return PasswordAuthentication(tunnel.config, "\u0000".toCharArray())
             }
         }
-
         Authenticator.setDefault(authenticator)
 
         val api = MoatApi.getInstance(context, tunnel)
@@ -62,34 +61,78 @@ object AutoConf {
             }
         }
 
+        var lastException: Throwable? = null
+
         var response = try {
-            api.settings(MoatApi.SettingsRequest(country))
+            api.settings(MoatApi.SettingsRequest(country?.lowercase()))
         }
         catch (exception : Throwable) {
-            done(null)
-            throw exception
+            lastException = exception
+            null
         }
 
-        response.errors?.firstOrNull()?.let {
+        response?.errors?.firstOrNull()?.let {
             if (it.code == 404 /* Needs transport, but not the available ones */
                 || it.code == 406 /* no country from IP address */) {
                 cannotConnectWithoutPt = true
             } else {
-                done(null)
-                throw it
+                lastException = it
             }
         }
+
+        val response2: MoatApi.SettingsResponse?
+
+        // Guardian Project's Moat is behind DNSTT. There is no source IP address available
+        // behind a DNSTT tunnel. So, only execute, when the user gave us a country.
+        if (!country.isNullOrEmpty()) {
+            val tunnel2 = MoatTunnel.GUARDIAN_PROJECT
+            tunnel2.start()
+
+            val authenticator2 = object : Authenticator() {
+                override fun getPasswordAuthentication(): PasswordAuthentication {
+                    return PasswordAuthentication(tunnel2.config, "\u0000".toCharArray())
+                }
+            }
+            Authenticator.setDefault(authenticator2)
+
+            val api2 = MoatApi.getInstance(context, tunnel2)
+
+            response2 = try {
+                api2.settings(MoatApi.SettingsRequest(country.lowercase()))
+            }
+            catch (_: Throwable) {
+                null // Ignored, GP's MOAT service is still experimental.
+            }
+
+            tunnel2.stop()
+            Authenticator.setDefault(authenticator)
+        }
+        else {
+            response2 = null
+        }
+
 
         // If there are no settings, that means that the MOAT service considers the
         // country we're in to be safe for use without any transport.
         // But only consider this, if the user isn't sure, that they cannot connect without PT.
-        if (response.settings.isNullOrEmpty() && !cannotConnectWithoutPt) {
-            return done(Pair(Transport.NONE, emptyList()))
+        if ((response == null || response.settings.isNullOrEmpty()) && (response2 == null || response2.settings.isNullOrEmpty()) && !cannotConnectWithoutPt) {
+            done(null)
+
+            if (lastException != null) throw lastException
+
+            return Pair(Transport.NONE, emptyList())
         }
 
         // Otherwise, use the first advertised setting which is usable.
-        var conf = extract(context, response.settings)
-        if (conf != null) return done(conf)
+        var conf = extract(context, response?.settings)
+        val conf2 = extract(context, response2?.settings)
+        val transport = conf2?.first ?: conf?.first // Prefer Guardian Project MOAT's transport setting.
+        val customBridges = (conf?.second ?: emptyList()) + (conf2?.second ?: emptyList()) // Use all custom bridges.
+
+        // Otherwise, use the first advertised setting which is usable with IPtProxy.
+        if (transport != null) {
+            return done(Pair(transport, customBridges))
+        }
 
         // If we couldn't understand that answer or it was empty, try the default settings.
         response = try {
