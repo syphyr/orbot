@@ -115,6 +115,10 @@ object AutoConf {
      * - If there are Obfs4 built-in bridge lines given, we update the built-in list of Obfs4 bridges.
      * - If there are custom Obfs4 bridge lines given, we return these too, regardless of the actually selected transport,
      *      so the user can later try these out, too, if the selected transport doesn't work.
+     * - If there are Webtunnel built-in bridge lines given, we update the built-in list of Webtunnel bridges.
+     * - If there are custom Webtunnel bridge lines given, we return these too, regardless of the actually selected transport.
+     * - If there are DNSTT built-in bridge lines given, we update the built-in list of DNSTT bridges.
+     * - If there are custom DNSTT bridge lines given, we return these too, regardless of the actually selected transport.
      *
      * @param settings: The settings from the Moat server.
      */
@@ -126,7 +130,7 @@ object AutoConf {
         val customBridges = mutableListOf<String>()
 
         for (setting in settings ?: emptyList()) {
-            if (setting.bridge.type == "snowflake") {
+            if (setting.bridge.type == IPtProxy.Snowflake) {
                 val bridges = setting.bridge.bridges
 
                 // If there are Snowflake bridge line updates, update our built-in ones!
@@ -136,7 +140,7 @@ object AutoConf {
                 }
 
                 if (transport == null) transport = Transport.SNOWFLAKE
-            } else if (setting.bridge.type == "obfs4") {
+            } else if (setting.bridge.type == IPtProxy.Obfs4) {
                 if (setting.bridge.source == "builtin") {
                     val bridges = setting.bridge.bridges
 
@@ -151,7 +155,7 @@ object AutoConf {
 
                     if (transport == null) transport = Transport.CUSTOM
                 }
-            } else if (setting.bridge.type == "webtunnel") {
+            } else if (setting.bridge.type == IPtProxy.Webtunnel) {
                 if (setting.bridge.source == "builtin") {
                     val bridges = setting.bridge.bridges
 
@@ -167,6 +171,25 @@ object AutoConf {
                     if (transport == null) transport = Transport.CUSTOM
                 }
             }
+            else if (setting.bridge.type == IPtProxy.Dnstt) {
+                if (setting.bridge.source == "builtin") {
+                    val bridges = setting.bridge.bridges
+
+                    // If there are DNSTT bridge line updates, update our built-in ones!
+                    if (!bridges.isNullOrEmpty()) {
+                        BuiltInBridges.getInstance(context)?.dnstt = bridges.map({ Bridge(it) })
+                        customBridges.addAll(bridges)
+                    }
+
+                    if (transport == null) transport = Transport.CUSTOM
+                }
+                else if (!setting.bridge.bridges.isNullOrEmpty()) {
+                    customBridges.addAll(setting.bridge.bridges)
+
+                    if (transport == null) transport = Transport.CUSTOM
+                }
+            }
+
         }
 
         if (transport != null) return Pair(transport, customBridges)

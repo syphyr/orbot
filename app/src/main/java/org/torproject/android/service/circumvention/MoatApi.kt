@@ -2,6 +2,7 @@
 
 package org.torproject.android.service.circumvention
 
+import IPtProxy.IPtProxy
 import android.content.Context
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -104,7 +105,7 @@ interface MoatApi {
     @Serializable
     data class SettingsRequest(
         val country: String? = null,
-        val transports: List<String> = listOf("obfs4", "snowflake", "webtunnel")
+        val transports: List<String> = listOf(IPtProxy.Obfs4, IPtProxy.Snowflake, IPtProxy.Webtunnel, IPtProxy.Dnstt)
     )
 
     @Serializable

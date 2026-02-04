@@ -9,17 +9,18 @@ import java.util.Calendar
 
 @Serializable
 data class BuiltInBridges(
-    @SerialName("meek")
-    var meekAzure: List<Bridge>? = null,
+    var meek: List<Bridge>? = null,
     var obfs4: List<Bridge>? = null,
     var snowflake: List<Bridge>? = null,
     var webtunnel: List<Bridge>? = null,
+    var dnstt: List<Bridge>? = null,
 ) {
 
     val empty: Boolean
         get() {
-            return meekAzure.isNullOrEmpty() && obfs4.isNullOrEmpty() &&
-                    snowflake.isNullOrEmpty() && webtunnel.isNullOrEmpty()
+            return meek.isNullOrEmpty() && obfs4.isNullOrEmpty() &&
+                    snowflake.isNullOrEmpty() && webtunnel.isNullOrEmpty() &&
+                    dnstt.isNullOrEmpty()
         }
 
     fun store(context: Context) {
