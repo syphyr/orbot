@@ -50,26 +50,27 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
             }
 
             val stunServers = BuiltInBridges.getInstance(service)?.snowflake?.firstOrNull()?.ice
-                ?.split(",".toRegex())?.dropLastWhile { it.isEmpty() }?.toTypedArray() ?: emptyArray()
+                ?.split(",".toRegex())?.dropLastWhile { it.isEmpty() }?.toTypedArray()
+                ?: emptyArray()
             val stunUrl = stunServers[SecureRandom().nextInt(stunServers.size)]
 
             proxy = SnowflakeProxy()
             service.refreshNotification()
             val fronts = localFronts(service)
-            with(proxy!!) {
-                brokerUrl = fronts["snowflake-target-direct"]
-                capacity = 1L
-                pollInterval = 120L
-                stunServer = stunUrl
-                relayUrl = fronts["snowflake-relay-url"]
-                natProbeUrl = fronts["snowflake-nat-probe"]
-                clientConnected = SnowflakeClientConnected { onConnected() }
+            with(proxy) {
+                this?.brokerUrl = fronts["snowflake-target-direct"]
+                this?.capacity = 1L
+                this?.pollInterval = 120L
+                this?.stunServer = stunUrl
+                this?.relayUrl = fronts["snowflake-relay-url"]
+                this?.natProbeUrl = fronts["snowflake-nat-probe"]
+                this?.clientConnected = SnowflakeClientConnected { onConnected() }
 
                 // Setting these to 0 is equivalent to not setting them at all.
-                ephemeralMinPort = (mappedPorts.firstOrNull() ?: 0).toLong()
-                ephemeralMaxPort = (mappedPorts.lastOrNull() ?: 0).toLong()
+                this?.ephemeralMinPort = (mappedPorts.firstOrNull() ?: 0).toLong()
+                this?.ephemeralMaxPort = (mappedPorts.lastOrNull() ?: 0).toLong()
 
-                start()
+                this?.start()
             }
         }
     }
@@ -83,7 +84,7 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
         releaseMappedPorts()
     }
 
-    fun isProxyRunning() : Boolean = proxy != null
+    fun isProxyRunning(): Boolean = proxy != null
 
 
     private fun onConnected() {
@@ -108,6 +109,7 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
         mappedPorts = mutableListOf()
     }
 
+    @Synchronized
     private fun localFronts(context: Context): HashMap<String, String> {
         val map = HashMap<String, String>()
         try {
