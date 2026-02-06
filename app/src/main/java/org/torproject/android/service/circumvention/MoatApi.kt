@@ -24,9 +24,12 @@ import javax.net.ssl.SSLSocketFactory
 import javax.net.ssl.TrustManagerFactory
 import javax.net.ssl.X509TrustManager
 
+
 interface MoatApi {
 
     companion object {
+        const val BRIDGE_SOURCE_BUILTIN = "builtin"
+
         val json = Json {
             ignoreUnknownKeys = true
         }
@@ -57,8 +60,7 @@ interface MoatApi {
                 sslContext?.init(null, arrayOf(trustManager), null)
 
                 socketFactory = sslContext?.socketFactory
-            }
-            catch (_: Throwable) {
+            } catch (_: Throwable) {
                 // Ignored. If anything goes wrong with reading the certificate,
                 // creating the keystore or the trust manager, we just try to use
                 // Android's default keystore and hope for the best. (Which is really ok
@@ -99,11 +101,15 @@ interface MoatApi {
     suspend fun countries(): List<String>
 
 
-
     @Serializable
     data class SettingsRequest(
         val country: String? = null,
-        val transports: List<String> = listOf(IPtProxy.Obfs4, IPtProxy.Snowflake, IPtProxy.Webtunnel, IPtProxy.Dnstt)
+        val transports: List<String> = listOf(
+            IPtProxy.Obfs4,
+            IPtProxy.Snowflake,
+            IPtProxy.Webtunnel,
+            IPtProxy.Dnstt
+        )
     )
 
     @Serializable
@@ -112,6 +118,7 @@ interface MoatApi {
         val country: String? = null,
         val errors: List<MoatError>? = null
     )
+
 
     @Serializable
     data class Setting(
@@ -135,5 +142,5 @@ interface MoatApi {
         val code: Int? = null,
         val status: String? = null,
         val detail: String? = null
-    ): Throwable(if (detail.isNullOrEmpty()) "$code $status" else detail)
+    ) : Throwable(if (detail.isNullOrEmpty()) "$code $status" else detail)
 }

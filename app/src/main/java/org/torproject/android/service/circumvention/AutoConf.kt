@@ -49,7 +49,7 @@ object AutoConf {
         if (BuiltInBridges.isOutdated(context)) {
             val bridges = try {
                 api.builtin()
-            } catch (_ : Throwable) {
+            } catch (_: Throwable) {
                 BuiltInBridges()
             }
 
@@ -65,8 +65,7 @@ object AutoConf {
 
         var response = try {
             api.settings(MoatApi.SettingsRequest(country?.lowercase()))
-        }
-        catch (exception : Throwable) {
+        } catch (exception: Throwable) {
             lastException = exception
             null
         }
@@ -99,15 +98,13 @@ object AutoConf {
 
             response2 = try {
                 api2.settings(MoatApi.SettingsRequest(country.lowercase()))
-            }
-            catch (_: Throwable) {
+            } catch (_: Throwable) {
                 null // Ignored, GP's MOAT service is still experimental.
             }
 
             tunnel2.stop()
             Authenticator.setDefault(authenticator)
-        }
-        else {
+        } else {
             response2 = null
         }
 
@@ -126,8 +123,10 @@ object AutoConf {
         // Otherwise, use the first advertised setting which is usable.
         var conf = extract(context, response?.settings)
         val conf2 = extract(context, response2?.settings)
-        val transport = conf2?.first ?: conf?.first // Prefer Guardian Project MOAT's transport setting.
-        val customBridges = (conf?.second ?: emptyList()) + (conf2?.second ?: emptyList()) // Use all custom bridges.
+        val transport =
+            conf2?.first ?: conf?.first // Prefer Guardian Project MOAT's transport setting.
+        val customBridges = (conf?.second ?: emptyList()) + (conf2?.second
+            ?: emptyList()) // Use all custom bridges.
 
         // Otherwise, use the first advertised setting which is usable with IPtProxy.
         if (transport != null) {
@@ -137,8 +136,7 @@ object AutoConf {
         // If we couldn't understand that answer or it was empty, try the default settings.
         response = try {
             api.defaults()
-        }
-        catch (exception: Throwable) {
+        } catch (exception: Throwable) {
             done(null)
             throw exception
         }
@@ -184,7 +182,7 @@ object AutoConf {
 
                 if (transport == null) transport = Transport.SNOWFLAKE
             } else if (setting.bridge.type == IPtProxy.Obfs4) {
-                if (setting.bridge.source == "builtin") {
+                if (setting.bridge.source == MoatApi.BRIDGE_SOURCE_BUILTIN) {
                     val bridges = setting.bridge.bridges
 
                     // If there are Obfs4 bridge line updates, update our built-in ones!
@@ -199,7 +197,7 @@ object AutoConf {
                     if (transport == null) transport = Transport.CUSTOM
                 }
             } else if (setting.bridge.type == IPtProxy.Webtunnel) {
-                if (setting.bridge.source == "builtin") {
+                if (setting.bridge.source == MoatApi.BRIDGE_SOURCE_BUILTIN) {
                     val bridges = setting.bridge.bridges
 
                     // If there are Webtunnel bridge line updates, update our built-in ones!
@@ -213,20 +211,18 @@ object AutoConf {
 
                     if (transport == null) transport = Transport.CUSTOM
                 }
-            }
-            else if (setting.bridge.type == IPtProxy.Dnstt) {
-                if (setting.bridge.source == "builtin") {
+            } else if (setting.bridge.type == IPtProxy.Dnstt) {
+                if (setting.bridge.source == MoatApi.BRIDGE_SOURCE_BUILTIN) {
                     val bridges = setting.bridge.bridges
 
                     // If there are DNSTT bridge line updates, update our built-in ones!
                     if (!bridges.isNullOrEmpty()) {
-                        BuiltInBridges.getInstance(context)?.dnstt = bridges.map({ Bridge(it) })
+                        BuiltInBridges.getInstance(context)?.dnstt = bridges.map { Bridge(it) }
                         customBridges.addAll(bridges)
                     }
 
                     if (transport == null) transport = Transport.CUSTOM
-                }
-                else if (!setting.bridge.bridges.isNullOrEmpty()) {
+                } else if (!setting.bridge.bridges.isNullOrEmpty()) {
                     customBridges.addAll(setting.bridge.bridges)
 
                     if (transport == null) transport = Transport.CUSTOM
