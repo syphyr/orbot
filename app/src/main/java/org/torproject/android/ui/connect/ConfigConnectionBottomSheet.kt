@@ -205,16 +205,10 @@ class ConfigConnectionBottomSheet :
             } else if (binding.rbDnstt.isChecked) {
                 Prefs.transport = Transport.DNSTT
                 Prefs.smartConnect = false
-
-                AlertDialog.Builder(requireContext())
-                    .setTitle(R.string.limit_dns_tunnel_use)
-                    .setMessage(R.string.dns_tunnel_usage_description)
-                    .setPositiveButton(R.string.connect) { _, _ ->
-                        closeAndConnect()
-                    }
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .setIconAttribute(android.R.attr.alertDialogIcon)
-                    .show()
+                DNSTTConfirmationDialog().show(
+                    requireActivity().supportFragmentManager,
+                    DNSTTConfirmationDialog.TAG
+                )
             }
 
             if (binding.rbTelegram.isChecked || binding.rbEmail.isChecked || binding.rbCustom.isChecked) {
