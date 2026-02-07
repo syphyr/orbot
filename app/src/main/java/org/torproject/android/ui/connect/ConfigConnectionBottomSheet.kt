@@ -300,7 +300,7 @@ class ConfigConnectionBottomSheet :
             connectFrag.stopTorAndVpn()
             Thread.sleep(3000)
         }
-        connectFrag.attemptToStartTor()
+        connectFrag.startTorAndVpn()
     }
 
     private fun selectRadioButtonFromPreference() {
