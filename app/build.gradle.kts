@@ -129,16 +129,27 @@ configure<ApplicationExtension> {
 
 }
 
-// Increments versionCode by ABI type and sets custom APK name
+// Increments versionCode by ABI type
+androidComponents {
+    onVariants { variant ->
+        variant.outputs.forEach { output ->
+            if (output.versionCode.get() == orbotBaseVersionCode) {
+                val incrementMap =
+                    mapOf("armeabi-v7a" to 1, "arm64-v8a" to 2, "x86" to 4, "x86_64" to 5)
+                val increment =
+                    incrementMap[output.filters.find { it.filterType.name == "ABI" }?.identifier]
+                        ?: 0
+                output.versionCode = orbotBaseVersionCode + increment
+            }
+        }
+    }
+}
+
+// sets custom APK name
+// TODO this is deprecated and will be broken in future AGP...
+// TODO AGP 10 comes out in summer 2026......
 android.applicationVariants.all {
     outputs.configureEach {
-        if (versionCode == orbotBaseVersionCode) {
-            val incrementMap =
-                mapOf("armeabi-v7a" to 1, "arm64-v8a" to 2, "x86" to 4, "x86_64" to 5)
-            val increment = incrementMap[filters.find { it.filterType == "ABI" }?.identifier] ?: 0
-            (this as ApkVariantOutputImpl).versionCodeOverride = orbotBaseVersionCode + increment
-        }
-
         // Set custom APK output name with version
         (this as ApkVariantOutputImpl).outputFileName =
             outputFileName.replace("app-", "Orbot-${versionName}-")
