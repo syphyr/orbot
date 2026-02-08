@@ -1,3 +1,4 @@
+import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.gradle.internal.api.ApkVariantOutputImpl
 import java.io.FileInputStream
 import java.net.URI
@@ -19,7 +20,7 @@ fun getVersionName(): String {
     }.standardOutput.asText.get().trim()
 }
 
-android {
+configure<ApplicationExtension> {
     namespace = "org.torproject.android"
     compileSdk = 36
 
@@ -130,7 +131,7 @@ android {
 
 // Increments versionCode by ABI type and sets custom APK name
 android.applicationVariants.all {
-    outputs.configureEach { ->
+    outputs.configureEach {
         if (versionCode == orbotBaseVersionCode) {
             val incrementMap =
                 mapOf("armeabi-v7a" to 1, "arm64-v8a" to 2, "x86" to 4, "x86_64" to 5)
@@ -212,7 +213,7 @@ val updateBuiltinBridges by tasks.registering {
             }.standardOutput.asText.get().trim()
         val dateStr = log.split("\n").filter { it.contains("Date:") }[0]
         val dateAsSeconds = dateStr.substring("Date:".length).trim().split(" ")[0].toLong()
-        val stale = Date().time/1000 - dateAsSeconds > oneDay
+        val stale = Date().time / 1000 - dateAsSeconds > oneDay
         if (!outputFile.exists() || stale) {
             val bridgeUri = "https://bridges.torproject.org/moat/circumvention/builtin"
             println("builtin-bridges.json missing or older than 24h, checking $bridgeUri for bridges...")
