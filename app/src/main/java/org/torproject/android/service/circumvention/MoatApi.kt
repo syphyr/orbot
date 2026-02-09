@@ -28,7 +28,6 @@ import javax.net.ssl.X509TrustManager
 interface MoatApi {
 
     companion object {
-        const val BRIDGE_SOURCE_BUILTIN = "builtin"
 
         val json = Json {
             ignoreUnknownKeys = true
@@ -132,7 +131,11 @@ interface MoatApi {
         val source: String,
         @SerialName("bridge_strings")
         val bridges: List<String>? = null
-    )
+    ) {
+        companion object {
+            const val SOURCE_BUILTIN = "builtin"
+        }
+    }
 
     @Serializable
     data class MoatError(

@@ -182,7 +182,7 @@ object AutoConf {
 
                 if (transport == null) transport = Transport.SNOWFLAKE
             } else if (setting.bridge.type == IPtProxy.Obfs4) {
-                if (setting.bridge.source == MoatApi.BRIDGE_SOURCE_BUILTIN) {
+                if (setting.bridge.source == MoatApi.Bridge.SOURCE_BUILTIN) {
                     val bridges = setting.bridge.bridges
 
                     // If there are Obfs4 bridge line updates, update our built-in ones!
@@ -197,7 +197,7 @@ object AutoConf {
                     if (transport == null) transport = Transport.CUSTOM
                 }
             } else if (setting.bridge.type == IPtProxy.Webtunnel) {
-                if (setting.bridge.source == MoatApi.BRIDGE_SOURCE_BUILTIN) {
+                if (setting.bridge.source == MoatApi.Bridge.SOURCE_BUILTIN) {
                     val bridges = setting.bridge.bridges
 
                     // If there are Webtunnel bridge line updates, update our built-in ones!
@@ -212,7 +212,7 @@ object AutoConf {
                     if (transport == null) transport = Transport.CUSTOM
                 }
             } else if (setting.bridge.type == IPtProxy.Dnstt) {
-                if (setting.bridge.source == MoatApi.BRIDGE_SOURCE_BUILTIN) {
+                if (setting.bridge.source == MoatApi.Bridge.SOURCE_BUILTIN) {
                     val bridges = setting.bridge.bridges
 
                     // If there are DNSTT bridge line updates, update our built-in ones!
