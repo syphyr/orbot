@@ -629,7 +629,12 @@ public class OrbotService extends VpnService {
             mNotifyBuilder.setSubText(message);
     }
 
-    // system calls this method when VPN disconnects (either by the user or another VPN app)
+    /*
+    onRevoke() is a VPNService method that gets called when the user, OS, or another
+    VpnService causes Orbot to stop being the active VPN. We need to kill Tor, but also update the UI
+    Since active VPNServics are automatically foreground services on Android, we send a local action stop
+    to kill the UI, since Orbot loses its foregrounded notification on revoke.
+     */
     @Override
     public void onRevoke() {
         // tell UI, if it's open, to update immediately (don't wait for onResume() in Activity...)
