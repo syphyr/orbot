@@ -96,11 +96,6 @@ enum class Transport(val id: String) {
 
         }
 
-        /**
-         * Seems more reliable in certain countries than the currently advertised one.
-         */
-        private val addFronts = listOf("github.githubassets.com")
-
         private const val AMP_BROKER = "https://snowflake-broker.torproject.net/"
         private val ampFronts = listOf("www.google.com")
         private const val AMP_CACHE = "https://cdn.ampproject.org/"
@@ -216,10 +211,7 @@ enum class Transport(val id: String) {
 
             SNOWFLAKE -> {
                 BuiltInBridges.getInstance(context)?.snowflake?.forEach {
-                    val builder = Bridge.Builder(it)
-                    builder.fronts.addAll(addFronts)
-
-                    result.add("Bridge ${builder.build().raw}")
+                    result.add("Bridge ${it.raw}")
                 }
             }
 
@@ -281,7 +273,7 @@ enum class Transport(val id: String) {
                 val snowflake = BuiltInBridges.getInstance(context)?.snowflake?.firstOrNull()
 
                 // Seems more reliable in certain countries than the currently advertised one.
-                val fronts = addFronts.toMutableSet()
+                val fronts = mutableSetOf<String>()
                 snowflake?.front?.let { fronts.add(it) }
                 snowflake?.fronts?.let { fronts.addAll(it) }
 
