@@ -2,5 +2,5 @@
 
 source "https://rubygems.org"
 
-gem "fastlane"
+gem 'fastlane', '~> 2.232', '>= 2.232.1'
 gem "screengrab"
