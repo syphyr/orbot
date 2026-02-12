@@ -276,4 +276,6 @@
     <string name="my_country_optional">Моя Страна (опционально)</string>
     <string name="limit_dns_tunnel_use">Ограничить использование Туннеля DNS</string>
     <string name="dns_tunnel_usage_description">DNS-туннели приоритизируют доступ над скоростью и могут ощущаться медленнее. Мы рекомендуем включать их только для ключевых приложений. Просмотр видео не рекомандован.</string>
+    <string name="loading">Загрузка…</string>
+    <string name="http_port">Порт HTTP</string>
 </resources>
