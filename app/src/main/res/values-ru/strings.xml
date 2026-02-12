@@ -123,7 +123,7 @@
     <string name="trying_to_connect_title">Подключение…</string>
     <string name="btn_choose_apps">Выбор приложений</string>
     <string name="btn_change_exit">Сменить выходной узел</string>
-    <string name="btn_refresh">Обновить Подключение</string>
+    <string name="btn_refresh">Обновить подключение</string>
     <string name="volunteer_mode">Режим доброты</string>
     <string name="snowflake_proxy_msg_title">Показывать уведомление о подключении</string>
     <string name="snowflake_proxy_msg_description">Показывать уведомление, когда вы помогаете кому-то обходить цензуру</string>
