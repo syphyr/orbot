@@ -1,5 +1,8 @@
+@file:Suppress("FunctionName", "FunctionName", "FunctionName")
+
 package org.torproject.android.service
 
+@Suppress("LocalVariableName")
 object TProxyService {
     @JvmStatic
     external fun TProxyStartService(config_path: String?, fd: Int)

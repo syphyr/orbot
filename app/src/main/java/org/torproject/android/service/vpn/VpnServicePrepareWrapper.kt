@@ -108,7 +108,7 @@ object VpnServicePrepareWrapper {
     }
 
     @SuppressLint("QueryPermissionsNeeded")
-    private fun PackageManager.getInstalledPackagesList(flags: Int = 0): List<PackageInfo> =
+    private fun PackageManager.getInstalledPackagesList(@Suppress("SameParameterValue") flags: Int = 0): List<PackageInfo> =
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             getInstalledPackages(PackageManager.PackageInfoFlags.of(flags.toLong()))
         } else {
