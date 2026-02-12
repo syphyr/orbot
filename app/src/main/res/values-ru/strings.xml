@@ -123,7 +123,7 @@
     <string name="trying_to_connect_title">Подключение…</string>
     <string name="btn_choose_apps">Выбор приложений</string>
     <string name="btn_change_exit">Сменить выходной узел</string>
-    <string name="btn_refresh">Обновить</string>
+    <string name="btn_refresh">Обновить подключение</string>
     <string name="volunteer_mode">Режим доброты</string>
     <string name="snowflake_proxy_msg_title">Показывать уведомление о подключении</string>
     <string name="snowflake_proxy_msg_description">Показывать уведомление, когда вы помогаете кому-то обходить цензуру</string>
@@ -147,8 +147,8 @@
 \n• Он не замедляет ваш интернет
 \n• Он может работать только через Wi-Fi
 \n• Его можно отключить в любое время</string>
-    <string name="smart_connect">Умное подключение (по умолчанию)</string>
-    <string name="direct_connect">Прямое подключение к Tor</string>
+    <string name="smart_connect">Умное Подключение</string>
+    <string name="direct_connect">Прямое Подключение</string>
     <string name="power_user_mode">Режим опытного пользователя</string>
     <string name="volunteer_status_title">Мир стал лучше
 \nблагодаря вам.</string>
@@ -215,13 +215,13 @@
     <string name="app_icon_chooser_label_todo">To-Do</string>
     <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
     <string name="app_icon_chooser_label_birdie">Birdie</string>
-    <string name="camo_samsung_instructions">На вашем устройстве Samsung Galaxy уведомления режима маскировки только будут работать если вы откроете настройки вашего телефона: Настройки -&gt; Уведомления -&gt; Дополнительные параметры и выключением опции \"Отображать значки оповещений\". Нажмите сюда, чтобы открыть Настройки Уведомлений.</string>
+    <string name="camo_samsung_instructions">На устройствах Samsung Galaxy иконки в строке уведомлений приложения Orbot изменятся только после открытия настроек вашего телефона: Настройки -&gt; Уведомления -&gt; Дополнительные Параметры и выключением опции \"Отображать значки оповещений\". Нажмите сюда, чтобы открыть Настройки Уведомлений.</string>
     <string name="power_user_mode_permission">Разрешение будильника и напоминателя нужны для режима большой пользователь</string>
     <string name="power_user_mode_permission_msg">Пожалуйста разрешите приложению Orbot заводить будильники и напоминатели, чтобы использовать режим большого пользователя. Это не создаст никакие будильники на вашем устройстве. Это разрешение нужно, чтобы система держала OrbotService включенным во время, когда Orbot не использован как VPN на всю систему.</string>
     <string name="request_notification_permission">Пожалуйста включите уведомления для Orbot</string>
     <string name="request_notification_permission_msg">Без включения уведомлений приложения Orbot, он не может вести себя как Tor VPN или использовать Режим доброты.\n\nКогда они включены, мы только показываем одно уведомление когда Orbot работает.</string>
     <string name="open_settings">Открыть настройки</string>
-    <string name="error_no_password_set">Пожалуйста защитите своё устройство, чтобы использовать Orbot Аутентификацию</string>
+    <string name="error_no_password_set">Вы должны завести пароль на вашем устройстве Android, чтобы использовать функцию Блокировки Экрана</string>
     <string name="device_lock_unsupported">Orbot Аутентификация не поддерживается на вашем устройстве</string>
     <string name="device_lock_security_update_needed">Вы должны скачивать обновления безопасности для вашего устройства, чтобы использовать Orbot Аутентификацию</string>
     <string name="invalid_bridge_format">Неверный формат мостов</string>
@@ -242,4 +242,40 @@
     <string name="log_notice_unable_to_update_onions">не получилось загрузить onion имена</string>
     <string name="log_notice_updating_torrc">Обновление пользовательских настроек torrc…</string>
     <string name="set_transport">Настроить транспорт</string>
+    <string name="app_icon_dialog_title" formatted="true">Сменить на %1$s</string>
+    <string name="app_icon_dialog_msg" formatted="true">Смена на %1$s перезапустит приложение</string>
+    <string name="note_snowflake_doesn_t_support_proxies">ЗАМЕТКА: Snowflake не поддерживает прокси. Настройки прокси будут игнорированы с мостами Snowflake.</string>
+    <string name="search_for_apps">Поиск приложений</string>
+    <string name="apps_updated_msg">Приложения Обновлены</string>
+    <string name="title_safety">Безопасность</string>
+    <string name="setting_app_icon_title">Иконка приложения</string>
+    <string name="setting_block_screenshot_title">Блокировка скриншотов</string>
+    <string name="setting_unlock_pass_title">Блокировка Экрана</string>
+    <string name="setting_app_icon_description">Выберите как Orbot будет выглядеть на вашем устройстве</string>
+    <string name="setting_block_screenshot_description">Предотвращает любого от снятия скриншотов этого приложения</string>
+    <string name="setting_unlock_pass_description">Требовать ПИН-код вашего устройства, пароль, или графический ключ для открытия Orbot</string>
+    <string name="setting_unlock_with_biometrics_title">Использовать Биометрию (опционально)</string>
+    <string name="setting_unlock_with_biometrics_description">Разблокировка Orbot вашим отпечатком пальца, или Face ID, если они настроены на вашем устройстве.</string>
+    <string name="status_connected_control_port">Начался запуск службы Tor</string>
+    <string name="status_handshake">Подключение ко входу сети Tor</string>
+    <string name="status_handshake_done">Заход в сеть Tor</string>
+    <string name="status_circuit_create">Настройка подключения через сеть Tor</string>
+    <string name="status_done">Готово!</string>
+    <string name="status_conn_pt">Находим альтернативный путь к сети Tor</string>
+    <string name="status_conn_done_pt">Альтернативный путь построен</string>
+    <string name="status_conn_done">Подключены ко входу сети Tor</string>
+    <string name="status_onehop_create">Запрос директории сети Tor</string>
+    <string name="status_enough_dirinfo">Директория сети Tor загружена</string>
+    <string name="status_requesting_status">Узнаём статус подключения у службы Tor</string>
+    <string name="status_loading_status">Загружаем статус подключения</string>
+    <string name="status_requesting_descriptors">Запрашиваем информацию про сетевой сервер</string>
+    <string name="status_loading_descriptors">Прогружаем информацию про сетевой сервер</string>
+    <string name="socks_port">Порт SOCKS</string>
+    <string name="invalid_outbound_proxy_config">Неверная конфигурация Исходящего Прокси</string>
+    <string name="bridge_dnstt">Туннель DNS</string>
+    <string name="my_country_optional">Моя Страна (опционально)</string>
+    <string name="limit_dns_tunnel_use">Ограничить использование Туннеля DNS</string>
+    <string name="dns_tunnel_usage_description">DNS-туннели приоритизируют доступ над скоростью и могут ощущаться медленнее. Мы рекомендуем включать их только для ключевых приложений. Просмотр видео не рекомандован.</string>
+    <string name="loading">Загрузка…</string>
+    <string name="http_port">Порт HTTP</string>
 </resources>
