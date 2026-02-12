@@ -247,5 +247,8 @@
     <string name="note_snowflake_doesn_t_support_proxies">ЗАМЕТКА: Snowflake не поддерживает прокси. Настройки прокси будут игнорированы с мостами Snowflake.</string>
     <string name="search_for_apps">Поиск приложений</string>
     <string name="apps_updated_msg">Приложения Обновлены</string>
-    <string name="title_safety">Безопасность</string>
+    <string name="title_safety">Пристанище</string>
+    <string name="setting_app_icon_title">Иконка приложения</string>
+    <string name="setting_block_screenshot_title">Блокировка скриншотов</string>
+    <string name="setting_unlock_pass_title">Экран блокировки</string>
 </resources>
