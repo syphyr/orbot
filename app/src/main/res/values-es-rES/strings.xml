@@ -207,4 +207,5 @@
     <string name="status_loading_status">Cargando estado de la red</string>
     <string name="status_requesting_descriptors">Solicitando información de servidores de la red</string>
     <string name="status_loading_descriptors">Cargando información de servidores de la red</string>
+    <string name="system_vpn_settings">Preferencias de la VPN de Android</string>
 </resources>
