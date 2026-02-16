@@ -14,7 +14,7 @@ enum class Transport(val id: String) {
      */
     NONE("direct"),
 
-    MEEK_AZURE("meek"),
+    MEEK("meek"),
     OBFS4("obfs4"),
 
     /**
@@ -56,7 +56,7 @@ enum class Transport(val id: String) {
 
         fun fromId(id: String): Transport {
             return when (id) {
-                MEEK_AZURE.id -> MEEK_AZURE
+                MEEK.id -> MEEK
                 OBFS4.id -> OBFS4
                 SNOWFLAKE.id -> SNOWFLAKE
                 SNOWFLAKE_AMP.id -> SNOWFLAKE_AMP
@@ -96,11 +96,6 @@ enum class Transport(val id: String) {
 
         }
 
-        /**
-         * Seems more reliable in certain countries than the currently advertised one.
-         */
-        private val addFronts = listOf("github.githubassets.com")
-
         private const val AMP_BROKER = "https://snowflake-broker.torproject.net/"
         private val ampFronts = listOf("www.google.com")
         private const val AMP_CACHE = "https://cdn.ampproject.org/"
@@ -110,12 +105,13 @@ enum class Transport(val id: String) {
             "eyJhd3MtYWNjZXNzLWtleS1pZCI6IkFLSUE1QUlGNFdKSlhTN1lIRUczIiwiYXdzLXNlY3JldC1rZXkiOiI3U0RNc0pBNHM1RitXZWJ1L3pMOHZrMFFXV0lsa1c2Y1dOZlVsQ0tRIn0="
 
         private val DNSTT_BRIDGES = listOf(
-            "dnstt 192.0.2.30:80 F6B3CCA08E3C4026783FA14DBB14A3ADBCD0D27D udp=2.176.225.123:53 pubkey=488dd8eeab891e2df1b0fc0e5d8da28da23ea057a81934994d150105c2024048 domain=r.f14.1e-100.net",
-            "dnstt 192.0.2.31:80 F6B3CCA08E3C4026783FA14DBB14A3ADBCD0D27D udp=185.129.168.241:53 pubkey=488dd8eeab891e2df1b0fc0e5d8da28da23ea057a81934994d150105c2024048 domain=r.f14.1e-100.net",
-            "dnstt 192.0.2.32:80 F6B3CCA08E3C4026783FA14DBB14A3ADBCD0D27D udp=188.121.110.163:53 pubkey=488dd8eeab891e2df1b0fc0e5d8da28da23ea057a81934994d150105c2024048 domain=r.f14.1e-100.net",
-            "dnstt 192.0.2.33:80 F6B3CCA08E3C4026783FA14DBB14A3ADBCD0D27D udp=195.114.8.10:53 pubkey=488dd8eeab891e2df1b0fc0e5d8da28da23ea057a81934994d150105c2024048 domain=r.f14.1e-100.net",
-            "dnstt 192.0.2.34:80 F6B3CCA08E3C4026783FA14DBB14A3ADBCD0D27D doh=https://dns.google/dns-query pubkey=488dd8eeab891e2df1b0fc0e5d8da28da23ea057a81934994d150105c2024048 domain=r.f14.1e-100.net",
-            "dnstt 192.0.2.35:80 A998F319ADB60EE344540EC4B21524CC484F96BE doh=https://dns.google/dns-query pubkey=241169008830694749fe96bb070c4855c5bb5b9c47b3833ed7d88521ba30a43f domain=t.ruhnama.net"
+            "dnstt 192.0.3.1:80 F6B3CCA08E3C4026783FA14DBB14A3ADBCD0D27D udp=2.176.225.123:53 pubkey=488dd8eeab891e2df1b0fc0e5d8da28da23ea057a81934994d150105c2024048 domain=r.f14.1e-100.net",
+            "dnstt 192.0.3.2:80 F6B3CCA08E3C4026783FA14DBB14A3ADBCD0D27D udp=185.129.168.241:53 pubkey=488dd8eeab891e2df1b0fc0e5d8da28da23ea057a81934994d150105c2024048 domain=r.f14.1e-100.net",
+            "dnstt 192.0.2.3:80 F6B3CCA08E3C4026783FA14DBB14A3ADBCD0D27D udp=188.121.110.163:53 pubkey=488dd8eeab891e2df1b0fc0e5d8da28da23ea057a81934994d150105c2024048 domain=r.f14.1e-100.net",
+            "dnstt 192.0.2.4:80 F6B3CCA08E3C4026783FA14DBB14A3ADBCD0D27D udp=195.114.8.10:53 pubkey=488dd8eeab891e2df1b0fc0e5d8da28da23ea057a81934994d150105c2024048 domain=r.f14.1e-100.net",
+            "dnstt 192.0.2.5:80 F6B3CCA08E3C4026783FA14DBB14A3ADBCD0D27D doh=https://dns.google/dns-query pubkey=488dd8eeab891e2df1b0fc0e5d8da28da23ea057a81934994d150105c2024048 domain=r.f14.1e-100.net",
+            "dnstt 192.0.2.6:80 A998F319ADB60EE344540EC4B21524CC484F96BE doh=https://dns.google/dns-query pubkey=241169008830694749fe96bb070c4855c5bb5b9c47b3833ed7d88521ba30a43f domain=t.ruhnama.net",
+            "dnstt 192.0.3.7:80 80EEFA4F4875ED2B7B5A86DF2D7588AD32E29F15 doh=https://dns.google/dns-query pubkey=a2fb71077eeaa54a02cda7a90be306af5d299ab21822a8b277d4eacbc9168631 domain=t2.bypasscensorship.org",
         )
     }
 
@@ -123,7 +119,7 @@ enum class Transport(val id: String) {
         get() {
             return when (this) {
                 NONE -> emptySet()
-                MEEK_AZURE -> setOf(IPtProxy.MeekLite)
+                MEEK -> setOf(IPtProxy.MeekLite)
                 OBFS4 -> setOf(IPtProxy.Obfs4)
                 WEBTUNNEL -> setOf(IPtProxy.Webtunnel)
                 DNSTT -> setOf(IPtProxy.Dnstt)
@@ -201,8 +197,8 @@ enum class Transport(val id: String) {
                 }
             }
 
-            MEEK_AZURE -> {
-                BuiltInBridges.getInstance(context)?.meekAzure?.forEach {
+            MEEK -> {
+                BuiltInBridges.getInstance(context)?.meek?.forEach {
                     result.add("Bridge ${it.raw}")
                 }
             }
@@ -215,10 +211,7 @@ enum class Transport(val id: String) {
 
             SNOWFLAKE -> {
                 BuiltInBridges.getInstance(context)?.snowflake?.forEach {
-                    val builder = Bridge.Builder(it)
-                    builder.fronts.addAll(addFronts)
-
-                    result.add("Bridge ${builder.build().raw}")
+                    result.add("Bridge ${it.raw}")
                 }
             }
 
@@ -251,6 +244,10 @@ enum class Transport(val id: String) {
             }
 
             DNSTT -> {
+                BuiltInBridges.getInstance(context)?.dnstt?.forEach {
+                    result.add("Bridge ${it.raw}")
+                }
+
                 DNSTT_BRIDGES.forEach {
                     result.add("Bridge $it")
                 }
@@ -276,7 +273,7 @@ enum class Transport(val id: String) {
                 val snowflake = BuiltInBridges.getInstance(context)?.snowflake?.firstOrNull()
 
                 // Seems more reliable in certain countries than the currently advertised one.
-                val fronts = addFronts.toMutableSet()
+                val fronts = mutableSetOf<String>()
                 snowflake?.front?.let { fronts.add(it) }
                 snowflake?.fronts?.let { fronts.addAll(it) }
 

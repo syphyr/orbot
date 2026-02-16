@@ -13,7 +13,6 @@ import android.widget.ArrayAdapter
 import android.widget.CompoundButton
 import android.widget.RadioButton
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.net.toUri
 import androidx.lifecycle.lifecycleScope
@@ -56,6 +55,7 @@ class ConfigConnectionBottomSheet :
 
     companion object {
         const val TAG = "ConfigConnectionBttmSheet"
+        private val COUNTRIES_WITH_DNSTT_ENABLED = listOf("IR")
     }
 
     override fun onCreateView(
@@ -63,9 +63,12 @@ class ConfigConnectionBottomSheet :
     ): View {
         binding = ConfigConnectionBottomSheetBinding.inflate(inflater, container, false)
 
-        binding.acCountry.setAdapter(ArrayAdapter(requireContext(),
-            android.R.layout.simple_dropdown_item_1line,
-            countryMap.keys.sortedBy { it.substring(5) }))
+        binding.acCountry.setAdapter(
+            ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_dropdown_item_1line,
+                countryMap.keys.sortedBy { it.substring(5) })
+        )
 
         selectedCountryCode = Prefs.bridgeCountry
 
@@ -78,7 +81,8 @@ class ConfigConnectionBottomSheet :
         binding.acCountry.onFocusChangeListener = this
         binding.acCountry.onItemClickListener = this
 
-        binding.dnsttContainer.visibility = if (selectedCountryCode == "IR") View.VISIBLE else View.GONE
+        binding.dnsttContainer.visibility =
+            if (COUNTRIES_WITH_DNSTT_ENABLED.contains(selectedCountryCode)) View.VISIBLE else View.GONE
 
         radios = arrayListOf(
             binding.rbDirect,
@@ -139,7 +143,7 @@ class ConfigConnectionBottomSheet :
         binding.tvCancel.setOnClickListener { dismiss() }
 
         binding.rbDirect.setOnCheckedChangeListener(this)
-        binding.rbSmart.setOnCheckedChangeListener (this)
+        binding.rbSmart.setOnCheckedChangeListener(this)
         binding.rbSnowflake.setOnCheckedChangeListener(this)
         binding.rbSnowflakeAmp.setOnCheckedChangeListener(this)
         binding.rbSnowflakeSqs.setOnCheckedChangeListener(this)
@@ -193,29 +197,24 @@ class ConfigConnectionBottomSheet :
                 if (i.resolveActivity(pm) != null) {
                     startActivity(i)
                 }
-            }
-            else if (binding.rbMeek.isChecked) {
-                Prefs.transport = Transport.MEEK_AZURE
+            } else if (binding.rbMeek.isChecked) {
+                Prefs.transport = Transport.MEEK
                 Prefs.smartConnect = false
                 closeAndConnect()
-            }
-            else if (binding.rbDnstt.isChecked) {
+            } else if (binding.rbDnstt.isChecked) {
                 Prefs.transport = Transport.DNSTT
                 Prefs.smartConnect = false
-
-                AlertDialog.Builder(requireContext())
-                    .setTitle(R.string.limit_dns_tunnel_use)
-                    .setMessage(R.string.dns_tunnel_usage_description)
-                    .setPositiveButton(R.string.connect) { _, _ ->
-                        closeAndConnect()
-                    }
-                    .setNegativeButton(android.R.string.cancel, null)
-                    .setIconAttribute(android.R.attr.alertDialogIcon)
-                    .show()
+                DNSTTConfirmationDialog().show(
+                    requireActivity().supportFragmentManager,
+                    DNSTTConfirmationDialog.TAG
+                )
             }
 
             if (binding.rbTelegram.isChecked || binding.rbEmail.isChecked || binding.rbCustom.isChecked) {
-                CustomBridgeBottomSheet().show(requireActivity().supportFragmentManager, CustomBridgeBottomSheet.TAG)
+                CustomBridgeBottomSheet().show(
+                    requireActivity().supportFragmentManager,
+                    CustomBridgeBottomSheet.TAG
+                )
             }
         }
 
@@ -266,14 +265,13 @@ class ConfigConnectionBottomSheet :
         if (currentText.isNotEmpty() && countryDisplay != null) {
             binding.acCountry.setText(countryDisplay)
             selectedCountryCode = countryMap[countryDisplay]
-        }
-        else {
+        } else {
             binding.acCountry.text = null
             selectedCountryCode = null
         }
 
         // TODO: DNSTT is currently only shown for Iranian users.
-        if (selectedCountryCode == "IR") {
+        if (COUNTRIES_WITH_DNSTT_ENABLED.contains(selectedCountryCode)) {
             binding.dnsttContainer.visibility = View.VISIBLE
         } else {
             binding.dnsttContainer.visibility = View.GONE
@@ -292,7 +290,8 @@ class ConfigConnectionBottomSheet :
 
     fun closeAndConnect() {
         dismiss()
-        val navHostFragment = requireActivity().supportFragmentManager.fragments[0] as NavHostFragment
+        val navHostFragment =
+            requireActivity().supportFragmentManager.fragments[0] as NavHostFragment
         val connectFrag = navHostFragment.childFragmentManager.fragments.last() as ConnectFragment
         if (connectFrag.viewModel.uiState == ConnectUiState.Off) {
             // manually trigger UI update before this unclear to the user 3 second freeze
@@ -300,13 +299,13 @@ class ConfigConnectionBottomSheet :
             connectFrag.stopTorAndVpn()
             Thread.sleep(3000)
         }
-        connectFrag.startTorAndVpn()
+        connectFrag.attemptToStartTor()
     }
 
     private fun selectRadioButtonFromPreference() {
         when (Prefs.transport) {
             Transport.NONE -> binding.rbDirect.isChecked = true
-            Transport.MEEK_AZURE -> binding.rbMeek.isChecked = true
+            Transport.MEEK -> binding.rbMeek.isChecked = true
             Transport.OBFS4 -> binding.rbObfs4.isChecked = true
             Transport.SNOWFLAKE -> binding.rbSnowflake.isChecked = true
             Transport.SNOWFLAKE_AMP -> binding.rbSnowflakeAmp.isChecked = true
@@ -330,7 +329,11 @@ class ConfigConnectionBottomSheet :
                     if (conf == null) {
                         updateAskTorBt()
 
-                        Toast.makeText(context, R.string.error_asking_tor_for_bridges, Toast.LENGTH_LONG)
+                        Toast.makeText(
+                            context,
+                            R.string.error_asking_tor_for_bridges,
+                            Toast.LENGTH_LONG
+                        )
                             .show()
 
                         return@withContext
@@ -349,25 +352,32 @@ class ConfigConnectionBottomSheet :
                         Transport.NONE -> {
                             binding.rbDirect.isChecked = true
                         }
-                        Transport.MEEK_AZURE -> {
+
+                        Transport.MEEK -> {
                             binding.rbMeek.isChecked = true
                         }
+
                         Transport.OBFS4 -> {
                             binding.rbObfs4.isChecked = true
                         }
+
                         Transport.SNOWFLAKE -> {
                             binding.rbSnowflake.isChecked = true
                         }
+
                         Transport.SNOWFLAKE_AMP -> {
                             binding.rbSnowflakeAmp.isChecked = true
                         }
+
                         Transport.SNOWFLAKE_SQS -> {
                             binding.rbSnowflakeSqs.isChecked = true
                         }
+
                         Transport.WEBTUNNEL -> TODO() // This should currently not happen, there's no default Webtunnel bridges advertised, yet.
                         Transport.DNSTT -> {
                             binding.rbDnstt.isChecked = true
                         }
+
                         Transport.CUSTOM -> {
                             binding.rbCustom.isChecked = true
                         }
@@ -376,28 +386,31 @@ class ConfigConnectionBottomSheet :
                     delay(5 * 1000)
                     updateAskTorBt()
                 }
-            }
-            catch(e: Throwable) {
+            } catch (e: Throwable) {
                 withContext(Dispatchers.Main) {
                     updateAskTorBt()
 
-                    Toast.makeText(context,
+                    Toast.makeText(
+                        context,
                         "${getString(R.string.error_asking_tor_for_bridges)}\n${e.localizedMessage}",
-                        Toast.LENGTH_LONG)
+                        Toast.LENGTH_LONG
+                    )
                         .show()
                 }
             }
         }
     }
 
-    private fun updateAskTorBt(text: CharSequence = getString(R.string.ask_tor), drawableId: Int? = null) {
+    private fun updateAskTorBt(
+        text: CharSequence = getString(R.string.ask_tor),
+        drawableId: Int? = null
+    ) {
         val context = context ?: return
 
         if (drawableId != null) {
             val image = AppCompatResources.getDrawable(context, drawableId)
             binding.btnAskTor.setCompoundDrawablesWithIntrinsicBounds(image, null, null, null)
-        }
-        else {
+        } else {
             binding.btnAskTor.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null)
         }
 

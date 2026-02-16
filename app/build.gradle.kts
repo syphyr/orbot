@@ -1,3 +1,4 @@
+import com.android.build.api.dsl.ApplicationExtension
 import com.android.build.gradle.internal.api.ApkVariantOutputImpl
 import java.io.FileInputStream
 import java.net.URI
@@ -19,7 +20,7 @@ fun getVersionName(): String {
     }.standardOutput.asText.get().trim()
 }
 
-android {
+configure<ApplicationExtension> {
     namespace = "org.torproject.android"
     compileSdk = 36
 
@@ -128,16 +129,27 @@ android {
 
 }
 
-// Increments versionCode by ABI type and sets custom APK name
-android.applicationVariants.all {
-    outputs.configureEach { ->
-        if (versionCode == orbotBaseVersionCode) {
-            val incrementMap =
-                mapOf("armeabi-v7a" to 1, "arm64-v8a" to 2, "x86" to 4, "x86_64" to 5)
-            val increment = incrementMap[filters.find { it.filterType == "ABI" }?.identifier] ?: 0
-            (this as ApkVariantOutputImpl).versionCodeOverride = orbotBaseVersionCode + increment
+// Increments versionCode by ABI type
+androidComponents {
+    onVariants { variant ->
+        variant.outputs.forEach { output ->
+            if (output.versionCode.get() == orbotBaseVersionCode) {
+                val incrementMap =
+                    mapOf("armeabi-v7a" to 1, "arm64-v8a" to 2, "x86" to 4, "x86_64" to 5)
+                val increment =
+                    incrementMap[output.filters.find { it.filterType.name == "ABI" }?.identifier]
+                        ?: 0
+                output.versionCode = orbotBaseVersionCode + increment
+            }
         }
+    }
+}
 
+// sets custom APK name
+// TODO this is deprecated and will be broken in future AGP...
+// TODO AGP 10 comes out in summer 2026......
+android.applicationVariants.all {
+    outputs.configureEach {
         // Set custom APK output name with version
         (this as ApkVariantOutputImpl).outputFileName =
             outputFileName.replace("app-", "Orbot-${versionName}-")
@@ -165,6 +177,9 @@ dependencies {
     implementation(libs.androidx.work.kotlin)
     implementation(libs.upnp)
     implementation(libs.iptproxy)
+    implementation(libs.quickie)
+
+    // Tor
     implementation(files("../libs/geoip.jar"))
     api(libs.guardian.jtorctl)
     api(libs.tor.android)
@@ -212,7 +227,7 @@ val updateBuiltinBridges by tasks.registering {
             }.standardOutput.asText.get().trim()
         val dateStr = log.split("\n").filter { it.contains("Date:") }[0]
         val dateAsSeconds = dateStr.substring("Date:".length).trim().split(" ")[0].toLong()
-        val stale = Date().time/1000 - dateAsSeconds > oneDay
+        val stale = Date().time / 1000 - dateAsSeconds > oneDay
         if (!outputFile.exists() || stale) {
             val bridgeUri = "https://bridges.torproject.org/moat/circumvention/builtin"
             println("builtin-bridges.json missing or older than 24h, checking $bridgeUri for bridges...")

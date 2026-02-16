@@ -2,6 +2,7 @@
 
 package org.torproject.android.service.circumvention
 
+import IPtProxy.IPtProxy
 import android.content.Context
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -23,17 +24,17 @@ import javax.net.ssl.SSLSocketFactory
 import javax.net.ssl.TrustManagerFactory
 import javax.net.ssl.X509TrustManager
 
+
 interface MoatApi {
 
     companion object {
-        private const val URL = "https://bridges.torproject.org/moat/circumvention/"
 
         val json = Json {
             ignoreUnknownKeys = true
         }
 
-        fun getInstance(context: Context, proxyPort: Int): MoatApi {
-            val proxy = Proxy(Proxy.Type.SOCKS, InetSocketAddress("127.0.0.1", proxyPort))
+        fun getInstance(context: Context, tunnel: MoatTunnel): MoatApi {
+            val proxy = Proxy(Proxy.Type.SOCKS, InetSocketAddress("127.0.0.1", tunnel.port))
 
             val filename = "ISRG Root X1.cer"
             var trustManager: X509TrustManager? = null
@@ -58,8 +59,7 @@ interface MoatApi {
                 sslContext?.init(null, arrayOf(trustManager), null)
 
                 socketFactory = sslContext?.socketFactory
-            }
-            catch (_: Throwable) {
+            } catch (_: Throwable) {
                 // Ignored. If anything goes wrong with reading the certificate,
                 // creating the keystore or the trust manager, we just try to use
                 // Android's default keystore and hope for the best. (Which is really ok
@@ -76,7 +76,7 @@ interface MoatApi {
             }
 
             return Retrofit.Builder()
-                .baseUrl(URL)
+                .baseUrl(tunnel.baseUrl)
                 .addConverterFactory(json.asConverterFactory("application/vnd.api+json".toMediaType()))
                 .client(clientBuilder.build())
                 .build()
@@ -100,11 +100,15 @@ interface MoatApi {
     suspend fun countries(): List<String>
 
 
-
     @Serializable
     data class SettingsRequest(
         val country: String? = null,
-        val transports: List<String> = listOf("obfs4", "snowflake", "webtunnel")
+        val transports: List<String> = listOf(
+            IPtProxy.Obfs4,
+            IPtProxy.Snowflake,
+            IPtProxy.Webtunnel,
+            IPtProxy.Dnstt
+        )
     )
 
     @Serializable
@@ -113,6 +117,7 @@ interface MoatApi {
         val country: String? = null,
         val errors: List<MoatError>? = null
     )
+
 
     @Serializable
     data class Setting(
@@ -126,7 +131,11 @@ interface MoatApi {
         val source: String,
         @SerialName("bridge_strings")
         val bridges: List<String>? = null
-    )
+    ) {
+        companion object {
+            const val SOURCE_BUILTIN = "builtin"
+        }
+    }
 
     @Serializable
     data class MoatError(
@@ -136,5 +145,5 @@ interface MoatApi {
         val code: Int? = null,
         val status: String? = null,
         val detail: String? = null
-    ): Throwable(if (detail.isNullOrEmpty()) "$code $status" else detail)
+    ) : Throwable(if (detail.isNullOrEmpty()) "$code $status" else detail)
 }

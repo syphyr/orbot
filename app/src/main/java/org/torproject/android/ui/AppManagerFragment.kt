@@ -77,9 +77,11 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
         progressBar = view.findViewById(R.id.progressBar)
         searchBar = view.findViewById(R.id.searchBar)
         searchBarLayout = view.findViewById(R.id.searchBarLayout)
-        retainedCheckedPackages = savedInstanceState?.getStringArray("checked_packages")?.toSet() ?: emptySet()
+        retainedCheckedPackages =
+            savedInstanceState?.getStringArray("checked_packages")?.toSet() ?: emptySet()
         val restoredQuery = savedInstanceState?.getString("search_query").orEmpty()
-        appSelectionChanged = appSelectionChanged || savedInstanceState?.getBoolean("apps_changed", false) == true
+        appSelectionChanged =
+            appSelectionChanged || savedInstanceState?.getBoolean("apps_changed", false) == true
         if (restoredQuery.isNotEmpty()) {
             searchBar?.text = restoredQuery
             searchQuery.value = restoredQuery
@@ -97,14 +99,19 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
                 searchQuery.value = s?.toString().orEmpty()
                 if (s?.isEmpty() == true) {
                     searchBarLayout?.endIconMode = TextInputLayout.END_ICON_CUSTOM
-                    searchBarLayout?.endIconDrawable = ResourcesCompat.getDrawable(resources,
-                        R.drawable.ic_search, null)
+                    searchBarLayout?.endIconDrawable = ResourcesCompat.getDrawable(
+                        resources,
+                        R.drawable.ic_search, null
+                    )
                 } else {
                     searchBarLayout?.endIconMode = TextInputLayout.END_ICON_CLEAR_TEXT
-                    searchBarLayout?.endIconDrawable = ResourcesCompat.getDrawable(resources,
-                        R.drawable.ic_close, null)
+                    searchBarLayout?.endIconDrawable = ResourcesCompat.getDrawable(
+                        resources,
+                        R.drawable.ic_close, null
+                    )
                 }
             }
+
             override fun afterTextChanged(s: Editable?) {}
         })
 
@@ -123,6 +130,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
 
         return view
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         pMgr = requireActivity().packageManager
@@ -170,7 +178,9 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
             val results = if (lower.isEmpty()) {
                 allUnfilteredUiItems
             } else {
-                allUnfilteredUiItems.filter { it.app?.name?.lowercase()?.normalizie()?.contains(lower) == true }
+                allUnfilteredUiItems.filter {
+                    it.app?.name?.lowercase()?.normalizie()?.contains(lower) == true
+                }
             }
 
             withContext(Dispatchers.Main) {
@@ -194,6 +204,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
 
     private var allApps: List<TorifiedApp>? = null
     private var suggestedApps: List<TorifiedApp>? = null
+
     // contains apps, but also other things like TextViews for suggested apps
     var allUnfilteredUiItems: MutableList<TorifiedAppWrapper> = ArrayList()
 
@@ -219,7 +230,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
                     subheaderSuggested.subheader = getString(R.string.app_suggested_subtitle)
                     allUnfilteredUiItems.add(subheaderSuggested)
 
-                    allUnfilteredUiItems.addAll(suggestedApps?.map { TorifiedAppWrapper(app = it) }
+                    allUnfilteredUiItems.addAll(suggestedApps?.map { item -> TorifiedAppWrapper(app = item) }
                         ?: emptyList())
 
                     val headerAllApps = TorifiedAppWrapper()
@@ -227,7 +238,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
                     allUnfilteredUiItems.add(headerAllApps)
                 }
 
-                allUnfilteredUiItems.addAll(allApps?.map { TorifiedAppWrapper(app = it) }
+                allUnfilteredUiItems.addAll(allApps?.map { item -> TorifiedAppWrapper(app = item) }
                     ?: emptyList())
             }
 
@@ -356,8 +367,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
             shouldSave = if (a.size == b.size) {
                 HashSet(a) != HashSet(b)
             } else true
-        }
-        else if (appStringNew != appStringOld) {
+        } else if (appStringNew != appStringOld) {
             shouldSave = true
         }
         if (!shouldSave) return
@@ -440,7 +450,8 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
                 }
                 val app = TorifiedApp()
                 try {
-                    val pInfo = pMgr.getPackageInfo(aInfo.packageName, PackageManager.GET_PERMISSIONS)
+                    val pInfo =
+                        pMgr.getPackageInfo(aInfo.packageName, PackageManager.GET_PERMISSIONS)
 
                     for (permInfo in pInfo.requestedPermissions ?: emptyArray()) {
                         if (permInfo == Manifest.permission.INTERNET) {
@@ -472,7 +483,8 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
                 app.isTorified = Arrays.binarySearch(tordApps, app.packageName) >= 0
 
                 // Preserve rotation-checked state
-                app.isTorified = app.isTorified || retainedCheckedPackages.contains(app.packageName) == true
+                app.isTorified =
+                    app.isTorified || retainedCheckedPackages.contains(app.packageName) == true
             }
             apps.sort()
             val checked = apps.filter { it.isTorified }
