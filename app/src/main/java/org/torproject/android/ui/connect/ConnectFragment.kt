@@ -35,7 +35,7 @@ import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.jni.TorService
 
-private const val DEFAULT_THROTTLE_INTERVAL = 3000L
+private const val DEFAULT_THROTTLE_INTERVAL = 4000L
 
 class ConnectFragment : Fragment(),
     ExitNodeBottomSheet.ExitNodeSelectedCallback {
