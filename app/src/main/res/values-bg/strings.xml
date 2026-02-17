@@ -143,7 +143,7 @@
     <string name="volunteer_mode_subtitle_desc">Режимът на доброта дава възможност устройството ви да бъде използвано като мост. Така други потребители могат да ползват Тор, на места където е забранен.\n\n• не изразходва батерията\n• не забавя връзката с интернет\n• работи само през безжична мрежа\n• може да бъде спрян по всяко време</string>
     <string name="direct_connect">Директна връзка</string>
     <string name="direct_connect_subtitle">Най-добрия начин за свързване с Тор. Използвайте ако Тор не е забранен.</string>
-    <string name="power_user_mode">Режим за напреднали</string>
+    <string name="power_user_mode">Режим за опитни потребители</string>
     <string name="power_user_description">За потребители, запознати с Тор. Дава възможност Орбот да бъде пуснат без настройки на ВЧМ, показва отворените портове на SOCKS и HTTP</string>
     <string name="action_activate">Включване</string>
     <string name="volunteer_status_title">Денят е по-добър\nзаради вас</string>
@@ -188,10 +188,10 @@
     <string name="app_icon_chooser_label_tetras">Тетрас</string>
     <string name="app_icon_chooser_label_paint">Боя</string>
     <string name="pref_isolate_keep_alive_summary">Поддържа изолираните вериги, които имат най-малко един удостоверен през SOCKS поток</string>
-    <string name="power_user_mode_permission">Режимът на опитен потребител изисква разрешение за будилници и напомняния</string>
+    <string name="power_user_mode_permission">Режимът на опитни потребители изисква разрешение за будилници и напомняния</string>
     <string name="unlock_app_msg" formatted="true">За да използвате %s тключете устройството</string>
     <string name="error_no_password_set">За да използвате заключване на екрана трябва да зададете парола за устройството</string>
-    <string name="power_user_mode_permission_msg">Дайте разрешение на Orbot да съзадава будилници и напомняния, за да използвате режима на опитния потребител. Няма да бъдат създадени будилници на устройство. Разрешението е необходимо, за да може системата да поддържа OrbotService в работен режим, когато Orbot не се използва като системна услуга за ВЧМ.</string>
+    <string name="power_user_mode_permission_msg">Дайте разрешение на Orbot да съзадава будилници и напомняния, за да използвате режима за опитни потребители. Няма да бъдат създадени будилници на устройство. Разрешението е необходимо, за да може системата да поддържа OrbotService в работен режим, когато Orbot не се използва като системна услуга за ВЧМ.</string>
     <string name="error_asking_tor_for_bridges">Грешка при запитване на Tor за начина на свързване</string>
     <string name="invalid_bridge_format">Неприемлив формат на мост</string>
     <string name="device_lock_unsupported">Устройството не поддържа удостоверяване на Orbot</string>
@@ -277,4 +277,6 @@
     <string name="unable_to_start_orbot_vpn_title">ВЧМ на Orbot не може да бъде стартирана</string>
     <string name="unable_to_start_legacy_vpn_error_msg">Потребителски профил на ВМЧ е настроен на винаги включена ВМЧ. Изключете го преди да стартирате Orbot.</string>
     <string name="unable_to_start_other_vpn_app_error_msg">Приложението %1$s е настроено да бъде винаги включена ВМЧ. Изключете го преди да стартирате Orbot.</string>
+    <string name="open_vpn_settings">Настройки за ВЧМ на Андроид</string>
+    <string name="unable_to_start_unknown_reason_error_msg">Разрешението за ВЧМ е отказано или друго приложение за ВЧМ е с настройка за винаги включена ВЧМ. Ако сте излезли от предния диалог по грешка можете да затворите това съобщение и да оптате повторно свързване. Потребителите с технически способности могат да използват друго приложение за ВЧМ и да използват Tor като прокси за SOCKS като включат режима за опитни потребители.</string>
 </resources>
