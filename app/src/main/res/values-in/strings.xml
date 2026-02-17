@@ -197,12 +197,12 @@
     <string name="kindness_mode_disabled_power">Hubungkan perangkat Anda ke sumber daya untuk membantu orang-orang menghindari sensor</string>
     <string name="snowflake_sqs">Snowflake SQS</string>
     <string name="bridges_via_telegram">Jembatan dari Tor (obfs4) melalui Telegram</string>
-    <string name="bridges_via_telegram_subtitle">Kemungkinan besar akan tetap terhubung jika Tor diblokir secara parah. Menggunakan metode ini akan membuka saluran Telegram Tor Bot. Ketuk ‘Mulai’ atau ketik ‘%1$s’ di obrolan untuk mendapatkan alamat jembatan.</string>
+    <string name="bridges_via_telegram_subtitle">Kemungkinan besar akan tetap terhubung jika Tor diblokir secara parah. Menggunakan metode ini akan membuka saluran Telegram Tor Bot. Ketuk ‘Mulai’ atau ketik ‘%1$s’ di obrolan untuk mendapatkan alamat bridge.</string>
     <string name="bridges_via_email">Jembatan dari Tor (obfs4) melalui Email</string>
     <string name="bridges_via_email_subtitle">Menyembunyikan lalu lintas Anda. Mengatasi pemblokiran Tor. Membutuhkan email yang dikirim dari akun Gmail atau Riseup.</string>
     <string name="bridge_meek_azure_subtitle">Menyembunyikan lalu lintas Anda. Mengatasi pemblokiran Tor. Mungkin sangat lambat.</string>
-    <string name="custom_bridges_subtitle">Tanyakan kepada jaringan dan organisasi tepercaya Anda untuk melihat apakah ada yang menyediakan jembatan. Jika tidak, seorang teman dapat membantu Anda mendapatkan jembatan.</string>
-    <string name="custom_bridges_description">Tempelkan alamat jembatan yang Anda terima di bawah ini. Atau pindai kode QR untuk menambahkannya. Teman-teman Anda dapat memberikan jembatan untuk Anda di %1$s.</string>
+    <string name="custom_bridges_subtitle">Tanyakan kepada jaringan dan organisasi tepercaya Anda untuk melihat apakah ada yang menyediakan bridge. Jika tidak, seorang teman dapat membantu Anda mendapatkan bridge.</string>
+    <string name="custom_bridges_description">Tempelkan alamat bridge yang Anda terima di bawah ini. Atau pindai kode QR untuk menambahkannya. Teman-teman Anda dapat memberikan bridge untuk Anda di %1$s.</string>
     <string name="app_icon_chooser_label_night_watch">Patroli Malam</string>
     <string name="app_icon_chooser_label_assistant">Asisten</string>
     <string name="app_icon_chooser_label_paint">Cat</string>
@@ -219,9 +219,9 @@
     <string name="error_no_password_set">Anda perlu menetapkan kata sandi untuk perangkat Android Anda agar dapat menggunakan fitur Layar Kunci</string>
     <string name="device_lock_unsupported">Otentikasi Orbot tidak didukung pada perangkat Anda</string>
     <string name="device_lock_security_update_needed">Anda harus mengunduh pembaruan keamanan Android untuk perangkat Anda agar dapat menggunakan Orbot Authentication</string>
-    <string name="invalid_bridge_format">Format jembatan tidak valid</string>
+    <string name="invalid_bridge_format">Format bridge tidak valid</string>
     <string name="error_asking_tor_for_bridges">Kesalahan saat meminta Tor untuk terhubung</string>
-    <string name="enter_bridge_address">Masukkan alamat jembatan</string>
+    <string name="enter_bridge_address">Masukkan alamat bridge</string>
     <string name="built_in_bridges_obfs4">Jembatan Terintegrasi (obfs4)</string>
     <string name="built_in_bridges_obfs4_subtitle">Menyembunyikan lalu lintas internet Anda. Mengatasi pemblokiran Tor. Berguna jika Anda menggunakan WiFi publik, tetapi di negara di mana Tor tidak diblokir.</string>
     <string name="unlock_app_msg" formatted="true">Silakan buka kunci perangkat Anda untuk menggunakan %s</string>
@@ -236,7 +236,7 @@
     <string name="snowflake_proxy_client_connected_msg">%1$s Mode Kebaikan membantu seseorang menghindari sensor %2$s</string>
     <string name="log_notice_unable_to_update_onions">tidak dapat mengunggah nama onion</string>
     <string name="log_notice_updating_torrc">Memperbarui konfigurasi kustom torrc…</string>
-    <string name="note_snowflake_doesn_t_support_proxies">CATATAN: Snowflake tidak mendukung proxy. Pengaturan proxy akan diabaikan saat menggunakan jembatan Snowflake.</string>
+    <string name="note_snowflake_doesn_t_support_proxies">CATATAN: Snowflake tidak mendukung proxy. Pengaturan proxy akan diabaikan saat menggunakan bridge Snowflake.</string>
     <string name="search_for_apps">Cari aplikasi</string>
     <string name="apps_updated_msg">Aplikasi Diperbarui</string>
     <string name="set_transport">Atur Transportasi</string>
@@ -265,4 +265,20 @@
     <string name="status_loading_status">Memuat status jaringan</string>
     <string name="status_requesting_descriptors">Meminta informasi server jaringan</string>
     <string name="status_loading_descriptors">Memuat informasi server jaringan</string>
+    <string name="added_bridges_from_qr">Menambahkan %1$d bridge dari QR Code</string>
+    <string name="invalid_bridge_qr_code">QR Code Bridge Tidak Valid</string>
+    <string name="you_already_have_these_bridges">Anda sudah menambahkan bridge dalam QR Code ini</string>
+    <string name="loading">Memuat…</string>
+    <string name="http_port">Port HTTP</string>
+    <string name="socks_port">Port SOCKS</string>
+    <string name="invalid_outbound_proxy_config">Konfigurasi Outbound Proxy Tidak Valid</string>
+    <string name="bridge_dnstt">DNS Tunnel</string>
+    <string name="my_country_optional">Negara Saya (opsional)</string>
+    <string name="limit_dns_tunnel_use">Batasi Penggunaan DNS Tunnel</string>
+    <string name="dns_tunnel_usage_description">DNS tunnel mengutamakan akses daripada kecepatan dan mungkin terasa lebih lambat. Kami menyarankan untuk mengaktifkannya hanya untuk aplikasi penting. Streaming video tidak disarankan.</string>
+    <string name="unable_to_start_orbot_vpn_title">Tidak dapat memulai Orbot VPN</string>
+    <string name="unable_to_start_legacy_vpn_error_msg">Terdapat Profil VPN Kustom yang dikonfigurasi sebagai VPN \"Always-on\". Harap nonaktifkan sebelum memulai Orbot.</string>
+    <string name="unable_to_start_other_vpn_app_error_msg">Aplikasi %1$s dikonfigurasi sebagai VPN \"Always-on\". Harap nonaktifkan sebelum memulai Orbot.</string>
+    <string name="unable_to_start_unknown_reason_error_msg">Izin VPN ditolak atau aplikasi VPN lain memiliki fitur \"Always-on VPN\" yang diaktifkan. Anda dapat mengabaikan ini dan menyambung kembali jika Anda keluar dari dialog VPN Request sebelumnya secara tidak sengaja. Pengguna teknis dapat menggunakan aplikasi VPN lain dan menggunakan Tor sebagai SOCKS Proxy dengan mengaktifkan Mode Pengguna Mahir Orbot.</string>
+    <string name="open_vpn_settings">Buka Pengaturan VPN Android</string>
 </resources>
