@@ -273,4 +273,12 @@
     <string name="my_country_optional">自分の国 (オプション)</string>
     <string name="limit_dns_tunnel_use">DNS トンネルの使用を制限する</string>
     <string name="dns_tunnel_usage_description">DNS トンネルは速度よりもアクセスを優先するため、遅く感じることがあります。重要なアプリに対してのみ有効にすることをお勧めします。動画ストリーミングは推奨されません。</string>
+    <string name="added_bridges_from_qr">QR コードから %1$d 個のブリッジを追加しています</string>
+    <string name="invalid_bridge_qr_code">無効なブリッジ QR コードです</string>
+    <string name="you_already_have_these_bridges">この QR コードのブリッジは既に追加されています</string>
+    <string name="unable_to_start_orbot_vpn_title">Orbot VPN を開始できません</string>
+    <string name="unable_to_start_legacy_vpn_error_msg">「常時接続」VPN として設定されたカスタム VPN プロファイルがあります。Orbot を起動する前に無効にしてください。</string>
+    <string name="unable_to_start_other_vpn_app_error_msg">アプリ %1$s は「常時接続」VPN として設定されています。Orbot を起動する前に無効にしてください。</string>
+    <string name="unable_to_start_unknown_reason_error_msg">VPN の権限が拒否されたか、別の VPN アプリで「常時接続 VPN」機能が有効になっています。誤って前の VPN リクエストダイアログを閉じた場合は、これを閉じて再接続できます。技術に詳しいユーザーは、別の VPN アプリを使用し、Orbot のパワーユーザーモードを有効にして Tor を SOCKS プロキシとして利用できます。</string>
+    <string name="open_vpn_settings">Android の VPN 設定を開く</string>
 </resources>
