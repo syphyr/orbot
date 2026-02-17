@@ -41,7 +41,7 @@ import org.torproject.android.util.sendIntentToService
 import org.torproject.jni.TorService
 import kotlin.time.Duration.Companion.milliseconds
 
-private const val DEFAULT_THROTTLE_INTERVAL = 3000L
+private const val DEFAULT_THROTTLE_INTERVAL = 4000L
 
 class ConnectFragment : Fragment(),
     ExitNodeBottomSheet.ExitNodeSelectedCallback {
