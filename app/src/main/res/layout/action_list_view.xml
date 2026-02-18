@@ -1,80 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
-    android:background="?android:attr/selectableItemBackground"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="10dp">
+    android:layout_marginStart="10dp"
+    tools:layout_marginTop="50dp"
+    android:background="?android:attr/selectableItemBackground"
+    android:orientation="horizontal">
 
     <FrameLayout
-        android:layout_gravity="center|start"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
+        android:layout_gravity="center|start"
         android:layout_marginStart="8dp">
 
         <ImageView
-            android:scaleType="fitCenter"
-            android:layout_margin="2dp"
-            android:layout_gravity="center|start"
-            tools:src="@drawable/ic_choose_apps"
+            tools:visibility="visible"
+            android:id="@+id/ivAction"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:id="@+id/ivAction" />
+            android:layout_gravity="center|start"
+            android:layout_margin="2dp"
+            android:scaleType="fitCenter"
+            tools:src="@drawable/ic_choose_apps" />
 
         <FrameLayout
-            android:layout_margin="2dp"
-            android:visibility="gone"
+            android:layout_gravity="center|start"
             android:id="@+id/textContainer"
             android:layout_width="24dp"
-            android:layout_height="24dp">
+            android:layout_height="24dp"
+            tools:visibility="gone"
+            android:layout_margin="2dp"
+            android:visibility="gone">
 
             <TextView
-                android:textAlignment="center"
-                android:textSize="16sp"
-                android:layout_gravity="center"
                 android:id="@+id/tvEmoji"
-                android:text="@string/globe"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/globe"
+                android:textAlignment="center"
+                android:textSize="16sp" />
         </FrameLayout>
 
     </FrameLayout>
 
 
     <TextView
-        android:layout_gravity="center"
-        tools:text="Choose apps"
         android:id="@+id/tvLabel"
-        android:textColor="@android:color/white"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp" />
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:textColor="@android:color/white"
+        tools:text="Choose apps" />
 
     <HorizontalScrollView
-        android:layout_marginStart="20dp"
-        android:layout_gravity="center"
         android:id="@+id/llBoxShortcuts"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginStart="20dp"
         android:visibility="visible">
 
 
         <LinearLayout
-            android:orientation="horizontal"
             android:id="@+id/llBoxShortcutsInner"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
             <TextView
-                android:textAlignment="center"
-                android:layout_gravity="center"
-                android:text="@string/full_device_vpn"
+                android:id="@+id/llBoxShortcutsText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
-                android:id="@+id/llBoxShortcutsText"
-                android:textAppearance="@style/TextAppearance.Material3.BodySmall" />
+                android:layout_gravity="center"
+                android:text="@string/full_device_vpn"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.Material3.BodySmall"
+                android:visibility="gone" />
         </LinearLayout>
     </HorizontalScrollView>
 </LinearLayout>
