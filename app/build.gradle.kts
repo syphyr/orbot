@@ -1,7 +1,8 @@
 import com.android.build.api.dsl.ApplicationExtension
 import java.io.FileInputStream
 import java.net.URI
-import java.util.*
+import java.util.Date
+import java.util.Properties
 
 plugins {
     alias(libs.plugins.kotlin.serialization)
