@@ -1,5 +1,4 @@
 import com.android.build.api.dsl.ApplicationExtension
-import com.android.build.gradle.internal.api.ApkVariantOutputImpl
 import java.io.FileInputStream
 import java.net.URI
 import java.util.*
@@ -292,10 +291,10 @@ tasks.register("renameApkFiles") {
 
         listOf("nightly", "fullperm").forEach { flavor ->
             fileTree(layout.buildDirectory.dir("outputs/apk/$flavor/$variantName")).matching {
-            include("*.apk")
-        }.forEach { file ->
-            val newName = file.name.replace("app-", "Orbot-${versionName}-")
-            file.renameTo(File(file.parentFile, newName))
+                include("*.apk")
+            }.forEach { file ->
+                val newName = file.name.replace("app-", "Orbot-${versionName}-")
+                file.renameTo(File(file.parentFile, newName))
             }
         }
     }
