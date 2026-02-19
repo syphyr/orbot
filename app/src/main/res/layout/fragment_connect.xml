@@ -9,15 +9,14 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/new_background"
-        android:paddingBottom="110dp">
+        android:backgroundTint="@color/new_background">
 
 
         <ImageView
             android:id="@+id/ivStatus"
             android:layout_width="148dp"
             android:layout_height="166dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="6dp"
             android:contentDescription="Orbie"
             android:src="@drawable/orbiesleeping"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +28,7 @@
             android:id="@+id/ivShadow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="2dp"
             android:contentDescription="Shadow"
             android:src="@drawable/orbieshadow"
             app:layout_constraintEnd_toEndOf="parent"
@@ -41,7 +40,7 @@
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="sans-serif-black"
             android:text="@string/secure_your_connection_title"
             android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
@@ -67,7 +66,7 @@
             android:id="@+id/tvSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="2dp"
             android:gravity="center_horizontal"
             android:paddingStart="@dimen/activity_horizontal_large_margin"
             android:paddingEnd="@dimen/activity_horizontal_large_margin"
@@ -95,11 +94,14 @@
             app:layout_constraintTop_toBottomOf="@+id/tvSubtitle"
             tools:visibility="visible" />
 
+
+
         <com.google.android.material.switchmaterial.SwitchMaterial
             android:id="@+id/switchConnect"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="2dp"
             android:background="@drawable/btn_shape_round"
             android:backgroundTint="@color/orbot_btn_enabled_purple"
             android:paddingStart="@dimen/button_horizontal_med_margin"

@@ -72,15 +72,15 @@
                 android:layout_marginStart="12dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="4dp"
-                android:hint="@string/my_country_optional"
-                android:inputType="text"
-                android:textColorHint="@android:color/darker_gray"
-                android:textColor="@android:color/white"
                 android:backgroundTint="@android:color/white"
                 android:completionThreshold="1"
+                android:hint="@string/my_country_optional"
+                android:inputType="text"
                 android:popupBackground="#1C1425"
-                app:layout_constraintStart_toStartOf="parent"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/darker_gray"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvNotSure" />
 
             <Button
@@ -178,8 +178,6 @@
                 </LinearLayout>
 
             </LinearLayout>
-
-
 
 
             <LinearLayout
@@ -289,7 +287,6 @@
                 </LinearLayout>
 
             </LinearLayout>
-
 
 
             <LinearLayout
@@ -510,31 +507,35 @@
             android:id="@+id/tvCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/button_horizontal_large_margin"
-            android:paddingEnd="@dimen/button_horizontal_large_margin"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp"
             android:text="@android:string/cancel"
             android:textColor="@android:color/white"
             android:textStyle="bold"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/btnAction"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mainGuideline" />
+            app:layout_constraintTop_toBottomOf="@id/mainGuideline"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="50" />
 
         <Button
             android:id="@+id/btnAction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/btn_shape_round"
-            android:paddingStart="@dimen/button_horizontal_large_margin"
-            android:paddingEnd="@dimen/button_horizontal_large_margin"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp"
             android:text="@string/connect"
             android:textColor="@android:color/white"
+            android:textStyle="bold"
             app:backgroundTint="@color/orbot_btn_enabled_purple"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/tvCancel"
             app:layout_constraintStart_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mainGuideline" />
+            app:layout_constraintTop_toBottomOf="@id/mainGuideline"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="50" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
