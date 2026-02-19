@@ -11,12 +11,7 @@ import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
-import android.content.BroadcastReceiver;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.ServiceConnection;
+import android.content.*;
 import android.content.pm.ServiceInfo;
 import android.net.VpnService;
 import android.os.Build;
@@ -34,18 +29,14 @@ import org.torproject.android.service.circumvention.SmartConnect;
 import org.torproject.android.service.db.OnionServiceColumns;
 import org.torproject.android.service.db.V3ClientAuthColumns;
 import org.torproject.android.service.tor.CustomTorResourceInstaller;
-import org.torproject.android.util.DiskUtils;
-import org.torproject.android.util.Prefs;
+import org.torproject.android.util.*;
 import org.torproject.android.service.tor.TorConfig;
 import org.torproject.android.service.vpn.OrbotVpnManager;
 import org.torproject.jni.TorService;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Locale;
-import java.util.StringTokenizer;
+import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -76,7 +67,6 @@ public class OrbotService extends VpnService {
     private File mV3OnionBasePath;
     private static final String TAG = "OrbotService";
 
-    @SuppressLint({"NewApi", "RestrictedApi"})
     protected void showToolbarNotification(String notifyMsg, int notifyType, int icon) {
         var intent = getPackageManager().getLaunchIntentForPackage(getPackageName());
         var pendIntent = PendingIntent.getActivity(OrbotService.this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
@@ -90,10 +80,10 @@ public class OrbotService extends VpnService {
         }
 
         mNotifyBuilder.setOngoing(true);
-        mNotifyBuilder.mActions.clear(); // clear out any notification actions, if any
+        mNotifyBuilder.clearActions(); // clear out any notification actions, if any
 
         if (Prefs.isCamoEnabled()) {
-            // basically ignore all params and set a simple notification
+            // ignore all params and set a simple notification
             Notifications.configureCamoNotification(mNotifyBuilder);
         } else {
             mNotifyBuilder
@@ -193,7 +183,6 @@ public class OrbotService extends VpnService {
         if (!showNotification) { // clear notifications and stopSelf
             if (mNotificationManager != null) mNotificationManager.cancelAll();
             if (mOrbotRawEventListener != null) mOrbotRawEventListener.getNodes().clear();
-
         }
 
         //ensure service is destroyed and we get a clean instance of TorService
