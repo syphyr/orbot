@@ -67,7 +67,6 @@
     <string name="local_port">Staðvær gátt</string>
     <string name="onion_port">Onion-gátt</string>
     <string name="name">Heiti</string>
-    <string name="done">Lokið!</string>
     <string name="copy_address_to_clipboard">Afrita vistfang yfir á klippispjald</string>
     <string name="backup_service">Öryggisafritunarþjónusta (Aðvörun: Þetta gæti gert uppsetningu þjónustunnar þinnar sýnilega öðrum forritum)</string>
     <string name="delete_service">Eyða þjónustu</string>

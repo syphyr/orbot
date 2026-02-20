@@ -67,7 +67,6 @@
     <string name="local_port">Yerel Bağlantı Noktası</string>
     <string name="onion_port">Onion Bağlantı Noktası</string>
     <string name="name">Ad</string>
-    <string name="done">Tamam!</string>
     <string name="copy_address_to_clipboard">Adresi panoya kopyala</string>
     <string name="backup_service">Yedekleme Servisi (Uyarı: Bu, Servis Yapılandırmanızı Diğer Uygulamalara Açığa Çıkarabilir)</string>
     <string name="delete_service">Hizmeti Sil</string>

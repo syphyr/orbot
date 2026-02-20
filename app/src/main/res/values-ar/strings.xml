@@ -73,7 +73,6 @@
     <string name="local_port">المنفذ المحلي</string>
     <string name="onion_port">منفذ الـ Onion</string>
     <string name="name">الاسم</string>
-    <string name="done">تم!</string>
     <string name="copy_address_to_clipboard">انسخ العنوان إلى الحافظة</string>
     <string name="backup_service">النسخ الإحتياطي للخدمة (تحذير: هذا قد يكشف تضبيط خدمتك لتطبيقات الأخرى)</string>
     <string name="delete_service">احذف الخدمة</string>

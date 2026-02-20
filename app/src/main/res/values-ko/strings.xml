@@ -67,7 +67,6 @@
     <string name="connected_title">연결됨</string>
     <string name="title_choose_apps">앱 선택</string>
     <string name="confirm">확인</string>
-    <string name="done">완료!</string>
     <string name="menu_new_identity">새 ID</string>
     <string name="trying_to_connect_title">접속중…</string>
     <string name="connect">연결</string>
