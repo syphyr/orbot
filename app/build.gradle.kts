@@ -156,6 +156,7 @@ dependencies {
     implementation(libs.androidx.biometric)
     implementation(libs.androidx.lifecycle.common)
     implementation(libs.androidx.lifecycle.process)
+    implementation(libs.androidx.window)
     implementation(libs.retrofit.converter)
     implementation(libs.retrofit.lib)
     implementation(libs.rootbeer.lib)
