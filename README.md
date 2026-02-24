@@ -43,6 +43,25 @@ learn to configure it properly. Learn more: <https://torproject.org/>
 
 ### Build Instructions
 
+#### Using Correct JDK Version for Orbot's Java+Kotlin Code
+
+Orbot now uses Java 25. If you are unable to build Orbot, or aren't sure which version of Java is being used, run this script once to be able to build Orbot:
+
+```bash
+./update-jvm.sh
+```
+
+This creates a file `gradle/gradle-daemon-jvm.properties` that's set for Java 25. The script then runs the new `./gradlew updateDaemonJvm` to automatically populate this file with additional configuration gradle uses to figure out how to install and automatically use the correct Java version for your OS + CPU architecture. 
+
+After this is done, you should be able to build Orbot either in Android Studio or on the command line via:
+
+```bash
+./gradlew clean assembleFullpermDebug
+```
+
+
+#### Obtaining `hev-socks5-tunnel` Native Code Dependency
+
 Orbot is built with [hev-socks5-tunnel](https://github.com/heiher/hev-socks5-tunnel). Before you can build Orbot, you'll need to clone the submodule
 for this dependency. Once cloned, Android Studio + Gradle will take care of building the C code.
 
@@ -59,6 +78,7 @@ git submodule update --init --recursive
 ```
 
 If you pull and see that there are changes to `app/src/main/jni/hev-socks5-tunnel` that means that `hev-socks5-tunnel` was updated. You need to re-run `git submodule update --init --recursive` to fetch the latest changes and then rebuild Orbot.
+
 
 ### Viewing Logs 
 
