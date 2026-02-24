@@ -389,14 +389,11 @@ public class OrbotService extends VpnService {
                 },
                 /* completed: () -> Unit)  */
                 () -> {
-                    if (Prefs.getHostOnionServicesEnabled()) {
-                        try {
-                            updateV3OnionNames();
-                        } catch (SecurityException se) {
-                            logNotice(getString(R.string.log_notice_unable_to_update_onions));
-                        }
+                    try {
+                        updateV3OnionNames();
+                    } catch (SecurityException se) {
+                        logNotice(getString(R.string.log_notice_unable_to_update_onions));
                     }
-
                     return Unit.INSTANCE;
                 });
     }
