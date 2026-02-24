@@ -9,6 +9,7 @@ FILE="gradle/gradle-daemon-jvm.properties"
 if [ -f $FILE ]; then
     echo ""
     echo "Warning: $FILE already exists with contents:"
+    echo ""
     cat "$FILE"
     echo ""
     read -r -p "$FILE will be overwritten, do you want to continue [y/N] " response
@@ -39,4 +40,4 @@ echo "Attempting to clean Orbot and do a test build..."
 ./gradlew clean assembleFullpermDebug
 
 echo ""
-echo "Gradle is now configured to build Orbot on your machine with Java $JDK_VERSION. You should be able to run \"./gradlew assemble or\" use Android Studio to build Orbot."
+echo "Gradle is now configured to build Orbot on your machine with Java $JDK_VERSION. You should be able to run \"./gradlew assemble\" or use Android Studio to build Orbot."
