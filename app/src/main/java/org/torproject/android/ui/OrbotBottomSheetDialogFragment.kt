@@ -18,7 +18,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import org.torproject.android.R
 
 /**
-Class to setup default bottom sheet behavior for Config Connection, MOAT and any other
+Class to set up default bottom sheet behavior for Config Connection, MOAT and any other
 bottom sheets to come
  */
 open class OrbotBottomSheetDialogFragment : BottomSheetDialogFragment() {
