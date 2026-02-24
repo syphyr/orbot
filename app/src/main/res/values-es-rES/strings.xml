@@ -207,4 +207,9 @@
     <string name="status_requesting_descriptors">Solicitando información de servidores de la red</string>
     <string name="status_loading_descriptors">Cargando información de servidores de la red</string>
     <string name="system_vpn_settings">Preferencias de la VPN de Android</string>
+    <string name="app_icon_chooser_label_paint">Paint</string>
+    <string name="app_icon_chooser_label_tetras">Tetras</string>
+    <string name="app_icon_chooser_label_todo">To-Do</string>
+    <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
+    <string name="app_icon_chooser_label_birdie">Birdie</string>
 </resources>
