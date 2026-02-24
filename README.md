@@ -60,7 +60,7 @@ cd orbot-android
 
 This creates a file  `gradle/gradle-daemon-jvm.properties` which specifies that we are to use version 25 of the Java toolchain. The script then uses the new gradle feature `./gradlew updateDaemonJvm` to automatically populate the file with additional details Gradle uses to obtain the corect Java 25 Toolchain for your machine (OS and CPU architecutre) and to automatically use this new toolchain in subsequent builds of Orobt.
 
-After this is done, you should be able to build Orbot again using either in Android Studio or via the command line:
+After this is done, you should be able to build Orbot again using Android Studio or via the command line:
 
 ```bash
 # clean project and generate a debug APK of the app
