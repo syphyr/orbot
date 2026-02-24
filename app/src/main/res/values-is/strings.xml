@@ -214,7 +214,7 @@
     <string name="search_for_apps">Leita að forritum</string>
     <string name="apps_updated_msg">Uppfærði forrit</string>
     <string name="title_safety">Öryggi</string>
-    <string name="setting_app_icon_title">Forritstákn</string>
+    <string name="setting_app_icon_title">Táknmynd forrits</string>
     <string name="setting_block_screenshot_title">Loka á upptöku skjámynda</string>
     <string name="setting_unlock_pass_title">Skjálæsing</string>
     <string name="setting_unlock_with_biometrics_title">Nota lífkennsl (valfrjálst)</string>
