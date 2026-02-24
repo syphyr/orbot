@@ -43,17 +43,22 @@ learn to configure it properly. Learn more: <https://torproject.org/>
 
 ### Build Instructions
 
-#### Missing Java 25 Toolchain For Java+Kotlin Projects
+Orbot can be built with `gradlew` or Android Studio like most every other Android app. However these steps listed below need to be completed once before Orbot can be built successfully.
 
-Orbot now uses Java 25 which is the latest Java LTS supplanting Java 21. If you are unable to build Orbot becuase you don't have Java 25 installed/configured, or just if you aren't sure which version of Java is being used, run the script `update-gradle-jvm.sh` once from the root of the repository to be able to build Orobt again:
+#### Use Java 25 Toolchain For Java+Kotlin Projects
+
+Orbot now uses Java 25 which is the latest Java LTS replacing the Java 21 LTS we had been using for some time.
+
+If you are unable to build Orbot becuase you don't have Java 25 installed/configured, or even if you aren't sure which version of Java is being used, run the script `update-gradle-jvm.sh` once from the root of the repository to be able to configure Java 25 for Orobt's Gradle project.
 
 ```bash
-cd orbot 
+# navigate to Orbot's repository
+cd orbot-android
 # in repository root, run:
 ./update-gradle-jvm.sh
 ```
 
-This creates a file  `gradle/gradle-daemon-jvm.properties` that specifies that we want to use version 25 of the Java toolchain. The script then uses the new gradle feature `./gradlew updateDaemonJvm` to automatically populate this file with additional details Gradle uses to obtain the corect Java 25 Toolchain for your machine (OS and CPU architecutre) and to automatically use this new toolchain in subsequent builds of Orobt.
+This creates a file  `gradle/gradle-daemon-jvm.properties` which specifies that we are to use version 25 of the Java toolchain. The script then uses the new gradle feature `./gradlew updateDaemonJvm` to automatically populate the file with additional details Gradle uses to obtain the corect Java 25 Toolchain for your machine (OS and CPU architecutre) and to automatically use this new toolchain in subsequent builds of Orobt.
 
 After this is done, you should be able to build Orbot again using either in Android Studio or via the command line:
 
@@ -70,6 +75,10 @@ for this dependency. Once cloned, Android Studio + Gradle will take care of buil
 
 ```bash
 git clone --recursive https://github.com/guardianproject/orbot-android
+# you should be good to go building Orbot
+cd orbot-android 
+# build a debug APK of orbot
+./gradlew assembleFullpermDebug
 ```
 
 Or, if you already cloned the repo:
@@ -78,10 +87,19 @@ Or, if you already cloned the repo:
 cd orbot-android
 git pull
 git submodule update --init --recursive
+# build a debug APK of orbot 
+./gradlew assembleFullpermDebug
 ```
 
-If you pull and see that there are changes to `app/src/main/jni/hev-socks5-tunnel` that means that `hev-socks5-tunnel` was updated. You need to re-run `git submodule update --init --recursive` to fetch the latest changes and then rebuild Orbot.
+If, sometime later, you pull new commits to Orbot an and see that there are changes to `app/src/main/jni/hev-socks5-tunnel` that means that the `hev-socks5-tunnel` version we use in Orbot has been updated. You will have to update to the new version of `hev-socks5-tunnel` by running:
 
+```bash
+# update to the new version of hev-socks5-tunnel Orbot uses
+git submodule update --init --recursive
+
+# you should no longer see that there are changes to hev-socks5-tunnel in git...
+git status 
+```
 
 ### Viewing Logs 
 
