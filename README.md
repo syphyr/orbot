@@ -43,19 +43,22 @@ learn to configure it properly. Learn more: <https://torproject.org/>
 
 ### Build Instructions
 
-#### Using Correct JDK Version for Orbot's Java+Kotlin Code
+#### Missing Java 25 Toolchain For Java+Kotlin Projects
 
-Orbot now uses Java 25. If you are unable to build Orbot, or aren't sure which version of Java is being used, run this script once to be able to build Orbot:
+Orbot now uses Java 25 which is the latest Java LTS supplanting Java 21. If you are unable to build Orbot becuase you don't have Java 25 installed/configured, or just if you aren't sure which version of Java is being used, run the script `update-gradle-jvm.sh` once from the root of the repository to be able to build Orobt again:
 
 ```bash
-./update-jvm.sh
+cd orbot 
+# in repository root, run:
+./update-gradle-jvm.sh
 ```
 
-This creates a file `gradle/gradle-daemon-jvm.properties` that's set for Java 25. The script then runs the new `./gradlew updateDaemonJvm` to automatically populate this file with additional configuration gradle uses to figure out how to install and automatically use the correct Java version for your OS + CPU architecture. 
+This creates a file  `gradle/gradle-daemon-jvm.properties` that specifies that we want to use version 25 of the Java toolchain. The script then uses the new gradle feature `./gradlew updateDaemonJvm` to automatically populate this file with additional details Gradle uses to obtain the corect Java 25 Toolchain for your machine (OS and CPU architecutre) and to automatically use this new toolchain in subsequent builds of Orobt.
 
-After this is done, you should be able to build Orbot either in Android Studio or on the command line via:
+After this is done, you should be able to build Orbot again using either in Android Studio or via the command line:
 
 ```bash
+# clean project and generate a debug APK of the app
 ./gradlew clean assembleFullpermDebug
 ```
 
