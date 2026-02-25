@@ -215,10 +215,12 @@ class Languages private constructor(activity: Activity) {
         val config = activity.resources.configuration
         // Resources() requires DisplayMetrics, but they are only needed for drawables
         val ignored = DisplayMetrics()
+        @Suppress("DEPRECATION")
         activity.windowManager.defaultDisplay.getMetrics(ignored)
         var resources: Resources
         val localeSet: MutableSet<Locale> = LinkedHashSet()
         for (locale in localesToTest) {
+            @Suppress("DEPRECATION")
             resources = Resources(assets, ignored, config)
             if (!TextUtils.equals(DEFAULT_STRING, resources.getString(resId))
                 || locale == Locale.ENGLISH
