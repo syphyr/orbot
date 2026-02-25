@@ -206,7 +206,7 @@ val copyLicenseToAssets by tasks.registering(Copy::class) {
 val updateBuiltinBridges by tasks.registering {
     onlyIf {
         gradle.startParameter.taskNames.any {
-            it.contains("Release") || it.contains("release")
+            it.contains("release", ignoreCase = true)
         }
     }
     val assetsDir = layout.projectDirectory.dir("src/main/assets")
