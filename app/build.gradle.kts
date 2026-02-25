@@ -185,13 +185,15 @@ dependencies {
 }
 
 afterEvaluate {
+    tasks.named("preBuild") {
+        dependsOn(copyLicenseToAssets)
+    }
     tasks.matching {
         it.name == "preFullpermReleaseBuild" ||
                 it.name == "preNightlyReleaseBuild"
     }.configureEach {
         dependsOn(
-            copyLicenseToAssets,
-            updateBuiltinBridges,
+            updateBuiltinBridges
         )
     }
 }
@@ -202,6 +204,11 @@ val copyLicenseToAssets by tasks.registering(Copy::class) {
 }
 
 val updateBuiltinBridges by tasks.registering {
+    onlyIf {
+        gradle.startParameter.taskNames.any {
+            it.contains("release", ignoreCase = true)
+        }
+    }
     val assetsDir = layout.projectDirectory.dir("src/main/assets")
     val outputFile = assetsDir.file("builtin-bridges.json").asFile
     outputs.file(outputFile)
