@@ -1,16 +1,14 @@
 import com.android.build.api.dsl.ApplicationExtension
-import com.android.build.gradle.internal.api.ApkVariantOutputImpl
 import java.io.FileInputStream
 import java.net.URI
 import java.util.*
 
 plugins {
-    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.android.application)
 }
 
-kotlin { jvmToolchain(21) }
+kotlin { jvmToolchain(25) }
 
 val orbotBaseVersionCode = 1790200300
 fun getVersionName(): String {
@@ -36,8 +34,8 @@ configure<ApplicationExtension> {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_21
-        targetCompatibility = JavaVersion.VERSION_21
+        sourceCompatibility = JavaVersion.VERSION_25
+        targetCompatibility = JavaVersion.VERSION_25
     }
 
     splits {
@@ -145,17 +143,6 @@ androidComponents {
     }
 }
 
-// sets custom APK name
-// TODO this is deprecated and will be broken in future AGP...
-// TODO AGP 10 comes out in summer 2026......
-android.applicationVariants.all {
-    outputs.configureEach {
-        // Set custom APK output name with version
-        (this as ApkVariantOutputImpl).outputFileName =
-            outputFileName.replace("app-", "Orbot-${versionName}-")
-    }
-}
-
 dependencies {
     implementation(libs.android.material)
     implementation(libs.android.volley)
@@ -169,6 +156,7 @@ dependencies {
     implementation(libs.androidx.biometric)
     implementation(libs.androidx.lifecycle.common)
     implementation(libs.androidx.lifecycle.process)
+    implementation(libs.androidx.window)
     implementation(libs.retrofit.converter)
     implementation(libs.retrofit.lib)
     implementation(libs.rootbeer.lib)
@@ -197,13 +185,15 @@ dependencies {
 }
 
 afterEvaluate {
+    tasks.named("preBuild") {
+        dependsOn(copyLicenseToAssets)
+    }
     tasks.matching {
         it.name == "preFullpermReleaseBuild" ||
                 it.name == "preNightlyReleaseBuild"
     }.configureEach {
         dependsOn(
-            copyLicenseToAssets,
-            updateBuiltinBridges,
+            updateBuiltinBridges
         )
     }
 }
@@ -214,6 +204,11 @@ val copyLicenseToAssets by tasks.registering(Copy::class) {
 }
 
 val updateBuiltinBridges by tasks.registering {
+    onlyIf {
+        gradle.startParameter.taskNames.any {
+            it.contains("release", ignoreCase = true)
+        }
+    }
     val assetsDir = layout.projectDirectory.dir("src/main/assets")
     val outputFile = assetsDir.file("builtin-bridges.json").asFile
     outputs.file(outputFile)
@@ -273,6 +268,42 @@ val updateBuiltinBridges by tasks.registering {
                     ./gradlew assembleRelease
                 """.trimIndent()
             )
+        }
+    }
+}
+
+tasks.matching {
+    it.name.startsWith("assemble")
+}.configureEach {
+    finalizedBy("renameApkFiles")
+}
+
+tasks.register("getVersionFromGit") {
+    doLast {
+        val gitVersion = providers.exec {
+            commandLine("git", "describe", "--tags", "--always")
+        }.standardOutput.asText.get().trim()
+        project.ext.set("gitVersion", gitVersion)
+    }
+}
+
+tasks.register("renameApkFiles") {
+    dependsOn("getVersionFromGit")
+    doLast {
+        val versionName = project.ext.get("gitVersion")
+        val variantName = project.gradle.startParameter.taskNames
+            .find { it.contains("assemble") }
+            ?.substringAfter("assemble")
+            ?.replaceFirstChar { it.lowercase() }
+            ?: "debug"
+
+        listOf("nightly", "fullperm").forEach { flavor ->
+            fileTree(layout.buildDirectory.dir("outputs/apk/$flavor/$variantName")).matching {
+                include("*.apk")
+            }.forEach { file ->
+                val newName = file.name.replace("app-", "Orbot-${versionName}-")
+                file.renameTo(File(file.parentFile, newName))
+            }
         }
     }
 }

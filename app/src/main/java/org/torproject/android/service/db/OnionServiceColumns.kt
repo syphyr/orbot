@@ -27,7 +27,6 @@ object OnionServiceColumns : BaseColumns {
     val V3_ONION_SERVICE_PROJECTION: Array<String> =
         arrayOf(BaseColumns._ID, NAME, DOMAIN, PORT, ONION_PORT, CREATED_BY_USER, ENABLED, PATH)
 
-    @JvmStatic
     fun addV3OnionServicesToTorrc(
         torrc: StringBuffer,
         context: Context,
@@ -39,8 +38,7 @@ object OnionServiceColumns : BaseColumns {
             val onionServices = contentResolver.query(
                 uri, V3_ONION_SERVICE_PROJECTION,
                 "$ENABLED=1", null, null
-            )
-            if (onionServices == null) return
+            ) ?: return
             while (onionServices.moveToNext()) {
                 val idIndex = onionServices.getColumnIndex(BaseColumns._ID)
                 val portIndex = onionServices.getColumnIndex(PORT)
@@ -77,7 +75,7 @@ object OnionServiceColumns : BaseColumns {
             }
             onionServices.close()
         } catch (e: Exception) {
-            Log.e("OnionServiceColums", "$e")
+            Log.e("OnionServiceColumns", "$e")
         }
     }
 
@@ -86,6 +84,7 @@ object OnionServiceColumns : BaseColumns {
         val uri = getContentUri(context)
         val contentResolver = context.applicationContext.contentResolver
         val onionServices = contentResolver.query(uri, null, null, null, null) ?: return
+        if (onionServices.count == 0) return
         try {
             while (onionServices.moveToNext()) {
                 val domainIndex = onionServices.getColumnIndex(DOMAIN)
@@ -100,7 +99,7 @@ object OnionServiceColumns : BaseColumns {
                     val hostname = File(v3OnionDirPath, "hostname")
                     if (hostname.exists()) {
                         val id = onionServices.getInt(idIndex)
-                        domain = DiskUtils.readInputStreamAsString( FileInputStream(hostname)).trim()
+                        domain = DiskUtils.readInputStreamAsString(FileInputStream(hostname)).trim()
                         val fields = ContentValues()
                         fields.put(DOMAIN, domain)
                         contentResolver.update(uri, fields, BaseColumns._ID + "=" + id, null)
@@ -121,7 +120,7 @@ object OnionServiceColumns : BaseColumns {
         return basePath
     }
 
-    private fun getContentUri(context: Context) : Uri {
+    private fun getContentUri(context: Context): Uri {
         return "content://${context.applicationContext.packageName}.ui.v3onionservice/v3".toUri()
     }
 }

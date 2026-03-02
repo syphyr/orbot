@@ -14,7 +14,8 @@ object TorConfig {
     fun build(context: ContextWrapper, geoIpFile: File, geoIp6File: File): String {
         val conf = mutableListOf(
             "RunAsDaemon 1",
-            "AvoidDiskWrites 1")
+            "AvoidDiskWrites 1"
+        )
 
         val socksPortPref = getPort(Prefs.proxySocksPort ?: OrbotConstants.SOCKS_PROXY_PORT_DEFAULT)
         val httpPortPref = getPort(Prefs.proxyHttpPort ?: OrbotConstants.HTTP_PROXY_PORT_DEFAULT)
@@ -93,16 +94,18 @@ object TorConfig {
 
         // Always add client authorization config if any entries exist.
         val clientAuthLines = StringBuffer()
-        V3ClientAuthColumns.addClientAuthToTorrc(clientAuthLines, context,
-            V3ClientAuthColumns.createV3AuthDir(context))
+        V3ClientAuthColumns.addClientAuthToTorrc(
+            clientAuthLines, context,
+            V3ClientAuthColumns.createV3AuthDir(context)
+        )
         conf.addAll(clientAuthLines.split("\n"))
 
-        if (Prefs.hostOnionServicesEnabled) {
-            val extraLines = StringBuffer()
-            OnionServiceColumns.addV3OnionServicesToTorrc(extraLines, context,
-                OnionServiceColumns.createV3OnionDir(context))
-            conf.addAll(extraLines.split("\n"))
-        }
+        val extraLines = StringBuffer()
+        OnionServiceColumns.addV3OnionServicesToTorrc(
+            extraLines, context,
+            OnionServiceColumns.createV3OnionDir(context)
+        )
+        conf.addAll(extraLines.split("\n"))
 
         val custom = Prefs.customTorRc
         if (!custom.isNullOrEmpty()) conf.add(custom)

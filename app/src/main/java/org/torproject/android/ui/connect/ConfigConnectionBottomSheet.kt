@@ -130,7 +130,7 @@ class ConfigConnectionBottomSheet :
 
         // setup containers so radio buttons can be checked if labels are clicked on
         binding.directContainer.setOnClickListener { binding.rbDirect.isChecked = true }
-        binding.smarttContainer.setOnClickListener { binding.rbSmart.isChecked = true }
+        binding.smartContainer.setOnClickListener { binding.rbSmart.isChecked = true }
         binding.snowflakeContainer.setOnClickListener { binding.rbSnowflake.isChecked = true }
         binding.snowflakeAmpContainer.setOnClickListener { binding.rbSnowflakeAmp.isChecked = true }
         binding.snowflakeSqsContainer.setOnClickListener { binding.rbSnowflakeSqs.isChecked = true }
