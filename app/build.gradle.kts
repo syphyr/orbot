@@ -22,7 +22,7 @@ configure<ApplicationExtension> {
     namespace = "org.torproject.android"
     compileSdk {
         version = release(36) {
-           minorApiLevel = 1
+            minorApiLevel = 1
         }
     }
 
