@@ -132,16 +132,16 @@ data class BuiltInBridges(
      * @return: A list of DNSTT bridge lines using UDP DNS servers which are known to work in the given country.
      */
     fun getUdpDnstt(context: Context, countryCode: String?): List<Bridge>? {
-        if (countryCode.isNullOrEmpty()) return null
-        if (countryCode != "global" && !Regionalization.countriesWithDnsttSupport.contains(
-                countryCode
-            )
-        ) return null
+        val defaultCountryCode = when {
+            countryCode.isNullOrEmpty() -> "global"
+            !Regionalization.countriesWithDnsttSupport.contains(countryCode) -> "global"
+            else -> countryCode
+        }
 
         val dnsInfo: DnsInfo
 
         try {
-            val data = context.assets.open("dns-${countryCode.lowercase()}.json").bufferedReader()
+            val data = context.assets.open("dns-${defaultCountryCode.lowercase()}.json").bufferedReader()
                 .use { it.readText() }
 
             dnsInfo = MoatApi.json.decodeFromString(data)
