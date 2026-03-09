@@ -34,7 +34,23 @@ data class BuiltInBridges(
 
         const val UPDATE_FILE_NAME = "updated-bridges.json"
 
-        val dnsCountries = listOf("ae", "af", "bd", "cn", "co", "id", "ir", "kw", "pk", "qa", "ru", "sy", "tr", "ug", "uz")
+        val dnsCountries = listOf(
+            "ae",
+            "af",
+            "bd",
+            "cn",
+            "co",
+            "id",
+            "ir",
+            "kw",
+            "pk",
+            "qa",
+            "ru",
+            "sy",
+            "tr",
+            "ug",
+            "uz"
+        )
 
         /**
          * https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/trac/-/issues/40001#note_2811603
@@ -64,16 +80,16 @@ data class BuiltInBridges(
             if (instance == null && context != null) {
                 try {
                     instance = read(getUpdateFile(context).readText())
+                } catch (_: Throwable) {
                 }
-                catch (_: Throwable) {}
             }
 
             if (instance == null && context != null) {
                 try {
                     instance =
                         read(context.assets.open(FILE_NAME).bufferedReader().use { it.readText() })
+                } catch (_: Throwable) {
                 }
-                catch (_: Throwable) {}
             }
 
             return instance
@@ -85,8 +101,7 @@ data class BuiltInBridges(
         fun isOutdated(context: Context): Boolean {
             val lastModified = try {
                 getUpdateFile(context).lastModified()
-            }
-            catch (_: Throwable) {
+            } catch (_: Throwable) {
                 0
             }
 
@@ -144,8 +159,7 @@ data class BuiltInBridges(
                 .use { it.readText() }
 
             dnsInfo = MoatApi.json.decodeFromString(data)
-        }
-        catch (_: Throwable) {
+        } catch (_: Throwable) {
             return null
         }
 
@@ -154,7 +168,11 @@ data class BuiltInBridges(
         val bridges = mutableListOf<Bridge>()
 
         for (server in dnsInfo.servers) {
-            val addr = try { URI("scheme://${server.ip}") } catch (_: Throwable) { null }
+            val addr = try {
+                URI("scheme://${server.ip}")
+            } catch (_: Throwable) {
+                null
+            }
 
             for (bridge in dnsttBridges) {
                 val builder = bridge.buildUpon() ?: continue
@@ -166,7 +184,8 @@ data class BuiltInBridges(
 
                 builder.doh = null
                 builder.dot = null
-                builder.udp = "${addr?.host ?: server.ip}:${if ((addr?.port ?: -1) < 0) 53 else addr!!.port}"
+                builder.udp =
+                    "${addr?.host ?: server.ip}:${if ((addr?.port ?: -1) < 0) 53 else addr!!.port}"
 
                 i += 1
 
@@ -196,6 +215,7 @@ data class DnsInfo(
     var lastUpdated: String,
     var servers: List<DnsServer>
 )
+
 @Serializable
 data class DnsServer(
     var name: String,

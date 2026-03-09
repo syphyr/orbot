@@ -39,9 +39,13 @@ class Bridge(var raw: String) {
         var pubkey: String? = null
         var domain: String? = null
 
-        constructor(bridge: Bridge) : this(bridge.transport, bridge.ip ?: "", bridge.port ?: 0, bridge.fingerprint1) {
-            if (ip.isEmpty() || port < 1)
-            {
+        constructor(bridge: Bridge) : this(
+            bridge.transport,
+            bridge.ip ?: "",
+            bridge.port ?: 0,
+            bridge.fingerprint1
+        ) {
+            if (ip.isEmpty() || port < 1) {
                 throw RuntimeException("Tried to create Bridge.Builder with invalid bridge!")
             }
 
@@ -200,8 +204,7 @@ class Bridge(var raw: String) {
     fun buildUpon(): Builder? {
         return try {
             Builder(this)
-        }
-        catch (_: Throwable) {
+        } catch (_: Throwable) {
             null
         }
     }
@@ -237,8 +240,10 @@ class Bridge(var raw: String) {
 }
 
 object BridgeAsStringSerializer : KSerializer<Bridge> {
-    override val descriptor = PrimitiveSerialDescriptor(Bridge::class.java.canonicalName!!,
-        PrimitiveKind.STRING)
+    override val descriptor = PrimitiveSerialDescriptor(
+        Bridge::class.java.canonicalName!!,
+        PrimitiveKind.STRING
+    )
 
     override fun serialize(encoder: Encoder, value: Bridge) {
         encoder.encodeString(value.raw)
