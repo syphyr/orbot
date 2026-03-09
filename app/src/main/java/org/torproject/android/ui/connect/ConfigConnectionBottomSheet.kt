@@ -64,7 +64,7 @@ class ConfigConnectionBottomSheet :
         binding = ConfigConnectionBottomSheetBinding.inflate(inflater, container, false)
 
         binding.acCountry.setAdapter(
-            ArrayAdapter(
+            IgnoreAccentsArrayAdapter(
                 requireContext(),
                 android.R.layout.simple_dropdown_item_1line,
                 countryMap.keys.sortedBy { it.substring(5) })
