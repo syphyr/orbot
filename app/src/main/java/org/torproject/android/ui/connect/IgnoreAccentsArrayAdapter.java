@@ -15,8 +15,6 @@ import android.widget.TextView;
 
 import java.text.Normalizer;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -53,214 +51,35 @@ public class IgnoreAccentsArrayAdapter<T> extends BaseAdapter implements Filtera
      * The resource indicating what views to inflate to display the content of this
      * array adapter.
      */
-    private int mResource;
-
-    /**
-     * The resource indicating what views to inflate to display the content of this
-     * array adapter in a drop down widget.
-     */
-    private int mDropDownResource;
-
-    /**
-     * If the inflated resource is not a TextView, mFieldId is used to find
-     * a TextView inside the inflated view hierarchy. This field must contain the
-     * identifier that matches the one defined in the resource file.
-     */
-    private int mFieldId = 0;
-
-    /**
-     * Indicates whether {@link #notifyDataSetChanged()} must be called whenever
-     * {@link #mObjects} is modified.
-     */
-    private boolean mNotifyOnChange = true;
-
-    private Context mContext;
+    private final int mResource;
 
     private ArrayList<T> mOriginalValues;
     private HRArrayFilter mFilter;
 
-    private LayoutInflater mInflater;
+    private final LayoutInflater mInflater;
 
-    /**
-     * Constructor
-     *
-     * @param context            The current context.
-     * @param textViewResourceId The resource ID for a layout file containing a TextView to use when
-     *                           instantiating views.
-     * @param objects            The objects to represent in the ListView.
-     */
-    public IgnoreAccentsArrayAdapter(Context context, int textViewResourceId, T[] objects) {
-        init(context, textViewResourceId, Arrays.asList(objects));
-    }
-
-    /**
-     * Constructor
-     *
-     * @param context            The current context.
-     * @param textViewResourceId The resource ID for a layout file containing a TextView to use when
-     *                           instantiating views.
-     * @param objects            The objects to represent in the ListView.
-     */
     public IgnoreAccentsArrayAdapter(Context context, int textViewResourceId, List<T> objects) {
-        init(context, textViewResourceId, objects);
-    }
-
-
-    /**
-     * Adds the specified object at the end of the array.
-     *
-     * @param object The object to add at the end of the array.
-     */
-    public void add(T object) {
-        if (mOriginalValues != null) {
-            synchronized (mLock) {
-                mOriginalValues.add(object);
-                if (mNotifyOnChange) notifyDataSetChanged();
-            }
-        } else {
-            mObjects.add(object);
-            if (mNotifyOnChange) notifyDataSetChanged();
-        }
-    }
-
-    /**
-     * Inserts the specified object at the specified index in the array.
-     *
-     * @param object The object to insert into the array.
-     * @param index  The index at which the object must be inserted.
-     */
-    public void insert(T object, int index) {
-        if (mOriginalValues != null) {
-            synchronized (mLock) {
-                mOriginalValues.add(index, object);
-                if (mNotifyOnChange) notifyDataSetChanged();
-            }
-        } else {
-            mObjects.add(index, object);
-            if (mNotifyOnChange) notifyDataSetChanged();
-        }
-    }
-
-    /**
-     * Removes the specified object from the array.
-     *
-     * @param object The object to remove.
-     */
-    public void remove(T object) {
-        if (mOriginalValues != null) {
-            synchronized (mLock) {
-                mOriginalValues.remove(object);
-            }
-        } else {
-            mObjects.remove(object);
-        }
-        if (mNotifyOnChange) notifyDataSetChanged();
-    }
-
-    /**
-     * Remove all elements from the list.
-     */
-    public void clear() {
-        if (mOriginalValues != null) {
-            synchronized (mLock) {
-                mOriginalValues.clear();
-            }
-        } else {
-            mObjects.clear();
-        }
-        if (mNotifyOnChange) notifyDataSetChanged();
-    }
-
-    /**
-     * Sorts the content of this adapter using the specified comparator.
-     *
-     * @param comparator The comparator used to sort the objects contained
-     *                   in this adapter.
-     */
-    public void sort(Comparator<? super T> comparator) {
-        mObjects.sort(comparator);
-        if (mNotifyOnChange) notifyDataSetChanged();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void notifyDataSetChanged() {
-        super.notifyDataSetChanged();
-        mNotifyOnChange = true;
-    }
-
-    /**
-     * Control whether methods that change the list ({@link #add},
-     * {@link #insert}, {@link #remove}, {@link #clear}) automatically call
-     * {@link #notifyDataSetChanged}.  If set to false, caller must
-     * manually call notifyDataSetChanged() to have the changes
-     * reflected in the attached view.
-     * <p/>
-     * The default is true, and calling notifyDataSetChanged()
-     * resets the flag to true.
-     *
-     * @param notifyOnChange if true, modifications to the list will
-     *                       automatically call {@link
-     *                       #notifyDataSetChanged}
-     */
-    public void setNotifyOnChange(boolean notifyOnChange) {
-        mNotifyOnChange = notifyOnChange;
-    }
-
-    private void init(Context context, int resource, List<T> objects) {
-        mContext = context;
         mInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        mResource = mDropDownResource = resource;
+        mResource = textViewResourceId;
         mObjects = objects;
-        mFieldId = 0;
     }
 
-    /**
-     * Returns the context associated with this array adapter. The context is used
-     * to create views from the resource passed to the constructor.
-     *
-     * @return The Context associated with this adapter.
-     */
-    public Context getContext() {
-        return mContext;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
+    @Override
     public int getCount() {
         return mObjects.size();
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    @Override
     public T getItem(int position) {
         return mObjects.get(position);
     }
 
-    /**
-     * Returns the position of the specified item in the array.
-     *
-     * @param item The item to retrieve the position of.
-     * @return The position of the specified item.
-     */
-    public int getPosition(T item) {
-        return mObjects.indexOf(item);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
+    @Override
     public long getItemId(int position) {
         return position;
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         return createViewFromResource(position, convertView, parent, mResource);
     }
@@ -268,8 +87,6 @@ public class IgnoreAccentsArrayAdapter<T> extends BaseAdapter implements Filtera
     private View createViewFromResource(int position, View convertView, ViewGroup parent,
                                         int resource) {
         View view;
-        TextView text;
-
         if (convertView == null) {
             view = mInflater.inflate(resource, parent, false);
         } else {
@@ -277,45 +94,23 @@ public class IgnoreAccentsArrayAdapter<T> extends BaseAdapter implements Filtera
         }
 
         try {
-            if (mFieldId == 0) {
-                //  If no custom field is assigned, assume the whole resource is a TextView
-                text = (TextView) view;
-            } else {
-                //  Otherwise, find the TextView field within the layout
-                text = view.findViewById(mFieldId);
-            }
+            var text = (TextView) view;
+            text.setText(getItem(position).toString());
         } catch (ClassCastException e) {
             Log.e("ArrayAdapter", "You must supply a resource ID for a TextView");
             throw new IllegalStateException(
                     "ArrayAdapter requires the resource ID to be a TextView", e);
         }
 
-        text.setText(getItem(position).toString());
-
         return view;
     }
 
-    /**
-     * <p>Sets the layout resource to create the drop-down views.</p>
-     *
-     * @param resource the layout resource defining the drop-down views
-     * @see #getDropDownView(int, android.view.View, android.view.ViewGroup)
-     */
-    public void setDropDownViewResource(int resource) {
-        this.mDropDownResource = resource;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     @Override
     public View getDropDownView(int position, View convertView, ViewGroup parent) {
-        return createViewFromResource(position, convertView, parent, mDropDownResource);
+        return createViewFromResource(position, convertView, parent, mResource);
     }
 
-    /**
-     * {@inheritDoc}
-     */
+    @Override
     public Filter getFilter() {
         if (mFilter == null) {
             mFilter = new HRArrayFilter();
@@ -331,37 +126,33 @@ public class IgnoreAccentsArrayAdapter<T> extends BaseAdapter implements Filtera
     private class HRArrayFilter extends Filter {
         @Override
         protected FilterResults performFiltering(CharSequence prefix) {
-            FilterResults results = new FilterResults();
+            var results = new FilterResults();
 
             if (mOriginalValues == null) {
                 synchronized (mLock) {
-                    mOriginalValues = new ArrayList<T>(mObjects);
+                    mOriginalValues = new ArrayList<>(mObjects);
                 }
             }
 
             if (prefix == null || prefix.length() == 0) {
                 synchronized (mLock) {
-                    ArrayList<T> list = new ArrayList<T>(mOriginalValues);
+                    var list = new ArrayList<>(mOriginalValues);
                     results.values = list;
                     results.count = list.size();
                 }
             } else {
-                String prefixString = prefix.toString().toLowerCase();
+                var prefixString = prefix.toString().toLowerCase();
+                var values = mOriginalValues;
+                final var newValues = new ArrayList<>(values.size());
 
-                ArrayList<T> values = mOriginalValues;
-                final int count = values.size();
-
-                final ArrayList<T> newValues = new ArrayList<>(count);
-
-                for (int i = 0; i < count; i++) {
-                    final T value = values.get(i);
-                    final String valueText = value.toString().toLowerCase().substring(5);
-                    String valueTextNoPalatals = Normalizer
+                for (var value : values) {
+                    final var valueText = value.toString().toLowerCase().substring(5);
+                    var valueTextNoPalatals = Normalizer
                             .normalize(valueText, Normalizer.Form.NFD)
                             .replaceAll("[^\\p{ASCII}]", "")
                             .toLowerCase();
 
-                    String prefixStringNoPalatals = Normalizer
+                    var prefixStringNoPalatals = Normalizer
                             .normalize(prefixString, Normalizer.Form.NFD)
                             .replaceAll("[^\\p{ASCII}]", "")
                             .toLowerCase();
@@ -369,9 +160,9 @@ public class IgnoreAccentsArrayAdapter<T> extends BaseAdapter implements Filtera
                     if (valueText.startsWith(prefixString) || valueTextNoPalatals.startsWith(prefixStringNoPalatals)) {
                         newValues.add(value);
                     } else {
-                        final String[] words = valueText.split(" ");
+                        final var words = valueText.split(" ");
 
-                        for (String word : words) {
+                        for (var word : words) {
                             if (word.startsWith(prefixString)) {
                                 newValues.add(value);
                                 break;
@@ -379,7 +170,6 @@ public class IgnoreAccentsArrayAdapter<T> extends BaseAdapter implements Filtera
                         }
                     }
                 }
-
                 results.values = newValues;
                 results.count = newValues.size();
             }
