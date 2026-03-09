@@ -171,7 +171,7 @@ dependencies {
 
     // IPtProxy, for Snowflake, obfs4, dnstt and all other pluggable transports
     implementation(libs.iptproxy)
-    // uncomment to use a logcla build of IPtProxy:
+    // uncomment to use a local build of IPtProxy:
     // implementation(files("../../IPtProxy/IPtProxy.aar"))
 
     implementation(libs.quickie)
