@@ -141,7 +141,7 @@ androidComponents {
                 val increment =
                     incrementMap[output.filters.find { it.filterType.name == "ABI" }?.identifier]
                         ?: 0
-                output.versionCode = orbotBaseVersionCode * 10 + increment
+                output.versionCode = (orbotBaseVersionCode) + increment
             }
         }
     }
