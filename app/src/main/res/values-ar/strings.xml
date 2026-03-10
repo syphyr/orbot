@@ -268,6 +268,5 @@
     <string name="limit_dns_tunnel_use">الحد من استخدام نفق DNS</string>
     <string name="dns_tunnel_usage_description">تعطي أنفاق DNS الأولوية للوصول على حساب السرعة وقد تبدو بطيئة. نوصي بتفعيلها فقط للتطبيقات الضرورية. لا يُنصح باستخدامها لبث الفيديو.</string>
     <string name="unable_to_start_orbot_vpn_title">تعذر بدء تشغيل Orbot VPN</string>
-    <string name="unable_to_start_legacy_vpn_error_msg"></string>
     <string name="open_vpn_settings">افتح إعدادات VPN على أندرويد</string>
 </resources>
