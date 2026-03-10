@@ -10,7 +10,7 @@ plugins {
 
 kotlin { jvmToolchain(25) }
 
-val orbotBaseVersionCode = 1790300100
+val orbotBaseVersionCode = 1790300200
 fun getVersionName(): String {
     // Gets the version name from the latest Git tag
     return providers.exec {
@@ -137,7 +137,7 @@ androidComponents {
                 val increment =
                     incrementMap[output.filters.find { it.filterType.name == "ABI" }?.identifier]
                         ?: 0
-                output.versionCode = orbotBaseVersionCode + increment
+                output.versionCode = orbotBaseVersionCode * 10 + increment
             }
         }
     }
