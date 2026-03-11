@@ -2,7 +2,13 @@ package org.torproject.android
 
 import android.app.Application
 import android.content.res.Configuration
+import android.content.Context
+import android.content.Intent
+import android.os.Build
+import android.os.PowerManager
+import android.provider.Settings
 import android.util.Log
+import androidx.core.net.toUri
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
@@ -25,6 +31,8 @@ class OrbotApp : Application() {
         } catch (_ : Exception) {
             Log.e("OrbotApp", "Couldn't set PT state dir")
         }
+
+        requestBatteryOptimizationExemption()
 
         ProcessLifecycleOwner.get().lifecycle.addObserver(object : DefaultLifecycleObserver {
             override fun onStop(owner: LifecycleOwner) {
@@ -57,6 +65,34 @@ class OrbotApp : Application() {
 
             // tell OrbotService it needs to reinstall geoip
             Prefs.isGeoIpReinstallNeeded = true
+        }
+    }
+
+    /**
+     * Request to be exempted from battery optimizations so the service
+     * doesn't get killed under low memory conditions
+     */
+    private fun requestBatteryOptimizationExemption() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            return
+        }
+
+        try {
+            val pm = getSystemService(Context.POWER_SERVICE) as PowerManager
+            if (!pm.isIgnoringBatteryOptimizations(packageName)) {
+                Log.d("OrbotApp", "Requesting battery optimization exemption")
+                try {
+                    val intent = Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS).apply {
+                        data = "package:$packageName".toUri()
+                        flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                    }
+                    startActivity(intent)
+                } catch (e: Exception) {
+                    Log.w("OrbotApp", "Could not request battery optimization exemption", e)
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("OrbotApp", "Error in battery optimization exemption request", e)
         }
     }
 
