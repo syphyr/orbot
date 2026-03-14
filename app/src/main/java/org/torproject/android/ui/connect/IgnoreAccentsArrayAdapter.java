@@ -177,9 +177,10 @@ public class IgnoreAccentsArrayAdapter<T> extends BaseAdapter implements Filtera
             return results;
         }
 
+
         @Override
+        @SuppressWarnings("unchecked")
         protected void publishResults(CharSequence constraint, FilterResults results) {
-            //noinspection unchecked
             mObjects = (List<T>) results.values;
             if (results.count > 0) {
                 notifyDataSetChanged();
