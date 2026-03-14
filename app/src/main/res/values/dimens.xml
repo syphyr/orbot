@@ -10,4 +10,10 @@
     <dimen name="button_horizontal_med_margin">32dp</dimen>
     <dimen name="button_horizontal_large_margin">64dp</dimen>
     <dimen name="rounded_img_corner">8dp</dimen>
+
+    <!-- bottom sheet fragments -->
+    <dimen name="bottom_sheet_btn_guideline_percent">.9</dimen>
+    <dimen name="bottom_sheet_constraint_padding">10dp</dimen>
+    <dimen name="bottom_sheet_btn_guideline_topmargin">4dp</dimen>
+    <dimen name="bottom_sheet_btn_padding">24dp</dimen>
 </resources>

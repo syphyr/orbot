@@ -1,6 +1,5 @@
 package org.torproject.android.ui.kindness
 
-import android.content.res.Configuration
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -46,9 +45,4 @@ class KindnessConfigBottomSheet : OrbotBottomSheetDialogFragment() {
         }
     }
 
-    override fun getHeightRatio(): Float {
-        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT)
-            return 2 / 5f
-        return super.getHeightRatio()
-    }
 }
