@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        tools:visibility="gone">
+        tools:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,6 +25,7 @@
                 android:id="@+id/ivOrbi"
                 android:layout_width="180dp"
                 android:layout_height="180dp"
+                android:layout_gravity="center"
                 android:layout_marginTop="20dp"
                 android:contentDescription="@null"
                 android:src="@drawable/orbiesnoozing" />
@@ -74,7 +75,7 @@
         android:layout_gravity="center"
         android:paddingBottom="20dp"
         android:visibility="gone"
-        tools:visibility="visible">
+        tools:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -114,10 +115,10 @@
                 android:id="@+id/rowVolunteerMode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="4dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
                 android:background="@color/panel_widget_background"
+                android:padding="4dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvTitleOn">
@@ -137,9 +138,9 @@
                     android:id="@+id/swVolunteerHeader"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
                     android:text="@string/volunteer_mode"
                     android:textSize="18sp"
-                    android:layout_marginStart="2dp"
                     app:layout_constraintStart_toEndOf="@id/ivHeartOn"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -147,10 +148,11 @@
                     android:id="@+id/swVolunteerMode"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:padding="2dp"
                     android:textSize="18sp"
+                    android:checked="true"
                     app:layout_constraintBottom_toBottomOf="@id/swVolunteerHeader"
                     app:layout_constraintEnd_toEndOf="parent"
-                    android:padding="2dp"
                     app:layout_constraintTop_toTopOf="@id/swVolunteerHeader"
                     app:showText="false" />
 
@@ -216,9 +218,9 @@
                     android:id="@+id/tvAlltimeTotalHeader"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
                     android:text="@string/volunteer_mode_alltime_label"
                     android:textAllCaps="true"
-                    android:layout_marginTop="1dp"
                     android:textColor="@color/progress_bar_purple"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"

@@ -69,7 +69,7 @@ class KindnessFragment : Fragment() {
     private fun showPanelStatus(isActivated: Boolean) {
         val duration = 250L
         if (isActivated) {
-            pnlActivate.animate().alpha(0f).setDuration(duration).withEndAction {
+            pnlActivate.animate().alpha(0f).setDuration(0).withEndAction {
                 pnlActivate.visibility = View.GONE
             }
 
@@ -79,7 +79,7 @@ class KindnessFragment : Fragment() {
             pnlActivate.visibility = View.VISIBLE
             pnlActivate.animate().alpha(1f).duration = duration
 
-            pnlStatus.animate().alpha(0f).setDuration(duration).withEndAction {
+            pnlStatus.animate().alpha(0f).setDuration(0).withEndAction {
                 pnlStatus.visibility = View.GONE
             }
         }
