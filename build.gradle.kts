@@ -4,9 +4,3 @@ plugins {
     alias(libs.plugins.android.library) apply false
     alias(libs.plugins.kotlin.serialization) apply false
 }
-
-allprojects {
-    tasks.withType<JavaCompile> {
-        options.compilerArgs.addAll(arrayOf("-parameters", "-Xlint:deprecation", "-Xlint:unchecked"))
-    }
-}
