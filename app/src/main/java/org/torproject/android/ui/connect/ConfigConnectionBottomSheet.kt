@@ -3,6 +3,7 @@ package org.torproject.android.ui.connect
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
@@ -62,6 +63,11 @@ class ConfigConnectionBottomSheet :
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = ConfigConnectionBottomSheetBinding.inflate(inflater, container, false)
+
+        binding.tvCountryClear.setOnClickListener {
+            Prefs.bridgeCountry = null
+            binding.acCountry.setText(null)
+        }
 
         binding.acCountry.setAdapter(
             IgnoreAccentsArrayAdapter(
@@ -216,6 +222,7 @@ class ConfigConnectionBottomSheet :
                     CustomBridgeBottomSheet.TAG
                 )
             }
+
         }
 
         return binding.root
@@ -253,7 +260,10 @@ class ConfigConnectionBottomSheet :
     }
 
     override fun onFocusChange(view: View?, hasFocus: Boolean) {
-        if (hasFocus) return
+        if (hasFocus) {
+            Log.wtf("bim", "RETURNING HREE")
+            return
+        }
 
         val currentText = binding.acCountry.text.toString()
 
