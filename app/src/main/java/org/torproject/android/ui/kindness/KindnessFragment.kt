@@ -1,5 +1,6 @@
 package org.torproject.android.ui.kindness
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +10,12 @@ import android.widget.TextView
 import androidx.appcompat.widget.SwitchCompat
 import androidx.fragment.app.Fragment
 import org.torproject.android.R
+import org.torproject.android.service.circumvention.BuiltInBridges
+import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
+import java.util.Locale
+import java.util.Locale.getDefault
+import kotlin.collections.contains
 
 class KindnessFragment : Fragment() {
 
@@ -30,7 +36,9 @@ class KindnessFragment : Fragment() {
         btnActionActivate = view.findViewById(R.id.btnActionActivate)
         pnlActivate = view.findViewById(R.id.panel_kindness_activate)
         pnlStatus = view.findViewById(R.id.panel_kindness_status)
-
+        getErrorStringIfAny()?.let {
+            Prefs.setBeSnowflakeProxy(false)
+        }
         swVolunteerMode.isChecked = Prefs.beSnowflakeProxy()
         swVolunteerMode.setOnCheckedChangeListener { _, isChecked ->
             Prefs.setBeSnowflakeProxy(isChecked)
@@ -52,11 +60,32 @@ class KindnessFragment : Fragment() {
             .setOnClickListener { KindnessConfigBottomSheet.openKindnessSettings(requireActivity()) }
 
         btnActionActivate.setOnClickListener {
+            getErrorStringIfAny()?.let {
+                showDisabledDialog(it)
+                return@setOnClickListener
+            }
             swVolunteerMode.isChecked = true
         }
 
         showPanelStatus(Prefs.beSnowflakeProxy())
         return view
+    }
+
+    private fun getErrorStringIfAny(): Int? {
+        val country = Prefs.bridgeCountry?.lowercase(getDefault())
+        if (BuiltInBridges.dnsCountries.contains(country))
+            return R.string.kindness_mode_cant_run_in_your_country
+        if (Prefs.useVpn() && Prefs.transport != Transport.NONE)
+            R.string.kindness_mode_cant_run_with_bridge
+        return null
+    }
+
+    private fun showDisabledDialog(msg: Int) {
+        AlertDialog.Builder(requireContext())
+            .setTitle(R.string.kindness_mode_cant_start)
+            .setMessage(msg)
+            .setPositiveButton(android.R.string.ok, null)
+            .show()
     }
 
     override fun onResume() {

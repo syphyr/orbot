@@ -159,6 +159,7 @@ public class OrbotService extends VpnService {
     public void onDestroy() {
         try {
             unregisterReceiver(mActionBroadcastReceiver);
+            Prefs.putUseVpn(false);
         } catch (IllegalArgumentException iae) {
             //not registered yet
         }
