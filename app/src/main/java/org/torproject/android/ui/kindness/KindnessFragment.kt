@@ -77,6 +77,9 @@ class KindnessFragment : Fragment() {
             return R.string.kindness_mode_cant_run_in_your_country
         if (Prefs.useVpn() && Prefs.transport != Transport.NONE)
             R.string.kindness_mode_cant_run_with_bridge
+        if (!Prefs.hasDirectConnected) {
+            return R.string.kindness_never_had_a_direct_connection
+        }
         return null
     }
 

@@ -310,6 +310,7 @@
     <string name="open_vpn_settings">Open Android VPN Settings</string>
 
     <string name="kindness_mode_cant_start">Unable to Start Kindness Mode</string>
+    <string name="kindness_never_had_a_direct_connection">In order to use Kindness Mode, you need to have connected directly to Tor (without using any bridges) at least once. After having connected, please come back here to activate Kindness Mode. After completing this direct connection test, you are free to use Kindness Mode whether or not you\'re connected to Tor.</string>
     <string name="kindness_mode_cant_run_with_bridge">Kindness Mode can\'t run while you are using a bridge to connect to Tor.</string>
     <string name="kindness_mode_cant_run_in_your_country">Using Kindness Mode to help other people connect to Tor is currently disabled for your country because of censorship.</string>
     <string name="kindness_mode_disclaimer_bridge">Don\'t Use Kindness Mode if you are in a region where you are censored or if you need to use a bridge to connect to Tor.</string>
