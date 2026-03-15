@@ -315,4 +315,6 @@
     <string name="kindness_mode_cant_run_in_your_country">Using Kindness Mode to help other people connect to Tor is currently disabled for your country because of censorship.</string>
     <string name="kindness_mode_disclaimer_bridge">Don\'t Use Kindness Mode if you are in a region where you are censored or if you need to use a bridge to connect to Tor.</string>
 
+    <string name="battery_optimization_title">Disable Battery Optimization</string>
+    <string name="battery_optimization_error">An error occured trying to disable battery optimizations</string>
 </resources>

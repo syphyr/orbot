@@ -2,19 +2,27 @@ package org.torproject.android.ui.more
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
+import android.net.Uri
 import android.os.Bundle
+import android.os.PowerManager
+import android.provider.Settings
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.core.content.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.torproject.android.OrbotActivity
 import org.torproject.android.R
+import org.torproject.android.databinding.FragmentMoreBinding
 import org.torproject.android.util.sendIntentToService
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
@@ -28,8 +36,11 @@ import org.torproject.jni.TorService
 class MoreFragment : Fragment() {
     private var httpPort = -1
     private var socksPort = -1
+    private var _binding: FragmentMoreBinding? = null
+    private val binding get() = _binding!!
 
     private lateinit var tvPortAndVersionInfo: TextView
+    private lateinit var prefs: SharedPreferences
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -129,6 +140,61 @@ class MoreFragment : Fragment() {
         rvMore.layoutManager = GridLayoutManager(requireContext(), spanCount)
 
         return view
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        _binding = FragmentMoreBinding.bind(view)
+        prefs = requireContext().getSharedPreferences("orbot_prefs", Context.MODE_PRIVATE)
+
+        updateSwitchState()
+
+        binding.switchBatteryOptimization.setOnCheckedChangeListener { _, isChecked ->
+            prefs.edit().putBoolean("ignore_battery_optimizations", isChecked).apply()
+
+            val activity = activity ?: return@setOnCheckedChangeListener
+
+            if (isChecked) {
+                try {
+                    Intent(Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS).apply {
+                        data = Uri.parse("package:${activity.packageName}")
+                        flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                    }.also { startActivity(it) }
+                } catch (e: Exception) {
+                    Toast.makeText(activity, R.string.battery_optimization_error, Toast.LENGTH_SHORT).show()
+                    binding.switchBatteryOptimization.isChecked = false
+                }
+            } else {
+                try {
+                    Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS).apply {
+                        flags = Intent.FLAG_ACTIVITY_NEW_TASK
+                    }.also { startActivity(it) }
+                } catch (e: Exception) {
+                    Toast.makeText(activity, R.string.battery_optimization_error, Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        updateSwitchState()
+    }
+
+    private fun updateSwitchState() {
+        binding.switchBatteryOptimization.isChecked =
+            isIgnoringBatteryOptimizations() && prefs.getBoolean("ignore_battery_optimizations", false)
+    }
+
+    private fun isIgnoringBatteryOptimizations(): Boolean {
+        val activity = activity ?: return false
+        val pm = activity.getSystemService(Context.POWER_SERVICE) as? PowerManager ?: return false
+        return pm.isIgnoringBatteryOptimizations(activity.packageName)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun getTorVersion(): String {
