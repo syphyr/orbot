@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -84,7 +85,6 @@ class MoreFragment : Fragment() {
         binding = FragmentMoreBinding.inflate(layoutInflater)
         (context as AppCompatActivity).setSupportActionBar(binding.toolbar)
         binding.toolbar.title = requireContext().getString(R.string.app_name)
-        binding.tvExit.setOnClickListener { doExit() }
 
         updateStatus()
 
@@ -121,6 +121,8 @@ class MoreFragment : Fragment() {
             }
         )
 
+        setupExitButton()
+
         binding.rvMoreActions.adapter = MoreActionAdapter(listItems)
         val spanCount = if (resources.configuration.screenWidthDp < 600) 2 else 4
         binding.rvMoreActions.layoutManager = GridLayoutManager(requireContext(), spanCount)
@@ -131,6 +133,27 @@ class MoreFragment : Fragment() {
     private fun getTorVersion(): String =
         TorService.VERSION_NAME.split("-").toTypedArray()[0]
 
+    private fun setupExitButton() {
+        binding.btnExit.apply {
+            setOnClickListener {
+                // Pressed state animation
+                animate()
+                    .scaleX(0.95f)
+                    .scaleY(0.95f)
+                    .alpha(0.8f)
+                    .setDuration(100)
+                    .withEndAction {
+                        // Release animation
+                        animate()
+                            .scaleX(1f)
+                            .scaleY(1f)
+                            .alpha(1f)
+                            .setDuration(100)
+                            .withEndAction { doExit() }
+                    }
+            }
+        }
+    }
 
     private fun doExit() {
         val killIntent = Intent(
