@@ -220,4 +220,12 @@
     <string name="kindness_mode_disabled">El modo altruista está desactivado</string>
     <string name="kindness_mode_starting">Se está iniciando…</string>
     <string name="kindness_mode_disabled_internet">Conéctate a Internet para ayudar a las personas a eludir la censura</string>
+    <string name="snowflake_sqs">Snowflake SQS</string>
+    <string name="bridges_via_telegram">Puentes desde Tor (obfs4) vía Telegram</string>
+    <string name="bridges_via_telegram_subtitle">Te puede mantener conectado si Tor está severamente bloqueado. El uso de este método iniciará el canal de Telegram del Bot Tor. Tocar \'Inicio\' o escribir \'%1$s\' en el chat para obtener las direcciones del puente.</string>
+    <string name="bridges_via_email">Puentes desde Tor (obfs4) por correo electrónico</string>
+    <string name="bridges_via_email_subtitle">Oculta tu tráfico. Evita algunos bloqueos de Tor. Requiere un correo electrónico enviado desde una cuenta de Gmail o Riseup.</string>
+    <string name="bridge_meek_azure_subtitle">Oculta tu tráfico. Evita algunos bloqueos de Tor. Puede ser muy lento.</string>
+    <string name="custom_bridges_subtitle">Pregunta en tus redes y organizaciones de confianza para ver si alguien está alojando un puente. Si no, un amigo puede conseguirte puentes.</string>
+    <string name="custom_bridges_description">Pega las direcciones del puente que recibas a continuación. O escanea el código QR para agregarlas. Los amigos pueden conseguir puentes para ti al %1$s.</string>
 </resources>
