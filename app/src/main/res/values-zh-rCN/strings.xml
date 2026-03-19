@@ -90,7 +90,7 @@
     <string name="menu_new_identity">新建身份</string>
     <string name="pref_disable_ipv4_summary">告知出口不要连接到 IPv4 地址</string>
     <string name="pref_prefer_ipv6_summary">告知出口优先选择 IPv6 地址</string>
-    <string name="pref_prefer_ipv6">首选 IPv6 连接</string>
+    <string name="pref_prefer_ipv6">优先选择 IPv6 连接</string>
     <string name="pref_reduced_connection_padding_summary">尽早关闭中继连接并发送更少的填充数据包以减少数据和电池用量</string>
     <string name="pref_reduced_connection_padding">减少连接填充</string>
     <string name="pref_connection_padding_summary">始终启用连接填充以抵御某些形式的流量分析。默认：自动</string>
@@ -280,4 +280,9 @@
     <string name="unable_to_start_unknown_reason_error_msg">VPN 权限被拒绝或其他 VPN 应用启用了“始终开启的 VPN”功能。如果您误退出了之前的 VPN 请求对话框，您可以忽略此操作并重新连接。技术用户可以使用其他 VPN 应用，并通过启用 Orbot 的高级用户模式将 Tor 作为 SOCKS 代理使用。</string>
     <string name="open_vpn_settings">打开 Android VPN 设置</string>
     <string name="country_clear">移除国家/地区</string>
+    <string name="kindness_mode_cant_start">无法启动善举模式</string>
+    <string name="kindness_never_had_a_direct_connection">要使用善举模式，您需要至少一次直接连接到 Tor 网络（不使用任何网桥）。连接成功后，请返回此处激活善举模式。完成此直接连接测试后，无论您是否连接到 Tor，均可自由使用善举模式。</string>
+    <string name="kindness_mode_cant_run_with_bridge">当您使用网桥连接到 Tor 网络，善举模式无法运行。</string>
+    <string name="kindness_mode_cant_run_in_your_country">由于您所在国家/地区的审查，目前无法使用善举模式帮助他人连接到 Tor 网络。</string>
+    <string name="kindness_mode_disclaimer_bridge">如果您身处受审查的地区，或者您需要使用网桥连接到 Tor 网络，请勿使用善举模式。</string>
 </resources>

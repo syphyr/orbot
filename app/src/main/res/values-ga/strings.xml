@@ -278,4 +278,10 @@
     <string name="unable_to_start_other_vpn_app_error_msg">Tá an aip %1$s cumraithe le bheith ina VPN \"i gcónaí ar siúl\". Díchumasaigh é le do thoil sula dtosaíonn tú ar Orbot.</string>
     <string name="unable_to_start_unknown_reason_error_msg">Diúltaíodh an cead VPN nó tá an ghné \"VPN i gcónaí ar siúl\" cumasaithe ag aip VPN eile. Is féidir leat é seo a dhíbhe agus athcheangal má d’fhág tú an dialóg Iarratas VPN roimhe seo trí dhearmad. Is féidir le húsáideoirí teicniúla aip VPN eile a úsáid agus Tor a úsáid mar Socks Proxy trí Mhód Úsáideora Cumhachta Orbot a chumasú.</string>
     <string name="open_vpn_settings">Oscail Socruithe VPN Android</string>
+    <string name="country_clear">Bain Tír</string>
+    <string name="kindness_mode_cant_start">Ní féidir Mód Cineáltais a thosú</string>
+    <string name="kindness_never_had_a_direct_connection">Chun Mód Cineáltais a úsáid, ní mór duit a bheith ceangailte go díreach le Tor (gan aon droichid a úsáid) uair amháin ar a laghad. Tar éis duit ceangal a dhéanamh, tar ar ais anseo le Mód Cineáltais a ghníomhachtú. Tar éis duit an tástáil nasc díreach seo a chríochnú, is féidir leat Mód Cineáltais a úsáid cibé an bhfuil tú ceangailte le Tor nó nach bhfuil.</string>
+    <string name="kindness_mode_cant_run_with_bridge">Ní féidir Mód Cineáltais a rith agus tú ag úsáid droichead chun ceangal le Tor.</string>
+    <string name="kindness_mode_cant_run_in_your_country">Tá úsáid Mód Cineáltais chun cabhrú le daoine eile ceangal le Tor díchumasaithe faoi láthair i do thír mar gheall ar chinsireacht.</string>
+    <string name="kindness_mode_disclaimer_bridge">Ná húsáid Mód Cineáltais má tá tú i réigiún ina bhfuil cinsireacht ort nó má theastaíonn uait droichead a úsáid chun ceangal le Tor.</string>
 </resources>
