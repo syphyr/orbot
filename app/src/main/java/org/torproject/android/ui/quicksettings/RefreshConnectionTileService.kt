@@ -1,4 +1,4 @@
-package org.torproject.android.ui.quicksettingtiles
+package org.torproject.android.ui.quicksettings
 
 import android.service.quicksettings.TileService
 import android.widget.Toast

@@ -136,7 +136,7 @@
             tools:node="merge" />
 
         <service
-            android:name=".ui.quicksettingtiles.LaunchOrbotTileService"
+            android:name=".ui.quicksettings.LaunchOrbotTileService"
             android:exported="true"
             android:icon="@drawable/ic_launcher_foreground_title"
             android:label="@string/app_name"
@@ -147,7 +147,7 @@
         </service>
 
         <service
-            android:name=".ui.quicksettingtiles.RefreshConnectionTileService"
+            android:name=".ui.quicksettings.RefreshConnectionTileService"
             android:exported="true"
             android:icon="@drawable/ic_refresh"
             android:label="@string/btn_refresh"
