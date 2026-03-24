@@ -16,6 +16,7 @@ object Prefs {
     private const val PREF_BRIDGES_LIST = "pref_bridges_list"
     private const val PREF_DEFAULT_LOCALE = "pref_default_locale"
     private const val PREF_DETECT_ROOT = "pref_detect_root"
+    private const val PREF_BATTERY_OPT = "pref_battery_opt"
     private const val PREF_ENABLE_LOGGING = "pref_enable_logging"
     private const val PREF_START_ON_BOOT = "pref_start_boot"
     private const val PREF_ALLOW_BACKGROUND_STARTS = "pref_allow_background_starts"
@@ -108,6 +109,10 @@ object Prefs {
 
     fun detectRoot(): Boolean {
         return cr?.getPrefBoolean(PREF_DETECT_ROOT) ?: false
+    }
+
+    fun batteryOpt(): Boolean {
+        return cr?.getPrefBoolean(PREF_BATTERY_OPT) ?: false
     }
 
     fun beSnowflakeProxy(): Boolean {
