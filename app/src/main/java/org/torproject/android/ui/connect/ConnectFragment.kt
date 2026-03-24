@@ -180,7 +180,7 @@ class ConnectFragment : Fragment(),
     }
 
     fun attemptToStartTorPowerUserMode(): Boolean {
-        if (!requireContext().areBatteryOptimizationsDisabled()) {
+        if (Prefs.batteryOpt() && !requireContext().areBatteryOptimizationsDisabled()) {
             PowerUserBatteryOptimizations().show(
                 requireActivity().supportFragmentManager,
                 "PowerUserBatteryOptimizations"
