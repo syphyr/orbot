@@ -92,6 +92,8 @@ object OrbotConstants {
     const val LOCAL_ACTION_PORTS = "ports"
     const val LOCAL_ACTION_V3_NAMES_UPDATED = "V3_NAMES_UPDATED"
 
+    const val LOCAL_ACTION_QUICK_SETTINGS_NEWNYM = "TILE_NEWNYM"
+
 
 
     /**

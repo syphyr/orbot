@@ -9,7 +9,6 @@ import org.torproject.android.OrbotActivity
 
 class LaunchOrbotTileService : TileService() {
     override fun onClick() {
-        super.onClick()
         val intent = Intent(this, OrbotActivity::class.java).apply {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }

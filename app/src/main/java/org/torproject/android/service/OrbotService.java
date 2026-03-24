@@ -551,15 +551,19 @@ public class OrbotService extends VpnService {
         }
     }
 
-    public void newIdentity() {
+    public void newIdentity(boolean showToast) {
         if (conn == null) return;
         new Thread() {
             @Override
             public void run() {
                 try {
-                    if (conn != null && mCurrentStatus.equals(STATUS_ON)) {
+                    if (conn != null && STATUS_ON.equals(mCurrentStatus)) {
                         mNotifyBuilder.setSubText(null); // clear previous exit node info if present
                         showToolbarNotification(getString(R.string.newnym), NOTIFY_ID, R.drawable.ic_stat_tor);
+                        if (showToast) {
+                            var handler = new Handler(getMainLooper());
+                            handler.post(() -> Toast.makeText(OrbotService.this, R.string.newnym, Toast.LENGTH_LONG).show());
+                        }
                         conn.signal(TorControlCommands.SIGNAL_NEWNYM);
                     }
                 } catch (Exception ioe) {
@@ -719,7 +723,8 @@ public class OrbotService extends VpnService {
                     replyWithStatus(mIntent);
                 }
                 case TorControlCommands.SIGNAL_RELOAD -> requestTorRereadConfig();
-                case TorControlCommands.SIGNAL_NEWNYM -> newIdentity();
+                case TorControlCommands.SIGNAL_NEWNYM -> newIdentity(false);
+                case LOCAL_ACTION_QUICK_SETTINGS_NEWNYM -> newIdentity(true);
                 case CMD_ACTIVE -> {
                     sendSignalActive();
                     replyWithStatus(mIntent);

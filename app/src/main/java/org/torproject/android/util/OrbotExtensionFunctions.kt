@@ -31,7 +31,6 @@ fun Intent.putNotSystem(): Intent = this.putExtra(OrbotConstants.EXTRA_NOT_SYSTE
  * @param intent The Intent to be sent to the service.
  */
 fun Context.sendIntentToService(intent: Intent) {
-    //    Log.d("OrbotService", "sendIntentToService-${intent.action}")
     if (canStartForegroundServices()) {
         ContextCompat.startForegroundService(this, intent.putNotSystem())
     } else {

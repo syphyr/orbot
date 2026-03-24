@@ -146,6 +146,17 @@
             </intent-filter>
         </service>
 
+        <service
+            android:name=".ui.quicksettingtiles.RefreshConnectionTileService"
+            android:exported="true"
+            android:icon="@drawable/ic_refresh"
+            android:label="@string/btn_refresh"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
+
 
         <activity-alias
             android:name="org.torproject.android.main.NightWatch"
