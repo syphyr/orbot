@@ -202,7 +202,7 @@ public class OrbotRawEventListener implements RawEventListener {
                 node.name = nodeName;
             }
 
-            node.status = circuitStatus;
+    //            node.status = circuitStatus;
 
             sb.append(node.name);
 
@@ -255,7 +255,7 @@ public class OrbotRawEventListener implements RawEventListener {
 
 
     public static class DebugLoggingNode {
-        public String status;
+        //        public String status;
         public String id;
         public String name;
     }

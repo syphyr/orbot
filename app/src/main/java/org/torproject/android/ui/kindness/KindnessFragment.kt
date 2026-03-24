@@ -14,7 +14,6 @@ import org.torproject.android.service.circumvention.BuiltInBridges
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
 import java.util.Locale
-import java.util.Locale.getDefault
 import kotlin.collections.contains
 
 class KindnessFragment : Fragment() {
@@ -72,7 +71,7 @@ class KindnessFragment : Fragment() {
     }
 
     private fun getErrorStringIfAny(): Int? {
-        val country = Prefs.bridgeCountry?.lowercase(getDefault())
+        val country = Prefs.bridgeCountry?.lowercase(Locale.getDefault())
         if (BuiltInBridges.dnsCountries.contains(country))
             return R.string.kindness_mode_cant_run_in_your_country
         if (Prefs.useVpn() && Prefs.transport != Transport.NONE)

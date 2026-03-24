@@ -169,7 +169,7 @@ dependencies {
     implementation(libs.androidx.work.kotlin)
     implementation(libs.upnp)
 
-    // IPtProxy, for Snowflake, obfs4, dnstt and all other pluggable transports
+    // IPtProxy (for Snowflake, obfs4, dnstt and all other pluggable transports)
     implementation(libs.iptproxy)
     // uncomment to use a local build of IPtProxy:
     // implementation(files("../../IPtProxy/IPtProxy.aar"))
@@ -199,7 +199,7 @@ afterEvaluate {
     }
     tasks.matching {
         it.name == "preFullpermReleaseBuild" ||
-        it.name == "preNightlyReleaseBuild"
+                it.name == "preNightlyReleaseBuild"
     }.configureEach {
         dependsOn(updateBuiltinBridges)
     }
@@ -244,14 +244,32 @@ val updateBuiltinBridges by tasks.registering {
                     }
                 println("Successfully fetched builtin bridges.")
 
-                for (country in listOf("ae", "af", "bd", "cn", "co", "global", "id", "ir", "kw", "pk", "qa", "ru", "sy", "tr", "ug", "uz")) {
+                for (country in listOf(
+                    "ae",
+                    "af",
+                    "bd",
+                    "cn",
+                    "co",
+                    "global",
+                    "id",
+                    "ir",
+                    "kw",
+                    "pk",
+                    "qa",
+                    "ru",
+                    "sy",
+                    "tr",
+                    "ug",
+                    "uz"
+                )) {
                     URI("https://raw.githubusercontent.com/dnstt-xyz/dnstt_xyz_app/refs/heads/main/assets/dns/$country.json")
                         .toURL()
                         .openStream()
                         .use { input ->
-                            assetsDir.file("dns-$country.json").asFile.outputStream().use { output ->
-                                input.copyTo(output)
-                            }
+                            assetsDir.file("dns-$country.json").asFile.outputStream()
+                                .use { output ->
+                                    input.copyTo(output)
+                                }
                         }
                     println("Successfully fetched dns-$country.json.")
                 }
