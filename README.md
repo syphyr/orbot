@@ -131,7 +131,7 @@ export ANDROID_HOME=~/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 
-# on mac you do the above or instead get an adb instance from brew...
+# on mac you do the above or you can get a copy of adb via homebrew...
 brew install android-platform-tools
 ```
 
