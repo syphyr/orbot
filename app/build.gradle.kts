@@ -29,7 +29,7 @@ configure<ApplicationExtension> {
         versionCode = orbotBaseVersionCode
         versionName = getVersionName().get()
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 37
         multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         flavorDimensions += "free"
