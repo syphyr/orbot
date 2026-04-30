@@ -111,9 +111,14 @@ class KindnessFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        context?.let {
-            it.bindService(SnowflakeProxyService.getIntent(it), connection, Context.BIND_AUTO_CREATE)
-        }
+        // TODO: We need this, to receive the proxy quality, but on the other hand, this
+        //  will unintentionally start the SnowflakeProxyService, which we don't want, because
+        //  it will automatically start SnowflakeProxy if there are no Wi-Fi/battery limits.
+        //  -> hence a redesign of the SnowflakeProxyService seems to await us.
+
+//        context?.let {
+//            it.bindService(SnowflakeProxyService.getIntent(it), connection, Context.BIND_AUTO_CREATE)
+//        }
     }
 
     override fun onResume() {
