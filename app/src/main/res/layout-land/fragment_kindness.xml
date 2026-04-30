@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        tools:visibility="visible">
+        tools:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -99,37 +99,46 @@
         android:layout_gravity="center"
         android:paddingBottom="20dp"
         android:visibility="gone"
-        tools:visibility="gone">
+        tools:visibility="visible">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:paddingStart="16dp"
             android:paddingEnd="16dp">
 
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.66" />
+
             <TextView
                 android:id="@+id/tvTitleOn"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginBottom="4dp"
                 android:text="@string/volunteer_mode"
                 android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
                 android:textColor="@android:color/white"
                 android:textStyle="normal"
+                app:layout_constraintEnd_toStartOf="@id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/rowVolunteerMode"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="4dp"
                 app:cardBackgroundColor="@color/panel_widget_background"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvTitleOn">
 
@@ -177,13 +186,14 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/rowUsageLimits"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="4dp"
                 app:cardBackgroundColor="@color/panel_widget_background"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rowVolunteerMode">
 
@@ -229,13 +239,14 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/rowProxyQuality"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="4dp"
                 app:cardBackgroundColor="@color/panel_widget_background"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rowUsageLimits">
 
@@ -294,13 +305,15 @@
 
             <TextView
                 android:id="@+id/tvSubheader"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginHorizontal="4dp"
                 android:text="@string/kindness_your_impact"
                 style="@style/TextAppearance.Material3.TitleMedium"
-                app:layout_constraintTop_toBottomOf="@id/rowProxyQuality" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guideline"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/volunteer_display_weekly"
@@ -310,12 +323,12 @@
                 app:cardCornerRadius="16dp"
                 app:cardElevation="4dp"
                 app:cardBackgroundColor="@color/panel_widget_background"
-                app:layout_constraintEnd_toStartOf="@id/gap"
-                app:layout_constraintHorizontal_chainStyle="spread"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_chainStyle="spread"
+                app:layout_constraintStart_toEndOf="@id/guideline"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvSubheader"
-                app:layout_constraintWidth_default="percent"
-                app:layout_constraintWidth_percent="0.46">
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.46">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -350,10 +363,10 @@
                 android:layout_width="16dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                app:layout_constraintHorizontal_chainStyle="spread"
-                app:layout_constraintTop_toBottomOf="@id/tvSubheader"
-                app:layout_constraintStart_toEndOf="@id/volunteer_display_weekly"
-                app:layout_constraintEnd_toStartOf="@id/volunteer_display_total" />
+                app:layout_constraintVertical_chainStyle="spread"
+                app:layout_constraintTop_toBottomOf="@id/volunteer_display_weekly"
+                app:layout_constraintStart_toEndOf="@id/guideline"
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/volunteer_display_total"
@@ -363,12 +376,13 @@
                 app:cardCornerRadius="16dp"
                 app:cardElevation="4dp"
                 app:cardBackgroundColor="@color/panel_widget_background"
+                app:layout_constraintVertical_chainStyle="spread"
+                app:layout_constraintStart_toEndOf="@id/guideline"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_chainStyle="spread"
-                app:layout_constraintStart_toEndOf="@id/gap"
-                app:layout_constraintTop_toBottomOf="@id/tvSubheader"
-                app:layout_constraintWidth_default="percent"
-                app:layout_constraintWidth_percent="0.46">
+                app:layout_constraintTop_toBottomOf="@id/gap"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.46">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
