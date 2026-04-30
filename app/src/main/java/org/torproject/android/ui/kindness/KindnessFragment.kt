@@ -64,7 +64,7 @@ class KindnessFragment : Fragment() {
             KindnessConfigBottomSheet.show(parentFragmentManager)
         }
 
-        mBinding.tvProxyQualityStatus.text = getString(R.string.kindness_proxy_quality_unknown)
+        updateNatTypeUi(IPtProxy.NATUnknown)
 
         mBinding.rowProxyQuality.setOnClickListener {
             if (mService?.natType?.value == IPtProxy.NATRestricted) {
