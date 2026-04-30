@@ -273,10 +273,6 @@
     <string name="unable_to_start_unknown_reason_error_msg">Izin VPN ditolak atau aplikasi VPN lain memiliki fitur \"Always-on VPN\" yang diaktifkan. Anda dapat mengabaikan ini dan menyambung kembali jika Anda keluar dari dialog VPN Request sebelumnya secara tidak sengaja. Pengguna teknis dapat menggunakan aplikasi VPN lain dan menggunakan Tor sebagai SOCKS Proxy dengan mengaktifkan Mode Pengguna Mahir Orbot.</string>
     <string name="open_vpn_settings">Buka Pengaturan VPN Android</string>
     <string name="country_clear">Hapus Negara</string>
-    <string name="kindness_mode_cant_start">Tidak Dapat Memulai Mode Kebaikan</string>
-    <string name="kindness_never_had_a_direct_connection">Untuk menggunakan Mode Kebaikan, Anda perlu pernah terhubung langsung ke Tor (tanpa menggunakan jembatan apa pun) setidaknya sekali. Setelah terhubung, silakan kembali ke sini untuk mengaktifkan Mode Kebaikan. Setelah menyelesaikan uji koneksi langsung ini, Anda bebas menggunakan Mode Kebaikan baik saat terhubung ke Tor maupun tidak.</string>
-    <string name="kindness_mode_cant_run_with_bridge">Mode Kebaikan tidak dapat berjalan saat Anda menggunakan jembatan untuk terhubung ke Tor.</string>
-    <string name="kindness_mode_cant_run_in_your_country">Penggunaan Mode Kebaikan untuk membantu orang lain terhubung ke Tor saat ini dinonaktifkan untuk negara Anda karena penyensoran.</string>
     <string name="battery_optimization_title">Nonaktifkan Optimasi Baterai</string>
     <string name="battery_optimization_pref_msg">Pengaturan untuk beberapa pengguna yang menduga perangkat mereka menghentikan Orbot secara dini saat berjalan di latar belakang.</string>
     <string name="battery_optimization_dialog_msg">Perangkat Android tertentu mungkin menghentikan Orbot saat berjalan di latar belakang. Bagi sebagian besar pengguna yang ingin memastikan Orbot tetap terhubung dan berjalan, sudah cukup dengan mengatur Orbot agar berfungsi sebagai VPN \"Selalu aktif\" di pengaturan sistem. Namun, Anda tetap dapat mencegah perangkat melakukan optimasi baterai pada Orbot jika dirasa perlu.</string>

@@ -273,8 +273,4 @@
     <string name="unable_to_start_other_vpn_app_error_msg">La aplicación %1$s está configurada como una VPN \"siempre activa\". Desactívala antes de iniciar Orbot.</string>
     <string name="unable_to_start_unknown_reason_error_msg">Se denegó el permiso de VPN o bien otra aplicación VPN tiene activada la función \"VPN siempre activa\". Si cerraste el diálogo de solicitud de VPN por error, puedes descartar este mensaje y volver a conectarte. Los usuarios con conocimientos técnicos pueden usar otra aplicación VPN y Tor como proxy SOCKS activando el modo de usuario avanzado de Orbot.</string>
     <string name="open_vpn_settings">Abre la configuración de VPN de Android</string>
-    <string name="kindness_mode_cant_start">No se pudo iniciar el Modo Amabilidad</string>
-    <string name="kindness_never_had_a_direct_connection">Para usar el Modo Amabilidad, debes conectarte directamente a Tor (sin usar puentes) al menos una vez. Después de conectarte, regresa aquí para activar el Modo Amabilidad. Una vez completada esta prueba de conexión directa, podrás usar el Modo Amabilidad independientemente de si estás conectado a Tor o no.</string>
-    <string name="kindness_mode_cant_run_with_bridge">El modo de amabilidad no puede ejecutarse mientras se utiliza un puente para conectarse a Tor.</string>
-    <string name="kindness_mode_cant_run_in_your_country">Actualmente, la función \"Usar el Modo Amabilidad\" para ayudar a otras personas a conectarse a Tor está deshabilitada en tu país debido a la censura.</string>
 </resources>

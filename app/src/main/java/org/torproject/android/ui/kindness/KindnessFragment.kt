@@ -49,10 +49,6 @@ class KindnessFragment : Fragment() {
     ): View {
         mBinding = FragmentKindnessBinding.inflate(inflater)
 
-        getErrorStringIfAny()?.let {
-            Prefs.setBeSnowflakeProxy(false)
-        }
-
         mBinding.swVolunteerMode.isChecked = Prefs.beSnowflakeProxy()
         mBinding.swVolunteerMode.setOnCheckedChangeListener { _, isChecked ->
             Prefs.setBeSnowflakeProxy(isChecked)
@@ -79,11 +75,6 @@ class KindnessFragment : Fragment() {
         }
 
         mBinding.btnActionActivate.setOnClickListener {
-            getErrorStringIfAny()?.let {
-                showDisabledDialog(it)
-                return@setOnClickListener
-            }
-
             TestingDialogFragment.show(parentFragmentManager)
         }
 
@@ -179,28 +170,6 @@ class KindnessFragment : Fragment() {
             getString(if (Prefs.limitSnowflakeProxyingWifi() || Prefs.limitSnowflakeProxyingCharging())
                 R.string.kindness_usage_limits_status_on
             else R.string.kindness_usage_limits_status_off)
-    }
-
-    private fun getErrorStringIfAny(): Int? {
-        val country = Prefs.bridgeCountry?.lowercase(Locale.getDefault())
-        if (BuiltInBridges.dnsCountries.contains(country))
-            return R.string.kindness_mode_cant_run_in_your_country
-        if (Prefs.useVpn() && Prefs.transport != Transport.NONE)
-            R.string.kindness_mode_cant_run_with_bridge
-        if (!Prefs.hasDirectConnected) {
-            return R.string.kindness_never_had_a_direct_connection
-        }
-        return null
-    }
-
-    private fun showDisabledDialog(msg: Int) {
-        val context = context ?: return
-
-        AlertDialog.Builder(context)
-            .setTitle(R.string.kindness_mode_cant_start)
-            .setMessage(msg)
-            .setPositiveButton(android.R.string.ok, null)
-            .show()
     }
 
     private fun showQualityHint() {
