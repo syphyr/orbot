@@ -754,10 +754,6 @@ public class OrbotService extends VpnService {
                     // hack for https://github.com/guardianproject/tor-android/issues/73 remove when fixed
                     var newStatus = intent.getStringExtra(EXTRA_STATUS);
 
-                    if (STATUS_ON.equals(newStatus) && Prefs.getTransport() == Transport.NONE && !Prefs.getHasDirectConnected()) {
-                        Prefs.setHasDirectConnected(true);
-                    }
-
                     if (STATUS_OFF.equals(mCurrentStatus) && STATUS_STOPPING.equals(newStatus))
                         break;
                     mCurrentStatus = newStatus;
