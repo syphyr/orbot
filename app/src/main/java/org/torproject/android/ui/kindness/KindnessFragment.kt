@@ -52,12 +52,13 @@ class KindnessFragment : Fragment() {
         mBinding.swVolunteerMode.isChecked = Prefs.beSnowflakeProxy()
         mBinding.swVolunteerMode.setOnCheckedChangeListener { _, isChecked ->
             Prefs.setBeSnowflakeProxy(isChecked)
-            showPanelStatus(isChecked)
             activity?.let {
                 if (isChecked) {
                     SnowflakeProxyService.startSnowflakeProxyForegroundService(it)
                 } else {
                     SnowflakeProxyService.stopSnowflakeProxyForegroundService(it)
+                    
+                    updateNatTypeUi(IPtProxy.NATUnknown)
                 }
             }
         }
@@ -87,9 +88,7 @@ class KindnessFragment : Fragment() {
             }
         }
 
-        // TODO: If test was successful in the last 24 hours, immediately show panelKindnessStatus,
-        //  but in `off` state!
-        showPanelStatus(Prefs.beSnowflakeProxy())
+        showPanelStatus(!Prefs.snowflakeNeedsQualityCheck)
 
         parentFragmentManager.setFragmentResultListener(
             KindnessConfigBottomSheet.KEY_CONFIG_CHANGED,

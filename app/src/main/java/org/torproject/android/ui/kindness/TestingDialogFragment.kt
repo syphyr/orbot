@@ -7,9 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.setFragmentResult
+import androidx.lifecycle.lifecycleScope
 import androidx.window.layout.WindowMetricsCalculator
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import org.torproject.android.R
 import org.torproject.android.databinding.FragmentTestingBinding
+import org.torproject.android.service.circumvention.Transport
+import org.torproject.android.util.Prefs
 
 class TestingDialogFragment : DialogFragment() {
 
@@ -68,6 +73,30 @@ class TestingDialogFragment : DialogFragment() {
         // - Else, set bridge to `NONE`, start Tor, wait until success or timeout.
         // - Stop Tor again, after test and restore original settings.
         // - Store timestamp of success in `Prefs`.
+
+        if (!Prefs.snowflakeNeedsQualityCheck) {
+            mBinding.btContinue.callOnClick()
+
+            return
+        }
+
+        // TODO: @bitmold: Is this the correct way to test, if Tor is currently running without any bridges?
+        if (Prefs.useVpn() && Prefs.transport == Transport.NONE) {
+            mBinding.btContinue.callOnClick()
+
+            return
+        }
+
+        lifecycleScope.launch {
+            // TODO: Replace with proper start of Tor (VPN vs. expert mode?)
+            //  and wait until successful connect or 90 second timeout.
+            delay(3000)
+
+            Prefs.snowflakeNeedsQualityCheck = false
+
+            mBinding.boxTesting.visibility = View.GONE
+            mBinding.boxApproved.visibility = View.VISIBLE
+        }
     }
 
     companion object {

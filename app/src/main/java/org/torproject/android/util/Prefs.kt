@@ -21,7 +21,7 @@ object Prefs {
     private const val PREF_ALLOW_BACKGROUND_STARTS = "pref_allow_background_starts"
     private const val PREF_OPEN_PROXY_ON_ALL_INTERFACES = "pref_open_proxy_on_all_interfaces"
     private const val PREF_USE_VPN = "pref_vpn"
-    private const val PREF_DIRECT_CONNECT_SUCCESS = "pref_direct_connect"
+    private const val PREF_LAST_SNOWFLAKE_QUALITY_CHECK = "pref_last_snowflake_quality_check"
     private const val PREF_EXIT_NODES = "pref_exit_nodes"
     private const val PREF_BE_A_SNOWFLAKE = "pref_be_a_snowflake"
     private const val PREF_SHOW_SNOWFLAKE_MSG = "pref_show_snowflake_proxy_msg"
@@ -163,11 +163,16 @@ object Prefs {
         cr?.putPref(PREF_USE_VPN, value)
     }
 
-    @JvmStatic
-    var hasDirectConnected: Boolean
-        get() = cr?.getPrefBoolean(PREF_DIRECT_CONNECT_SUCCESS) ?: false
-        set(value) = cr?.putPref(PREF_DIRECT_CONNECT_SUCCESS, value) ?: Unit
+    var snowflakeNeedsQualityCheck: Boolean
+        get() {
+            val last = cr?.getPrefLong(PREF_LAST_SNOWFLAKE_QUALITY_CHECK) ?: 0
 
+            // A new quality check should be done every 24 hours.
+            return last <= System.currentTimeMillis() - 24 * 60 * 60 * 1000
+        }
+        set(value) {
+            cr?.putPref(PREF_LAST_SNOWFLAKE_QUALITY_CHECK, if (value) 0 else System.currentTimeMillis())
+        }
 
     fun startOnBoot(): Boolean {
         return cr?.getPrefBoolean(PREF_START_ON_BOOT, true) ?: true
