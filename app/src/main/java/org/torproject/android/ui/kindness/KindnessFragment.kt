@@ -19,10 +19,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.launch
 import org.torproject.android.R
 import org.torproject.android.databinding.FragmentKindnessBinding
-import org.torproject.android.service.circumvention.BuiltInBridges
-import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
-import java.util.Locale
 
 class KindnessFragment : Fragment() {
 
@@ -57,7 +54,7 @@ class KindnessFragment : Fragment() {
                     SnowflakeProxyService.startSnowflakeProxyForegroundService(it)
                 } else {
                     SnowflakeProxyService.stopSnowflakeProxyForegroundService(it)
-                    
+
                     updateNatTypeUi(IPtProxy.NATUnknown)
                 }
             }
@@ -101,7 +98,10 @@ class KindnessFragment : Fragment() {
             viewLifecycleOwner) { _, bundle ->
 
             if (bundle.getBoolean(TestingDialogFragment.KEY_RESULT)) {
-                mBinding.swVolunteerMode.isChecked = true
+                if (!Prefs.snowflakeNeedsQualityCheck) {
+                    mBinding.swVolunteerMode.isChecked = true
+                    showPanelStatus(true)
+                }
             }
         }
 

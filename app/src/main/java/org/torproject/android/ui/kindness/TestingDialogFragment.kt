@@ -82,6 +82,8 @@ class TestingDialogFragment : DialogFragment() {
 
         // TODO: @bitmold: Is this the correct way to test, if Tor is currently running without any bridges?
         if (Prefs.useVpn() && Prefs.transport == Transport.NONE) {
+            Prefs.snowflakeNeedsQualityCheck = false
+
             mBinding.btContinue.callOnClick()
 
             return
