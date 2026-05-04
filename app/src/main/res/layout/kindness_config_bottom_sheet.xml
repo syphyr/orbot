@@ -20,7 +20,8 @@
     <TextView
         android:id="@+id/tvConfigHeader"
         style="@style/BottomSheetHeader"
-        android:layout_margin="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:text="@string/kindness_usage_limit"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/handle" />
@@ -29,12 +30,12 @@
         android:id="@+id/tvCustomBridgeSubHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:paddingHorizontal="16dp"
         android:text="@string/kindness_config_detail"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tvConfigHeader"
         app:layout_constraintTop_toBottomOf="@id/tvConfigHeader" />
 
     <TextView
@@ -54,10 +55,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
+        android:checked="true"
         android:contentDescription="@string/option_only_on_wifi"
         android:textColor="@android:color/white"
         android:textSize="14sp"
-        android:checked="true"
         app:layout_constraintBottom_toBottomOf="@id/tvOptionOnlyOnWifi"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/tvOptionOnlyOnWifi"
@@ -106,7 +107,9 @@
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@id/btnAction"
         app:layout_constraintEnd_toStartOf="@id/btnAction"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="50" />
 
     <Button
         android:id="@+id/btnAction"
@@ -119,8 +122,11 @@
         android:text="@string/save"
         android:textColor="@android:color/white"
         app:backgroundTint="@color/orbot_btn_enabled_purple"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/tvCancel"
         app:layout_constraintStart_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mainGuideline" />
+        app:layout_constraintTop_toBottomOf="@id/mainGuideline"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="50" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
