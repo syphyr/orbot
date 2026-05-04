@@ -284,10 +284,6 @@
     <string name="country_clear">Премахване на държавата</string>
     <string name="battery_optimization_title">Изключване оптимизиране на батерията</string>
     <string name="battery_optimization_pref_msg">Настройка за потребителите, които подозират, че устройството им преждевременно изключва Orbot, докато приложението работи във фонов режим.</string>
-    <string name="kindness_mode_cant_start">Режим на доброта не може да бъде включен</string>
-    <string name="kindness_never_had_a_direct_connection">За да използвате Режим на доброта, трябва поне веднъж да сте се свързвали директно с Tor (без използване на мостове). След свързване се върнете тук, за да включите този режим. След като преминете този тест за директна връзка, можете да използвате Режим на доброта, независимо дали сте свързани с Tor или не.</string>
-    <string name="kindness_mode_cant_run_with_bridge">Не можете да използвате Режим на доброта докато сте свързани с Tor посредством мост.</string>
-    <string name="kindness_mode_cant_run_in_your_country">Режимът на доброта с цел подпомагане на други хора да се свържат с Tor в момента е изключен във вашата държава поради цензура.</string>
     <string name="kindness_mode_disclaimer_bridge">Не използвайте Режим на доброта в райони с цензура или когато трябва да използвате мост за свързване с Tor.</string>
     <string name="battery_optimizations_dialog_btn_disable">Настройки за оптимизиране на батерията</string>
     <string name="btn_connect_anyway">Всързване въпреки това</string>
