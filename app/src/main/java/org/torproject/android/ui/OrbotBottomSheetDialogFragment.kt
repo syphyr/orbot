@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.FrameLayout
 
@@ -21,7 +22,9 @@ import org.torproject.android.R
 Class to set up default bottom sheet behavior for Config Connection, MOAT and any other
 bottom sheets to come
  */
-open class OrbotBottomSheetDialogFragment : BottomSheetDialogFragment() {
+open class OrbotBottomSheetDialogFragment(
+    val minMode: Boolean = false
+) : BottomSheetDialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val dialog = BottomSheetDialog(requireActivity(), theme)
         dialog.setOnShowListener {
@@ -30,8 +33,8 @@ open class OrbotBottomSheetDialogFragment : BottomSheetDialogFragment() {
             bottomSheetView?.let {
                 it.setBackgroundResource(R.drawable.bottom_sheet_rounded)
                 it.setBackgroundColor(Color.TRANSPARENT)
-                setHeightResponsive(it)
                 val behavior = BottomSheetBehavior.from(it)
+                setHeightResponsive(it, behavior)
                 behavior.state = BottomSheetBehavior.STATE_EXPANDED
             }
         }
@@ -39,16 +42,24 @@ open class OrbotBottomSheetDialogFragment : BottomSheetDialogFragment() {
         return dialog
     }
 
-    private fun setHeightResponsive(bottomSheet: View) {
+    private fun setHeightResponsive(bottomSheet: View, behavior: BottomSheetBehavior<*>) {
         val windowMetrics = WindowMetricsCalculator
             .getOrCreate()
             .computeCurrentWindowMetrics(requireActivity())
 
         val windowHeight = windowMetrics.bounds.height()
         val height = (windowHeight * getHeightRatio()).toInt()
-
         val layoutParams = bottomSheet.layoutParams
-        layoutParams.height = height
+
+        if (minMode) {
+            behavior.maxHeight = height
+
+            layoutParams.height = ViewGroup.LayoutParams.WRAP_CONTENT
+        }
+        else {
+            layoutParams.height = height
+        }
+
         bottomSheet.layoutParams = layoutParams
     }
 
