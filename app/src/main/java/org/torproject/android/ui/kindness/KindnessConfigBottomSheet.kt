@@ -10,7 +10,7 @@ import org.torproject.android.databinding.KindnessConfigBottomSheetBinding
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 import org.torproject.android.util.Prefs
 
-class KindnessConfigBottomSheet : OrbotBottomSheetDialogFragment() {
+class KindnessConfigBottomSheet : OrbotBottomSheetDialogFragment(true) {
 
     private lateinit var mBinding: KindnessConfigBottomSheetBinding
 
@@ -34,8 +34,6 @@ class KindnessConfigBottomSheet : OrbotBottomSheetDialogFragment() {
 
         return mBinding.root
     }
-
-    override fun getHeightRatio(): Float = 1/2f
 
     companion object {
         const val KEY_CONFIG_CHANGED = "kindness_config_changed"
