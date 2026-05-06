@@ -10,7 +10,7 @@ plugins {
 
 kotlin { jvmToolchain(25) }
 
-val orbotBaseVersionCode = 1793300100
+val orbotBaseVersionCode = 1794200100
 fun getVersionName(): Provider<String> {
     // Gets the version name from the latest Git tag
     return providers.exec {
@@ -21,9 +21,7 @@ fun getVersionName(): Provider<String> {
 configure<ApplicationExtension> {
     namespace = "org.torproject.android"
     compileSdk {
-        version = release(36) {
-            minorApiLevel = 1
-        }
+        version = release(37)
     }
 
     defaultConfig {

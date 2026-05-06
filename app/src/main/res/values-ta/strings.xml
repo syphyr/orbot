@@ -48,13 +48,13 @@
     <string name="enter_exit_nodes">வெளியேறும் முனைகளை உள்ளிடவும்</string>
     <string name="project_home">திட்ட வீடு:</string>
     <string name="exclude_nodes">முனைகளை விலக்கு</string>
-    <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">வெளியீட்டிற்கு பிழைத்திருத்த பதிவை இயக்கவும் (பார்க்க adb அல்லது aLogcat ஐப் பயன்படுத்த வேண்டும்)</string>
+    <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">வெளியீட்டிற்கு பிழைத்திருத்த பதிவை இயக்கவும் (பார்க்க எடிபி அல்லது aLogcat ஐப் பயன்படுத்த வேண்டும்)</string>
     <string name="snowflake_proxy_msg_title">இணைப்பு அறிவிப்பைக் காட்டு</string>
     <string name="snowflake_proxy_msg_description">தணிக்கை செய்ய யாராவது உதவும்போது ஒரு செய்தியைக் காட்டுங்கள்</string>
     <string name="pref_proxy_type_title">வெளிச்செல்லும் பதிலாள் வகை</string>
     <string name="vpn_default_world">உலகளாவிய (ஆட்டோ)</string>
     <string name="v3_hosted_services">புரவலன் செய்யப்பட்ட வெங்காய சேவைகள்</string>
-    <string name="v3_key_hash">x25519 Base32 இல் தனியார் விசை</string>
+    <string name="v3_key_hash">X25519 Base32 இல் தனியார் விசை</string>
     <string name="v3_onion">. ஒனியன் டொமைன்</string>
     <string name="v3_backup_key">காப்புப்பிரதி கிளையன்ட் அங்கீகார விசை</string>
     <string name="copy_address_to_clipboard">கிளிப்போர்டுக்கு முகவரியை நகலெடுக்கவும்</string>
@@ -67,7 +67,7 @@
     <string name="secure_your_connection_subtitle">பிணைய கண்காணிப்பிலிருந்து பயன்பாடுகளை மறைத்து, அவை தடுக்கப்படும்போது அணுகலைப் பெறுங்கள்.</string>
     <string name="snowflake">ச்னோஃப்ளேக்</string>
     <string name="ask_tor">டோர் கேளுங்கள்</string>
-    <string name="many_ways">டோர் ஐ அடைய பல வழிகள் உள்ளன. சிலர் உங்களுக்காக மற்றவர்களைவிட சிறப்பாகச் செயல்படக்கூடும்.</string>
+    <string name="many_ways">டோர் ஐ அடைய பல வழிகள் உள்ளன. சிலர் உங்களுக்காக மற்றவர்களைவிடச் சிறப்பாகச் செயல்படக்கூடும்.</string>
     <string name="pref_disable_network_title">பிணையம் ஆட்டோ ச்லீப் இல்லை</string>
     <string name="pref_socks_summary">துறைமுகம் அந்த டோர் அதன் சாக்ச் ப்ராக்சியை வழங்குகிறது (இயல்புநிலை: முடக்க 9050 அல்லது 0)</string>
     <string name="pref_socks_dialog">சாக்ச் துறைமுகம் கட்டமைப்பு</string>
@@ -124,7 +124,7 @@
     <string name="reachable_ports">அடையக்கூடிய துறைமுகங்கள்</string>
     <string name="ports_reachable_behind_a_restrictive_firewall">ஒரு கட்டுப்பாட்டு ஃபயர்வாலுக்கு பின்னால் துறைமுகங்கள் அடையக்கூடியவை</string>
     <string name="enter_ports">துறைமுகங்களை உள்ளிடவும்</string>
-    <string name="hidden_service_request">ஒரு பயன்பாடு டோர் நெட்வொர்க்கில் துறைமுகம் %1$s இல் வெங்காய சேவையகத்தைத் திறக்க விரும்புகிறது. நீங்கள் பயன்பாட்டை நம்பினால் இது பாதுகாப்பானது.</string>
+    <string name="hidden_service_request">ஒரு பயன்பாடு டோர் பிணையத்தில் துறைமுகம் %1$s இல் வெங்காய சேவையகத்தைத் திறக்க விரும்புகிறது. நீங்கள் பயன்பாட்டை நம்பினால் இது பாதுகாப்பானது.</string>
     <string name="pref_disable_network_summary">இணையம் இல்லாதபோது டோர் தூங்க வைக்கவும்</string>
     <string name="newnym">நீங்கள் ஒரு புதிய டோர் அடையாளத்திற்கு மாறிவிட்டீர்கள்!</string>
     <string name="pref_open_proxy_on_all_interfaces_title">அனைத்து இடைமுகங்களிலும் பதிலாள் திறக்கவும்</string>
@@ -218,9 +218,9 @@
     <string name="run_smart_connect_">சிறந்த வழியைக் கண்டுபிடிக்க அறிவுள்ள கனெக்டை இயக்கவும்</string>
     <string name="scan_qr_code">QR குறியீட்டை வருடு செய்யுங்கள்</string>
     <string name="orbot_vpn">Orbot vpn</string>
-    <string name="open_orbot_to_connect_to_tor">TOR உடன் இணைக்க ஆர்போட் திறக்கவும்</string>
+    <string name="open_orbot_to_connect_to_tor">டோர் உடன் இணைக்க ஆர்போட் திற</string>
     <string name="status_shutting_down">ஆர்போட் மூடப்படுகிறது</string>
-    <string name="connect_to_tor">TOR உடன் இணைக்கவும்</string>
+    <string name="connect_to_tor">டோர் உடன் இணை</string>
     <string name="orbot_config_invalid">சுற்றுப்பாதை உள்ளமைவு தவறானது</string>
     <string name="couldn_t_start_tor_process_">டோர் செயல்முறையைத் தொடங்க முடியவில்லை:</string>
     <string name="unable_to_start_tor">டோர் தொடங்க முடியவில்லை:</string>
@@ -282,7 +282,7 @@
     <string name="battery_optimization_dialog_msg_instructions">அடுத்த திரையில் Orbot → Allow background usage → Unrestricted என்பதைத் தேர்ந்தெடுக்கவும்.</string>
     <string name="battery_optimization_dialog_msg_disclaimer">பெரும்பாலான சாதனங்களில், பேட்டரி மேம்படுத்தல்களை முடக்குவது உங்கள் சாதனத்தின் பேட்டரியை வழக்கத்தை விட வேகமாக வெளியேற்றும் என்பதை நினைவில் கொள்ளவும்…</string>
     <string name="battery_optimizations_dialog_btn_disable">பேட்டரி மேம்படுத்தல் அமைப்புகளைத் திறக்கவும்</string>
-    <string name="battery_optimizations_dialog_msg_power_user">பவர் யூசர் பயன்முறையில் பின்னணி சேவையாக இயங்கும் போது சில ஆண்ட்ராய்டு சாதனங்கள் ஆர்போட்டை நிறுத்தலாம். ஆர்போட்டின் அமைப்புகளுக்குள்ளேயே பேட்டரி மேம்படுத்தல்களை எப்போது வேண்டுமானாலும் முடக்க/மீண்டும் இயக்க முடிவு செய்யலாம்.</string>
+    <string name="battery_optimizations_dialog_msg_power_user">சக்தி பயனர் பயன்முறையில் பின்னணி சேவையாக இயங்கும்போது சில ஆண்ட்ராய்டு சாதனங்கள் ஆர்போட்டை நிறுத்தலாம். ஆர்போட்டின் அமைப்புகளுக்குள்ளேயே பேட்டரி மேம்படுத்தல்களை எப்போது வேண்டுமானாலும் முடக்க/மீண்டும் இயக்க முடிவு செய்யலாம்…</string>
     <string name="battery_optimizations_are_disabled">தற்போது Orbotக்கு பேட்டரி மேம்படுத்தல்கள் முடக்கப்பட்டுள்ளன…</string>
     <string name="battery_optimizations_are_enabled">ஆர்போட்டிற்கான பேட்டரி மேம்படுத்தல்கள் தற்போது செயலில் உள்ளன. இது இயல்புநிலை மற்றும் பெரும்பாலான பயனர்களுக்கு நியாயமானது…</string>
     <string name="btn_connect_anyway">எப்படியும் இணைக்கவும்</string>

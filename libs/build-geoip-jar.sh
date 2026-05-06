@@ -6,11 +6,14 @@ cd "$BASE" || exit
 
 rm -rf assets
 
-mkdir assets
-cd assets || exit
+mkdir assets1
+cd assets1
 wget https://gitlab.torproject.org/tpo/core/tor/-/raw/main/src/config/geoip
 wget https://gitlab.torproject.org/tpo/core/tor/-/raw/main/src/config/geoip6
 cd ..
+
+mkdir assets
+mv assets1 assets/assets
 
 python3 reproducible_zip.py assets geoip_new.jar
 

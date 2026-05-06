@@ -92,7 +92,7 @@
     <string name="menu_new_identity">Identitat nova</string>
     <string name="user_services">Serveis d\'usuari</string>
     <string name="app_services">Serveis d\'aplicació</string>
-    <string name="btn_refresh">Refresca</string>
+    <string name="btn_refresh">Refresca la connexió</string>
     <string name="connected_title">Connectat</string>
     <string name="no_internet_title">Connecta a internet</string>
     <string name="action_activate">Activa</string>
@@ -117,7 +117,7 @@
     <string name="power_user_mode">Mode d\'usuari avançat</string>
     <string name="btn_choose_apps">Trieu aplicacions</string>
     <string name="v3_backup_key">Fes una còpia de seguretat de la clau de l\'autorització del client</string>
-    <string name="smart_connect">Connexió intel·ligent (predefinit)</string>
+    <string name="smart_connect">Connexió intel·ligent</string>
     <string name="apps_other_apps">Altres aplicacions</string>
     <string name="pref_reduced_circuit_padding_summary">Utilitza algoritmes de farciment amb una càrrega menor per a reduir l\'ús de dades i bateria</string>
     <string name="option_only_when_charging">Només quan s\'està carregant</string>
@@ -133,7 +133,7 @@
     <string name="setting_padding">Farciment</string>
     <string name="btn_configure">Trieu el tipus de connexió</string>
     <string name="option_only_on_wifi">Només amb Wi-Fi</string>
-    <string name="direct_connect">Connexió directa al Tor</string>
+    <string name="direct_connect">Connexió directa</string>
     <string name="v3_backup_name_hint">Nom de la còpia de seguretat…</string>
     <string name="pref_disable_ipv4">Desactiva les connexions IPv4</string>
     <string name="pref_isolate_port">Aïlla els ports de destinació</string>
@@ -183,7 +183,7 @@
     <string name="app_icon_chooser_label_birdie">Birdie</string>
     <string name="power_user_mode_permission">Calen permisos d\'alarmes i recordatoris per al mode Power User</string>
     <string name="power_user_mode_permission_msg">Permeteu a l\'Orbot establir alarmes i recordatoris per a poder usar el mode Power User. Això no establirà cap alarma real. Cal aquest permís perquè el sistema mantingui l\'OrbotService actiu quan l\'Orbot no s\'estigui utilitzant com a una VPN a escala de tot el sistema.</string>
-    <string name="error_no_password_set">Augmenteu la seguretat del dispositiu per a poder utilitzar l\'autenticació de l\'Orbot</string>
+    <string name="error_no_password_set">Cal que establiu una contrasenya per al dispositiu Android per a poder utilitzar la funció Blocatge de pantalla</string>
     <string name="unlock_app_msg" formatted="true">Desbloqueu el dispositiu per a poder utilitzar %s</string>
     <string name="error_asking_tor_for_bridges">Error en demanar al Tor com connectar</string>
     <string name="invalid_bridge_format">Format del pont no vàlid</string>
@@ -206,7 +206,7 @@
     <string name="bridge_meek_azure_subtitle">Emmascara el vostre tràfic. Evita alguns blocatges del Tor. Podria ser molt lent.</string>
     <string name="custom_bridges_subtitle">Demaneu en les vostres xarxes i organitzacions de confiança si algú hostatja un pont. Si no, una amistat us pot aconseguir ponts.</string>
     <string name="custom_bridges_description">Enganxeu a sota les adreces dels ponts que rebeu. O escanegeu el codi QR per a afegir-les. Les amistats us poden aconseguir ponts a %1$s.</string>
-    <string name="camo_samsung_instructions">Al vostre dispositiu Samsung Galaxy, les notificacions del Mode Camuflatge només funcionaran si obriu la Configuració -&gt; Notificacions -&gt; Configuració avançada i desactiveu «Mostra la icona de l\'aplicació a les notificacions». Feu clic aquí per a obrir la configuració de notificacions.</string>
+    <string name="camo_samsung_instructions">Al vostre dispositiu Samsung Galaxy, les notificacions de l\'Orbot només canviaran d\'icona si obriu la Configuració -&gt; Notificacions -&gt; Configuració avançada i desactiveu «Mostra la icona de l\'aplicació a les notificacions». Feu clic aquí per a obrir la configuració de notificacions.</string>
     <string name="request_notification_permission">Activeu les notificacions per a l\'Orbot</string>
     <string name="request_notification_permission_msg">Si no activeu les notificacions, l\'Orbot no pot actuar com a una VPN Tor o utilitzar el mode altruista.\n\nEn activar-les, només mostrarem una única notificació en iniciar l\'Orbot.</string>
     <string name="open_settings">Obre la configuració</string>
@@ -229,4 +229,49 @@
     <string name="log_notice_updating_torrc">S\'està actualitzant la configuració personalitzada del torrc…</string>
     <string name="note_snowflake_doesn_t_support_proxies">NOTA: Snowflake no és compatible amb els servidors intermediaris (proxy). La configuració del servidor intermediari s\'ignorarà als ponts del Snowflake.</string>
     <string name="set_transport">Estableix el transport</string>
+    <string name="app_icon_dialog_title" formatted="true">Canvia a %1$s</string>
+    <string name="app_icon_dialog_msg" formatted="true">Canviar a %1$s reiniciarà l\'aplicació</string>
+    <string name="added_bridges_from_qr">S\'estan afegint %1$d ponts des del codi QR</string>
+    <string name="invalid_bridge_qr_code">Codi QR del pont no vàlid</string>
+    <string name="you_already_have_these_bridges">Ja heu afegit els ponts d\'aquest codi QR</string>
+    <string name="search_for_apps">Cerca aplicacions</string>
+    <string name="apps_updated_msg">Aplicacions actualitzades</string>
+    <string name="title_safety">Seguretat</string>
+    <string name="setting_app_icon_title">Icona de l\'aplicació</string>
+    <string name="setting_app_icon_description">Trieu com apareix l\'Orbot al dispositiu</string>
+    <string name="setting_block_screenshot_title">Bloca les captures de pantalla</string>
+    <string name="setting_block_screenshot_description">Prevé que ningú faci captures de pantalla d\'aquesta aplicació</string>
+    <string name="setting_unlock_pass_title">Blocatge de pantalla</string>
+    <string name="setting_unlock_pass_description">Demana el vostre PIN, contrasenya o patró de lliscament per a obrir l\'Orbot</string>
+    <string name="setting_unlock_with_biometrics_title">Utilitza biometria (opcional)</string>
+    <string name="setting_unlock_with_biometrics_description">Desbloqueu l\'Orbot amb l\'empremta o Face ID si ho heu configurat al dispositiu.</string>
+    <string name="status_connected_control_port">S\'ha iniciat el servei Tor</string>
+    <string name="status_handshake">S\'està connectant a l\'entrada de la xarxa Tor</string>
+    <string name="status_handshake_done">S\'està entrant en la xarxa Tor</string>
+    <string name="status_circuit_create">S\'està configurant la connexió a través de la xarxa Tor</string>
+    <string name="status_done">Tot preparat!</string>
+    <string name="status_conn_pt">S\'està trobant una ruta alternativa a la xarxa Tor</string>
+    <string name="status_conn_done_pt">S\'ha establit una ruta alternativa</string>
+    <string name="status_conn_done">S\'ha connectat a l\'entrada de la xarxa Tor</string>
+    <string name="status_onehop_create">S\'està accedint al directori de la xarxa Tor</string>
+    <string name="status_enough_dirinfo">S\'ha carregat el directori de la xarxa Tor</string>
+    <string name="status_requesting_status">S\'està demanant l\'estat de la xarxa a Tor</string>
+    <string name="status_loading_status">S\'està carregant l\'estat de la xarxa</string>
+    <string name="status_requesting_descriptors">S\'està demanant informació del servidor de la xarxa</string>
+    <string name="status_loading_descriptors">S\'està carregant la informació del servidor de la xarxa</string>
+    <string name="loading">S\'està carregant…</string>
+    <string name="http_port">Port HTTP</string>
+    <string name="socks_port">Port SOCKS</string>
+    <string name="invalid_outbound_proxy_config">Configuració del servidor intermediari de sortida no vàlida</string>
+    <string name="bridge_dnstt">Túnel DNS</string>
+    <string name="my_country_optional">El meu país (opcional)</string>
+    <string name="country_clear">Elimina el país</string>
+    <string name="limit_dns_tunnel_use">Limita l\'ús del túnel DNS</string>
+    <string name="dns_tunnel_usage_description">Els túnels DNS prioritzen l\'accés sobre la velocitat i podrien semblar més lents. Recomanem activar-los només per a aplicacions essencials. No es recomana per a tramesa de vídeo.</string>
+    <string name="unable_to_start_orbot_vpn_title">No s\'ha pogut iniciar la VPN de l\'Orbot</string>
+    <string name="unable_to_start_legacy_vpn_error_msg">Hi ha un perfil VPN personalitzat configurat per a ser una VPN «sempre activa». Desactiveu-lo abans d\'iniciar l\'Orbot.</string>
+    <string name="unable_to_start_other_vpn_app_error_msg">L\'aplicació %1$s s\'ha configurat per a ser una VPN «sempre activa». Desactiveu-la abans d\'iniciar l\'Orbot.</string>
+    <string name="unable_to_start_unknown_reason_error_msg">El permís de la VPN s\'ha denegat, o altra aplicació VPN té activada la funció «sempre activa». Ho podeu descartar i reconnectar si heu tancat el diàleg de sol·licitud de permisos de VPN anterior per error. Els usuaris més tècnics poden fer servir una altra aplicació VPN i utilitzar el Tor com a servidor SOCKS activant el mode Power User de l\'Orbot.</string>
+    <string name="open_vpn_settings">Obre la configuració VPN d\'Android</string>
+    <string name="kindness_mode_cant_start">No s\'ha pogut iniciar el mode altruista</string>
 </resources>

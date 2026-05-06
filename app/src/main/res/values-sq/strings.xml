@@ -269,4 +269,27 @@
     <string name="my_country_optional">Vendi Im (opsionale)</string>
     <string name="country_clear">Hiqe Vendin</string>
     <string name="limit_dns_tunnel_use">Kufizo Përdorim Tuneli DNS</string>
+    <string name="menu_kindness">I sjellshëm</string>
+    <string name="dns_tunnel_usage_description">Tunelet DNS i japin përparësi aftësisë së shpejtësisë, në vend se shpejtësisë dhe mund të duken të ngadaltë. Rekomandojmë aktivizimin e tyre vetëm për aplikacione thelbësorë. Transmetimi i videove nuk rekomandohet.</string>
+    <string name="unable_to_start_orbot_vpn_title">S’arrihet të vihet në punë VPN-ja Orbot</string>
+    <string name="unable_to_start_legacy_vpn_error_msg">Ka një Profil VPN Vetjake të formësuar të jetë një VPN “Përherë aktive”. Ju lutemi, çaktivizojeni, para se të nisni Orbot-in.</string>
+    <string name="unable_to_start_other_vpn_app_error_msg">Aplikacioni %1$s është formësuar të jetë një VPN “Përherë aktiv”. Ju lutemi, çaktivizojeni, para se të nisni Orbot-in.</string>
+    <string name="unable_to_start_unknown_reason_error_msg">S’u dha leje për VPN, ose një tjetër aplikacion VPN ka të aktivizuar veçorinë “VPN përherë aktive”. Mund ta hidhni tej këtë sinjalizim dhe të rilidheni, nëse mbyllët gabimisht dialogun e mëparshëm Kërkesë për VPN. Përdoruesit e thelluar mund të përdorin një tjetër aplikacion VPN dhe të përdorin Tor-in si një Ndërmjetës SOCKS, duke aktivizuar Mënyrën “Përdorues i Thelluar” të Orbot-it.</string>
+    <string name="open_vpn_settings">Hap Rregullime VPN-je Android</string>
+    <string name="kindness_mode_cant_start">S’arrihet të Vihet Në Punë Mënyra “I sjellshëm”</string>
+    <string name="kindness_never_had_a_direct_connection">Që të mund të përdorni Mënyrën “I sjellshëm”, duhet të jeni lidhur drejtpërdrejt me Tor-in (pa përdorur ndonjë urë) të paktën një herë. Pasi të jeni lidhur, rikthehuni këtu, që të aktivizoni Mënyrën “I sjellshëm”. Pas plotësimit të kësaj prove për lidhje të drejtpërdrejtë, jeni të lirë të përdorni Mënyrën “I sjellshëm”, pavarësisht në jeni lidhur a jo me Tor-in.</string>
+    <string name="kindness_mode_cant_run_with_bridge">Mënyra “I sjellshëm” s’mund të përdoret teksa jeni duke përdorur një urë për t’u lidhur me Tor-in.</string>
+    <string name="kindness_mode_cant_run_in_your_country">Përdorimi i Mënyrës “I sjellshëm”, për të ndihmuar persona të tjerë të lidhen me Tor-in, aktualisht është i çaktivizuar për vendin tuaj, për shkak censurimi.</string>
+    <string name="kindness_mode_disclaimer_bridge">Mos e përdorni Mënyrën “I sjellshëm”, nëse gjendeni në një rajon ku censuroheni, ose nëse keni nevojë të përdorni një urë për t’u lidhur me Tor-in.</string>
+    <string name="battery_optimization_title">Çaktivizo Optimizime Baterie</string>
+    <string name="battery_optimization_pref_msg">Rregullim për disa përdorues që dyshojnë se pajisja e tyre po asgjëson para kohe Orbot-in teksa xhiron në prapaskenë.</string>
+    <string name="battery_optimization_dialog_msg">Disa pajisje Android mund ta asgjësojnë Orbot-in teksa ky funksionon në prapaskenë. Për shumicën e përdoruesve që duan të sigurohen se Orbot-i mbetet i lidhur dhe funksional, mjafton të zgjidhet për Orbot-in të funksionojë si një VPN “Përherë hapur”, që nga rregullimet e sistemit. Por, mundet prapëseprapë ta pengoni pajisjen tuaj të kryejë çfarëdo optimizimi baterie në Orbot, nëse mendoni se është e nevojshme.</string>
+    <string name="battery_optimization_dialog_msg_instructions">Në skenën pasuese përzgjidhni Orbot → Lejo përdorim në prapaskenë → E pakufizuar.</string>
+    <string name="battery_optimization_dialog_msg_disclaimer">Kini parasysh se për shumicën e pajisjeve, çaktivizimi i optimizimeve të baterisë do të harxhojë energjinë e baterisë së pajisjes tuaj më shpejt se zakonisht…</string>
+    <string name="battery_optimizations_dialog_btn_disable">Hap Rregullime Optimizimesh Baterie</string>
+    <string name="battery_optimizations_dialog_msg_power_user">Disa pajisje Android mund të reshtin funksionimin e Orbot-it, kur ky xhiron si një pajisje në prapaskenë nën Mënyrën “Përdorues i Thelluar”. Mundeni përherë të çaktivizoni/riaktivizoni optimizime baterie, kurdo më vonë, që nga rregullimet e Orbot-it…</string>
+    <string name="battery_optimizations_are_disabled">Optimizimet e Baterisë janë aktualisht të çaktivizuara për Orbot-in…</string>
+    <string name="battery_optimizations_are_enabled">Optimizimet e Baterisë janë aktualisht të aktivizuara për Orbot-in. Kjo është parazgjedhja dhe është e arsyeshme për shumicën e përdoruesve…</string>
+    <string name="btn_connect_anyway">Lidhu, Sido Qoftë</string>
+    <string name="btn_connect_anyway_stop_showing">Lidhu dhe Çaktivizoje Këtë Sinjalizim</string>
 </resources>

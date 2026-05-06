@@ -130,7 +130,6 @@ object OrbotConstants {
 
     val VPN_SUGGESTED_APPS = mutableListOf(
         "org.thoughtcrime.securesms",  // Signal
-        // "com.android.vending", // google play store
         "com.duckduckgo.mobile.android",
         "com.whatsapp",
         "com.instagram.android",
@@ -140,7 +139,10 @@ object OrbotConstants {
         "com.facebook.orca",
         "com.facebook.mlite",
         "com.brave.browser",
-        "org.mozilla.focus"
+        "org.mozilla.focus",
+        "app.vanadium.browser",
+        "im.molly.app",
+        "app.accrescent.client"
     )
 
     const val ONION_EMOJI: String = "\uD83E\uDDC5"

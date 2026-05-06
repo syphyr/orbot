@@ -10,7 +10,6 @@ import java.io.OutputStream
 
 class CustomTorResourceInstaller(private val context: Context, private val installFolder: File) {
 
-    // Extract the Tor resources from the APK file using ZIP
     @Throws(IOException::class)
     fun installGeoIP() {
         if (!installFolder.exists()) installFolder.mkdirs()
