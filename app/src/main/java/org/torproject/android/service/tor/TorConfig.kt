@@ -2,6 +2,7 @@ package org.torproject.android.service.tor
 
 import android.content.ContextWrapper
 import org.torproject.android.service.OrbotConstants
+import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.db.OnionServiceColumns
 import org.torproject.android.service.db.V3ClientAuthColumns
 import org.torproject.android.util.NetworkUtils
@@ -76,8 +77,9 @@ object TorConfig {
             conf.add("GeoIPv6File ${geoIp6File.canonicalPath}")
         }
 
+        // Entry nodes can only be defined, when no PT is used.
         val entryNodes = Prefs.entryNodes
-        if (!entryNodes.isNullOrEmpty()) conf.add("EntryNodes $entryNodes")
+        if (!entryNodes.isNullOrEmpty() && transport == Transport.NONE) conf.add("EntryNodes $entryNodes")
 
         val exitNodes = Prefs.exitNodes
         if (!exitNodes.isNullOrEmpty()) conf.add("ExitNodes $exitNodes")
