@@ -70,7 +70,7 @@ class TestingDialogFragment : DialogFragment() {
         // TODO: Add actual test:
         // - If connected to Tor without a bridge right now, we're fine: dismiss immediately like `btContinue`.
         // - If last test success timestamp is younger than 1 day, dismiss immediately like `btContinue`.
-        // - Else, set bridge to `NONE`, start Tor, wait until success or timeout.
+        // - Else, set bridge to `NONE`, DISABLE proxy, start Tor, wait until success or timeout.
         // - Stop Tor again, after test and restore original settings.
         // - Store timestamp of success in `Prefs`.
 
@@ -81,7 +81,7 @@ class TestingDialogFragment : DialogFragment() {
         }
 
         // TODO: @bitmold: Is this the correct way to test, if Tor is currently running without any bridges?
-        if (Prefs.useVpn() && Prefs.transport == Transport.NONE) {
+        if (Prefs.useVpn() && Prefs.transport == Transport.NONE && Prefs.outboundProxy.first == null) {
             Prefs.snowflakeNeedsQualityCheck = false
 
             mBinding.btContinue.callOnClick()
