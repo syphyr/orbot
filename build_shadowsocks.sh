@@ -11,35 +11,41 @@
 set -eo pipefail
 
 if ! command -v rustup >/dev/null 2>&1; then
-  echo >&2 "Error: rustup is not installed. Please install before running this script."
+  echo "Error: rustup is not installed. Please install before running this script."
+  echo ""
+  echo "To install rust if needed:"
+  echo "curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
   exit 1
 fi
 
-cd "$(dirname "$0")"
-ROOT="$(pwd -P)"
-BUILDDIR="$(mktemp -d)"
-LOG="$ROOT/build_shadowsocks.log"
+cd ..
 
-echo "Build log: $LOG"
+if [ ! -d shadowsocks-android ]; then
+   echo "Cloning shadowsocks-android repo"
+   git clone --recurse-submodules https://github.com/shadowsocks/shadowsocks-android
+fi
 
-cd "$BUILDDIR"
+cd shadowsocks-android
+echo "Updating shadowsocks-android repo"
+git fetch
+git submodule update --init --recursive
 
-echo "Builddir: $BUILDDIR" > "$LOG" 2>&1
+echo ""
+echo "Adding android native arm64 target for rust"
+#rustup target add armv7-linux-androideabi aarch64-linux-android i686-linux-android x86_64-linux-android
+rustup target add aarch64-linux-android
 
-echo "- Cloning shadowsocks-android and submodules…"
-git clone --recursive --shallow-submodules --depth 1 https://github.com/shadowsocks/shadowsocks-android >> "$LOG" 2>&1
+echo ""
+echo "Building shadowsocks-android library"
+#./gradlew mergeReleaseJniLibFolders
+./gradlew mergeReleaseJniLibFolders -PTARGET_ABI=arm64
 
-echo "- Adding android native targets for rust…"
-rustup target add armv7-linux-androideabi aarch64-linux-android x86_64-linux-android >> "$LOG" 2>&1
+cd core/build/rustJniLibs/android/
+echo "Built shadowsocks-android binaries:"
+ls -al *
 
-echo "- Building shadowsocks-android…"
-cd "shadowsocks-android"
-./gradlew mergeReleaseJniLibFolders -PTARGET_ABI=arm >> "$LOG" 2>&1
-./gradlew mergeReleaseJniLibFolders -PTARGET_ABI=arm64 >> "$LOG" 2>&1
-./gradlew mergeReleaseJniLibFolders -PTARGET_ABI=x86_64 >> "$LOG" 2>&1
-
-echo "- Copy created so files…"
-cp -a core/build/rustJniLibs/android/* "$ROOT/app/src/main/jniLibs/" >> "$LOG" 2>&1
-echo "- Cleanup…"
-cd "$ROOT"
-rm -rf "$BUILDDIR"
+echo ""
+cp -av arm64-v8a ../../../../../orbot/app/src/main/jniLibs/
+#cp -av armeabi-v7a ../../../../../orbot/app/src/main/jniLibs/
+#cp -av x86 ../../../../../orbot/app/src/main/jniLibs/
+#cp -av x86_64 ../../../../../orbot/app/src/main/jniLibs/
