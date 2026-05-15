@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.lifecycleScope
 import androidx.window.layout.WindowMetricsCalculator
@@ -14,11 +15,16 @@ import kotlinx.coroutines.launch
 import org.torproject.android.R
 import org.torproject.android.databinding.FragmentTestingBinding
 import org.torproject.android.service.circumvention.Transport
+import org.torproject.android.ui.connect.ConnectUiState
+import org.torproject.android.ui.connect.ConnectViewModel
 import org.torproject.android.util.Prefs
+import kotlin.getValue
 
 class TestingDialogFragment : DialogFragment() {
 
     private lateinit var mBinding: FragmentTestingBinding
+    val torConnectedViewModel: ConnectViewModel by activityViewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -52,7 +58,6 @@ class TestingDialogFragment : DialogFragment() {
 
     override fun onStart() {
         super.onStart()
-
         dialog?.window?.let { window ->
             val metrics = WindowMetricsCalculator.getOrCreate()
                 .computeCurrentWindowMetrics(requireActivity())
@@ -76,16 +81,12 @@ class TestingDialogFragment : DialogFragment() {
 
         if (!Prefs.snowflakeNeedsQualityCheck) {
             mBinding.btContinue.callOnClick()
-
             return
         }
 
-        // TODO: @bitmold: Is this the correct way to test, if Tor is currently running without any bridges?
-        if (Prefs.useVpn() && Prefs.transport == Transport.NONE && Prefs.outboundProxy.first == null) {
+        if (torConnectedViewModel.uiState.value == ConnectUiState.On  && Prefs.transport == Transport.NONE && Prefs.outboundProxy.first == null) {
             Prefs.snowflakeNeedsQualityCheck = false
-
             mBinding.btContinue.callOnClick()
-
             return
         }
 
