@@ -130,7 +130,7 @@
     <string name="pref_detect_root_summary">Bu enjam kökli bolsa, başlangyçda duýduryş beriň</string>
     <string name="app_description">Orbot, beýleki programmalara interneti has ygtybarly ulanmaga mümkinçilik berýän mugt proksi serwer programmasydyr. Tor arkaly, Orbot internet trafigiňizi şifrleýär we dünýäniň dürli kompýuterlerinden geçirip gizleýär. Tor, şahsy erkinligiňize we maglumatlaryňyza, gizlin iş amallaryna we gatnaşyklaryňyza, döwlet howpsuzlygy we traffigiň derňewi diýlip atlandyrylýan tor gözegçiliginden goraýan mugt programma üpjünçiligi we açyk ulgamdyr.</string>
     <string name="wizard_details_msg">Orbot; Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks we LibEvent gurluşlaryny öz içine alýan açyk çeşme programmasy. Tor network birikmek üçin ýerli HTTP proksi (8118) we SOCKS proksi (9050) üpjün edýär.</string>
-    <string name="pref_proxy_type_summary">Proksi serwerinde ulanmak üçin tor protokollary: HTTPS, SOCKS4, SOCKS5</string>
+    <string name="pref_proxy_type_summary">Proksi serwerinde ulanmak üçin tor protokollary</string>
     <string name="fingerprints_nicks_countries_and_addresses_for_the_last_hop">Barmak yzlary, gysgaltmalar, ýurtlar we soňky böküş üçin salgylar</string>
     <string name="pref_proxy_host_title">Çykýan Proksi Wekili</string>
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Gatnaşmajak barmak yzlary, gysgaltmalar, ýurtlar we salgylar</string>

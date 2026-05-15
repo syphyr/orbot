@@ -26,7 +26,7 @@
     <string name="pref_allow_background_starts_summary">إسمح لأي تطبيق بأن يُخبِر اوربت بأن يفعل تور مع الخدمات المرتبطة به</string>
     <string name="pref_proxy_title">وسيط الشبكة الصادرة (اختياري)</string>
     <string name="pref_proxy_type_title">نوع الوسيط الصادر</string>
-    <string name="pref_proxy_type_summary">البروتوكول المستخدم لخادم الوسيط:  HTTPS, Socks4, Socks5</string>
+    <string name="pref_proxy_type_summary">البروتوكول المستخدم لخادم الوسيط</string>
     <string name="pref_proxy_host_title">عنوان الوسيط الصادر</string>
     <string name="pref_proxy_host_summary">اسم مضيف خادم الوسيط</string>
     <string name="pref_proxy_port_title">منفذ الوسيط الصادر</string>

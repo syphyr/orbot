@@ -19,7 +19,7 @@
     <string name="pref_allow_background_starts_summary">Permet a qualsevol aplicació iniciar la xarxa Tor mitjançant l\'Orbot i els serveis relacionats</string>
     <string name="pref_proxy_title">Servidor intermediari de sortida a la xarxa (opcional)</string>
     <string name="pref_proxy_type_title">Tipus de servidor intermediari de sortida</string>
-    <string name="pref_proxy_type_summary">Protocol a utilitzar per al servidor intermediari: HTTPS, SOCKS4, SOCKS5</string>
+    <string name="pref_proxy_type_summary">Protocol a utilitzar per al servidor intermediari</string>
     <string name="pref_proxy_host_title">Amfitrió del servidor intermediari de sortida</string>
     <string name="pref_proxy_host_summary">Nom de l\'amfitrió del servidor intermediari</string>
     <string name="pref_proxy_port_title">Port del servidor intermediari de sortida</string>
@@ -274,4 +274,22 @@
     <string name="unable_to_start_unknown_reason_error_msg">El permís de la VPN s\'ha denegat, o altra aplicació VPN té activada la funció «sempre activa». Ho podeu descartar i reconnectar si heu tancat el diàleg de sol·licitud de permisos de VPN anterior per error. Els usuaris més tècnics poden fer servir una altra aplicació VPN i utilitzar el Tor com a servidor SOCKS activant el mode Power User de l\'Orbot.</string>
     <string name="open_vpn_settings">Obre la configuració VPN d\'Android</string>
     <string name="kindness_mode_cant_start">No s\'ha pogut iniciar el mode altruista</string>
+    <string name="pref_proxy_no_proxy">Cap servidor</string>
+    <string name="pref_proxy_ss_title">URL de la configuració del ShadowSocks</string>
+    <string name="pref_proxy_ss_summary">URL complet de la configuració del ShadowSocks que comenci per ss://</string>
+    <string name="kindness_never_had_a_direct_connection">Per a poder utilitzar el Mode altruista, cal que us hàgiu connectat al Tor directament (sense fer servir cap pont) almenys una vegada. En haver-vos connectat, torneu aquí per a activar el Mode altruista. En completar aquesta prova de connexió directa, podreu usar el Mode altruista tant si esteu connectat al Tor com si no.</string>
+    <string name="kindness_mode_cant_run_with_bridge">El Mode altruista no es pot executar mentre feu servir un pont per a connectar-vos a Tor.</string>
+    <string name="kindness_mode_cant_run_in_your_country">Actualment, no podeu utilitzar al vostre país el Mode altruista per a ajudar altres persones a connectar-se al Tor a causa de la censura.</string>
+    <string name="kindness_mode_disclaimer_bridge">No feu servir el Mode altruista si esteu en una regió on hi hagi censura, o si us cal utilitzar un pont per a connectar-vos al Tor.</string>
+    <string name="battery_optimization_title">Desactiva les optimitzacions de la bateria</string>
+    <string name="battery_optimization_pref_msg">Opció per a aquells usuaris qui sospitin que el seu dispositiu estigui tancant l\'Orbot de manera prematura mentre s\'executa al rerefons.</string>
+    <string name="battery_optimization_dialog_msg">Alguns dispositius Android podrien tancar l\'Orbot mentre s\'executa al rerefons. Per a la majoria d\'usuaris qui vulguin assegurar-se que l\'Orbot romangui en funcionament, n\'hi ha prou amb establir l\'Orbot perquè funcioni com una VPN «sempre activa» en la configuració del sistema. Tot i això, podríeu configurar el dispositiu perquè no faci cap optimització de la bateria amb l\'Orbot, si ho considereu necessari.</string>
+    <string name="battery_optimization_dialog_msg_instructions">En la pantalla següent, seleccioneu Orbot → Permet l\'ús al rerefons → Sense restriccions.</string>
+    <string name="battery_optimization_dialog_msg_disclaimer">Teniu en compte que, en la majoria dels dispositius, desactivar les optimitzacions de bateria farà que s\'esgoti més de pressa que de normal…</string>
+    <string name="battery_optimizations_dialog_btn_disable">Obre la configuració d\'optimització de la bateria</string>
+    <string name="battery_optimizations_dialog_msg_power_user">Alguns dispositius podrien tancar l\'Orbot quan s\'executa com a servei al rerefons en el mode d\'usuari avançat. Podeu decidir activar/desactivar les optimitzacions de la bateria més endavant des de la configuració de l\'Orbot…</string>
+    <string name="battery_optimizations_are_disabled">Les optimitzacions de la bateria es troben desactivades per a l\'Orbot…</string>
+    <string name="battery_optimizations_are_enabled">Les optimitzacions de la bateria es troben activades per a l\'Orbot. Això és el comportament predefinit, i adequat per a la majoria d\'usuaris…</string>
+    <string name="btn_connect_anyway">Connecta igualment</string>
+    <string name="btn_connect_anyway_stop_showing">Connecta i desactiva aquest avís</string>
 </resources>

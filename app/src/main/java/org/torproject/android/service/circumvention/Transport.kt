@@ -5,7 +5,9 @@ import IPtProxy.IPtProxy
 import IPtProxy.OnTransportEvents
 import android.content.Context
 import android.util.Log
+import org.torproject.android.service.tor.ShadowSocks
 import org.torproject.android.util.Prefs
+import java.net.URI
 
 enum class Transport(val id: String) {
 
@@ -136,16 +138,12 @@ enum class Transport(val id: String) {
         result.add("UseBridges ${if (this == NONE) "0" else "1"}")
 
         for (transport in transportNames) {
+            val port = controller.port(transport)
 
-            //sometimes there is a 0 for the port, which is invalid
-            if (controller.port(transport) > 0)
-                result.add(
-                    "ClientTransportPlugin $transport socks5 127.0.0.1:${
-                        controller.port(
-                            transport
-                        )
-                    }"
-                )
+            // Sometimes port == 0, which is invalid.
+            if (port in 1..<65536) {
+                result.add("ClientTransportPlugin $transport socks5 127.0.0.1:$port")
+            }
         }
 
         when (this) {
@@ -182,6 +180,14 @@ enum class Transport(val id: String) {
 
                                 result.add("Socks5ProxyPassword $password")
                             }
+                        }
+
+                        "ss" -> {
+                            // Start built-in ShadowSocks client.
+                            val address = ShadowSocks.start(context, proxy.toString())
+
+                            // Set local address of ShadowSocks client as proxy.
+                            result.add("Socks5Proxy $address")
                         }
                     }
                 }
@@ -307,11 +313,25 @@ enum class Transport(val id: String) {
             else -> Unit
         }
 
-        val pair = Prefs.outboundProxy
-        val proxy: String? = if (pair.first == null) null else pair.first.toString()
+        var proxy = Prefs.outboundProxy.first
 
         for (transport in transportNames) {
-            controller.start(transport, if (transport == IPtProxy.Snowflake) null else proxy)
+            when (transport) {
+                IPtProxy.Snowflake, IPtProxy.Dnstt -> {
+                    controller.start(transport, null)
+                }
+                else -> {
+                    // Still need to start ShadowSocks and get the right proxy config.
+                    if (proxy?.scheme == "ss") {
+                        val address = ShadowSocks.start(context, proxy.toString())
+
+                        // Since we rewrite `proxy` from `ss://` to `socks5://`, this won't be called again.
+                        proxy = URI("socks5://$address")
+                    }
+
+                    controller.start(transport, proxy.toString())
+                }
+            }
         }
     }
 

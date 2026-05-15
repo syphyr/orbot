@@ -19,7 +19,7 @@
     <string name="pref_allow_background_starts_summary">Дозволи било којој апликацији да нареди Орботу да покрене Тор и његове сервисе</string>
     <string name="pref_proxy_title">Мрежни прокси за одлазећи промет (Необавезно)</string>
     <string name="pref_proxy_type_title">Тип проксија за одлазећи промет</string>
-    <string name="pref_proxy_type_summary">Протокол који ће се користити за прокси сервер: HTTPS, Socks4, Socks5</string>
+    <string name="pref_proxy_type_summary">Протокол који ће се користити за прокси сервер</string>
     <string name="pref_proxy_host_title">Хост проксија за одлазећи промет</string>
     <string name="pref_proxy_host_summary">Име хоста за прокси сервер</string>
     <string name="pref_proxy_port_title">Порт проксија за одлазећи промет</string>

@@ -15,7 +15,7 @@
     <string name="pref_entrance_node_dialog">Masukkan Nod Kemasukan</string>
     <string name="pref_proxy_title">Laluan keluar jaringan proxy (tambahan)</string>
     <string name="pref_proxy_type_title">Jenis Proxy</string>
-    <string name="pref_proxy_type_summary">Protokol untuk digunakan pada pelayan proxy: HTTPS,Socks4,Socks5</string>
+    <string name="pref_proxy_type_summary">Protokol untuk digunakan pada pelayan proxy</string>
     <string name="pref_proxy_host_title">Hos Proxy</string>
     <string name="pref_proxy_host_summary">Nama hos pelayan proxy</string>
     <string name="pref_proxy_port_title">Port Proxy</string>

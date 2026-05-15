@@ -19,7 +19,7 @@
     <string name="pref_allow_background_starts_summary">Дозволити будь-якому застосунку звертатися до Orbot для запуску Tor і пов\'язаних з ним сервісів</string>
     <string name="pref_proxy_title">Вихідна проксі-мережа (необовʼязково)</string>
     <string name="pref_proxy_type_title">Тип вихідного проксі</string>
-    <string name="pref_proxy_type_summary">Протокол для використання проксі-сервером: HTTPS, Socks4, Socks5</string>
+    <string name="pref_proxy_type_summary">Протокол для використання проксі-сервером</string>
     <string name="pref_proxy_host_title">Вихідний проксі-хост</string>
     <string name="pref_proxy_host_summary">Ім\'я хосту проксі-сервера</string>
     <string name="pref_proxy_port_title">Вихідний проксі-порт</string>

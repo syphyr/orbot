@@ -37,7 +37,7 @@
     <string name="pref_allow_background_starts_summary">کسی بھی ایپ کو اوربوٹ کو ٹور اور متعلقہ سروسز شروع کرنے کا کہنے دیں</string>
     <string name="pref_proxy_title">آؤٹ باؤنڈ نیٹ ورک پراکسی (اختیاری)</string>
     <string name="pref_proxy_type_title">آؤٹ باؤنڈ پراکسی کی قسم</string>
-    <string name="pref_proxy_type_summary">پراکسی سرور کے لیے استعمال ہونے والا پروٹوکول: HTTPS، SOCKS4، SOCKS5</string>
+    <string name="pref_proxy_type_summary">پراکسی سرور کے لیے استعمال ہونے والا پروٹوکول</string>
     <string name="pref_proxy_host_title">آؤٹ باؤنڈ پراکسی ہوسٹ</string>
     <string name="pref_proxy_host_summary">پراکسی سرور کا ہوسٹ نیم</string>
     <string name="pref_proxy_port_title">آؤٹ باؤنڈ پراکسی پورٹ</string>

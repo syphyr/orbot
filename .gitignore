@@ -42,3 +42,6 @@ app/src/main/assets/LICENSE
 # gradle daemon JVM toolchain file, generate/update it by running 
 # ./gradlew updateDaemonJvm
 gradle/gradle-daemon-jvm.properties
+
+# build_shadowsocks.sh script log:
+build_shadowsocks.log

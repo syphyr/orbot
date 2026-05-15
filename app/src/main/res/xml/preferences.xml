@@ -239,10 +239,10 @@
             app:iconSpaceReserved="false" />
 
         <ListPreference
-            android:defaultValue="SOCKS5"
+            android:defaultValue=""
             android:dialogTitle="@string/pref_proxy_type_summary"
             android:entries="@array/proxy_types"
-            android:entryValues="@array/proxy_types"
+            android:entryValues="@array/proxy_type_values"
             android:key="pref_proxy_type"
             android:title="@string/pref_proxy_type_title"
             app:iconSpaceReserved="false"
@@ -274,6 +274,14 @@
             android:key="pref_proxy_password"
             android:title="@string/pref_proxy_password_title"
             app:iconSpaceReserved="false"
+            app:useSimpleSummaryProvider="true" />
+
+        <EditTextPreference
+            android:dialogTitle="@string/pref_proxy_ss_summary"
+            android:key="pref_proxy_ss"
+            android:title="@string/pref_proxy_ss_title"
+            app:iconSpaceReserved="false"
+            app:isPreferenceVisible="false"
             app:useSimpleSummaryProvider="true" />
 
     </PreferenceScreen>

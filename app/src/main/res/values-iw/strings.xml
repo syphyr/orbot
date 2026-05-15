@@ -24,7 +24,7 @@
     <string name="pref_entrance_node_summary">טביעות אצבע, כינויים, ארצות וכתובות עבור המעבר הראשון</string>
     <string name="pref_entrance_node_dialog">הכנס צמתי כניסה</string>
     <string name="pref_proxy_type_title">סוג מתווך יוצא</string>
-    <string name="pref_proxy_type_summary">פרוטוקול לשימוש בשרת הפרוקסי: HTTPS, Socks4,Socks5</string>
+    <string name="pref_proxy_type_summary">פרוטוקול לשימוש בשרת הפרוקסי</string>
     <string name="pref_proxy_host_title">מארח של Outbound Proxy</string>
     <string name="pref_proxy_host_summary">שם מארח שרת פרוקסי</string>
     <string name="pref_proxy_port_title">פתחה של Outbound Proxy</string>

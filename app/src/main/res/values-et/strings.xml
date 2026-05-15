@@ -16,7 +16,7 @@
     <string name="pref_entrance_node_dialog">Sisesta sisendsõlmed</string>
     <string name="pref_proxy_title">Väljuva võrgu proksi (Valikuline)</string>
     <string name="pref_proxy_type_title">Väljuva proksi tüüp</string>
-    <string name="pref_proxy_type_summary">Proksiserveri kasutamise protokoll: HTTPS, Socks4, Socks5</string>
+    <string name="pref_proxy_type_summary">Proksiserveri kasutamise protokoll</string>
     <string name="pref_proxy_host_title">Väljuva proksi seade</string>
     <string name="pref_proxy_host_summary">Proksiserveri seadmenimi</string>
     <string name="pref_proxy_port_title">Väljuva proksi port</string>

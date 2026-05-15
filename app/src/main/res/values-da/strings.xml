@@ -25,7 +25,7 @@
     <string name="pref_allow_background_starts_title">Tillad baggrunds starts</string>
     <string name="pref_proxy_title">Udgående netværksproxy (Valgfri)</string>
     <string name="pref_proxy_type_title">Udgående proxy-type</string>
-    <string name="pref_proxy_type_summary">Protokol til proxy serveren: HTTPS, Socks4, Socks5</string>
+    <string name="pref_proxy_type_summary">Protokol til proxy serveren</string>
     <string name="pref_proxy_host_title">Udgående proxy-vært</string>
     <string name="pref_proxy_host_summary">Værtsnavn for proxyserver</string>
     <string name="pref_proxy_port_title">Udgående proxy-port</string>

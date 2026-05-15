@@ -19,7 +19,7 @@
     <string name="pref_allow_background_starts_summary">Permetti a qualsiasi app di comunicare ad Orbot di avviare Tor e servizi relativi</string>
     <string name="pref_proxy_title">Proxy di rete in uscita (facoltativo)</string>
     <string name="pref_proxy_type_title">Tipo di proxy in uscita</string>
-    <string name="pref_proxy_type_summary">Protocolli da utilizzare per i server proxy: HTTPS, Socks4, Socks5</string>
+    <string name="pref_proxy_type_summary">Protocolli da utilizzare per i server proxy</string>
     <string name="pref_proxy_host_title">Host del proxy in uscita</string>
     <string name="pref_proxy_host_summary">Nome host del server proxy</string>
     <string name="pref_proxy_port_title">Porta del proxy in uscita</string>
@@ -284,4 +284,7 @@
     <string name="battery_optimizations_are_enabled">Le ottimizzazioni della batteria sono attualmente attive per Orbot. Ciò è predefinito ed è ragionevole per la maggior parte degli utenti…</string>
     <string name="btn_connect_anyway">Connetti comunque</string>
     <string name="btn_connect_anyway_stop_showing">Connetti e disattiva questo avviso</string>
+    <string name="pref_proxy_no_proxy">Nessun proxy</string>
+    <string name="pref_proxy_ss_title">URL di configurazione ShadowSocks</string>
+    <string name="pref_proxy_ss_summary">URL completo di configurazione ShadowSocks che inizia con ss://</string>
 </resources>

@@ -30,6 +30,7 @@ import org.torproject.android.service.circumvention.Transport;
 import org.torproject.android.service.db.OnionServiceColumns;
 import org.torproject.android.service.db.V3ClientAuthColumns;
 import org.torproject.android.service.tor.CustomTorResourceInstaller;
+import org.torproject.android.service.tor.ShadowSocks;
 import org.torproject.android.util.*;
 import org.torproject.android.service.tor.TorConfig;
 import org.torproject.android.service.vpn.OrbotVpnManager;
@@ -206,6 +207,9 @@ public class OrbotService extends VpnService {
                 Log.d(TAG, "error shutting down Tor from the control port");
             }
         }
+
+        // Stop ShadowSocks client, in case we started it.
+        ShadowSocks.stop();
 
         if (shouldUnbindTorService) {
             Log.d(TAG, "unbinding tor service");

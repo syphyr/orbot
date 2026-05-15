@@ -57,7 +57,7 @@
     <string name="pref_node_configuration_summary">Këto janë rregullime të thelluara që mund të reduktojnë anonimitetin tuaj</string>
     <string name="pref_entrance_node">Nyja Hyrjesh</string>
     <string name="pref_entrance_node_dialog">Jepni Nyja Hyrjesh</string>
-    <string name="pref_proxy_type_summary">Protokoll për t’u përdorur për shërbyes ndërmjetës: HTTPS, SOCKS4, SOCKS5</string>
+    <string name="pref_proxy_type_summary">Protokoll për t’u përdorur për shërbyes ndërmjetës</string>
     <string name="pref_proxy_host_summary">Strehëemër Shërbyesi Ndërmjetësi</string>
     <string name="pref_proxy_port_summary">Portë Shërbyesi Ndërmjetësi</string>
     <string name="pref_proxy_username_summary">Emër Përdoruesi Ndërmjetësi (Në daçi)</string>
@@ -292,4 +292,7 @@
     <string name="battery_optimizations_are_enabled">Optimizimet e Baterisë janë aktualisht të aktivizuara për Orbot-in. Kjo është parazgjedhja dhe është e arsyeshme për shumicën e përdoruesve…</string>
     <string name="btn_connect_anyway">Lidhu, Sido Qoftë</string>
     <string name="btn_connect_anyway_stop_showing">Lidhu dhe Çaktivizoje Këtë Sinjalizim</string>
+    <string name="pref_proxy_no_proxy">Pa Ndërmjetës</string>
+    <string name="pref_proxy_ss_title">URL Formësimi ShadowSocks-i</string>
+    <string name="pref_proxy_ss_summary">URL e plotë formësimi ShadowSocks-i fillon me ss://</string>
 </resources>

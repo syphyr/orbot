@@ -56,7 +56,7 @@
     <string name="pref_proxy_username_title">Outbound Proxy Username</string>
     <string name="pref_isolate_dest_summary">Use a different circuit for each destination address</string>
     <string name="pref_reduced_circuit_padding">Reduced circuit padding</string>
-    <string name="pref_proxy_type_summary">Proxy server protocol: HTTPS, SOCKS4, SOCKS5</string>
+    <string name="pref_proxy_type_summary">Proxy server protocol</string>
     <string name="pref_proxy_host_title">Outbound Proxy Host</string>
     <string name="enter_exclude_nodes">Enter Exclude Nodes</string>
     <string name="pref_disable_network_title">No Network Auto-Sleep</string>
@@ -292,4 +292,7 @@
     <string name="battery_optimizations_are_enabled">Battery Optimisations are currently active for Orbot. This is the default and is reasonable for most users…</string>
     <string name="btn_connect_anyway">Connect Anyway</string>
     <string name="btn_connect_anyway_stop_showing">Connect and Turn Off This Warning</string>
+    <string name="pref_proxy_no_proxy">No Proxy</string>
+    <string name="pref_proxy_ss_title">ShadowSocks Configuration URL</string>
+    <string name="pref_proxy_ss_summary">Full ShadowSocks configuration URL beginning with ss://</string>
 </resources>

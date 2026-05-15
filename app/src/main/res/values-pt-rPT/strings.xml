@@ -58,7 +58,7 @@
     <string name="ports_reachable_behind_a_restrictive_firewall">Portas alcançáveis por detrás de uma Firewal restritiva</string>
     <string name="pref_proxy_username_title">Nome do Utilizador do Proxy de Saída</string>
     <string name="pref_proxy_host_summary">Nome do Hospedeiro do Servidor Proxy</string>
-    <string name="pref_proxy_type_summary">Protocolo para usar para o servidor proxy: HTTPS, Socks4, Socks5</string>
+    <string name="pref_proxy_type_summary">Protocolo para usar para o servidor proxy</string>
     <string name="pref_proxy_port_summary">Porta do Servidor Proxy</string>
     <string name="pref_proxy_password_title">Palavra-passe do proxy de saída</string>
     <string name="pref_proxy_title">Proxy de Rede de Saída (Opcional)</string>

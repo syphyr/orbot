@@ -18,7 +18,7 @@
     <string name="pref_allow_background_starts_summary">Salli muiden sovellusten ohjata Orbotia käynnistämään Tor ja tarpeelliset palvelut.</string>
     <string name="pref_proxy_title">Lähtevä välityspalvelin (valinnainen)</string>
     <string name="pref_proxy_type_title">Välityspalvelimen tyyppi</string>
-    <string name="pref_proxy_type_summary">Lähtevän välityspalvelimen yhteysprotokolla: HTTPS, SOCKS4 tai SOCKS5.</string>
+    <string name="pref_proxy_type_summary">Lähtevän välityspalvelimen yhteysprotokolla</string>
     <string name="pref_proxy_host_title">Välityspalvelimen osoite</string>
     <string name="pref_proxy_host_summary">Lähtevän välityspalvelimen osoite.</string>
     <string name="pref_proxy_port_title">Välityspalvelimen portti</string>

@@ -242,10 +242,12 @@ class OrbotActivity : BaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        sendIntentToService(OrbotConstants.CMD_ACTIVE)
-        if (Prefs.beSnowflakeProxy())
-            SnowflakeProxyService.startSnowflakeProxyForegroundService(this)
 
+        sendIntentToService(OrbotConstants.CMD_ACTIVE)
+
+        if (Prefs.beSnowflakeProxy()) {
+            SnowflakeProxyService.startSnowflakeProxyForegroundService(this)
+        }
     }
 
     override fun onDestroy() {

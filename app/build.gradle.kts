@@ -114,6 +114,10 @@ configure<ApplicationExtension> {
         resources {
             excludes += listOf("META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version")
         }
+        jniLibs {
+            // Needed for shadowsocks-rust client to be available to execute.
+            useLegacyPackaging = true
+        }
     }
 
     lint {

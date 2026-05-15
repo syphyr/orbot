@@ -45,7 +45,7 @@
     <string name="pref_entrance_node_summary">Olion bysedd, nicks, gwledydd a chyfeiriadau ar gyfer y hop gyntaf</string>
     <string name="pref_proxy_type_title">Math Dirprwy Allannol</string>
     <string name="pref_start_boot_summary">Dechreuwch Orbot yn awtomatig a chysylltwch Tor pan fydd eich dyfais Android yn cychwyn</string>
-    <string name="pref_proxy_type_summary">Protocol i\'w ddefnyddio ar gyfer gweinydd dirprwyol: HTTPS, SOCKS4, SOCKS5</string>
+    <string name="pref_proxy_type_summary">Protocol i\'w ddefnyddio ar gyfer gweinydd dirprwyol</string>
     <string name="pref_proxy_title">Dirprwy Rhwydwaith Allanol (Dewisol)</string>
     <string name="pref_proxy_host_title">Gwesteiwr Procsi Allan</string>
     <string name="pref_start_boot_title">Dechreuwch Orbot ar Boot</string>

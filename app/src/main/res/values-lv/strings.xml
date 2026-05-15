@@ -18,7 +18,7 @@
     <string name="pref_allow_background_starts_summary">Norādīt visām lietotnēm uzdot Orbot palaist Tor un saistītos pakalpojumus.</string>
     <string name="pref_proxy_title">Tīkla ārejošais starpnieks (neobligāts)</string>
     <string name="pref_proxy_type_title">Ārvērstā starpnieka tips</string>
-    <string name="pref_proxy_type_summary">Starpnieka serverim izmantojamais protokols: HTTPS, Socks4, Socks5</string>
+    <string name="pref_proxy_type_summary">Starpnieka serverim izmantojamais protokols</string>
     <string name="pref_proxy_host_title">Ārvērstā starpnieka viesotājs</string>
     <string name="pref_proxy_host_summary">Starpniekservera mitinātājvārds</string>
     <string name="pref_proxy_port_title">Ārvērstā starpnieka ports</string>

@@ -111,7 +111,7 @@
     <string name="snowflake_proxy_msg_description">Zobrazenie správy, keď niekomu pomôžete obísť cenzúru</string>
     <string name="pref_start_boot_summary">Automatické spustenie Orbotu a pripojenie Tor pri spustení zariadenia so systémom Android</string>
     <string name="pref_entrance_node_summary">Odtlačky prstov, zárezy, krajiny a adresy pre prvý skok</string>
-    <string name="pref_proxy_type_summary">Protokol, ktorý sa má použiť pre proxy server: HTTPS, SOCKS4, SOCKS5</string>
+    <string name="pref_proxy_type_summary">Protokol, ktorý sa má použiť pre proxy server</string>
     <string name="pref_allow_background_starts_summary">Nechajte ľubovoľnú aplikáciu povedať Orbotu, aby spustil Tor a súvisiace služby</string>
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Odtlačky prstov, zárezy, krajiny a adresy na vylúčenie</string>
     <string name="pref_proxy_title">Odchádzajúci sieťový proxy server (voliteľné)</string>

@@ -224,6 +224,18 @@ object Prefs {
             val scheme = cr?.getPrefString("pref_proxy_type")?.lowercase()?.trim()
             if (scheme.isNullOrEmpty()) return Pair(null, null)
 
+            if (scheme == "ss") {
+                val config = cr?.getPrefString("pref_proxy_ss")?.trim()
+                if (config.isNullOrEmpty()) return Pair(null, null)
+
+                return try {
+                    Pair(URI(config), null)
+                }
+                catch (_: URISyntaxException) {
+                    Pair(null, config)
+                }
+            }
+
             val host = cr?.getPrefString("pref_proxy_host")?.trim()
             if (host.isNullOrEmpty()) return Pair(null, null)
 

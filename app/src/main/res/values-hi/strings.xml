@@ -27,7 +27,7 @@
     <string name="pref_allow_background_starts_summary">किसी भी ऐप को ऑरबॉट को टॉर और जुड़े हुए सेवा शुरू करने के लिए बोलने दें</string>
     <string name="pref_proxy_title">आउटबाउंड नेटवर्क प्रॉक्सी (ज़रूरी नहीं)</string>
     <string name="pref_proxy_type_title">आउटबाउंड प्रॉक्सी टाइप</string>
-    <string name="pref_proxy_type_summary">प्रॉक्सी सर्वर के लिए इस्तेमाल किए जानेवाले प्रोटोकॉल: एचटीटीपी, एचटीटीपीएस, सॉक्स4, सॉक्स5</string>
+    <string name="pref_proxy_type_summary">प्रॉक्सी सर्वर के लिए इस्तेमाल किए जानेवाले प्रोटोकॉल</string>
     <string name="pref_proxy_host_title">आउटबाउंड प्रॉक्सी होस्ट</string>
     <string name="pref_proxy_host_summary">प्रॉक्सी सर्वर होस्टनाम</string>
     <string name="pref_proxy_port_title">आउटबाउंड प्रॉक्सी पोर्ट</string>

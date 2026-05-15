@@ -18,7 +18,7 @@
     <string name="pref_allow_background_starts_summary">Приложенията да могат да искат от Orbot да стартира Тор и услуги на Тор</string>
     <string name="pref_proxy_title">Сървър на мрежов посредник на изходящата мрежа (по избор)</string>
     <string name="pref_proxy_type_title">Вид изходящ сървър за прокси</string>
-    <string name="pref_proxy_type_summary">Протокол на сървъра за прокси: HTTPS, SOCKS4, SOCKS5</string>
+    <string name="pref_proxy_type_summary">Протокол на сървъра за прокси</string>
     <string name="pref_proxy_host_title">Хост на изходящия сървър за прокси</string>
     <string name="pref_proxy_host_summary">Име на хоста на сървъра за прокси</string>
     <string name="pref_proxy_port_title">Порт на изходящия сървър за прокси</string>
@@ -199,7 +199,7 @@
     <string name="enter_bridge_address">Въведете адрес на мост</string>
     <string name="built_in_bridges_obfs4">Вградени мостове (obfs4)</string>
     <string name="run_smart_connect_">Намира най-добрия начин чрез Smart Connect</string>
-    <string name="built_in_bridges_obfs4_subtitle">Маскира трафик. Заобикаля някои ограничения на Tor. Добър вариант ако използвате отворена безжична мрежа и Tor не е ограничен в страната.</string>
+    <string name="built_in_bridges_obfs4_subtitle">Маскира трафика. Заобикаля някои ограничения на Tor. Добър вариант ако използвате отворена безжична мрежа и Tor не е ограничен в страната.</string>
     <string name="scan_qr_code">Сканиране на кода за QR</string>
     <string name="camo_samsung_instructions">На вашия Самсунг Галакси известието на Orbot ще смени иконата си само ако отворите Настройки → Известия → Разширени настройки и изключите „Показване пиктограмата на приложението в известията“. Докоснете, за да отворите настройките на известията.</string>
     <string name="status_starting_up">Орбот стартира…</string>
@@ -272,4 +272,14 @@
     <string name="unable_to_start_other_vpn_app_error_msg">Приложението %1$s е настроено да бъде винаги включена ВМЧ. Изключете го преди да стартирате Orbot.</string>
     <string name="open_vpn_settings">Настройки за ВЧМ на Андроид</string>
     <string name="unable_to_start_unknown_reason_error_msg">Разрешението за ВЧМ е отказано или друго приложение за ВЧМ е с настройка за винаги включена ВЧМ. Ако сте излезли от предния диалог по грешка можете да затворите това съобщение и да оптате повторно свързване. Потребителите с технически способности могат да използват друго приложение за ВЧМ и да използват Tor като прокси за SOCKS като включат режима за опитни потребители.</string>
+    <string name="country_clear">Премахване на държавата</string>
+    <string name="battery_optimization_title">Изключване оптимизиране на батерията</string>
+    <string name="battery_optimization_pref_msg">Настройка за потребителите, които подозират, че устройството им преждевременно изключва Orbot, докато приложението работи във фонов режим.</string>
+    <string name="kindness_mode_cant_start">Режим на доброта не може да бъде включен</string>
+    <string name="kindness_never_had_a_direct_connection">За да използвате Режим на доброта, трябва поне веднъж да сте се свързвали директно с Tor (без използване на мостове). След свързване се върнете тук, за да включите този режим. След като преминете този тест за директна връзка, можете да използвате Режим на доброта, независимо дали сте свързани с Tor или не.</string>
+    <string name="kindness_mode_cant_run_with_bridge">Не можете да използвате Режим на доброта докато сте свързани с Tor посредством мост.</string>
+    <string name="kindness_mode_cant_run_in_your_country">Режимът на доброта с цел подпомагане на други хора да се свържат с Tor в момента е изключен във вашата държава поради цензура.</string>
+    <string name="kindness_mode_disclaimer_bridge">Не използвайте Режим на доброта в райони с цензура или когато трябва да използвате мост за свързване с Tor.</string>
+    <string name="battery_optimizations_dialog_btn_disable">Настройки за оптимизиране на батерията</string>
+    <string name="btn_connect_anyway">Всързване въпреки това</string>
 </resources>
