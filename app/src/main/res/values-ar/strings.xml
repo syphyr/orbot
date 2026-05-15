@@ -292,4 +292,7 @@
     <string name="battery_optimizations_are_enabled">تحسينات البطارية مفعلة حاليًا لتطبيق Orbot. هذا هو الوضع الافتراضي وهو أمر معقول بالنسبة لمعظم المستخدمين…</string>
     <string name="btn_connect_anyway">اتصل على أي حال</string>
     <string name="btn_connect_anyway_stop_showing">اتصل وأوقف تشغيل هذا التحذير</string>
+    <string name="pref_proxy_no_proxy">لا وسيط</string>
+    <string name="pref_proxy_ss_title">رابط تضبيط ShadowSocks</string>
+    <string name="pref_proxy_ss_summary">رابط تضبيط ShadowSocks الكامل بيدأ بـ ss://</string>
 </resources>
