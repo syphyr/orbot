@@ -284,4 +284,7 @@
     <string name="battery_optimizations_are_enabled">Orbot のバッテリー最適化は現在有効になっています。これはデフォルトの設定であり、ほとんどのユーザーにとって適切な設定です。</string>
     <string name="btn_connect_anyway">とにかく接続する</string>
     <string name="btn_connect_anyway_stop_showing">接続してこの警告をオフにする</string>
+    <string name="pref_proxy_no_proxy">プロキシーなし</string>
+    <string name="pref_proxy_ss_title">ShadowSocks 構成 URL</string>
+    <string name="pref_proxy_ss_summary">ss:// で始まる完全な ShadowSocks 構成 URL</string>
 </resources>
