@@ -320,6 +320,7 @@ enum class Transport(val id: String) {
                 IPtProxy.Snowflake, IPtProxy.Dnstt -> {
                     controller.start(transport, null)
                 }
+
                 else -> {
                     // Still need to start ShadowSocks and get the right proxy config.
                     if (proxy?.scheme == "ss") {
@@ -329,7 +330,10 @@ enum class Transport(val id: String) {
                         proxy = URI("socks5://$address")
                     }
 
-                    controller.start(transport, proxy.toString())
+                    // VERY IMPORTANT  we say proxy?.toString() instead of proxy.toString()
+                    // the first returns null or a string representation whereas the second returns
+                    // either the string literal "null" or a string representation of proxy
+                    controller.start(transport, proxy?.toString())
                 }
             }
         }
