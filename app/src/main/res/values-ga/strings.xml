@@ -284,4 +284,7 @@
     <string name="battery_optimizations_are_enabled">Tá Optamaithe Ceallraí gníomhach faoi láthair do Orbot. Seo an réamhshocrú agus tá sé réasúnta do fhormhór na n-úsáideoirí…</string>
     <string name="btn_connect_anyway">Ceangail Ar Aon Slí</string>
     <string name="btn_connect_anyway_stop_showing">Ceangail agus Múch an Rabhadh seo</string>
+    <string name="pref_proxy_no_proxy">Gan Seachfhreastalaí</string>
+    <string name="pref_proxy_ss_title">URL Cumraíochta ShadowSocks</string>
+    <string name="pref_proxy_ss_summary">URL cumraíochta iomlán ShadowSocks ag tosú le ss://</string>
 </resources>
