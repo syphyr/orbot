@@ -36,7 +36,7 @@ class TestingDialogFragment : DialogFragment() {
 
     private var stoppedNormalTorConnection = false
 
-    private var testServiceConnection: ServiceConnection? = null
+    private var connectionTestServiceConnection: ServiceConnection? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -98,7 +98,7 @@ class TestingDialogFragment : DialogFragment() {
         // - Store timestamp of success in `Prefs`.
 
         if (!Prefs.snowflakeNeedsQualityCheck) {
-            Log.d(TAG, "we don't need a quality check!")
+            Log.wtf(TAG, "we don't need a quality check!")
             mBinding.btContinue.callOnClick()
             return
         }
@@ -106,7 +106,7 @@ class TestingDialogFragment : DialogFragment() {
         val torConnectionState = torConnectedViewModel.uiState.value
 
         if (torConnectionState == ConnectUiState.On && Prefs.transport == Transport.NONE && Prefs.outboundProxy.first == null) {
-            Log.d(TAG, "there's an active direct connection to tor, stop testing")
+            Log.wtf(TAG, "there's an active direct connection to tor, stop testing")
             Prefs.snowflakeNeedsQualityCheck = false
             mBinding.btContinue.callOnClick()
             return
@@ -114,7 +114,7 @@ class TestingDialogFragment : DialogFragment() {
 
         lifecycleScope.launch {
             if (torConnectionState is ConnectUiState.On || torConnectionState is ConnectUiState.Starting) {
-                Log.d(TAG, "OrbotService is running, we need to turn it off")
+                Log.wtf(TAG, "OrbotService is running, we need to turn it off")
                 stoppedNormalTorConnection = true
                 requireActivity().sendIntentToService(TorService.ACTION_STOP)
                 delay(250)
@@ -123,22 +123,34 @@ class TestingDialogFragment : DialogFragment() {
             if (torConnectedViewModel.uiState.value != ConnectUiState.Off) {
                 stoppedNormalTorConnection = false
                 showTestFailedUi()
-                Log.d(TAG, "OrbotService isn't off yet")
+                Log.wtf(TAG, "OrbotService isn't off yet")
             }
 
-            Log.d(TAG, "current tor state is ${torConnectedViewModel.uiState.value}")
+            Log.wtf(TAG, "current tor state is ${torConnectedViewModel.uiState.value}")
 
-            testServiceConnection = TestTorForSnowflakeProxyService.launchTorTestingService(
-                requireActivity(),
-                torStatusReceiver
-            )
+            connectionTestServiceConnection =
+                TestTorForSnowflakeProxyService.launchTorTestingService(
+                    requireActivity(),
+                    torStatusReceiver
+                )
+
+            delay(CONNECTION_TEST_TIMEOUT_MS)
+            // if we haven't established a connection, cleanup and show error state
+            if (connectionTestServiceConnection != null) {
+                Log.wtf(
+                    TAG,
+                    "Couldn't establish a tor connection after waiting for $CONNECTION_TEST_TIMEOUT_MS"
+                )
+                unbindServiceIfBound()
+                showTestFailedUi()
+            }
         }
     }
 
     val torStatusReceiver: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             val status = intent?.getStringExtra(EXTRA_STATUS)
-            Log.d(TAG, "Got tor status from testing service: $status")
+            Log.wtf(TAG, "Got tor status from testing service: $status")
             if (status == STATUS_ON) {
                 lifecycleScope.launch {
                     Prefs.snowflakeNeedsQualityCheck = false
@@ -146,7 +158,7 @@ class TestingDialogFragment : DialogFragment() {
                     showTestPassedUi()
                     if (stoppedNormalTorConnection) {
                         delay(250)
-                        Log.d(TAG, "relaunching OrbotService...")
+                        Log.wtf(TAG, "relaunching OrbotService...")
                         requireActivity().sendIntentToService(TorService.ACTION_START)
                     }
                 }
@@ -160,12 +172,12 @@ class TestingDialogFragment : DialogFragment() {
     }
 
     private fun unbindServiceIfBound() {
-        if (testServiceConnection != null) {
-            Log.d(TAG, "unregistering receiver, killing service")
-            val connection = testServiceConnection!!
+        if (connectionTestServiceConnection != null) {
+            Log.wtf(TAG, "unregistering receiver, killing service")
+            val connection = connectionTestServiceConnection!!
             requireActivity().unregisterReceiver(torStatusReceiver)
             requireActivity().unbindService(connection)
-            testServiceConnection = null
+            connectionTestServiceConnection = null
         }
     }
 
@@ -176,6 +188,7 @@ class TestingDialogFragment : DialogFragment() {
     }
 
     fun showTestFailedUi() {
+        Prefs.snowflakeNeedsQualityCheck = true
         mBinding.boxTesting.visibility = View.GONE
         mBinding.boxDeclined.visibility = View.VISIBLE
     }
@@ -183,6 +196,7 @@ class TestingDialogFragment : DialogFragment() {
     companion object {
         const val KEY_RESULT = "kindness_test_result"
         const val TAG = "TestingFragment"
+        const val CONNECTION_TEST_TIMEOUT_MS = 90 * 1000L
 
         fun show(fragmentManager: FragmentManager) {
             TestingDialogFragment().show(fragmentManager, TAG)
