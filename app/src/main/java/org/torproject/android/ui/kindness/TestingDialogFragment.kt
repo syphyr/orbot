@@ -14,7 +14,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
@@ -24,7 +23,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.window.layout.WindowMetricsCalculator
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import org.torproject.android.OrbotActivity
 import org.torproject.android.R
 import org.torproject.android.databinding.FragmentTestingBinding
 import org.torproject.android.service.circumvention.Transport
@@ -44,7 +42,16 @@ class TestingDialogFragment : DialogFragment() {
     private lateinit var mBinding: FragmentTestingBinding
     val torConnectedViewModel: ConnectViewModel by activityViewModels()
 
-    private var stoppedNormalTorConnection = false // TODo
+    private var stoppedNormalTorConnection = false
+    private var testServiceConnection = object : ServiceConnection {
+        override fun onServiceConnected(name: ComponentName?, binding: IBinder?) {
+            Log.wtf("bim", "onServiceConnected")
+        }
+
+        override fun onServiceDisconnected(name: ComponentName?) {
+            Log.wtf("bim", "onServiceDisconnected")
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -124,6 +131,7 @@ class TestingDialogFragment : DialogFragment() {
         lifecycleScope.launch {
             if (torConnectionState is ConnectUiState.On || torConnectionState is ConnectUiState.Starting) {
                 Log.wtf("bim", "tor is running, we need to turn it off")
+                stoppedNormalTorConnection = true
                 requireActivity().sendIntentToService(TorService.ACTION_STOP)
                 delay(250)
             } else {
@@ -131,10 +139,9 @@ class TestingDialogFragment : DialogFragment() {
             }
 
             if (torConnectedViewModel.uiState.value != ConnectUiState.Off) {
+                stoppedNormalTorConnection = false // it somehow didn't stop!
                 Log.wtf("bim", "tor isn't off yet, TODO cleanup, no need to unregister receiver")
             }
-
-            stoppedNormalTorConnection = true
 
             Log.wtf("bim", "current tor state is ${torConnectedViewModel.uiState.value}")
 
@@ -160,41 +167,41 @@ class TestingDialogFragment : DialogFragment() {
 
         orbotActivity.bindService( // this initiates a connection immediately
             Intent(orbotActivity, SnowflakeTestTorService::class.java),
-            object : ServiceConnection {
-                override fun onServiceConnected(p0: ComponentName?, p1: IBinder?) {
-                    Log.wtf("bim", "onServiceConnected")
-                }
-
-                override fun onServiceDisconnected(p0: ComponentName?) {
-                    Log.wtf("bim", "onServiceDisconnected")
-                }
-            },
+            testServiceConnection,
             BIND_AUTO_CREATE
         )
 
     }
 
-    val torStatusReceiver = object : BroadcastReceiver() {
+    val torStatusReceiver: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             val status = intent?.getStringExtra(EXTRA_STATUS)
             Log.wtf("bim", "got status $status")
-            Toast.makeText(requireActivity(), status, Toast.LENGTH_LONG).show()
             if (status == STATUS_ON) {
-                Log.wtf("bim", "setting flag")
-                Prefs.snowflakeNeedsQualityCheck = false
-                val orbotActivity = requireActivity()
-                Log.wtf("bim", "unregistering receiver")
-                orbotActivity.unregisterReceiver(this)
-                Log.wtf("bim", "killing service")
-                SnowflakeTestTorService.killService(orbotActivity)
-                setupTestPassUi()
+                lifecycleScope.launch {
+                    Log.wtf("bim", "setting flag")
+                    Prefs.snowflakeNeedsQualityCheck = false
+                    val orbotActivity = requireActivity()
+                    Log.wtf("bim", "unregistering receiver")
+                    orbotActivity.unregisterReceiver(torStatusReceiver)
+                    Log.wtf("bim", "killing service")
+                    orbotActivity.unbindService(testServiceConnection)
+                    setupTestPassUi()
+                    if (stoppedNormalTorConnection) {
+                        val restartDelay = 1000L
+                        Log.wtf("bim", "relaunching orbotservice in $restartDelay")
+                        delay(restartDelay)
+                        Log.wtf("bim", "restarting...")
+                        requireActivity().sendIntentToService(TorService.ACTION_START)
+                    }
+                }
             }
         }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        SnowflakeTestTorService.killService(requireActivity())
+        // TODO set connection to null, if its not null unbind it here
     }
 
     fun showDeclinedState() {
@@ -203,10 +210,8 @@ class TestingDialogFragment : DialogFragment() {
 
     fun setupTestPassUi() {
         Prefs.snowflakeNeedsQualityCheck = false
-
         mBinding.boxTesting.visibility = View.GONE
         mBinding.boxApproved.visibility = View.VISIBLE
-
     }
 
     companion object {
