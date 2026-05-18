@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
+import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -40,7 +41,8 @@ class TestingDialogFragment : DialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // TODO do something to ensure rotation change in fragment doesn't break things
+        // disable device rotation while this dialog is running
+        activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_NOSENSOR
     }
 
     override fun onCreateView(
@@ -169,6 +171,8 @@ class TestingDialogFragment : DialogFragment() {
     override fun onDestroy() {
         super.onDestroy()
         unbindServiceIfBound()
+        // restore device rotation
+        activity?.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR
     }
 
     private fun unbindServiceIfBound() {
