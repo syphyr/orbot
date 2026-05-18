@@ -107,6 +107,12 @@ class TestingDialogFragment : DialogFragment() {
 
         val torConnectionState = torConnectedViewModel.uiState.value
 
+        if (torConnectionState == ConnectUiState.NoInternet) {
+            Log.wtf(TAG, "user is offline, failing test")
+            showTestFailedUi()
+            return
+        }
+
         if (torConnectionState == ConnectUiState.On && Prefs.transport == Transport.NONE && Prefs.outboundProxy.first == null) {
             Log.wtf(TAG, "there's an active direct connection to tor, stop testing")
             Prefs.snowflakeNeedsQualityCheck = false
