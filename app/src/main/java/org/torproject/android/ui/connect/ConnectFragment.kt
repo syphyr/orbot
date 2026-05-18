@@ -304,7 +304,7 @@ class ConnectFragment : Fragment(),
     private fun doLayoutNoInternet() {
 
         binding.ivStatus.setImageResource(R.drawable.orbiesleeping)
-        binding.ivStatus.setOnClickListener { }
+        binding.ivStatus.setOnClickListener(null)
         stopAnimations()
 
         binding.tvSubtitle.visibility = View.VISIBLE
