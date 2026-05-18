@@ -1,6 +1,7 @@
 package org.torproject.android.ui.kindness
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +19,8 @@ import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.ui.connect.ConnectUiState
 import org.torproject.android.ui.connect.ConnectViewModel
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.sendIntentToService
+import org.torproject.jni.TorService
 import kotlin.getValue
 
 class TestingDialogFragment : DialogFragment() {
@@ -64,9 +67,11 @@ class TestingDialogFragment : DialogFragment() {
             val width = metrics.bounds.width()
             val height = metrics.bounds.height()
 
-            val dialogHeight = if (width > height) (height * 0.9f).toInt() else (height * 0.33f).toInt()
+            val dialogHeight =
+                if (width > height) (height * 0.9f).toInt() else (height * 0.33f).toInt()
 
-            val dialogWidth = if (width > height) (width * 0.33f).toInt() else (width * 0.9f).toInt()
+            val dialogWidth =
+                if (width > height) (width * 0.33f).toInt() else (width * 0.9f).toInt()
 
             window.setLayout(dialogWidth, dialogHeight)
             window.setBackgroundDrawableResource(android.R.color.transparent)
@@ -80,26 +85,44 @@ class TestingDialogFragment : DialogFragment() {
         // - Store timestamp of success in `Prefs`.
 
         if (!Prefs.snowflakeNeedsQualityCheck) {
+            Log.wtf("bim", "we dont need a quality check!")
             mBinding.btContinue.callOnClick()
             return
         }
 
-        if (torConnectedViewModel.uiState.value == ConnectUiState.On  && Prefs.transport == Transport.NONE && Prefs.outboundProxy.first == null) {
+        val torConnectionState = torConnectedViewModel.uiState.value
+
+        if (torConnectionState == ConnectUiState.On && Prefs.transport == Transport.NONE && Prefs.outboundProxy.first == null) {
+            Log.wtf("bim", "there's already a direct tor connection so drop things")
             Prefs.snowflakeNeedsQualityCheck = false
             mBinding.btContinue.callOnClick()
             return
         }
 
         lifecycleScope.launch {
-            // TODO: Replace with proper start of Tor (VPN vs. expert mode?)
-            //  and wait until successful connect or 90 second timeout.
-            delay(3000)
+            if (torConnectionState is ConnectUiState.On || torConnectionState is ConnectUiState.Starting) {
+                Log.wtf("bim", "tor is running, we need to turn it off")
+                requireActivity().sendIntentToService(TorService.ACTION_STOP)
+                delay(250)
+            } else {
+                Log.wtf("bim", "tor is not running")
+            }
 
-            Prefs.snowflakeNeedsQualityCheck = false
+            if (torConnectedViewModel.uiState.value != ConnectUiState.Off) {
+                Log.wtf("bim", "tor isn't off yet, TODO abort")
+            }
+            Log.wtf("bim", "current tor state is ${torConnectedViewModel.uiState.value}")
 
-            mBinding.boxTesting.visibility = View.GONE
-            mBinding.boxApproved.visibility = View.VISIBLE
+            // setupTestPassUi()
         }
+    }
+
+    fun setupTestPassUi() {
+        Prefs.snowflakeNeedsQualityCheck = false
+
+        mBinding.boxTesting.visibility = View.GONE
+        mBinding.boxApproved.visibility = View.VISIBLE
+
     }
 
     companion object {
@@ -108,5 +131,8 @@ class TestingDialogFragment : DialogFragment() {
         fun show(fragmentManager: FragmentManager) {
             TestingDialogFragment().show(fragmentManager, "TestingFragment")
         }
+
+        // TODO make this into a pref, or somewhere better than a static var
+        var TEST_UNDERWAY = false
     }
 }
