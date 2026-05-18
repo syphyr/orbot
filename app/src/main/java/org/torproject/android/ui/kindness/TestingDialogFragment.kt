@@ -1,10 +1,21 @@
 package org.torproject.android.ui.kindness
 
+import android.app.Activity
+import android.content.BroadcastReceiver
+import android.content.ComponentName
+import android.content.Context
+import android.content.Context.BIND_AUTO_CREATE
+import android.content.Intent
+import android.content.IntentFilter
+import android.content.ServiceConnection
 import android.os.Bundle
+import android.os.IBinder
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
@@ -13,14 +24,19 @@ import androidx.lifecycle.lifecycleScope
 import androidx.window.layout.WindowMetricsCalculator
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import org.torproject.android.OrbotActivity
 import org.torproject.android.R
 import org.torproject.android.databinding.FragmentTestingBinding
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.ui.connect.ConnectUiState
 import org.torproject.android.ui.connect.ConnectViewModel
+import org.torproject.android.util.DiskUtils
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.sendIntentToService
 import org.torproject.jni.TorService
+import org.torproject.jni.TorService.EXTRA_STATUS
+import org.torproject.jni.TorService.STATUS_ON
+import org.torproject.jni.TorService.getTorrc
 import kotlin.getValue
 
 class TestingDialogFragment : DialogFragment() {
@@ -28,6 +44,12 @@ class TestingDialogFragment : DialogFragment() {
     private lateinit var mBinding: FragmentTestingBinding
     val torConnectedViewModel: ConnectViewModel by activityViewModels()
 
+    private var stoppedNormalTorConnection = false // TODo
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        // TODO do something to ensure rotation change in fragment doesn't break things
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -109,12 +131,74 @@ class TestingDialogFragment : DialogFragment() {
             }
 
             if (torConnectedViewModel.uiState.value != ConnectUiState.Off) {
-                Log.wtf("bim", "tor isn't off yet, TODO abort")
+                Log.wtf("bim", "tor isn't off yet, TODO cleanup, no need to unregister receiver")
             }
+
+            stoppedNormalTorConnection = true
+
             Log.wtf("bim", "current tor state is ${torConnectedViewModel.uiState.value}")
+
+            Log.wtf("bim", "launching tor service")
+            launchTorTestService(requireActivity())
 
             // setupTestPassUi()
         }
+    }
+
+    private fun launchTorTestService(orbotActivity: Activity) {
+        // first, write the bare minimum to setup a direct connection to tor
+        val minimalTorrc = listOf("RunAsDaemon 1", "AvoidDiskWrites 1").joinToString("\n")
+        val torrcFile = getTorrc(orbotActivity)
+        DiskUtils.flushTextToFile(torrcFile, minimalTorrc, append = false)
+
+        ContextCompat.registerReceiver(
+            orbotActivity,
+            torStatusReceiver,
+            IntentFilter(TorService.ACTION_STATUS),
+            Context.RECEIVER_NOT_EXPORTED
+        )
+
+        orbotActivity.bindService( // this initiates a connection immediately
+            Intent(orbotActivity, SnowflakeTestTorService::class.java),
+            object : ServiceConnection {
+                override fun onServiceConnected(p0: ComponentName?, p1: IBinder?) {
+                    Log.wtf("bim", "onServiceConnected")
+                }
+
+                override fun onServiceDisconnected(p0: ComponentName?) {
+                    Log.wtf("bim", "onServiceDisconnected")
+                }
+            },
+            BIND_AUTO_CREATE
+        )
+
+    }
+
+    val torStatusReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            val status = intent?.getStringExtra(EXTRA_STATUS)
+            Log.wtf("bim", "got status $status")
+            Toast.makeText(requireActivity(), status, Toast.LENGTH_LONG).show()
+            if (status == STATUS_ON) {
+                Log.wtf("bim", "setting flag")
+                Prefs.snowflakeNeedsQualityCheck = false
+                val orbotActivity = requireActivity()
+                Log.wtf("bim", "unregistering receiver")
+                orbotActivity.unregisterReceiver(this)
+                Log.wtf("bim", "killing service")
+                SnowflakeTestTorService.killService(orbotActivity)
+                setupTestPassUi()
+            }
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        SnowflakeTestTorService.killService(requireActivity())
+    }
+
+    fun showDeclinedState() {
+
     }
 
     fun setupTestPassUi() {
