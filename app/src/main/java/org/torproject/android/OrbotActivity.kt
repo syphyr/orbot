@@ -27,6 +27,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scottyab.rootbeer.RootBeer
 import org.torproject.android.service.OrbotConstants
+import org.torproject.android.ui.connect.ConnectUiState
 import org.torproject.android.ui.connect.ConnectViewModel
 import org.torproject.android.ui.connect.RequestPostNotificationPermission
 import org.torproject.android.ui.core.BaseActivity
@@ -243,7 +244,9 @@ class OrbotActivity : BaseActivity() {
     override fun onResume() {
         super.onResume()
 
-        sendIntentToService(OrbotConstants.CMD_ACTIVE)
+        if (connectViewModel.uiState.value == ConnectUiState.On) {
+            sendIntentToService(OrbotConstants.CMD_ACTIVE)
+        }
 
         if (Prefs.beSnowflakeProxy()) {
             SnowflakeProxyService.startSnowflakeProxyForegroundService(this)
