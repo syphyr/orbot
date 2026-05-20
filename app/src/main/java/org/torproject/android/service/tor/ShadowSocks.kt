@@ -95,6 +95,6 @@ object ShadowSocks {
 
     @JvmStatic
     fun isShadowSocksSupported(): Boolean {
-        return Build.SUPPORTED_ABIS.firstOrNull()?.equals("x86") == true
+        return Build.SUPPORTED_ABIS.firstOrNull()?.equals("x86") != true
     }
 }
