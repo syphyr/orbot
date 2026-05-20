@@ -220,7 +220,7 @@ object Prefs {
             val scheme = cr?.getPrefString("pref_proxy_type")?.lowercase()?.trim()
             if (scheme.isNullOrEmpty()) return Pair(null, null)
 
-            if (scheme == ShadowSocks.SHADOW_SOCKS_SCHEME) {
+            if (scheme == ShadowSocks.SCHEME) {
                 val config = cr?.getPrefString("pref_proxy_ss")?.trim()
                 if (config.isNullOrEmpty()) return Pair(null, null)
 

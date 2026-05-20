@@ -37,6 +37,8 @@ import java.net.ServerSocket
  */
 object ShadowSocks {
 
+    const val SCHEME = "ss"
+
     private var process: Process? = null
 
     /**
@@ -91,11 +93,8 @@ object ShadowSocks {
         }
     }
 
-    const val SHADOW_SOCKS_SCHEME = "ss"
-
     @JvmStatic
     fun isShadowSocksSupported(): Boolean {
         return Build.SUPPORTED_ABIS.firstOrNull()?.equals("x86") == true
     }
-
 }

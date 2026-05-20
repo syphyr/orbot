@@ -136,7 +136,7 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
                 ssConfig?.isVisible = false
             }
 
-            ShadowSocks.SHADOW_SOCKS_SCHEME -> {
+            ShadowSocks.SCHEME -> {
                 common.forEach { it.isVisible = false }
                 ssConfig?.isVisible = true
             }
