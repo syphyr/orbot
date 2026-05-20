@@ -17,6 +17,7 @@ import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 import java.text.Normalizer
 import androidx.core.net.toUri
+import androidx.preference.ListPreference
 
 /**
  * Extension function for `Intent` to add a flag that marks the intent as originating
@@ -132,4 +133,18 @@ fun Fragment.haveIBeenDetached(): Boolean {
     if (retVal)
         Log.d(javaClass.simpleName, "has been detached on (other) Thread, aborting...")
     return retVal
+}
+
+fun ListPreference.removeEntry(label: String) {
+    val entries = entries?.toMutableList() ?: return
+    val entryValues = entryValues?.toMutableList() ?: return
+
+    val index = entryValues.indexOf(label)
+    if (index == -1) return
+
+    entries.removeAt(index)
+    entryValues.removeAt(index)
+
+    this.entries = entries.toTypedArray()
+    this.entryValues = entryValues.toTypedArray()
 }
