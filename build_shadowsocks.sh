@@ -38,7 +38,7 @@ cd "shadowsocks-android"
 
 echo "- Copy created so files…"
 cp -a core/build/rustJniLibs/android/* "$ROOT/app/src/main/jniLibs/" >> "$LOG" 2>&1
-rm "app/src/main/jniLibs/x86/libsslocal.so"
+rm -rf "$ROOT/app/src/main/jniLibs/x86" >> "$LOG" 2>&1
 echo "- Cleanup…"
 cd "$ROOT"
 rm -rf "$BUILDDIR"
