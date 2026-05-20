@@ -45,6 +45,7 @@ object ShadowSocks {
      */
     @JvmStatic
     fun start(context: Context, serverUrl: String): String {
+        if (!isShadowSocksSupported()) return ""
         stop()
 
         val file = File(context.applicationInfo.nativeLibraryDir, "libsslocal.so")
@@ -76,17 +77,25 @@ object ShadowSocks {
 
     @JvmStatic
     fun stop() {
+        if (!isShadowSocksSupported()) return
         if (process != null) {
             Log.d("ShadowSocks", "Stop running ShadowSocks client.")
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 process?.destroyForcibly()
-            }
-            else {
+            } else {
                 process?.destroy()
             }
 
             process = null
         }
     }
+
+    const val SHADOW_SOCKS_SCHEME = "ss"
+
+    @JvmStatic
+    fun isShadowSocksSupported(): Boolean {
+        return Build.SUPPORTED_ABIS.firstOrNull()?.equals("x86") == true
+    }
+
 }

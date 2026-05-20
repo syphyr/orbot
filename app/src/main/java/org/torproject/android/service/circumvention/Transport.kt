@@ -182,12 +182,14 @@ enum class Transport(val id: String) {
                             }
                         }
 
-                        "ss" -> {
-                            // Start built-in ShadowSocks client.
-                            val address = ShadowSocks.start(context, proxy.toString())
+                        ShadowSocks.SHADOW_SOCKS_SCHEME -> {
+                            if (ShadowSocks.isShadowSocksSupported()) {
+                                // Start built-in ShadowSocks client.
+                                val address = ShadowSocks.start(context, proxy.toString())
 
-                            // Set local address of ShadowSocks client as proxy.
-                            result.add("Socks5Proxy $address")
+                                // Set local address of ShadowSocks client as proxy.
+                                result.add("Socks5Proxy $address")
+                            }
                         }
                     }
                 }
@@ -323,7 +325,7 @@ enum class Transport(val id: String) {
 
                 else -> {
                     // Still need to start ShadowSocks and get the right proxy config.
-                    if (proxy?.scheme == "ss") {
+                    if (proxy?.scheme == ShadowSocks.SHADOW_SOCKS_SCHEME && ShadowSocks.isShadowSocksSupported()) {
                         val address = ShadowSocks.start(context, proxy.toString())
 
                         // Since we rewrite `proxy` from `ss://` to `socks5://`, this won't be called again.

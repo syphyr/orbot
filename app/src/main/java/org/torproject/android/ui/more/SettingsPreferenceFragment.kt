@@ -17,7 +17,9 @@ import org.torproject.android.OrbotApp
 import org.torproject.android.R
 import org.torproject.android.localization.Languages
 import org.torproject.android.service.OrbotConstants
+import org.torproject.android.service.tor.ShadowSocks
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.removeEntry
 import org.torproject.android.util.sendIntentToService
 
 class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceChangeListener {
@@ -107,6 +109,7 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
             }
 
         val proxyType = findPreference<ListPreference>("pref_proxy_type")
+        if (!ShadowSocks.isShadowSocksSupported()) proxyType?.removeEntry(ShadowSocks.SHADOW_SOCKS_SCHEME)
 
         if (proxyType != null) {
             proxyType.onPreferenceChangeListener = this
@@ -132,10 +135,12 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
                 common.forEach { it.isVisible = false }
                 ssConfig?.isVisible = false
             }
-            "ss" -> {
+
+            ShadowSocks.SHADOW_SOCKS_SCHEME -> {
                 common.forEach { it.isVisible = false }
                 ssConfig?.isVisible = true
             }
+
             else -> {
                 common.forEach { it.isVisible = true }
                 ssConfig?.isVisible = false

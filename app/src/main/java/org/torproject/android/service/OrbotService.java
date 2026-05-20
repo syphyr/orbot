@@ -209,7 +209,9 @@ public class OrbotService extends VpnService {
         }
 
         // Stop ShadowSocks client, in case we started it.
-        ShadowSocks.stop();
+        if (ShadowSocks.isShadowSocksSupported()) {
+            ShadowSocks.stop();
+        }
 
         if (shouldUnbindTorService) {
             Log.d(TAG, "unbinding tor service");
