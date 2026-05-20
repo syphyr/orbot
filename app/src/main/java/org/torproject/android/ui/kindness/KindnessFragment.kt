@@ -6,12 +6,14 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
+import android.content.res.ColorStateList
 import android.os.Bundle
 import android.os.IBinder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.net.toUri
+import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -19,6 +21,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.launch
 import org.torproject.android.R
 import org.torproject.android.databinding.FragmentKindnessBinding
+import org.torproject.android.service.circumvention.CensoredCountries
 import org.torproject.android.util.Prefs
 
 class KindnessFragment : Fragment() {
@@ -76,6 +79,23 @@ class KindnessFragment : Fragment() {
             TestingDialogFragment.show(parentFragmentManager)
         }
 
+        if (CensoredCountries.isKindnessModeAvailableForCountry()) {
+            mBinding.btnActionActivate.isEnabled = false
+
+            // set text explaining that kindness mode isn't available from the user's country
+            mBinding.tvActivateInstructions?.setText(R.string.kindness_mode_unsupported_country)
+
+            // set the activate button to be gray, making it not the primary button
+            ViewCompat.setBackgroundTintList(
+                mBinding.btnActionActivate,
+                ColorStateList.valueOf(resources.getColor(R.color.orbot_btn_disable_grey))
+            )
+            ViewCompat.setBackgroundTintList(
+                mBinding.btnActionLearnMore,
+                ColorStateList.valueOf(resources.getColor(R.color.orbot_btn_enabled_purple))
+            )
+        }
+
         mBinding.btnActionLearnMore.setOnClickListener {
             val i = Intent(Intent.ACTION_VIEW, "https://orbot.app/kindness".toUri())
             val pm = context?.packageManager
@@ -89,13 +109,15 @@ class KindnessFragment : Fragment() {
 
         parentFragmentManager.setFragmentResultListener(
             KindnessConfigBottomSheet.KEY_CONFIG_CHANGED,
-             viewLifecycleOwner) { _, _ ->
-                updateUsageLimitsUi()
-            }
+            viewLifecycleOwner
+        ) { _, _ ->
+            updateUsageLimitsUi()
+        }
 
         parentFragmentManager.setFragmentResultListener(
             TestingDialogFragment.KEY_RESULT,
-            viewLifecycleOwner) { _, bundle ->
+            viewLifecycleOwner
+        ) { _, bundle ->
 
             if (bundle.getBoolean(TestingDialogFragment.KEY_RESULT)) {
                 if (!Prefs.snowflakeNeedsQualityCheck) {
@@ -162,8 +184,7 @@ class KindnessFragment : Fragment() {
         if (natType == IPtProxy.NATRestricted) {
             mBinding.redDot.visibility = View.VISIBLE
             mBinding.chevron2.visibility = View.VISIBLE
-        }
-        else {
+        } else {
             mBinding.redDot.visibility = View.GONE
             mBinding.chevron2.visibility = View.GONE
         }
@@ -171,9 +192,11 @@ class KindnessFragment : Fragment() {
 
     private fun updateUsageLimitsUi() {
         mBinding.tvUsageLimitsStatus.text =
-            getString(if (Prefs.limitSnowflakeProxyingWifi() || Prefs.limitSnowflakeProxyingCharging())
-                R.string.kindness_usage_limits_status_on
-            else R.string.kindness_usage_limits_status_off)
+            getString(
+                if (Prefs.limitSnowflakeProxyingWifi() || Prefs.limitSnowflakeProxyingCharging())
+                    R.string.kindness_usage_limits_status_on
+                else R.string.kindness_usage_limits_status_off
+            )
     }
 
     private fun showQualityHint() {
@@ -181,9 +204,13 @@ class KindnessFragment : Fragment() {
 
         AlertDialog.Builder(context)
             .setTitle(R.string.kindness_quality_upgrade_title)
-            .setMessage(String.format("%s\n\n%s",
-                getString(R.string.kindness_quality_upgrade_line1),
-                getString(R.string.kindness_quality_upgrade_line2)))
+            .setMessage(
+                String.format(
+                    "%s\n\n%s",
+                    getString(R.string.kindness_quality_upgrade_line1),
+                    getString(R.string.kindness_quality_upgrade_line2)
+                )
+            )
             .setPositiveButton(android.R.string.ok, null)
             .show()
     }

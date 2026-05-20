@@ -334,6 +334,7 @@
     <string name="open_vpn_settings">Open Android VPN Settings</string>
 
     <string name="kindness_mode_disclaimer_bridge">Activate if the internet in your country is not heavily censored.</string>
+    <string name="kindness_mode_unsupported_country">Thank you so much for your interest in helping others connect to Tor. Unfortunately, Kindness Mode isn\'t available in your country at this time. We appreciate your generosity.</string>
 
     <string name="battery_optimization_title">Disable Battery Optimizations</string>
     <string name="battery_optimization_pref_msg">Setting for some users that suspect their device is prematurely killing Orbot while it runs in the background.</string>

@@ -25,7 +25,7 @@ import org.torproject.android.R
 import org.torproject.android.databinding.ConfigConnectionBottomSheetBinding
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.AutoConf
-import org.torproject.android.service.circumvention.BuiltInBridges
+import org.torproject.android.service.circumvention.CensoredCountries
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
@@ -91,7 +91,7 @@ class ConfigConnectionBottomSheet :
         binding.acCountry.onItemClickListener = this
 
         binding.dnsttContainer.visibility =
-            if (BuiltInBridges.dnsCountries.contains(selectedCountryCode?.lowercase())) View.VISIBLE else View.GONE
+            if (CensoredCountries.isDnsttEnabledForCountry(selectedCountryCode)) View.VISIBLE else View.GONE
 
         radios = arrayListOf(
             binding.rbDirect,
@@ -429,7 +429,7 @@ class ConfigConnectionBottomSheet :
     }
 
     private fun updateDnsttVisibility() {
-        if (BuiltInBridges.dnsCountries.contains(selectedCountryCode?.lowercase())) {
+        if (CensoredCountries.isDnsttEnabledForCountry(selectedCountryCode)) {
             binding.dnsttContainer.visibility = View.VISIBLE
         } else {
             binding.dnsttContainer.visibility = View.GONE

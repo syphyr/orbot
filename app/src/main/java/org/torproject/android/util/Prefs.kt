@@ -6,6 +6,7 @@ import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
 import org.torproject.android.service.OrbotConstants
+import org.torproject.android.service.circumvention.CensoredCountries
 import org.torproject.android.service.circumvention.Transport
 import java.net.URI
 import java.net.URISyntaxException
@@ -14,6 +15,7 @@ import java.util.concurrent.TimeUnit
 
 object Prefs {
     private const val PREF_BRIDGES_LIST = "pref_bridges_list"
+    private const val PREF_BRIDGE_COUNTRY = "pref_bridge_country"
     private const val PREF_DEFAULT_LOCALE = "pref_default_locale"
     private const val PREF_DETECT_ROOT = "pref_detect_root"
     private const val PREF_ENABLE_LOGGING = "pref_enable_logging"
@@ -100,8 +102,15 @@ object Prefs {
         }
 
     var bridgeCountry: String?
-        get() = cr?.getPrefString("pref_bridge_country")
-        set(value) = cr?.putPref("pref_bridge_country", value) ?: Unit
+        get() = cr?.getPrefString(PREF_BRIDGE_COUNTRY)
+        set(value) {
+            cr?.let {
+                it.putPref(PREF_BRIDGE_COUNTRY, value)
+                if (CensoredCountries.isKindnessModeAvailableForCountry()) {
+                    setBeSnowflakeProxy(beSnowflakeProxy = false)
+                }
+            }
+        }
 
     @JvmStatic
     var defaultLocale: String
@@ -171,7 +180,10 @@ object Prefs {
             return last <= System.currentTimeMillis() - 24 * 60 * 60 * 1000
         }
         set(value) {
-            cr?.putPref(PREF_LAST_SNOWFLAKE_QUALITY_CHECK, if (value) 0 else System.currentTimeMillis())
+            cr?.putPref(
+                PREF_LAST_SNOWFLAKE_QUALITY_CHECK,
+                if (value) 0 else System.currentTimeMillis()
+            )
         }
 
     fun startOnBoot(): Boolean {
@@ -230,8 +242,7 @@ object Prefs {
 
                 return try {
                     Pair(URI(config), null)
-                }
-                catch (_: URISyntaxException) {
+                } catch (_: URISyntaxException) {
                     Pair(null, config)
                 }
             }

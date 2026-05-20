@@ -34,24 +34,6 @@ data class BuiltInBridges(
 
         const val UPDATE_FILE_NAME = "updated-bridges.json"
 
-        val dnsCountries = listOf(
-            "ae",
-            "af",
-            "bd",
-            "cn",
-            "co",
-            "id",
-            "ir",
-            "kw",
-            "pk",
-            "qa",
-            "ru",
-            "sy",
-            "tr",
-            "ug",
-            "uz"
-        )
-
         /**
          * https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/trac/-/issues/40001#note_2811603
          *
@@ -150,7 +132,7 @@ data class BuiltInBridges(
      */
     fun getUdpDnstt(context: Context, countryCode: String?): List<Bridge>? {
         if (countryCode.isNullOrEmpty()) return null
-        if (countryCode != "global" && !dnsCountries.contains(countryCode.lowercase())) return null
+        if (countryCode != "global" && !CensoredCountries.isDnsttEnabledForCountry(countryCode)) return null
 
         val dnsInfo: DnsInfo
 
