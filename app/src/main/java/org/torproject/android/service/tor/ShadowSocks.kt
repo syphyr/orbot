@@ -46,8 +46,9 @@ object ShadowSocks {
      * as a library.
      */
     @JvmStatic
-    fun start(context: Context, serverUrl: String): String {
-        if (!isShadowSocksSupported()) return ""
+    fun start(context: Context, serverUrl: String): String? {
+        if (!isShadowSocksSupported()) return null
+
         stop()
 
         val file = File(context.applicationInfo.nativeLibraryDir, "libsslocal.so")
@@ -79,7 +80,6 @@ object ShadowSocks {
 
     @JvmStatic
     fun stop() {
-        if (!isShadowSocksSupported()) return
         if (process != null) {
             Log.d("ShadowSocks", "Stop running ShadowSocks client.")
 
