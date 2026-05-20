@@ -136,12 +136,15 @@ fun Fragment.haveIBeenDetached(): Boolean {
 }
 
 fun ListPreference.removeEntry(label: String) {
-    val entries = entries?.map { it.toString() }?.toMutableList() ?: return
-    val entryValues = entryValues?.map { it.toString() }?.toMutableList() ?: return
+    val entries = entries?.toMutableList() ?: return
+    val entryValues = entryValues?.toMutableList() ?: return
+
     val index = entryValues.indexOf(label)
     if (index == -1) return
+
     entries.removeAt(index)
     entryValues.removeAt(index)
+
     this.entries = entries.toTypedArray()
     this.entryValues = entryValues.toTypedArray()
 }
