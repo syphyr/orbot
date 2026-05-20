@@ -108,6 +108,7 @@ object Prefs {
                 it.putPref(PREF_BRIDGE_COUNTRY, value)
                 if (CensoredCountries.isKindnessModeAvailableForCountry()) {
                     setBeSnowflakeProxy(beSnowflakeProxy = false)
+                    snowflakeNeedsQualityCheck = true
                 }
             }
         }
