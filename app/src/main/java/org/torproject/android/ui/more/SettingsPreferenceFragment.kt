@@ -109,7 +109,13 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
             }
 
         val proxyType = findPreference<ListPreference>("pref_proxy_type")
-        if (!ShadowSocks.isShadowSocksSupported()) proxyType?.removeEntry(ShadowSocks.SHADOW_SOCKS_SCHEME)
+        if (!ShadowSocks.isShadowSocksSupported()) {
+            proxyType?.removeEntry(ShadowSocks.SCHEME)
+
+            if (proxyType?.value == ShadowSocks.SCHEME) {
+                proxyType.value = ""
+            }
+        }
 
         if (proxyType != null) {
             proxyType.onPreferenceChangeListener = this
