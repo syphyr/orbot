@@ -116,7 +116,7 @@ fun Context.showToast(@StringRes msgId: Int) =
     Toast.makeText(this, msgId, Toast.LENGTH_LONG).show()
 
 // remove accent marks and characters from a String, useful when searching
-fun String.normalizie(): String =
+fun String.normalize(): String =
     Normalizer.normalize(this, Normalizer.Form.NFD)
         .replace("\\p{Mn}+".toRegex(), "")
 
