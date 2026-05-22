@@ -58,6 +58,7 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
             service.refreshNotification()
             val fronts = localFronts(service)
             with(proxy) {
+                this?.proxyTypeIdentifier = "orbot-android"
                 this?.brokerUrl = fronts["snowflake-target-direct"]
                 this?.capacity = 1L
                 this?.pollInterval = 120L
