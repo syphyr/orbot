@@ -28,8 +28,28 @@ object Regionalization {
             BRAZIL, CZECH_REPUBLIC, DENMARK,
             FINLAND, UNITED_KINGDOM, HUNGARY,
             NETHERLANDS, JAPAN, ROMANIA,
-            SINGAPORE, SWEDEN
+            RUSSIA, SINGAPORE, SWEDEN
         )
+
+    // censored countries with built-in DNSTT JSON configuration
+    // we've been passing these to the API and storing them as lowercase in a shared pref
+    fun getCountriesWithDnsttSupport(): List<String> = listOf(
+        UNITED_ARAB_EMIRATES,
+        AFGHANISTAN,
+        BANGLADESH,
+        CHINA,
+        COLUMBIA,
+        INDONESIA,
+        IRAN,
+        KUWAIT,
+        PAKISTAN,
+        QATAR,
+        RUSSIA,
+        SYRIA,
+        TURKEY,
+        UGANDA,
+        UZBEKISTAN
+    ).map { it.lowercase() }
 
     private const val GERMANY = "DE"
     private const val AUSTRIA = "AT"
@@ -54,5 +74,19 @@ object Regionalization {
     private const val ROMANIA = "RO"
     private const val SINGAPORE = "SG"
     private const val SLOVAKIA = "SK"
-
+    private const val UNITED_ARAB_EMIRATES = "AE"
+    private const val AFGHANISTAN = "AF"
+    private const val BANGLADESH = "BD"
+    private const val CHINA = "CN"
+    private const val COLUMBIA = "CO"
+    private const val INDONESIA = "ID"
+    private const val IRAN = "IR"
+    private const val KUWAIT = "KW"
+    private const val PAKISTAN = "PK"
+    private const val QATAR = "QA"
+    private const val RUSSIA = "RU"
+    private const val SYRIA = "SY"
+    private const val TURKEY = "TR"
+    private const val UGANDA = "UG"
+    private const val UZBEKISTAN = "UR"
 }
