@@ -19,4 +19,40 @@ object Regionalization {
         return String(Character.toChars(firstChar)) + String(Character.toChars(secondChar))
     }
 
+    fun getCountriesForExitNodeUi(): List<String> =
+        listOf(
+            GERMANY, AUSTRIA, SWEDEN,
+            SWITZERLAND, ICELAND, CANADA,
+            UNITED_STATES, SPAIN, FRANCE,
+            BULGARIA, POLAND, AUSTRALIA,
+            BRAZIL, CZECH_REPUBLIC, DENMARK,
+            FINLAND, UNITED_KINGDOM, HUNGARY,
+            NETHERLANDS, JAPAN, ROMANIA,
+            SINGAPORE, SWEDEN
+        )
+
+    private const val GERMANY = "DE"
+    private const val AUSTRIA = "AT"
+    private const val SWEDEN = "SE"
+    private const val SWITZERLAND = "CH"
+    private const val ICELAND = "IS"
+    private const val CANADA = "CA"
+    private const val UNITED_STATES = "US"
+    private const val SPAIN = "ES"
+    private const val FRANCE = "FR"
+    private const val BULGARIA = "BG"
+    private const val POLAND = "PL"
+    private const val AUSTRALIA = "AU"
+    private const val BRAZIL = "BR"
+    private const val CZECH_REPUBLIC = "CZ"
+    private const val DENMARK = "DK"
+    private const val FINLAND = "FI"
+    private const val UNITED_KINGDOM = "UK"
+    private const val HUNGARY = "HU"
+    private const val NETHERLANDS = "NL"
+    private const val JAPAN = "JP"
+    private const val ROMANIA = "RO"
+    private const val SINGAPORE = "SG"
+    private const val SLOVAKIA = "SK"
+
 }

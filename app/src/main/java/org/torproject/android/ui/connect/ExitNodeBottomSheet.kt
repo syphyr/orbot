@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView
 import org.torproject.android.R
 import org.torproject.android.Regionalization
 import org.torproject.android.localization.Languages
-import org.torproject.android.util.StringUtils
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 
@@ -53,8 +52,8 @@ class ExitNodeBottomSheet : OrbotBottomSheetDialogFragment() {
 
         // Default world option
         items.add("" to getString(R.string.globe) + " " + getString(R.string.vpn_default_world))
-
-        COUNTRY_CODES.forEach {
+        val exitNodeCountries = Regionalization.getCountriesForExitNodeUi()
+        exitNodeCountries.forEach {
             val locale = Languages.buildLocaleForLanguage("", it)
             sortedCountries[locale.displayCountry] = locale
         }
@@ -106,34 +105,5 @@ class ExitNodeBottomSheet : OrbotBottomSheetDialogFragment() {
         }
 
         override fun getItemCount() = list.size
-    }
-
-    companion object {
-        private val COUNTRY_CODES = arrayOf(
-            "DE",
-            "AT",
-            "SE",
-            "CH",
-            "IS",
-            "CA",
-            "US",
-            "ES",
-            "FR",
-            "BG",
-            "PL",
-            "AU",
-            "BR",
-            "CZ",
-            "DK",
-            "FI",
-            "GB",
-            "HU",
-            "NL",
-            "JP",
-            "RO",
-            "RU",
-            "SG",
-            "SK"
-        )
     }
 }
