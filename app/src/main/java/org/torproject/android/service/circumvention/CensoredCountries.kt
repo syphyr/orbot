@@ -12,20 +12,46 @@ import org.torproject.android.util.Prefs
  */
 object CensoredCountries {
 
-
-    private val dnsCountries = listOf(
-        "ae", "af", "bd", "cn", "co", "id", "ir", "kw", "pk", "qa", "ru", "sy", "tr", "ug", "uz"
-    )
-
     fun isDnsttEnabledForCountry(countryCode: String?): Boolean =
-        dnsCountries.contains(countryCode?.lowercase())
+        listOf(
+            UNITED_ARAB_EMIRATES,
+            AFGHANISTAN,
+            BANGLADESH,
+            CHINA,
+            COLUMBIA,
+            INDONESIA,
+            IRAN,
+            KUWAIT,
+            PAKISTAN,
+            QATAR,
+            RUSSIA,
+            SYRIA,
+            TURKEY,
+            UGANDA,
+            UZBEKISTAN
+        ).contains(countryCode?.lowercase())
 
 
-    // Returns true if we prevent the user from activating kindness mode in their country
-    // for now, we disable  kindness mode in the same countries that we offer users that we
-    // provide an easy way in the UI to connect to tor via DNSTT
-    // TODO perhaps add other countries where we know it's not a good idea to run kindness mode
-    fun isKindnessModeAvailableForCountry(): Boolean {
-        return isDnsttEnabledForCountry(Prefs.bridgeCountry)
-    }
+    // Returns true if we prevent the user from even undertaking the kindness mode tor connection
+    fun isKindnessModeAvailableForCountry(): Boolean =
+        listOf(
+            AFGHANISTAN,
+            IRAN
+        ).contains(Prefs.bridgeCountry?.lowercase())
+
+    private const val UNITED_ARAB_EMIRATES = "ae"
+    private const val AFGHANISTAN = "af"
+    private const val IRAN = "ir"
+    private const val BANGLADESH = "bd"
+    private const val CHINA = "cn"
+    private const val COLUMBIA = "co"
+    private const val INDONESIA = "id"
+    private const val KUWAIT = "kw"
+    private const val PAKISTAN = "pk"
+    private const val QATAR = "qa"
+    private const val RUSSIA = "ru"
+    private const val SYRIA = "sy"
+    private const val TURKEY = "ty"
+    private const val UGANDA = "ug"
+    private const val UZBEKISTAN = "uz"
 }
