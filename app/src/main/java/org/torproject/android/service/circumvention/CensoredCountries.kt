@@ -1,6 +1,5 @@
 package org.torproject.android.service.circumvention
 
-import android.util.Log
 import org.torproject.android.util.Prefs
 
 /**

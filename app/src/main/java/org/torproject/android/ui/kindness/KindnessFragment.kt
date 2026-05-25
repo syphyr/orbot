@@ -20,6 +20,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import kotlinx.coroutines.launch
 import org.torproject.android.R
 import org.torproject.android.databinding.FragmentKindnessBinding
+import org.torproject.android.localization.Languages
 import org.torproject.android.service.circumvention.CensoredCountries
 import org.torproject.android.util.Prefs
 
@@ -82,7 +83,11 @@ class KindnessFragment : Fragment() {
             mBinding.btnActionActivate.isEnabled = false
 
             // set text explaining that kindness mode isn't available from the user's country
-            mBinding.tvActivateInstructions.setText(R.string.kindness_mode_unsupported_country)
+            mBinding.tvActivateInstructions.text =
+                getString(
+                    R.string.kindness_mode_unsupported_country,
+                    Languages.buildLocaleForLanguage("", Prefs.bridgeCountry).displayCountry
+                )
 
             // set the activate button to be gray, making it not the primary button
             ViewCompat.setBackgroundTintList(
