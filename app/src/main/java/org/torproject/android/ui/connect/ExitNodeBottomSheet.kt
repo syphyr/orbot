@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import org.torproject.android.R
+import org.torproject.android.Regionalization
 import org.torproject.android.localization.Languages
 import org.torproject.android.util.StringUtils
 import org.torproject.android.util.Prefs
@@ -59,7 +60,7 @@ class ExitNodeBottomSheet : OrbotBottomSheetDialogFragment() {
         }
 
         sortedCountries.forEach { (name, locale) ->
-            val display = StringUtils.convertCountryCodeToFlagEmoji(locale.country) + " " + name
+            val display = Regionalization.getFlagEmojiForCountryCode(locale.country) + " " + name
             items.add(locale.country to display)
         }
 
@@ -94,8 +95,10 @@ class ExitNodeBottomSheet : OrbotBottomSheetDialogFragment() {
                 val prev = selectedCode
                 selectedCode = code
                 notifyItemChanged(list.indexOfFirst { it.first == prev })
-                val navHostFragment = requireActivity().supportFragmentManager.fragments[0] as NavHostFragment
-                val connectFrag = navHostFragment.childFragmentManager.fragments.last() as ConnectFragment
+                val navHostFragment =
+                    requireActivity().supportFragmentManager.fragments[0] as NavHostFragment
+                val connectFrag =
+                    navHostFragment.childFragmentManager.fragments.last() as ConnectFragment
                 notifyItemChanged(position)
                 connectFrag.onExitNodeSelected(code)
                 dismiss()
