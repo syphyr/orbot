@@ -17,9 +17,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.net.toUri
 import org.torproject.android.R
+import org.torproject.android.Regionalization
 import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.android.util.Prefs
-import org.torproject.android.util.StringUtils
 import java.util.TreeMap
 
 class ConnectMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction>) :
@@ -54,7 +54,7 @@ class ConnectMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction
                     imgView.visibility = View.GONE
                     val currentExit = Prefs.exitNodes?.replace("{", "")?.replace("}", "") ?: ""
                     if (currentExit.length == 2) tvAction.text =
-                        StringUtils.convertCountryCodeToFlagEmoji(currentExit)
+                        Regionalization.getFlagEmojiForCountryCode(currentExit)
                     else tvAction.text = context.getString(R.string.globe)
                     emojiContainer.visibility = View.VISIBLE
                 }

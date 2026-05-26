@@ -37,6 +37,8 @@ import java.net.ServerSocket
  */
 object ShadowSocks {
 
+    const val SCHEME = "ss"
+
     private var process: Process? = null
 
     /**
@@ -44,7 +46,9 @@ object ShadowSocks {
      * as a library.
      */
     @JvmStatic
-    fun start(context: Context, serverUrl: String): String {
+    fun start(context: Context, serverUrl: String): String? {
+        if (!isShadowSocksSupported()) return null
+
         stop()
 
         val file = File(context.applicationInfo.nativeLibraryDir, "libsslocal.so")
@@ -81,12 +85,16 @@ object ShadowSocks {
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 process?.destroyForcibly()
-            }
-            else {
+            } else {
                 process?.destroy()
             }
 
             process = null
         }
+    }
+
+    @JvmStatic
+    fun isShadowSocksSupported(): Boolean {
+        return Build.SUPPORTED_ABIS.firstOrNull()?.equals("x86") != true
     }
 }

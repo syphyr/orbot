@@ -3,6 +3,7 @@ package org.torproject.android.service.circumvention
 import android.content.Context
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
+import org.torproject.android.Regionalization
 import java.io.File
 import java.net.URI
 import java.util.Calendar
@@ -34,23 +35,7 @@ data class BuiltInBridges(
 
         const val UPDATE_FILE_NAME = "updated-bridges.json"
 
-        val dnsCountries = listOf(
-            "ae",
-            "af",
-            "bd",
-            "cn",
-            "co",
-            "id",
-            "ir",
-            "kw",
-            "pk",
-            "qa",
-            "ru",
-            "sy",
-            "tr",
-            "ug",
-            "uz"
-        )
+        val dnsCountries = Regionalization.getCountriesWithDnsttSupport()
 
         /**
          * https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/trac/-/issues/40001#note_2811603
