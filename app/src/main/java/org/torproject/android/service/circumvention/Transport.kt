@@ -47,7 +47,6 @@ enum class Transport(val id: String) {
     CUSTOM("custom");
 
     companion object {
-        @JvmStatic
         var stateLocation = ""
 
         const val TAG = "Transport"
