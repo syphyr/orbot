@@ -288,4 +288,6 @@
     <string name="kindness_mode_disclaimer_bridge">Не използвайте Режим на доброта в райони с цензура или когато трябва да използвате мост за свързване с Tor.</string>
     <string name="battery_optimizations_dialog_btn_disable">Настройки за оптимизиране на батерията</string>
     <string name="btn_connect_anyway">Всързване въпреки това</string>
+    <string name="pref_proxy_no_proxy">Без прокси</string>
+    <string name="pref_proxy_ss_title">Адрес с настройки на ShadowSocks</string>
 </resources>
