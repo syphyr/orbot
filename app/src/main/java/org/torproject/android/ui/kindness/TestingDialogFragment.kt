@@ -23,6 +23,7 @@ import org.torproject.android.databinding.FragmentTestingBinding
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.ui.connect.ConnectUiState
 import org.torproject.android.ui.connect.ConnectViewModel
+import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.sendIntentToService
 import org.torproject.jni.TorService
@@ -93,26 +94,44 @@ class TestingDialogFragment : DialogFragment() {
             window.setBackgroundDrawableResource(android.R.color.transparent)
         }
 
-        // - If connected to Tor without a bridge right now, we're fine: dismiss immediately like `btContinue`.
-        // - If last test success timestamp is younger than 1 day, dismiss immediately like `btContinue`.
-        // - Else, set bridge to `NONE`, DISABLE proxy, start Tor, wait until success or timeout via SnowflakeTorTestService
-        // - After test, stop tor again. If we interrupted the user's tor connection, relaunch OrbotService
-        // - Store timestamp of success in `Prefs`.
 
-        if (!Prefs.snowflakeNeedsQualityCheck) {
-            Log.wtf(TAG, "we don't need a quality check!")
-            mBinding.btContinue.callOnClick()
-            return
-        }
+        /**
+         * Kindness Mode Quality Test
+         *
+         * - First, immediately fail the test if there's a non orbot VPN running
+         * - Second, if we've passed a quality test in the past 24 hours, skip retesting
+         *      otherwise, take the test:
+         *      A: if the user is connected to tor with no bridges/proxy, you pass
+         *      B: if the user isn't connected to tor, warn the user about connecting to tor and attempt
+         *         a direct connection. Pass if we succeed.
+         *      C: if the user has a bridge/proxy, turn tor off. perform option B. When the test is
+         *         completed, turn the user's original Tor connection back on.
+         *
+         *   Set Prefs.snowflakeNeedsQualityCheck to false if test passes, true if otherwise
+         */
 
-        val torConnectionState = torConnectedViewModel.uiState.value
-
-        if (torConnectionState == ConnectUiState.NoInternet) {
-            Log.wtf(TAG, "user is offline, failing test")
+        if (NetworkUtils.isNonOrbotVpnActive(requireContext())) {
+            Log.wtf(TAG, "another VPN app is set, ")
             showTestFailedUi()
             return
         }
 
+
+        if (!Prefs.snowflakeNeedsQualityCheck) {
+            Log.wtf(TAG, "recently passed quality check, proceeding")
+            mBinding.btContinue.callOnClick()
+            return
+        }
+
+
+        val torConnectionState = torConnectedViewModel.uiState.value
+        if (torConnectionState == ConnectUiState.NoInternet) {
+            Log.wtf(TAG, "user is offline failing test")
+            showTestFailedUi()
+            return
+        }
+
+        Log.wtf("bim", "checking if there's an active connection to tor (Prefs.transport: ${Prefs.transport}, proxy not set: ${Prefs.outboundProxy.first == null}")
         if (torConnectionState == ConnectUiState.On && Prefs.transport == Transport.NONE && Prefs.outboundProxy.first == null) {
             Log.wtf(TAG, "there's an active direct connection to tor, stop testing")
             Prefs.snowflakeNeedsQualityCheck = false
