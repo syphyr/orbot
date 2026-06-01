@@ -15,7 +15,6 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.lifecycleScope
-import androidx.window.layout.WindowMetricsCalculator
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.torproject.android.R
@@ -27,8 +26,6 @@ import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.sendIntentToService
 import org.torproject.jni.TorService
-import org.torproject.jni.TorService.EXTRA_STATUS
-import org.torproject.jni.TorService.STATUS_ON
 import kotlin.getValue
 
 class TestingDialogFragment : DialogFragment() {
@@ -60,6 +57,10 @@ class TestingDialogFragment : DialogFragment() {
         mBinding.boxApproved.visibility = View.GONE
         mBinding.boxDeclined.visibility = View.GONE
 
+        mBinding.btnAbortTest.setOnClickListener {
+            dismiss()
+        }
+
         mBinding.btContinue.setOnClickListener {
             val bundle = Bundle()
             bundle.putBoolean(KEY_RESULT, true)
@@ -79,19 +80,15 @@ class TestingDialogFragment : DialogFragment() {
     override fun onStart() {
         super.onStart()
         dialog?.window?.let { window ->
-            val metrics = WindowMetricsCalculator.getOrCreate()
-                .computeCurrentWindowMetrics(requireActivity())
-            val width = metrics.bounds.width()
-            val height = metrics.bounds.height()
-
-            val dialogHeight =
-                if (width > height) (height * 0.9f).toInt() else (height * 0.33f).toInt()
-
-            val dialogWidth =
-                if (width > height) (width * 0.33f).toInt() else (width * 0.9f).toInt()
-
-            window.setLayout(dialogWidth, dialogHeight)
             window.setBackgroundDrawableResource(android.R.color.transparent)
+            dialog?.window?.setLayout(
+                (resources.displayMetrics.widthPixels * 0.9).toInt(),
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+
+            // benign tests to immediately see if the user can/can't use kindness mode
+            // if we don't get a definite answer, prompt the user for consent to determine for sure
+            doQualityTestRequiringNoUserConsent()
         }
 
 
@@ -110,19 +107,28 @@ class TestingDialogFragment : DialogFragment() {
          *   Set Prefs.snowflakeNeedsQualityCheck to false if test passes, true if otherwise
          */
 
+    }
+
+    /**
+     * This part of the connection test doesn't require the user's consent.
+     * It automatically fails if:
+     *  - Orbot doesn't have a direct Internet connection
+     *  - the user is using a non-Orbot VPN
+     *
+     * If we didn't automatically fail, we can automatically pass if:
+     *  - the user currently has a direct connection to the tor network
+     *  - the user has passed the quality test in the past 24 hours
+     *
+     *  Otherwise, the test is still inconclusive. Obtain the user's consent to complete the text
+     *  and give them the option to stop testing...
+     */
+    private fun doQualityTestRequiringNoUserConsent() {
+        // Instant fails:
         if (NetworkUtils.isNonOrbotVpnActive(requireContext())) {
             Log.wtf(TAG, "another VPN app is set, ")
             showTestFailedUi()
             return
         }
-
-
-        if (!Prefs.snowflakeNeedsQualityCheck) {
-            Log.wtf(TAG, "recently passed quality check, proceeding")
-            mBinding.btContinue.callOnClick()
-            return
-        }
-
 
         val torConnectionState = torConnectedViewModel.uiState.value
         if (torConnectionState == ConnectUiState.NoInternet) {
@@ -131,7 +137,13 @@ class TestingDialogFragment : DialogFragment() {
             return
         }
 
-        Log.wtf("bim", "checking if there's an active connection to tor (Prefs.transport: ${Prefs.transport}, proxy not set: ${Prefs.outboundProxy.first == null}")
+        // So we're online and not using another VPN, check to see if further testing is needed
+        if (!Prefs.snowflakeNeedsQualityCheck) {
+            Log.wtf(TAG, "recently passed quality check, proceeding")
+            mBinding.btContinue.callOnClick()
+            return
+        }
+
         if (torConnectionState == ConnectUiState.On && Prefs.transport == Transport.NONE && Prefs.outboundProxy.first == null) {
             Log.wtf(TAG, "there's an active direct connection to tor, stop testing")
             Prefs.snowflakeNeedsQualityCheck = false
@@ -139,8 +151,62 @@ class TestingDialogFragment : DialogFragment() {
             return
         }
 
+        // at this point, we need to obtain user consent to actually do the connection test...
+        showUserConsentUI()
+    }
+
+    private fun showUserConsentUI() {
+        with(mBinding.btnAbortTest) {
+            visibility = View.VISIBLE
+            setOnClickListener { dismiss() }
+        }
+        with(mBinding.btnStartTestWithConsent) {
+            visibility = View.VISIBLE
+            setOnClickListener {
+                showUserConsentUI()
+                doQualityTestRequiringConsent()
+            }
+        }
+        mBinding.progress.visibility = View.GONE
+
+        // explicitly explain we're gonna connect to tor
+        mBinding.tvTestingConsentTorDisclaimer.visibility = View.VISIBLE
+
+        // if the user uses bridges to reach tor, explain that we are turning off their connection
+        if (isOrbotOnOrStarting()) {
+            mBinding.tvTestingDisconnectVpnDisclaimer.visibility = View.VISIBLE
+            mBinding.tvDisclaimerConnectionLeak.visibility = View.VISIBLE
+        }
+
+
+    }
+
+    private fun isOrbotOnOrStarting(): Boolean {
+        val torConnectionState = torConnectedViewModel.uiState.value
+        Log.wtf("bim", "connection state $torConnectionState")
+        return torConnectionState is ConnectUiState.On || torConnectionState is ConnectUiState.Starting
+    }
+
+
+    private fun showOngoingTestWithConsentUi() {
+        mBinding.progress.visibility = View.VISIBLE
+        mBinding.tvTestingConsentTorDisclaimer.visibility = View.GONE
+        mBinding.tvDisclaimerConnectionLeak.visibility = View.GONE
+        mBinding.tvTestingHeader.text = getString(R.string.testing_explanation_testing)
+        mBinding.btnAbortTest.visibility = View.GONE
+        mBinding.btnStartTestWithConsent.visibility = View.GONE
+        mBinding.tvTitleTesting.text = getString(R.string.testing_title_testing)
+        mBinding.tvTestingDisconnectVpnDisclaimer.visibility = View.GONE
+    }
+
+    /** This part of the connection test requires the user's consent, since it involves attempting
+     * a direct tor connection that censors can trivially detect, and possibly also temporarily
+     * disabling Orbot VPN if there's an active connection with censorship circumvention tech.
+     */
+    private fun doQualityTestRequiringConsent() {
+        showOngoingTestWithConsentUi()
         lifecycleScope.launch {
-            if (torConnectionState is ConnectUiState.On || torConnectionState is ConnectUiState.Starting) {
+            if (isOrbotOnOrStarting()) {
                 Log.wtf(TAG, "OrbotService is running, we need to turn it off")
                 stoppedNormalTorConnection = true
                 requireActivity().sendIntentToService(TorService.ACTION_STOP)
@@ -176,9 +242,9 @@ class TestingDialogFragment : DialogFragment() {
 
     val torStatusReceiver: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
-            val status = intent?.getStringExtra(EXTRA_STATUS)
+            val status = intent?.getStringExtra(TorService.EXTRA_STATUS)
             Log.wtf(TAG, "Got tor status from testing service: $status")
-            if (status == STATUS_ON) {
+            if (status == TorService.STATUS_ON) {
                 lifecycleScope.launch {
                     Prefs.snowflakeNeedsQualityCheck = false
                     unbindServiceIfBound()

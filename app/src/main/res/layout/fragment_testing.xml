@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/bg_modal_rounded"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_modal_rounded"
+    android:padding="?dialogPreferredPadding">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/boxTesting"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:visibility="gone">
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/progress"
@@ -22,70 +20,153 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:indeterminate="true"
+            android:visibility="gone"
             app:indicatorColor="@color/dark_purple"
-            app:trackColor="@android:color/white"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:trackColor="@android:color/white" />
 
         <TextView
             android:id="@+id/tvTitleTesting"
+            style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:text="@string/testing_title_testing"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/testing_title_consent_request"
             android:textColor="@android:color/white"
-            style="@style/TextAppearance.AppCompat.Title"
-            app:layout_constraintTop_toBottomOf="@id/progress"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/progress" />
+
 
         <TextView
+            android:id="@+id/tvTestingHeader"
+            style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:paddingHorizontal="16dp"
-            android:text="@string/testing_explanation_testing"
-            android:textColor="@android:color/darker_gray"
-            style="@style/TextAppearance.Material3.BodyMedium"
-            app:layout_constraintTop_toBottomOf="@id/tvTitleTesting"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@string/testing_consent_header"
+            android:textColor="@color/panel_background_main"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitleTesting" />
+
+        <TextView
+            android:id="@+id/tvTestingConsentTorDisclaimer"
+            android:layout_width="match_parent"
+            android:justificationMode="inter_character"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/testing_consent_direct_tor_disclaimer"
+            android:textColor="@color/panel_background_main"
+            android:visibility="visible"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTestingHeader" />
+
+        <TextView
+            android:id="@+id/tvTestingDisconnectVpnDisclaimer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:paddingHorizontal="16dp"
+            android:justificationMode="inter_character"
+            android:textColor="@android:color/darker_gray"
+            android:text="@string/testing_consent_direct_stop_vpn_disclaimer"
+            android:textStyle="bold|italic"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTestingConsentTorDisclaimer"
+            tools:visibility="visible" />
+
+
+        <TextView
+            android:id="@+id/tvDisclaimerConnectionLeak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"    
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="72dp"
+            android:layout_marginEnd="16dp"
+            android:paddingHorizontal="16dp"
+            android:text="@string/testing_consent_leaking_connection"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold|italic"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTestingDisconnectVpnDisclaimer"
+            tools:visibility="visible" />
+
+        <Button
+            android:id="@+id/btnAbortTest"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:visibility="gone"
+            android:background="@drawable/btn_shape_round"
+            android:backgroundTint="@color/orbot_btn_disable_grey"
+            android:text="@android:string/cancel"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDisclaimerConnectionLeak"
+            tools:visibility="visible" />
+
+
+        <Button
+            android:id="@+id/btnStartTestWithConsent"
+            android:layout_width="240dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/btn_shape_round"
+            android:backgroundTint="@color/orbot_btn_enabled_purple"
+            android:text="@string/test_risk_consent"
+            android:textColor="@android:color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnAbortTest"
+            tools:visibility="visible" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/boxApproved"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:visibility="gone">
 
         <TextView
             android:id="@+id/tvTitleApproved"
+            style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="@string/testing_title_approved"
             android:textColor="@android:color/white"
-            style="@style/TextAppearance.AppCompat.Title"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="16dp"
             android:paddingHorizontal="16dp"
             android:text="@string/testing_explanation_approved"
             android:textColor="@android:color/darker_gray"
-            style="@style/TextAppearance.Material3.BodyMedium"
-            app:layout_constraintTop_toBottomOf="@id/tvTitleApproved"
             app:layout_constraintBottom_toTopOf="@id/btContinue"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/tvTitleApproved" />
 
         <Button
             android:id="@+id/btContinue"
@@ -97,60 +178,60 @@
             android:backgroundTint="@color/orbot_btn_disable_grey"
             android:text="@string/testing_continue"
             android:textColor="@android:color/white"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/boxDeclined"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:visibility="visible">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone">
 
         <TextView
             android:id="@+id/tvTitleDeclined"
+            style="@style/TextAppearance.AppCompat.Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:text="@string/testing_title_declined"
             android:textColor="@android:color/white"
-            style="@style/TextAppearance.AppCompat.Title"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvExplanationDeclined"
+            style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:paddingHorizontal="16dp"
             android:text="@string/testing_explanation_declined"
             android:textColor="@android:color/darker_gray"
-            style="@style/TextAppearance.Material3.BodyMedium"
-            app:layout_constraintTop_toBottomOf="@id/tvTitleDeclined"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/tvTitleDeclined" />
 
         <TextView
             android:id="@+id/foobar"
+            style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:background="@drawable/bg_rounded_orange"
             android:padding="8dp"
             android:text="@string/testing_explanation_declined2"
             android:textColor="@android:color/black"
-            android:background="@drawable/bg_rounded_orange"
-            style="@style/TextAppearance.Material3.BodyMedium"
-            app:layout_constraintTop_toBottomOf="@id/tvExplanationDeclined"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/btOk"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvExplanationDeclined"
             app:layout_constraintVertical_bias="0" />
 
         <Button
@@ -163,10 +244,10 @@
             android:backgroundTint="@color/orbot_btn_disable_grey"
             android:text="@android:string/ok"
             android:textColor="@android:color/white"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
