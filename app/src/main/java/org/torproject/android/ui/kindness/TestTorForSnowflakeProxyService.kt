@@ -16,13 +16,13 @@ class TestTorForSnowflakeProxyService : TorService() {
 
     override fun onCreate() {
         super.onCreate()
-        Log.wtf(TAG, "in $TAG onCreate()")
+        Log.d(TAG, "onCreate()")
     }
 
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.wtf(TAG, "in $TAG onDestroy()")
+        Log.d(TAG, "onDestroy()")
     }
 
     companion object {
@@ -69,14 +69,12 @@ class TestTorForSnowflakeProxyService : TorService() {
         // Service via a reference to the object returned by this method...
         private fun getServiceConnection(): ServiceConnection = object : ServiceConnection {
             override fun onServiceConnected(name: ComponentName?, binding: IBinder?) {
-                Log.wtf(TAG, "ServiceConnection: onServiceConnected")
+                Log.d(TAG, "ServiceConnection: onServiceConnected")
             }
 
             override fun onServiceDisconnected(name: ComponentName?) {
-                Log.wtf(TAG, "ServiceConnection: onServiceDisconnected")
+                Log.d(TAG, "ServiceConnection: onServiceDisconnected")
             }
         }
-
-
     }
 }

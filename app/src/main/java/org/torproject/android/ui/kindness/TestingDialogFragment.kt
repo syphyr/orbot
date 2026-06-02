@@ -67,24 +67,15 @@ class TestingDialogFragment : DialogFragment() {
 
         mBinding.tvTitleApproved.text = getString(R.string.testing_title_approved, "✅")
         mBinding.tvTitleDeclined.text = getString(R.string.testing_title_declined, "\uD83D\uDEAB")
-
-        mBinding.boxTesting.visibility = View.VISIBLE
-        mBinding.boxApproved.visibility = View.GONE
-        mBinding.boxDeclined.visibility = View.GONE
-
-        mBinding.btnAbortTest.setOnClickListener {
-            dismiss()
-        }
-
+        mBinding.btnAbortTest.setOnClickListener { dismiss() }
         mBinding.btContinue.setOnClickListener {
-            val bundle = Bundle()
-            bundle.putBoolean(KEY_RESULT, true)
-
-            setFragmentResult(KEY_RESULT, bundle)
+            setFragmentResult(KEY_RESULT, Bundle().apply {
+                putBoolean(KEY_RESULT, true)
+            })
             dismiss()
         }
 
-        mBinding.btOk.setOnClickListener {
+        mBinding.btnDeclinedBoxOk.setOnClickListener {
             setFragmentResult(KEY_RESULT, Bundle())
             dismiss()
         }
@@ -109,7 +100,7 @@ class TestingDialogFragment : DialogFragment() {
     }
 
     /**
-     * This part of the connection test doesn't require the user's consent.
+     * This part of the connection test doesn't require user consent
      * It automatically fails if:
      *  - Orbot doesn't have a direct Internet connection
      *  - the user is using a non-Orbot VPN
@@ -122,8 +113,8 @@ class TestingDialogFragment : DialogFragment() {
      *  and give them the option to stop testing...
      */
     private fun doQualityTestRequiringNoUserConsent() {
-        // Instant fails:
 
+        // immediately fail if there's another VPN running
         if (NetworkUtils.isNonOrbotVpnActive(requireContext())) {
             showTestFailedUi(
                 errorExplanation = getString(R.string.testing_explanation_other_vpn),
@@ -136,19 +127,21 @@ class TestingDialogFragment : DialogFragment() {
             return
         }
 
+        // immediately fail if there's no internet
         val torConnectionState = torConnectedViewModel.uiState.value
         if (torConnectionState == ConnectUiState.NoInternet) {
             showTestFailedUi(bubbleMsg = getString(R.string.testing_explanation_no_net))
             return
         }
 
-        // So we're online and not using another VPN, check to see if further testing is needed
+        // immediately succeed if we've recently succeeded
         if (!Prefs.snowflakeNeedsQualityCheck) {
             Log.wtf(TAG, "recently passed quality check, proceeding")
             mBinding.btContinue.callOnClick()
             return
         }
 
+        // immediately succeed if you're already connecting directly to Tor
         if (torConnectionState == ConnectUiState.On && Prefs.transport == Transport.NONE && Prefs.outboundProxy.first == null) {
             Log.wtf(TAG, "there's an active direct connection to tor, stop testing")
             Prefs.snowflakeNeedsQualityCheck = false
@@ -172,12 +165,8 @@ class TestingDialogFragment : DialogFragment() {
                 doQualityTestRequiringConsent()
             }
         }
-        mBinding.progress.visibility = View.GONE
 
-        // explicitly explain we're gonna connect to tor
-        mBinding.tvTestingConsentTorDisclaimer.visibility = View.VISIBLE
-
-        // if the user uses bridges to reach tor, explain that we are turning off their connection
+        // if there's a tor connection over a bridge, explain we have to shut tor off
         if (isOrbotOnOrStarting()) {
             mBinding.tvTestingDisconnectVpnDisclaimer.visibility = View.VISIBLE
             mBinding.tvDisclaimerConnectionLeak.visibility = View.VISIBLE
@@ -190,6 +179,7 @@ class TestingDialogFragment : DialogFragment() {
     }
 
 
+    /* set UI for when the connecting directly to tor test is underway */
     private fun showOngoingTestWithConsentUi() {
         mBinding.progress.visibility = View.VISIBLE
         mBinding.tvTestingConsentTorDisclaimer.visibility = View.GONE
