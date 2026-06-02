@@ -135,7 +135,7 @@ data class BuiltInBridges(
      */
     fun getUdpDnstt(context: Context, countryCode: String?): List<Bridge>? {
         if (countryCode.isNullOrEmpty()) return null
-        if (countryCode != "global" && !CensoredCountries.isDnsttEnabledForCountry(countryCode)) return null
+        if (countryCode != "global" && !Regionalization.getCountriesWithDnsttSupport().contains(countryCode)) return null
 
         val dnsInfo: DnsInfo
 

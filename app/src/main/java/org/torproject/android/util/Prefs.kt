@@ -5,8 +5,8 @@ import android.content.Context
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
+import org.torproject.android.Regionalization
 import org.torproject.android.service.OrbotConstants
-import org.torproject.android.service.circumvention.CensoredCountries
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.tor.ShadowSocks
 import java.net.URI
@@ -107,7 +107,7 @@ object Prefs {
         set(value) {
             cr?.let {
                 it.putPref(PREF_BRIDGE_COUNTRY, value)
-                if (CensoredCountries.isKindnessModeAvailableForCountry()) {
+                if (Regionalization.isKindnessModeDisabledForCountry()) {
                     setBeSnowflakeProxy(beSnowflakeProxy = false)
                     snowflakeNeedsQualityCheck = true
                 }

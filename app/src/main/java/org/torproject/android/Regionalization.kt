@@ -1,11 +1,13 @@
 package org.torproject.android
 
+import org.torproject.android.util.Prefs
 import java.util.Locale
 
 object Regionalization {
+
     // converts a code like "ES" into "Spain", "Espagne", etc. based on the users current locale
     @JvmStatic
-    fun getLocalizedNameForCountryCode(countryCode: String): String =
+    fun getLocalizedNameForCountryCode(countryCode: String? = Prefs.bridgeCountry): String =
         Locale.Builder().setRegion(countryCode).build().displayCountry
 
 
@@ -18,6 +20,9 @@ object Regionalization {
         val secondChar = Character.codePointAt(uppercaseCC, 1) - asciiOffset + flagOffset
         return String(Character.toChars(firstChar)) + String(Character.toChars(secondChar))
     }
+
+    fun isKindnessModeDisabledForCountry(countryCode: String? = Prefs.bridgeCountry): Boolean =
+        listOf(AFGHANISTAN, IRAN).contains(countryCode?.uppercase())
 
     fun getCountriesForExitNodeUi(): List<String> =
         listOf(
