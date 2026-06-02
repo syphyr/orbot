@@ -30,15 +30,16 @@ echo "- Cloning shadowsocks-android and submodules…"
 git clone --recursive --shallow-submodules --depth 1 https://github.com/shadowsocks/shadowsocks-android >> "$LOG" 2>&1
 
 echo "- Adding android native targets for rust…"
-rustup target add armv7-linux-androideabi aarch64-linux-android i686-linux-android x86_64-linux-android >> "$LOG" 2>&1
+rustup target add armv7-linux-androideabi aarch64-linux-android x86_64-linux-android >> "$LOG" 2>&1
 
 echo "- Building shadowsocks-android…"
 cd "shadowsocks-android"
-./gradlew mergeReleaseJniLibFolders >> "$LOG" 2>&1
+./gradlew mergeReleaseJniLibFolders -PTARGET_ABI=arm >> "$LOG" 2>&1
+./gradlew mergeReleaseJniLibFolders -PTARGET_ABI=arm64 >> "$LOG" 2>&1
+./gradlew mergeReleaseJniLibFolders -PTARGET_ABI=x86_64 >> "$LOG" 2>&1
 
 echo "- Copy created so files…"
 cp -a core/build/rustJniLibs/android/* "$ROOT/app/src/main/jniLibs/" >> "$LOG" 2>&1
-
 echo "- Cleanup…"
 cd "$ROOT"
 rm -rf "$BUILDDIR"

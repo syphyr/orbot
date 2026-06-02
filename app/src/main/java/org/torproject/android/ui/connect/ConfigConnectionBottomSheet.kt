@@ -22,6 +22,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.torproject.android.R
+import org.torproject.android.Regionalization
 import org.torproject.android.databinding.ConfigConnectionBottomSheetBinding
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.AutoConf
@@ -29,7 +30,6 @@ import org.torproject.android.service.circumvention.CensoredCountries
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
-import org.torproject.android.util.StringUtils
 import java.util.Locale
 
 class ConfigConnectionBottomSheet :
@@ -47,10 +47,9 @@ class ConfigConnectionBottomSheet :
 
     private val countryMap by lazy {
         Locale.getISOCountries().associateBy { code ->
-            val locale = Locale.Builder().setRegion(code).build()
-            val emoji = StringUtils.convertCountryCodeToFlagEmoji(code)
-
-            "$emoji ${locale.displayCountry}"
+            val countryName = Regionalization.getLocalizedNameForCountryCode(code)
+            val emoji = Regionalization.getFlagEmojiForCountryCode(code)
+            "$emoji $countryName"
         }
     }
 

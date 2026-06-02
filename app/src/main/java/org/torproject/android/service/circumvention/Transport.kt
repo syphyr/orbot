@@ -47,7 +47,6 @@ enum class Transport(val id: String) {
     CUSTOM("custom");
 
     companion object {
-        @JvmStatic
         var stateLocation = ""
 
         const val TAG = "Transport"
@@ -182,12 +181,14 @@ enum class Transport(val id: String) {
                             }
                         }
 
-                        "ss" -> {
-                            // Start built-in ShadowSocks client.
+                        ShadowSocks.SCHEME -> {
+                            // Start built-in ShadowSocks client, if supported.
                             val address = ShadowSocks.start(context, proxy.toString())
 
-                            // Set local address of ShadowSocks client as proxy.
-                            result.add("Socks5Proxy $address")
+                            if (!address.isNullOrEmpty()) {
+                                // Set local address of ShadowSocks client as proxy.
+                                result.add("Socks5Proxy $address")
+                            }
                         }
                     }
                 }
@@ -323,11 +324,13 @@ enum class Transport(val id: String) {
 
                 else -> {
                     // Still need to start ShadowSocks and get the right proxy config.
-                    if (proxy?.scheme == "ss") {
+                    if (proxy?.scheme == ShadowSocks.SCHEME) {
                         val address = ShadowSocks.start(context, proxy.toString())
 
-                        // Since we rewrite `proxy` from `ss://` to `socks5://`, this won't be called again.
-                        proxy = URI("socks5://$address")
+                        if (!address.isNullOrEmpty()) {
+                            // Since we rewrite `proxy` from `ss://` to `socks5://`, this won't be called again.
+                            proxy = URI("socks5://$address")
+                        }
                     }
 
                     // VERY IMPORTANT  we say proxy?.toString() instead of proxy.toString()

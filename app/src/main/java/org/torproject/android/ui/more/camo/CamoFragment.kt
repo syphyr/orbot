@@ -54,7 +54,7 @@ class CamoFragment : Fragment() {
             val tvSamsungOneUI = view.findViewById<TextView>(R.id.tvCamoSamsung)
             tvSamsungOneUI.visibility = View.VISIBLE
             tvSamsungOneUI.setOnClickListener {
-                // open "Notifications part of Settings app
+                // open Notifications part of Settings app
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) startActivity(Intent(android.provider.Settings.ACTION_NOTIFICATION_ASSISTANT_SETTINGS))
                 else // just open the Settings app
                     startActivity(Intent(android.provider.Settings.ACTION_SETTINGS))

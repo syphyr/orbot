@@ -292,4 +292,7 @@
     <string name="battery_optimizations_are_enabled">As otimizações de bateria estão ativas no Orbot. Essa é a configuração padrão e é adequada para a maioria dos usuários…</string>
     <string name="btn_connect_anyway">Conecte-se mesmo assim</string>
     <string name="btn_connect_anyway_stop_showing">Conecte e desative este aviso</string>
+    <string name="pref_proxy_no_proxy">Sem proxy</string>
+    <string name="pref_proxy_ss_title">Configuração URL ShadowSocks</string>
+    <string name="pref_proxy_ss_summary">URL completa de configuração do ShadowSocks começando com ss://</string>
 </resources>

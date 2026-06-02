@@ -8,6 +8,7 @@ import androidx.work.WorkManager
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.CensoredCountries
 import org.torproject.android.service.circumvention.Transport
+import org.torproject.android.service.tor.ShadowSocks
 import java.net.URI
 import java.net.URISyntaxException
 import java.util.Locale
@@ -237,7 +238,7 @@ object Prefs {
             val scheme = cr?.getPrefString("pref_proxy_type")?.lowercase()?.trim()
             if (scheme.isNullOrEmpty()) return Pair(null, null)
 
-            if (scheme == "ss") {
+            if (scheme == ShadowSocks.SCHEME) {
                 val config = cr?.getPrefString("pref_proxy_ss")?.trim()
                 if (config.isNullOrEmpty()) return Pair(null, null)
 

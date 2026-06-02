@@ -272,7 +272,7 @@ public class OrbotService extends VpnService {
                 var hasGeoip = new File(appBinHome, GEOIP_ASSET_KEY).exists();
                 var hasGeoip6 = new File(appBinHome, GEOIP6_ASSET_KEY).exists();
 
-                // only write out geoip files if there's an app update or they don't exist
+                // only write out geoip files if there's an app update, or they don't exist
                 if (!hasGeoip || !hasGeoip6 || Prefs.isGeoIpReinstallNeeded()) {
                     try {
                         Log.d(TAG, "Installing geoip files...");
