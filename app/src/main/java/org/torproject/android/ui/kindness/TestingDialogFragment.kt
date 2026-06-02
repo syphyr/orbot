@@ -20,6 +20,7 @@ import kotlinx.coroutines.launch
 import org.torproject.android.R
 import org.torproject.android.databinding.FragmentTestingBinding
 import org.torproject.android.service.circumvention.Transport
+import org.torproject.android.service.vpn.VpnServicePrepareWrapper
 import org.torproject.android.ui.connect.ConnectUiState
 import org.torproject.android.ui.connect.ConnectViewModel
 import org.torproject.android.util.NetworkUtils
@@ -28,6 +29,20 @@ import org.torproject.android.util.sendIntentToService
 import org.torproject.jni.TorService
 import kotlin.getValue
 
+/**
+ * Kindness Mode Quality Test
+ *
+ * - First, immediately fail the test if there's a non orbot VPN running
+ * - Second, if we've passed a quality test in the past 24 hours, skip retesting
+ *      otherwise, take the test:
+ *      A: if the user is connected to tor with no bridges/proxy, you pass
+ *      B: if the user isn't connected to tor, warn the user about connecting to tor and attempt
+ *         a direct connection. Pass if we succeed.
+ *      C: if the user has a bridge/proxy, turn tor off. perform option B. When the test is
+ *         completed, turn the user's original Tor connection back on.
+ *
+ *   Set Prefs.snowflakeNeedsQualityCheck to false if test passes, true if otherwise
+ */
 class TestingDialogFragment : DialogFragment() {
 
     private lateinit var mBinding: FragmentTestingBinding
@@ -91,22 +106,6 @@ class TestingDialogFragment : DialogFragment() {
             doQualityTestRequiringNoUserConsent()
         }
 
-
-        /**
-         * Kindness Mode Quality Test
-         *
-         * - First, immediately fail the test if there's a non orbot VPN running
-         * - Second, if we've passed a quality test in the past 24 hours, skip retesting
-         *      otherwise, take the test:
-         *      A: if the user is connected to tor with no bridges/proxy, you pass
-         *      B: if the user isn't connected to tor, warn the user about connecting to tor and attempt
-         *         a direct connection. Pass if we succeed.
-         *      C: if the user has a bridge/proxy, turn tor off. perform option B. When the test is
-         *         completed, turn the user's original Tor connection back on.
-         *
-         *   Set Prefs.snowflakeNeedsQualityCheck to false if test passes, true if otherwise
-         */
-
     }
 
     /**
@@ -124,16 +123,22 @@ class TestingDialogFragment : DialogFragment() {
      */
     private fun doQualityTestRequiringNoUserConsent() {
         // Instant fails:
+
         if (NetworkUtils.isNonOrbotVpnActive(requireContext())) {
-            Log.wtf(TAG, "another VPN app is set, ")
-            showTestFailedUi()
+            showTestFailedUi(
+                errorExplanation = getString(R.string.testing_explanation_other_vpn),
+                bubbleMsg = getString(R.string.testing_explanation_other_vpn_bubble),
+                bubbleAction = {
+                    VpnServicePrepareWrapper.openVpnSystemSettings(this)
+                    dismiss()
+                }
+            )
             return
         }
 
         val torConnectionState = torConnectedViewModel.uiState.value
         if (torConnectionState == ConnectUiState.NoInternet) {
-            Log.wtf(TAG, "user is offline failing test")
-            showTestFailedUi()
+            showTestFailedUi(bubbleMsg = getString(R.string.testing_explanation_no_net))
             return
         }
 
@@ -177,13 +182,10 @@ class TestingDialogFragment : DialogFragment() {
             mBinding.tvTestingDisconnectVpnDisclaimer.visibility = View.VISIBLE
             mBinding.tvDisclaimerConnectionLeak.visibility = View.VISIBLE
         }
-
-
     }
 
     private fun isOrbotOnOrStarting(): Boolean {
         val torConnectionState = torConnectedViewModel.uiState.value
-        Log.wtf("bim", "connection state $torConnectionState")
         return torConnectionState is ConnectUiState.On || torConnectionState is ConnectUiState.Starting
     }
 
@@ -282,10 +284,21 @@ class TestingDialogFragment : DialogFragment() {
         mBinding.boxApproved.visibility = View.VISIBLE
     }
 
-    fun showTestFailedUi() {
+    fun showTestFailedUi(
+        errorExplanation: String? = null,
+        bubbleMsg: String? = null,
+        bubbleAction: View.OnClickListener = {}
+    ) {
         Prefs.snowflakeNeedsQualityCheck = true
         mBinding.boxTesting.visibility = View.GONE
         mBinding.boxDeclined.visibility = View.VISIBLE
+        errorExplanation?.let {
+            mBinding.tvExplanationDeclined.text = errorExplanation
+        }
+        bubbleMsg?.let {
+            mBinding.tvErrorBubbleMessage.text = bubbleMsg
+            mBinding.tvErrorBubbleMessage.setOnClickListener(bubbleAction)
+        }
     }
 
     companion object {

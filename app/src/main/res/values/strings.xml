@@ -237,6 +237,9 @@
     <string name="testing_title_declined">%s Not Approved</string>
     <string name="testing_explanation_declined">You cannot be a useful Snowflake Proxy at this time. If you keep seeing this message, try again on a different network.</string>
     <string name="testing_explanation_declined2">Do not use Kindness Mode, if the Internet in your country is heavily censored.</string>
+    <string name="testing_explanation_other_vpn">Kindness Mode can not be activated when using a VPN. The only exception is Orbot\'s VPN feature. To become a Snowflake Proxy you must either remove your VPN or switch to using Orbot.</string>
+    <string name="testing_explanation_other_vpn_bubble">Open System VPN Settings…</string>
+    <string name="testing_explanation_no_net">Connect to the Internet to see if you\'re a good candidate for Kindness Mode</string>
 
     <string name="root_warning">Orbot has detected your device is rooted, which can cause security issues.</string>
     <string name="pref_detect_root_summary">Warn on startup if root permissions are enabled on this device</string>
