@@ -8,7 +8,7 @@ plugins {
     alias(libs.plugins.android.application)
 }
 
-kotlin { jvmToolchain(25) }
+kotlin { jvmToolchain(24) }
 
 val orbotBaseVersionCode = 1794200100
 fun getVersionNameFromGitTag(): Provider<String> = providers.exec {
@@ -33,8 +33,8 @@ configure<ApplicationExtension> {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_25
-        targetCompatibility = JavaVersion.VERSION_25
+        sourceCompatibility = JavaVersion.VERSION_24
+        targetCompatibility = JavaVersion.VERSION_24
     }
 
     splits {
