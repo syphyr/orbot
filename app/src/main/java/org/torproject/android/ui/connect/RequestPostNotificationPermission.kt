@@ -12,6 +12,10 @@ import androidx.fragment.app.DialogFragment
 import org.torproject.android.R
 
 class RequestPostNotificationPermission : DialogFragment() {
+    companion object {
+        const val TAG = "RequestPNPDialog"
+    }
+
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
         AlertDialog.Builder(requireActivity())

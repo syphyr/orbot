@@ -8,15 +8,12 @@ plugins {
     alias(libs.plugins.android.application)
 }
 
-kotlin { jvmToolchain(25) }
+kotlin { jvmToolchain(24) }
 
 val orbotBaseVersionCode = 1794200100
-fun getVersionName(): Provider<String> {
-    // Gets the version name from the latest Git tag
-    return providers.exec {
-        commandLine("git", "describe", "--tags", "--always")
-    }.standardOutput.asText.map { it.trim() }
-}
+fun getVersionNameFromGitTag(): Provider<String> = providers.exec {
+    commandLine("git", "describe", "--tags", "--always")
+}.standardOutput.asText.map { it.trim() }
 
 configure<ApplicationExtension> {
     namespace = "org.torproject.android"
@@ -27,7 +24,7 @@ configure<ApplicationExtension> {
     defaultConfig {
         applicationId = namespace
         versionCode = orbotBaseVersionCode
-        versionName = getVersionName().get()
+        versionName = getVersionNameFromGitTag().get()
         minSdk = 24
         targetSdk = 36
         multiDexEnabled = true
@@ -36,8 +33,8 @@ configure<ApplicationExtension> {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_25
-        targetCompatibility = JavaVersion.VERSION_25
+        sourceCompatibility = JavaVersion.VERSION_24
+        targetCompatibility = JavaVersion.VERSION_24
     }
 
     splits {
@@ -107,9 +104,6 @@ configure<ApplicationExtension> {
     }
 
     packaging {
-        resources {
-            excludes += listOf("META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version")
-        }
         jniLibs {
             // Needed for shadowsocks-rust client to be available to execute.
             useLegacyPackaging = true
