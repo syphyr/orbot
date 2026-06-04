@@ -28,6 +28,8 @@ import org.torproject.android.util.Prefs
 import org.torproject.android.util.sendIntentToService
 import org.torproject.jni.TorService
 import kotlin.getValue
+import kotlin.time.Duration.Companion.milliseconds
+import kotlin.time.Duration.Companion.seconds
 
 /**
  * Kindness Mode Quality Test
@@ -202,7 +204,7 @@ class TestingDialogFragment : DialogFragment() {
                 Log.wtf(TAG, "OrbotService is running, we need to turn it off")
                 stoppedNormalTorConnection = true
                 requireActivity().sendIntentToService(TorService.ACTION_STOP)
-                delay(250)
+                delay(250.milliseconds)
             }
 
             if (torConnectedViewModel.uiState.value != ConnectUiState.Off) {
@@ -219,12 +221,12 @@ class TestingDialogFragment : DialogFragment() {
                     torStatusReceiver
                 )
 
-            delay(CONNECTION_TEST_TIMEOUT_MS)
+            delay(CONNECTION_TEST_TIMEOUT.seconds)
             // if we haven't established a connection, cleanup and show error state
             if (connectionTestServiceConnection != null) {
                 Log.wtf(
                     TAG,
-                    "Couldn't establish a tor connection after waiting for $CONNECTION_TEST_TIMEOUT_MS"
+                    "Couldn't establish a tor connection after waiting for $CONNECTION_TEST_TIMEOUT seconds"
                 )
                 unbindServiceIfBound()
                 showTestFailedUi()
@@ -242,7 +244,7 @@ class TestingDialogFragment : DialogFragment() {
                     unbindServiceIfBound()
                     showTestPassedUi()
                     if (stoppedNormalTorConnection) {
-                        delay(250)
+                        delay(250.milliseconds)
                         Log.wtf(TAG, "relaunching OrbotService...")
                         requireActivity().sendIntentToService(TorService.ACTION_START)
                     }
@@ -294,7 +296,7 @@ class TestingDialogFragment : DialogFragment() {
     companion object {
         const val KEY_RESULT = "kindness_test_result"
         const val TAG = "TestingFragment"
-        const val CONNECTION_TEST_TIMEOUT_MS = 90 * 1000L
+        const val CONNECTION_TEST_TIMEOUT = 90
 
         fun show(fragmentManager: FragmentManager) {
             TestingDialogFragment().show(fragmentManager, TAG)
