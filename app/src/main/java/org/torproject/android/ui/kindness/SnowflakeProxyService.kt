@@ -16,9 +16,6 @@ import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.asStateFlow
 import org.torproject.android.R
 import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
@@ -36,9 +33,6 @@ class SnowflakeProxyService : Service() {
     private lateinit var notificationChannelId: String
 
     private lateinit var networkCallbacks: ConnectivityManager.NetworkCallback
-
-    private val _natType = MutableStateFlow(IPtProxy.IPtProxy.NATUnknown)
-    val natType: StateFlow<String> = _natType.asStateFlow()
 
     override fun onBind(intent: Intent?): IBinder {
         Log.d(TAG, "onBind: $intent")
@@ -64,10 +58,6 @@ class SnowflakeProxyService : Service() {
             stopSelf()
         }
         return START_STICKY
-    }
-
-    fun updateNatType(type: String) {
-        _natType.value = type
     }
 
     fun refreshNotification(contentText: String? = null) {
@@ -162,6 +152,7 @@ class SnowflakeProxyService : Service() {
 
     private fun stopSnowflakeProxy(logMessage: String? = null) {
         Log.d(TAG, "Stopping snowflake proxy - reason: $logMessage")
+        Prefs.lastSnowflakeNatType = IPtProxy.IPtProxy.NATUnknown
         snowflakeProxyWrapper.stopProxy()
     }
 
@@ -191,21 +182,17 @@ class SnowflakeProxyService : Service() {
         fun getIntent(context: Context) = Intent(context, SnowflakeProxyService::class.java)
 
         // start this service, but not necessarily snowflake proxy from the app UI
-        fun startSnowflakeProxyForegroundService(context: Context) {
+        fun startSnowflakeProxyForegroundService(context: Context) =
             ContextCompat.startForegroundService(
                 context,
                 getIntent(context)
             )
-        }
 
         // stop this service, and snowflake proxy if its running, from the app UI
-
-        fun stopSnowflakeProxyForegroundService(context: Context) {
+        fun stopSnowflakeProxyForegroundService(context: Context) =
             ContextCompat.startForegroundService(
                 context,
                 getIntent(context).setAction(ACTION_STOP_SNOWFLAKE_SERVICE)
             )
-        }
-
     }
 }

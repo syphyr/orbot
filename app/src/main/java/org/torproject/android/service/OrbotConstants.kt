@@ -145,9 +145,6 @@ object OrbotConstants {
         "app.accrescent.client"
     )
 
-    const val ONION_EMOJI: String = "\uD83E\uDDC5"
-
-
     // Constants for getting bridges in semi-manual ways.
 
     val GET_BRIDES_BRIDGES_URI = "https://bridges.torproject.org/".toUri()

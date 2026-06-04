@@ -35,7 +35,6 @@ object NetworkUtils {
      */
     fun isNonOrbotVpnActive(context: Context): Boolean {
         if (Prefs.useVpn()) {
-            Log.wtf("bim", "orbot vpn is running, so this test is done")
             return false
         }
 

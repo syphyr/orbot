@@ -223,10 +223,10 @@
     <string name="testing_consent_header">Before becoming a Snowflake Proxy, we need to test your Internet connection to see if it can serve as a useful proxy for others.</string>
     <string name="testing_consent_direct_tor_disclaimer">During the connection evaluation, Orbot will attempt to connect directly to Tor without using bridges. This test will fail in heavily censored regions that block direct Tor connections.</string>
     <string name="testing_consent_direct_stop_vpn_disclaimer">Your current Tor connection will be temporarily disconnected because you use bridges to connect to Tor. Your Tor configuraiton will automatically be restarted as soon as this test is finished.</string>
-    <string name="testing_consent_leaking_connection">Do not start this test if it is unsafe for your apps to momentarily lose their secure Tor connection</string>
+    <string name="testing_consent_leaking_connection">Do not start this test if it is unsafe for you to temporarily disconnect from Tor</string>
 
 
-    <string name="testing_title_consent_request">Kindness Mode Connection Evaluation</string>
+    <string name="testing_title_consent_request">Kindness Mode Connection Test</string>
     <string name="testing_title_testing">Testing Quality…</string>
     <string name="testing_explanation_testing">Before you can become a Snowflake Proxy, we need to see if your Internet connection can be used to run an effective proxy. Please wait while we check.</string>
     <string name="test_risk_consent">I Understand, Start Test</string>

@@ -5,6 +5,7 @@ import android.app.AlertDialog
 import android.content.ComponentName
 import android.content.Intent
 import android.content.ServiceConnection
+import android.content.SharedPreferences
 import android.content.res.ColorStateList
 import android.os.Bundle
 import android.os.IBinder
@@ -14,10 +15,7 @@ import android.view.ViewGroup
 import androidx.core.net.toUri
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
-import kotlinx.coroutines.launch
+import androidx.preference.PreferenceManager
 import org.torproject.android.R
 import org.torproject.android.Regionalization
 import org.torproject.android.databinding.FragmentKindnessBinding
@@ -34,7 +32,6 @@ class KindnessFragment : Fragment() {
             val binder = service as SnowflakeProxyService.LocalBinder
             mService = binder.getService()
             mBound = true
-            observeNatType()
         }
 
         override fun onServiceDisconnected(arg0: ComponentName) {
@@ -56,7 +53,6 @@ class KindnessFragment : Fragment() {
                     SnowflakeProxyService.startSnowflakeProxyForegroundService(it)
                 } else {
                     SnowflakeProxyService.stopSnowflakeProxyForegroundService(it)
-
                     updateNatTypeUi(IPtProxy.NATUnknown)
                 }
             }
@@ -69,7 +65,7 @@ class KindnessFragment : Fragment() {
         updateNatTypeUi(IPtProxy.NATUnknown)
 
         mBinding.rowProxyQuality.setOnClickListener {
-            if (mService?.natType?.value == IPtProxy.NATRestricted) {
+            if (Prefs.lastSnowflakeNatType == IPtProxy.NATRestricted) {
                 showQualityHint()
             }
         }
@@ -100,11 +96,8 @@ class KindnessFragment : Fragment() {
         }
 
         mBinding.btnActionLearnMore.setOnClickListener {
-            val i = Intent(Intent.ACTION_VIEW, "https://orbot.app/kindness".toUri())
-            val pm = context?.packageManager
-
-            if (pm != null && i.resolveActivity(pm) != null) {
-                startActivity(i)
+            activity?.let {
+                startActivity(Intent(Intent.ACTION_VIEW, URL_ABOUT_KINDNESS.toUri()))
             }
         }
 
@@ -133,46 +126,37 @@ class KindnessFragment : Fragment() {
         return mBinding.root
     }
 
-    override fun onStart() {
-        super.onStart()
-
-        // TODO: We need this, to receive the proxy quality, but on the other hand, this
-        //  will unintentionally start the SnowflakeProxyService, which we don't want, because
-        //  it will automatically start SnowflakeProxy if there are no Wi-Fi/battery limits.
-        //  -> hence a redesign of the SnowflakeProxyService seems to await us.
-
-//        context?.let {
-//            it.bindService(SnowflakeProxyService.getIntent(it), connection, Context.BIND_AUTO_CREATE)
-//        }
-    }
-
     override fun onResume() {
         super.onResume()
-
         // Updates these values when user returns to screen after running snowflake proxy for some time.
-
         updateUsageLimitsUi()
-
+        updateNatTypeUi(Prefs.lastSnowflakeNatType)
         mBinding.tvAlltimeTotal.text = "${Prefs.snowflakesServed}"
         mBinding.tvWeeklyTotal.text = "${Prefs.snowflakesServedWeekly}"
     }
 
+    private val natTypeObserver =
+        SharedPreferences.OnSharedPreferenceChangeListener { sharedPrefs, key ->
+            if (key != Prefs.PREF_LAST_SNOWFLAKE_NAT_TYPE) return@OnSharedPreferenceChangeListener
+            updateNatTypeUi(Prefs.lastSnowflakeNatType)
+        }
+
+    override fun onStart() {
+        super.onStart()
+        PreferenceManager
+            .getDefaultSharedPreferences(requireContext())
+            .registerOnSharedPreferenceChangeListener(natTypeObserver)
+    }
+
     override fun onStop() {
         super.onStop()
+        PreferenceManager
+            .getDefaultSharedPreferences(requireContext())
+            .unregisterOnSharedPreferenceChangeListener(natTypeObserver)
 
         if (mBound) {
             context?.unbindService(connection)
             mBound = false
-        }
-    }
-
-    private fun observeNatType() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                mService?.natType?.collect { natType ->
-                    updateNatTypeUi(natType)
-                }
-            }
         }
     }
 
@@ -202,10 +186,8 @@ class KindnessFragment : Fragment() {
             )
     }
 
-    private fun showQualityHint() {
-        val context = context ?: return
-
-        AlertDialog.Builder(context)
+    private fun showQualityHint() =
+        AlertDialog.Builder(requireContext())
             .setTitle(R.string.kindness_quality_upgrade_title)
             .setMessage(
                 String.format(
@@ -216,7 +198,6 @@ class KindnessFragment : Fragment() {
             )
             .setPositiveButton(android.R.string.ok, null)
             .show()
-    }
 
     private fun showPanelStatus(isActivated: Boolean) {
         val duration = 250L
@@ -235,5 +216,9 @@ class KindnessFragment : Fragment() {
                 mBinding.panelKindnessStatus.visibility = View.GONE
             }
         }
+    }
+
+    companion object {
+        private const val URL_ABOUT_KINDNESS = "https://orbot.app/kindness"
     }
 }
