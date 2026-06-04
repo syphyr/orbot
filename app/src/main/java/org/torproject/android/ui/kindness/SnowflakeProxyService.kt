@@ -28,6 +28,7 @@ class SnowflakeProxyService : Service() {
     inner class LocalBinder : Binder() {
         fun getService(): SnowflakeProxyService = this@SnowflakeProxyService
     }
+
     private val binder = LocalBinder()
 
     private lateinit var snowflakeProxyWrapper: SnowflakeProxyWrapper
@@ -118,6 +119,7 @@ class SnowflakeProxyService : Service() {
                 val hasWifi = capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true
                 val hasVpn = capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_VPN) == true
 
+
                 if (Prefs.limitSnowflakeProxyingWifi() && !hasWifi) {
                     refreshNotification(getString(R.string.kindness_mode_disabled_wifi))
                     stopSnowflakeProxy("required wifi condition not met")
@@ -127,9 +129,9 @@ class SnowflakeProxyService : Service() {
                             stopSnowflakeProxy("has network, but non Orbot VPN is running")
                             return
                         }
+                        stopSnowflakeProxy("stopping on new network event to refresh NAT type")
                         startSnowflakeProxy("got network (wifi=${hasWifi}, limit wifi=${Prefs.limitSnowflakeProxyingWifi()}")
-                    }
-                    else {
+                    } else {
                         refreshNotification(getString(R.string.kindness_mode_disabled_internet))
                     }
                 }
