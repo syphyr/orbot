@@ -174,7 +174,7 @@ public class OrbotService extends VpnService {
         stopTor();
 
         //stop the foreground priority and make sure to remove the persistent notification
-        stopForeground(!showNotification ? STOP_FOREGROUND_DETACH: STOP_FOREGROUND_REMOVE );
+        stopForeground(!showNotification ? STOP_FOREGROUND_DETACH : STOP_FOREGROUND_REMOVE);
         if (showNotification) sendCallbackLogMessage(getString(R.string.status_disabled));
 
         mPortDns = -1;
@@ -578,25 +578,28 @@ public class OrbotService extends VpnService {
     }
 
     private void sendCallbackLogMessage(final String logMessage) {
-        var notificationMessage = logMessage;
 
         var localIntent = new Intent(LOCAL_ACTION_LOG)
                 .putExtra(LOCAL_EXTRA_LOG, logMessage)
                 .setPackage(getPackageName());
 
-        if (logMessage.contains(LOG_NOTICE_HEADER)) {
-            notificationMessage = notificationMessage.substring(LOG_NOTICE_HEADER.length());
-            if (notificationMessage.contains(LOG_NOTICE_BOOTSTRAPPED)) {
-                var percent = notificationMessage.substring(LOG_NOTICE_BOOTSTRAPPED.length());
-                percent = percent.substring(0, percent.indexOf('%')).trim();
-                localIntent.putExtra(LOCAL_EXTRA_BOOTSTRAP_PERCENT, percent);
-                var prog = Integer.parseInt(percent);
-                SmartConnect.updateProgress(prog);
-                mNotifyBuilder.setProgress(100, prog, false);
-                notificationMessage = notificationMessage.substring(notificationMessage.indexOf(':') + 1).trim();
+        if (logMessage.contains(TorControlConnection.EVENT_STATUS_CLIENT)) {
+            var bootstrapIndex = logMessage.indexOf(LOG_NOTICE_BOOTSTRAPPED);
+            if (bootstrapIndex != -1) {
+                var subStr = logMessage.substring(bootstrapIndex + LOG_NOTICE_BOOTSTRAPPED.length());
+                var arr = subStr.split(" ");
+                if (arr.length > 0) {
+                    try {
+                        var progress = Integer.parseInt(arr[0].trim());
+                        localIntent.putExtra(LOCAL_EXTRA_BOOTSTRAP_PERCENT, "" + progress);
+                        SmartConnect.updateProgress(progress);
+                        mNotifyBuilder.setProgress(100, progress, false);
+                    } catch (NumberFormatException _) {
+                    }
+                }
             }
         }
-        showToolbarNotification(notificationMessage, NOTIFY_ID, R.drawable.ic_stat_tor);
+        showToolbarNotification(logMessage, NOTIFY_ID, R.drawable.ic_stat_tor);
         mHandler.post(() -> sendBroadcast(localIntent));
     }
 

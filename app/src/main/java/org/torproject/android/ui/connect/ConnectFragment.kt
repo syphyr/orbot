@@ -78,10 +78,11 @@ class ConnectFragment : Fragment(),
                         is ConnectUiState.Off -> doLayoutOff()
                         is ConnectUiState.Starting -> {
                             binding.switchConnect.isChecked = true
-                            doLayoutStarting(requireContext())
+                            var clearSubtitle = true
                             state.bootstrapPercent?.let {
-                                binding.progressBar.progress = it
+                                clearSubtitle = false
                             }
+                            doLayoutStarting(requireContext(), clearSubtitle, state.bootstrapPercent)
                         }
 
                         is ConnectUiState.On -> {
@@ -210,7 +211,7 @@ class ConnectFragment : Fragment(),
 
     // starts Tor, plus often the VPNService. For power users it runs tor as a proxy
     fun startTorConnection() {
-        doLayoutStarting(requireContext())
+        doLayoutStarting(requireContext(), torProgress = 0)
         setState(TorService.ACTION_START)
     }
 
@@ -346,14 +347,14 @@ class ConnectFragment : Fragment(),
         binding.ivStatus.setOnClickListener(null)
     }
 
-    fun doLayoutStarting(context: Context) {
+    fun doLayoutStarting(context: Context, clearSubtitle: Boolean = true, torProgress: Int? = null) {
         binding.tvSubtitle.visibility = View.VISIBLE
-        binding.tvSubtitle.text = ""
-
+        if (clearSubtitle) binding.tvSubtitle.text = ""
         with(binding.progressBar) {
-            progress = 0
             visibility = View.VISIBLE
+            if (torProgress != null) progress = torProgress
         }
+
 
         binding.ivStatus.setImageResource(R.drawable.orbie_stuck)
         val animHover = AnimationUtils.loadAnimation(context, R.anim.hover)
