@@ -219,7 +219,7 @@
     <string name="error_asking_tor_for_bridges">Tor\'a nasıl bağlanılacağını sorarken hata oluştu</string>
     <string name="enter_bridge_address">Köprü adresini giriniz</string>
     <string name="built_in_bridges_obfs4">Yerleşik Köprüler (obfs4)</string>
-    <string name="built_in_bridges_obfs4_subtitle">Trafiğinizi gizler. Bazı Tor engellemelerini aşar. Tor\'un engellenmediği bir ülkede, halka açık WiFi kullanıyorsanız kullanışlıdır.</string>
+    <string name="built_in_bridges_obfs4_subtitle">Trafiğinizi gizler. Bazı Tor engellemelerini aşar. Tor\'un engellenmediği bir ülkede, halka açık Wi-Fi kullanıyorsanız kullanışlıdır.</string>
     <string name="unlock_app_msg" formatted="true">%s\'yi kullanmak için lütfen cihazınızın kilidini açın</string>
     <string name="run_smart_connect_">En iyi yolu bulmak için Smart Connect\'i çalıştırın</string>
     <string name="scan_qr_code">QR kodu tara</string>
@@ -285,4 +285,7 @@
     <string name="battery_optimizations_are_enabled">Orbot için Pil İyileştirmeleri şu anda etkin. Bu öntanımlı ayardır ve çoğu kullanıcı için uygundur…</string>
     <string name="btn_connect_anyway">Yine de Bağlan</string>
     <string name="btn_connect_anyway_stop_showing">Bağlan ve Bu Uyarıyı Kapat</string>
+    <string name="pref_proxy_no_proxy">Vekil Sunucu Yok</string>
+    <string name="pref_proxy_ss_title">ShadowSocks Yapılandırma URL\'si</string>
+    <string name="pref_proxy_ss_summary">ss:// ile başlayan tam ShadowSocks yapılandırma URL\'si</string>
 </resources>

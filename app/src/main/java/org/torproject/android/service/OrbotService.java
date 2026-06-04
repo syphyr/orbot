@@ -174,7 +174,7 @@ public class OrbotService extends VpnService {
         stopTor();
 
         //stop the foreground priority and make sure to remove the persistent notification
-        stopForeground(!showNotification);
+        stopForeground(!showNotification ? STOP_FOREGROUND_DETACH: STOP_FOREGROUND_REMOVE );
         if (showNotification) sendCallbackLogMessage(getString(R.string.status_disabled));
 
         mPortDns = -1;
@@ -717,7 +717,7 @@ public class OrbotService extends VpnService {
                     stopTorAsync(!userIsQuittingOrbot);
                 }
                 case ACTION_UPDATE_ONION_NAMES -> updateV3OnionNames();
-                case ACTION_STOP_FOREGROUND_TASK -> stopForeground(true);
+                case ACTION_STOP_FOREGROUND_TASK -> stopForeground(STOP_FOREGROUND_REMOVE);
                 case ACTION_RESTART_VPN_IF_RUNNING -> {
                     if (mVpnManager != null) mVpnManager.restartVPN(new Builder());
                 }
