@@ -25,20 +25,19 @@ object LocalizedLogsToDisplay {
 
     private val localizedLogsToDisplay = listOf(R.string.status_connected_control_port)
 
-    fun updateLabelIfDisplayed(logline: String, label: TextView, context: Context?) {
-        if (logline.isBlank()) return
+    fun updateLabelIfDisplayed(logline: String, context: Context?): String? {
+        if (logline.isBlank() || context == null) return null
         systemLogsToDisplay.keys.forEach { key ->
             if (logline.contains(key)) {
-                label.setText(systemLogsToDisplay[key]!!)
-                return
+                return context.getString(systemLogsToDisplay[key]!!)
             }
         }
-        if (context == null) return
         localizedLogsToDisplay.forEach {
             val str = context.getString(it)
             if (logline.contains(str)) {
-                label.text = str
+                return str
             }
         }
+        return null
     }
 }

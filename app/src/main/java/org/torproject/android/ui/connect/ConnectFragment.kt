@@ -45,9 +45,6 @@ class ConnectFragment : Fragment(),
 
     val viewModel: ConnectViewModel by activityViewModels()
 
-    private val lastStatus: String
-        get() = (activity as? OrbotActivity)?.previousReceivedTorStatus ?: ""
-
     private val startTorVpnResultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             // The user pressed OK, we can start Tor VPN
@@ -78,11 +75,10 @@ class ConnectFragment : Fragment(),
                         is ConnectUiState.Off -> doLayoutOff()
                         is ConnectUiState.Starting -> {
                             binding.switchConnect.isChecked = true
-                            var clearSubtitle = true
                             state.bootstrapPercent?.let {
-                                clearSubtitle = false
+                                viewModel.updateBootstrapPercent(it)
                             }
-                            doLayoutStarting(requireContext(), clearSubtitle, state.bootstrapPercent)
+                            doLayoutStarting(requireContext())
                         }
 
                         is ConnectUiState.On -> {
@@ -100,11 +96,10 @@ class ConnectFragment : Fragment(),
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.logState.collect { logline ->
-                    LocalizedLogsToDisplay.updateLabelIfDisplayed(
-                        logline,
-                        binding.tvSubtitle,
-                        context
-                    )
+                    LocalizedLogsToDisplay.updateLabelIfDisplayed(logline, context)?.let {
+                        binding.tvSubtitle.text = it
+                        viewModel.updateSubtitleState(it)
+                    }
                 }
             }
         }
@@ -158,13 +153,7 @@ class ConnectFragment : Fragment(),
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentConnectBinding.inflate(inflater, container, false)
-        viewModel.updateState(requireContext(), lastStatus)
         return binding.root
-    }
-
-    override fun onResume() {
-        super.onResume()
-        viewModel.updateState(requireContext(), lastStatus)
     }
 
     fun stopTorAndVpn() {
@@ -211,7 +200,6 @@ class ConnectFragment : Fragment(),
 
     // starts Tor, plus often the VPNService. For power users it runs tor as a proxy
     fun startTorConnection() {
-        doLayoutStarting(requireContext(), torProgress = 0)
         setState(TorService.ACTION_START)
     }
 
@@ -336,6 +324,7 @@ class ConnectFragment : Fragment(),
     }
 
     fun doLayoutOff() {
+        viewModel.updateSubtitleState()
         binding.ivStatus.setImageResource(R.drawable.orbiesleeping)
         refreshMenuList(requireContext())
         stopAnimations()
@@ -347,12 +336,12 @@ class ConnectFragment : Fragment(),
         binding.ivStatus.setOnClickListener(null)
     }
 
-    fun doLayoutStarting(context: Context, clearSubtitle: Boolean = true, torProgress: Int? = null) {
+    fun doLayoutStarting(context: Context) {
         binding.tvSubtitle.visibility = View.VISIBLE
-        if (clearSubtitle) binding.tvSubtitle.text = ""
+        binding.tvSubtitle.text = viewModel.subtitleState.value
         with(binding.progressBar) {
             visibility = View.VISIBLE
-            if (torProgress != null) progress = torProgress
+            progress = (viewModel.uiState.value as ConnectUiState.Starting).bootstrapPercent ?: 0
         }
 
 
