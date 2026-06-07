@@ -23,13 +23,13 @@ import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.vpn.VpnServicePrepareWrapper
 import org.torproject.android.ui.connect.ConnectUiState
 import org.torproject.android.ui.connect.ConnectViewModel
+import org.torproject.android.util.CoroutineUtils.waitUntilStateFlowEquals
 import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.sendIntentToService
 import org.torproject.jni.TorService
 import kotlin.getValue
 import kotlin.time.Duration.Companion.milliseconds
-import kotlin.time.Duration.Companion.seconds
 
 /**
  * Kindness Mode Quality Test
@@ -43,7 +43,7 @@ import kotlin.time.Duration.Companion.seconds
  *      C: if the user has a bridge/proxy, turn tor off. perform option B. When the test is
  *         completed, turn the user's original Tor connection back on.
  *
- *   Set Prefs.snowflakeNeedsQualityCheck to false if test passes, true if otherwise
+ *   Sets Prefs.snowflakeNeedsQualityCheck to false if test passes, true if otherwise
  */
 class TestingDialogFragment : DialogFragment() {
 
@@ -66,7 +66,6 @@ class TestingDialogFragment : DialogFragment() {
         savedInstanceState: Bundle?
     ): View {
         mBinding = FragmentTestingBinding.inflate(inflater, container, false)
-
         mBinding.tvTitleApproved.text = getString(R.string.testing_title_approved, "✅")
         mBinding.tvTitleDeclined.text = getString(R.string.testing_title_declined, "\uD83D\uDEAB")
         mBinding.btnAbortTest.setOnClickListener { dismiss() }
@@ -138,14 +137,14 @@ class TestingDialogFragment : DialogFragment() {
 
         // immediately succeed if we've recently succeeded
         if (!Prefs.snowflakeNeedsQualityCheck) {
-            Log.wtf(TAG, "recently passed quality check, proceeding")
+            Log.d(TAG, "recently passed quality check, proceeding")
             mBinding.btContinue.callOnClick()
             return
         }
 
         // immediately succeed if you're already connecting directly to Tor
         if (torConnectionState == ConnectUiState.On && Prefs.transport == Transport.NONE && Prefs.outboundProxy.first == null) {
-            Log.wtf(TAG, "there's an active direct connection to tor, stop testing")
+            Log.d(TAG, "there's an active direct connection to tor, stop testing")
             Prefs.snowflakeNeedsQualityCheck = false
             mBinding.btContinue.callOnClick()
             return
@@ -176,7 +175,7 @@ class TestingDialogFragment : DialogFragment() {
     }
 
     private fun isOrbotOnOrStarting(): Boolean {
-        val torConnectionState = torConnectedViewModel.uiState.value
+        val torConnectionState = currentTorState()
         return torConnectionState is ConnectUiState.On || torConnectionState is ConnectUiState.Starting
     }
 
@@ -200,54 +199,61 @@ class TestingDialogFragment : DialogFragment() {
     private fun doQualityTestRequiringConsent() {
         showOngoingTestWithConsentUi()
         lifecycleScope.launch {
+            Log.d(TAG, "starting consent connection test ${currentTorState()}")
+            val timestampStart = System.currentTimeMillis()
             if (isOrbotOnOrStarting()) {
-                Log.wtf(TAG, "OrbotService is running, we need to turn it off")
-                stoppedNormalTorConnection = true
+                Log.d(TAG, "disconnecting user's Tor for connection test...")
                 requireActivity().sendIntentToService(TorService.ACTION_STOP)
-                delay(250.milliseconds)
+                stoppedNormalTorConnection = true
+                waitUntilStateFlowEquals(
+                    torConnectedViewModel.uiState,
+                    ConnectUiState.Off,
+                    CONNECTION_TEST_TIMEOUT_MS.milliseconds,
+                    TAG
+                )
+                Log.d(TAG, "Tor is now... ${currentTorState()}")
+                if (currentTorState() != ConnectUiState.Off) {
+                    stoppedNormalTorConnection = false
+                    Log.d(TAG, "Failed Connection test, OrbotService still isn't off")
+                    showTestFailedUi()
+                    return@launch
+                }
             }
-
-            if (torConnectedViewModel.uiState.value != ConnectUiState.Off) {
-                stoppedNormalTorConnection = false
-                showTestFailedUi()
-                Log.wtf(TAG, "OrbotService isn't off yet")
-            }
-
-            Log.wtf(TAG, "current tor state is ${torConnectedViewModel.uiState.value}")
-
+            Log.d(TAG, "Tor is now... ${currentTorState()}")
+            val timeStampTorOff = System.currentTimeMillis()
+            val timeRemaining = CONNECTION_TEST_TIMEOUT_MS - (timeStampTorOff - timestampStart)
+            Log.d(TAG, "connection test time remaining= $timeRemaining")
             connectionTestServiceConnection =
                 TestTorForSnowflakeProxyService.launchTorTestingService(
                     requireActivity(),
                     torStatusReceiver
                 )
-
-            delay(CONNECTION_TEST_TIMEOUT.seconds)
-            // if we haven't established a connection, cleanup and show error state
-            if (connectionTestServiceConnection != null) {
-                Log.wtf(
-                    TAG,
-                    "Couldn't establish a tor connection after waiting for $CONNECTION_TEST_TIMEOUT seconds"
-                )
+            delay(timeRemaining.milliseconds)
+            if (Prefs.snowflakeNeedsQualityCheck) {
+                Log.d(TAG, "Couldn't directly connect in $CONNECTION_TEST_TIMEOUT_MS ms")
                 unbindServiceIfBound()
                 showTestFailedUi()
             }
         }
     }
 
+    private fun currentTorState() = torConnectedViewModel.uiState.value
+
     val torStatusReceiver: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             val status = intent?.getStringExtra(TorService.EXTRA_STATUS)
-            Log.wtf(TAG, "Got tor status from testing service: $status")
+            Log.d(TAG, "Got tor status from testing service: $status")
             if (status == TorService.STATUS_ON) {
                 lifecycleScope.launch {
+                    Log.d(TAG, "TEST PASSED")
                     Prefs.snowflakeNeedsQualityCheck = false
                     unbindServiceIfBound()
-                    showTestPassedUi()
                     if (stoppedNormalTorConnection) {
                         delay(250.milliseconds)
-                        Log.wtf(TAG, "relaunching OrbotService...")
+                        Log.d(TAG, "relaunching OrbotService...")
                         requireActivity().sendIntentToService(TorService.ACTION_START)
                     }
+                    showTestPassedUi()
                 }
             }
         }
@@ -262,7 +268,7 @@ class TestingDialogFragment : DialogFragment() {
 
     private fun unbindServiceIfBound() {
         if (connectionTestServiceConnection != null) {
-            Log.wtf(TAG, "unregistering receiver, killing service")
+            Log.d(TAG, "unregistering receiver, killing service")
             val connection = connectionTestServiceConnection!!
             requireActivity().unregisterReceiver(torStatusReceiver)
             requireActivity().unbindService(connection)
@@ -296,10 +302,8 @@ class TestingDialogFragment : DialogFragment() {
     companion object {
         const val KEY_RESULT = "kindness_test_result"
         const val TAG = "TestingFragment"
-        const val CONNECTION_TEST_TIMEOUT = 90
-
-        fun show(fragmentManager: FragmentManager) {
+        const val CONNECTION_TEST_TIMEOUT_MS = 90000L
+        fun show(fragmentManager: FragmentManager) =
             TestingDialogFragment().show(fragmentManager, TAG)
-        }
     }
 }
