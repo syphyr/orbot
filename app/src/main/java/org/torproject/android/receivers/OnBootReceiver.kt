@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.os.Build
+import android.os.SystemClock
 import org.torproject.android.service.OrbotService
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.putNotSystem
@@ -17,12 +18,10 @@ class OnBootReceiver : BroadcastReceiver() {
                 intent.action != "android.intent.action.BOOT_COMPLETED")
                 return
 
-            if (Build.FINGERPRINT.contains("sdk_gphone")) {
-                // on pixels emulated in new android studio on boot
-                // gets launched every time you click run. this is annoying
-                // for debugging and gets in the way of automated screenshots
+            // deploying code in Android Studio falsely triggers boot event
+            if (SystemClock.uptimeMillis() > TEN_MINUTES_MS)
                 return
-            }
+
             if (Prefs.startOnBoot() && !sReceivedBoot) {
                 startService(context)
                 sReceivedBoot = true
@@ -49,5 +48,6 @@ class OnBootReceiver : BroadcastReceiver() {
 
     companion object {
         private var sReceivedBoot = false
+        private const val TEN_MINUTES_MS = 60 * 10 * 100
     }
 }
