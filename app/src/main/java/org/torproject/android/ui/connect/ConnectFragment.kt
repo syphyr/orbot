@@ -13,6 +13,7 @@ import android.view.animation.AnimationUtils
 import android.widget.CompoundButton
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -34,6 +35,7 @@ import org.torproject.android.service.vpn.VpnServicePrepareWrapper
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.android.ui.more.LogBottomSheet
+import org.torproject.android.util.NetworkUtils
 import org.torproject.jni.TorService
 import kotlin.time.Duration.Companion.milliseconds
 
@@ -155,6 +157,49 @@ class ConnectFragment : Fragment(),
     ): View {
         binding = FragmentConnectBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        updatePrivateDnsLabel()
+    }
+
+    // see https://github.com/guardianproject/orbot-android/pull/1707
+    private fun updatePrivateDnsLabel() {
+        var labelVisibility = View.VISIBLE
+        var labelText = ""
+        var dialogMsg = ""
+        var onLabelClick: () -> Unit = {
+            AlertDialog.Builder(requireContext())
+                .setTitle("Private DNS") // TODO
+                .setMessage(dialogMsg)
+                .show()
+        }
+
+        val privateDns = NetworkUtils.PrivateDns.getPrivateDnsConfiguration(requireContext())
+        when (privateDns) {
+            is NetworkUtils.PrivateDns.Off -> {
+                labelVisibility = View.GONE
+                onLabelClick = {}
+            }
+
+            is NetworkUtils.PrivateDns.Opportunistic -> {
+                labelText = "Opportunistic Message"
+                dialogMsg = "opportunistic explanation"
+            }
+
+            is NetworkUtils.PrivateDns.Strict -> {
+                labelText = "Strict msg ${privateDns.hostname}"
+                dialogMsg = "struct explanation ${privateDns.hostname}"
+            }
+        }
+
+        binding.tvPrivateDnsStatus.apply {
+            visibility = labelVisibility
+            text = labelText
+            setOnClickListener { onLabelClick() }
+        }
     }
 
     fun stopTorAndVpn() {
