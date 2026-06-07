@@ -30,6 +30,7 @@ import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 import java.util.Locale
+import kotlin.time.Duration.Companion.seconds
 
 class ConfigConnectionBottomSheet :
     OrbotBottomSheetDialogFragment(), CompoundButton.OnCheckedChangeListener,
@@ -387,7 +388,7 @@ class ConfigConnectionBottomSheet :
                         }
                     }
 
-                    delay(5 * 1000)
+                    delay(5.seconds)
                     updateAskTorBt()
                 }
             } catch (e: Throwable) {

@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withTimeoutOrNull
 import kotlin.time.Duration
 
+@Suppress("SameParameterValue")
 object CoroutineUtils {
 
     /**

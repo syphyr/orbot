@@ -9,6 +9,7 @@ import java.net.InetSocketAddress
 import java.net.Socket
 
 object NetworkUtils {
+    private const val TAG = "NetworkUtils"
     fun isNetworkAvailable(context: Context, allowOtherVpnApps: Boolean = false): Boolean {
         val connectivityManager =
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
@@ -33,7 +34,7 @@ object NetworkUtils {
      *      system gives Orbot an Intent to register to be the active VPN app. If it's non-null, we
      *      know for certain we have a non-Orbot VPN config on the system
      */
-    fun isNonOrbotVpnActive(context: Context): Boolean {
+    fun isNonOrbotVpnActive(context: Context, logTag: String = TAG): Boolean {
         if (Prefs.useVpn()) {
             return false
         }
@@ -43,12 +44,12 @@ object NetworkUtils {
         val network = connectivityManager.activeNetwork ?: return false
         val capabilities = connectivityManager.getNetworkCapabilities(network) ?: return false
         val deviceUsingVpn = capabilities.hasTransport(NetworkCapabilities.TRANSPORT_VPN)
-        Log.wtf("bim", "VPN? $deviceUsingVpn")
+        Log.d(logTag, "is there an active VPN connection? $deviceUsingVpn")
 
         // we either don't have a VPN app running, if it is, check for certain it's not Orbot
         if (!deviceUsingVpn) return false
         val isOrbotRegisteredAsVpn = VpnService.prepare(context) != null
-        Log.wtf("bim", "isOrbotRegisteredAsVpn: $isOrbotRegisteredAsVpn")
+        Log.d(logTag, "isOrbotRegisteredAsVpn: $isOrbotRegisteredAsVpn")
         return isOrbotRegisteredAsVpn
     }
 

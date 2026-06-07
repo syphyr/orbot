@@ -1,5 +1,6 @@
 package org.torproject.android.ui.kindness
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.BroadcastReceiver
 import android.content.ComponentName
@@ -28,6 +29,7 @@ class TestTorForSnowflakeProxyService : TorService() {
     companion object {
         const val TAG = "SnowflakeTestTorService"
 
+        @SuppressLint("InlinedApi")
         fun launchTorTestingService(
             orbotActivity: Activity,
             torStatusReceiver: BroadcastReceiver,
@@ -42,7 +44,7 @@ class TestTorForSnowflakeProxyService : TorService() {
                 orbotActivity,
                 torStatusReceiver,
                 IntentFilter(ACTION_STATUS),
-                RECEIVER_NOT_EXPORTED
+                ContextCompat.RECEIVER_NOT_EXPORTED
             )
 
             val serviceConnection = getServiceConnection()

@@ -221,8 +221,8 @@
     <string name="setting_debug">Debug</string>
 
     <string name="testing_consent_header">Before becoming a Snowflake Proxy, we need to test your Internet connection to see if it can serve as a useful proxy for others.</string>
-    <string name="testing_consent_direct_tor_disclaimer">During the connection evaluation, Orbot will attempt to connect directly to Tor without using bridges. This test will fail in heavily censored regions that block direct Tor connections.</string>
-    <string name="testing_consent_direct_stop_vpn_disclaimer">Your current Tor connection will be temporarily disconnected because you use bridges to connect to Tor. Your Tor configuraiton will automatically be restarted as soon as this test is finished.</string>
+    <string name="testing_consent_direct_tor_disclaimer">During this test, Orbot will attempt to connect directly to Tor without using bridges. This test will fail in heavily censored regions that block Tor.</string>
+    <string name="testing_consent_direct_stop_vpn_disclaimer">Your current Tor connection will be disconnected because you are using a bridge or proxy to connect to Tor. It will automatically restart with once this test is finished.</string>
     <string name="testing_consent_leaking_connection">Do not start this test if it is unsafe for you to temporarily disconnect from Tor</string>
 
 
@@ -346,7 +346,7 @@
     <string name="open_vpn_settings">Open Android VPN Settings</string>
 
     <string name="kindness_mode_disclaimer_bridge">Activate if the internet in your country is not heavily censored.</string>
-    <string name="kindness_mode_unsupported_country">You selected %s as your country, but unfortunately Kindness Mode can\'t help people connect to Tor in this region. If you believe you\'re seeing this message by mistake, you can clear your country and test to see if you\'re elliglbe to be a Snowflake Proxy</string>
+    <string name="kindness_mode_unsupported_country">You selected %s as your country, but unfortunately Kindness Mode can\'t help people connect to Tor in this region. If you believe you\'re seeing this message by mistake, you can clear your country and test to see if you\'re eligible to be a Snowflake Proxy</string>
 
     <string name="battery_optimization_title">Disable Battery Optimizations</string>
     <string name="battery_optimization_pref_msg">Setting for some users that suspect their device is prematurely killing Orbot while it runs in the background.</string>

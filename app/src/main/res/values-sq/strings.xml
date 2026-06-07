@@ -276,10 +276,6 @@
     <string name="unable_to_start_other_vpn_app_error_msg">Aplikacioni %1$s është formësuar të jetë një VPN “Përherë aktiv”. Ju lutemi, çaktivizojeni, para se të nisni Orbot-in.</string>
     <string name="unable_to_start_unknown_reason_error_msg">S’u dha leje për VPN, ose një tjetër aplikacion VPN ka të aktivizuar veçorinë “VPN përherë aktive”. Mund ta hidhni tej këtë sinjalizim dhe të rilidheni, nëse mbyllët gabimisht dialogun e mëparshëm Kërkesë për VPN. Përdoruesit e thelluar mund të përdorin një tjetër aplikacion VPN dhe të përdorin Tor-in si një Ndërmjetës SOCKS, duke aktivizuar Mënyrën “Përdorues i Thelluar” të Orbot-it.</string>
     <string name="open_vpn_settings">Hap Rregullime VPN-je Android</string>
-    <string name="kindness_mode_cant_start">S’arrihet të Vihet Në Punë Mënyra “I sjellshëm”</string>
-    <string name="kindness_never_had_a_direct_connection">Që të mund të përdorni Mënyrën “I sjellshëm”, duhet të jeni lidhur drejtpërdrejt me Tor-in (pa përdorur ndonjë urë) të paktën një herë. Pasi të jeni lidhur, rikthehuni këtu, që të aktivizoni Mënyrën “I sjellshëm”. Pas plotësimit të kësaj prove për lidhje të drejtpërdrejtë, jeni të lirë të përdorni Mënyrën “I sjellshëm”, pavarësisht në jeni lidhur a jo me Tor-in.</string>
-    <string name="kindness_mode_cant_run_with_bridge">Mënyra “I sjellshëm” s’mund të përdoret teksa jeni duke përdorur një urë për t’u lidhur me Tor-in.</string>
-    <string name="kindness_mode_cant_run_in_your_country">Përdorimi i Mënyrës “I sjellshëm”, për të ndihmuar persona të tjerë të lidhen me Tor-in, aktualisht është i çaktivizuar për vendin tuaj, për shkak censurimi.</string>
     <string name="kindness_mode_disclaimer_bridge">Mos e përdorni Mënyrën “I sjellshëm”, nëse gjendeni në një rajon ku censuroheni, ose nëse keni nevojë të përdorni një urë për t’u lidhur me Tor-in.</string>
     <string name="battery_optimization_title">Çaktivizo Optimizime Baterie</string>
     <string name="battery_optimization_pref_msg">Rregullim për disa përdorues që dyshojnë se pajisja e tyre po asgjëson para kohe Orbot-in teksa xhiron në prapaskenë.</string>

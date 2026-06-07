@@ -107,7 +107,7 @@ class TestingDialogFragment : DialogFragment() {
     private fun doQualityTestRequiringNoUserConsent() {
 
         // immediately fail if there's another VPN running
-        if (NetworkUtils.isNonOrbotVpnActive(requireContext())) {
+        if (NetworkUtils.isNonOrbotVpnActive(requireContext(), TAG)) {
             showTestFailedUi(
                 errorExplanation = getString(R.string.testing_explanation_other_vpn),
                 bubbleMsg = getString(R.string.testing_explanation_other_vpn_bubble),

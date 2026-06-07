@@ -273,13 +273,9 @@
     <string name="unable_to_start_other_vpn_app_error_msg">L\'aplicació %1$s s\'ha configurat per a ser una VPN «sempre activa». Desactiveu-la abans d\'iniciar l\'Orbot.</string>
     <string name="unable_to_start_unknown_reason_error_msg">El permís de la VPN s\'ha denegat, o altra aplicació VPN té activada la funció «sempre activa». Ho podeu descartar i reconnectar si heu tancat el diàleg de sol·licitud de permisos de VPN anterior per error. Els usuaris més tècnics poden fer servir una altra aplicació VPN i utilitzar el Tor com a servidor SOCKS activant el mode Power User de l\'Orbot.</string>
     <string name="open_vpn_settings">Obre la configuració VPN d\'Android</string>
-    <string name="kindness_mode_cant_start">No s\'ha pogut iniciar el mode altruista</string>
     <string name="pref_proxy_no_proxy">Cap servidor</string>
     <string name="pref_proxy_ss_title">URL de la configuració del ShadowSocks</string>
     <string name="pref_proxy_ss_summary">URL complet de la configuració del ShadowSocks que comenci per ss://</string>
-    <string name="kindness_never_had_a_direct_connection">Per a poder utilitzar el Mode altruista, cal que us hàgiu connectat al Tor directament (sense fer servir cap pont) almenys una vegada. En haver-vos connectat, torneu aquí per a activar el Mode altruista. En completar aquesta prova de connexió directa, podreu usar el Mode altruista tant si esteu connectat al Tor com si no.</string>
-    <string name="kindness_mode_cant_run_with_bridge">El Mode altruista no es pot executar mentre feu servir un pont per a connectar-vos a Tor.</string>
-    <string name="kindness_mode_cant_run_in_your_country">Actualment, no podeu utilitzar al vostre país el Mode altruista per a ajudar altres persones a connectar-se al Tor a causa de la censura.</string>
     <string name="kindness_mode_disclaimer_bridge">No feu servir el Mode altruista si esteu en una regió on hi hagi censura, o si us cal utilitzar un pont per a connectar-vos al Tor.</string>
     <string name="battery_optimization_title">Desactiva les optimitzacions de la bateria</string>
     <string name="battery_optimization_pref_msg">Opció per a aquells usuaris qui sospitin que el seu dispositiu estigui tancant l\'Orbot de manera prematura mentre s\'executa al rerefons.</string>

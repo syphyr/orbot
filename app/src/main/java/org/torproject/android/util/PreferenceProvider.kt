@@ -133,7 +133,6 @@ fun ContentResolver.getPrefInt(key: String, default: Int? = null): Int? {
     return getPref(key) { c, i -> c.getIntOrNull(i) } ?: default
 }
 
-@Suppress("unused")
 fun ContentResolver.getPrefLong(key: String, default: Long? = null): Long? {
     return getPref(key) { c, i -> c.getLongOrNull(i) } ?: default
 }
@@ -169,7 +168,6 @@ fun ContentResolver.putPref(key: String, value: Int) {
     })
 }
 
-@Suppress("unused")
 fun ContentResolver.putPref(key: String, value: Long) {
     putPref(key, ContentValues().apply {
         put(PreferenceProvider.ROW_TYPE, Long::class.toString())

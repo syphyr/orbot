@@ -46,6 +46,7 @@ import org.torproject.android.util.normalize
 import org.torproject.android.util.sendIntentToService
 import java.util.Arrays
 import java.util.StringTokenizer
+import kotlin.time.Duration.Companion.milliseconds
 
 class AppManagerFragment : Fragment(), View.OnClickListener {
 
@@ -88,7 +89,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
         }
 
         searchQuery
-            .debounce(250)
+            .debounce(250.milliseconds)
             .distinctUntilChanged()
             .onEach { filterApps(it) }
             .launchIn(scope)
