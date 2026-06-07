@@ -63,7 +63,7 @@ public class OrbotService extends VpnService {
     protected String mCurrentStatus = STATUS_OFF;
     TorControlConnection conn = null;
     private ServiceConnection torServiceConnection;
-    private boolean shouldUnbindTorService;
+    private volatile boolean shouldUnbindTorService;
     private NotificationManager mNotificationManager = null;
     private NotificationCompat.Builder mNotifyBuilder;
     private File mV3OnionBasePath;
@@ -462,7 +462,7 @@ public class OrbotService extends VpnService {
 
                     logNotice(getString(R.string.status_connected_control_port));
 
-                    var events = new ArrayList<>(Arrays.asList(TorControlCommands.EVENT_STATUS_CLIENT, TorControlCommands.EVENT_OR_CONN_STATUS, TorControlCommands.EVENT_CIRCUIT_STATUS, TorControlCommands.EVENT_NOTICE_MSG, TorControlCommands.EVENT_WARN_MSG, TorControlCommands.EVENT_ERR_MSG, TorControlCommands.EVENT_BANDWIDTH_USED, TorControlCommands.EVENT_NEW_DESC, TorControlCommands.EVENT_ADDRMAP));
+                    var events = Arrays.asList(TorControlCommands.EVENT_STATUS_CLIENT, TorControlCommands.EVENT_OR_CONN_STATUS, TorControlCommands.EVENT_CIRCUIT_STATUS, TorControlCommands.EVENT_NOTICE_MSG, TorControlCommands.EVENT_WARN_MSG, TorControlCommands.EVENT_ERR_MSG, TorControlCommands.EVENT_BANDWIDTH_USED, TorControlCommands.EVENT_NEW_DESC, TorControlCommands.EVENT_ADDRMAP);
                     if (Prefs.useDebugLogging())
                         events.addAll(Arrays.asList(TorControlCommands.EVENT_DEBUG_MSG, TorControlCommands.EVENT_INFO_MSG, TorControlCommands.EVENT_STREAM_STATUS));
                     conn.setEvents(events);
@@ -486,10 +486,10 @@ public class OrbotService extends VpnService {
 
         var serviceIntent = new Intent(this, TorService.class);
         Log.d(TAG, "binding tor service");
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
-            shouldUnbindTorService = bindService(serviceIntent, torServiceConnection, BIND_AUTO_CREATE);
-        else
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
             shouldUnbindTorService = bindService(serviceIntent, BIND_AUTO_CREATE, mExecutor, torServiceConnection);
+        else
+            shouldUnbindTorService = bindService(serviceIntent, torServiceConnection, BIND_AUTO_CREATE);
     }
 
     private void sendLocalStatusOffBroadcast() {
@@ -648,9 +648,7 @@ public class OrbotService extends VpnService {
 
             if (conn == null) return;
             try {
-                var resetBuffer = new ArrayList<String>();
-                resetBuffer.add("ExitNodes");
-                resetBuffer.add("StrictNodes");
+                var resetBuffer = Arrays.asList("ExitNodes", "StrictNodes");
                 conn.resetConf(resetBuffer);
                 conn.setConf("DisableNetwork", "1");
                 conn.setConf("DisableNetwork", "0");
