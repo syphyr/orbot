@@ -69,17 +69,8 @@ class TestingDialogFragment : DialogFragment() {
         mBinding.tvTitleApproved.text = getString(R.string.testing_title_approved, "✅")
         mBinding.tvTitleDeclined.text = getString(R.string.testing_title_declined, "\uD83D\uDEAB")
         mBinding.btnAbortTest.setOnClickListener { dismiss() }
-        mBinding.btContinue.setOnClickListener {
-            setFragmentResult(KEY_RESULT, Bundle().apply {
-                putBoolean(KEY_RESULT, true)
-            })
-            dismiss()
-        }
-
-        mBinding.btnDeclinedBoxOk.setOnClickListener {
-            setFragmentResult(KEY_RESULT, Bundle())
-            dismiss()
-        }
+        mBinding.btContinue.setOnClickListener { dismiss() }
+        mBinding.btnDeclinedBoxOk.setOnClickListener { dismiss() }
 
         return mBinding.root
     }
@@ -278,6 +269,7 @@ class TestingDialogFragment : DialogFragment() {
 
     fun showTestPassedUi() {
         Prefs.snowflakeNeedsQualityCheck = false
+        setFragmentResult(KEY_RESULT, Bundle().apply { putBoolean(KEY_RESULT, true) })
         mBinding.boxTesting.visibility = View.GONE
         mBinding.boxApproved.visibility = View.VISIBLE
     }
