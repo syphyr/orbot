@@ -90,7 +90,7 @@ class ConfigConnectionBottomSheet :
         binding.acCountry.onItemClickListener = this
 
         binding.dnsttContainer.visibility =
-            if (Regionalization.getCountriesWithDnsttSupport()
+            if (Regionalization.countriesWithDnsttSupport
                     .contains(selectedCountryCode)
             ) View.VISIBLE else View.GONE
 
@@ -430,7 +430,7 @@ class ConfigConnectionBottomSheet :
     }
 
     private fun updateDnsttVisibility() {
-        if (Regionalization.getCountriesWithDnsttSupport().contains(selectedCountryCode)) {
+        if (Regionalization.countriesWithDnsttSupport.contains(selectedCountryCode)) {
             binding.dnsttContainer.visibility = View.VISIBLE
         } else {
             binding.dnsttContainer.visibility = View.GONE
