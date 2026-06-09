@@ -10,6 +10,7 @@ import android.content.IntentFilter
 import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
+import android.os.Binder
 import android.os.Build
 import android.os.IBinder
 import android.util.Log
@@ -21,15 +22,21 @@ import org.torproject.android.util.Prefs
 
 class SnowflakeProxyService : Service() {
 
+    inner class LocalBinder : Binder() {
+        fun getService(): SnowflakeProxyService = this@SnowflakeProxyService
+    }
+
+    private val binder = LocalBinder()
+
     private lateinit var snowflakeProxyWrapper: SnowflakeProxyWrapper
     private lateinit var powerConnectionReceiver: PowerConnectionReceiver
     private lateinit var notificationChannelId: String
 
     private lateinit var networkCallbacks: ConnectivityManager.NetworkCallback
 
-    override fun onBind(intent: Intent?): IBinder? {
+    override fun onBind(intent: Intent?): IBinder {
         Log.d(TAG, "onBind: $intent")
-        return null
+        return binder
     }
 
     override fun onCreate() {
@@ -102,6 +109,7 @@ class SnowflakeProxyService : Service() {
                 val hasWifi = capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true
                 val hasVpn = capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_VPN) == true
 
+
                 if (Prefs.limitSnowflakeProxyingWifi() && !hasWifi) {
                     refreshNotification(getString(R.string.kindness_mode_disabled_wifi))
                     stopSnowflakeProxy("required wifi condition not met")
@@ -111,9 +119,9 @@ class SnowflakeProxyService : Service() {
                             stopSnowflakeProxy("has network, but non Orbot VPN is running")
                             return
                         }
+                        stopSnowflakeProxy("stopping on new network event to refresh NAT type")
                         startSnowflakeProxy("got network (wifi=${hasWifi}, limit wifi=${Prefs.limitSnowflakeProxyingWifi()}")
-                    }
-                    else {
+                    } else {
                         refreshNotification(getString(R.string.kindness_mode_disabled_internet))
                     }
                 }
@@ -144,6 +152,7 @@ class SnowflakeProxyService : Service() {
 
     private fun stopSnowflakeProxy(logMessage: String? = null) {
         Log.d(TAG, "Stopping snowflake proxy - reason: $logMessage")
+        Prefs.lastSnowflakeNatType = IPtProxy.IPtProxy.NATUnknown
         snowflakeProxyWrapper.stopProxy()
     }
 
@@ -170,24 +179,20 @@ class SnowflakeProxyService : Service() {
         private const val CHANNEL_ID = "snowflake"
         private const val ACTION_STOP_SNOWFLAKE_SERVICE = "ACTION_STOP_SNOWFLAKE_SERVICE"
 
-        private fun getIntent(context: Context) = Intent(context, SnowflakeProxyService::class.java)
+        fun getIntent(context: Context) = Intent(context, SnowflakeProxyService::class.java)
 
         // start this service, but not necessarily snowflake proxy from the app UI
-        fun startSnowflakeProxyForegroundService(context: Context) {
+        fun startSnowflakeProxyForegroundService(context: Context) =
             ContextCompat.startForegroundService(
                 context,
                 getIntent(context)
             )
-        }
 
         // stop this service, and snowflake proxy if its running, from the app UI
-
-        fun stopSnowflakeProxyForegroundService(context: Context) {
+        fun stopSnowflakeProxyForegroundService(context: Context) =
             ContextCompat.startForegroundService(
                 context,
                 getIntent(context).setAction(ACTION_STOP_SNOWFLAKE_SERVICE)
             )
-        }
-
     }
 }

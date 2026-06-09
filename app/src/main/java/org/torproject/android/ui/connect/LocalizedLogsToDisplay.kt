@@ -1,7 +1,6 @@
 package org.torproject.android.ui.connect
 
 import android.content.Context
-import android.widget.TextView
 import org.torproject.android.R
 
 object LocalizedLogsToDisplay {

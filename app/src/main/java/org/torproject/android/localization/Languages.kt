@@ -182,7 +182,7 @@ class Languages private constructor(activity: Activity) {
             locale =
                 if (locale != null && TextUtils.equals(locale!!.language, language) && !refresh) {
                     return  // already configured
-                } else if (language == null || language === USE_SYSTEM_DEFAULT) {
+                } else if (language == null || language == USE_SYSTEM_DEFAULT) {
                     defaultLocale
                 } else {
                     /* handle locales with the country in it, i.e. zh_CN, zh_TW, etc */

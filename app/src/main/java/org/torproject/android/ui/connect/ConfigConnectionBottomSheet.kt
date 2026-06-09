@@ -26,11 +26,11 @@ import org.torproject.android.Regionalization
 import org.torproject.android.databinding.ConfigConnectionBottomSheetBinding
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.AutoConf
-import org.torproject.android.service.circumvention.BuiltInBridges
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 import java.util.Locale
+import kotlin.time.Duration.Companion.seconds
 
 class ConfigConnectionBottomSheet :
     OrbotBottomSheetDialogFragment(), CompoundButton.OnCheckedChangeListener,
@@ -90,7 +90,9 @@ class ConfigConnectionBottomSheet :
         binding.acCountry.onItemClickListener = this
 
         binding.dnsttContainer.visibility =
-            if (BuiltInBridges.dnsCountries.contains(selectedCountryCode?.lowercase())) View.VISIBLE else View.GONE
+            if (Regionalization.countriesWithDnsttSupport
+                    .contains(selectedCountryCode)
+            ) View.VISIBLE else View.GONE
 
         radios = arrayListOf(
             binding.rbDirect,
@@ -386,7 +388,7 @@ class ConfigConnectionBottomSheet :
                         }
                     }
 
-                    delay(5 * 1000)
+                    delay(5.seconds)
                     updateAskTorBt()
                 }
             } catch (e: Throwable) {
@@ -428,7 +430,7 @@ class ConfigConnectionBottomSheet :
     }
 
     private fun updateDnsttVisibility() {
-        if (BuiltInBridges.dnsCountries.contains(selectedCountryCode?.lowercase())) {
+        if (Regionalization.countriesWithDnsttSupport.contains(selectedCountryCode)) {
             binding.dnsttContainer.visibility = View.VISIBLE
         } else {
             binding.dnsttContainer.visibility = View.GONE

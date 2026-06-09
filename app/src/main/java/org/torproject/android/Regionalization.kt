@@ -1,11 +1,13 @@
 package org.torproject.android
 
+import org.torproject.android.util.Prefs
 import java.util.Locale
 
 object Regionalization {
+
     // converts a code like "ES" into "Spain", "Espagne", etc. based on the users current locale
     @JvmStatic
-    fun getLocalizedNameForCountryCode(countryCode: String): String =
+    fun getLocalizedNameForCountryCode(countryCode: String? = Prefs.bridgeCountry): String =
         Locale.Builder().setRegion(countryCode).build().displayCountry
 
 
@@ -19,37 +21,41 @@ object Regionalization {
         return String(Character.toChars(firstChar)) + String(Character.toChars(secondChar))
     }
 
-    fun getCountriesForExitNodeUi(): List<String> =
-        listOf(
-            GERMANY, AUSTRIA, SWEDEN,
-            SWITZERLAND, ICELAND, CANADA,
-            UNITED_STATES, SPAIN, FRANCE,
-            BULGARIA, POLAND, AUSTRALIA,
-            BRAZIL, CZECH_REPUBLIC, DENMARK,
-            FINLAND, UNITED_KINGDOM, HUNGARY,
-            NETHERLANDS, JAPAN, ROMANIA,
-            RUSSIA, SINGAPORE, SWEDEN
-        )
+    fun isKindnessModeDisabledForCountry(countryCode: String? = Prefs.bridgeCountry): Boolean =
+        listOf(AFGHANISTAN, IRAN).contains(countryCode?.uppercase())
+
+    val countriesForExitNodeUi: List<String> = listOf(
+        GERMANY, AUSTRIA, SWEDEN,
+        SWITZERLAND, ICELAND, CANADA,
+        UNITED_STATES, SPAIN, FRANCE,
+        BULGARIA, POLAND, AUSTRALIA,
+        BRAZIL, CZECH_REPUBLIC, DENMARK,
+        FINLAND, UNITED_KINGDOM, HUNGARY,
+        NETHERLANDS, JAPAN, ROMANIA,
+        RUSSIA, SINGAPORE, SWEDEN
+    )
 
     // censored countries with built-in DNSTT JSON configuration
     // we've been passing these to the API and storing them as lowercase in a shared pref
-    fun getCountriesWithDnsttSupport(): List<String> = listOf(
-        UNITED_ARAB_EMIRATES,
-        AFGHANISTAN,
-        BANGLADESH,
-        CHINA,
-        COLUMBIA,
-        INDONESIA,
-        IRAN,
-        KUWAIT,
-        PAKISTAN,
-        QATAR,
-        RUSSIA,
-        SYRIA,
-        TURKEY,
-        UGANDA,
-        UZBEKISTAN
-    ).map { it.lowercase() }
+    val countriesWithDnsttSupport: List<String> by lazy {
+        listOf(
+            UNITED_ARAB_EMIRATES,
+            AFGHANISTAN,
+            BANGLADESH,
+            CHINA,
+            COLUMBIA,
+            INDONESIA,
+            IRAN,
+            KUWAIT,
+            PAKISTAN,
+            QATAR,
+            RUSSIA,
+            SYRIA,
+            TURKEY,
+            UGANDA,
+            UZBEKISTAN
+        ).map { it.lowercase() }
+    }
 
     private const val GERMANY = "DE"
     private const val AUSTRIA = "AT"

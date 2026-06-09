@@ -11,21 +11,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        tools:visibility="visible">
+        tools:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxWidth="600dp"
             android:orientation="vertical"
-            android:paddingHorizontal="4dp">
+            android:paddingStart="4dp"
+            android:paddingEnd="4dp">
 
             <ImageView
                 android:id="@+id/ivSnowflake"
                 android:layout_width="41dp"
                 android:layout_height="41dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="30dp"
                 android:contentDescription="@null"
                 android:src="@drawable/ic_snowflake" />
 
@@ -36,7 +37,6 @@
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="8dp"
                 android:gravity="center"
-                android:paddingHorizontal="4dp"
                 android:text="@string/volunteer_mode_title"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginBottom="8dp"
                 android:background="@drawable/btn_shape_round"
                 android:backgroundTint="@color/orbot_btn_disable_grey"
                 android:text="@string/action_learn_more"
@@ -101,37 +101,46 @@
         android:layout_gravity="center"
         android:paddingBottom="20dp"
         android:visibility="gone"
-        tools:visibility="gone">
+        tools:visibility="visible">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:paddingStart="16dp"
             android:paddingEnd="16dp">
 
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.66" />
+
             <TextView
                 android:id="@+id/tvTitleOn"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 android:layout_marginBottom="4dp"
                 android:text="@string/volunteer_mode"
                 android:textAppearance="@style/TextAppearance.Material3.HeadlineMedium"
                 android:textColor="@android:color/white"
                 android:textStyle="normal"
+                app:layout_constraintEnd_toStartOf="@id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/rowVolunteerMode"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 app:cardBackgroundColor="@color/panel_widget_background"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="4dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvTitleOn">
 
@@ -179,13 +188,14 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/rowUsageLimits"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 app:cardBackgroundColor="@color/panel_widget_background"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="4dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rowVolunteerMode">
 
@@ -231,13 +241,14 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/rowProxyQuality"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
                 app:cardBackgroundColor="@color/panel_widget_background"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="4dp"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/guideline"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rowUsageLimits">
 
@@ -297,12 +308,14 @@
             <TextView
                 android:id="@+id/tvSubheader"
                 style="@style/TextAppearance.Material3.TitleMedium"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="4dp"
                 android:layout_marginTop="16dp"
                 android:text="@string/kindness_your_impact"
-                app:layout_constraintTop_toBottomOf="@id/rowProxyQuality" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guideline"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/volunteer_display_weekly"
@@ -312,12 +325,12 @@
                 app:cardBackgroundColor="@color/panel_widget_background"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="4dp"
-                app:layout_constraintEnd_toStartOf="@id/gap"
-                app:layout_constraintHorizontal_chainStyle="spread"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.46"
+                app:layout_constraintStart_toEndOf="@id/guideline"
                 app:layout_constraintTop_toBottomOf="@id/tvSubheader"
-                app:layout_constraintWidth_default="percent"
-                app:layout_constraintWidth_percent="0.46">
+                app:layout_constraintVertical_chainStyle="spread">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -352,10 +365,10 @@
                 android:layout_width="16dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toStartOf="@id/volunteer_display_total"
-                app:layout_constraintHorizontal_chainStyle="spread"
-                app:layout_constraintStart_toEndOf="@id/volunteer_display_weekly"
-                app:layout_constraintTop_toBottomOf="@id/tvSubheader" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@id/volunteer_display_weekly"
+                app:layout_constraintVertical_chainStyle="spread" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/volunteer_display_total"
@@ -365,12 +378,13 @@
                 app:cardBackgroundColor="@color/panel_widget_background"
                 app:cardCornerRadius="16dp"
                 app:cardElevation="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_chainStyle="spread"
-                app:layout_constraintStart_toEndOf="@id/gap"
-                app:layout_constraintTop_toBottomOf="@id/tvSubheader"
-                app:layout_constraintWidth_default="percent"
-                app:layout_constraintWidth_percent="0.46">
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintHeight_percent="0.46"
+                app:layout_constraintStart_toEndOf="@id/guideline"
+                app:layout_constraintTop_toBottomOf="@id/gap"
+                app:layout_constraintVertical_chainStyle="spread">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"

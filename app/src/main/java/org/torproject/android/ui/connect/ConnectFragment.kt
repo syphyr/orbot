@@ -35,6 +35,7 @@ import org.torproject.android.service.vpn.VpnServicePrepareWrapper
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.jni.TorService
+import kotlin.time.Duration.Companion.milliseconds
 
 private const val DEFAULT_THROTTLE_INTERVAL = 4000L
 
@@ -172,7 +173,7 @@ class ConnectFragment : Fragment(),
         binding.ivStatus.animate().alpha(0f).duration = 500
 
         lifecycleScope.launch(Dispatchers.Main) {
-            delay(600)
+            delay(600.milliseconds)
             binding.ivStatus.animate().alpha(1f).duration = 500
         }
     }
