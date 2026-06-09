@@ -48,6 +48,6 @@ class OnBootReceiver : BroadcastReceiver() {
 
     companion object {
         private var sReceivedBoot = false
-        private const val TEN_MINUTES_MS = 60 * 10 * 100
+        private const val TEN_MINUTES_MS = 60 * 10 * 1000
     }
 }
