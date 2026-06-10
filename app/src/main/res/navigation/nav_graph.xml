@@ -27,7 +27,7 @@
         tools:layout="@layout/fragment_more">
         <action
             android:id="@+id/more_to_settings"
-            app:destination="@id/settinsgFragment"
+            app:destination="@id/settingsFragment"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
@@ -72,7 +72,7 @@
         tools:layout="@layout/fragment_kindness" />
 
     <fragment
-        android:id="@+id/settinsgFragment"
+        android:id="@+id/settingsFragment"
         android:name="org.torproject.android.ui.more.SettingsPreferenceFragment"
         android:label="fragment_settings"/>
 
