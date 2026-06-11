@@ -312,4 +312,5 @@
     <string name="testing_explanation_no_net">اتصل بالإنترنت لترى ما إذا كنت مؤهلاً لاستخدام «وضع اللطف»</string>
     <string name="kindness_mode_disclaimer_bridge">فعِّل هذا الخيار إذا لم يكن الإنترنت في بلدك خاضعًا لرقابة شديدة.</string>
     <string name="kindness_mode_unsupported_country">لقد حدّدت %s كبلدك، ولكن للأسف لا يمكن لـ «وضع اللطف» مساعدة المستخدمين في هذه المنطقة على الاتصال بشبكة تور. إذا كنت تعتقد أن هذه الرسالة ظهرت لك عن طريق الخطأ، فيمكنك مسح اختيار البلد وإجراء اختبار لمعرفة ما إذا كنت مؤهلاً لتكون وكيل «وسيط Snowflake»</string>
+    <string name="kindness_usage_limits_status_off">معطّلة</string>
 </resources>
