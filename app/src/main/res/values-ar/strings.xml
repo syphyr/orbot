@@ -295,4 +295,22 @@
     <string name="pref_proxy_no_proxy">لا وسيط</string>
     <string name="pref_proxy_ss_title">رابط تضبيط ShadowSocks</string>
     <string name="pref_proxy_ss_summary">رابط تضبيط ShadowSocks الكامل بيدأ بـ ss://</string>
+    <string name="volunteer_mode_weekly_label">هذا الاسبوع</string>
+    <string name="volunteer_mode_alltime_label">الإجمالي</string>
+    <string name="action_learn_more">اعرف المزيد</string>
+    <string name="Enabled">مُفعَّل</string>
+    <string name="Disabled">مُعطّل</string>
+    <string name="kindness_usage_limit">حدود الاستخدام</string>
+    <string name="kindness_usage_limits_status_on">مُفعَّل</string>
+    <string name="kindness_proxy_quality">جودة الوسيط</string>
+    <string name="kindness_proxy_quality_unknown">مجهول</string>
+    <string name="testing_continue">استمر</string>
+    <string name="testing_title_declined">%s غير معتمد</string>
+    <string name="testing_explanation_declined2">لا تستخدم «وضع اللطف» إذا كان الإنترنت في بلدك يخضع لرقابة صارمة.</string>
+    <string name="testing_explanation_other_vpn">لا يمكن تفعيل «وضع اللطف» عند استخدام شبكة VPN. والاستثناء الوحيد هو ميزة VPN الخاصة بـ Orbot. لكي تصبح «وسيط Snowflake»، يجب عليك إما إيقاف تشغيل شبكة VPN أو التبديل إلى استخدام Orbot.</string>
+    <string name="testing_explanation_other_vpn_bubble">افتح إعدادات VPN للنظام…</string>
+    <string name="testing_explanation_no_net">اتصل بالإنترنت لترى ما إذا كنت مؤهلاً لاستخدام «وضع اللطف»</string>
+    <string name="kindness_mode_disclaimer_bridge">فعِّل هذا الخيار إذا لم يكن الإنترنت في بلدك خاضعًا لرقابة شديدة.</string>
+    <string name="kindness_mode_unsupported_country">لقد حدّدت %s كبلدك، ولكن للأسف لا يمكن لـ «وضع اللطف» مساعدة المستخدمين في هذه المنطقة على الاتصال بشبكة تور. إذا كنت تعتقد أن هذه الرسالة ظهرت لك عن طريق الخطأ، فيمكنك مسح اختيار البلد وإجراء اختبار لمعرفة ما إذا كنت مؤهلاً لتكون وكيل «وسيط Snowflake»</string>
+    <string name="kindness_usage_limits_status_off">معطّلة</string>
 </resources>
