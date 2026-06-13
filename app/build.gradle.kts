@@ -123,6 +123,8 @@ configure<ApplicationExtension> {
 }
 
 val updateBuiltinBridges = tasks.register<UpdateBridgeConfig>("updateBuiltinBridges") {
+    description =
+        "Update built in bridge JSON from torproject and guardian project DNSTT endpoints, run before making release builds"
     onlyIf { enabledForVariant.getOrElse(false) }
 
     assetsDir.set(layout.projectDirectory.dir("src/main/assets"))
@@ -215,6 +217,8 @@ afterEvaluate {
 }
 
 val copyLicenseToAssets by tasks.registering(Copy::class) {
+    description =
+        "Copies LICENSE file from repo root to assets folder so it can be displayed in the About dialog"
     from(rootProject.file("LICENSE"))
     into(layout.projectDirectory.dir("src/main/assets"))
 }
