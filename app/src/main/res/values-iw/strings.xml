@@ -179,4 +179,5 @@
     <string name="pref_detect_root_title">זיהוי פריצה (root)</string>
     <string name="system_vpn_settings">הגדרות ה־VPN של Android</string>
     <string name="set_transport">הגדר תעבורה</string>
+    <string name="setting_app_icon_title">סמל יישומון</string>
 </resources>
