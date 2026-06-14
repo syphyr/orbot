@@ -287,4 +287,7 @@
     <string name="pref_proxy_no_proxy">プロキシーなし</string>
     <string name="pref_proxy_ss_title">ShadowSocks 構成 URL</string>
     <string name="pref_proxy_ss_summary">ss:// で始まる完全な ShadowSocks 構成 URL</string>
+    <string name="volunteer_mode_title">Kindness Mode: 他の人が Tor に接続できるよう支援しましょう</string>
+    <string name="volunteer_mode_weekly_label">今週</string>
+    <string name="volunteer_mode_alltime_label">合計</string>
 </resources>

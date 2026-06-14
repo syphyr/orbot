@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">Orbot</string>
     <string name="app_description">Orbot là một ứng dụng proxy miễn phí làm cho các ứng dụng khác sử dụng internet một cách bảo mật hơn. Orbot sử dụng Tor để mã hóa lưu lượng Internet rồi ẩn nó bằng cách đưa qua một loạt máy tính trên khắp thế giới. Tor là phần mềm tự do và là một mạng lưới mở giúp bạn chống lại một dạng của sự giám sát trên mạng đe dọa quyền riêng tư và tự do cá nhân, những hoạt động và mối quan hệ bí mật trong kinh doanh, và an ninh tiểu bang được biết đến là phân tích lưu lượng mạng.</string>
-    <string name="menu_settings">Cài đặt</string>
+    <string name="menu_settings">Cài đặt Orbot</string>
     <string name="menu_log">Nhật ký Log</string>
     <string name="menu_about">Giới thiệu</string>
     <string name="menu_exit">Thoát</string>
@@ -71,7 +71,7 @@
     <string name="pref_http_title">HTTP Tor</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Mở Proxy trên tất cả các giao diện</string>
     <string name="hidden_service_request">Một ứng dụng muốn mở máy chủ onion ở cổng %1$s vào mạng Tor. Việc này là an toàn nếu bạn tin tưởng ứng dụng đó.</string>
-    <string name="wizard_details_msg">Orbot là một ứng dụng mã nguồn mở chứa Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks, LibEvent. Nó cung cấp một proxy HTTP cục bộ (8118) và một proxy SOCKS (9050) vào mạng Tor.</string>
+    <string name="wizard_details_msg">Orbot là một ứng dụng mã nguồn mở chứa Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel, LibEvent. Nó cung cấp một proxy HTTP cục bộ (8118) và một proxy SOCKS (9050) vào mạng Tor.</string>
     <string name="custom_bridges">Cầu nối tuỳ chỉnh</string>
     <string name="pref_reduced_connection_padding_summary">Đóng các kết nối chuyển tiếp sớm hơn và gửi ít gói đặt khoảng cách hơn để giảm sử dụng dữ liệu và pin</string>
     <string name="pref_reduced_connection_padding">Giảm khoảng cách kết nối</string>
@@ -97,7 +97,7 @@
     <string name="backup_restored">Đã khôi phục bản sao lưu backup</string>
     <string name="backup_saved_at_external_storage">Đã lưu bản sao lưu backup ở bộ nhớ ngoài</string>
     <string name="delete_service">Xoá bỏ dịch vụ</string>
-    <string name="backup_service">Dịch vụ sao lưu backup <i>(Cảnh báo: Việc này có thể sẽ làm lộ thiết lập dịch vụ của bạn cho các app ứng dụng khác)</i></string>
+    <string name="backup_service">Dịch vụ sao lưu backup (Cảnh báo: Việc này có thể sẽ làm lộ thiết lập dịch vụ của bạn cho các app ứng dụng khác)</string>
     <string name="copy_address_to_clipboard">Sao chép địa chỉ vào khay nhớ tạm</string>
     <string name="onion_port">Cổng Onion</string>
     <string name="local_port">Cổng cục bộ</string>
@@ -120,7 +120,7 @@
     <string name="vpn_default_world">Toàn cầu (Tự động)</string>
     <string name="version">Phiên bản:</string>
     <string name="license">Giấy phép:</string>
-    <string name="btn_refresh">Làm mới lại</string>
+    <string name="btn_refresh">Làm mới Kết nối</string>
     <string name="menu_kindness">Thân Thiện</string>
     <string name="connected_title">Đã kết nối</string>
     <string name="trying_to_connect_title">Đang kết nối…</string>
@@ -144,9 +144,9 @@
     <string name="strict_nodes_description">Hãy đối xử với các cài đặt \"Loại bỏ Nút giao mạng\" (Exclude Nodes) như một điều kiện để xây dựng tất cả các mạch nối. Điều này có thể sẽ làm phá vỡ chức năng nếu như không có mạch nối nào được phát sinh ra (generated) với các cài đặt Loại bỏ Nút giao mạng.</string>
     <string name="power_user_description">Đối với những người dùng đã quen thuộc với Tor. Cho phép bạn khởi động Orbot mà không cần cài đặt VPN và hiển thị các cổng SOCKS và HTTP mở khả dụng</string>
     <string name="direct_connect_subtitle">Cách tốt nhất để kết nối tới Tor. Sử dụng nếu như Tor không bị chặn.</string>
-    <string name="snowflake">Snowflake (Chính gốc nguyên bản)</string>
+    <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Kết nối thông qua các tình nguyện viên Tor. Vượt qua một số những rào cản đối với Tor.</string>
-    <string name="direct_connect">Kết nối Trực tiếp đến Tor</string>
+    <string name="direct_connect">Kết nối Trực tiếp</string>
     <string name="volunteer_mode">Chế độ Thân thiện</string>
     <string name="snowflake_proxy_msg_title">Hiển thị Thông báo Kết nối</string>
     <string name="snowflake_proxy_msg_description">Hiển thị một tin nhắn khi bạn giúp đỡ ai đó vượt qua kiểm duyệt</string>
@@ -157,14 +157,14 @@
     <string name="pref_isolate_port_summary">Sử dụng một mạch nối khác cho mỗi một cổng đích đến (destination port)</string>
     <string name="pref_isolate_protocol_summary">Sử dụng một mạch nối khác biệt cho mỗi một giao thức protocol kết nối</string>
     <string name="btn_change_exit">Thay đổi đầu ra exit</string>
-    <string name="snowflake_amp">Snowflake (AMP)</string>
+    <string name="snowflake_amp">Snowflake AMP</string>
     <string name="power_user_mode">Chế độ người dùng nâng cao Power User</string>
     <string name="app_suggested_subtitle">Orbot hoạt động tốt nhất với các app ứng dụng nhắn tin và mạng xã hội.</string>
     <string name="secure_your_connection_title">Sẵn sàng kết nối</string>
     <string name="apps_suggested_title">Các app ứng dụng được gợi ý</string>
     <string name="apps_other_apps">Các app ứng dụng khác</string>
     <string name="ask_tor">Hãy hỏi Tor</string>
-    <string name="smart_connect">Smart Connect Kết nối Thông minh (mặc định)</string>
+    <string name="smart_connect">Kết nối Thông minh</string>
     <string name="asking">ĐANG HỎI…</string>
     <string name="no_internet_title">Kết nối tới Internet</string>
     <string name="no_internet_subtitle">Bạn cần một kết nối internet để sử dụng Orbot.</string>
@@ -180,4 +180,23 @@
     <string name="mebibyte_per_second">MiB/s</string>
     <string name="kibibyte_per_second">KiB/s</string>
     <string name="set_transport">Thiết lập phương thức truyền tải</string>
+    <string name="system_vpn_settings">Cài đặt Android VPN</string>
+    <string name="pref_proxy_no_proxy">Không Proxy</string>
+    <string name="pref_proxy_ss_title">URL Cấu hình ShadowSocks</string>
+    <string name="pref_proxy_ss_summary">URL cấu hình ShadowSocks Đầy đủ bắt đầu với ss://</string>
+    <string name="pref_isolate_keep_alive">Giữ các mạch nối cô lập hoạt động</string>
+    <string name="bridge_snowflake_sqs">Kết nối qua người dùng Tor khác qua Snowflake (Cách 3 - SQS)</string>
+    <string name="volunteer_mode_title">Chế độ thân thiện: Giúp người khác kết nối đến Tor</string>
+    <string name="volunteer_mode_weekly_label">Tuần này</string>
+    <string name="volunteer_mode_alltime_label">Tất cả</string>
+    <string name="volunteer_mode_subtitle_desc">Chế độ Thân thiện biến thiết bị bạn thành Snowflake Proxy trên mạng Tor - một cầu nối giúp người khác kết nối.</string>
+    <string name="kindness_mode_is_running">Chế độ Thân thiện đang chạy</string>
+    <string name="kindness_mode_active_message" formatted="true">Bạn đã giúp %1$d người khác vượt thoát kiểm duyệt</string>
+    <string name="kindness_mode_disabled">Chế độ Thân thiện bị vô hiệu hóa</string>
+    <string name="kindness_mode_starting">Khởi động…</string>
+    <string name="kindness_mode_disabled_internet">Kết nối vào Internet để giúp người khác vượt thoát kiểm duyệt</string>
+    <string name="kindness_mode_disabled_wifi">Kết nối vào Wi-Fi để giúp người khác vượt thoát kiểm duyệt</string>
+    <string name="kindness_mode_disabled_power">Cắm sạc thiết bị của bạn để giúp người khác vượt thoát kiểm duyệt</string>
+    <string name="snowflake_sqs">Snowflake SQS</string>
+    <string name="bridges_via_telegram">Cầu nối từ Tor (obfs4) qua Telegram</string>
 </resources>

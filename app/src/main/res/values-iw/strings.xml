@@ -179,4 +179,12 @@
     <string name="pref_detect_root_title">זיהוי פריצה (root)</string>
     <string name="system_vpn_settings">הגדרות ה־VPN של Android</string>
     <string name="set_transport">הגדר תעבורה</string>
+    <string name="setting_app_icon_title">סמל יישומון</string>
+    <string name="setting_app_icon_description">לבחור איך Orbot מופיע במכשיר שלך</string>
+    <string name="setting_block_screenshot_title">חסימת צילומי מסך</string>
+    <string name="setting_block_screenshot_description">מניעת צילום המסך כשהיישומון הזה מופיע על המסך</string>
+    <string name="setting_unlock_pass_title">נעילת המסך</string>
+    <string name="search_for_apps">חיפוש יישומונים</string>
+    <string name="apps_updated_msg">יישומונים עודכנו</string>
+    <string name="title_safety">בטיחות</string>
 </resources>
