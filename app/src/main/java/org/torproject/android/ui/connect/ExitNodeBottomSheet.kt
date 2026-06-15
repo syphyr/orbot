@@ -52,8 +52,7 @@ class ExitNodeBottomSheet : OrbotBottomSheetDialogFragment() {
 
         // Default world option
         items.add("" to getString(R.string.globe) + " " + getString(R.string.vpn_default_world))
-        val exitNodeCountries = Regionalization.getCountriesForExitNodeUi()
-        exitNodeCountries.forEach {
+        Regionalization.countriesForExitNodeUi.forEach {
             val locale = Languages.buildLocaleForLanguage("", it)
             sortedCountries[locale.displayCountry] = locale
         }

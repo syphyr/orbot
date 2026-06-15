@@ -79,11 +79,10 @@ abstract class UpdateBridgeConfig : DefaultTask() {
         println("\uD83C\uDF80 bridge and dnstt configurations are good, continuing with release...")
     }
 
-    private fun downloadFile(url: String, destination: File) {
+    private fun downloadFile(url: String, destination: File) =
         URI(url).toURL().openStream().use { input ->
             destination.outputStream().use { output ->
                 input.copyTo(output)
             }
         }
-    }
 }

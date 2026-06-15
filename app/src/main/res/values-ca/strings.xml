@@ -106,19 +106,12 @@
     <string name="version">Versió:</string>
     <string name="license">Llicència:</string>
     <string name="custom_bridges">Ponts personalitzats</string>
-    <string name="volunteer_mode_alltime_label">Total global</string>
     <string name="pref_circuit_padding">Farciment del circuit</string>
     <string name="no_internet_subtitle">Us cal una connexió a internet per a utilitzar l\'Orbot.</string>
     <string name="v3_hosted_services">Serveis Onion hostatjats</string>
     <string name="pref_disable_ipv4_summary">Indica a les sortides que no connectin a adreces IPv4</string>
     <string name="not_sure">No n\'esteu segur?</string>
     <string name="snowflake_subtitle">Connecta mitjançant voluntaris del Tor. Evita algun blocatge del Tor.</string>
-    <string name="volunteer_mode_subtitle_desc">El mode altruista permet que el vostre dispositiu sigui un pont per als altres. Ajuda la gent a utilitzar el Tor en llocs on és blocat.
-\n
-\n• No esgotarà la bateria
-\n• No alentirà la connexió a internet
-\n• Només pot anar amb Wi-Fi
-\n• Es pot desconnectar en qualsevol moment</string>
     <string name="ask_tor">Pregunteu al Tor</string>
     <string name="pref_http_dialog">Configuració del port HTTP</string>
     <string name="power_user_mode">Mode d\'usuari avançat</string>
@@ -133,8 +126,6 @@
     <string name="snowflake_proxy_msg_title">Mostra la notificació de connexió</string>
     <string name="pref_isolate_protocol">Aïlla els protocols de client</string>
     <string name="secure_your_connection_subtitle">Oculteu les aplicacions al rastreig de la xarxa i obteniu-ne accés quan són blocades.</string>
-    <string name="volunteer_mode_weekly_label">Total setmanal</string>
-    <string name="kindness_adjust_title">Paràmetres</string>
     <string name="apps_suggested_title">Aplicacions suggerides</string>
     <string name="pref_circuit_padding_summary">Activa el farciment del circuit per a defensar-se d\'algunes formes d\'anàlisis de trànsit</string>
     <string name="log_copied">S\'ha copiat el registre</string>
@@ -170,13 +161,9 @@
     <string name="strict_nodes_description">Tracta els paràmetres d\'exclusió de nodes com a requeriment per a construir tots els circuits. Podria trencar la funcionalitat si no es pot generar cap circuit amb aquests paràmetres.</string>
     <string name="app_suggested_subtitle">L\'Orbot funciona millor amb aplicacions de missatgeria i xarxes socials.</string>
     <string name="secure_your_connection_title">Preparat per a connectar</string>
-    <string name="volunteer_mode_title">Ajudeu els altres
-\na connectar-se al Tor</string>
     <string name="v3_delete_client_authorization_confirm">Suprimeix l\'autorització del client</string>
     <string name="pref_http_summary">Port al qual el Tor ofereix el seu servidor intermediari HTTP (per defecte: 8118, o 0 per a desactivar)</string>
     <string name="direct_connect_subtitle">La millor manera de connectar-se al Tor. Utilitzeu-la si el Tor no és blocat.</string>
-    <string name="volunteer_status_title">L\'avui és millor
-\ngràcies a vós.</string>
     <string name="many_ways">Hi ha moltes maneres d\'arribar al Tor. Algunes podrien funcionar millor que altres.</string>
     <string name="v3_onion">Domini .onion</string>
     <string name="v3_key_hash">Clau privada x25519 en Base32</string>
@@ -286,13 +273,9 @@
     <string name="unable_to_start_other_vpn_app_error_msg">L\'aplicació %1$s s\'ha configurat per a ser una VPN «sempre activa». Desactiveu-la abans d\'iniciar l\'Orbot.</string>
     <string name="unable_to_start_unknown_reason_error_msg">El permís de la VPN s\'ha denegat, o altra aplicació VPN té activada la funció «sempre activa». Ho podeu descartar i reconnectar si heu tancat el diàleg de sol·licitud de permisos de VPN anterior per error. Els usuaris més tècnics poden fer servir una altra aplicació VPN i utilitzar el Tor com a servidor SOCKS activant el mode Power User de l\'Orbot.</string>
     <string name="open_vpn_settings">Obre la configuració VPN d\'Android</string>
-    <string name="kindness_mode_cant_start">No s\'ha pogut iniciar el mode altruista</string>
     <string name="pref_proxy_no_proxy">Cap servidor</string>
     <string name="pref_proxy_ss_title">URL de la configuració del ShadowSocks</string>
     <string name="pref_proxy_ss_summary">URL complet de la configuració del ShadowSocks que comenci per ss://</string>
-    <string name="kindness_never_had_a_direct_connection">Per a poder utilitzar el Mode altruista, cal que us hàgiu connectat al Tor directament (sense fer servir cap pont) almenys una vegada. En haver-vos connectat, torneu aquí per a activar el Mode altruista. En completar aquesta prova de connexió directa, podreu usar el Mode altruista tant si esteu connectat al Tor com si no.</string>
-    <string name="kindness_mode_cant_run_with_bridge">El Mode altruista no es pot executar mentre feu servir un pont per a connectar-vos a Tor.</string>
-    <string name="kindness_mode_cant_run_in_your_country">Actualment, no podeu utilitzar al vostre país el Mode altruista per a ajudar altres persones a connectar-se al Tor a causa de la censura.</string>
     <string name="kindness_mode_disclaimer_bridge">No feu servir el Mode altruista si esteu en una regió on hi hagi censura, o si us cal utilitzar un pont per a connectar-vos al Tor.</string>
     <string name="battery_optimization_title">Desactiva les optimitzacions de la bateria</string>
     <string name="battery_optimization_pref_msg">Opció per a aquells usuaris qui sospitin que el seu dispositiu estigui tancant l\'Orbot de manera prematura mentre s\'executa al rerefons.</string>

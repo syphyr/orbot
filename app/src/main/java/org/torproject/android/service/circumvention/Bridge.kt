@@ -11,7 +11,6 @@ import kotlinx.serialization.encoding.Encoder
  * Parser for bridge lines.
  */
 @Serializable(with = BridgeAsStringSerializer::class)
-@Suppress("MemberVisibilityCanBePrivate", "unused")
 class Bridge(var raw: String) {
 
     class Builder(

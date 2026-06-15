@@ -26,7 +26,6 @@ import net.freehaven.tor.control.TorControlConnection;
 
 import org.torproject.android.R;
 import org.torproject.android.service.circumvention.SmartConnect;
-import org.torproject.android.service.circumvention.Transport;
 import org.torproject.android.service.db.OnionServiceColumns;
 import org.torproject.android.service.db.V3ClientAuthColumns;
 import org.torproject.android.service.tor.CustomTorResourceInstaller;
@@ -63,7 +62,7 @@ public class OrbotService extends VpnService {
     protected String mCurrentStatus = STATUS_OFF;
     TorControlConnection conn = null;
     private ServiceConnection torServiceConnection;
-    private boolean shouldUnbindTorService;
+    private volatile boolean shouldUnbindTorService;
     private NotificationManager mNotificationManager = null;
     private NotificationCompat.Builder mNotifyBuilder;
     private File mV3OnionBasePath;
@@ -272,7 +271,7 @@ public class OrbotService extends VpnService {
                 var hasGeoip = new File(appBinHome, GEOIP_ASSET_KEY).exists();
                 var hasGeoip6 = new File(appBinHome, GEOIP6_ASSET_KEY).exists();
 
-                // only write out geoip files if there's an app update or they don't exist
+                // only write out geoip files if there's an app update, or they don't exist
                 if (!hasGeoip || !hasGeoip6 || Prefs.isGeoIpReinstallNeeded()) {
                     try {
                         Log.d(TAG, "Installing geoip files...");
@@ -462,7 +461,7 @@ public class OrbotService extends VpnService {
 
                     logNotice(getString(R.string.status_connected_control_port));
 
-                    var events = new ArrayList<>(Arrays.asList(TorControlCommands.EVENT_STATUS_CLIENT, TorControlCommands.EVENT_OR_CONN_STATUS, TorControlCommands.EVENT_CIRCUIT_STATUS, TorControlCommands.EVENT_NOTICE_MSG, TorControlCommands.EVENT_WARN_MSG, TorControlCommands.EVENT_ERR_MSG, TorControlCommands.EVENT_BANDWIDTH_USED, TorControlCommands.EVENT_NEW_DESC, TorControlCommands.EVENT_ADDRMAP));
+                    var events = Arrays.asList(TorControlCommands.EVENT_STATUS_CLIENT, TorControlCommands.EVENT_OR_CONN_STATUS, TorControlCommands.EVENT_CIRCUIT_STATUS, TorControlCommands.EVENT_NOTICE_MSG, TorControlCommands.EVENT_WARN_MSG, TorControlCommands.EVENT_ERR_MSG, TorControlCommands.EVENT_BANDWIDTH_USED, TorControlCommands.EVENT_NEW_DESC, TorControlCommands.EVENT_ADDRMAP);
                     if (Prefs.useDebugLogging())
                         events.addAll(Arrays.asList(TorControlCommands.EVENT_DEBUG_MSG, TorControlCommands.EVENT_INFO_MSG, TorControlCommands.EVENT_STREAM_STATUS));
                     conn.setEvents(events);
@@ -486,10 +485,10 @@ public class OrbotService extends VpnService {
 
         var serviceIntent = new Intent(this, TorService.class);
         Log.d(TAG, "binding tor service");
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q)
-            shouldUnbindTorService = bindService(serviceIntent, torServiceConnection, BIND_AUTO_CREATE);
-        else
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q)
             shouldUnbindTorService = bindService(serviceIntent, BIND_AUTO_CREATE, mExecutor, torServiceConnection);
+        else
+            shouldUnbindTorService = bindService(serviceIntent, torServiceConnection, BIND_AUTO_CREATE);
     }
 
     private void sendLocalStatusOffBroadcast() {
@@ -578,25 +577,28 @@ public class OrbotService extends VpnService {
     }
 
     private void sendCallbackLogMessage(final String logMessage) {
-        var notificationMessage = logMessage;
 
         var localIntent = new Intent(LOCAL_ACTION_LOG)
                 .putExtra(LOCAL_EXTRA_LOG, logMessage)
                 .setPackage(getPackageName());
 
-        if (logMessage.contains(LOG_NOTICE_HEADER)) {
-            notificationMessage = notificationMessage.substring(LOG_NOTICE_HEADER.length());
-            if (notificationMessage.contains(LOG_NOTICE_BOOTSTRAPPED)) {
-                var percent = notificationMessage.substring(LOG_NOTICE_BOOTSTRAPPED.length());
-                percent = percent.substring(0, percent.indexOf('%')).trim();
-                localIntent.putExtra(LOCAL_EXTRA_BOOTSTRAP_PERCENT, percent);
-                var prog = Integer.parseInt(percent);
-                SmartConnect.updateProgress(prog);
-                mNotifyBuilder.setProgress(100, prog, false);
-                notificationMessage = notificationMessage.substring(notificationMessage.indexOf(':') + 1).trim();
+        if (logMessage.contains(TorControlConnection.EVENT_STATUS_CLIENT)) {
+            var bootstrapIndex = logMessage.indexOf(LOG_NOTICE_BOOTSTRAPPED);
+            if (bootstrapIndex != -1) {
+                var subStr = logMessage.substring(bootstrapIndex + LOG_NOTICE_BOOTSTRAPPED.length());
+                var arr = subStr.split(" ");
+                if (arr.length > 0) {
+                    try {
+                        var progress = Integer.parseInt(arr[0].trim());
+                        localIntent.putExtra(LOCAL_EXTRA_BOOTSTRAP_PERCENT, "" + progress);
+                        SmartConnect.updateProgress(progress);
+                        mNotifyBuilder.setProgress(100, progress, false);
+                    } catch (NumberFormatException _) {
+                    }
+                }
             }
         }
-        showToolbarNotification(notificationMessage, NOTIFY_ID, R.drawable.ic_stat_tor);
+        showToolbarNotification(logMessage, NOTIFY_ID, R.drawable.ic_stat_tor);
         mHandler.post(() -> sendBroadcast(localIntent));
     }
 
@@ -645,9 +647,7 @@ public class OrbotService extends VpnService {
 
             if (conn == null) return;
             try {
-                var resetBuffer = new ArrayList<String>();
-                resetBuffer.add("ExitNodes");
-                resetBuffer.add("StrictNodes");
+                var resetBuffer = Arrays.asList("ExitNodes", "StrictNodes");
                 conn.resetConf(resetBuffer);
                 conn.setConf("DisableNetwork", "1");
                 conn.setConf("DisableNetwork", "0");
@@ -757,10 +757,6 @@ public class OrbotService extends VpnService {
                 case ACTION_STATUS -> {
                     // hack for https://github.com/guardianproject/tor-android/issues/73 remove when fixed
                     var newStatus = intent.getStringExtra(EXTRA_STATUS);
-
-                    if (STATUS_ON.equals(newStatus) && Prefs.getTransport() == Transport.NONE && !Prefs.getHasDirectConnected()) {
-                        Prefs.setHasDirectConnected(true);
-                    }
 
                     if (STATUS_OFF.equals(mCurrentStatus) && STATUS_STOPPING.equals(newStatus))
                         break;

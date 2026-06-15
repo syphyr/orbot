@@ -19,14 +19,20 @@ class ConnectViewModel : ViewModel() {
     val uiState: StateFlow<ConnectUiState> = _uiState
 
     private val _logState = MutableStateFlow("")
-    val logState: StateFlow<String>  = _logState
+    private val _subtitleState = MutableStateFlow("")
+    val logState: StateFlow<String> = _logState
+    val subtitleState : StateFlow<String> = _subtitleState
 
     private val _eventChannel = Channel<ConnectEvent>(Channel.BUFFERED)
     val events = _eventChannel.receiveAsFlow()
 
     fun updateState(context: Context, status: String?) {
         val newState = when {
-            !NetworkUtils.isNetworkAvailable(context, allowOtherVpnApps = true) -> ConnectUiState.NoInternet
+            !NetworkUtils.isNetworkAvailable(
+                context,
+                allowOtherVpnApps = true
+            ) -> ConnectUiState.NoInternet
+
             status == TorService.STATUS_STARTING -> ConnectUiState.Starting(null)
             status == TorService.STATUS_ON -> ConnectUiState.On
             status == TorService.STATUS_STOPPING -> ConnectUiState.Stopping
@@ -35,9 +41,14 @@ class ConnectViewModel : ViewModel() {
         _uiState.value = newState
     }
 
-    fun updateLogState (logline: String) {
+    fun updateLogState(logline: String) {
         _logState.value = logline
     }
+
+    fun updateSubtitleState(subtitle: String = "") {
+        _subtitleState.value = subtitle
+    }
+
 
     fun updateBootstrapPercent(percent: Int) {
         val currentState = _uiState.value

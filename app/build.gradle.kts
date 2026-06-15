@@ -8,7 +8,7 @@ plugins {
     alias(libs.plugins.android.application)
 }
 
-kotlin { jvmToolchain(25) }
+kotlin { jvmToolchain(24) }
 
 val orbotBaseVersionCode = 1794200200
 fun getVersionName(): Provider<String> {
@@ -27,7 +27,7 @@ configure<ApplicationExtension> {
     defaultConfig {
         applicationId = namespace
         versionCode = orbotBaseVersionCode
-        versionName = getVersionName().get()
+        versionName = getVersionNameFromGitTag().get()
         minSdk = 24
         targetSdk = 36
         multiDexEnabled = true
@@ -36,18 +36,14 @@ configure<ApplicationExtension> {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_25
-        targetCompatibility = JavaVersion.VERSION_25
+        sourceCompatibility = JavaVersion.VERSION_24
+        targetCompatibility = JavaVersion.VERSION_24
     }
 
     splits {
         abi {
             isEnable = true
             reset()
-
-            // https://github.com/guardianproject/orbot-android/issues/1565
-            // include("armeabi-v7a", "arm64-v8a")
-
             include("x86", "armeabi-v7a", "x86_64", "arm64-v8a")
             isUniversalApk = true
         }
@@ -111,9 +107,6 @@ configure<ApplicationExtension> {
     }
 
     packaging {
-        resources {
-            excludes += listOf("META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version")
-        }
         jniLibs {
             // Needed for shadowsocks-rust client to be available to execute.
             useLegacyPackaging = true
@@ -133,6 +126,8 @@ configure<ApplicationExtension> {
 }
 
 val updateBuiltinBridges = tasks.register<UpdateBridgeConfig>("updateBuiltinBridges") {
+    description =
+        "Update built in bridge JSON from torproject and guardian project DNSTT endpoints, run before making release builds"
     onlyIf { enabledForVariant.getOrElse(false) }
 
     assetsDir.set(layout.projectDirectory.dir("src/main/assets"))
@@ -225,6 +220,8 @@ afterEvaluate {
 }
 
 val copyLicenseToAssets by tasks.registering(Copy::class) {
+    description =
+        "Copies LICENSE file from repo root to assets folder so it can be displayed in the About dialog"
     from(rootProject.file("LICENSE"))
     into(layout.projectDirectory.dir("src/main/assets"))
 }
