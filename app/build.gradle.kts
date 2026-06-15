@@ -10,7 +10,7 @@ plugins {
 
 kotlin { jvmToolchain(24) }
 
-val orbotBaseVersionCode = 1794200200
+val orbotBaseVersionCode = 1795200100
 fun getVersionName(): Provider<String> {
     // Gets the version name from the latest Git tag
     return providers.exec {
@@ -27,7 +27,7 @@ configure<ApplicationExtension> {
     defaultConfig {
         applicationId = namespace
         versionCode = orbotBaseVersionCode
-        versionName = getVersionNameFromGitTag().get()
+        versionName = getVersionName().get()
         minSdk = 24
         targetSdk = 36
         multiDexEnabled = true
