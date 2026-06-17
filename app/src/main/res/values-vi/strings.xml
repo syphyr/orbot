@@ -291,4 +291,7 @@
     <string name="status_conn_done_pt">Đã thiết lập tuyến đường thay thế</string>
     <string name="status_conn_done">Đã kết nối với cổng vào mạng Tor</string>
     <string name="status_onehop_create">Truy cập thư mục mạng Tor</string>
+    <string name="scan_qr_code">Quét mã QR</string>
+    <string name="setting_app_icon_title">Biểu tượng ứng dụng</string>
+    <string name="setting_unlock_pass_title">Khóa màn hình</string>
 </resources>
