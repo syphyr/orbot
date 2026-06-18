@@ -1,0 +1,4 @@
+* Sửa lỗi lớn cho chế độ VPN
+* Các cầu nối mặc định mới
+* Được cập nhật lên Tor phiên bản 0.4.0.4
+* Hỗ trợ chế độ 64 bit và Android Q
