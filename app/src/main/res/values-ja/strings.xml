@@ -290,4 +290,6 @@
     <string name="volunteer_mode_title">Kindness Mode: 他の人が Tor に接続できるよう支援しましょう</string>
     <string name="volunteer_mode_weekly_label">今週</string>
     <string name="volunteer_mode_alltime_label">合計</string>
+    <string name="Disabled">無効</string>
+    <string name="kindness_usage_limits_status_off">無効</string>
 </resources>
