@@ -1,0 +1,9 @@
+Kích thước tệp (APK) nhỏ hơn 30 %, dưới 10 MB!
+    Đã cập nhật lên Tor 0.3.3.5 (hỗ trợ Onion Services v3 và hơn nữa)
+    Nhiều bản sửa lỗi cho Tor và bản cài nhị phân của pluggable transport
+    Không dùng máy chủ HTTP “Polipo” nữa, chỉ dùng khả năng tích hợp mới của Tor
+    Cải thiện lựa chọn ngôn ngữ trong ứng dụng
+
+QUYỀN MỚI: Truy cập “Bộ nhớ ngoài” để lưu trữ thông tin sao lưu cho các dịch vụ onion.
+
+Xem toàn bộ ghi chú phát hành tại: https://github.com/n8fr8/orbot/releases/tag/16.0.2-RC-1

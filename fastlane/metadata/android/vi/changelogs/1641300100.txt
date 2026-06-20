@@ -1,0 +1,3 @@
+- Đã loại bỏ tùy chọn cầu nối Meek "Cloud" do không còn được hỗ trợ
+- Tiếp tục cải thiện khả năng hỗ trợ dịch vụ Onion V3
+- Đối với #441, đã khắc phục lỗi tìm kiếm ứng dụng khi chọn VPN dựa trên ứng dụng
