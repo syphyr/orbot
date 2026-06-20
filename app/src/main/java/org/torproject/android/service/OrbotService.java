@@ -461,9 +461,12 @@ public class OrbotService extends VpnService {
 
                     logNotice(getString(R.string.status_connected_control_port));
 
-                    var events = Arrays.asList(TorControlCommands.EVENT_STATUS_CLIENT, TorControlCommands.EVENT_OR_CONN_STATUS, TorControlCommands.EVENT_CIRCUIT_STATUS, TorControlCommands.EVENT_NOTICE_MSG, TorControlCommands.EVENT_WARN_MSG, TorControlCommands.EVENT_ERR_MSG, TorControlCommands.EVENT_BANDWIDTH_USED, TorControlCommands.EVENT_NEW_DESC, TorControlCommands.EVENT_ADDRMAP);
-                    if (Prefs.useDebugLogging())
-                        events.addAll(Arrays.asList(TorControlCommands.EVENT_DEBUG_MSG, TorControlCommands.EVENT_INFO_MSG, TorControlCommands.EVENT_STREAM_STATUS));
+                    var events = new ArrayList<>(Arrays.asList(TorControlCommands.EVENT_STATUS_CLIENT, TorControlCommands.EVENT_OR_CONN_STATUS, TorControlCommands.EVENT_CIRCUIT_STATUS, TorControlCommands.EVENT_NOTICE_MSG, TorControlCommands.EVENT_WARN_MSG, TorControlCommands.EVENT_ERR_MSG, TorControlCommands.EVENT_BANDWIDTH_USED, TorControlCommands.EVENT_NEW_DESC, TorControlCommands.EVENT_ADDRMAP));
+                    if (Prefs.useDebugLogging()) {
+                        events.add(TorControlCommands.EVENT_DEBUG_MSG);
+                        events.add(TorControlCommands.EVENT_STREAM_STATUS);
+                    }
+
                     conn.setEvents(events);
                 } catch (IOException e) {
                     Log.e(TAG, e.toString());
