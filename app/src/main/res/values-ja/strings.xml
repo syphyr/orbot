@@ -323,4 +323,5 @@
     <string name="testing_explanation_no_net">インターネットに接続して Kindness Mode が問題なく機能するか確認する</string>
     <string name="kindness_mode_disclaimer_bridge">お住まいの国でインターネットが厳しく検閲されていない場合は有効にしてください。</string>
     <string name="kindness_mode_unsupported_country">お住まいの国として %s を選択されましたが、残念ながらこの地域では Kindness Mode は他のユーザーが Tor に接続するのを支援できません。誤ってこのメッセージが表示されていると思われる場合は、国設定をクリアして、Snowflake プロキシーが問題なく機能するかどうか確認するためのテストを行ってください</string>
+    <string name="kindness_proxy_quality_unknown">不明</string>
 </resources>
