@@ -219,7 +219,7 @@ afterEvaluate {
         }
 }
 
-val copyLicenseToAssets by tasks.registering(Copy::class) {
+val copyLicenseToAssets = tasks.register<Copy>("copyLicenseToAssets") {
     description =
         "Copies LICENSE file from repo root to assets folder so it can be displayed in the About dialog"
     from(rootProject.file("LICENSE"))
