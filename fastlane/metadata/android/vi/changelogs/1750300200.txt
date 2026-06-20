@@ -1,0 +1,3 @@
+- Cập nhật lên phiên bản Tor 0.4.8.17
+- Nhiều cải tiến về giao diện người dùng
+- Hỗ trợ các tính năng mới nhất của WebTunnel và Snowflake Proxy
