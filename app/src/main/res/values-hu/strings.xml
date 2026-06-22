@@ -46,8 +46,6 @@
     <string name="third_party_software">3. fél szoftver:</string>
     <string name="hidden_service_request">Egy app egy rejtett szerver portot %1$d nyitna a Tor hálózatra. Ez biztonságos, ha megbízik az appban.</string>
     <string name="set_locale_title">Nyelv</string>
-    <string name="pref_disable_network_title">Nincs hálózati auto-alvás</string>
-    <string name="pref_disable_network_summary">A Tor alvó módba helyezése, ha internet nem elérhető</string>
     <string name="newnym">Új Tor identitásra váltottál!</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_socks_summary">Port amelyen a Tor a SOCKS proxyt biztosítja (alapértelmezett: 9050 vagy 0 a tiltáshoz)</string>

@@ -46,8 +46,6 @@
     <string name="third_party_software">Software di terze parti:</string>
     <string name="hidden_service_request">Un\'app vuole aprire unserver nascosto sulla porta %1$s verso la rete Tor. È un\'azione sicura se ti fidi dell\'app.</string>
     <string name="set_locale_title">Lingua</string>
-    <string name="pref_disable_network_title">Evita autosospensione della rete</string>
-    <string name="pref_disable_network_summary">Sospendi Tor quando internet non è disponibile</string>
     <string name="newnym">Sei passato a una nuova identità Tor!</string>
     <string name="pref_socks_title">SOCKS di Tor</string>
     <string name="pref_socks_summary">Porta su cui Tor offre il proxy SOCKS (predefinita: 9050 o 0 per disattivare)</string>

@@ -45,7 +45,6 @@
     <string name="project_home">אתר המיזם:</string>
     <string name="third_party_software">תוכנת-צד-ג׳:</string>
     <string name="set_locale_title">שפה</string>
-    <string name="pref_disable_network_summary">כיבוי Tor כאשר אין חיבור לאינטרנט</string>
     <string name="newnym">החלפת לזהות Tor חדשה!</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_socks_dialog">הגדרות פתחת SOCKS</string>
@@ -62,7 +61,6 @@
     <string name="btn_refresh">ריענון החיבור</string>
     <string name="connect">התחברות</string>
     <string name="title_choose_apps">בחירת יישומונים</string>
-    <string name="pref_disable_network_title">שינה אוטומטית כשאין רשת</string>
     <string name="pref_open_proxy_on_all_interfaces_title">פתיחת מתווך על כל הממשקים</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">לאפשר לעמיתים ברשת האלחוטית, מכשירים קשורים ולכל אחד אחר שיכול להתחבר ל־IP שלך לגשת לTor</string>
     <string name="pref_socks_summary">פתחה דרכה Tor מגיש את מתווך ה־SOCKS שלו (ברירת מחדל: 9050 או 0 להשבתה)</string>

@@ -46,8 +46,6 @@
     <string name="third_party_software">Software de terceros:</string>
     <string name="hidden_service_request">Una aplicación quiere abrir un servidor cebolla en el puerto %1$s a la red Tor. Esto es seguro si confías en la aplicación.</string>
     <string name="set_locale_title">Idioma</string>
-    <string name="pref_disable_network_title">Sin suspensión-automática de la red</string>
-    <string name="pref_disable_network_summary">PonTor en suspensión cuando no haya Internet disponible</string>
     <string name="newnym">¡Has cambiado a una nueva identidad de Tor!</string>
     <string name="pref_socks_title">SOCKS de Tor</string>
     <string name="pref_socks_summary">Puerto sobre el que Tor ofrece tu proxy SOCKS (por defecto: 9050 o 0 para deshabilitarlo)</string>

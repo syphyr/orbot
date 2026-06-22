@@ -55,8 +55,6 @@
     <string name="hidden_service_request">Tor llikar %1$s waythapiwjanx mä aplikasyunaw mä siwulla yanapir
 \njist\'arañ muni. Ukar atinistax jark\'aqatawa.</string>
     <string name="set_locale_title">Aru</string>
-    <string name="pref_disable_network_title">Jan jiwt\'ayas suyt\'aña</string>
-    <string name="pref_disable_network_summary">Llika jan uktjki ukjax Tor suyt\'ayam</string>
     <string name="newnym">¡Jichhax Tor sutimax yaqhäxiwa!</string>
     <string name="pref_socks_title">Toran SOCKS ukapa</string>
     <string name="pref_socks_summary">Waythapiwja kawkïrxaruti Torax proxy SOCKS ukap churañ muni: (utt\'ayata: jiwt\'ayañatakix 9050 jan ukax 0)</string>

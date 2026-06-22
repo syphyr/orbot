@@ -51,8 +51,6 @@
   <string name="license">Utɵ miek</string>
   <string name="hidden_service_request">1%1$s Kan marampurukuntrapik, cebolla wam lasrpichapik Toryu. Ikwane ñi marampurukuntrapikwan tap purukuntraptik kuik asha mar.</string>
     <string name="set_locale_title">Wam-mera</string>
-  <string name="pref_disable_network_title">Wam srɵl mera nɵmtɵpe chincha pasram pumumik</string>
-  <string name="pref_disable_network_summary">Internet kapene Torwan Kiptrasr</string>
   <string name="newnym">Tor maik kenamisrɵpik kuipe yunɵmaran</string>
   <string name="pref_open_proxy_on_all_interfaces_title">Proxy wam latrpichipelan chiutɵmerayu kɵpen kuriklɵ</string>
   <string name="pref_open_proxy_on_all_interfaces_summary">Wifimerayu, wam purɵrɵpelan, trukutri mumeran kɵpen Ipyu kepintrai ɵ teik, Toryu kepiamik</string>

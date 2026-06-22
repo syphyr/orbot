@@ -52,8 +52,6 @@
     <string name="project_home">الشاشة الرئيسية للمشروع:</string>
     <string name="third_party_software">برامج من الطرف الثالث:</string>
     <string name="set_locale_title">اللغة</string>
-    <string name="pref_disable_network_title">لاتوجد شبكة نوم-آلي</string>
-    <string name="pref_disable_network_summary">ضع تور في وضعية النوم عند عدم وجود الأنترنت</string>
     <string name="newnym">لقد حولت إلى هوية تور جديدة!</string>
     <string name="pref_socks_title">تور SOCKS</string>
     <string name="pref_socks_summary">المنفذ الذي يقدم عليه تور وسيط SOCKS الخاص به (الافتراضي: 9050 أو 0 لتعطيله)</string>

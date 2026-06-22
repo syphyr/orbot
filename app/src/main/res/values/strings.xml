@@ -40,7 +40,7 @@
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Fingerprints, nicks, countries and addresses to exclude</string>
     <string name="enter_exclude_nodes">Enter Exclude Nodes</string>
     <string name="strict_nodes">Strict Nodes</string>
-    <string name="strict_nodes_description">Treat Exclude Nodes settings as a requirement for building all circuits. This may break functionality if no circuits are able to be generated with your Exclude Nodes settings.</string>
+    <string name="strict_nodes_description">Treat Exclude Nodes settings as a requirement for building all circuits. This may break functionality if no circuits can be built with your Exclude Nodes settings.</string>
     <string name="reachable_addresses">Reachable Addresses</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Run as a client behind a firewall with restrictive policies</string>
     <string name="reachable_ports">Reachable ports</string>
@@ -59,8 +59,6 @@
     <string name="license">License:</string>
     <string name="hidden_service_request">An app wants to open onion server on port %1$s to the Tor network. This is safe if you trust the app.</string>
     <string name="set_locale_title">Language</string>
-    <string name="pref_disable_network_title">No Network Auto-Sleep</string>
-    <string name="pref_disable_network_summary">Put Tor to sleep when there is no internet available</string>
     <string name="newnym">You\'ve switched to a new Tor identity!</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Open Proxy on All Interfaces</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Allow Wi-Fi peers, tethered devices and anyone else who can connect to your IP, to access Tor</string>

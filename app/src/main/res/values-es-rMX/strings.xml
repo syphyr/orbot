@@ -63,7 +63,6 @@
     <string name="btn_change_exit">Cambiar salida</string>
     <string name="pref_circuit_padding_summary">Habilita el relleno de circuito para defenderte contra algunas formas de análisis de tráfico</string>
     <string name="pref_reduced_circuit_padding_summary">Usa algoritmos de relleno de gastos generales más bajos para reducir el uso de datos y batería</string>
-    <string name="pref_disable_network_summary">Pon Tor a dormir cuando no haya Internet disponible</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Permite que las personas conectadas al mismo Wi-Fi, los dispositivos conectados y cualquier otra persona que pueda conectarse a tu IP acceda a Tor</string>
     <string name="direct_connect_subtitle">La mejor manera de conectarse a Tor. Usar si Tor no está bloqueado.</string>
     <string name="app_suggested_subtitle">Orbot funciona mejor con aplicaciones de mensajería y redes sociales.</string>
@@ -83,7 +82,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Habilita el registro de depuración para la salida (debes usar adb o aLogcat para verlo)</string>
     <string name="project_home">Inicio del Proyecto:</string>
     <string name="set_locale_title">Idioma</string>
-    <string name="pref_disable_network_title">Sin Conexion Suspensión automática</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Proxy abierto en todas las interfaces</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_socks_summary">Puerto en el que Tor ofrece tu proxy SOCKS (predeterminado: 9050 o 0 para deshabilitar)</string>

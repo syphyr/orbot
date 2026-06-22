@@ -44,8 +44,6 @@
     <string name="project_home">Prosjekt Hjem:</string>
     <string name="third_party_software">Tredjepartsprogramvare:</string>
     <string name="set_locale_title">Språk</string>
-    <string name="pref_disable_network_title">Inget automatisk hvilemodus for nettverk</string>
-    <string name="pref_disable_network_summary">Legg Tor i hvilemodus når nettilkobling til Internett ikke er tilgjengelig</string>
     <string name="newnym">Du har byttet til en ny Tor-identitet!</string>
     <string name="pref_socks_title">Tor-SOCKS</string>
     <string name="pref_socks_summary">Port som Tor tilbyr er SOCKS proxy på (standard: 9050 eller 0 for å slå av)</string>

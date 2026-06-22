@@ -44,8 +44,6 @@
     <string name="project_home">Strona główna projektu:</string>
     <string name="third_party_software">Oprogramowanie innych firm:</string>
     <string name="set_locale_title">Język</string>
-    <string name="pref_disable_network_title">Brak automatycznego uśpienia sieci</string>
-    <string name="pref_disable_network_summary">Uśpij Tor, gdy nie ma dostępnego Internetu</string>
     <string name="newnym">Nowa tożsamość Tor została zmieniona!</string>
     <string name="pref_socks_title">SOCKS Tor</string>
     <string name="pref_socks_summary">Port, na którym Tor oferuje swoje proxy SOCKS (domyślnie: 9050 lub 0, aby wyłączyć)</string>

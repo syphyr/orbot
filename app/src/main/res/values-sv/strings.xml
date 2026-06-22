@@ -46,8 +46,6 @@
     <string name="third_party_software">Tredjepartsprogramvara:</string>
     <string name="hidden_service_request">En app vill öppna dold serverport %1$s till Tor-nätverket. Det här är säkert om du litar på appen.</string>
     <string name="set_locale_title">Språk</string>
-    <string name="pref_disable_network_title">Ingen auto-sömn för nätverket</string>
-    <string name="pref_disable_network_summary">Låt Tor sova när inget internet finns tillgängligt</string>
     <string name="newnym">Du har bytt till en ny Tor identitet!</string>
     <string name="pref_socks_title">Tor-SOCKS</string>
     <string name="pref_socks_summary">Port som Tor erbjuder sin SOCKS-proxy på (standard: 9050 eller 0 för att inaktivera)</string>

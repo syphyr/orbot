@@ -44,8 +44,6 @@
     <string name="project_home">Projektin kotisivusto:</string>
     <string name="third_party_software">3. osapuolen ohjelmistot:</string>
     <string name="set_locale_title">Kieli</string>
-    <string name="pref_disable_network_title">Ei verkon automaattilepotilaa</string>
-    <string name="pref_disable_network_summary">Aseta Tor lepotilaan, kun Internet-yhteyttä ei ole käytettävissä.</string>
     <string name="newnym">Vaihdoit Tor-identiteettisi uuteen!</string>
     <string name="pref_socks_title">Tor SOCKS-välityspalvelin</string>
     <string name="pref_socks_summary">Portti, jonka kautta Torin SOCKS-välityspalvelin on tavoitettavissa (oletus on 9050 tai pois käytöstä arvolla 0).</string>

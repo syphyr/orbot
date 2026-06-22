@@ -43,8 +43,6 @@
     <string name="project_home">Project Home(s):</string>
     <string name="third_party_software">3rd-Party-Software:</string>
     <string name="set_locale_title">Wika</string>
-    <string name="pref_disable_network_title">Walang Auto-Sleep sa Network</string>
-    <string name="pref_disable_network_summary">Ilagay ang Tor sa sleep kapag walang internet na pwede</string>
     <string name="newnym">Ikaw ay nagpalit ng bagong pagkakakilanlan sa Tor!</string>
     <string name="save">I-save</string>
     <string name="name">Name</string>

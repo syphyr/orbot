@@ -59,7 +59,6 @@
     <string name="pref_proxy_type_summary">Proxy server protocol</string>
     <string name="pref_proxy_host_title">Outbound Proxy Host</string>
     <string name="enter_exclude_nodes">Enter Exclude Nodes</string>
-    <string name="pref_disable_network_title">No Network Auto-Sleep</string>
     <string name="v3_backup_key_warning">Warning: This could expose your key to other apps</string>
     <string name="pref_reduced_connection_padding_summary">Closes relay connections sooner and sends less padding packets to reduce data and battery usage</string>
     <string name="pref_proxy_username_summary">Proxy Username (Optional)</string>
@@ -134,7 +133,6 @@
     <string name="backup_restored">Backup restored</string>
     <string name="backup_port_exist">Error: An Onion service is already using port %s</string>
     <string name="service_type">Service type</string>
-    <string name="pref_disable_network_summary">Put Tor to sleep when there is no internet available</string>
     <string name="newnym">You\'ve switched to a new Tor identity!</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Allow Wi-Fi peers, tethered devices and anyone else who can connect to your IP, to access Tor</string>
     <string name="pref_socks_summary">Port that Tor offers its SOCKS proxy on (default: 9050 or 0 to disable)</string>
