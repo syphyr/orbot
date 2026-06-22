@@ -112,7 +112,7 @@ brew install android-platform-tools
 
 ### Checking for Android updates 
 ```bash
-./grdalew versionCatalogUpdate --check
+./gradlew versionCatalogUpdate --check
 ```
 
 **Copyright &#169; 2009-2026, Nathan Freitas, The Guardian Project**
