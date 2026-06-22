@@ -34,7 +34,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.torproject.android.BuildConfig
 import org.torproject.android.R
-import org.torproject.android.databinding.ActivityAppManagerBinding
+import org.torproject.android.databinding.FragmentAppManagerBinding
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.vpn.TorifiedApp
 import org.torproject.android.service.vpn.TorifiedAppWrapper
@@ -59,7 +59,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
 
     private val scope = CoroutineScope(Dispatchers.Main + job)
 
-    private lateinit var binding: ActivityAppManagerBinding
+    private lateinit var binding: FragmentAppManagerBinding
 
     @kotlinx.coroutines.FlowPreview
     override fun onCreateView(
@@ -67,7 +67,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = ActivityAppManagerBinding.inflate(layoutInflater)
+        binding = FragmentAppManagerBinding.inflate(layoutInflater)
         retainedCheckedPackages =
             savedInstanceState?.getStringArray(BUNDLE_KEY_CHECKED_PACKAGES)?.toSet() ?: emptySet()
         val restoredQuery = savedInstanceState?.getString(BUNDLE_KEY_SEARCH_QUERY).orEmpty()

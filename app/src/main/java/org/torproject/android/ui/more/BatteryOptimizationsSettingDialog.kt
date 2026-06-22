@@ -11,7 +11,7 @@ import org.torproject.android.util.openBatteryOptimizationAppListScreen
 
 class BatteryOptimizationsSettingDialog : DialogFragment() {
     companion object {
-        const val TAG = "BatteryOptimizationsSettingDialog"
+        const val TAG = "BatteryOptimizationDialog"
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 import org.torproject.android.R
 import org.torproject.android.Regionalization
+import org.torproject.android.databinding.ExitNodeBottomSheetBinding
 import org.torproject.android.localization.Languages
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
@@ -31,6 +32,7 @@ class ExitNodeBottomSheet : OrbotBottomSheetDialogFragment() {
     private lateinit var rvList: RecyclerView
     private lateinit var adapter: ExitNodeAdapter
 
+    private lateinit var binding: ExitNodeBottomSheetBinding
     private var selectedCode: String? = null
 
     override fun onCreateView(
@@ -38,15 +40,14 @@ class ExitNodeBottomSheet : OrbotBottomSheetDialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val view = inflater.inflate(R.layout.exit_node_bottom_sheet, container, false)
+        binding = ExitNodeBottomSheetBinding.inflate(layoutInflater)
 
         // exitNodes returns {XY} for country but null for world
         selectedCode = Prefs.exitNodes
             ?.removePrefix("{")
             ?.removeSuffix("}")
             ?: ""
-        rvList = view.findViewById(R.id.rvExitNodes)
-        rvList.layoutManager = LinearLayoutManager(context)
+        binding.rvExitNodes.layoutManager = LinearLayoutManager(context)
 
         val items = mutableListOf<Pair<String, String>>()
 
@@ -65,7 +66,7 @@ class ExitNodeBottomSheet : OrbotBottomSheetDialogFragment() {
         adapter = ExitNodeAdapter(items)
         rvList.adapter = adapter
 
-        return view
+        return binding.root
     }
 
     private inner class ExitNodeAdapter(
