@@ -240,6 +240,7 @@ public class OrbotService extends VpnService {
     @Override
     public void onCreate() {
         super.onCreate();
+        Prefs.orbotServiceLogClear();
         configLanguage();
 
         try {
@@ -581,6 +582,7 @@ public class OrbotService extends VpnService {
 
     private void sendCallbackLogMessage(final String logMessage) {
 
+        Prefs.orbotServiceLogAppend(logMessage);
         var localIntent = new Intent(LOCAL_ACTION_LOG)
                 .putExtra(LOCAL_EXTRA_LOG, logMessage)
                 .setPackage(getPackageName());

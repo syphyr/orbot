@@ -53,6 +53,7 @@ object Prefs {
     const val PREF_SECURE_WINDOW_FLAG: String = "pref_flag_secure"
 
     private const val PREF_POWER_BATTERY_DIALOG_HIDE = "hide_battery_opt_dialog"
+    const val PREF_ORBOT_SERVICE_LOG = "pref_orbotservice_log"
 
     private var cr: ContentResolver? = null
 
@@ -426,5 +427,19 @@ object Prefs {
     @JvmStatic
     fun isAppTorified(appId: String): Boolean {
         return cr?.getPrefBoolean("$appId${OrbotConstants.APP_TOR_KEY}", true) ?: true
+    }
+
+    @JvmStatic
+    fun orbotServiceLogClear() {
+        cr?.putPref(PREF_ORBOT_SERVICE_LOG, "")
+    }
+
+    @JvmStatic
+    fun orbotServiceLogAppend(logLine: String) {
+        cr?.putPref(PREF_ORBOT_SERVICE_LOG, getOrbotServiceLog() + "\n" + logLine)
+    }
+
+    fun getOrbotServiceLog() : String {
+        return cr?.getPrefString(PREF_ORBOT_SERVICE_LOG, "") ?: ""
     }
 }

@@ -24,7 +24,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import net.freehaven.tor.control.TorControlCommands
-import org.torproject.android.OrbotActivity
 import org.torproject.android.R
 import org.torproject.android.util.sendIntentToService
 import org.torproject.android.databinding.FragmentConnectBinding
@@ -34,6 +33,7 @@ import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.vpn.VpnServicePrepareWrapper
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotMenuAction
+import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.jni.TorService
 import kotlin.time.Duration.Companion.milliseconds
 
@@ -320,7 +320,7 @@ class ConnectFragment : Fragment(),
         refreshMenuList(context)
 
         binding.ivStatus.setOnClickListener {
-            (activity as OrbotActivity).showLog()
+            LogBottomSheet.show(parentFragmentManager)
         }
     }
 
@@ -358,7 +358,7 @@ class ConnectFragment : Fragment(),
         animShadow.start()
         binding.tvTitle.text = context.getString(R.string.trying_to_connect_title)
         binding.tvSubtitle.setOnClickListener {
-            (activity as OrbotActivity).showLog()
+            LogBottomSheet.show(parentFragmentManager)
         }
     }
 

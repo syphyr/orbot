@@ -109,7 +109,7 @@ class MoreFragment : Fragment() {
             OrbotMenuAction(R.string.system_vpn_settings, R.drawable.ic_vpn_key) {
                 VpnServicePrepareWrapper.openVpnSystemSettings(this)
             },
-            OrbotMenuAction(R.string.menu_log, R.drawable.ic_log) { showLog() },
+            OrbotMenuAction(R.string.menu_log, R.drawable.ic_log) { LogBottomSheet.show(parentFragmentManager) },
             OrbotMenuAction(R.string.v3_hosted_services, R.drawable.ic_menu_onion) {
                 startActivity(Intent(requireActivity(), OnionServiceActivity::class.java))
             },
@@ -144,7 +144,4 @@ class MoreFragment : Fragment() {
         requireActivity().finish()
     }
 
-    private fun showLog() {
-        (activity as OrbotActivity).showLog()
-    }
 }

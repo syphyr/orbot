@@ -32,7 +32,6 @@ import org.torproject.android.ui.connect.RequestPostNotificationPermission
 import org.torproject.android.ui.core.BaseActivity
 import org.torproject.android.ui.core.DeviceAuthenticationPrompt
 import org.torproject.android.ui.kindness.SnowflakeProxyService
-import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.sendIntentToService
 import org.torproject.android.util.showToast
@@ -40,7 +39,6 @@ import org.torproject.jni.TorService
 
 class OrbotActivity : BaseActivity() {
 
-    private lateinit var logBottomSheet: LogBottomSheet
     private lateinit var navController: NavController
     private lateinit var bottomNavigationView: BottomNavigationView
 
@@ -108,7 +106,6 @@ class OrbotActivity : BaseActivity() {
             insets
         }
 
-        logBottomSheet = LogBottomSheet()
         navController = findNavController(R.id.nav_fragment)
         bottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigationView.setupWithNavController(navController)
@@ -278,7 +275,6 @@ class OrbotActivity : BaseActivity() {
                         connectViewModel.updateBootstrapPercent(it.toIntOrNull() ?: 0)
                     }
                     intent.getStringExtra(OrbotConstants.LOCAL_EXTRA_LOG)?.let {
-                        logBottomSheet.appendLog(it)
                         connectViewModel.updateLogState(it)
                     }
                 }
@@ -348,11 +344,5 @@ class OrbotActivity : BaseActivity() {
 
         // Make sure this is only shown once per app-start, not on every device rotation.
         private var rootDetectionShown = false
-    }
-
-    fun showLog() {
-        if (!logBottomSheet.isAdded) {
-            logBottomSheet.show(supportFragmentManager, OrbotActivity::class.java.simpleName)
-        }
     }
 }
