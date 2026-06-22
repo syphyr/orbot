@@ -44,8 +44,6 @@
     <string name="project_home">Page d’accueil du projet :</string>
     <string name="third_party_software">Logiciels tiers :</string>
     <string name="set_locale_title">Langue</string>
-    <string name="pref_disable_network_title">Aucune mise en veille automatique du réseau</string>
-    <string name="pref_disable_network_summary">Mettre Tor en veille quand Internet est inaccessible</string>
     <string name="newnym">Vous avez basculé vers une nouvelle identité Tor</string>
     <string name="pref_socks_title">SOCKS Tor</string>
     <string name="pref_socks_summary">Port sur lequel Tor offre son mandataire SOCKS (par défaut : 9050 ou 0 pour le désactiver)</string>

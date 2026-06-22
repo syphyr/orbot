@@ -54,8 +54,6 @@
     <string name="third_party_software">Праграмы іншых распрацоўнікаў: </string>
     <string name="hidden_service_request">Дадатак хоча адкрыць схаваны порт сервера %1$s сеткі Tor. Гэта бяспечна, калі вы давяраеце дадзенаму дадатку.</string>
     <string name="set_locale_title">Мова</string>
-    <string name="pref_disable_network_title">Аўтазасынанне без сеткі</string>
-    <string name="pref_disable_network_summary">Пераводзіць Tor у спячы рэжым пры немені інтэрнэту</string>
     <string name="newnym">Вы перамкнуліся на новы ідэнтыфікатар Tor!</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_socks_summary">Порт, на якім Tor прапануе свой SOCKS-проксі (па змаўчанні: 9050, 0 - для адключэння)</string>

@@ -46,8 +46,6 @@
     <string name="third_party_software">サードパーティ製ソフトウェア:</string>
     <string name="hidden_service_request">アプリが Tor ネットワークへポート %1$s 上にオニオンサーバー開放しようとしています。信頼できるアプリであれば、これは安全です。</string>
     <string name="set_locale_title">言語</string>
-    <string name="pref_disable_network_title">ネットワークがなければ自動スリープする</string>
-    <string name="pref_disable_network_summary">利用可能なインターネット接続がない時、Tor をスリープさせる</string>
     <string name="newnym">新たな Tor 識別子に切り替えました！</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_socks_summary">Tor が SOCKS プロキシーを提供するポート (初期設定: 9050、0 にすると無効)</string>

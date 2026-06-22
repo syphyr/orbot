@@ -46,8 +46,6 @@
     <string name="third_party_software">第三方軟體：</string>
     <string name="hidden_service_request">有一個應用程式想要在 Tor 網絡的連接埠 %1$s 上開啟 Onion 伺服器。如果你信任該應用程式，這是安全的。</string>
     <string name="set_locale_title">語言</string>
-    <string name="pref_disable_network_title">無網路時自動休眠</string>
-    <string name="pref_disable_network_summary">當沒有網路可用時，讓 Tor 休眠</string>
     <string name="newnym">您已切換到新的 Tor 身分！</string>
     <string name="pref_socks_title">Tor SOCKS 代理</string>
     <string name="pref_socks_summary">Tor 提供 SOCKS 代理的連接埠 (預設：9050，若設為 0 則關閉)</string>

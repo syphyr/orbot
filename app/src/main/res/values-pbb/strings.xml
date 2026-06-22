@@ -49,8 +49,6 @@
     <string name="license">Licencia:</string>
     <string name="hidden_service_request">Teeꞔx appekh çaam pe’pe Onion yasesa’s phadewẽje, %1$s vxitxte. naayu’ ewna napa idx ewna sũuteçxaa.</string>
     <string name="set_locale_title">Kĩh yuwe</string>
-    <string name="pref_disable_network_title">Reda’s peetx kyuju’jnximee</string>
-    <string name="pref_disable_network_summary">Tora’s  mikyuju’ internet meete’</string>
     <string name="newnym">¡U’se yaseg yu’pthe! </string>
     <string name="pref_open_proxy_on_all_interfaces_title">Mphade Proxi’s jxukatey</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Çaam WIFIte açya’ ewuusa’ ki’ maa nasama’k IPte açya ewuuna’ Torte peetx u’kakan miinvxiht</string>

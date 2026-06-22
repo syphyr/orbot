@@ -54,8 +54,6 @@
     <string name="third_party_software">दूसरे लोगों का सॉफ्टवेयर:</string>
     <string name="hidden_service_request">एक ऐप टॉर नेटवर्क के लिए %1$s पोर्ट पे अनियन सर्वर खोलना चाहता है। अगर आप ऐप पर भरोसा करते हैं, तो ये महफूज़ है।</string>
     <string name="set_locale_title">भाषा</string>
-    <string name="pref_disable_network_title">कोई नेटवर्क अपनेआप नहीं सोएगा</string>
-    <string name="pref_disable_network_summary">कोई इंटरनेट मौजूद नहीं होने पे टॉर को सुला दें</string>
     <string name="newnym">आपने अपने टॉर पहचान को बदल दिया है!</string>
     <string name="pref_socks_title">टॉर सॉक्स</string>
     <string name="pref_socks_summary">वो पोर्ट जिसपे टॉर अपनी सॉक्स प्रॉक्सी देता है (डिफॉल्ट: 9050 या 0 बंद करने के लिए )</string>

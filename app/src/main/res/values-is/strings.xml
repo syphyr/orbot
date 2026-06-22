@@ -46,8 +46,6 @@
     <string name="third_party_software">Hugbúnaður frá 3ja aðila:</string>
     <string name="hidden_service_request">Forrit vill opna onion-netþjón á gáttinni %1$s inn á Tor-netið. Þetta er öruggt ef þú treystir forritinu.</string>
     <string name="set_locale_title">Tungumál</string>
-    <string name="pref_disable_network_title">Engin sjálfvirk svæfing netkerfis</string>
-    <string name="pref_disable_network_summary">Svæfa Tor þegar engin internettenging er til staðar</string>
     <string name="newnym">Þú ert komin með nýtt Tor-auðkenni!</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_socks_summary">Gátt sem Tor býður SOCKS milliþjón á (sjálfgefið: 9050 eða 0 til að gera óvirkt)</string>

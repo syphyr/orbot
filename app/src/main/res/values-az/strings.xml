@@ -44,8 +44,6 @@
     <string name="project_home">Layihə Evi:</string>
     <string name="third_party_software">Xidməti Quraşdırma:</string>
     <string name="set_locale_title">Dil</string>
-    <string name="pref_disable_network_title">Avto-Yuxu Şəbəkəsi Yoxdur</string>
-    <string name="pref_disable_network_summary">İnternet olmadıqda icazə ver Tor yatsın</string>
     <string name="newnym">Yeni Tor oxşarına qoşuldun!</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_socks_summary">Torun təklif etdiyi Port SOCKS proksi işləyir (standart: 9050, yaxud söndürmək üçün 0) </string>

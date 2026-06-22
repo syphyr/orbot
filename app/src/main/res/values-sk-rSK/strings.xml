@@ -69,8 +69,6 @@
     <string name="strict_nodes_description">Nastavenie Vylúčiť uzly považujte za požiadavku na vytvorenie všetkých okruhov. To môže narušiť funkčnosť, ak sa s nastaveniami Exclude Nodes (Vylúčené uzly) nepodarí vygenerovať žiadne obvody.</string>
     <string name="pref_transport_summary">Port, na ktorom Tor ponúka svoj transparentný proxy server (predvolené: 9040 alebo 0 pre vypnutie)</string>
     <string name="set_locale_title">Jazyk</string>
-    <string name="pref_disable_network_title">Žiadny automatický spánok siete</string>
-    <string name="pref_disable_network_summary">Uspanie Tor, keď nie je k dispozícii internet</string>
     <string name="newnym">Prešli ste na novú identitu Tor!</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Otvoriť proxy server na všetkých rozhraniach</string>
     <string name="pref_socks_title">Tor SOCKS</string>

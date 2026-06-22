@@ -46,8 +46,6 @@
     <string name="third_party_software">Üçüncü Taraf Yazılım:</string>
     <string name="hidden_service_request">Bir uygulama %1$s numaralı bağlantı noktasındaki onion sunucusunu Tor ağına açmak istiyor. Uygulamaya güveniyorsanız bu güvenlidir.</string>
     <string name="set_locale_title">Dil</string>
-    <string name="pref_disable_network_title">Bağlantı Olmadığında Otomatik Uyku</string>
-    <string name="pref_disable_network_summary">İnternet bağlantısı olmadığında Tor uyku kipine geçsin</string>
     <string name="newnym">Yeni bir Tor kimliğine geçiş yaptınız!</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_socks_summary">Tor SOCKS vekil sunucusu için kullanılacak bağlantı noktası (öntanımlı değer: 9050, devre dışı bırakmak için 0)</string>

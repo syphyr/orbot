@@ -46,8 +46,6 @@
     <string name="third_party_software">Программы сторонних разработчиков: </string>
     <string name="hidden_service_request">Приложение хочет открыть onion-сервер на порту %1$s в сети Tor. Это безопасно, если вы доверяете приложению.</string>
     <string name="set_locale_title">Язык</string>
-    <string name="pref_disable_network_title">Автозасыпание без сети</string>
-    <string name="pref_disable_network_summary">Переводить Tor в спящий режим при отсутствии интернета</string>
     <string name="newnym">Вы переключились на новый идентификатор Tor!</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_socks_summary">Порт, на котором Tor предоставляет свой SOCKS-прокси (по умолчанию: 9050, 0 — для отключения)</string>

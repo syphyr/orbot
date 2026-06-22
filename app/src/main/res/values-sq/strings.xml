@@ -21,7 +21,6 @@
     <string name="backup_restored">Kopjeruajtja u rikthye</string>
     <string name="disable">Çaktivizoje</string>
     <string name="enable">Aktivizoje</string>
-    <string name="pref_disable_network_summary">Vëre në gjumë Tor-in, kur s’ka internet</string>
     <string name="pref_transport_dialog">Formësim Porte</string>
     <string name="pref_torrc_dialog">Torrc vetjake</string>
     <string name="title_choose_apps">Zgjidhni Aplikacione</string>
@@ -128,7 +127,6 @@
     <string name="ports_reachable_behind_a_restrictive_firewall">Porta të kapshme pas një firewall-i kufizues</string>
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Aktivizo regjistër diagnostikimi te ç’jepet (duhet përdorur adb ose aLogcat për ta parë)</string>
     <string name="hidden_service_request">Një aplikacion dëshiron të hapë shërbyes onion te porta %1$s për te rrjeti Tor. Kjo është e parrezik, nëse i zini besë aplikacionit.</string>
-    <string name="pref_disable_network_title">Pa Vetë-Fjetje Rrjeti</string>
     <string name="pref_prefer_ipv6_summary">U thotë daljeve se parapëlqehen adresa IPv6</string>
     <string name="pref_transport_summary">Portë te e cila Tor-i ofron Ndërmjetësin e vet Transparent (parazgjedhje: 9040, ose 0 për ta çaktivizuar)</string>
     <string name="pref_torrc_summary">VETËM PËR TË SPROVUARIT: jepni drejtpërsëdrejti rreshta formësimi torrc</string>

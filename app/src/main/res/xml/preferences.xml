@@ -338,14 +338,6 @@
             android:title="Debug Log"
             app:iconSpaceReserved="false" />
 
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:enabled="true"
-            android:key="pref_disable_network"
-            android:summary="@string/pref_disable_network_summary"
-            android:title="@string/pref_disable_network_title"
-            app:iconSpaceReserved="false" />
-
     </PreferenceScreen>
 
 </PreferenceScreen>

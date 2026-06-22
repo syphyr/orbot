@@ -46,8 +46,6 @@
     <string name="third_party_software">نرم‌افزارهای شخص ثالث:</string>
     <string name="hidden_service_request">برنامه‌ای می‌خواهد سرور Onion روی درگاه ‎%1$s را به شبکهٔ Tor باز کند. اگر به برنامه اعتماد دارید، این کار ایمن است.</string>
     <string name="set_locale_title">زبان</string>
-    <string name="pref_disable_network_title">حالت خواب خودکار درصورت عدم وجود شبکه</string>
-    <string name="pref_disable_network_summary">هنگامی که اینترنت در دسترس نیست، Tor را در حالت خواب قرار می‌دهد</string>
     <string name="newnym">شما به یک هویت Tor جدید تغییر یافته‌اید!</string>
     <string name="pref_socks_title">SOCKS‌های Tor</string>
     <string name="pref_socks_summary">درگاهی که Tor پراکسی SOCKS خود را روی آن ارائه می‌دهد (پیش‌فرض: ۹۰۵۰ یا اینکه ۰ برای غیرفعال‌سازی)</string>

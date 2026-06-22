@@ -57,7 +57,6 @@
     <string name="pref_socks_summary">Porthladd y mae Tor yn cynnig ei ddirprwy SOCKS arno (diofyn: 9050 neu 0 i\'w analluogi)</string>
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Galluogi log dadfygio i allbwn (rhaid defnyddio adb neu aLogcat i weld)</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Rhedeg fel cleient y tu ôl i wal dân gyda pholisïau cyfyngol</string>
-    <string name="pref_disable_network_title">Dim Rhwydwaith Auto-Cwsg</string>
     <string name="hidden_service_request">Mae ap eisiau agor gweinydd winwnsyn ar borth %1$s i rwydwaith Tor. Mae hyn yn ddiogel os ydych chi\'n ymddiried yn yr app.</string>
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Olion bysedd, nicks, gwledydd a chyfeiriadau i\'w heithrio</string>
     <string name="newnym">Rydych chi wedi newid i hunaniaeth Tor newydd!</string>
@@ -67,7 +66,6 @@
     <string name="pref_open_proxy_on_all_interfaces_title">Agor Dirprwy ar Bob Rhyngwyneb</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Caniatáu i gyfoedion Wi-Fi, dyfeisiau clymu ac unrhyw un arall sy\'n gallu cysylltu â\'ch IP, gael mynediad i Tor</string>
     <string name="strict_nodes_description">Trin gosodiadau Nodau Eithrio fel gofyniad ar gyfer adeiladu pob cylched. Gall hyn dorri ymarferoldeb os nad oes modd cynhyrchu unrhyw gylchedau gyda\'ch gosodiadau Nodau Eithrio.</string>
-    <string name="pref_disable_network_summary">Rhowch Tor i gysgu pan nad oes rhyngrwyd ar gael</string>
     <string name="reachable_ports">Porthladdoedd cyraeddadwy</string>
     <string name="reachable_addresses">Cyfeiriadau Cyrraeddadwy</string>
     <string name="pref_circuit_padding">Padin cylched</string>

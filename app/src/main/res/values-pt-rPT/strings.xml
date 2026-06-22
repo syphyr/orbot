@@ -92,8 +92,6 @@
     <string name="pref_transport_title">Porta TransProxy Tor</string>
     <string name="pref_socks_dialog">Configuração da Porta SOCKS</string>
     <string name="pref_socks_summary">Porta que o Tor oferece do proxy SOCKS dele (predefinição: 9050 ou 0 para desativar)</string>
-    <string name="pref_disable_network_summary">Pôr o Tor em modo de latência quando não houver Internet disponível</string>
-    <string name="pref_disable_network_title">Sem Rede, Modo de Latência Automática</string>
     <string name="hidden_service_request">Uma app quer abrir uma porta no servidor onion %1$s para a rede Tor. É seguro caso confie nesta app.</string>
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Ativar os registos de depuração para saída (deve usar adb ou aLogCat para ver)</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Executar como um cliente atrás de um firewall com políticas restritivas</string>

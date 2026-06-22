@@ -54,8 +54,6 @@
     <string name="third_party_software">Λογισμικό τρίτων:</string>
     <string name="hidden_service_request">Μια εφαρμογή θέλει να ανοίξει διακομιστή onion στη θύρα %1$s στο δίκτυο Tor. Αυτό είναι ασφαλές αν εμπιστεύεστε την εφαρμογή.</string>
     <string name="set_locale_title">Γλώσσα </string>
-    <string name="pref_disable_network_title">Χωρίς Αυτόματη Αναστολή Δικτύου</string>
-    <string name="pref_disable_network_summary">Θέσε το Tor σε λειτουργία sleep όταν δεν υπάρχει διαθέσιμη σύνδεση Ιnternet</string>
     <string name="newnym">Έχετε αλλάξει επιτυχώς την ταυτότητα σας στο Tor! </string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_socks_summary">Θύρα που προσφέρει ο Tor στο SOCKS proxy του (προεπιλογή: 9050 ή 0 για απενεργοποίηση)</string>

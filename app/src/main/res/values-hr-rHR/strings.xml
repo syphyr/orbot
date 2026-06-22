@@ -52,8 +52,6 @@
     <string name="project_home">Dom(ovi) Projekta:</string>
     <string name="third_party_software">Software treće strane:</string>
     <string name="set_locale_title">Jezik</string>
-    <string name="pref_disable_network_title">Nema mrežnog auto-spavanja</string>
-    <string name="pref_disable_network_summary">Stavi Tor na spavanje kad internet nije dostupan</string>
     <string name="newnym">Prebacili ste se na nov Tor identitet!</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_socks_summary">Port na kojem Tor pruža svoj SOCKS proxy (zadano: 9050, 0 za onemogućavanje)</string>

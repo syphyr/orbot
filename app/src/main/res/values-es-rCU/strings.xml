@@ -64,7 +64,6 @@
     <string name="pref_dnsport_title">Puerto DNS de Tor</string>
     <string name="pref_dnsport_summary">Puerto por el cual Tor ofrece su conexión DNS (por defecto: 9053 o 0 para inhabilitar)</string>
     <string name="pref_dnsport_dialog">Configuración del puerto DNS</string>
-    <string name="pref_disable_network_summary">Desactivar Tor cuando no hay internet disponible</string>
     <string name="newnym">¡Has cambiado a una nueva identidad Tor!</string>
     <string name="pref_http_summary">Puerto por el cual Tor ofrece su conexión proxy HTTP (por defecto: 8118 o 0 para inhabilitar)</string>
     <string name="pref_torrc_title">Configuración Personalizada de Torrc</string>
@@ -74,7 +73,6 @@
     <string name="pref_isolate_protocol">Aislar protocolos de cliente</string>
     <string name="hidden_service_request">Una aplicación quiere abrir el servidor de Onion en el puerto %1$s hacia la red Tor. Esto es seguro solo si confías en la aplicación.</string>
     <string name="set_locale_title">Idioma</string>
-    <string name="pref_disable_network_title">Desactivar auto-suspensión de Red</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Abrir Proxy en todas las interfaces</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Permitir que los pares Wi-Fi, dispositivos anclados y cualquiera que pueda conectarse a tu IP, accedan a Tor</string>
     <string name="pref_socks_title">Tor SOCKS</string>
