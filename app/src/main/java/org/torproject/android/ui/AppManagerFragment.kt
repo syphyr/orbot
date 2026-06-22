@@ -13,14 +13,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.CheckBox
-import android.widget.GridView
 import android.widget.ImageView
 import android.widget.ListAdapter
-import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
@@ -37,6 +34,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.torproject.android.BuildConfig
 import org.torproject.android.R
+import org.torproject.android.databinding.ActivityAppManagerBinding
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.vpn.TorifiedApp
 import org.torproject.android.service.vpn.TorifiedAppWrapper
@@ -51,40 +49,32 @@ import kotlin.time.Duration.Companion.milliseconds
 class AppManagerFragment : Fragment(), View.OnClickListener {
 
     private var pMgr: PackageManager? = null
-    private var listAppsAll: GridView? = null
     private var adapterAppsAll: ListAdapter? = null
-    private var progressBar: ProgressBar? = null
     private var alSuggested: List<String>? = null
-    private var searchBar: TextView? = null
-    private var searchBarLayout: TextInputLayout? = null
     private var filteredList: MutableList<TorifiedAppWrapper> = ArrayList()
     private val searchQuery = MutableStateFlow("")
 
     private val job = Job()
     private var retainedCheckedPackages: Set<String> = emptySet()
 
-    private var toolbar: Toolbar? = null
-
     private val scope = CoroutineScope(Dispatchers.Main + job)
+
+    private lateinit var binding: ActivityAppManagerBinding
 
     @kotlinx.coroutines.FlowPreview
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        val view = inflater.inflate(R.layout.activity_app_manager, container, false)
-        listAppsAll = view.findViewById(R.id.applistview)
-        progressBar = view.findViewById(R.id.progressBar)
-        searchBar = view.findViewById(R.id.searchBar)
-        searchBarLayout = view.findViewById(R.id.searchBarLayout)
+    ): View {
+        binding = ActivityAppManagerBinding.inflate(layoutInflater)
         retainedCheckedPackages =
-            savedInstanceState?.getStringArray("checked_packages")?.toSet() ?: emptySet()
-        val restoredQuery = savedInstanceState?.getString("search_query").orEmpty()
+            savedInstanceState?.getStringArray(BUNDLE_KEY_CHECKED_PACKAGES)?.toSet() ?: emptySet()
+        val restoredQuery = savedInstanceState?.getString(BUNDLE_KEY_SEARCH_QUERY).orEmpty()
         appSelectionChanged =
-            appSelectionChanged || savedInstanceState?.getBoolean("apps_changed", false) == true
+            appSelectionChanged || savedInstanceState?.getBoolean(BUNDLE_KEY_APPS_CHANGED, false) == true
         if (restoredQuery.isNotEmpty()) {
-            searchBar?.text = restoredQuery
+            binding.searchBar.setText(restoredQuery)
             searchQuery.value = restoredQuery
         }
 
@@ -94,19 +84,19 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
             .onEach { filterApps(it) }
             .launchIn(scope)
 
-        searchBar?.addTextChangedListener(object : TextWatcher {
+        binding.searchBar.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 searchQuery.value = s?.toString().orEmpty()
                 if (s?.isEmpty() == true) {
-                    searchBarLayout?.endIconMode = TextInputLayout.END_ICON_CUSTOM
-                    searchBarLayout?.endIconDrawable = ResourcesCompat.getDrawable(
+                    binding.searchBarLayout.endIconMode = TextInputLayout.END_ICON_CUSTOM
+                    binding.searchBarLayout.endIconDrawable = ResourcesCompat.getDrawable(
                         resources,
                         R.drawable.ic_search, null
                     )
                 } else {
-                    searchBarLayout?.endIconMode = TextInputLayout.END_ICON_CLEAR_TEXT
-                    searchBarLayout?.endIconDrawable = ResourcesCompat.getDrawable(
+                    binding.searchBarLayout.endIconMode = TextInputLayout.END_ICON_CLEAR_TEXT
+                    binding.searchBarLayout.endIconDrawable = ResourcesCompat.getDrawable(
                         resources,
                         R.drawable.ic_close, null
                     )
@@ -118,18 +108,15 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
 
         alSuggested = OrbotConstants.VPN_SUGGESTED_APPS
 
-        toolbar = view.findViewById(R.id.toolbar)
-        (context as AppCompatActivity).setSupportActionBar(toolbar)
-        toolbar?.setNavigationOnClickListener {
-            // do something when click navigation
-
-            (context as AppCompatActivity).supportFragmentManager.popBackStack()
-
+        with(binding.toolbar) {
+            (context as AppCompatActivity).setSupportActionBar(this)
+            setNavigationOnClickListener {
+                // do something when click navigation
+                (context as AppCompatActivity).supportFragmentManager.popBackStack()
+            }
+            title = requireContext().getString(R.string.title_choose_apps)
         }
-        toolbar?.title = requireContext().getString(R.string.title_choose_apps)
-
-
-        return view
+        return binding.root
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -139,19 +126,18 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
 
     override fun onResume() {
         super.onResume()
-
         reloadApps()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putString("search_query", searchQuery.value)
-        outState.putBoolean("apps_changed", appSelectionChanged)
+        outState.putString(BUNDLE_KEY_SEARCH_QUERY, searchQuery.value)
+        outState.putBoolean(BUNDLE_KEY_APPS_CHANGED, appSelectionChanged)
         val checkedPackages = (allApps.orEmpty() + suggestedApps.orEmpty())
             .filter { it.isTorified }
             .map { it.packageName }
             .toTypedArray()
-        outState.putStringArray("checked_packages", checkedPackages)
+        outState.putStringArray(BUNDLE_KEY_CHECKED_PACKAGES, checkedPackages)
     }
 
     override fun onPause() {
@@ -162,12 +148,12 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
     private fun reloadApps() {
 
         scope.launch {
-            progressBar?.visibility = View.VISIBLE
+            binding.progressBar.visibility = View.VISIBLE
             withContext(Dispatchers.IO) {
                 loadApps()
             }
-            listAppsAll?.adapter = adapterAppsAll
-            progressBar?.visibility = View.GONE
+            binding.applistview.adapter = adapterAppsAll
+            binding.progressBar.visibility = View.GONE
 
             filterApps(searchQuery.value)
         }
@@ -401,6 +387,10 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
     }
 
     companion object {
+        private const val BUNDLE_KEY_SEARCH_QUERY = "search_query"
+        private const val BUNDLE_KEY_APPS_CHANGED = "apps_changed"
+        private const val BUNDLE_KEY_CHECKED_PACKAGES = "checked_packages"
+
         /**
          * @return true if the app is "enabled", not Orbot, and not in
          * [.BYPASS_VPN_PACKAGES]

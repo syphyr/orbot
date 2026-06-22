@@ -85,7 +85,7 @@ class ConnectFragment : Fragment(),
                         is ConnectUiState.On -> {
                             binding.switchConnect.isChecked = true
                             lastState = TorService.ACTION_START
-                            doLayoutOn(requireContext())
+                            doLayoutOn()
                         }
 
                         is ConnectUiState.Stopping -> {}
@@ -306,7 +306,8 @@ class ConnectFragment : Fragment(),
         binding.lvConnected.visibility = View.VISIBLE
     }
 
-    fun doLayoutOn(context: Context) {
+    // this context param is because we call this method from a screenshot taking test script
+    fun doLayoutOn(context: Context = requireContext()) {
         if (Prefs.smartConnect) {
             Prefs.smartConnect = false
             refreshMenuList(context)
