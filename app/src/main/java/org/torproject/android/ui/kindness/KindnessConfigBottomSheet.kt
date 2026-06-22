@@ -10,7 +10,7 @@ import org.torproject.android.databinding.KindnessConfigBottomSheetBinding
 import org.torproject.android.ui.OrbotBottomSheetDialogFragment
 import org.torproject.android.util.Prefs
 
-class KindnessConfigBottomSheet : OrbotBottomSheetDialogFragment(true) {
+class KindnessConfigBottomSheet : OrbotBottomSheetDialogFragment(minMode = true) {
 
     private lateinit var mBinding: KindnessConfigBottomSheetBinding
 
@@ -18,14 +18,19 @@ class KindnessConfigBottomSheet : OrbotBottomSheetDialogFragment(true) {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         mBinding = KindnessConfigBottomSheetBinding.inflate(inflater, container, false)
-
         mBinding.tvCancel.setOnClickListener { dismiss() }
-
         mBinding.btnAction.setOnClickListener {
-            Prefs.setBeSnowflakeProxyLimitWifi(mBinding.swKindnessConfigWifi.isChecked)
-            Prefs.setBeSnowflakeProxyLimitCharging(mBinding.swKindnessConfigCharging.isChecked)
+            var changed = false
+            if (mBinding.swKindnessConfigWifi.isChecked != Prefs.limitSnowflakeProxyingWifi()) {
+                Prefs.setBeSnowflakeProxyLimitWifi(mBinding.swKindnessConfigWifi.isChecked)
+                changed = true
+            }
+            if (mBinding.swKindnessConfigCharging.isChecked != Prefs.limitSnowflakeProxyingCharging()) {
+                Prefs.setBeSnowflakeProxyLimitCharging(mBinding.swKindnessConfigCharging.isChecked)
+                changed = true
+            }
 
-            setFragmentResult(KEY_CONFIG_CHANGED, Bundle())
+            if (changed) setFragmentResult(KEY_CONFIG_CHANGED, Bundle())
             dismiss()
         }
 
@@ -37,12 +42,10 @@ class KindnessConfigBottomSheet : OrbotBottomSheetDialogFragment(true) {
 
     companion object {
         const val KEY_CONFIG_CHANGED = "kindness_config_changed"
-
-        fun show(fragmentManager: FragmentManager) {
+        fun show(fragmentManager: FragmentManager) =
             KindnessConfigBottomSheet().show(
                 fragmentManager,
                 "KindnessConfig"
             )
-        }
     }
 }

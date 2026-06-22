@@ -188,6 +188,7 @@
     <string name="action_learn_more">Learn More</string>
     <string name="Enabled">Enabled</string>
     <string name="Disabled">Disabled</string>
+    <string name="Paused">Paused</string>
     <string name="title_choose_apps">Choose Apps</string>
     <string name="app_suggested_subtitle">Orbot works best with messaging and social media apps.</string>
     <string name="apps_suggested_title">Suggested Apps</string>
@@ -212,7 +213,7 @@
     <string name="kindness_quality_upgrade_line1">Your proxy can be more powerful when kindness mode is running on Wi-Fi.</string>
     <string name="kindness_quality_upgrade_line2">To upgrade, enable UPnP on your Wi-Fi router for this device.</string>
     <string name="kindness_your_impact">Your Impact in Numbers</string>
-    <string name="kindness_config_detail">Configure how and when your device can act as a Snowflake proxy for other Tor users.</string>
+    <string name="kindness_config_detail">Configure when and how your device can act as a Snowflake proxy for other Tor users.</string>
     <string name="menu_kindness">Kindness</string>
     <string name="menu_more">More</string>
     <string name="option_only_on_wifi">Only on Wifi</string>
