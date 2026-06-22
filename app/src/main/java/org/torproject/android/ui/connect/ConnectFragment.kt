@@ -200,9 +200,7 @@ class ConnectFragment : Fragment(),
 
 
     // starts Tor, plus often the VPNService. For power users it runs tor as a proxy
-    fun startTorConnection() {
-        setState(TorService.ACTION_START)
-    }
+    fun startTorConnection() = setState(TorService.ACTION_START)
 
     fun attemptToStartTor() {
         Prefs.putUseVpn(!Prefs.isPowerUserMode)
