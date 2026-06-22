@@ -172,8 +172,9 @@ class ConnectFragment : Fragment(),
         var dialogMsg = ""
         var onLabelClick: () -> Unit = {
             AlertDialog.Builder(requireContext())
-                .setTitle("Private DNS") // TODO
+                .setTitle(R.string.private_dns)
                 .setMessage(dialogMsg)
+                .setPositiveButton(android.R.string.ok, null)
                 .show()
         }
 
@@ -185,13 +186,15 @@ class ConnectFragment : Fragment(),
             }
 
             is NetworkUtils.PrivateDns.Opportunistic -> {
-                labelText = "Opportunistic Message"
+                labelVisibility = View.VISIBLE
+                labelText = getString(R.string.private_dns_automatic)
                 dialogMsg = "opportunistic explanation"
             }
 
             is NetworkUtils.PrivateDns.Strict -> {
-                labelText = "Strict msg ${privateDns.hostname}"
-                dialogMsg = "struct explanation ${privateDns.hostname}"
+                labelVisibility = View.VISIBLE
+                labelText = "${getString(R.string.private_dns_strict)}\n${privateDns.hostname}"
+                dialogMsg = "strict explanation ${privateDns.hostname}"
             }
         }
 

@@ -4,9 +4,9 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.VpnService
-import android.util.Log
 import android.os.Build
 import android.provider.Settings
+import android.util.Log
 import java.net.InetSocketAddress
 import java.net.Socket
 
@@ -80,6 +80,7 @@ object NetworkUtils {
             private const val MODE_OFF = "off"
             private const val MODE_HOSTNAME = "hostname"
             private const val MODE_AUTOMATIC = "automatic"
+            private const val MODE_OPPORTUNISTIC = "opportunistic"
 
             const val HOSTNAME_UNKNOWN = ""
 
@@ -88,15 +89,13 @@ object NetworkUtils {
 
             fun getPrivateDnsConfiguration(context: Context): PrivateDns {
                 if (!isPrivateDnsSupported()) return Off
-
                 val dnsMode =
-                    Settings.Secure.getString(context.contentResolver, KEY_MODE) ?: MODE_OFF
-
-                return when (dnsMode) {
+                    Settings.Global.getString(context.contentResolver, KEY_MODE) ?: MODE_OFF
+               return when (dnsMode) {
                     MODE_OFF -> Off
-                    MODE_AUTOMATIC -> Opportunistic
+                    MODE_AUTOMATIC, MODE_OPPORTUNISTIC -> Opportunistic
                     MODE_HOSTNAME -> Strict(
-                        hostname = Settings.Secure.getString(context.contentResolver, KEY_HOSTNAME)
+                        hostname = Settings.Global.getString(context.contentResolver, KEY_HOSTNAME)
                             ?: HOSTNAME_UNKNOWN
                     )
 
