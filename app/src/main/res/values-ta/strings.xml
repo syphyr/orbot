@@ -40,14 +40,11 @@
     <string name="power_user_mode">பவர் பயனர் பயன்முறை</string>
     <string name="power_user_description">டோர் நன்கு அறிந்த பயனர்களுக்கு. VPN அமைப்பு இல்லாமல் ஆர்போட் தொடங்க உங்களை அனுமதிக்கிறது மற்றும் திறந்த சாக்ச் மற்றும் HTTP போர்ட்களைக் காட்டுகிறது</string>
     <string name="asking">கேட்கிறது…</string>
-    <string name="kindness_adjust_title">அமைப்புகள்</string>
     <string name="app_suggested_subtitle">செய்தி மற்றும் சமூக ஊடக பயன்பாடுகளுடன் ஆர்போட் சிறப்பாக செயல்படுகிறது.</string>
     <string name="setting_padding">திணிப்பு</string>
     <string name="confirm_service_deletion">பணி நீக்குதலை உறுதிப்படுத்தவும்</string>
     <string name="custom_bridges">தனிப்பயன் பாலங்கள்</string>
     <string name="pref_start_boot_title">துவக்கத்தில் சுற்றுப்பாதையைத் தொடங்கவும்</string>
-    <string name="volunteer_mode_weekly_label">வாராந்திர மொத்தம்</string>
-    <string name="volunteer_mode_alltime_label">எல்லா நேரமும் மொத்தம்</string>
     <string name="enter_exit_nodes">வெளியேறும் முனைகளை உள்ளிடவும்</string>
     <string name="project_home">திட்ட வீடு:</string>
     <string name="exclude_nodes">முனைகளை விலக்கு</string>
@@ -115,7 +112,7 @@
     <string name="wizard_details_msg">ஆர்போட் என்பது ஒரு திறந்த-மூல பயன்பாடாகும், இது டோர், இப்டிராக்சி (Lyrebird, Mek, Snewflake), hev-socks5-tunnel மற்றும் லிபெவென்ட் ஆகியவற்றைக் கொண்டுள்ளது. இது ஒரு VPN சுரங்கப்பாதை, உள்ளக HTTP இணை Proxy (HTTP கள் துறைமுகம் 8118 இல் மட்டுமே) மற்றும் TOR நெட்வொர்க்கில் ஒரு SOCKS பதிலாள் (9050) ஆகியவற்றை வழங்குகிறது.</string>
     <string name="pref_node_configuration_summary">இவை உங்கள் அநாமதேயத்தை குறைக்கக்கூடிய மேம்பட்ட அமைப்புகள்</string>
     <string name="pref_entrance_node_dialog">நுழைவு முனைகளை உள்ளிடவும்</string>
-    <string name="pref_proxy_type_summary">பதிலாள் சேவையகத்திற்கு பயன்படுத்த நெறிமுறை: HTTPS, SOCKS4, SOCKS5</string>
+    <string name="pref_proxy_type_summary">பதிலாள் சேவையகத்திற்கு பயன்படுத்த நெறிமுறை</string>
     <string name="pref_proxy_port_title">வெளிச்செல்லும் பதிலாள் துறைமுகம்</string>
     <string name="pref_proxy_port_summary">பதிலாள் சர்வர் துறைமுகம்</string>
     <string name="pref_proxy_username_title">வெளிச்செல்லும் பதிலாள் பயனர்பெயர்</string>
@@ -164,7 +161,6 @@
     <string name="volunteer_mode">கருணை முறை</string>
     <string name="btn_choose_apps">பயன்பாடுகளைத் தேர்வுசெய்க</string>
     <string name="btn_change_exit">வெளியேறவும்</string>
-    <string name="volunteer_status_title">இன்று சிறந்தது\n நீங்கள் காரணமாக.</string>
     <string name="apps_suggested_title">பரிந்துரைக்கப்பட்ட பயன்பாடுகள்</string>
     <string name="apps_other_apps">பிற பயன்பாடுகள்</string>
     <string name="log_copied">பதிவு நகலெடுக்கப்பட்டது</string>
@@ -279,10 +275,6 @@
     <string name="unable_to_start_other_vpn_app_error_msg">%1$s ஆப்ச் \"எப்போதும் ஆன்\" VPN ஆக உள்ளமைக்கப்பட்டுள்ளது. ஆர்போட்டைத் தொடங்கும் முன் அதை முடக்கவும்.</string>
     <string name="unable_to_start_unknown_reason_error_msg">VPN இசைவு மறுக்கப்பட்டது அல்லது மற்றொரு VPN பயன்பாட்டில் \"Always-on VPN\" நற்பொருத்தம் இயக்கப்பட்டுள்ளது. முந்தைய VPN கோரிக்கை உரையாடலில் இருந்து தவறுதலாக வெளியேறினால், இதை நிராகரித்து மீண்டும் இணைக்கலாம். தொழில்நுட்ப பயனர்கள் மற்றொரு VPN பயன்பாட்டைப் பயன்படுத்தலாம் மற்றும் Orbot இன் ஆற்றல் பயனர் பயன்முறையை இயக்குவதன் மூலம் Tor ஐ SOCKS ப்ராக்சியாகப் பயன்படுத்தலாம்.</string>
     <string name="open_vpn_settings">Android VPN அமைப்புகளைத் திறக்கவும்</string>
-    <string name="kindness_mode_cant_start">கருணை பயன்முறையைத் தொடங்க முடியவில்லை</string>
-    <string name="kindness_never_had_a_direct_connection">கருணை பயன்முறையைப் பயன்படுத்த, நீங்கள் ஒருமுறையாவது Tor உடன் (எந்த பாலங்களையும் பயன்படுத்தாமல்) நேரடியாக இணைத்திருக்க வேண்டும். இணைக்கப்பட்ட பிறகு, கருணை பயன்முறையை இயக்க, தயவுசெய்து இங்கு வரவும். இந்த நேரடி இணைப்புச் சோதனையை முடித்த பிறகு, நீங்கள் டோருடன் இணைக்கப்பட்டிருந்தாலும் இல்லாவிட்டாலும் கருணை பயன்முறையைப் பயன்படுத்த உங்களுக்கு விடுதலை உள்ளது.</string>
-    <string name="kindness_mode_cant_run_with_bridge">டோருடன் இணைக்க நீங்கள் ஒரு பிரிட்சைப் பயன்படுத்தும் போது கருணை பயன்முறையை இயக்க முடியாது.</string>
-    <string name="kindness_mode_cant_run_in_your_country">தணிக்கை காரணமாக உங்கள் நாட்டிற்கு Tor உடன் இணைவதற்கு மற்றவர்களுக்கு உதவ Kindness பயன்முறை ஐப் பயன்படுத்துவது தற்போது முடக்கப்பட்டுள்ளது.</string>
     <string name="kindness_mode_disclaimer_bridge">நீங்கள் தணிக்கை செய்யப்பட்ட பகுதியில் இருந்தால் அல்லது டோருடன் இணைக்க பாலத்தைப் பயன்படுத்த வேண்டியிருந்தால் கருணை பயன்முறையைப் பயன்படுத்த வேண்டாம்.</string>
     <string name="battery_optimization_title">பேட்டரி மேம்படுத்தல்களை முடக்கு</string>
     <string name="battery_optimization_pref_msg">சில பயனர்கள் தங்கள் சாதனம் பின்னணியில் இயங்கும் போது ஆர்போட்டை முன்கூட்டியே கொல்வதாக சந்தேகிக்கும் அமைப்பு.</string>
@@ -295,4 +287,7 @@
     <string name="battery_optimizations_are_enabled">ஆர்போட்டிற்கான பேட்டரி மேம்படுத்தல்கள் தற்போது செயலில் உள்ளன. இது இயல்புநிலை மற்றும் பெரும்பாலான பயனர்களுக்கு நியாயமானது…</string>
     <string name="btn_connect_anyway">எப்படியும் இணைக்கவும்</string>
     <string name="btn_connect_anyway_stop_showing">இந்த எச்சரிக்கையை இணைத்து அணைக்கவும்</string>
+    <string name="pref_proxy_no_proxy">பதிலி இல்லை</string>
+    <string name="pref_proxy_ss_title">நிழல்காலுறைகள் கட்டமைப்பு முகவரி</string>
+    <string name="pref_proxy_ss_summary">ss:// உடன் தொடங்கும் முழு நிழல்காலுறைகள் கட்டமைப்பு முகவரி</string>
 </resources>

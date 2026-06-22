@@ -1,0 +1,4 @@
+* Thêm hỗ trợ cầu nối Snowflake
+* Cập nhật hỗ trợ cầu nối Obfs4 và Meek
+* Tăng tốc độ của tính năng “Yêu cầu cầu nối mới”
+* Cập nhật Tor lên phiên bản 0.4.4.6

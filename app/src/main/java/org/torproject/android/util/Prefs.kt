@@ -5,8 +5,10 @@ import android.content.Context
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
+import org.torproject.android.Regionalization
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.Transport
+import org.torproject.android.service.tor.ShadowSocks
 import java.net.URI
 import java.net.URISyntaxException
 import java.util.Locale
@@ -14,6 +16,7 @@ import java.util.concurrent.TimeUnit
 
 object Prefs {
     private const val PREF_BRIDGES_LIST = "pref_bridges_list"
+    private const val PREF_BRIDGE_COUNTRY = "pref_bridge_country"
     private const val PREF_DEFAULT_LOCALE = "pref_default_locale"
     private const val PREF_DETECT_ROOT = "pref_detect_root"
     private const val PREF_ENABLE_LOGGING = "pref_enable_logging"
@@ -21,12 +24,13 @@ object Prefs {
     private const val PREF_ALLOW_BACKGROUND_STARTS = "pref_allow_background_starts"
     private const val PREF_OPEN_PROXY_ON_ALL_INTERFACES = "pref_open_proxy_on_all_interfaces"
     private const val PREF_USE_VPN = "pref_vpn"
-    private const val PREF_DIRECT_CONNECT_SUCCESS = "pref_direct_connect"
+    private const val PREF_LAST_SNOWFLAKE_QUALITY_CHECK = "pref_last_snowflake_quality_check"
     private const val PREF_EXIT_NODES = "pref_exit_nodes"
     private const val PREF_BE_A_SNOWFLAKE = "pref_be_a_snowflake"
     private const val PREF_SHOW_SNOWFLAKE_MSG = "pref_show_snowflake_proxy_msg"
     private const val PREF_BE_A_SNOWFLAKE_LIMIT_WIFI = "pref_be_a_snowflake_limit_wifi"
     private const val PREF_BE_A_SNOWFLAKE_LIMIT_CHARGING = "pref_be_a_snowflake_limit_charing"
+    const val PREF_LAST_SNOWFLAKE_NAT_TYPE = "pref_snowflake_last_nat"
 
     private const val PREF_USE_SMART_CONNECT = "pref_use_smart_connect"
     private const val PREF_SMART_CONNECT_TIMEOUT = "pref_smart_connect_timeout"
@@ -100,8 +104,16 @@ object Prefs {
         }
 
     var bridgeCountry: String?
-        get() = cr?.getPrefString("pref_bridge_country")
-        set(value) = cr?.putPref("pref_bridge_country", value) ?: Unit
+        get() = cr?.getPrefString(PREF_BRIDGE_COUNTRY)
+        set(value) {
+            cr?.let {
+                it.putPref(PREF_BRIDGE_COUNTRY, value)
+                if (Regionalization.isKindnessModeDisabledForCountry()) {
+                    setBeSnowflakeProxy(beSnowflakeProxy = false)
+                    snowflakeNeedsQualityCheck = true
+                }
+            }
+        }
 
     @JvmStatic
     var defaultLocale: String
@@ -163,11 +175,19 @@ object Prefs {
         cr?.putPref(PREF_USE_VPN, value)
     }
 
-    @JvmStatic
-    var hasDirectConnected: Boolean
-        get() = cr?.getPrefBoolean(PREF_DIRECT_CONNECT_SUCCESS) ?: false
-        set(value) = cr?.putPref(PREF_DIRECT_CONNECT_SUCCESS, value) ?: Unit
+    var snowflakeNeedsQualityCheck: Boolean
+        get() {
+            val last = cr?.getPrefLong(PREF_LAST_SNOWFLAKE_QUALITY_CHECK) ?: 0
 
+            // A new quality check should be done every 24 hours.
+            return last <= System.currentTimeMillis() - 24 * 60 * 60 * 1000
+        }
+        set(value) {
+            cr?.putPref(
+                PREF_LAST_SNOWFLAKE_QUALITY_CHECK,
+                if (value) 0 else System.currentTimeMillis()
+            )
+        }
 
     fun startOnBoot(): Boolean {
         return cr?.getPrefBoolean(PREF_START_ON_BOOT, true) ?: true
@@ -177,6 +197,10 @@ object Prefs {
     var exitNodes: String?
         get() = cr?.getPrefString(PREF_EXIT_NODES)
         set(country) = cr?.putPref(PREF_EXIT_NODES, country) ?: Unit
+
+    var lastSnowflakeNatType: String
+        get() = cr?.getPrefString(PREF_LAST_SNOWFLAKE_NAT_TYPE) ?: IPtProxy.IPtProxy.NATUnknown
+        set(natType) = cr?.putPref(PREF_LAST_SNOWFLAKE_NAT_TYPE, natType) ?: Unit
 
     val snowflakesServed: Int
         get() = cr?.getPrefInt(PREF_SNOWFLAKES_SERVED_COUNT) ?: 0
@@ -218,6 +242,17 @@ object Prefs {
         get() {
             val scheme = cr?.getPrefString("pref_proxy_type")?.lowercase()?.trim()
             if (scheme.isNullOrEmpty()) return Pair(null, null)
+
+            if (scheme == ShadowSocks.SCHEME) {
+                val config = cr?.getPrefString("pref_proxy_ss")?.trim()
+                if (config.isNullOrEmpty()) return Pair(null, null)
+
+                return try {
+                    Pair(URI(config), null)
+                } catch (_: URISyntaxException) {
+                    Pair(null, config)
+                }
+            }
 
             val host = cr?.getPrefString("pref_proxy_host")?.trim()
             if (host.isNullOrEmpty()) return Pair(null, null)

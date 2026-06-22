@@ -6,7 +6,7 @@
     <string name="menu_log">Registro</string>
     <string name="menu_about">Acerca de</string>
     <string name="menu_exit">Salir</string>
-    <string name="wizard_details_msg">Orbot es una aplicación de código abierto que contiene Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks y LibEvent. Proporciona un túnel VPN, un proxy HTTP Connect local (HTTPS solo en el puerto 8118) y un proxy SOCKS (9050) en la red Tor.</string>
+    <string name="wizard_details_msg">Orbot es una aplicación de código abierto que contiene Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel y LibEvent. Proporciona un túnel VPN, un proxy HTTP Connect local (HTTPS solo en el puerto 8.118) y un proxy SOCKS (9.050) en la red Tor.</string>
     <string name="pref_general_group">General</string>
     <string name="pref_start_boot_title">Iniciar Orbot en el arranque</string>
     <string name="pref_start_boot_summary">Inicia Orbot y conecta a Tor automáticamente cuando arranca su dispositivo Android</string>
@@ -19,7 +19,7 @@
     <string name="pref_allow_background_starts_summary">Deja que cualquier aplicación le diga a Orbot que inicie Tor y servicios relacionados</string>
     <string name="pref_proxy_title">Proxy de salida a la red (opcional)</string>
     <string name="pref_proxy_type_title">Tipo de proxy saliente</string>
-    <string name="pref_proxy_type_summary">Protocolo a usar para el servidor proxy saliente: HTTPS, SOCKS4, SOCKS5</string>
+    <string name="pref_proxy_type_summary">Protocolo a usar para el servidor proxy saliente</string>
     <string name="pref_proxy_host_title">Servidor proxy saliente</string>
     <string name="pref_proxy_host_summary">Nombre del servidor proxy</string>
     <string name="pref_proxy_port_title">Puerto del proxy saliente</string>
@@ -129,33 +129,18 @@
     <string name="confirm">Confirmar</string>
     <string name="v3_onion">Dominio .onion</string>
     <string name="strict_nodes_description">Trate la configuración de los Nodos Excluidos como un requisito para construir todos los circuitos. Esto puede romper la funcionalidad si no se pueden generar circuitos con su configuración de Nodos Excluidos.</string>
-    <string name="btn_refresh">Actualizar</string>
+    <string name="btn_refresh">Recargar Conexión</string>
     <string name="secure_your_connection_subtitle">Oculta las aplicaciones de la supervisión de la red y obten acceso cuando estén bloqueadas.</string>
     <string name="direct_connect_subtitle">La mejor manera de conectarse a Tor. Usar si Tor no está bloqueado.</string>
     <string name="snowflake_subtitle">Se conecta a través de los voluntarios de Tor. Evita algunos bloqueos de Tor.</string>
-    <string name="volunteer_mode_title">Ayudar a otros
-\nconectarse a Tor</string>
-    <string name="volunteer_mode_weekly_label">Total de la Semana</string>
-    <string name="volunteer_mode_alltime_label">Total de Todo el Tiempo</string>
-    <string name="volunteer_mode_subtitle_desc">El modo Solidario permite que tu dispositivo sea un puente para otros. Ayuda a la gente a usar Tor en lugares donde está bloqueado.
-\n
-\n- No agotará tu batería
-\n
-\n- No ralentizará tu internet
-\n
-\n- Puede funcionar sólo a través de wifi
-\n
-\n- Se puede apagar en cualquier momento</string>
-    <string name="smart_connect">Conexión inteligente (default)</string>
-    <string name="direct_connect">Conexión directa a Tor</string>
+    <string name="smart_connect">Conexión inteligente</string>
+    <string name="direct_connect">Conexión directa</string>
     <string name="snowflake">Snowflake</string>
     <string name="connect">Conectar</string>
     <string name="next">Siguiente</string>
     <string name="power_user_mode">Modo de usuario avanzado</string>
     <string name="power_user_description">Para usuarios familiarizados con Tor. Permite iniciar Orbot sin la configuración de la VPN y muestra los puertos SOCKS y HTTP abiertos</string>
     <string name="action_activate">Activar</string>
-    <string name="volunteer_status_title">Hoy es mejor
-\ngracias a ti.</string>
     <string name="title_choose_apps">Elija las aplicaciones</string>
     <string name="app_suggested_subtitle">Orbot funciona mejor con aplicaciones de mensajería y redes sociales.</string>
     <string name="apps_suggested_title">Aplicaciones sugeridas</string>
@@ -168,7 +153,6 @@
     <string name="asking">PREGUNTANDO…</string>
     <string name="no_internet_title">Conectarse a Internet</string>
     <string name="no_internet_subtitle">Necesitas estar conectado a Internet para usar Orbot.</string>
-    <string name="kindness_adjust_title">Ajustes</string>
     <string name="ask_tor">Preguntale a Tor</string>
     <string name="kindness_config_detail">Configura cómo y cuándo tu dispositivo puede actuar como un proxy Snowflake para otros usuarios de Tor.</string>
     <string name="pref_isolate_port">Aislar puertos de destino</string>
@@ -207,11 +191,11 @@
     <string name="status_requesting_descriptors">Solicitando información de servidores de la red</string>
     <string name="status_loading_descriptors">Cargando información de servidores de la red</string>
     <string name="system_vpn_settings">Preferencias de la VPN de Android</string>
-    <string name="app_icon_chooser_label_paint">Paint</string>
+    <string name="app_icon_chooser_label_paint">Falsear</string>
     <string name="app_icon_chooser_label_tetras">Tetras</string>
-    <string name="app_icon_chooser_label_todo">To-Do</string>
+    <string name="app_icon_chooser_label_todo">Por hacer</string>
     <string name="app_icon_chooser_label_fit_grit">FitGrit</string>
-    <string name="app_icon_chooser_label_birdie">Birdie</string>
+    <string name="app_icon_chooser_label_birdie">Pajarito</string>
     <string name="pref_isolate_keep_alive">Mantenga vivos los circuitos aislados</string>
     <string name="pref_isolate_keep_alive_summary">Mantener activos los circuitos aislados que tengan al menos un flujo con autenticación SOCKS activa</string>
     <string name="bridge_snowflake_sqs">Conéctate a través de otros usuarios de Tor usando Snowflake (Método 3-SQS)</string>
@@ -247,7 +231,7 @@
     <string name="error_asking_tor_for_bridges">Error al preguntar a Tor cómo conectarse</string>
     <string name="enter_bridge_address">Introduce la dirección del puente</string>
     <string name="built_in_bridges_obfs4">Puentes integrados (obfs4)</string>
-    <string name="built_in_bridges_obfs4_subtitle">Oculta tu tráfico. Permite sortear algunos bloqueos de Tor. Es útil si te conectas a una red Wi-Fi pública, pero en un país donde Tor no esté bloqueado.</string>
+    <string name="built_in_bridges_obfs4_subtitle">Oculta tu tráfico. Permite sortear algunos bloqueos de Tor. Es útil si te conectas a una red Wi‐Fi pública, pero en un país donde Tor no esté bloqueado.</string>
     <string name="unlock_app_msg" formatted="true">Desbloquea tu dispositivo para poder usar %s</string>
     <string name="run_smart_connect_">Ejecuta Smart Connect para encontrar la mejor manera</string>
     <string name="scan_qr_code">Escanear código QR</string>
@@ -289,9 +273,15 @@
     <string name="unable_to_start_other_vpn_app_error_msg">La aplicación %1$s está configurada como una VPN \"siempre activa\". Desactívala antes de iniciar Orbot.</string>
     <string name="unable_to_start_unknown_reason_error_msg">Se denegó el permiso de VPN o bien otra aplicación VPN tiene activada la función \"VPN siempre activa\". Si cerraste el diálogo de solicitud de VPN por error, puedes descartar este mensaje y volver a conectarte. Los usuarios con conocimientos técnicos pueden usar otra aplicación VPN y Tor como proxy SOCKS activando el modo de usuario avanzado de Orbot.</string>
     <string name="open_vpn_settings">Abre la configuración de VPN de Android</string>
-    <string name="kindness_mode_cant_start">No se pudo iniciar el Modo Amabilidad</string>
-    <string name="kindness_never_had_a_direct_connection">Para usar el Modo Amabilidad, debes conectarte directamente a Tor (sin usar puentes) al menos una vez. Después de conectarte, regresa aquí para activar el Modo Amabilidad. Una vez completada esta prueba de conexión directa, podrás usar el Modo Amabilidad independientemente de si estás conectado a Tor o no.</string>
-    <string name="kindness_mode_cant_run_with_bridge">El modo de amabilidad no puede ejecutarse mientras se utiliza un puente para conectarse a Tor.</string>
-    <string name="kindness_mode_cant_run_in_your_country">Actualmente, la función \"Usar el Modo Amabilidad\" para ayudar a otras personas a conectarse a Tor está deshabilitada en tu país debido a la censura.</string>
-    <string name="kindness_mode_disclaimer_bridge">No utilices el Modo Amabilidad si te encuentras en una región donde está sujeto a censura o si necesitas utilizar un puente para conectarte a Tor.</string>
+    <string name="battery_optimization_title">Inhabilitar optimizaciones de batería</string>
+    <string name="battery_optimization_pref_msg">Ajuste para algunos usuarios que sospechen que su dispositivo está cerrando Orbot prematuramente mientras se ejecuta en segundo plano.</string>
+    <string name="battery_optimization_dialog_msg">Algunos dispositivos Android pueden cerrar Orbot mientras se ejecuta en segundo plano. Para la mayoría de los usuarios que desean asegurarse de que Orbot permanezca conectado y en funcionamiento, basta con configurarlo como una VPN siempre activa en los ajustes del sistema. Sin embargo, si lo considera necesario, puede impedir que su dispositivo realice optimizaciones de batería con Orbot.</string>
+    <string name="battery_optimization_dialog_msg_instructions">En la siguiente pantalla, seleccione Orbot → Permitir uso en segundo plano → Sin restricciones.</string>
+    <string name="battery_optimization_dialog_msg_disclaimer">Tenga en cuenta que, en la mayoría de los dispositivos, desactivar las optimizaciones de batería agotará la batería de su dispositivo más rápido de lo normal…</string>
+    <string name="battery_optimizations_dialog_btn_disable">Abrir ajustes de optimización de batería</string>
+    <string name="battery_optimizations_dialog_msg_power_user">Algunos dispositivos Android pueden cerrar Orbot cuando se ejecuta como un servicio en segundo plano en el modo de usuario avanzado. Siempre puedes desactivar o volver a activar las optimizaciones de batería más adelante desde la configuración de Orbot…</string>
+    <string name="battery_optimizations_are_disabled">Actualmente, las optimizaciones de batería están desactivadas para Orbot…</string>
+    <string name="battery_optimizations_are_enabled">Actualmente, Orbot tiene activadas las optimizaciones de batería. Esta es la configuración predeterminada y resulta adecuada para la mayoría de los usuarios…</string>
+    <string name="btn_connect_anyway">Conéctate de todos modos</string>
+    <string name="btn_connect_anyway_stop_showing">Conectar y desactivar esta advertencia</string>
 </resources>

@@ -122,6 +122,11 @@
             android:foregroundServiceType="remoteMessaging"
             android:stopWithTask="false" />
 
+        <service
+            android:name=".ui.kindness.TestTorForSnowflakeProxyService"
+            android:enabled="true"
+            android:stopWithTask="true" />
+
 
         <service
             android:name=".service.OrbotService"

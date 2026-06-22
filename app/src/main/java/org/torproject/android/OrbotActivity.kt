@@ -1,7 +1,6 @@
 package org.torproject.android
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
@@ -27,6 +26,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scottyab.rootbeer.RootBeer
 import org.torproject.android.service.OrbotConstants
+import org.torproject.android.ui.connect.ConnectUiState
 import org.torproject.android.ui.connect.ConnectViewModel
 import org.torproject.android.ui.connect.RequestPostNotificationPermission
 import org.torproject.android.ui.core.BaseActivity
@@ -42,12 +42,14 @@ class OrbotActivity : BaseActivity() {
 
     private lateinit var logBottomSheet: LogBottomSheet
     private lateinit var navController: NavController
+    private lateinit var bottomNavigationView: BottomNavigationView
+
+    private var lastNavMenuIndex = -1
 
     var portSocks: Int = -1
     var portHttp: Int = -1
 
     var previousReceivedTorStatus: String? = null
-
 
     // used to hide UI while password isn't obtained
     private var rootLayout: View? = null
@@ -58,9 +60,11 @@ class OrbotActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-            window.insetsController?.apply {
-                setSystemBarsAppearance(0, WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS)
-            }
+            window.insetsController?.setSystemBarsAppearance(
+                0,
+                WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
+            )
+
         } else {
             @Suppress("DEPRECATION")
             window.decorView.systemUiVisibility =
@@ -105,10 +109,8 @@ class OrbotActivity : BaseActivity() {
         }
 
         logBottomSheet = LogBottomSheet()
-
         navController = findNavController(R.id.nav_fragment)
-
-        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottom_navigation)
+        bottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigationView.setupWithNavController(navController)
 
         val bottomNavigationContainer = findViewById<View>(R.id.bottomNavContainer)
@@ -121,13 +123,19 @@ class OrbotActivity : BaseActivity() {
             }
         }
 
-        val navOptionsLeftToRight = NavOptions.Builder().setEnterAnim(R.anim.slide_in_right)
-            .setExitAnim(R.anim.slide_out_left).setPopEnterAnim(R.anim.slide_in_right)
-            .setPopExitAnim(R.anim.slide_out_left).build()
+        val navOptionsLeftToRight = NavOptions.Builder()
+            .setEnterAnim(R.anim.slide_in_right)
+            .setExitAnim(R.anim.slide_out_left)
+            .setPopEnterAnim(R.anim.slide_in_right)
+            .setPopExitAnim(R.anim.slide_out_left)
+            .build()
 
-        val navOptionsRightToLeft = NavOptions.Builder().setEnterAnim(R.anim.slide_in_left)
-            .setExitAnim(R.anim.slide_out_right).setPopEnterAnim(R.anim.slide_in_left)
-            .setPopExitAnim(R.anim.slide_out_right).build()
+        val navOptionsRightToLeft = NavOptions.Builder()
+            .setEnterAnim(R.anim.slide_in_left)
+            .setExitAnim(R.anim.slide_out_right)
+            .setPopEnterAnim(R.anim.slide_in_left)
+            .setPopExitAnim(R.anim.slide_out_right)
+            .build()
 
         bottomNavigationView.setOnItemSelectedListener { item ->
             val navOptions = if ((navController.currentDestination?.id ?: 0) < item.itemId) {
@@ -136,17 +144,19 @@ class OrbotActivity : BaseActivity() {
                 navOptionsRightToLeft
             }
 
-            when (item.itemId) {
-                R.id.connectFragment -> navController.navigate(
-                    R.id.connectFragment, null, navOptions
-                )
+            if (lastNavMenuIndex != item.itemId) {
+                when (item.itemId) {
+                    R.id.connectFragment ->
+                        navController.navigate(R.id.connectFragment, null, navOptions)
 
-                R.id.kindnessFragment -> navController.navigate(
-                    R.id.kindnessFragment, null, navOptions
-                )
+                    R.id.kindnessFragment ->
+                        navController.navigate(R.id.kindnessFragment, null, navOptions)
 
-                R.id.moreFragment -> navController.navigate(R.id.moreFragment, null, navOptions)
+                    R.id.moreFragment ->
+                        navController.navigate(R.id.moreFragment, null, navOptions)
+                }
             }
+            lastNavMenuIndex = item.itemId
             true
         }
 
@@ -156,41 +166,35 @@ class OrbotActivity : BaseActivity() {
             addAction(OrbotConstants.LOCAL_ACTION_PORTS)
         }
 
-        ContextCompat.registerReceiver(this, orbotServiceBroadcastReceiver, filter,
-            ContextCompat.RECEIVER_NOT_EXPORTED)
+        ContextCompat.registerReceiver(
+            this, orbotServiceBroadcastReceiver, filter,
+            ContextCompat.RECEIVER_NOT_EXPORTED
+        )
 
         requestNotificationPermission()
 
         Prefs.initWeeklyWorker(this)
 
         if (!rootDetectionShown && Prefs.detectRoot() && RootBeer(this).isRooted) {
-            //we found indication of root
             applicationContext.showToast(getString(R.string.root_warning))
-
             rootDetectionShown = true
         }
 
         onBackPressedDispatcher.addCallback(this) {
             navController.currentBackStackEntry?.let {
                 when (it.destination.id) {
-                    R.id.connectFragment -> {
-                        finish()
-                    }
+                    R.id.connectFragment -> finish()
                     R.id.kindnessFragment, R.id.moreFragment -> {
                         bottomNavigationView.selectedItemId = R.id.connectFragment
                     }
-                    else -> {
-                        navController.popBackStack()
-                    }
+
+                    else -> navController.popBackStack()
                 }
             }
-
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean {
-        return navController.navigateUp()
-    }
+    override fun onSupportNavigateUp(): Boolean = navController.navigateUp()
 
     private fun requestNotificationPermission() {
         // automatically granted on Android 12 and lower
@@ -200,20 +204,12 @@ class OrbotActivity : BaseActivity() {
             ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
         when (checkPostNotificationPerm) {
             PackageManager.PERMISSION_GRANTED -> {
-                Log.d(
-                    "OrbotActivity",
-                    "Granted Permission ${Manifest.permission.POST_NOTIFICATIONS}"
-                )
+                Log.d(TAG, "Granted ${Manifest.permission.POST_NOTIFICATIONS}")
             }
 
             else -> {
-                Log.d(
-                    "OrbotActivity",
-                    "Try Prompting For ${Manifest.permission.POST_NOTIFICATIONS}"
-                )
-                requestPermissionLauncher.launch(
-                    Manifest.permission.POST_NOTIFICATIONS
-                )
+                Log.d(TAG, "Prompting For ${Manifest.permission.POST_NOTIFICATIONS}")
+                requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
             }
         }
     }
@@ -225,12 +221,11 @@ class OrbotActivity : BaseActivity() {
         ActivityResultContracts.RequestPermission()
     ) { isGranted: Boolean ->
         if (isGranted) {
-            Log.d("OrbotActivity", "User just granted ${Manifest.permission.POST_NOTIFICATIONS}")
+            Log.d(TAG, "User just granted ${Manifest.permission.POST_NOTIFICATIONS}")
         } else {
-            Log.d("OrbotActivity", "Notification denied")
+            Log.d(TAG, "Notification denied")
             RequestPostNotificationPermission().show(
-                supportFragmentManager,
-                "RequestNotificationDialog"
+                supportFragmentManager, RequestPostNotificationPermission.TAG
             )
         }
     }
@@ -242,15 +237,20 @@ class OrbotActivity : BaseActivity() {
 
     override fun onResume() {
         super.onResume()
-        sendIntentToService(OrbotConstants.CMD_ACTIVE)
-        if (Prefs.beSnowflakeProxy())
-            SnowflakeProxyService.startSnowflakeProxyForegroundService(this)
 
+        if (connectViewModel.uiState.value == ConnectUiState.On) {
+            sendIntentToService(OrbotConstants.CMD_ACTIVE)
+        }
+
+        if (Prefs.beSnowflakeProxy()) {
+            SnowflakeProxyService.startSnowflakeProxyForegroundService(this)
+        }
+
+        lastNavMenuIndex = bottomNavigationView.selectedItemId
     }
 
     override fun onDestroy() {
         super.onDestroy()
-
         unregisterReceiver(orbotServiceBroadcastReceiver)
     }
 
@@ -263,7 +263,6 @@ class OrbotActivity : BaseActivity() {
     }
 
     private val orbotServiceBroadcastReceiver = object : BroadcastReceiver() {
-        @SuppressLint("SetTextI18n")
         override fun onReceive(context: Context?, intent: Intent?) {
             val status = intent?.getStringExtra(TorService.EXTRA_STATUS)
             when (intent?.action) {
@@ -343,6 +342,7 @@ class OrbotActivity : BaseActivity() {
     }
 
     companion object {
+        private const val TAG = "OrbotActivity"
         private const val KEY_TOR_STATUS = "key_tor_status"
         const val REQUEST_CODE_VPN = 1234
 

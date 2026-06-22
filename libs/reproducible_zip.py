@@ -23,7 +23,7 @@ def main(src, out, fixed_ts=(2000,1,1,0,0,0), compression=ZIP_DEFLATED, compress
             arc = str(p.relative_to(src)).replace("\\", "/")
             zi = make_zipinfo(p, arc, fixed_dt)
             data = p.read_bytes()
-            zf.writestr(zi, data)
+            zf.writestr(zi, data, compress_type=compression)
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:

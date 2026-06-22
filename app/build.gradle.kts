@@ -8,9 +8,9 @@ plugins {
     alias(libs.plugins.android.application)
 }
 
-kotlin { jvmToolchain(25) }
+kotlin { jvmToolchain(24) }
 
-val orbotBaseVersionCode = 1793300100
+val orbotBaseVersionCode = 1795200300
 fun getVersionName(): Provider<String> {
     // Gets the version name from the latest Git tag
     return providers.exec {
@@ -20,7 +20,9 @@ fun getVersionName(): Provider<String> {
 
 configure<ApplicationExtension> {
     namespace = "org.torproject.android"
-    compileSdk = 37
+    compileSdk {
+        version = release(37)
+    }
 
     defaultConfig {
         applicationId = namespace
@@ -34,18 +36,14 @@ configure<ApplicationExtension> {
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_25
-        targetCompatibility = JavaVersion.VERSION_25
+        sourceCompatibility = JavaVersion.VERSION_24
+        targetCompatibility = JavaVersion.VERSION_24
     }
 
     splits {
         abi {
             isEnable = true
             reset()
-
-            // https://github.com/guardianproject/orbot-android/issues/1565
-            // include("armeabi-v7a", "arm64-v8a")
-
             include("x86", "armeabi-v7a", "x86_64", "arm64-v8a")
             isUniversalApk = true
         }
@@ -109,8 +107,9 @@ configure<ApplicationExtension> {
     }
 
     packaging {
-        resources {
-            excludes += listOf("META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version")
+        jniLibs {
+            // Needed for shadowsocks-rust client to be available to execute.
+            useLegacyPackaging = true
         }
     }
 
@@ -127,6 +126,8 @@ configure<ApplicationExtension> {
 }
 
 val updateBuiltinBridges = tasks.register<UpdateBridgeConfig>("updateBuiltinBridges") {
+    description =
+        "Update built in bridge JSON from torproject and guardian project DNSTT endpoints, run before making release builds"
     onlyIf { enabledForVariant.getOrElse(false) }
 
     assetsDir.set(layout.projectDirectory.dir("src/main/assets"))
@@ -218,7 +219,9 @@ afterEvaluate {
         }
 }
 
-val copyLicenseToAssets by tasks.registering(Copy::class) {
+val copyLicenseToAssets = tasks.register<Copy>("copyLicenseToAssets") {
+    description =
+        "Copies LICENSE file from repo root to assets folder so it can be displayed in the About dialog"
     from(rootProject.file("LICENSE"))
     into(layout.projectDirectory.dir("src/main/assets"))
 }

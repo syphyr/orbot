@@ -11,7 +11,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.torproject.android.R
 import org.torproject.android.service.OrbotConstants
-import org.torproject.android.service.OrbotConstants.ONION_EMOJI
 import org.torproject.android.service.circumvention.BuiltInBridges
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.showToast
@@ -49,15 +48,16 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
                 releaseMappedPorts()
             }
 
-            val stunServers = BuiltInBridges.getInstance(service)?.snowflake?.firstOrNull()?.ice
-                ?.split(",".toRegex())?.dropLastWhile { it.isEmpty() }?.toTypedArray()
-                ?: emptyArray()
+            val stunServers =
+                BuiltInBridges.getInstance(service)?.snowflake?.firstOrNull()?.ice?.split(",".toRegex())
+                    ?.dropLastWhile { it.isEmpty() }?.toTypedArray() ?: emptyArray()
             val stunUrl = stunServers[SecureRandom().nextInt(stunServers.size)]
 
             proxy = SnowflakeProxy()
             service.refreshNotification()
             val fronts = localFronts(service)
             with(proxy) {
+                this?.proxyTypeIdentifier = "orbot-android"
                 this?.brokerUrl = fronts["snowflake-target-direct"]
                 this?.capacity = 1L
                 this?.pollInterval = 120L
@@ -65,18 +65,9 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
                 this?.relayUrl = fronts["snowflake-relay-url"]
                 this?.natProbeUrl = fronts["snowflake-nat-probe"]
                 this?.clientEvents = object : SnowflakeClientEvents {
-                    override fun connected() {
-                        onConnected()
-                    }
-
-                    override fun connectionFailed() {
-                        // Ignored.
-                    }
-
-                    override fun disconnected(country: String?) {
-                        // Ignored.
-                    }
-
+                    override fun connected() = onConnected()
+                    override fun connectionFailed() {}
+                    override fun disconnected(country: String?) {}
                     override fun stats(
                         connectionCount: Long,
                         failedConnectionCount: Long,
@@ -86,11 +77,10 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
                         outboundUnit: String?,
                         summaryInterval: Long
                     ) {
-                        // Ignored.
                     }
 
-                    override fun natTypeUpdated(natType: String?) {
-                        // TODO feature added in IPtProxy 5.4.1
+                    override fun natTypeUpdated(natType: String) {
+                        Prefs.lastSnowflakeNatType = natType
                     }
                 }
 
@@ -108,6 +98,7 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
     fun stopProxy() {
         releaseMappedPorts()
         if (proxy == null) return
+
         proxy?.stop()
         proxy = null
     }
@@ -151,5 +142,9 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
             Log.e("CDNFronts", "error loading fronts from assets $e")
         }
         return map
+    }
+
+    companion object {
+        private const val ONION_EMOJI: String = "\uD83E\uDDC5"
     }
 }

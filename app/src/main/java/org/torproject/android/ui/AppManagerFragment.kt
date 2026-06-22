@@ -42,10 +42,11 @@ import org.torproject.android.service.vpn.TorifiedApp
 import org.torproject.android.service.vpn.TorifiedAppWrapper
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.haveIBeenDetached
-import org.torproject.android.util.normalizie
+import org.torproject.android.util.normalize
 import org.torproject.android.util.sendIntentToService
 import java.util.Arrays
 import java.util.StringTokenizer
+import kotlin.time.Duration.Companion.milliseconds
 
 class AppManagerFragment : Fragment(), View.OnClickListener {
 
@@ -88,7 +89,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
         }
 
         searchQuery
-            .debounce(250)
+            .debounce(250.milliseconds)
             .distinctUntilChanged()
             .onEach { filterApps(it) }
             .launchIn(scope)
@@ -179,7 +180,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
                 allUnfilteredUiItems
             } else {
                 allUnfilteredUiItems.filter {
-                    it.app?.name?.lowercase()?.normalizie()?.contains(lower) == true
+                    it.app?.name?.lowercase()?.normalize()?.contains(lower) == true
                 }
             }
 

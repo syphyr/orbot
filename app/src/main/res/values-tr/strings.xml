@@ -19,7 +19,7 @@
     <string name="pref_allow_background_starts_summary">Herhangi bir uygulamanın Orbot\'a , Tor ve ilgili hizmetleri başlatmasına izin verin</string>
     <string name="pref_proxy_title">Giden Ağ Sunucusu (İsteğe Bağlı)</string>
     <string name="pref_proxy_type_title">Giden Vekil Sunucu Türü</string>
-    <string name="pref_proxy_type_summary">Vekil sunucuda kullanılacak ağ iletişim kuralları: HTTPS, Socks4, Socks5</string>
+    <string name="pref_proxy_type_summary">Vekil sunucuda kullanılacak ağ iletişim kuralları</string>
     <string name="pref_proxy_host_title">Giden Vekil Sunucusu</string>
     <string name="pref_proxy_host_summary">Vekil Sunucusunun Adı</string>
     <string name="pref_proxy_port_title">Giden Vekil Sunucu Bağlantı Noktası</string>
@@ -131,20 +131,13 @@
     <string name="btn_choose_apps">Uygulamaları seç</string>
     <string name="btn_change_exit">Çıkışı değiştir</string>
     <string name="btn_refresh">Bağlantıyı Yenile</string>
-    <string name="volunteer_mode_title">Başkalarının Tor\'a
-\nbağlanmasına yardımcı olun</string>
-    <string name="volunteer_mode_alltime_label">Tüm Zamanlar Toplamı</string>
     <string name="smart_connect">Akıllı Bağlantı</string>
     <string name="direct_connect">Direkt Bağlantı</string>
     <string name="direct_connect_subtitle">Tor\'a bağlanmanın en iyi yolu. Tor engelli değilse kullanın.</string>
     <string name="snowflake_subtitle">Tor gönüllüleri aracılığıyla bağlanır. Bazı Tor engellemelerini aşar.</string>
     <string name="connect">Bağlan</string>
     <string name="next">Sonraki</string>
-    <string name="volunteer_mode_weekly_label">Haftalık Toplam</string>
-    <string name="volunteer_mode_subtitle_desc">Paylaşım modu, aygıtınızın başkaları için bir köprü olmasını sağlar. İnsanların Tor\'u engellendiği yerlerde kullanmasına yardımcı olur.\n \n• Pilinizi boşaltmaz \n• İnternetinizi yavaşlatmaz\n• Yalnızca Wi-Fi üzerinden çalışabilir \n• İstenildiği zaman kapatılabilir</string>
     <string name="snowflake">Snowflake</string>
-    <string name="volunteer_status_title">Bugün sizin
-\nsayenizde daha iyi.</string>
     <string name="title_choose_apps">Uygulamaları Seç</string>
     <string name="apps_suggested_title">Önerilen Uygulamalar</string>
     <string name="power_user_mode">Uzman Kullanıcı Modu</string>
@@ -159,7 +152,6 @@
     <string name="many_ways">Tor\'a erişmenin birçok yolu vardır. Bazıları sizin için diğerlerinden daha iyi çalışabilir.</string>
     <string name="asking">SORUYOR…</string>
     <string name="no_internet_title">İnternete bağlan</string>
-    <string name="kindness_adjust_title">Ayarlar</string>
     <string name="snowflake_amp">Snowflake AMP</string>
     <string name="no_internet_subtitle">Orbot\'u kullanmak için internet bağlantınızın olması gerekir.</string>
     <string name="kindness_config_detail">Aygıtınızın diğer Tor kullanıcıları için nasıl ve ne zaman bir Snowflake vekili olarak çalışabileceğini yapılandırın.</string>
@@ -227,7 +219,7 @@
     <string name="error_asking_tor_for_bridges">Tor\'a nasıl bağlanılacağını sorarken hata oluştu</string>
     <string name="enter_bridge_address">Köprü adresini giriniz</string>
     <string name="built_in_bridges_obfs4">Yerleşik Köprüler (obfs4)</string>
-    <string name="built_in_bridges_obfs4_subtitle">Trafiğinizi gizler. Bazı Tor engellemelerini aşar. Tor\'un engellenmediği bir ülkede, halka açık WiFi kullanıyorsanız kullanışlıdır.</string>
+    <string name="built_in_bridges_obfs4_subtitle">Trafiğinizi gizler. Bazı Tor engellemelerini aşar. Tor\'un engellenmediği bir ülkede, halka açık Wi-Fi kullanıyorsanız kullanışlıdır.</string>
     <string name="unlock_app_msg" formatted="true">%s\'yi kullanmak için lütfen cihazınızın kilidini açın</string>
     <string name="run_smart_connect_">En iyi yolu bulmak için Smart Connect\'i çalıştırın</string>
     <string name="scan_qr_code">QR kodu tara</string>
@@ -281,10 +273,6 @@
     <string name="unable_to_start_unknown_reason_error_msg">VPN izni reddedildi veya başka bir VPN uygulamasında \"Her zaman açık VPN\" özelliği etkinleştirildi. Önceki VPN İsteği iletişim kutusunu yanlışlıkla kapattıysanız, bunu kapatıp yeniden bağlanabilirsiniz. Teknik kullanıcılar başka bir VPN uygulaması kullanabilir ve Orbot\'un Güçlü Kullanıcı Modunu etkinleştirerek Tor\'u SOCKS Proxy olarak kullanabilir.</string>
     <string name="open_vpn_settings">Android VPN Ayarlarını aç</string>
     <string name="country_clear">Ülkeyi Kaldır</string>
-    <string name="kindness_mode_cant_start">Paylaşım Modu Başlatılamıyor</string>
-    <string name="kindness_never_had_a_direct_connection">Paylaşım Modunu kullanabilmek için, en az bir kez Tor ağına doğrudan (herhangi bir köprü kullanmadan) bağlanmanız gerekir. Bağlantı kurduktan sonra, lütfen buraya geri dönerek Paylaşım Modunu etkinleştirin. Bu doğrudan bağlantı testini tamamladıktan sonra, Tor ağına bağlı olsanız da olmasanız da Paylaşım Modunu dilediğiniz gibi kullanabilirsiniz.</string>
-    <string name="kindness_mode_cant_run_with_bridge">Tor ağına bağlanmak için bir köprü kullanırken Paylaşım Modu çalıştırılamaz.</string>
-    <string name="kindness_mode_cant_run_in_your_country">Sansür nedeniyle, ülkenizde diğer kişilerin Tor ağına bağlanmasına yardımcı olmak için kullanılan Paylaşım Modu şu anda devre dışıdır.</string>
     <string name="kindness_mode_disclaimer_bridge">Sansür uygulanan bir bölgedeyseniz veya Tor ağına bağlanmak için bir köprü kullanmanız gerekiyorsa, Paylaşım Modunu kullanmayın.</string>
     <string name="battery_optimization_title">Pil İyileştirmelerini Devre Dışı Bırak</string>
     <string name="battery_optimization_pref_msg">Aygıtlarının Orbot uygulamasını arka planda çalışırken erken bir şekilde kapattığından şüphelenen kullanıcılar için ayar.</string>
@@ -297,4 +285,7 @@
     <string name="battery_optimizations_are_enabled">Orbot için Pil İyileştirmeleri şu anda etkin. Bu öntanımlı ayardır ve çoğu kullanıcı için uygundur…</string>
     <string name="btn_connect_anyway">Yine de Bağlan</string>
     <string name="btn_connect_anyway_stop_showing">Bağlan ve Bu Uyarıyı Kapat</string>
+    <string name="pref_proxy_no_proxy">Vekil Sunucu Yok</string>
+    <string name="pref_proxy_ss_title">ShadowSocks Yapılandırma URL\'si</string>
+    <string name="pref_proxy_ss_summary">ss:// ile başlayan tam ShadowSocks yapılandırma URL\'si</string>
 </resources>

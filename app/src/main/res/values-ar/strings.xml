@@ -26,7 +26,7 @@
     <string name="pref_allow_background_starts_summary">إسمح لأي تطبيق بأن يُخبِر اوربت بأن يفعل تور مع الخدمات المرتبطة به</string>
     <string name="pref_proxy_title">وسيط الشبكة الصادرة (اختياري)</string>
     <string name="pref_proxy_type_title">نوع الوسيط الصادر</string>
-    <string name="pref_proxy_type_summary">البروتوكول المستخدم لخادم الوسيط:  HTTPS, Socks4, Socks5</string>
+    <string name="pref_proxy_type_summary">البروتوكول المستخدم لخادم الوسيط</string>
     <string name="pref_proxy_host_title">عنوان الوسيط الصادر</string>
     <string name="pref_proxy_host_summary">اسم مضيف خادم الوسيط</string>
     <string name="pref_proxy_port_title">منفذ الوسيط الصادر</string>
@@ -110,11 +110,8 @@
     <string name="btn_configure">اختر كيفية الاتصال</string>
     <string name="btn_choose_apps">اختر التطبيقات</string>
     <string name="btn_change_exit">غيّر الخروج</string>
-    <string name="volunteer_mode_title">مساعدة الآخرين
-\nالاتصال بتور</string>
     <string name="no_internet_title">اتصل بالإنترنت</string>
     <string name="no_internet_subtitle">تحتاج إلى اتصال بالإنترنت لاستخدام Orbot.</string>
-    <string name="kindness_adjust_title">إعدادات</string>
     <string name="pref_http_dialog">ضبط منفذ HTTP</string>
     <string name="apps_suggested_title">تطبيقات المقترحة</string>
     <string name="apps_other_apps">تطبيقات أخرى</string>
@@ -153,14 +150,6 @@
     <string name="pref_isolate_port_summary">استخدم مسار مختلف لكل منفذ وجهة</string>
     <string name="pref_disable_ipv4">تعطيل اتصالات IPv4</string>
     <string name="pref_disable_ipv4_summary">يخبر المخارج بعدم الاتصال بعناوين IPv4</string>
-    <string name="volunteer_mode_weekly_label">المجموع الأسبوعي</string>
-    <string name="volunteer_mode_alltime_label">إجمالي الوقت</string>
-    <string name="volunteer_mode_subtitle_desc">يتيح وضع اللطف لجهازك أن يكون جسرًا للآخرين. يساعد الأشخاص على استخدام تور في الأماكن التي يتم حظره فيها.
-\n
-\n• لن تستنزف البطارية
-\n• لن يبطئ الإنترنت لديك
-\n• يمكن تشغيله عبر wifi فقط
-\n• يمكن إيقاف تشغيله في أي وقت</string>
     <string name="smart_connect">الاتصال الذكي</string>
     <string name="direct_connect">اتصال مباشر</string>
     <string name="direct_connect_subtitle">أفضل طريقة للاتصال بتور. استخدم إذا لم يُحظر تور.</string>
@@ -170,8 +159,6 @@
     <string name="kindness_config_detail">اضبط كيف ومتى يمكن لجهازك العمل كوسيط Snowflake لمستخدمي تور الآخرين.</string>
     <string name="power_user_mode">وضع المستخدم المتقدم</string>
     <string name="power_user_description">للمستخدمين المطلعين على تور. يسمح لك ببدء تشغيل Orbot بدون إعداد VPN ويعرض منافذ SOCKS و HTTP المفتوحة</string>
-    <string name="volunteer_status_title">اليوم أفضل
-\nبسببك.</string>
     <string name="option_only_on_wifi">فقط على شبكة Wifi</string>
     <string name="not_sure">غير متأكد؟</string>
     <string name="ask_tor">اسأل تور</string>
@@ -294,11 +281,6 @@
     <string name="unable_to_start_legacy_vpn_error_msg">هناك ملف تعريف VPN مخصص تم إعداده ليكون \"دائم التفعيل\". يُرجى تعطيله قبل تشغيل Orbot.</string>
     <string name="unable_to_start_other_vpn_app_error_msg">ضُبط تطبيق %1$s ليكون VPN \"دائم التفعيل\". يُرجى تعطيله قبل تشغيل Orbot.</string>
     <string name="unable_to_start_unknown_reason_error_msg">رُفض إذن الـ VPN أو أن هناك تطبيق VPN آخر لديه ميزة \"VPN دائم التفعيل\" مفعلة. يمكنك تجاهل هذا التنبيه وإعادة الاتصال إذا كنت قد خرجت من نافذة طلب الـ VPN السابقة عن طريق الخطأ. بالنسبة للمستخدمين التقنيين، يمكنكم استخدام تطبيق VPN آخر واستخدام Tor كوسيط SOCKS عن طريق تفعيل \"وضع المستخدم المتقدم\" في Orbot.</string>
-    <string name="kindness_mode_cant_start">تعذر تشغيل وضع اللطف</string>
-    <string name="kindness_never_had_a_direct_connection">لاستخدام \"وضع اللطف\"، يجب أن تكون قد اتصلت مباشرة بشبكة تور (بدون استخدام أي جسور) لمرة واحدة على الأقل. بعد الاتصال، يُرجى العودة إلى هنا لتفعيل \"وضع اللطف\". بمجرد إتمام اختبار الاتصال المباشر هذا، يمكنك استخدام \"وضع اللطف\" بحرية سواء كنت متصلاً بشبكة تور أم لا.</string>
-    <string name="kindness_mode_cant_run_with_bridge">لا يمكن تشغيل \"وضع اللطف\" أثناء استخدام جسر للاتصال بشبكة تور.</string>
-    <string name="kindness_mode_cant_run_in_your_country">استخدام \"وضع اللطف\" لمساعدة الآخرين على الاتصال بمتصفح تور معطل حاليًا في بلدك بسبب الرقابة.</string>
-    <string name="kindness_mode_disclaimer_bridge">لا تستخدم \"وضع اللطف\" إذا كنت في منطقة تخضع للرقابة أو إذا كنت بحاجة إلى استخدام جسر للاتصال بشبكة تور.</string>
     <string name="battery_optimization_title">عطّل تحسينات البطارية</string>
     <string name="battery_optimization_pref_msg">إعداد لبعض المستخدمين الذين يشكون في أن أجهزتهم تنهي عمل تطبيق Orbot قبل الأوان أثناء تشغيله في الخلفية.</string>
     <string name="battery_optimization_dialog_msg">قد تقوم بعض أجهزة أندرويد بإغلاق تطبيق Orbot أثناء تشغيله في الخلفية. بالنسبة لمعظم المستخدمين الذين يرغبون في التأكد من بقاء Orbot متصلاً وقيد التشغيل، يكفي ضبط Orbot ليعمل كـ \"VPN دائم التفعيل\" في إعدادات النظام. ومع ذلك، لا يزال بإمكانك المضي قدمًا لمنع جهازك من إجراء أي تحسينات للبطارية على Orbot إذا شعرت أن ذلك ضروريًا.</string>
@@ -310,4 +292,25 @@
     <string name="battery_optimizations_are_enabled">تحسينات البطارية مفعلة حاليًا لتطبيق Orbot. هذا هو الوضع الافتراضي وهو أمر معقول بالنسبة لمعظم المستخدمين…</string>
     <string name="btn_connect_anyway">اتصل على أي حال</string>
     <string name="btn_connect_anyway_stop_showing">اتصل وأوقف تشغيل هذا التحذير</string>
+    <string name="pref_proxy_no_proxy">لا وسيط</string>
+    <string name="pref_proxy_ss_title">رابط تضبيط ShadowSocks</string>
+    <string name="pref_proxy_ss_summary">رابط تضبيط ShadowSocks الكامل بيدأ بـ ss://</string>
+    <string name="volunteer_mode_weekly_label">هذا الاسبوع</string>
+    <string name="volunteer_mode_alltime_label">الإجمالي</string>
+    <string name="action_learn_more">اعرف المزيد</string>
+    <string name="Enabled">مُفعَّل</string>
+    <string name="Disabled">مُعطّل</string>
+    <string name="kindness_usage_limit">حدود الاستخدام</string>
+    <string name="kindness_usage_limits_status_on">مُفعَّل</string>
+    <string name="kindness_proxy_quality">جودة الوسيط</string>
+    <string name="kindness_proxy_quality_unknown">مجهول</string>
+    <string name="testing_continue">استمر</string>
+    <string name="testing_title_declined">%s غير معتمد</string>
+    <string name="testing_explanation_declined2">لا تستخدم «وضع اللطف» إذا كان الإنترنت في بلدك يخضع لرقابة صارمة.</string>
+    <string name="testing_explanation_other_vpn">لا يمكن تفعيل «وضع اللطف» عند استخدام شبكة VPN. والاستثناء الوحيد هو ميزة VPN الخاصة بـ Orbot. لكي تصبح «وسيط Snowflake»، يجب عليك إما إيقاف تشغيل شبكة VPN أو التبديل إلى استخدام Orbot.</string>
+    <string name="testing_explanation_other_vpn_bubble">افتح إعدادات VPN للنظام…</string>
+    <string name="testing_explanation_no_net">اتصل بالإنترنت لترى ما إذا كنت مؤهلاً لاستخدام «وضع اللطف»</string>
+    <string name="kindness_mode_disclaimer_bridge">فعِّل هذا الخيار إذا لم يكن الإنترنت في بلدك خاضعًا لرقابة شديدة.</string>
+    <string name="kindness_mode_unsupported_country">لقد حدّدت %s كبلدك، ولكن للأسف لا يمكن لـ «وضع اللطف» مساعدة المستخدمين في هذه المنطقة على الاتصال بشبكة تور. إذا كنت تعتقد أن هذه الرسالة ظهرت لك عن طريق الخطأ، فيمكنك مسح اختيار البلد وإجراء اختبار لمعرفة ما إذا كنت مؤهلاً لتكون وكيل «وسيط Snowflake»</string>
+    <string name="kindness_usage_limits_status_off">معطّلة</string>
 </resources>

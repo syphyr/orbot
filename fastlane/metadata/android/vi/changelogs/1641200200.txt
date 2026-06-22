@@ -1,0 +1,4 @@
+* hỗ trợ OnionServices v3
+* cải tiến cấu hình cầu nối
+* đảm bảo chế độ VPN được coi là “kết nối không giới hạn dung lượng”
+* chế độ thử nghiệm để cho phép chạy dưới dạng Snowflake proxy

@@ -61,7 +61,6 @@ class Languages private constructor(activity: Activity) {
             buildLocaleForLanguage("es"),
             buildLocaleForLanguage("es", "MX"),
             buildLocaleForLanguage("es", "CU"),
-
             buildLocaleForLanguage("es", "AR"),
             buildLocaleForLanguage("en", "GB"),
             buildLocaleForLanguage("eo"),
@@ -105,7 +104,6 @@ class Languages private constructor(activity: Activity) {
             buildLocaleForLanguage("nl"),
             buildLocaleForLanguage("pa"),
             buildLocaleForLanguage("pbb"),
-
             buildLocaleForLanguage("pl"),
             buildLocaleForLanguage("pt", "BR"),
             buildLocaleForLanguage("pt"),
@@ -184,7 +182,7 @@ class Languages private constructor(activity: Activity) {
             locale =
                 if (locale != null && TextUtils.equals(locale!!.language, language) && !refresh) {
                     return  // already configured
-                } else if (language == null || language === USE_SYSTEM_DEFAULT) {
+                } else if (language == null || language == USE_SYSTEM_DEFAULT) {
                     defaultLocale
                 } else {
                     /* handle locales with the country in it, i.e. zh_CN, zh_TW, etc */
@@ -251,8 +249,6 @@ class Languages private constructor(activity: Activity) {
         }
 
         /* USE_SYSTEM_DEFAULT is a fake one for displaying in a chooser menu. */
-        // localeSet.add(null);
-        // tmpMap.put(USE_SYSTEM_DEFAULT, activity.getString(resId));
         nameMap = Collections.unmodifiableMap(tmpMap)
     }
 }

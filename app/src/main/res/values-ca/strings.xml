@@ -19,7 +19,7 @@
     <string name="pref_allow_background_starts_summary">Permet a qualsevol aplicació iniciar la xarxa Tor mitjançant l\'Orbot i els serveis relacionats</string>
     <string name="pref_proxy_title">Servidor intermediari de sortida a la xarxa (opcional)</string>
     <string name="pref_proxy_type_title">Tipus de servidor intermediari de sortida</string>
-    <string name="pref_proxy_type_summary">Protocol a utilitzar per al servidor intermediari: HTTPS, SOCKS4, SOCKS5</string>
+    <string name="pref_proxy_type_summary">Protocol a utilitzar per al servidor intermediari</string>
     <string name="pref_proxy_host_title">Amfitrió del servidor intermediari de sortida</string>
     <string name="pref_proxy_host_summary">Nom de l\'amfitrió del servidor intermediari</string>
     <string name="pref_proxy_port_title">Port del servidor intermediari de sortida</string>
@@ -106,19 +106,12 @@
     <string name="version">Versió:</string>
     <string name="license">Llicència:</string>
     <string name="custom_bridges">Ponts personalitzats</string>
-    <string name="volunteer_mode_alltime_label">Total global</string>
     <string name="pref_circuit_padding">Farciment del circuit</string>
     <string name="no_internet_subtitle">Us cal una connexió a internet per a utilitzar l\'Orbot.</string>
     <string name="v3_hosted_services">Serveis Onion hostatjats</string>
     <string name="pref_disable_ipv4_summary">Indica a les sortides que no connectin a adreces IPv4</string>
     <string name="not_sure">No n\'esteu segur?</string>
     <string name="snowflake_subtitle">Connecta mitjançant voluntaris del Tor. Evita algun blocatge del Tor.</string>
-    <string name="volunteer_mode_subtitle_desc">El mode altruista permet que el vostre dispositiu sigui un pont per als altres. Ajuda la gent a utilitzar el Tor en llocs on és blocat.
-\n
-\n• No esgotarà la bateria
-\n• No alentirà la connexió a internet
-\n• Només pot anar amb Wi-Fi
-\n• Es pot desconnectar en qualsevol moment</string>
     <string name="ask_tor">Pregunteu al Tor</string>
     <string name="pref_http_dialog">Configuració del port HTTP</string>
     <string name="power_user_mode">Mode d\'usuari avançat</string>
@@ -133,8 +126,6 @@
     <string name="snowflake_proxy_msg_title">Mostra la notificació de connexió</string>
     <string name="pref_isolate_protocol">Aïlla els protocols de client</string>
     <string name="secure_your_connection_subtitle">Oculteu les aplicacions al rastreig de la xarxa i obteniu-ne accés quan són blocades.</string>
-    <string name="volunteer_mode_weekly_label">Total setmanal</string>
-    <string name="kindness_adjust_title">Paràmetres</string>
     <string name="apps_suggested_title">Aplicacions suggerides</string>
     <string name="pref_circuit_padding_summary">Activa el farciment del circuit per a defensar-se d\'algunes formes d\'anàlisis de trànsit</string>
     <string name="log_copied">S\'ha copiat el registre</string>
@@ -170,13 +161,9 @@
     <string name="strict_nodes_description">Tracta els paràmetres d\'exclusió de nodes com a requeriment per a construir tots els circuits. Podria trencar la funcionalitat si no es pot generar cap circuit amb aquests paràmetres.</string>
     <string name="app_suggested_subtitle">L\'Orbot funciona millor amb aplicacions de missatgeria i xarxes socials.</string>
     <string name="secure_your_connection_title">Preparat per a connectar</string>
-    <string name="volunteer_mode_title">Ajudeu els altres
-\na connectar-se al Tor</string>
     <string name="v3_delete_client_authorization_confirm">Suprimeix l\'autorització del client</string>
     <string name="pref_http_summary">Port al qual el Tor ofereix el seu servidor intermediari HTTP (per defecte: 8118, o 0 per a desactivar)</string>
     <string name="direct_connect_subtitle">La millor manera de connectar-se al Tor. Utilitzeu-la si el Tor no és blocat.</string>
-    <string name="volunteer_status_title">L\'avui és millor
-\ngràcies a vós.</string>
     <string name="many_ways">Hi ha moltes maneres d\'arribar al Tor. Algunes podrien funcionar millor que altres.</string>
     <string name="v3_onion">Domini .onion</string>
     <string name="v3_key_hash">Clau privada x25519 en Base32</string>
@@ -286,5 +273,55 @@
     <string name="unable_to_start_other_vpn_app_error_msg">L\'aplicació %1$s s\'ha configurat per a ser una VPN «sempre activa». Desactiveu-la abans d\'iniciar l\'Orbot.</string>
     <string name="unable_to_start_unknown_reason_error_msg">El permís de la VPN s\'ha denegat, o altra aplicació VPN té activada la funció «sempre activa». Ho podeu descartar i reconnectar si heu tancat el diàleg de sol·licitud de permisos de VPN anterior per error. Els usuaris més tècnics poden fer servir una altra aplicació VPN i utilitzar el Tor com a servidor SOCKS activant el mode Power User de l\'Orbot.</string>
     <string name="open_vpn_settings">Obre la configuració VPN d\'Android</string>
-    <string name="kindness_mode_cant_start">No s\'ha pogut iniciar el mode altruista</string>
+    <string name="pref_proxy_no_proxy">Cap servidor</string>
+    <string name="pref_proxy_ss_title">URL de la configuració del ShadowSocks</string>
+    <string name="pref_proxy_ss_summary">URL complet de la configuració del ShadowSocks que comenci per ss://</string>
+    <string name="kindness_mode_disclaimer_bridge">Activeu si l\'internet del vostre país no es troba fortament censurat.</string>
+    <string name="battery_optimization_title">Desactiva les optimitzacions de la bateria</string>
+    <string name="battery_optimization_pref_msg">Opció per a aquells usuaris qui sospitin que el seu dispositiu estigui tancant l\'Orbot de manera prematura mentre s\'executa al rerefons.</string>
+    <string name="battery_optimization_dialog_msg">Alguns dispositius Android podrien tancar l\'Orbot mentre s\'executa al rerefons. Per a la majoria d\'usuaris qui vulguin assegurar-se que l\'Orbot romangui en funcionament, n\'hi ha prou amb establir l\'Orbot perquè funcioni com una VPN «sempre activa» en la configuració del sistema. Tot i això, podríeu configurar el dispositiu perquè no faci cap optimització de la bateria amb l\'Orbot, si ho considereu necessari.</string>
+    <string name="battery_optimization_dialog_msg_instructions">En la pantalla següent, seleccioneu Orbot → Permet l\'ús al rerefons → Sense restriccions.</string>
+    <string name="battery_optimization_dialog_msg_disclaimer">Teniu en compte que, en la majoria dels dispositius, desactivar les optimitzacions de bateria farà que s\'esgoti més de pressa que de normal…</string>
+    <string name="battery_optimizations_dialog_btn_disable">Obre la configuració d\'optimització de la bateria</string>
+    <string name="battery_optimizations_dialog_msg_power_user">Alguns dispositius podrien tancar l\'Orbot quan s\'executa com a servei al rerefons en el mode d\'usuari avançat. Podeu decidir activar/desactivar les optimitzacions de la bateria més endavant des de la configuració de l\'Orbot…</string>
+    <string name="battery_optimizations_are_disabled">Les optimitzacions de la bateria es troben desactivades per a l\'Orbot…</string>
+    <string name="battery_optimizations_are_enabled">Les optimitzacions de la bateria es troben activades per a l\'Orbot. Això és el comportament predefinit, i adequat per a la majoria d\'usuaris…</string>
+    <string name="btn_connect_anyway">Connecta igualment</string>
+    <string name="btn_connect_anyway_stop_showing">Connecta i desactiva aquest avís</string>
+    <string name="volunteer_mode_title">Mode altruista: Ajudeu els altres a connectar-se al Tor</string>
+    <string name="volunteer_mode_weekly_label">Aquesta setmana</string>
+    <string name="volunteer_mode_alltime_label">Total</string>
+    <string name="volunteer_mode_subtitle_desc">El mode altruista converteix el vostre dispositiu en un servidor intermediari Snowflake a la xarxa Tor: un pont que ajuda els altres a connectar-s\'hi.</string>
+    <string name="action_learn_more">Més informació</string>
+    <string name="Enabled">Activat</string>
+    <string name="Disabled">Desactivat</string>
+    <string name="kindness_usage_limit">Límits d\'ús</string>
+    <string name="kindness_usage_limits_status_on">actiu</string>
+    <string name="kindness_usage_limits_status_off">inactiu</string>
+    <string name="kindness_proxy_quality">Qualitat del servidor intermediari</string>
+    <string name="kindness_proxy_quality_unknown">desconegut</string>
+    <string name="kindness_proxy_quality_restricted">restringit</string>
+    <string name="kindness_proxy_quality_unrestricted">no restringit</string>
+    <string name="kindness_quality_upgrade_title">Milloreu el servidor Snowflake</string>
+    <string name="kindness_quality_upgrade_line1">El servidor intermediari pot ser més potent si executeu el mode altruista amb Wi-Fi.</string>
+    <string name="kindness_quality_upgrade_line2">Per a millorar-lo, activeu el UPnP per a aquest dispositiu en el vostre encaminador Wi-Fi.</string>
+    <string name="kindness_your_impact">El vostre impacte en nombres</string>
+    <string name="testing_consent_header">Abans d\'esdevindre un servidor Snowflake, cal que comprovem la vostra connexió a internet per a veure si pot servir com a servidor útil per als altres.</string>
+    <string name="testing_consent_direct_tor_disclaimer">Durant les proves, l\'Orbot provarà de connectar-se directament al Tor sense fer servir cap pont. Aquest test fallarà en regions amb una forta censura que bloqui el Tor.</string>
+    <string name="testing_consent_direct_stop_vpn_disclaimer">La vostra connexió a Tor actual es desconnectarà perquè feu servir un pont o un servidor intermediar per a connectar-vos-hi. Es reiniciarà automàticament quan la prova finalitzi.</string>
+    <string name="testing_consent_leaking_connection">No inicieu la prova si desconnectar-vos temporalment del Tor us comporta una situació no segura</string>
+    <string name="testing_title_consent_request">Prova de connexió del mode altruista</string>
+    <string name="testing_title_testing">S\'està provant la qualitat…</string>
+    <string name="testing_explanation_testing">Abans que pugueu esdevindre un servidor Snowflake, cal que comprovem si la vostra connexió a internet es pot fer servir per a executar un servidor efectiu. Espereu mentre ho comprovem.</string>
+    <string name="test_risk_consent">Ho entenc, inicia el test</string>
+    <string name="testing_title_approved">%s aprovat</string>
+    <string name="testing_explanation_approved">Sou un gran candidat per a esdevindre un servidor Snowflake en la xarxa Tor.</string>
+    <string name="testing_continue">Continua</string>
+    <string name="testing_title_declined">%s no aprovat</string>
+    <string name="testing_explanation_declined">No podeu ser un servidor Snowflake útil ara mateix. Si continueu veient aquest missatge, proveu de nou amb una altra xarxa.</string>
+    <string name="testing_explanation_declined2">No utilitzeu el mode altruista si l\'internet en el vostre país es troba fortament censurat.</string>
+    <string name="testing_explanation_other_vpn">El Mode altruista no es pot activar si feu servir una VPN. L\'única excepció és la funció VPN de l\'Orbot. Per a esdevindre un servidor Snowflake cal que desactiveu la VNP o utilitzeu la de l\'Orbot.</string>
+    <string name="testing_explanation_other_vpn_bubble">Obre la configuració del sistema de la VPN…</string>
+    <string name="testing_explanation_no_net">Connecteu-vos a internet per a veure si sou un bon candidat per al mode altruista</string>
+    <string name="kindness_mode_unsupported_country">Heu seleccionat %s com al vostre país, però malauradament el Mode altruista no pot ajudar ningú a connectar-se al Tor en aquesta regió. Si creieu que veieu aquest missatge per error, podeu esborrar el vostre país i provar de nou per a veure si sou elegible per a esdevindre un servidor intermediari Snowflake</string>
 </resources>

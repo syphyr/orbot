@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
 import androidx.core.os.LocaleListCompat
+import androidx.preference.EditTextPreference
 import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.Preference.OnPreferenceChangeListener
@@ -16,10 +17,12 @@ import org.torproject.android.OrbotApp
 import org.torproject.android.R
 import org.torproject.android.localization.Languages
 import org.torproject.android.service.OrbotConstants
+import org.torproject.android.service.tor.ShadowSocks
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.removeEntry
 import org.torproject.android.util.sendIntentToService
 
-class SettingsPreferenceFragment : AbstractPreferenceFragment() {
+class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceChangeListener {
     private var toolbar: Toolbar? = null
     override fun prefId(): Int = R.xml.preferences
     override fun rootTitleId(): Int = R.string.menu_settings
@@ -73,7 +76,7 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment() {
                 false
             }
 
-        bindNumericaPrefs(numericalPortPrefs, 5)
+        bindNumericalPrefs(numericalPortPrefs, 5)
         bindPasswordPrefs(passwordPrefs)
         bindInputType(
             listOf("pref_proxy_host"),
@@ -82,6 +85,11 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment() {
         bindInputType(
             listOf("pref_custom_torrc"),
             InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_FLAG_MULTI_LINE
+        )
+
+        bindInputType(
+            listOf("pref_proxy_ss"),
+            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_URI
         )
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -99,5 +107,52 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment() {
                 )
                 true
             }
+
+        val proxyType = findPreference<ListPreference>("pref_proxy_type")
+        if (!ShadowSocks.isShadowSocksSupported()) {
+            proxyType?.removeEntry(ShadowSocks.SCHEME)
+
+            if (proxyType?.value == ShadowSocks.SCHEME) {
+                proxyType.value = ""
+            }
+        }
+
+        if (proxyType != null) {
+            proxyType.onPreferenceChangeListener = this
+
+            onPreferenceChange(proxyType, proxyType.value)
+        }
+    }
+
+    override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
+        val common = listOf(
+            "pref_proxy_host",
+            "pref_proxy_port",
+            "pref_proxy_username",
+            "pref_proxy_password"
+        ).mapNotNull {
+            findPreference<EditTextPreference>(it)
+        }
+
+        val ssConfig = findPreference<EditTextPreference>("pref_proxy_ss")
+
+        when (newValue) {
+            "" -> {
+                common.forEach { it.isVisible = false }
+                ssConfig?.isVisible = false
+            }
+
+            ShadowSocks.SCHEME -> {
+                common.forEach { it.isVisible = false }
+                ssConfig?.isVisible = true
+            }
+
+            else -> {
+                common.forEach { it.isVisible = true }
+                ssConfig?.isVisible = false
+            }
+        }
+
+        return true
     }
 }

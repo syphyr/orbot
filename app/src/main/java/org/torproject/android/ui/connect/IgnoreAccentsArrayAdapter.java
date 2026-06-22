@@ -29,7 +29,7 @@ import java.util.List;
  * of your objects to determine what text will be displayed for the item in the list.
  * <p/>
  * To use something other than TextViews for the array display, for instance, ImageViews,
- * or to have some of data besides toString() results fill the views,
+ * or to have some data besides toString() results fill the views,
  * override {@link #getView(int, View, ViewGroup)} to return the type of view you want.
  */
 public class IgnoreAccentsArrayAdapter<T> extends BaseAdapter implements Filterable {

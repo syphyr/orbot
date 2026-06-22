@@ -1,5 +1,3 @@
-@file:Suppress("unused")
-
 package org.torproject.android.service.circumvention
 
 import IPtProxy.IPtProxy
@@ -23,7 +21,6 @@ import javax.net.ssl.SSLContext
 import javax.net.ssl.SSLSocketFactory
 import javax.net.ssl.TrustManagerFactory
 import javax.net.ssl.X509TrustManager
-
 
 interface MoatApi {
 

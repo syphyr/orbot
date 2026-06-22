@@ -42,7 +42,7 @@ object OrbotConstants {
 
     // control port
     const val LOG_NOTICE_HEADER = "NOTICE: "
-    const val LOG_NOTICE_BOOTSTRAPPED = "Bootstrapped"
+    const val LOG_NOTICE_BOOTSTRAPPED = "BOOTSTRAP PROGRESS="
 
 
     // needed when Orbot exits and tor is not running, but the notification is still active
@@ -144,9 +144,6 @@ object OrbotConstants {
         "im.molly.app",
         "app.accrescent.client"
     )
-
-    const val ONION_EMOJI: String = "\uD83E\uDDC5"
-
 
     // Constants for getting bridges in semi-manual ways.
 

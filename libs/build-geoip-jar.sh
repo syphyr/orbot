@@ -8,8 +8,8 @@ rm -rf assets
 
 mkdir assets1
 cd assets1
-wget https://gitlab.torproject.org/tpo/core/tor/-/raw/main/src/config/geoip
-wget https://gitlab.torproject.org/tpo/core/tor/-/raw/main/src/config/geoip6
+curl https://gitlab.torproject.org/tpo/core/tor/-/raw/main/src/config/geoip?ref_type=heads > geoip
+curl https://gitlab.torproject.org/tpo/core/tor/-/raw/main/src/config/geoip6?ref_type=heads > geoip6
 cd ..
 
 mkdir assets
