@@ -69,7 +69,10 @@ class TestingDialogFragment : DialogFragment() {
         mBinding.tvTitleApproved.text = getString(R.string.testing_title_approved, "✅")
         mBinding.tvTitleDeclined.text = getString(R.string.testing_title_declined, "\uD83D\uDEAB")
         mBinding.btnAbortTest.setOnClickListener { dismiss() }
-        mBinding.btContinue.setOnClickListener { dismiss() }
+        mBinding.btContinue.setOnClickListener {
+            setFragmentResult(KEY_RESULT, Bundle().apply { putBoolean(KEY_RESULT, true) })
+            dismiss()
+        }
         mBinding.btnDeclinedBoxOk.setOnClickListener { dismiss() }
 
         return mBinding.root
@@ -135,7 +138,7 @@ class TestingDialogFragment : DialogFragment() {
 
         // immediately succeed if you're already connecting directly to Tor
         if (torConnectionState == ConnectUiState.On && Prefs.transport == Transport.NONE && Prefs.outboundProxy.first == null) {
-            Log.d(TAG, "there's an active direct connection to tor, stop testing")
+            Log.d(TAG, "there's an active direct connection to tor, no need to test")
             Prefs.snowflakeNeedsQualityCheck = false
             mBinding.btContinue.callOnClick()
             return
