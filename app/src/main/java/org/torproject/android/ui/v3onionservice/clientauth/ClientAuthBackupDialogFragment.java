@@ -42,15 +42,15 @@ public class ClientAuthBackupDialogFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        AlertDialog ad = new AlertDialog.Builder(getContext())
+        var ad = new AlertDialog.Builder(getContext())
                 .setTitle(R.string.v3_backup_key)
                 .setMessage(R.string.v3_backup_key_warning)
                 .setPositiveButton(R.string.confirm, null)
-                .setNegativeButton(android.R.string.cancel, (dialog, which) -> dialog.dismiss())
+                .setNegativeButton(android.R.string.cancel, (dialog, _) -> dialog.dismiss())
                 .create();
-        ad.setOnShowListener(dialog -> ad.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> doBackup()));
-        FrameLayout container = new FrameLayout(ad.getContext());
-        FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        ad.setOnShowListener(_ -> ad.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> doBackup()));
+        var container = new FrameLayout(ad.getContext());
+        var params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         int margin = getResources().getDimensionPixelOffset(R.dimen.alert_dialog_margin);
         params.leftMargin = margin;
         params.rightMargin = margin;

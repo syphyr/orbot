@@ -25,18 +25,18 @@ public class ClientAuthActionsDialogFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        SpannableString backupKeyText = new SpannableString(getString(R.string.v3_backup_key));
+        var backupKeyText = new SpannableString(getString(R.string.v3_backup_key));
         backupKeyText.setSpan(new StyleSpan(Typeface.BOLD), 0, backupKeyText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        AlertDialog ad = new AlertDialog.Builder(getActivity())
+        var ad = new AlertDialog.Builder(getActivity())
                 .setTitle(R.string.v3_client_auth_activity_title)
                 .setItems(new CharSequence[]{
                         backupKeyText,
                         getString(R.string.v3_delete_client_authorization)
                 }, null)
-                .setNegativeButton(android.R.string.cancel, (dialog, which) -> dialog.dismiss())
+                .setNegativeButton(android.R.string.cancel, (dialog, _) -> dialog.dismiss())
                 .create();
-        ad.getListView().setOnItemClickListener((parent, view, position, id) -> {
+        ad.getListView().setOnItemClickListener((_, _, position, _) -> {
             if (position == 0)
                 new ClientAuthBackupDialogFragment(getArguments()).show(requireActivity().getSupportFragmentManager(), ClientAuthBackupDialogFragment.class.getSimpleName());
             else
