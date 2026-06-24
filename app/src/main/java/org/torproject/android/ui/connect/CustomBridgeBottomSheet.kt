@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
+import androidx.core.view.ViewCompat
 import io.github.g00fy2.quickie.QRResult
 import io.github.g00fy2.quickie.ScanCustomCode
 import io.github.g00fy2.quickie.config.ScannerConfig
@@ -155,13 +156,13 @@ class CustomBridgeBottomSheet :
         val isValid = inputText.isNotEmpty() && isValidBridge(inputText)
 
         binding.btnAction.isEnabled = isValid
-        binding.btnAction.backgroundTintList = ColorStateList.valueOf(
+        ViewCompat.setBackgroundTintList(binding.btnAction, ColorStateList.valueOf(
             if (isValid) {
                 requireContext().getColor(R.color.orbot_btn_enabled_purple)
             } else {
                 Color.DKGRAY
             }
-        )
+        ))
 
         if (!isValidBridge(inputText)) {
             binding.etBridges.error = requireContext().getString(R.string.invalid_bridge_format)

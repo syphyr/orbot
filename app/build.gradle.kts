@@ -10,7 +10,7 @@ plugins {
 
 kotlin { jvmToolchain(24) }
 
-val orbotBaseVersionCode = 1795200300
+val orbotBaseVersionCode = 1795300100
 fun getVersionName(): Provider<String> {
     // Gets the version name from the latest Git tag
     return providers.exec {
@@ -171,6 +171,7 @@ androidComponents {
 }
 
 dependencies {
+    implementation(libs.androidx.core)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.preference)

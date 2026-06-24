@@ -29,8 +29,6 @@ class ExitNodeBottomSheet : OrbotBottomSheetDialogFragment() {
     }
 
     private val sortedCountries = TreeMap<String, Locale>(Collator.getInstance())
-    private lateinit var rvList: RecyclerView
-    private lateinit var adapter: ExitNodeAdapter
 
     private lateinit var binding: ExitNodeBottomSheetBinding
     private var selectedCode: String? = null
@@ -63,8 +61,7 @@ class ExitNodeBottomSheet : OrbotBottomSheetDialogFragment() {
             items.add(locale.country to display)
         }
 
-        adapter = ExitNodeAdapter(items)
-        rvList.adapter = adapter
+        binding.rvExitNodes.adapter = ExitNodeAdapter(items)
 
         return binding.root
     }
