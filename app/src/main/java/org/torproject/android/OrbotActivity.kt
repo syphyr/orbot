@@ -26,7 +26,6 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scottyab.rootbeer.RootBeer
 import org.torproject.android.service.OrbotConstants
-import org.torproject.android.ui.connect.ConnectUiState
 import org.torproject.android.ui.connect.ConnectViewModel
 import org.torproject.android.ui.connect.RequestPostNotificationPermission
 import org.torproject.android.ui.core.BaseActivity
@@ -46,8 +45,6 @@ class OrbotActivity : BaseActivity() {
 
     var portSocks: Int = -1
     var portHttp: Int = -1
-
-    var previousReceivedTorStatus: String? = null
 
     // used to hide UI while password isn't obtained
     private var rootLayout: View? = null
@@ -69,8 +66,6 @@ class OrbotActivity : BaseActivity() {
                 window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
         }
 
-        previousReceivedTorStatus = savedInstanceState?.getString(KEY_TOR_STATUS)
-
         // programmatically set title to "Orbot" since camo mode will overwrite it here from manifest
         title = getString(R.string.app_name)
 
@@ -83,16 +78,6 @@ class OrbotActivity : BaseActivity() {
             intent = null
             finish()
         }
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        outState.putString(KEY_TOR_STATUS, previousReceivedTorStatus)
-        super.onSaveInstanceState(outState)
-    }
-
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
-        previousReceivedTorStatus = savedInstanceState.getString(KEY_TOR_STATUS)
     }
 
     private fun createOrbot() {
@@ -233,9 +218,14 @@ class OrbotActivity : BaseActivity() {
     override fun onResume() {
         super.onResume()
 
-        if (connectViewModel.uiState.value == ConnectUiState.On) {
-            sendIntentToService(OrbotConstants.CMD_ACTIVE)
-        }
+        /**
+         * When OrbotService gets CMD_ACTIVE it:
+         * 1. Checks if the control part is open & tor is connected:
+         *   1a. If true, sends tor the "ACTIVE" signal over the control port
+         * 2. OrbotService replies back to OrbotActivity with its status, regardless of step 1
+         */
+        sendIntentToService(OrbotConstants.CMD_ACTIVE)
+
 
         if (Prefs.beSnowflakeProxy()) {
             SnowflakeProxyService.startSnowflakeProxyForegroundService(this)
@@ -262,10 +252,7 @@ class OrbotActivity : BaseActivity() {
             val status = intent?.getStringExtra(TorService.EXTRA_STATUS)
             when (intent?.action) {
                 OrbotConstants.LOCAL_ACTION_STATUS -> {
-                    if (status != previousReceivedTorStatus) {
-                        connectViewModel.updateState(this@OrbotActivity, status)
-                        previousReceivedTorStatus = status
-                    }
+                    connectViewModel.updateState(this@OrbotActivity, status)
                 }
 
                 OrbotConstants.LOCAL_ACTION_LOG -> {
