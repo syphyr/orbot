@@ -32,6 +32,7 @@ class SnowflakeProxyService : Service() {
     private lateinit var powerConnectionReceiver: PowerConnectionReceiver
     private lateinit var notificationChannelId: String
 
+
     private lateinit var networkCallbacks: ConnectivityManager.NetworkCallback
 
     override fun onBind(intent: Intent?): IBinder {
@@ -88,7 +89,6 @@ class SnowflakeProxyService : Service() {
                     Prefs.snowflakesServed
                 )
             )
-        // .setSubText("Shown on third line of notification...")
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
             notificationBuilder.setForegroundServiceBehavior(NotificationCompat.FOREGROUND_SERVICE_IMMEDIATE)
         startForeground(NOTIFICATION_ID, notificationBuilder.build())
@@ -108,7 +108,6 @@ class SnowflakeProxyService : Service() {
                 val capabilities = connectivityManager.getNetworkCapabilities(network)
                 val hasWifi = capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_WIFI) == true
                 val hasVpn = capabilities?.hasTransport(NetworkCapabilities.TRANSPORT_VPN) == true
-
 
                 if (Prefs.limitSnowflakeProxyingWifi() && !hasWifi) {
                     refreshNotification(getString(R.string.kindness_mode_disabled_wifi))
@@ -174,7 +173,7 @@ class SnowflakeProxyService : Service() {
     }
 
     companion object {
-        const val TAG = "SnowflakeProxyService" // "GoLog"
+        const val TAG = "SnowflakeProxyService"
         private const val NOTIFICATION_ID = 103
         private const val CHANNEL_ID = "snowflake"
         private const val ACTION_STOP_SNOWFLAKE_SERVICE = "ACTION_STOP_SNOWFLAKE_SERVICE"

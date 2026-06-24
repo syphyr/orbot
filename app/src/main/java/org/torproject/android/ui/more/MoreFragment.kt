@@ -6,15 +6,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import org.torproject.android.OrbotActivity
 import org.torproject.android.R
+import org.torproject.android.databinding.FragmentMoreBinding
 import org.torproject.android.util.sendIntentToService
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
@@ -28,8 +26,6 @@ import org.torproject.jni.TorService
 class MoreFragment : Fragment() {
     private var httpPort = -1
     private var socksPort = -1
-
-    private lateinit var tvPortAndVersionInfo: TextView
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -74,28 +70,24 @@ class MoreFragment : Fragment() {
         rows += row("Orbot", "$normalizedVersion")
         rows += row("Tor", getTorVersion())
 
-        tvPortAndVersionInfo.text = rows.joinToString("\n")
+        binding.tvPortAndVersionInfo.text = rows.joinToString("\n")
     }
+
+    private lateinit var binding: FragmentMoreBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_more, container, false)
-
-        val toolbar = view.findViewById<Toolbar>(R.id.toolbar)
-        (context as AppCompatActivity).setSupportActionBar(toolbar)
-        toolbar?.title = requireContext().getString(R.string.app_name)
-        view.findViewById<TextView>(R.id.tvExit)?.setOnClickListener { doExit() }
-
-        tvPortAndVersionInfo = view.findViewById(R.id.tvPortAndVersionInfo)
+        binding = FragmentMoreBinding.inflate(layoutInflater)
+        (context as AppCompatActivity).setSupportActionBar(binding.toolbar)
+        binding.toolbar.title = requireContext().getString(R.string.app_name)
+        binding.tvExit.setOnClickListener { doExit() }
 
         updateStatus()
 
-        val rvMore = view.findViewById<RecyclerView>(R.id.rvMoreActions)
         val listItems = listOf(
-
             OrbotMenuAction(R.string.btn_choose_apps, R.drawable.ic_choose_apps) {
                 findNavController().navigate(R.id.more_to_apps)
             },
@@ -109,7 +101,11 @@ class MoreFragment : Fragment() {
             OrbotMenuAction(R.string.system_vpn_settings, R.drawable.ic_vpn_key) {
                 VpnServicePrepareWrapper.openVpnSystemSettings(this)
             },
-            OrbotMenuAction(R.string.menu_log, R.drawable.ic_log) { showLog() },
+            OrbotMenuAction(R.string.menu_log, R.drawable.ic_log) {
+                LogBottomSheet.show(
+                    parentFragmentManager
+                )
+            },
             OrbotMenuAction(R.string.v3_hosted_services, R.drawable.ic_menu_onion) {
                 startActivity(Intent(requireActivity(), OnionServiceActivity::class.java))
             },
@@ -121,19 +117,19 @@ class MoreFragment : Fragment() {
                     requireActivity().supportFragmentManager,
                     AboutDialogFragment.TAG
                 )
-            },
+            }
         )
-        rvMore.adapter = MoreActionAdapter(listItems)
 
+        binding.rvMoreActions.adapter = MoreActionAdapter(listItems)
         val spanCount = if (resources.configuration.screenWidthDp < 600) 2 else 4
-        rvMore.layoutManager = GridLayoutManager(requireContext(), spanCount)
+        binding.rvMoreActions.layoutManager = GridLayoutManager(requireContext(), spanCount)
 
-        return view
+        return binding.root
     }
 
-    private fun getTorVersion(): String {
-        return TorService.VERSION_NAME.split("-").toTypedArray()[0]
-    }
+    private fun getTorVersion(): String =
+        TorService.VERSION_NAME.split("-").toTypedArray()[0]
+
 
     private fun doExit() {
         val killIntent = Intent(
@@ -144,7 +140,4 @@ class MoreFragment : Fragment() {
         requireActivity().finish()
     }
 
-    private fun showLog() {
-        (activity as OrbotActivity).showLog()
-    }
 }

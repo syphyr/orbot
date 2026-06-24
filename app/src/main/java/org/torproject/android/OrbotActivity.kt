@@ -26,13 +26,11 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scottyab.rootbeer.RootBeer
 import org.torproject.android.service.OrbotConstants
-import org.torproject.android.ui.connect.ConnectUiState
 import org.torproject.android.ui.connect.ConnectViewModel
 import org.torproject.android.ui.connect.RequestPostNotificationPermission
 import org.torproject.android.ui.core.BaseActivity
 import org.torproject.android.ui.core.DeviceAuthenticationPrompt
 import org.torproject.android.ui.kindness.SnowflakeProxyService
-import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.sendIntentToService
 import org.torproject.android.util.showToast
@@ -40,7 +38,6 @@ import org.torproject.jni.TorService
 
 class OrbotActivity : BaseActivity() {
 
-    private lateinit var logBottomSheet: LogBottomSheet
     private lateinit var navController: NavController
     private lateinit var bottomNavigationView: BottomNavigationView
 
@@ -48,8 +45,6 @@ class OrbotActivity : BaseActivity() {
 
     var portSocks: Int = -1
     var portHttp: Int = -1
-
-    var previousReceivedTorStatus: String? = null
 
     // used to hide UI while password isn't obtained
     private var rootLayout: View? = null
@@ -71,8 +66,6 @@ class OrbotActivity : BaseActivity() {
                 window.decorView.systemUiVisibility and View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR.inv()
         }
 
-        previousReceivedTorStatus = savedInstanceState?.getString(KEY_TOR_STATUS)
-
         // programmatically set title to "Orbot" since camo mode will overwrite it here from manifest
         title = getString(R.string.app_name)
 
@@ -81,22 +74,10 @@ class OrbotActivity : BaseActivity() {
 
         } catch (_: RuntimeException) {
             //catch this to avoid malicious launches as document Cure53 Audit: ORB-01-009 WP1/2: Orbot DoS via exported activity (High)
-
             //clear malicious intent
             intent = null
             finish()
         }
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        outState.putString(KEY_TOR_STATUS, previousReceivedTorStatus)
-        super.onSaveInstanceState(outState)
-    }
-
-    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
-        super.onRestoreInstanceState(savedInstanceState)
-
-        previousReceivedTorStatus = savedInstanceState.getString(KEY_TOR_STATUS)
     }
 
     private fun createOrbot() {
@@ -108,7 +89,6 @@ class OrbotActivity : BaseActivity() {
             insets
         }
 
-        logBottomSheet = LogBottomSheet()
         navController = findNavController(R.id.nav_fragment)
         bottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNavigationView.setupWithNavController(navController)
@@ -238,9 +218,14 @@ class OrbotActivity : BaseActivity() {
     override fun onResume() {
         super.onResume()
 
-        if (connectViewModel.uiState.value == ConnectUiState.On) {
-            sendIntentToService(OrbotConstants.CMD_ACTIVE)
-        }
+        /**
+         * When OrbotService gets CMD_ACTIVE it:
+         * 1. Checks if the control port is open & tor is connected:
+         *   1a. If true, sends tor the "ACTIVE" signal over the control port
+         * 2. OrbotService replies back to OrbotActivity with its status, regardless of step 1
+         */
+        sendIntentToService(OrbotConstants.CMD_ACTIVE)
+
 
         if (Prefs.beSnowflakeProxy()) {
             SnowflakeProxyService.startSnowflakeProxyForegroundService(this)
@@ -267,10 +252,7 @@ class OrbotActivity : BaseActivity() {
             val status = intent?.getStringExtra(TorService.EXTRA_STATUS)
             when (intent?.action) {
                 OrbotConstants.LOCAL_ACTION_STATUS -> {
-                    if (status != previousReceivedTorStatus) {
-                        connectViewModel.updateState(this@OrbotActivity, status)
-                        previousReceivedTorStatus = status
-                    }
+                    connectViewModel.updateState(this@OrbotActivity, status)
                 }
 
                 OrbotConstants.LOCAL_ACTION_LOG -> {
@@ -278,7 +260,6 @@ class OrbotActivity : BaseActivity() {
                         connectViewModel.updateBootstrapPercent(it.toIntOrNull() ?: 0)
                     }
                     intent.getStringExtra(OrbotConstants.LOCAL_EXTRA_LOG)?.let {
-                        logBottomSheet.appendLog(it)
                         connectViewModel.updateLogState(it)
                     }
                 }
@@ -348,11 +329,5 @@ class OrbotActivity : BaseActivity() {
 
         // Make sure this is only shown once per app-start, not on every device rotation.
         private var rootDetectionShown = false
-    }
-
-    fun showLog() {
-        if (!logBottomSheet.isAdded) {
-            logBottomSheet.show(supportFragmentManager, OrbotActivity::class.java.simpleName)
-        }
     }
 }

@@ -18,7 +18,6 @@ object V3ClientAuthColumns : BaseColumns {
 
     val V3_CLIENT_AUTH_PROJECTION: Array<String> = arrayOf(BaseColumns._ID, DOMAIN, HASH, ENABLED)
 
-    @JvmStatic
     fun addClientAuthToTorrc(
         torrc: StringBuffer,
         context: Context,
@@ -52,16 +51,15 @@ object V3ClientAuthColumns : BaseColumns {
                 fos.close()
             }
             if (i > 0)
-                torrc.append("ClientOnionAuthDir " + v3AuthBasePath.absolutePath).append('\n')
+                torrc.append("ClientOnionAuthDir ${v3AuthBasePath.absolutePath}\n")
 
         } catch (e: Exception) {
-            Log.e("V3ClientAuthColumns", "error adding v3 client auth...")
+            Log.e("V3ClientAuthColumns", "error adding v3 client auth: $e")
         } finally {
             v3auths.close()
         }
     }
 
-    @JvmStatic
     fun createV3AuthDir(contextWrapper: ContextWrapper): File {
         val baseDir = File(contextWrapper.filesDir.absolutePath, OrbotConstants.V3_CLIENT_AUTH_DIR)
         if (!baseDir.isDirectory) baseDir.mkdirs()
@@ -69,12 +67,11 @@ object V3ClientAuthColumns : BaseColumns {
     }
 
     @JvmStatic
-    fun buildV3ClientAuthFile(domain: String, keyHash: String): String {
-        return "$domain:descriptor:x25519:$keyHash"
-    }
+    fun buildV3ClientAuthFile(domain: String, keyHash: String): String =
+        "$domain:descriptor:x25519:$keyHash"
 
-    private fun getContentUri(context: Context) : Uri{
-        return "content://${context.applicationContext.packageName}.ui.v3onionservice.clientauth/v3auth".toUri()
-    }
+
+    private fun getContentUri(context: Context): Uri =
+        "content://${context.applicationContext.packageName}.ui.v3onionservice.clientauth/v3auth".toUri()
 
 }

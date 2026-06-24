@@ -24,7 +24,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import net.freehaven.tor.control.TorControlCommands
-import org.torproject.android.OrbotActivity
 import org.torproject.android.R
 import org.torproject.android.util.sendIntentToService
 import org.torproject.android.databinding.FragmentConnectBinding
@@ -34,6 +33,7 @@ import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.vpn.VpnServicePrepareWrapper
 import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotMenuAction
+import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.jni.TorService
 import kotlin.time.Duration.Companion.milliseconds
 
@@ -85,7 +85,7 @@ class ConnectFragment : Fragment(),
                         is ConnectUiState.On -> {
                             binding.switchConnect.isChecked = true
                             lastState = TorService.ACTION_START
-                            doLayoutOn(requireContext())
+                            doLayoutOn()
                         }
 
                         is ConnectUiState.Stopping -> {}
@@ -200,9 +200,7 @@ class ConnectFragment : Fragment(),
 
 
     // starts Tor, plus often the VPNService. For power users it runs tor as a proxy
-    fun startTorConnection() {
-        setState(TorService.ACTION_START)
-    }
+    fun startTorConnection() = setState(TorService.ACTION_START)
 
     fun attemptToStartTor() {
         Prefs.putUseVpn(!Prefs.isPowerUserMode)
@@ -306,7 +304,8 @@ class ConnectFragment : Fragment(),
         binding.lvConnected.visibility = View.VISIBLE
     }
 
-    fun doLayoutOn(context: Context) {
+    // this context param is because we call this method from a screenshot taking test script
+    fun doLayoutOn(context: Context = requireContext()) {
         if (Prefs.smartConnect) {
             Prefs.smartConnect = false
             refreshMenuList(context)
@@ -320,7 +319,7 @@ class ConnectFragment : Fragment(),
         refreshMenuList(context)
 
         binding.ivStatus.setOnClickListener {
-            (activity as OrbotActivity).showLog()
+            LogBottomSheet.show(parentFragmentManager)
         }
     }
 
@@ -358,7 +357,7 @@ class ConnectFragment : Fragment(),
         animShadow.start()
         binding.tvTitle.text = context.getString(R.string.trying_to_connect_title)
         binding.tvSubtitle.setOnClickListener {
-            (activity as OrbotActivity).showLog()
+            LogBottomSheet.show(parentFragmentManager)
         }
     }
 

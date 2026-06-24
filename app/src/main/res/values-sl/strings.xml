@@ -69,8 +69,6 @@
     <string name="pref_node_configuration">Konfiguracija vozlišča</string>
     <string name="strict_nodes_description">Nastavitve Izključi vozlišča obravnavajte kot zahtevo za izgradnjo vseh vezij. To lahko prekine funkcionalnost, če z vašimi nastavitvami Exclude Nodes ni mogoče ustvariti nobenega vezja.</string>
     <string name="pref_socks_title">Tor SOCKS</string>
-    <string name="pref_disable_network_title">Brez samodejnega spanja v omrežju</string>
-    <string name="pref_disable_network_summary">Uspavati Tor, ko ni na voljo interneta</string>
     <string name="newnym">Preklopili ste na novo identiteto Tor!</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Odprt proxy na vseh vmesnikih</string>
     <string name="pref_socks_summary">Vrata, na katerih Tor ponuja svoj posredniški strežnik SOCKS (privzeto: 9050 ali 0 za onemogočanje)</string>

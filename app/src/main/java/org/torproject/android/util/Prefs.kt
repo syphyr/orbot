@@ -31,6 +31,7 @@ object Prefs {
     private const val PREF_BE_A_SNOWFLAKE_LIMIT_WIFI = "pref_be_a_snowflake_limit_wifi"
     private const val PREF_BE_A_SNOWFLAKE_LIMIT_CHARGING = "pref_be_a_snowflake_limit_charing"
     const val PREF_LAST_SNOWFLAKE_NAT_TYPE = "pref_snowflake_last_nat"
+    const val PREF_LAST_SNOWFLAKE_ACTIVE = "pref_is_snowflake_running"
 
     private const val PREF_USE_SMART_CONNECT = "pref_use_smart_connect"
     private const val PREF_SMART_CONNECT_TIMEOUT = "pref_smart_connect_timeout"
@@ -53,6 +54,7 @@ object Prefs {
     const val PREF_SECURE_WINDOW_FLAG: String = "pref_flag_secure"
 
     private const val PREF_POWER_BATTERY_DIALOG_HIDE = "hide_battery_opt_dialog"
+    const val PREF_ORBOT_SERVICE_LOG = "pref_orbotservice_log"
 
     private var cr: ContentResolver? = null
 
@@ -201,6 +203,10 @@ object Prefs {
     var lastSnowflakeNatType: String
         get() = cr?.getPrefString(PREF_LAST_SNOWFLAKE_NAT_TYPE) ?: IPtProxy.IPtProxy.NATUnknown
         set(natType) = cr?.putPref(PREF_LAST_SNOWFLAKE_NAT_TYPE, natType) ?: Unit
+
+    var snowflakeProxyRunning: Boolean
+        get() = cr?.getPrefBoolean(PREF_LAST_SNOWFLAKE_ACTIVE) ?: false
+        set(isRunning) = cr?.putPref(PREF_LAST_SNOWFLAKE_ACTIVE, isRunning) ?: Unit
 
     val snowflakesServed: Int
         get() = cr?.getPrefInt(PREF_SNOWFLAKES_SERVED_COUNT) ?: 0
@@ -426,5 +432,19 @@ object Prefs {
     @JvmStatic
     fun isAppTorified(appId: String): Boolean {
         return cr?.getPrefBoolean("$appId${OrbotConstants.APP_TOR_KEY}", true) ?: true
+    }
+
+    @JvmStatic
+    fun orbotServiceLogClear() {
+        cr?.putPref(PREF_ORBOT_SERVICE_LOG, "")
+    }
+
+    @JvmStatic
+    fun orbotServiceLogAppend(logLine: String) {
+        cr?.putPref(PREF_ORBOT_SERVICE_LOG, getOrbotServiceLog() + "\n" + logLine)
+    }
+
+    fun getOrbotServiceLog() : String {
+        return cr?.getPrefString(PREF_ORBOT_SERVICE_LOG, "") ?: ""
     }
 }

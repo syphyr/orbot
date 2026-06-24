@@ -49,8 +49,6 @@
     <string name="license">Temacahuiliztli:</string>
     <string name="hidden_service_request">Ce tepoztlatlatquitl quinequi quitlapoz ce itetlayecolti xonacatl ipan tzalantli %1$s matlatl Tor. ¿Ticticuauhtlamati in tepoztlatlatquitl?</string>
     <string name="set_locale_title">Tlahtolcopa</string>
-    <string name="pref_disable_network_title">Ahmo quitlilana in motlapololtia cemtlalticpamatlatl</string>
-    <string name="pref_disable_network_summary">Xiquihtoz Tor ma cochiz ihcuac ahmo onca centilnonotza</string>
     <string name="newnym">¡Axan tiyancuitlacauh ica Tor!</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Xictlapoa ipan nochi cetiliztli</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Xiccahua in omtlamantli Wi-Fi, in tepozcetililoni oquincelihqueh ihuan cequi tlacah huel quicetilia IP calaqui ipan Tor</string>

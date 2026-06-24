@@ -44,8 +44,6 @@
     <string name="project_home">Projekt Domů:</string>
     <string name="third_party_software">Software třetích stran:</string>
     <string name="set_locale_title">Jazyk</string>
-    <string name="pref_disable_network_title">Vypnout uspávání sítě</string>
-    <string name="pref_disable_network_summary">Uspat Tor když není k dispozici přístup k Internetu</string>
     <string name="newnym">Vaše identita na Toru byla změněna!</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_socks_summary">Port, na kterém Tor nabízí SOCKS proxy (default: 9050, 0 pro zakázání)</string>

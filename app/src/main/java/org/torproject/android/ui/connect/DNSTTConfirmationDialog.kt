@@ -7,24 +7,22 @@ import androidx.fragment.app.DialogFragment
 import org.torproject.android.R
 
 class DNSTTConfirmationDialog : DialogFragment() {
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        return AlertDialog.Builder(requireActivity())
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog =
+        AlertDialog.Builder(requireActivity())
             .setTitle(R.string.limit_dns_tunnel_use)
             .setMessage(R.string.dns_tunnel_usage_description)
             .setIconAttribute(android.R.attr.alertDialogIcon)
             .setNegativeButton(android.R.string.cancel, null)
             .setPositiveButton(R.string.connect) { _, _ ->
                 dismiss()
-                val parent = requireActivity().supportFragmentManager.findFragmentByTag(
-                    ConfigConnectionBottomSheet.TAG
-                ) as ConfigConnectionBottomSheet
+                val parent = requireActivity().supportFragmentManager.findFragmentByTag(TAG)
+                        as ConfigConnectionBottomSheet
                 parent.closeAndConnect()
             }
             .create()
-    }
 
     companion object {
-        const val TAG = "DNSTTConfirm"
+        const val TAG = "DNSTTConfirmDialog"
     }
-
 }

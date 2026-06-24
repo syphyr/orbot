@@ -46,8 +46,6 @@
     <string name="third_party_software">Hirugarrengoen softwarea:</string>
     <string name="hidden_service_request">Aplikazio batek ezkutuko zerbitzariko %1$s ataka ireki nau du Tor sarera. Segurua da aplikazioaz fidatzen bazara.</string>
     <string name="set_locale_title">Hizkuntza</string>
-    <string name="pref_disable_network_title">Sareko lokartze automatikorik ez</string>
-    <string name="pref_disable_network_summary">Jarri Tor lotan internet atzigarri ez dagoenean</string>
     <string name="newnym">Tor identitate berri batera aldatu duzu!</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_socks_summary">Tor-ek bere SOCKS proxya eskaintzeko ataka (Lehenetsia: 9050 edo 0 desgaitzeko)</string>

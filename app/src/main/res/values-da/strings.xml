@@ -86,9 +86,7 @@
     <string name="hidden_service_request">En app ønsker at åbne en løgserver på port %1$s til Tor-netværket. Dette er sikkert, hvis du stoler på appen.</string>
     <string name="menu_new_identity">Ny identitet</string>
     <string name="strict_nodes_description">Behandl indstillingerne for udelukkelse af knuder som et krav for at opbygge alle kredsløb. Dette kan ødelægge funktionaliteten, hvis der ikke kan genereres kredsløb med dine indstillinger for udelukkede knuder.</string>
-    <string name="pref_disable_network_title">Ingen automatisk netværkssøvn</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Åbn proxy på alle grænseflader</string>
-    <string name="pref_disable_network_summary">Sæt Tor i dvale, når der ikke er internet til rådighed</string>
     <string name="local_port">Lokal havn</string>
     <string name="newnym">Du har skiftet til en ny Tor-identitet!</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Tillad Wi-Fi-peers, tethered enheder og alle andre, der kan oprette forbindelse til din IP, at få adgang til Tor</string>

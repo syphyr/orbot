@@ -31,7 +31,6 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
     @Synchronized
     fun enableProxy() {
         if (proxy != null) return
-
         CoroutineScope(Dispatchers.IO).launch {
             val start = Random.nextInt(49152, 65536 - 2)
 
@@ -90,7 +89,7 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
 
                 this?.start()
             }
-
+            Prefs.snowflakeProxyRunning = true
         }
     }
 
@@ -101,6 +100,8 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
 
         proxy?.stop()
         proxy = null
+        Prefs.snowflakeProxyRunning = false
+        releaseMappedPorts()
     }
 
     fun isProxyRunning(): Boolean = proxy != null

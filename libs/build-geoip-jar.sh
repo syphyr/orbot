@@ -8,7 +8,14 @@ rm -rf assets
 
 mkdir assets1
 cd assets1
+
+echo "downloading geoip from:"
+echo "https://gitlab.torproject.org/tpo/core/tor/-/raw/main/src/config/geoip?ref_type=heads"
 curl https://gitlab.torproject.org/tpo/core/tor/-/raw/main/src/config/geoip?ref_type=heads > geoip
+
+echo ""
+echo "downloading geoip6 from:"
+echo "https://gitlab.torproject.org/tpo/core/tor/-/raw/main/src/config/geoip6?ref_type=heads"
 curl https://gitlab.torproject.org/tpo/core/tor/-/raw/main/src/config/geoip6?ref_type=heads > geoip6
 cd ..
 

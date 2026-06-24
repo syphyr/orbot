@@ -46,8 +46,6 @@
     <string name="third_party_software">ซอฟต์แวร์โดยผู้ผลิตอื่น:</string>
     <string name="hidden_service_request">โปรแกรมต้องการเปิดพอร์ต %1$d ที่ซ่อนอยู่ของเซิร์ฟเวอร์ให้เชื่อมกับเครือข่าย Tor การกระทำนี้ปลอดภัยถ้าคุณเชื่อถือโปรแกรมนั้น</string>
     <string name="set_locale_title">ภาษา</string>
-    <string name="pref_disable_network_title">ไม่พบเครือข่าย พักการใช้งานอัตโนมัติ</string>
-    <string name="pref_disable_network_summary">พักการใช้งาน Tor เมื่อไม่มีอินเทอร์เน็ต</string>
     <string name="newnym">คุณได้เปลี่ยนมาใช้ตัวตน Tor ใหม่แล้ว!</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_socks_summary">พอร์ตที่ Tor ให้บริการพร็อกซี SOCKS (ค่าเริ่มต้น: 9050 หรือ 0 ไปถึงไม่เปิดใช้งาน)</string>

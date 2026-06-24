@@ -62,16 +62,15 @@ object OnionServiceColumns : BaseColumns {
                     contentResolver.update(
                         uri,
                         cv,
-                        BaseColumns._ID + "=" + id,
+                        "${BaseColumns._ID}=$id",
                         null
                     )
                 }
-                val v3DirPath: String =
+                val v3DirPath =
                     File(v3OnionBasePath.absolutePath, path).canonicalPath
-                torrc.append("HiddenServiceDir ").append(v3DirPath).append("\n")
+                torrc.append("HiddenServiceDir $v3DirPath\n")
                     .append("HiddenServiceVersion 3\n")
-                    .append("HiddenServicePort ").append(onionPort).append(" 127.0.0.1:")
-                    .append(localPort).append("\n")
+                    .append("HiddenServicePort $onionPort 127.0.0.1:$localPort\n")
             }
             onionServices.close()
         } catch (e: Exception) {
@@ -120,7 +119,7 @@ object OnionServiceColumns : BaseColumns {
         return basePath
     }
 
-    private fun getContentUri(context: Context): Uri {
-        return "content://${context.applicationContext.packageName}.ui.v3onionservice/v3".toUri()
-    }
+    private fun getContentUri(context: Context): Uri =
+        "content://${context.applicationContext.packageName}.ui.v3onionservice/v3".toUri()
+
 }

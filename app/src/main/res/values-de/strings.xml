@@ -54,8 +54,6 @@
     <string name="third_party_software">Drittanbieteranwendungen:</string>
     <string name="hidden_service_request">Eine App möchte den Onion-Server auf Port %1$s zum Tor-Netzwerk öffnen. Dies ist sicher, wenn du der App vertraust.</string>
     <string name="set_locale_title">Sprache</string>
-    <string name="pref_disable_network_title">Kein Automatischer Netzwerk-Ruhezustand</string>
-    <string name="pref_disable_network_summary">Tor in den Ruhezustand versetzen, wenn kein Internet verfügbar ist</string>
     <string name="newnym">Du hast zu einer neuen Tor-Identität gewechselt!</string>
     <string name="pref_socks_title">Tor-SOCKS</string>
     <string name="pref_socks_summary">Port, der den SOCKS-Proxy von Tor bereitstellt (Standard: 9050 oder 0, um ihn zu deaktivieren)</string>

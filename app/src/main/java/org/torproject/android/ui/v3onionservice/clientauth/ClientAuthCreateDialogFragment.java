@@ -2,7 +2,6 @@ package org.torproject.android.ui.v3onionservice.clientauth;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.os.Bundle;
@@ -30,8 +29,10 @@ public class ClientAuthCreateDialogFragment extends DialogFragment {
         final AlertDialog ad = new AlertDialog.Builder(getActivity())
                 .setView(dialogView)
                 .setTitle(R.string.v3_client_auth_activity_title)
-                .setNegativeButton(android.R.string.cancel, (dialog, which) -> dialog.dismiss())
-                .setPositiveButton(R.string.save, (dialog, which) -> doSave(requireContext()))
+                .setNegativeButton(android.R.string.cancel, (dialog, _) ->
+                        dialog.dismiss())
+                .setPositiveButton(R.string.save, (_, _) ->
+                        doSave(requireContext()))
                 .create();
 
 
@@ -62,19 +63,18 @@ public class ClientAuthCreateDialogFragment extends DialogFragment {
     }
 
     private void doSave(Context context) {
-        String onionName = sanitizeOnionDomainTextField();
-        String hash = etKeyHash.getText().toString();
-        ContentValues fields = new ContentValues();
+        var onionName = sanitizeOnionDomainTextField();
+        var hash = etKeyHash.getText().toString();
+        var fields = new ContentValues();
         fields.put(V3ClientAuthColumns.DOMAIN, onionName);
         fields.put(V3ClientAuthColumns.HASH, hash);
-        ContentResolver cr = context.getContentResolver();
-        cr.insert(ClientAuthContentProvider.CONTENT_URI, fields);
+        context.getContentResolver().insert(ClientAuthContentProvider.CONTENT_URI, fields);
         Toast.makeText(context, R.string.please_restart_Orbot_to_enable_the_changes, Toast.LENGTH_LONG).show();
     }
 
     private String sanitizeOnionDomainTextField() {
-        String domain = ".onion";
-        String onion = etOnionUrl.getText().toString();
+        var domain = ".onion";
+        var onion = etOnionUrl.getText().toString();
         if (onion.endsWith(domain))
             return onion.substring(0, onion.indexOf(domain));
         return onion;
@@ -87,9 +87,9 @@ public class ClientAuthCreateDialogFragment extends DialogFragment {
     }
 
     private boolean checkInput() {
-        String onion = sanitizeOnionDomainTextField();
+        var onion = sanitizeOnionDomainTextField();
         if (!onion.matches("([a-z0-9]{56})")) return false;
-        String hash = etKeyHash.getText().toString();
+        var hash = etKeyHash.getText().toString();
         return hash.matches("([A-Z2-7]{52})");
     }
 

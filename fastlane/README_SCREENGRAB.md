@@ -21,14 +21,17 @@ Once you've gotten `rbenv`, in the root directory of the repository, run:
 rbenv init # one-time setup of rbenv for your shell
 
 # try running the ruby version set in the file .ruby-version (3.4.7 at the time of this writing)
-ruby --version 
-# rbenv: version `3.4.7' is not installed (set by orbot/.ruby-version)
-rbenv install 3.4.7 # if it's missing, grab a copy of ruby version 3.4.7
+ruby --version
 
-# if psych component fails you may need to install libyaml
+# rbenv: version `3.4.7' is not installed (set by orbot/.ruby-version)
+rbenv install 3.4.7 # if it's missing, grab a copy of the ruby version specified here 
+
+
+# if psych component fails you may need to install libyaml...
 # sudo apt install libyaml-dev && rbenv install 3.4.7
 
-bundle install #bundle is part of ruby 3.4.7 installs fastlane screengrab deps specified in Gemfile/Gemfile.lock
+# bundle is part of ruby 3.4.7 installs fastlane screengrab deps specified in Gemfile/Gemfile.lock
+bundle install 
 ```
 
 Now you're good to go. If for whatever reason in the future we need a differnt version of `ruby` to use fastlane/screengrab, we can update the local `rbenv` file `.ruby-version` to tell `rbenv` that we expect to use *that* version of `ruby`.

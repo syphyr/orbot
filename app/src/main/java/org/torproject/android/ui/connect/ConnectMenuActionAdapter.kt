@@ -1,5 +1,6 @@
 package org.torproject.android.ui.connect
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -23,14 +24,14 @@ import org.torproject.android.util.Prefs
 import java.util.TreeMap
 
 class ConnectMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction>) :
-    ArrayAdapter<OrbotMenuAction>(
-        context, R.layout.action_list_view, list
-    ) {
+    ArrayAdapter<OrbotMenuAction>(context, R.layout.action_list_view, list) {
 
     private val layoutInflater =
         context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
+    @SuppressLint("InflateParams")
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+        if (convertView != null) return convertView
         val returnView = convertView ?: layoutInflater.inflate(R.layout.action_list_view, null)
         getItem(position)?.let { model ->
             val imgView = returnView.findViewById<ImageView>(R.id.ivAction)
@@ -66,7 +67,8 @@ class ConnectMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction
                 }
             }
             if (model.statusString?.isEmpty() == true)
-                returnView.findViewById<TextView>(R.id.tvLabel).text = context.getString(model.textId)
+                returnView.findViewById<TextView>(R.id.tvLabel).text =
+                    context.getString(model.textId)
             else
                 returnView.findViewById<TextView>(R.id.tvLabel).text = model.statusString
 
@@ -109,9 +111,9 @@ class ConnectMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction
                             checkTorStatusUrl(context, applicationInfo.packageName)
                         }
                         icons[packageManager.getApplicationLabel(applicationInfo).toString()] = iv
-                    } catch (_ : PackageManager.NameNotFoundException) {
+                    } catch (_: PackageManager.NameNotFoundException) {
                         //couldn't draw icon for the package name
-                        Log.d("Orbot", "error getting package info for: $tordApp")
+                        Log.d("ConnectMenuAdapter", "error getting pkg info for: $tordApp")
 
                     }
                 }
@@ -125,7 +127,6 @@ class ConnectMenuActionAdapter(context: Context, list: ArrayList<OrbotMenuAction
 
         return false
     }
-
 
     private fun checkTorStatusUrl(context: Context, pkg: String) {
         val i = Intent().apply {

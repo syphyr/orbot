@@ -2,13 +2,12 @@ package org.torproject.android.ui.kindness
 
 import IPtProxy.IPtProxy
 import android.app.AlertDialog
-import android.content.ComponentName
 import android.content.Intent
-import android.content.ServiceConnection
 import android.content.SharedPreferences
 import android.content.res.ColorStateList
+import android.graphics.Color
+import android.graphics.PorterDuff
 import android.os.Bundle
-import android.os.IBinder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,27 +23,11 @@ import org.torproject.android.util.Prefs
 class KindnessFragment : Fragment() {
 
     private lateinit var mBinding: FragmentKindnessBinding
-    private var mService: SnowflakeProxyService? = null
-    private var mBound = false
-
-    private val connection = object : ServiceConnection {
-        override fun onServiceConnected(className: ComponentName, service: IBinder) {
-            val binder = service as SnowflakeProxyService.LocalBinder
-            mService = binder.getService()
-            mBound = true
-        }
-
-        override fun onServiceDisconnected(arg0: ComponentName) {
-            mBound = false
-            mService = null
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         mBinding = FragmentKindnessBinding.inflate(inflater)
-
         mBinding.swVolunteerMode.isChecked = Prefs.beSnowflakeProxy()
         mBinding.swVolunteerMode.setOnCheckedChangeListener { _, isChecked ->
             Prefs.setBeSnowflakeProxy(isChecked)
@@ -55,6 +38,7 @@ class KindnessFragment : Fragment() {
                     SnowflakeProxyService.stopSnowflakeProxyForegroundService(it)
                     updateNatTypeUi(IPtProxy.NATUnknown)
                 }
+                drawHeaderIcon()
             }
         }
 
@@ -107,6 +91,9 @@ class KindnessFragment : Fragment() {
             KindnessConfigBottomSheet.KEY_CONFIG_CHANGED,
             viewLifecycleOwner
         ) { _, _ ->
+            // restart snowflake proxy if a setting has changed
+            mBinding.swVolunteerMode.toggle()
+            mBinding.swVolunteerMode.toggle()
             updateUsageLimitsUi()
         }
 
@@ -122,8 +109,28 @@ class KindnessFragment : Fragment() {
                 }
             }
         }
-
         return mBinding.root
+    }
+
+    private fun drawHeaderIcon() {
+        fun grayIcon() {
+            mBinding.ivHeader.setColorFilter(Color.GRAY, PorterDuff.Mode.SRC_IN)
+            mBinding.ivHeader.alpha = 1f
+        }
+        if (!Prefs.beSnowflakeProxy()) {
+            mBinding.swVolunteerHeader.text = getString(R.string.Disabled)
+            grayIcon()
+            return
+        }
+
+        if (Prefs.snowflakeProxyRunning) {
+            mBinding.ivHeader.clearColorFilter()
+            mBinding.ivHeader.alpha = 0.5f
+            mBinding.swVolunteerHeader.text = getString(R.string.Enabled)
+        } else {
+            grayIcon()
+            mBinding.swVolunteerHeader.text = getString(R.string.Paused)
+        }
     }
 
     override fun onResume() {
@@ -133,12 +140,15 @@ class KindnessFragment : Fragment() {
         updateNatTypeUi(Prefs.lastSnowflakeNatType)
         mBinding.tvAlltimeTotal.text = "${Prefs.snowflakesServed}"
         mBinding.tvWeeklyTotal.text = "${Prefs.snowflakesServedWeekly}"
+        drawHeaderIcon()
     }
 
     private val natTypeObserver =
         SharedPreferences.OnSharedPreferenceChangeListener { sharedPrefs, key ->
-            if (key != Prefs.PREF_LAST_SNOWFLAKE_NAT_TYPE) return@OnSharedPreferenceChangeListener
-            updateNatTypeUi(Prefs.lastSnowflakeNatType)
+            if (key == Prefs.PREF_LAST_SNOWFLAKE_NAT_TYPE)
+                updateNatTypeUi(Prefs.lastSnowflakeNatType)
+            else if (key == Prefs.PREF_LAST_SNOWFLAKE_ACTIVE)
+                drawHeaderIcon()
         }
 
     override fun onStart() {
@@ -153,11 +163,6 @@ class KindnessFragment : Fragment() {
         PreferenceManager
             .getDefaultSharedPreferences(requireContext())
             .unregisterOnSharedPreferenceChangeListener(natTypeObserver)
-
-        if (mBound) {
-            context?.unbindService(connection)
-            mBound = false
-        }
     }
 
     private fun updateNatTypeUi(natType: String) {

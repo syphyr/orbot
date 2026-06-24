@@ -51,7 +51,7 @@ public class OnionServiceActivity extends BaseActivity {
 
         mLayoutRoot = findViewById(R.id.hostedServiceCoordinatorLayout);
         fab = findViewById(R.id.fab);
-        fab.setOnClickListener(v -> new OnionServiceCreateDialogFragment().show(getSupportFragmentManager(), OnionServiceCreateDialogFragment.class.getSimpleName()));
+        fab.setOnClickListener(_ -> new OnionServiceCreateDialogFragment().show(getSupportFragmentManager(), OnionServiceCreateDialogFragment.class.getSimpleName()));
 
         mContentResolver = getContentResolver();
         mAdapter = new OnionV3ListAdapter(this, mContentResolver.query(OnionServiceContentProvider.CONTENT_URI, OnionServiceColumns.getV3_ONION_SERVICE_PROJECTION(), BASE_WHERE_SELECTION_CLAUSE + '1', null, null));
@@ -66,7 +66,7 @@ public class OnionServiceActivity extends BaseActivity {
         else radioShowAppServices.setChecked(true);
         filterServices(showUserServices);
         onionList.setAdapter(mAdapter);
-        onionList.setOnItemClickListener((parent, view, position, id) -> {
+        onionList.setOnItemClickListener((parent, _, position, _) -> {
             Cursor item = (Cursor) parent.getItemAtPosition(position);
             Bundle arguments = new Bundle();
             arguments.putInt(BUNDLE_KEY_ID, item.getInt(item.getColumnIndex(OnionServiceColumns._ID)));

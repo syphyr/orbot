@@ -52,8 +52,6 @@
     <string name="project_home">Casa(le) proiectului:</string>
     <string name="third_party_software">Aplicatii tertiare:</string>
     <string name="set_locale_title">Limbă</string>
-    <string name="pref_disable_network_title">Fără adormirea automată a rețelei</string>
-    <string name="pref_disable_network_summary">Pune Tor să doarmă dacă nu este internet disponibil</string>
     <string name="newnym">Ați comutat la o nouă identitate Tor!</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_socks_summary">Porturi pe care Tor oferă SOCKurile proxy active (principal:9050 sau 0 pentru dezactivare)</string>

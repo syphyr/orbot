@@ -49,8 +49,6 @@
   <string name="license">Jiat\'tapula Anaiwua  Puyataya</string>
   <string name="hidden_service_request">Wane app ajútales cewolla, %1$saner jutuma maka pirrajulee</string>
     <string name="set_locale_title">Anuiki</string>
-  <string name="pref_disable_network_title">Nojots atunku\'in  Network jumuiwuaya\'a </string>
-  <string name="pref_disable_network_summary">Púitaa  Tor  junain atunkaa nojotpaa ein internet.</string>
   <string name="newnym">¡tü puanajun sülü wanee jeketü shiyawase Tor!</string>
   <string name="pref_open_proxy_on_all_interfaces_title">Errutnuinjat proxy julu jupushuaya interface</string>
   <string name="pref_open_proxy_on_all_interfaces_summary">Jüputirrein tüpiamaka WI -FI je tü cachuerrakaluirrua, painjirrain, je tü wayukaleirrua eka ein, painjirrain jünain sü IP nekerrotuin nunain Tor</string>

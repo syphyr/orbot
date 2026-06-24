@@ -32,22 +32,21 @@ public class OnionServiceActionsDialogFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        Bundle arguments = getArguments();
-
-        SpannableString backupServiceText = new SpannableString(getString(R.string.backup_service));
+        var arguments = getArguments();
+        var backupServiceText = new SpannableString(getString(R.string.backup_service));
         backupServiceText.setSpan(new StyleSpan(Typeface.BOLD), 0, backupServiceText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        AlertDialog ad = new AlertDialog.Builder(requireActivity())
+        var ad = new AlertDialog.Builder(requireActivity())
                 .setItems(new CharSequence[]{
                         getString(R.string.copy_address_to_clipboard),
                         backupServiceText,
                         getString(R.string.delete_service)}, null)
-                .setNegativeButton(android.R.string.cancel, (dialog, which) -> dialog.dismiss())
+                .setNegativeButton(android.R.string.cancel, (dialog, _) -> dialog.dismiss())
                 .setTitle(R.string.hidden_services)
                 .create();
 
         // done this way so we can startActivityForResult on backup without the dialog vanishing
-        ad.getListView().setOnItemClickListener((parent, view, position, id) -> {
+        ad.getListView().setOnItemClickListener((_, _, position, _) -> {
             if (position == 0) {
                 assert arguments != null;
                 doCopy(arguments, getContext());
@@ -65,7 +64,7 @@ public class OnionServiceActionsDialogFragment extends DialogFragment {
     }
 
     private void doCopy(Bundle arguments, Context context) {
-        String onion = arguments.getString(OnionServiceActivity.BUNDLE_KEY_DOMAIN);
+        var onion = arguments.getString(OnionServiceActivity.BUNDLE_KEY_DOMAIN);
         if (onion == null)
             Toast.makeText(context, R.string.please_restart_Orbot_to_enable_the_changes, Toast.LENGTH_LONG).show();
         else
@@ -73,13 +72,12 @@ public class OnionServiceActionsDialogFragment extends DialogFragment {
     }
 
     private void doBackup(Bundle arguments, Context context) {
-        String filename = "onion_service" + arguments.getString(OnionServiceActivity.BUNDLE_KEY_PORT) + ".zip";
-//        String relativePath = arguments.getString(OnionServiceActivity.BUNDLE_KEY_PATH);
+        var filename = "onion_service" + arguments.getString(OnionServiceActivity.BUNDLE_KEY_PORT) + ".zip";
         if (arguments.getString(OnionServiceActivity.BUNDLE_KEY_DOMAIN) == null) {
             Toast.makeText(context, R.string.please_restart_Orbot_to_enable_the_changes, Toast.LENGTH_LONG).show();
             return;
         }
-        Intent createFileIntent = DiskUtils.createWriteFileIntent(filename, "application/zip");
+        var createFileIntent = DiskUtils.createWriteFileIntent(filename, "application/zip");
         startActivityForResult(createFileIntent, REQUEST_CODE_WRITE_FILE);
     }
 

@@ -8,10 +8,10 @@ import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.StyleSpan
-import android.view.View
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import org.torproject.android.R
+import org.torproject.android.databinding.LayoutAboutBinding
 import org.torproject.android.util.DiskUtils
 import org.torproject.jni.BuildConfig.VERSION_NAME
 import org.torproject.jni.TorService
@@ -25,30 +25,23 @@ class AboutDialogFragment : DialogFragment() {
         private const val BUNDLE_KEY_TV_ABOUT_TEXT = "about_tv_txt"
     }
 
-    private lateinit var tvAbout: TextView
+    private lateinit var binding: LayoutAboutBinding
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val view: View? = activity?.layoutInflater?.inflate(R.layout.layout_about, null)
-
+        binding = LayoutAboutBinding.inflate(layoutInflater)
         val versionName = view?.findViewById<TextView>(R.id.versionName)
         versionName?.text = VERSION
 
-        tvAbout = view?.findViewById(R.id.aboutother)!!
-
-        val tvTor = view.findViewById<TextView>(R.id.tvTor)
-        tvTor.text = getString(R.string.tor_url, TorService.VERSION_NAME)
-
-        val tvObfs4 = view.findViewById<TextView>(R.id.tvObfs4)
-        tvObfs4.text = getString(R.string.obfs4_url, IPtProxy.lyrebirdVersion().substringAfter('-'))
-
-        val tvSnowflake = view.findViewById<TextView>(R.id.tvSnowflake)
-        tvSnowflake.text = getString(R.string.snowflake_url, IPtProxy.snowflakeVersion())
+        binding.tvTor.text = getString(R.string.tor_url, TorService.VERSION_NAME)
+        binding.tvObfs4.text =
+            getString(R.string.obfs4_url, IPtProxy.lyrebirdVersion().substringAfter('-'))
+        binding.tvSnowflake.text = getString(R.string.snowflake_url, IPtProxy.snowflakeVersion())
 
         var buildAboutText = true
 
         savedInstanceState?.getString(BUNDLE_KEY_TV_ABOUT_TEXT)?.let {
             buildAboutText = false
-            tvAbout.text = it
+            binding.aboutother.text = it
         }
 
         if (buildAboutText) {
@@ -65,7 +58,7 @@ class AboutDialogFragment : DialogFragment() {
                     Spanned.SPAN_EXCLUSIVE_EXCLUSIVE
                 )
 
-                tvAbout.text = spannableAboutText
+                binding.aboutother.text = spannableAboutText
             } catch (e: IOException) {
                 e.printStackTrace()
             }
@@ -73,12 +66,12 @@ class AboutDialogFragment : DialogFragment() {
 
         return AlertDialog.Builder(context, R.style.OrbotDialogTheme)
             .setTitle(getString(R.string.menu_about))
-            .setView(view)
+            .setView(binding.root)
             .create()
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putString(BUNDLE_KEY_TV_ABOUT_TEXT, tvAbout.text.toString())
+        outState.putString(BUNDLE_KEY_TV_ABOUT_TEXT, binding.aboutother.text.toString())
     }
 }

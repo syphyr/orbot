@@ -44,8 +44,6 @@
     <string name="project_home">Станица на проекта:</string>
     <string name="third_party_software">Софтуер от трети страни:</string>
     <string name="set_locale_title">Език</string>
-    <string name="pref_disable_network_title">Без автоматично заспиване на мрежата</string>
-    <string name="pref_disable_network_summary">При липса на интернет Тор преминава в режим на сън</string>
     <string name="newnym">Сменихте самоличността си в Тор!</string>
     <string name="pref_socks_title">SOCKS на Тор</string>
     <string name="pref_socks_summary">Порт, на който Тор предлага прокси на SOCKS (подразбиран: 9050 или 0 за изключване)</string>

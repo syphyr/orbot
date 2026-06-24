@@ -46,8 +46,6 @@
     <string name="project_home">Trang chủ dự án:</string>
     <string name="third_party_software">Phần mềm bên thứ 3:</string>
     <string name="set_locale_title">Ngôn ngữ</string>
-    <string name="pref_disable_network_title">Tự động \"ngủ\" khi không có mạng</string>
-    <string name="pref_disable_network_summary">Chuyển Tor sang chế độ ngủ nếu không có Internet</string>
     <string name="newnym">Bạn đã chuyển sang một danh tính Tor mới!</string>
     <string name="pref_socks_title">Cổng SOCKS</string>
     <string name="pref_socks_summary">Cổng để Tor đặt proxy SOCKS lên (mặc định: 9050 hoặc 0 để vô hiệu hóa)</string>
