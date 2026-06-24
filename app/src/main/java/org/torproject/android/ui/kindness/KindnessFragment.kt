@@ -50,7 +50,7 @@ class KindnessFragment : Fragment() {
 
         mBinding.rowProxyQuality.setOnClickListener {
             if (Prefs.lastSnowflakeNatType == IPtProxy.NATRestricted) {
-                showQualityHint()
+                UPnPDialogFragment.show(parentFragmentManager)
             }
         }
 
@@ -190,19 +190,6 @@ class KindnessFragment : Fragment() {
                 else R.string.kindness_usage_limits_status_off
             )
     }
-
-    private fun showQualityHint() =
-        AlertDialog.Builder(requireContext(), R.style.OrbotDialogTheme)
-            .setTitle(R.string.kindness_quality_upgrade_title)
-            .setMessage(
-                String.format(
-                    "%s\n\n%s",
-                    getString(R.string.kindness_quality_upgrade_line1),
-                    getString(R.string.kindness_quality_upgrade_line2)
-                )
-            )
-            .setPositiveButton(android.R.string.ok, null)
-            .show()
 
     private fun showPanelStatus(isActivated: Boolean) {
         val duration = 250L

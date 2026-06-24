@@ -33,20 +33,20 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
         if (proxy != null) return
         CoroutineScope(Dispatchers.IO).launch {
             val start = Random.nextInt(49152, 65536 - 2)
+            if (UPnPDialogFragment.needsAccessLocalNetworkPermission(service) != true) {
+                for (port in (start..start + 2)) {
+                    if (UPnP.openPortUDP(port, OrbotConstants.TAG)) {
+                        mappedPorts.add(port)
+                    }
+                }
 
-            for (port in (start..start + 2)) {
-                if (UPnP.openPortUDP(port, OrbotConstants.TAG)) {
-                    mappedPorts.add(port)
+                // Snowflake Proxy needs Capacity * 2 + 1 = 3 consecutive ports mapped for unrestricted mode.
+                // If we can't get all of these, remove the ones we have and
+                // rather have Snowflake Proxy run in restricted mode.
+                if (mappedPorts.size < 3) {
+                    releaseMappedPorts()
                 }
             }
-
-            // Snowflake Proxy needs Capacity * 2 + 1 = 3 consecutive ports mapped for unrestricted mode.
-            // If we can't get all of these, remove the ones we have and
-            // rather have Snowflake Proxy run in restricted mode.
-            if (mappedPorts.size < 3) {
-                releaseMappedPorts()
-            }
-
             val stunServers =
                 BuiltInBridges.getInstance(service)?.snowflake?.firstOrNull()?.ice?.split(",".toRegex())
                     ?.dropLastWhile { it.isEmpty() }?.toTypedArray() ?: emptyArray()
@@ -95,7 +95,6 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
 
     @Synchronized
     fun stopProxy() {
-        releaseMappedPorts()
         if (proxy == null) return
 
         proxy?.stop()

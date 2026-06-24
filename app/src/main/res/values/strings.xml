@@ -210,6 +210,10 @@
     <string name="kindness_quality_upgrade_title">Upgrade your Snowflake Proxy</string>
     <string name="kindness_quality_upgrade_line1">Your proxy can be more powerful when kindness mode is running on Wi-Fi.</string>
     <string name="kindness_quality_upgrade_line2">To upgrade, enable UPnP on your Wi-Fi router for this device.</string>
+    <string name="kindness_quality_upgrade_need_local_network">On Android 17 and higher, you must also grant the Allow Access to Nearby Devices Permission for Orbot to access your router.</string>
+    <string name="kindness_quality_upgrade_perm_granted">The Access Nearby Devices Permission has been granted on this device.</string>
+    <string name="grant_permission">Grant Permission</string>
+    <string name="set_permission_in_settings">Set Permission in Settings</string>
     <string name="kindness_your_impact">Your Impact in Numbers</string>
     <string name="kindness_config_detail">Configure when and how your device can act as a Snowflake proxy for other Tor users.</string>
     <string name="menu_kindness">Kindness</string>
@@ -358,7 +362,4 @@
     <string name="battery_optimizations_are_enabled">Battery Optimizations are currently active for Orbot. This is the default and is reasonable for most users…</string>
     <string name="btn_connect_anyway">Connect Anyway</string>
     <string name="btn_connect_anyway_stop_showing">Connect and Turn Off This Warning</string>
-
-    <string name="request_access_local_network_permission">Please allow Orbot to </string>
-    <string name="request_notification_pefrmission_msg">Without turning on notifications Orbot can\'t act as a Tor VPN or use Kindness Mode.\n\nWhen enabled, we only show a single notification when Orbot is running.</string>
 </resources>
