@@ -1,3 +1,32 @@
+/** 17.9.5-RC-1-tor-0.4.9.9 24 Jun 2026 2ffe5a6ff13b6930f28bc3bcdf1e33479410e790 **/
+
+Important fixes and changes since 17.9.3-RC-1-tor-0.4.9.6:
+
+Tor & networking
+- Upgraded tor-android to 0.4.9.9 (with x86 fix), via 0.4.9.8
+- Updated built-in bridges and geoip data from torproject (geoip from tor-0.4.9.10)
+- Verified/fixed onion service client authorization via .auth_private file import and dialog (#1706, #1584)
+
+Kindness Mode (Snowflake proxy)
+- Connection test now exhausts every way to determine snowflake eligibility before connecting to Tor, with clearer error messages (e.g. when another VPN app is active, with a shortcut into system VPN settings)
+- Kindness mode config changes immediately invalidate/restart a running snowflake proxy (#1710)
+- NAT type now updates live in the fragment without binding to the service
+- Introduced Regionalization.kt to centralize exit-node and DNSTT countries, and to disable kindness mode in heavily censored regions
+- Fixed edge case where the kindness dialog could dismiss without unlocking the main screen
+- Bumped snowflake to 2.14.0
+
+UI & service stability
+- Fixed boot/auto-start issues (#1713) and a false on-boot trigger when deploying from Android Studio
+- Fixed a race condition in OrbotService
+- More accurate connection progress via STATUS_CLIENT events; progress and subtitle now persist across rotation
+- Fixed log being cleared on device rotation; log fragment reworked and decoupled from OrbotActivity
+- Removed "No Network Auto-Sleep" setting, now defaulted on (#1112)
+
+Build & maintenance
+- Upgraded to Gradle 9.6.0 (Gradle 10 ready) and Java 24
+- Misc. lint/warning cleanups and many updated Weblate translations
+
+
 /** 17.1.1-RC-2-tor0.4.8.7 Dec 2023 93057ce80b0f02fac0d608972a6a1a3fab02e785 **/
 93057ce8 (HEAD -> master, tag: 17.1.1-RC-1-tor-0.4.8.7) udpate to 1711300100
 c80ff8a2 (origin/master, origin/HEAD) final tweaks to kindness mode settings
