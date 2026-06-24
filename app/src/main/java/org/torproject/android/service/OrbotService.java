@@ -244,7 +244,7 @@ public class OrbotService extends VpnService {
 
         try {
             try {
-                mHandler = new Handler();
+                mHandler = new Handler(getMainLooper());
                 appBinHome = getFilesDir();
                 if (!appBinHome.exists()) appBinHome.mkdirs();
 
@@ -292,7 +292,7 @@ public class OrbotService extends VpnService {
     private void configLanguage() {
         var config = getApplicationContext().getResources().getConfiguration();
         Prefs.setContext(getApplicationContext());
-        var locale = new Locale(Prefs.getDefaultLocale());
+        var locale = new Locale.Builder().setLanguage(Prefs.getDefaultLocale()).build();
         Locale.setDefault(locale);
         config.setLocale(locale);
         getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
