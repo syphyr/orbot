@@ -244,7 +244,7 @@ public class OrbotService extends VpnService {
 
         try {
             try {
-                mHandler = new Handler();
+                mHandler = new Handler(getMainLooper());
                 appBinHome = getFilesDir();
                 if (!appBinHome.exists()) appBinHome.mkdirs();
 
