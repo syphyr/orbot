@@ -24,6 +24,8 @@
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:contentDescription="@null"
+            app:strokeColor="@null"
+            
             app:tint="@color/panel_card_image" />
 
         <TextView

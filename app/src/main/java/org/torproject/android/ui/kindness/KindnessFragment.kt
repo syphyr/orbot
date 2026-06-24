@@ -192,7 +192,7 @@ class KindnessFragment : Fragment() {
     }
 
     private fun showQualityHint() =
-        AlertDialog.Builder(requireContext())
+        AlertDialog.Builder(requireContext(), R.style.OrbotDialogTheme)
             .setTitle(R.string.kindness_quality_upgrade_title)
             .setMessage(
                 String.format(
