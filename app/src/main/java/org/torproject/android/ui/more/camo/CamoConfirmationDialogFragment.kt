@@ -7,6 +7,7 @@ import androidx.fragment.app.DialogFragment
 import org.torproject.android.BuildConfig
 import org.torproject.android.R
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.createWithCurves
 
 class CamoConfirmationDialogFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -38,7 +39,7 @@ class CamoConfirmationDialogFragment : DialogFragment() {
                 )
                 activity?.finishAffinity()
             }
-            .create()
+            .createWithCurves()
     }
 
     companion object {

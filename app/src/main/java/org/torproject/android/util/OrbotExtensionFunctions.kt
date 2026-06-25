@@ -151,10 +151,7 @@ fun ListPreference.removeEntry(label: String) {
     this.entryValues = entryValues.toTypedArray()
 }
 
-fun AlertDialog.Builder.createWithCurves() : AlertDialog {
-    return this.create().apply {
-        setOnShowListener {
-            window?.setBackgroundDrawableResource(R.drawable.bg_modal_rounded)
-        }
+fun AlertDialog.Builder.createWithCurves(): AlertDialog =
+    create().apply {
+        window?.setBackgroundDrawableResource(R.drawable.bg_modal_rounded)
     }
-}
