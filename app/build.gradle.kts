@@ -187,6 +187,7 @@ dependencies {
     implementation(libs.androidx.work.kotlin)
     implementation(libs.upnp)
     implementation(libs.quickie)
+    implementation(libs.material3)
 
     // IPtProxy (for Snowflake, obfs4, dnstt and all other pluggable transports)
     implementation(libs.iptproxy)
