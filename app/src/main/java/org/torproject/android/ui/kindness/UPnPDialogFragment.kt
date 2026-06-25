@@ -1,6 +1,7 @@
 package org.torproject.android.ui.kindness
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
@@ -17,8 +18,10 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import org.torproject.android.R
+import org.torproject.android.util.createWithCurves
 
 class UPnPDialogFragment : DialogFragment() {
+    @SuppressLint("InlinedApi")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         var msg = String.format(
             "%s\n\n%s",
@@ -31,7 +34,7 @@ class UPnPDialogFragment : DialogFragment() {
             .setMessage(msg)
 
         val accessLocalNetworkNeeded =
-            needsAccessLocalNetworkPermission(requireContext()) ?: return builder.create()
+            needsAccessLocalNetworkPermission(requireContext()) ?: return builder.createWithCurves()
         if (accessLocalNetworkNeeded) {
             msg += "\n\n${getString(R.string.kindness_quality_upgrade_need_local_network)}"
             val repeatedlyDenied = ActivityCompat.shouldShowRequestPermissionRationale(
@@ -58,13 +61,7 @@ class UPnPDialogFragment : DialogFragment() {
         }
         return builder
             .setMessage(msg)
-            .create().apply {
-                setOnShowListener {
-                    // we need to build the dialog to give it the same rounded edges as the other XML
-                    // dialogs used in kindness mode
-                    window?.setBackgroundDrawableResource(R.drawable.bg_modal_rounded)
-                }
-            }
+            .createWithCurves()
     }
 
     private val requestPermissionLauncher =

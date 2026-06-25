@@ -2,6 +2,7 @@ package org.torproject.android.util
 
 import android.annotation.SuppressLint
 import android.app.AlarmManager
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.net.VpnService
@@ -18,6 +19,7 @@ import org.torproject.android.service.OrbotService
 import java.text.Normalizer
 import androidx.core.net.toUri
 import androidx.preference.ListPreference
+import org.torproject.android.R
 
 /**
  * Extension function for `Intent` to add a flag that marks the intent as originating
@@ -147,4 +149,12 @@ fun ListPreference.removeEntry(label: String) {
 
     this.entries = entries.toTypedArray()
     this.entryValues = entryValues.toTypedArray()
+}
+
+fun AlertDialog.Builder.createWithCurves() : AlertDialog {
+    return this.create().apply {
+        setOnShowListener {
+            window?.setBackgroundDrawableResource(R.drawable.bg_modal_rounded)
+        }
+    }
 }
