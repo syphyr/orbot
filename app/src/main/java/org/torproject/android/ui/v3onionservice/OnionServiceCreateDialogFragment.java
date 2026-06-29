@@ -1,14 +1,12 @@
 package org.torproject.android.ui.v3onionservice;
 
 import android.app.Dialog;
-import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -35,15 +33,15 @@ public class OnionServiceCreateDialogFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        final View dialogView = requireActivity().getLayoutInflater().inflate(R.layout.layout_hs_data_dialog, null);
+        final var dialogView = requireActivity().getLayoutInflater().inflate(R.layout.layout_hs_data_dialog, null);
         etServer = dialogView.findViewById(R.id.hsName);
         etLocalPort = dialogView.findViewById(R.id.hsLocalPort);
         etOnionPort = dialogView.findViewById(R.id.hsOnionPort);
 
-        AlertDialog alertDialog = new AlertDialog.Builder(requireActivity())
+        var alertDialog = new AlertDialog.Builder(requireActivity())
                 .setTitle(R.string.hidden_services)
-                .setNegativeButton(android.R.string.cancel, (dialog, which) -> dialog.cancel())
-                .setPositiveButton(R.string.save, (dialog, which) -> doSave(requireActivity()))
+                .setNegativeButton(android.R.string.cancel, (dialog, _) -> dialog.cancel())
+                .setPositiveButton(R.string.save, (_, _) -> doSave(requireActivity()))
                 .setView(dialogView)
                 .create();
 
@@ -82,16 +80,15 @@ public class OnionServiceCreateDialogFragment extends DialogFragment {
     }
 
     private void doSave(Context context) {
-        String serverName = etServer.getText().toString().trim();
-        int localPort = Integer.parseInt(etLocalPort.getText().toString());
-        int onionPort = Integer.parseInt(etOnionPort.getText().toString());
-        ContentValues fields = new ContentValues();
+        var serverName = etServer.getText().toString().trim();
+        var localPort = Integer.parseInt(etLocalPort.getText().toString());
+        var onionPort = Integer.parseInt(etOnionPort.getText().toString());
+        var fields = new ContentValues();
         fields.put(OnionServiceColumns.NAME, serverName);
         fields.put(OnionServiceColumns.PORT, localPort);
         fields.put(OnionServiceColumns.ONION_PORT, onionPort);
         fields.put(OnionServiceColumns.CREATED_BY_USER, 1);
-        ContentResolver cr = context.getContentResolver();
-        cr.insert(OnionServiceContentProvider.CONTENT_URI, fields);
+        context.getContentResolver().insert(OnionServiceContentProvider.CONTENT_URI, fields);
         Toast.makeText(context, R.string.please_restart_Orbot_to_enable_the_changes, Toast.LENGTH_SHORT).show();
         ((OnionServiceActivity) requireActivity()).showBatteryOptimizationsMessageIfAppropriate();
     }

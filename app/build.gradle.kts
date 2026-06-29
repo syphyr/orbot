@@ -10,7 +10,7 @@ plugins {
 
 kotlin { jvmToolchain(24) }
 
-val orbotBaseVersionCode = 1795200300
+val orbotBaseVersionCode = 1795300100
 fun getVersionName(): Provider<String> {
     // Gets the version name from the latest Git tag
     return providers.exec {
@@ -29,7 +29,7 @@ configure<ApplicationExtension> {
         versionCode = orbotBaseVersionCode
         versionName = getVersionName().get()
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 37
         multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         flavorDimensions += "free"
@@ -171,6 +171,7 @@ androidComponents {
 }
 
 dependencies {
+    implementation(libs.androidx.core)
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.androidx.preference)
@@ -186,6 +187,7 @@ dependencies {
     implementation(libs.androidx.work.kotlin)
     implementation(libs.upnp)
     implementation(libs.quickie)
+    implementation(libs.material3)
 
     // IPtProxy (for Snowflake, obfs4, dnstt and all other pluggable transports)
     implementation(libs.iptproxy)

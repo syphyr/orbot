@@ -35,8 +35,8 @@ public class OnionV3ListAdapter extends CursorAdapter {
     @SuppressLint("Range")
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
-        int id = cursor.getInt(cursor.getColumnIndex(OnionServiceColumns._ID));
-        final String where = BaseColumns._ID + "=" + id;
+        var id = cursor.getInt(cursor.getColumnIndex(OnionServiceColumns._ID));
+        final var where = BaseColumns._ID + "=" + id;
         TextView localPort = view.findViewById(R.id.hs_port);
         localPort.setText(String.format("%s\n%s", context.getString(R.string.local_port),
                 cursor.getString(cursor.getColumnIndex(OnionServiceColumns.PORT))));
@@ -52,11 +52,10 @@ public class OnionV3ListAdapter extends CursorAdapter {
 
         SwitchCompat enabled = view.findViewById(R.id.hs_switch);
         enabled.setChecked(cursor.getInt(cursor.getColumnIndex(OnionServiceColumns.ENABLED)) == 1);
-        enabled.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            ContentResolver resolver = context.getContentResolver();
-            ContentValues fields = new ContentValues();
+        enabled.setOnCheckedChangeListener((_, isChecked) -> {
+            var fields = new ContentValues();
             fields.put(OnionServiceColumns.ENABLED, isChecked);
-            resolver.update(OnionServiceContentProvider.CONTENT_URI, fields, where, null);
+            context.getContentResolver().update(OnionServiceContentProvider.CONTENT_URI, fields, where, null);
             Toast.makeText(context, R.string.please_restart_Orbot_to_enable_the_changes, Toast.LENGTH_SHORT).show();
         });
     }

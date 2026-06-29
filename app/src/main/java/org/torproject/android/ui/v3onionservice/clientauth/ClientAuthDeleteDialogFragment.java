@@ -24,14 +24,14 @@ public class ClientAuthDeleteDialogFragment extends DialogFragment {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         return new AlertDialog.Builder(getActivity())
                 .setTitle(R.string.v3_delete_client_authorization)
-                .setPositiveButton(R.string.v3_delete_client_authorization_confirm, (dialog, which) -> doDelete())
-                .setNegativeButton(android.R.string.cancel, (dialog, which) -> dialog.dismiss())
+                .setPositiveButton(R.string.v3_delete_client_authorization_confirm, (_, _) -> doDelete())
+                .setNegativeButton(android.R.string.cancel, (dialog, _) -> dialog.dismiss())
                 .create();
     }
 
     private void doDelete() {
         assert getArguments() != null;
-        int id = getArguments().getInt(ClientAuthActivity.BUNDLE_KEY_ID);
+        var id = getArguments().getInt(ClientAuthActivity.BUNDLE_KEY_ID);
         requireContext().getContentResolver().delete(ClientAuthContentProvider.CONTENT_URI, V3ClientAuthColumns._ID + "=" + id, null);
     }
 

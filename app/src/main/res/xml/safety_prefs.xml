@@ -9,7 +9,7 @@
         app:iconSpaceReserved="false" />
 
     <CheckBoxPreference
-        android:defaultValue="true"
+        android:defaultValue="false"
         android:enabled="true"
         android:key="pref_flag_secure"
         android:summary="@string/setting_block_screenshot_description"
