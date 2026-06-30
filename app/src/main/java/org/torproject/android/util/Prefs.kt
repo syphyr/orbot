@@ -111,7 +111,7 @@ object Prefs {
             cr?.let {
                 it.putPref(PREF_BRIDGE_COUNTRY, value)
                 if (Regionalization.isKindnessModeDisabledForCountry()) {
-                    setBeSnowflakeProxy(beSnowflakeProxy = false)
+                    beSnowflakeProxy = false
                     snowflakeNeedsQualityCheck = true
                 }
             }
@@ -126,16 +126,12 @@ object Prefs {
         return cr?.getPrefBoolean(PREF_DETECT_ROOT, true) ?: true
     }
 
-    fun beSnowflakeProxy(): Boolean {
-        return cr?.getPrefBoolean(PREF_BE_A_SNOWFLAKE) ?: false
-    }
+    var beSnowflakeProxy: Boolean
+        get() = cr?.getPrefBoolean(PREF_BE_A_SNOWFLAKE) ?: false
+        set(value) = cr?.putPref(PREF_BE_A_SNOWFLAKE, value) ?: Unit
 
     fun showSnowflakeProxyToast(): Boolean {
         return cr?.getPrefBoolean(PREF_SHOW_SNOWFLAKE_MSG) ?: false
-    }
-
-    fun setBeSnowflakeProxy(beSnowflakeProxy: Boolean) {
-        cr?.putPref(PREF_BE_A_SNOWFLAKE, beSnowflakeProxy)
     }
 
     fun setBeSnowflakeProxyLimitWifi(beSnowflakeProxy: Boolean) {
@@ -444,7 +440,7 @@ object Prefs {
         cr?.putPref(PREF_ORBOT_SERVICE_LOG, getOrbotServiceLog() + "\n" + logLine)
     }
 
-    fun getOrbotServiceLog() : String {
+    fun getOrbotServiceLog(): String {
         return cr?.getPrefString(PREF_ORBOT_SERVICE_LOG, "") ?: ""
     }
 }

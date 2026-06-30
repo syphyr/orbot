@@ -227,7 +227,7 @@ class OrbotActivity : BaseActivity() {
         sendIntentToService(OrbotConstants.CMD_ACTIVE)
 
 
-        if (Prefs.beSnowflakeProxy()) {
+        if (Prefs.beSnowflakeProxy) {
             SnowflakeProxyService.startSnowflakeProxyForegroundService(this)
         }
 
