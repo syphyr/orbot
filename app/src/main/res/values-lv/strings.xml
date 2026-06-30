@@ -171,4 +171,6 @@
     <string name="couldn_t_start_tor_process_">Neizdevās palaist Tor\'a procesu:</string>
     <string name="unable_to_start_tor">Nevar startēt Tor:</string>
     <string name="set_transport">Iestatīt transportu</string>
+    <string name="Enabled">Iespējots</string>
+    <string name="kindness_proxy_quality_unknown">nezināms</string>
 </resources>
