@@ -52,6 +52,13 @@ WEBSITE_LOCALES = [
 	'zh_Hans',
 	'zh_Hant'
 ]
+
+FULLY_TRANSLATED = [
+	'en-US',
+	'ja',
+	'vi'
+]
+
 # get screenshots for all locales, excluding the ones in this array
 # useful if some screenshots aren't coming out good for some locales, and others are.
 # just exclude the good locales and rerun fastlane screengrab
@@ -59,7 +66,7 @@ BUT_SKIP_THESE_ONES = [] # dont skip any, default...
 # BUT_SKIP_THESE_ONES = ['en-US', 'fr-FR', 'hi', 'pt'] # skip some
 
 # generate screenshots for locales only on https://orbot.app
-ALL_LOCALES_WE_TRACK = WEBSITE_LOCALES
+ALL_LOCALES_WE_TRACK = FULLY_TRANSLATED
 
 ALL_LOCALES_WE_TRACK -= BUT_SKIP_THESE_ONES
 locales(ALL_LOCALES_WE_TRACK) # default run everything, except the ones we're passing on
@@ -75,7 +82,7 @@ KINDNESS_SCREEN = PREFIX + 'KindnessModeFragment'
 MORE_SCREEN = PREFIX + 'MoreFragment'
 SETTINGS = PREFIX + 'Settings'
 
-SANDBOX_ONE_TEST = SETTINGS 
+SANDBOX_ONE_TEST = KINDNESS_SCREEN 
 
 
 # if SANDBOX_ONE_TEST isn't nil, run a single test and output it into a gitignore'd dir
