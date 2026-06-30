@@ -192,4 +192,5 @@
     <string name="my_country_optional">Mana valsts (pašu izvēle, neobligāti)</string>
     <string name="battery_optimization_title">Atspējot akumulatora optimizāciju</string>
     <string name="scan_qr_code">Nolasīt kvadrātkodu (QR kodu)</string>
+    <string name="testing_continue">Turpināt</string>
 </resources>
