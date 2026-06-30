@@ -3,6 +3,7 @@ package org.torproject.android.ui.connect
 import android.app.AlarmManager
 import android.content.Context
 import android.content.Intent
+import android.graphics.Paint
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -47,7 +48,6 @@ class ConnectFragment : Fragment(),
     lateinit var binding: FragmentConnectBinding
 
     val viewModel: ConnectViewModel by activityViewModels()
-
     private val startTorVpnResultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             // The user pressed OK, we can start Tor VPN
@@ -167,41 +167,27 @@ class ConnectFragment : Fragment(),
 
     // see https://github.com/guardianproject/orbot-android/pull/1707
     private fun updatePrivateDnsLabel() {
-        var labelVisibility = View.VISIBLE
-        var labelText = ""
-        var dialogMsg = ""
-        var onLabelClick: () -> Unit = {
-            AlertDialog.Builder(requireContext())
-                .setTitle(R.string.private_dns)
-                .setMessage(dialogMsg)
-                .setPositiveButton(android.R.string.ok, null)
-                .show()
-        }
-
         val privateDns = NetworkUtils.PrivateDns.getPrivateDnsConfiguration(requireContext())
         when (privateDns) {
-            is NetworkUtils.PrivateDns.Off -> {
-                labelVisibility = View.GONE
-                onLabelClick = {}
-            }
-
-            is NetworkUtils.PrivateDns.Opportunistic -> {
-                labelVisibility = View.VISIBLE
-                labelText = getString(R.string.private_dns_automatic)
-                dialogMsg = "opportunistic explanation"
+            is NetworkUtils.PrivateDns.Off, NetworkUtils.PrivateDns.Opportunistic -> {
+                binding.tvPrivateDnsStatus.visibility = View.GONE
             }
 
             is NetworkUtils.PrivateDns.Strict -> {
-                labelVisibility = View.VISIBLE
-                labelText = "${getString(R.string.private_dns_strict)}\n${privateDns.hostname}"
-                dialogMsg = "strict explanation ${privateDns.hostname}"
+                binding.tvPrivateDnsStatus.apply {
+                    paintFlags = paintFlags or Paint.UNDERLINE_TEXT_FLAG
+                    visibility = View.VISIBLE
+                    text = "${getString(R.string.private_dns_strict)}\n${privateDns.hostname}"
+                    setOnClickListener {
+                        AlertDialog.Builder(requireContext(), R.style.OrbotDialogTheme)
+                            .setTitle(R.string.private_dns)
+                            .setIcon(R.drawable.ic_stat_notifyerr)
+                            .setMessage(R.string.private_dns_explanation)
+                            .setPositiveButton(android.R.string.ok, null)
+                            .show()
+                    }
+                }
             }
-        }
-
-        binding.tvPrivateDnsStatus.apply {
-            visibility = labelVisibility
-            text = labelText
-            setOnClickListener { onLabelClick() }
         }
     }
 
