@@ -1,3 +1,24 @@
+/** 17.9.5-RC-2-tor-0.4.9.11 30 June 2026 ef1232789f8e3ecde517aa5b3ae2ba96c5c1a5be **/
+
+99e24d21b update build-in bridges
+43ba1cb3d update to tor-android 0.4.9.11
+49c8350c0 (origin/master, origin/HEAD) use gradle 9.6.1, faster confiuration cache performance
+d286faf1a use snowflake 2.14.1 in new IPtProxy release
+5abc0f662 update built in bridges from torproject
+b81d0b9bc update geoip for tor 0.4.9.11
+f634bdcab tweaked fun AlertDialog.Builder.createWithCurves()
+f3cf0c776 Merge pull request #1731 from guardianproject/api37
+4958414ba 3 small fixes
+4d485373d Merge branch 'master' into api37
+7dc90dc6b explicitly include material3, was able to build it within android studio but ./gradlew complained about the dependency being absent
+f8aa48baf upgrade to WaifuUPnP v1.1.0 with my api37 + gradle changesets applied
+c588949da Finished ACCESS_LOCAL_NETWORK permission logic for Android 17
+2c39b232e Merge branch 'master' into api37
+5aa8ee422 other themeing and misc appcompat warnings
+c7e14d271 make screenshot prevention setting default to false if user hasnt set it #1729
+91bea1f77 explicitly decalre androidx core for resourcecompat.rebase method not found error #1729
+8c4c64574 (origin/1715-1728-arm32-crash) fix for #1728 lateinit playstore crash
+
 /** 17.9.5-RC-1-tor-0.4.9.9 24 Jun 2026 2ffe5a6ff13b6930f28bc3bcdf1e33479410e790 **/
 
 Important fixes and changes since 17.9.3-RC-1-tor-0.4.9.6:
