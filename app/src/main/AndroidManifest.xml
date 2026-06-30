@@ -40,9 +40,16 @@
     </queries>
 
     <!--
-    usesCleartextTraffic is needed for SSDP multicast local router discovery (which is an unencrypted
-    HTTP-style protocol) and for UPnP IGD requests to map ports for Snowflake Proxy, (which are also
-    unencrypted HTTP-style requests).
+        android:allowBackup="false"
+        "Note: For apps targeting Android 12 (API level 31) or higher, this behavior varies.
+        On devices from some device manufacturers, you can't disable device-to-device migration of
+        your app's files."
+        https://developer.android.com/about/versions/12/behavior-changes-12#backup-restore
+    -->
+    <!--
+        android:usesCleartextTraffic is needed for SSDP multicast local router discovery (which is
+        an unencrypted HTTP-style protocol) and for UPnP IGD requests to map ports for Snowflake
+        Proxy, (which are also unencrypted HTTP-style requests).
      -->
     <application
         android:name=".OrbotApp"
@@ -55,7 +62,6 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:taskAffinity=""
         android:theme="@style/DefaultTheme"
         android:usesCleartextTraffic="true">
 
