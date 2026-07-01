@@ -137,7 +137,7 @@
     <string name="btn_choose_apps">Scegli le app</string>
     <string name="app_suggested_subtitle">Orbot funziona meglio con le app di messaggistica e social.</string>
     <string name="power_user_mode">Modalità utente esperto</string>
-    <string name="strict_nodes_description">Tratta l\'impostazione \"Nodi da escludere\" come requisito per creare tutti i circuiti. Può causare errori se nessun circuito è in grado di essere generato con la tua impostazione \"Nodi da escludere\".</string>
+    <string name="strict_nodes_description">Tratta l\'impostazione \"Nodi da escludere\" come requisito per creare tutti i circuiti. Può causare errori se nessun circuito può essere generato con la tua impostazione \"Nodi da escludere\".</string>
     <string name="option_only_on_wifi">Solo su Wifi</string>
     <string name="option_only_when_charging">Solo quando in carica</string>
     <string name="smart_connect">Connessione intelligente</string>
@@ -289,5 +289,18 @@
     <string name="volunteer_mode_alltime_label">Totale</string>
     <string name="action_learn_more">Scopri di più</string>
     <string name="Enabled">Attivato</string>
-    <string name="kindness_proxy_quality_unknown">sconosciuto</string>
+    <string name="kindness_proxy_quality_unknown">sconosciuta</string>
+    <string name="volunteer_mode_title">Modalità altruismo: aiuta altri a connettersi a Tor</string>
+    <string name="volunteer_mode_subtitle_desc">La modalità altruismo rende il tuo dispositivo un proxy Snowflake nella rete Tor: un ponte per aiutare altri a connettersi.</string>
+    <string name="Disabled">Disattivato</string>
+    <string name="Paused">In pausa</string>
+    <string name="kindness_usage_limit">Limiti di utilizzo</string>
+    <string name="kindness_usage_limits_status_on">on</string>
+    <string name="kindness_usage_limits_status_off">off</string>
+    <string name="kindness_proxy_quality">Qualità proxy</string>
+    <string name="kindness_proxy_quality_restricted">limitata</string>
+    <string name="kindness_proxy_quality_unrestricted">senza limiti</string>
+    <string name="kindness_quality_upgrade_title">Aggiorna il tuo proxy Snowflake</string>
+    <string name="kindness_quality_upgrade_line1">Il tuo proxy può essere più performante quando la modalità altruismo usa il Wi-Fi.</string>
+    <string name="kindness_quality_upgrade_line2">Per aggiornare, attiva UPnP nel tuo ruoter Wi-Fi per questo dispositivo.</string>
 </resources>
