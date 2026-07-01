@@ -1,0 +1,97 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "org.torproject.android",
+  "variantName": "fullpermRelease",
+  "elements": [
+    {
+      "type": "UNIVERSAL",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 1795300200,
+      "versionName": "17.9.5-RC-2-tor-0.4.9.11",
+      "outputFile": "Orbot-17.9.5-RC-2-tor-0.4.9.11-fullperm-universal-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "armeabi-v7a"
+        }
+      ],
+      "attributes": [],
+      "versionCode": 1795300201,
+      "versionName": "17.9.5-RC-2-tor-0.4.9.11",
+      "outputFile": "Orbot-17.9.5-RC-2-tor-0.4.9.11-fullperm-armeabi-v7a-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "x86_64"
+        }
+      ],
+      "attributes": [],
+      "versionCode": 1795300205,
+      "versionName": "17.9.5-RC-2-tor-0.4.9.11",
+      "outputFile": "Orbot-17.9.5-RC-2-tor-0.4.9.11-fullperm-x86_64-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "x86"
+        }
+      ],
+      "attributes": [],
+      "versionCode": 1795300204,
+      "versionName": "17.9.5-RC-2-tor-0.4.9.11",
+      "outputFile": "Orbot-17.9.5-RC-2-tor-0.4.9.11-fullperm-x86-release.apk"
+    },
+    {
+      "type": "ONE_OF_MANY",
+      "filters": [
+        {
+          "filterType": "ABI",
+          "value": "arm64-v8a"
+        }
+      ],
+      "attributes": [],
+      "versionCode": 1795300202,
+      "versionName": "17.9.5-RC-2-tor-0.4.9.11",
+      "outputFile": "Orbot-17.9.5-RC-2-tor-0.4.9.11-fullperm-arm64-v8a-release.apk"
+    }
+  ],
+  "elementType": "File",
+  "baselineProfiles": [
+    {
+      "minApi": 28,
+      "maxApi": 30,
+      "baselineProfiles": [
+        "baselineProfiles/1/Orbot-17.9.5-RC-2-tor-0.4.9.11-fullperm-universal-release.dm",
+        "baselineProfiles/1/Orbot-17.9.5-RC-2-tor-0.4.9.11-fullperm-armeabi-v7a-release.dm",
+        "baselineProfiles/1/Orbot-17.9.5-RC-2-tor-0.4.9.11-fullperm-x86_64-release.dm",
+        "baselineProfiles/1/Orbot-17.9.5-RC-2-tor-0.4.9.11-fullperm-x86-release.dm",
+        "baselineProfiles/1/Orbot-17.9.5-RC-2-tor-0.4.9.11-fullperm-arm64-v8a-release.dm"
+      ]
+    },
+    {
+      "minApi": 31,
+      "maxApi": 2147483647,
+      "baselineProfiles": [
+        "baselineProfiles/0/Orbot-17.9.5-RC-2-tor-0.4.9.11-fullperm-universal-release.dm",
+        "baselineProfiles/0/Orbot-17.9.5-RC-2-tor-0.4.9.11-fullperm-armeabi-v7a-release.dm",
+        "baselineProfiles/0/Orbot-17.9.5-RC-2-tor-0.4.9.11-fullperm-x86_64-release.dm",
+        "baselineProfiles/0/Orbot-17.9.5-RC-2-tor-0.4.9.11-fullperm-x86-release.dm",
+        "baselineProfiles/0/Orbot-17.9.5-RC-2-tor-0.4.9.11-fullperm-arm64-v8a-release.dm"
+      ]
+    }
+  ],
+  "minSdkVersionForDexing": 24
+}
