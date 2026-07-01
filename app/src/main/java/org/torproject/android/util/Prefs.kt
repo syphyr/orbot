@@ -314,7 +314,7 @@ object Prefs {
         get() = cr?.getPrefBoolean(PREF_POWER_USER_MODE) ?: false
 
     var isSecureWindow: Boolean
-        get() = cr?.getPrefBoolean(PREF_SECURE_WINDOW_FLAG, true) ?: true
+        get() = cr?.getPrefBoolean(PREF_SECURE_WINDOW_FLAG) ?: false
         set(isFlagSecure) = cr?.putPref(PREF_SECURE_WINDOW_FLAG, isFlagSecure) ?: Unit
 
     const val DEFAULT_CAMO_DISABLED_ACTIVITY: String = "org.torproject.android.OrbotActivity"
