@@ -285,4 +285,9 @@
     <string name="pref_proxy_no_proxy">Nessun proxy</string>
     <string name="pref_proxy_ss_title">URL di configurazione ShadowSocks</string>
     <string name="pref_proxy_ss_summary">URL completo di configurazione ShadowSocks che inizia con ss://</string>
+    <string name="volunteer_mode_weekly_label">Questa settimana</string>
+    <string name="volunteer_mode_alltime_label">Totale</string>
+    <string name="action_learn_more">Scopri di più</string>
+    <string name="Enabled">Attivato</string>
+    <string name="kindness_proxy_quality_unknown">sconosciuto</string>
 </resources>
