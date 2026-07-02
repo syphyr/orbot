@@ -1,7 +1,6 @@
 package org.torproject.android.ui.kindness
 
 import IPtProxy.IPtProxy
-import android.app.AlertDialog
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.ColorStateList
@@ -28,9 +27,9 @@ class KindnessFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         mBinding = FragmentKindnessBinding.inflate(inflater)
-        mBinding.swVolunteerMode.isChecked = Prefs.beSnowflakeProxy()
+        mBinding.swVolunteerMode.isChecked = Prefs.beSnowflakeProxy
         mBinding.swVolunteerMode.setOnCheckedChangeListener { _, isChecked ->
-            Prefs.setBeSnowflakeProxy(isChecked)
+            Prefs.beSnowflakeProxy = isChecked
             activity?.let {
                 if (isChecked) {
                     SnowflakeProxyService.startSnowflakeProxyForegroundService(it)
@@ -117,7 +116,7 @@ class KindnessFragment : Fragment() {
             mBinding.ivHeader.setColorFilter(Color.GRAY, PorterDuff.Mode.SRC_IN)
             mBinding.ivHeader.alpha = 1f
         }
-        if (!Prefs.beSnowflakeProxy()) {
+        if (!Prefs.beSnowflakeProxy) {
             mBinding.swVolunteerHeader.text = getString(R.string.Disabled)
             grayIcon()
             return

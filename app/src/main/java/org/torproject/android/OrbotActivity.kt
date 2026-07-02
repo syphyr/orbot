@@ -68,7 +68,10 @@ class OrbotActivity : BaseActivity() {
 
         // programmatically set title to "Orbot" since camo mode will overwrite it here from manifest
         title = getString(R.string.app_name)
-
+        savedInstanceState?.let {
+            portSocks = it.getInt(BUNDLE_KEY_SOCKS, -1)
+            portHttp = it.getInt(BUNDLE_KEY_HTTP, -1)
+        }
         try {
             createOrbot()
 
@@ -77,6 +80,14 @@ class OrbotActivity : BaseActivity() {
             //clear malicious intent
             intent = null
             finish()
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.apply {
+            putInt(BUNDLE_KEY_SOCKS, portSocks)
+            putInt(BUNDLE_KEY_HTTP, portHttp)
         }
     }
 
@@ -227,7 +238,7 @@ class OrbotActivity : BaseActivity() {
         sendIntentToService(OrbotConstants.CMD_ACTIVE)
 
 
-        if (Prefs.beSnowflakeProxy()) {
+        if (Prefs.beSnowflakeProxy) {
             SnowflakeProxyService.startSnowflakeProxyForegroundService(this)
         }
 
@@ -324,7 +335,8 @@ class OrbotActivity : BaseActivity() {
 
     companion object {
         private const val TAG = "OrbotActivity"
-        private const val KEY_TOR_STATUS = "key_tor_status"
+        private const val BUNDLE_KEY_SOCKS = "socks"
+        private const val BUNDLE_KEY_HTTP = "http"
         const val REQUEST_CODE_VPN = 1234
 
         // Make sure this is only shown once per app-start, not on every device rotation.
