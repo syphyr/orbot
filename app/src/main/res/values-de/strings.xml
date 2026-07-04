@@ -236,4 +236,7 @@
     <string name="set_permission_in_settings">Berechtigung in den Einstellungen festlegen</string>
     <string name="testing_title_approved">%s Genehmigt</string>
     <string name="testing_title_declined">%s Nicht genehmigt</string>
+    <string name="Disabled">Deaktiviert</string>
+    <string name="kindness_proxy_quality_unknown">unbekannt</string>
+    <string name="kindness_proxy_quality_restricted">eingeschränkt</string>
 </resources>
