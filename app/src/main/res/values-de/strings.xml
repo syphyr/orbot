@@ -223,4 +223,5 @@
     <string name="socks_port">SOCKS-Port</string>
     <string name="http_port">HTTP-Port</string>
     <string name="country_clear">Land entfernen</string>
+    <string name="Enabled">Aktiv</string>
 </resources>
