@@ -1,14 +1,21 @@
 /* Copyright (c) 2009, Nathan Freitas, Orbot / The Guardian Project - http://openideals.com/guardian */ /* See LICENSE for licensing information */
 package org.torproject.android.ui.more
 
+import android.Manifest
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.text.InputType
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
+import androidx.core.app.ActivityCompat
 import androidx.core.os.LocaleListCompat
+import androidx.preference.CheckBoxPreference
 import androidx.preference.EditTextPreference
 import androidx.preference.ListPreference
 import androidx.preference.Preference
@@ -18,9 +25,11 @@ import org.torproject.android.R
 import org.torproject.android.localization.Languages
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.tor.ShadowSocks
+import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.removeEntry
 import org.torproject.android.util.sendIntentToService
+import org.torproject.android.util.showToast
 
 class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceChangeListener {
     private var toolbar: Toolbar? = null
@@ -36,6 +45,12 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
     val passwordPrefs = listOf(
         "pref_proxy_password"
     )
+
+    private val requestLocalNetworkPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+            findPreference<CheckBoxPreference>("pref_open_proxy_on_all_interfaces")?.isChecked =
+                granted
+        }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -108,6 +123,18 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
                 true
             }
 
+        findPreference<CheckBoxPreference>("pref_open_proxy_on_all_interfaces")?.onPreferenceChangeListener =
+            OnPreferenceChangeListener { _, newValue ->
+                if (newValue == true && NetworkUtils.needsAccessLocalNetworkPermission(requireContext()) == true) {
+                    requestLocalNetworkPermission()
+                    // don't let the CheckBoxPreference commit yet, it gets set once the
+                    // permission result comes back
+                    false
+                } else {
+                    true
+                }
+            }
+
         val proxyType = findPreference<ListPreference>("pref_proxy_type")
         if (!ShadowSocks.isShadowSocksSupported()) {
             proxyType?.removeEntry(ShadowSocks.SCHEME)
@@ -121,6 +148,24 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
             proxyType.onPreferenceChangeListener = this
 
             onPreferenceChange(proxyType, proxyType.value)
+        }
+    }
+
+    private fun requestLocalNetworkPermission() {
+        requireContext().showToast(R.string.open_proxy_needs_local_network_permission)
+        val repeatedlyDenied = ActivityCompat.shouldShowRequestPermissionRationale(
+            requireActivity(),
+            Manifest.permission.ACCESS_LOCAL_NETWORK
+        )
+        if (repeatedlyDenied) {
+            startActivity(
+                Intent(
+                    Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                    Uri.fromParts("package", requireActivity().packageName, null)
+                ).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            )
+        } else {
+            requestLocalNetworkPermissionLauncher.launch(Manifest.permission.ACCESS_LOCAL_NETWORK)
         }
     }
 

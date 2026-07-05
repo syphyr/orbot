@@ -24,7 +24,13 @@ object TorConfig {
         val isolate = getIsolation()
         val ipv6Pref = getIpv6()
 
-        if (Prefs.openProxyOnAllInterfaces()) {
+        // on API 37+ this also needs ACCESS_LOCAL_NETWORK. If the pref is on but the permission
+        // got revoked (or was never granted), fall back to a localhost-only SOCKSPort instead of
+        // silently binding to an address nothing can reach.
+        val openOnAllInterfaces = Prefs.openProxyOnAllInterfaces() &&
+                NetworkUtils.needsAccessLocalNetworkPermission(context) != true
+
+        if (openOnAllInterfaces) {
             conf.add("SOCKSPort 0.0.0.0:$socksPortPref $ipv6Pref $isolate")
             conf.add("SocksPolicy accept *:*")
         } else {
