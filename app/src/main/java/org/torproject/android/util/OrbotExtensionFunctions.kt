@@ -5,6 +5,7 @@ import android.app.AlarmManager
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.net.VpnService
 import android.os.Build
 import android.os.PowerManager
@@ -135,6 +136,16 @@ fun Fragment.haveIBeenDetached(): Boolean {
     if (retVal)
         Log.d(javaClass.simpleName, "has been detached on (other) Thread, aborting...")
     return retVal
+}
+
+// open top-level system settings for Orbot
+fun Fragment.openSystemSettings() {
+    activity?.startActivity(
+        Intent(
+            Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+            Uri.fromParts("package", activity?.packageName, null)
+        ).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    )
 }
 
 fun ListPreference.removeEntry(label: String) {

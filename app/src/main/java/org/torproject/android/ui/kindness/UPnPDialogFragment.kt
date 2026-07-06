@@ -4,10 +4,7 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.app.Dialog
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
-import android.provider.Settings
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.fragment.app.DialogFragment
@@ -15,6 +12,7 @@ import androidx.fragment.app.FragmentManager
 import org.torproject.android.R
 import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.createWithCurves
+import org.torproject.android.util.openSystemSettings
 
 class UPnPDialogFragment : DialogFragment() {
     @SuppressLint("InlinedApi")
@@ -43,12 +41,7 @@ class UPnPDialogFragment : DialogFragment() {
             builder
                 .setNeutralButton(permissionButtonText) { _, _ ->
                     if (repeatedlyDenied) {
-                        activity?.startActivity(
-                            Intent(
-                                Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                                Uri.fromParts("package", activity?.packageName, null)
-                            ).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        )
+                        openSystemSettings()
                     } else {
                         requestPermissionLauncher.launch(Manifest.permission.ACCESS_LOCAL_NETWORK)
                     }
