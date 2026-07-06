@@ -62,6 +62,7 @@
     <string name="newnym">You\'ve switched to a new Tor identity!</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Open Proxy on All Interfaces</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Allow Wi-Fi peers, tethered devices and anyone else who can connect to your IP, to access Tor</string>
+    <string name="open_proxy_needs_local_network_permission">On Android 17 and higher, Orbot needs the Allow Access to Nearby Devices permission to open the proxy on all interfaces.</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_socks_summary">Port that Tor offers its SOCKS proxy on (default: 9050 or 0 to disable)</string>
     <string name="pref_socks_dialog">SOCKS Port Config</string>

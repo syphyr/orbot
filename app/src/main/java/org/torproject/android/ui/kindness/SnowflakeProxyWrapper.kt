@@ -12,6 +12,7 @@ import kotlinx.coroutines.launch
 import org.torproject.android.R
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.BuiltInBridges
+import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.showToast
 import java.io.BufferedReader
@@ -33,7 +34,7 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
         if (proxy != null) return
         CoroutineScope(Dispatchers.IO).launch {
             val start = Random.nextInt(49152, 65536 - 2)
-            if (UPnPDialogFragment.needsAccessLocalNetworkPermission(service) != true) {
+            if (NetworkUtils.needsAccessLocalNetworkPermission(service) != true) {
                 for (port in (start..start + 2)) {
                     if (UPnP.openPortUDP(port, OrbotConstants.TAG)) {
                         mappedPorts.add(port)
