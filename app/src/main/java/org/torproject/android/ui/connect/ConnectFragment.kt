@@ -46,6 +46,8 @@ class ConnectFragment : Fragment(),
 
     val viewModel: ConnectViewModel by activityViewModels()
 
+    private var savedInstanceProgressValue: Int? = null
+
     private val startTorVpnResultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             // The user pressed OK, we can start Tor VPN
@@ -79,7 +81,7 @@ class ConnectFragment : Fragment(),
                             state.bootstrapPercent?.let {
                                 viewModel.updateBootstrapPercent(it)
                             }
-                            doLayoutStarting(requireContext())
+                            doLayoutStarting(requireContext(), savedInstanceState)
                         }
 
                         is ConnectUiState.On -> {
@@ -336,12 +338,13 @@ class ConnectFragment : Fragment(),
         binding.ivStatus.setOnClickListener(null)
     }
 
-    fun doLayoutStarting(context: Context) {
+    fun doLayoutStarting(context: Context, savedInstanceState: Bundle?) {
         binding.tvSubtitle.visibility = View.VISIBLE
         binding.tvSubtitle.text = viewModel.subtitleState.value
         with(binding.progressBar) {
             visibility = View.VISIBLE
-            progress = (viewModel.uiState.value as ConnectUiState.Starting).bootstrapPercent ?: 0
+            progress = (viewModel.uiState.value as ConnectUiState.Starting).bootstrapPercent
+                ?: savedInstanceState?.getInt(BUNDLE_KEY_PROGRESS) ?: 0
         }
 
 
@@ -378,5 +381,19 @@ class ConnectFragment : Fragment(),
         )
 
         refreshMenuList(requireContext())
+    }
+
+    companion object {
+        private const val BUNDLE_KEY_PROGRESS = "prog"
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        if (viewModel.uiState.value is ConnectUiState.Starting) {
+            val progress =
+                (viewModel.uiState.value as ConnectUiState.Starting).bootstrapPercent ?: 0
+            if (progress == 0) return
+            outState.putInt(BUNDLE_KEY_PROGRESS, progress)
+        }
     }
 }

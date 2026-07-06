@@ -21,21 +21,20 @@ class ConnectViewModel : ViewModel() {
     private val _logState = MutableStateFlow("")
     private val _subtitleState = MutableStateFlow("")
     val logState: StateFlow<String> = _logState
-    val subtitleState : StateFlow<String> = _subtitleState
+    val subtitleState: StateFlow<String> = _subtitleState
 
     private val _eventChannel = Channel<ConnectEvent>(Channel.BUFFERED)
     val events = _eventChannel.receiveAsFlow()
 
     fun updateState(context: Context, status: String?) {
         val newState = when {
+            status == TorService.STATUS_STARTING -> ConnectUiState.Starting(null)
+            status == TorService.STATUS_ON -> ConnectUiState.On
+            status == TorService.STATUS_STOPPING -> ConnectUiState.Stopping
             !NetworkUtils.isNetworkAvailable(
                 context,
                 allowOtherVpnApps = true
             ) -> ConnectUiState.NoInternet
-
-            status == TorService.STATUS_STARTING -> ConnectUiState.Starting(null)
-            status == TorService.STATUS_ON -> ConnectUiState.On
-            status == TorService.STATUS_STOPPING -> ConnectUiState.Stopping
             else -> ConnectUiState.Off
         }
         _uiState.value = newState

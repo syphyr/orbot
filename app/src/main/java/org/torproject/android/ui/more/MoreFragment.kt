@@ -79,7 +79,7 @@ class MoreFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentMoreBinding.inflate(layoutInflater)
         (context as AppCompatActivity).setSupportActionBar(binding.toolbar)
         binding.toolbar.title = requireContext().getString(R.string.app_name)
