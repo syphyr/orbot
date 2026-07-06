@@ -17,8 +17,9 @@ class DNSTTConfirmationDialog : DialogFragment() {
             .setNegativeButton(android.R.string.cancel, null)
             .setPositiveButton(R.string.connect) { _, _ ->
                 dismiss()
-                val parent = requireActivity().supportFragmentManager.findFragmentByTag(TAG)
-                        as ConfigConnectionBottomSheet
+                val parent = requireActivity().supportFragmentManager.findFragmentByTag(
+                    ConfigConnectionBottomSheet.TAG
+                ) as ConfigConnectionBottomSheet
                 parent.closeAndConnect()
             }
             .createWithCurves()
