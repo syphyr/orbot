@@ -173,7 +173,7 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
 
     @RequiresApi(Build.VERSION_CODES.CINNAMON_BUN)
     private fun requestLocalNetworkPermission() {
-        AlertDialog.Builder(requireContext())
+        AlertDialog.Builder(requireContext(), R.style.OrbotDialogTheme)
             .setTitle(R.string.pref_open_proxy_on_all_interfaces_title)
             .setMessage(R.string.open_proxy_needs_local_network_permission)
             .setPositiveButton(R.string.grant_permission) { _, _ ->
