@@ -2,6 +2,7 @@
 package org.torproject.android.ui.more
 
 import android.Manifest
+import android.app.AlertDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -28,9 +29,9 @@ import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.tor.ShadowSocks
 import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.createWithCurves
 import org.torproject.android.util.removeEntry
 import org.torproject.android.util.sendIntentToService
-import org.torproject.android.util.showToast
 
 class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceChangeListener {
     private var toolbar: Toolbar? = null
@@ -167,21 +168,28 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
 
     @RequiresApi(Build.VERSION_CODES.CINNAMON_BUN)
     private fun requestLocalNetworkPermission() {
-        requireContext().showToast(R.string.open_proxy_needs_local_network_permission)
-        val repeatedlyDenied = ActivityCompat.shouldShowRequestPermissionRationale(
-            requireActivity(),
-            Manifest.permission.ACCESS_LOCAL_NETWORK
-        )
-        if (repeatedlyDenied) {
-            startActivity(
-                Intent(
-                    Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                    Uri.fromParts("package", requireActivity().packageName, null)
-                ).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            )
-        } else {
-            requestLocalNetworkPermissionLauncher.launch(Manifest.permission.ACCESS_LOCAL_NETWORK)
-        }
+        AlertDialog.Builder(requireContext())
+            .setTitle(R.string.pref_open_proxy_on_all_interfaces_title )
+            .setMessage(R.string.open_proxy_needs_local_network_permission)
+            .setPositiveButton(R.string.grant_permission) { _, _ ->
+                val repeatedlyDenied = ActivityCompat.shouldShowRequestPermissionRationale(
+                    requireActivity(),
+                    Manifest.permission.ACCESS_LOCAL_NETWORK
+                )
+                if (repeatedlyDenied) {
+                    startActivity(
+                        Intent(
+                            Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                            Uri.fromParts("package", requireActivity().packageName, null)
+                        ).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    )
+                } else {
+                    requestLocalNetworkPermissionLauncher.launch(Manifest.permission.ACCESS_LOCAL_NETWORK)
+                }
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .createWithCurves()
+            .show()
     }
 
     override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
