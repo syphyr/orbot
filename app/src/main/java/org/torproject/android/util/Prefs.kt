@@ -3,6 +3,7 @@ package org.torproject.android.util
 import android.content.ContentResolver
 import android.content.Context
 import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
@@ -166,6 +167,17 @@ object Prefs {
             return prefSet && NetworkUtils.needsAccessLocalNetworkPermission(context) != true
         }
         return prefSet
+    }
+
+    @RequiresApi(Build.VERSION_CODES.CINNAMON_BUN)
+    fun resetOpenProxyOnAllInterfacesIfPermissionRevoked(context: Context) {
+        // if the preference was set
+        if (cr?.getPrefBoolean(PREF_OPEN_PROXY_ON_ALL_INTERFACES) ?: false) {
+            // but the permission was revoked by the user outside Orbot
+            if (NetworkUtils.needsAccessLocalNetworkPermission(context) == true) {
+                cr?.putPref(PREF_OPEN_PROXY_ON_ALL_INTERFACES, false)
+            }
+        }
     }
 
     @JvmStatic

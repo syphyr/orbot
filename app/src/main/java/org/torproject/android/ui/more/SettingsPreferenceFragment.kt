@@ -52,6 +52,13 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
                 granted
         }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CINNAMON_BUN) {
+            Prefs.resetOpenProxyOnAllInterfacesIfPermissionRevoked(requireContext())
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         toolbar = view.findViewById(R.id.toolbar)
@@ -167,7 +174,7 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
     @RequiresApi(Build.VERSION_CODES.CINNAMON_BUN)
     private fun requestLocalNetworkPermission() {
         AlertDialog.Builder(requireContext())
-            .setTitle(R.string.pref_open_proxy_on_all_interfaces_title )
+            .setTitle(R.string.pref_open_proxy_on_all_interfaces_title)
             .setMessage(R.string.open_proxy_needs_local_network_permission)
             .setPositiveButton(R.string.grant_permission) { _, _ ->
                 val repeatedlyDenied = ActivityCompat.shouldShowRequestPermissionRationale(
