@@ -10,6 +10,7 @@ import android.provider.Settings
 import android.text.InputType
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
@@ -48,7 +49,7 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
 
     private val requestLocalNetworkPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
-            findPreference<CheckBoxPreference>("pref_open_proxy_on_all_interfaces")?.isChecked =
+            findPreference<CheckBoxPreference>(Prefs.PREF_OPEN_PROXY_ON_ALL_INTERFACES)?.isChecked =
                 granted
         }
 
@@ -123,17 +124,10 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
                 true
             }
 
-        findPreference<CheckBoxPreference>("pref_open_proxy_on_all_interfaces")?.onPreferenceChangeListener =
-            OnPreferenceChangeListener { _, newValue ->
-                if (newValue == true && NetworkUtils.needsAccessLocalNetworkPermission(requireContext()) == true) {
-                    requestLocalNetworkPermission()
-                    // don't let the CheckBoxPreference commit yet, it gets set once the
-                    // permission result comes back
-                    false
-                } else {
-                    true
-                }
-            }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CINNAMON_BUN) {
+            setListenersForLocalNetworkPreferences()
+        }
+
 
         val proxyType = findPreference<ListPreference>("pref_proxy_type")
         if (!ShadowSocks.isShadowSocksSupported()) {
@@ -151,6 +145,27 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
         }
     }
 
+
+    @RequiresApi(Build.VERSION_CODES.CINNAMON_BUN)
+    private fun setListenersForLocalNetworkPreferences() {
+        findPreference<CheckBoxPreference>(Prefs.PREF_OPEN_PROXY_ON_ALL_INTERFACES)?.onPreferenceChangeListener =
+            OnPreferenceChangeListener { _, newValue ->
+                if (newValue == true && NetworkUtils.needsAccessLocalNetworkPermission(
+                        requireContext()
+                    ) == true
+                ) {
+                    requestLocalNetworkPermission()
+                    // don't let the CheckBoxPreference commit yet, it gets set once the
+                    // permission result comes back
+                    false
+                } else {
+                    true
+                }
+            }
+
+    }
+
+    @RequiresApi(Build.VERSION_CODES.CINNAMON_BUN)
     private fun requestLocalNetworkPermission() {
         requireContext().showToast(R.string.open_proxy_needs_local_network_permission)
         val repeatedlyDenied = ActivityCompat.shouldShowRequestPermissionRationale(
