@@ -223,4 +223,20 @@
     <string name="socks_port">SOCKS-Port</string>
     <string name="http_port">HTTP-Port</string>
     <string name="country_clear">Land entfernen</string>
+    <string name="Enabled">Aktiviert</string>
+    <string name="Paused">Pausiert</string>
+    <string name="pref_proxy_no_proxy">Kein Proxy</string>
+    <string name="pref_proxy_ss_title">URL für die ShadowSocks-Konfiguration</string>
+    <string name="pref_proxy_ss_summary">Vollständige URL für die Konfiguration von ShadowSocks, beginnend mit ss://</string>
+    <string name="volunteer_mode_weekly_label">Diese Woche</string>
+    <string name="volunteer_mode_alltime_label">Gesamt</string>
+    <string name="action_learn_more">Mehr erfahren</string>
+    <string name="kindness_proxy_quality_unrestricted">uneingeschränkt</string>
+    <string name="grant_permission">Berechtigung erteilen</string>
+    <string name="set_permission_in_settings">Berechtigung in den Einstellungen festlegen</string>
+    <string name="testing_title_approved">%s Genehmigt</string>
+    <string name="testing_title_declined">%s Nicht genehmigt</string>
+    <string name="Disabled">Deaktiviert</string>
+    <string name="kindness_proxy_quality_unknown">unbekannt</string>
+    <string name="kindness_proxy_quality_restricted">eingeschränkt</string>
 </resources>

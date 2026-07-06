@@ -2,6 +2,8 @@ package org.torproject.android.util
 
 import android.content.ContentResolver
 import android.content.Context
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
@@ -22,7 +24,7 @@ object Prefs {
     private const val PREF_ENABLE_LOGGING = "pref_enable_logging"
     private const val PREF_START_ON_BOOT = "pref_start_boot"
     private const val PREF_ALLOW_BACKGROUND_STARTS = "pref_allow_background_starts"
-    private const val PREF_OPEN_PROXY_ON_ALL_INTERFACES = "pref_open_proxy_on_all_interfaces"
+    const val PREF_OPEN_PROXY_ON_ALL_INTERFACES = "pref_open_proxy_on_all_interfaces"
     private const val PREF_USE_VPN = "pref_vpn"
     private const val PREF_LAST_SNOWFLAKE_QUALITY_CHECK = "pref_last_snowflake_quality_check"
     private const val PREF_EXIT_NODES = "pref_exit_nodes"
@@ -57,7 +59,6 @@ object Prefs {
     const val PREF_ORBOT_SERVICE_LOG = "pref_orbotservice_log"
 
     private var cr: ContentResolver? = null
-
 
     var currentVersionForUpdate: Int
         get() = cr?.getPrefInt(PREF_CURRENT_VERSION) ?: 0
@@ -159,8 +160,24 @@ object Prefs {
         return cr?.getPrefBoolean(PREF_ALLOW_BACKGROUND_STARTS, true) ?: true
     }
 
-    fun openProxyOnAllInterfaces(): Boolean {
-        return cr?.getPrefBoolean(PREF_OPEN_PROXY_ON_ALL_INTERFACES) ?: false
+    fun openProxyOnAllInterfaces(context: Context): Boolean {
+        val prefSet =  cr?.getPrefBoolean(PREF_OPEN_PROXY_ON_ALL_INTERFACES) ?: false
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CINNAMON_BUN) {
+            // on API 37+ this also needs the ACCESS_LOCAL_NETWORK permission
+            return prefSet && NetworkUtils.needsAccessLocalNetworkPermission(context) != true
+        }
+        return prefSet
+    }
+
+    @RequiresApi(Build.VERSION_CODES.CINNAMON_BUN)
+    fun resetOpenProxyOnAllInterfacesIfPermissionRevoked(context: Context) {
+        // if the preference was set
+        if (cr?.getPrefBoolean(PREF_OPEN_PROXY_ON_ALL_INTERFACES) ?: false) {
+            // but the permission was revoked by the user outside Orbot
+            if (NetworkUtils.needsAccessLocalNetworkPermission(context) == true) {
+                cr?.putPref(PREF_OPEN_PROXY_ON_ALL_INTERFACES, false)
+            }
+        }
     }
 
     @JvmStatic

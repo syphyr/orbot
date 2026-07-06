@@ -54,7 +54,7 @@ object Regionalization {
             TURKEY,
             UGANDA,
             UZBEKISTAN
-        ).map { it.lowercase() }
+        )
     }
 
     private const val GERMANY = "DE"

@@ -1,14 +1,20 @@
 /* Copyright (c) 2009, Nathan Freitas, Orbot / The Guardian Project - http://openideals.com/guardian */ /* See LICENSE for licensing information */
 package org.torproject.android.ui.more
 
+import android.Manifest
+import android.app.AlertDialog
 import android.os.Build
 import android.os.Bundle
 import android.text.InputType
 import android.view.View
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.widget.Toolbar
+import androidx.core.app.ActivityCompat
 import androidx.core.os.LocaleListCompat
+import androidx.preference.CheckBoxPreference
 import androidx.preference.EditTextPreference
 import androidx.preference.ListPreference
 import androidx.preference.Preference
@@ -18,7 +24,10 @@ import org.torproject.android.R
 import org.torproject.android.localization.Languages
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.tor.ShadowSocks
+import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
+import org.torproject.android.util.createWithCurves
+import org.torproject.android.util.openSystemSettings
 import org.torproject.android.util.removeEntry
 import org.torproject.android.util.sendIntentToService
 
@@ -36,6 +45,19 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
     val passwordPrefs = listOf(
         "pref_proxy_password"
     )
+
+    private val requestLocalNetworkPermissionLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+            findPreference<CheckBoxPreference>(Prefs.PREF_OPEN_PROXY_ON_ALL_INTERFACES)?.isChecked =
+                granted
+        }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CINNAMON_BUN) {
+            Prefs.resetOpenProxyOnAllInterfacesIfPermissionRevoked(requireContext())
+        }
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -108,6 +130,11 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
                 true
             }
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CINNAMON_BUN) {
+            setListenersForLocalNetworkPreferences()
+        }
+
+
         val proxyType = findPreference<ListPreference>("pref_proxy_type")
         if (!ShadowSocks.isShadowSocksSupported()) {
             proxyType?.removeEntry(ShadowSocks.SCHEME)
@@ -122,6 +149,47 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
 
             onPreferenceChange(proxyType, proxyType.value)
         }
+    }
+
+
+    @RequiresApi(Build.VERSION_CODES.CINNAMON_BUN)
+    private fun setListenersForLocalNetworkPreferences() {
+        findPreference<CheckBoxPreference>(Prefs.PREF_OPEN_PROXY_ON_ALL_INTERFACES)?.onPreferenceChangeListener =
+            OnPreferenceChangeListener { _, newValue ->
+                if (newValue == true && NetworkUtils.needsAccessLocalNetworkPermission(
+                        requireContext()
+                    ) == true
+                ) {
+                    requestLocalNetworkPermission()
+                    // don't let the CheckBoxPreference commit yet, it gets set once the
+                    // permission result comes back
+                    false
+                } else {
+                    true
+                }
+            }
+
+    }
+
+    @RequiresApi(Build.VERSION_CODES.CINNAMON_BUN)
+    private fun requestLocalNetworkPermission() {
+        AlertDialog.Builder(requireContext(), R.style.OrbotDialogTheme)
+            .setTitle(R.string.pref_open_proxy_on_all_interfaces_title)
+            .setMessage(R.string.open_proxy_needs_local_network_permission)
+            .setPositiveButton(R.string.grant_permission) { _, _ ->
+                val repeatedlyDenied = ActivityCompat.shouldShowRequestPermissionRationale(
+                    requireActivity(),
+                    Manifest.permission.ACCESS_LOCAL_NETWORK
+                )
+                if (repeatedlyDenied) {
+                    openSystemSettings()
+                } else {
+                    requestLocalNetworkPermissionLauncher.launch(Manifest.permission.ACCESS_LOCAL_NETWORK)
+                }
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .createWithCurves()
+            .show()
     }
 
     override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
