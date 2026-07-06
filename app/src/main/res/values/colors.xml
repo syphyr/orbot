@@ -17,5 +17,5 @@
 
         <color name="pill_bg_color">#8100B8</color>
         <color name="pill_icon_color">#EFEFEF</color>
-        <color name="pill_text_color">#FFFFFF</color>
+        <color name="pill_text_color">@android:color/white</color>
 </resources>
