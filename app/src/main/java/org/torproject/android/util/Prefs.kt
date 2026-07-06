@@ -2,6 +2,7 @@ package org.torproject.android.util
 
 import android.content.ContentResolver
 import android.content.Context
+import android.os.Build
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequest
 import androidx.work.WorkManager
@@ -57,7 +58,6 @@ object Prefs {
     const val PREF_ORBOT_SERVICE_LOG = "pref_orbotservice_log"
 
     private var cr: ContentResolver? = null
-
 
     var currentVersionForUpdate: Int
         get() = cr?.getPrefInt(PREF_CURRENT_VERSION) ?: 0
@@ -159,8 +159,13 @@ object Prefs {
         return cr?.getPrefBoolean(PREF_ALLOW_BACKGROUND_STARTS, true) ?: true
     }
 
-    fun openProxyOnAllInterfaces(): Boolean {
-        return cr?.getPrefBoolean(PREF_OPEN_PROXY_ON_ALL_INTERFACES) ?: false
+    fun openProxyOnAllInterfaces(context: Context): Boolean {
+        val prefSet =  cr?.getPrefBoolean(PREF_OPEN_PROXY_ON_ALL_INTERFACES) ?: false
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.CINNAMON_BUN) {
+            // on API 37+ this also needs the ACCESS_LOCAL_NETWORK permission
+            return prefSet && NetworkUtils.needsAccessLocalNetworkPermission(context) != true
+        }
+        return prefSet
     }
 
     @JvmStatic
