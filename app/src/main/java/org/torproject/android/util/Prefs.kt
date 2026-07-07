@@ -18,7 +18,7 @@ import java.util.concurrent.TimeUnit
 
 object Prefs {
     private const val PREF_BRIDGES_LIST = "pref_bridges_list"
-    private const val PREF_BRIDGE_COUNTRY = "pref_bridge_country"
+    const val PREF_BRIDGE_COUNTRY = "pref_bridge_country"
     private const val PREF_DEFAULT_LOCALE = "pref_default_locale"
     private const val PREF_DETECT_ROOT = "pref_detect_root"
     private const val PREF_ENABLE_LOGGING = "pref_enable_logging"

@@ -7,6 +7,7 @@ import android.app.Service
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import android.net.Network
 import android.net.NetworkCapabilities
@@ -16,7 +17,9 @@ import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
+import androidx.preference.PreferenceManager
 import org.torproject.android.R
+import org.torproject.android.Regionalization
 import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
 
@@ -30,6 +33,7 @@ class SnowflakeProxyService : Service() {
 
     private lateinit var snowflakeProxyWrapper: SnowflakeProxyWrapper
     private lateinit var powerConnectionReceiver: PowerConnectionReceiver
+    private lateinit var regionChangedObserver: SharedPreferences.OnSharedPreferenceChangeListener
     private lateinit var notificationChannelId: String
 
 
@@ -45,6 +49,15 @@ class SnowflakeProxyService : Service() {
         notificationChannelId = createNotificationChannel()
         snowflakeProxyWrapper = SnowflakeProxyWrapper(this)
         powerConnectionReceiver = PowerConnectionReceiver(this)
+        regionChangedObserver =
+            SharedPreferences.OnSharedPreferenceChangeListener { sharedPreferences, key ->
+                if (key != Prefs.PREF_BRIDGE_COUNTRY) return@OnSharedPreferenceChangeListener
+                if (Regionalization.isKindnessModeDisabledForCountry(Prefs.bridgeCountry)) {
+                    stopSelf()
+                }
+            }
+        PreferenceManager.getDefaultSharedPreferences(this)
+            .registerOnSharedPreferenceChangeListener(regionChangedObserver)
 
         val powerReceiverFilters = IntentFilter(Intent.ACTION_POWER_CONNECTED)
         powerReceiverFilters.addAction(Intent.ACTION_POWER_DISCONNECTED)
@@ -168,6 +181,8 @@ class SnowflakeProxyService : Service() {
         super.onDestroy()
         unregisterReceiver(powerConnectionReceiver)
         val connectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+        PreferenceManager.getDefaultSharedPreferences(this)
+            .unregisterOnSharedPreferenceChangeListener(regionChangedObserver)
         connectivityManager.unregisterNetworkCallback(networkCallbacks)
         stopSnowflakeProxy("in onDestroy()")
     }
