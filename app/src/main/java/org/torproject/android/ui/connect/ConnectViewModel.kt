@@ -26,15 +26,16 @@ class ConnectViewModel : ViewModel() {
     private val _eventChannel = Channel<ConnectEvent>(Channel.BUFFERED)
     val events = _eventChannel.receiveAsFlow()
 
-    fun updateState(context: Context, status: String?) {
+    fun updateState(context: Context, status: String?, progress: Int? = null) {
         val newState = when {
-            status == TorService.STATUS_STARTING -> ConnectUiState.Starting(null)
+            status == TorService.STATUS_STARTING -> ConnectUiState.Starting(progress)
             status == TorService.STATUS_ON -> ConnectUiState.On
             status == TorService.STATUS_STOPPING -> ConnectUiState.Stopping
             !NetworkUtils.isNetworkAvailable(
                 context,
                 allowOtherVpnApps = true
             ) -> ConnectUiState.NoInternet
+
             else -> ConnectUiState.Off
         }
         _uiState.value = newState

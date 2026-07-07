@@ -81,7 +81,7 @@ class ConnectFragment : Fragment(),
                             state.bootstrapPercent?.let {
                                 viewModel.updateBootstrapPercent(it)
                             }
-                            doLayoutStarting(requireContext(), savedInstanceState)
+                            doLayoutStarting(requireContext())
                         }
 
                         is ConnectUiState.On -> {
@@ -338,13 +338,12 @@ class ConnectFragment : Fragment(),
         binding.ivStatus.setOnClickListener(null)
     }
 
-    fun doLayoutStarting(context: Context, savedInstanceState: Bundle?) {
+    fun doLayoutStarting(context: Context) {
         binding.tvSubtitle.visibility = View.VISIBLE
         binding.tvSubtitle.text = viewModel.subtitleState.value
         with(binding.progressBar) {
             visibility = View.VISIBLE
-            progress = (viewModel.uiState.value as ConnectUiState.Starting).bootstrapPercent
-                ?: savedInstanceState?.getInt(BUNDLE_KEY_PROGRESS) ?: 0
+            progress = (viewModel.uiState.value as ConnectUiState.Starting).bootstrapPercent ?: 0
         }
 
 
@@ -381,19 +380,5 @@ class ConnectFragment : Fragment(),
         )
 
         refreshMenuList(requireContext())
-    }
-
-    companion object {
-        private const val BUNDLE_KEY_PROGRESS = "prog"
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        if (viewModel.uiState.value is ConnectUiState.Starting) {
-            val progress =
-                (viewModel.uiState.value as ConnectUiState.Starting).bootstrapPercent ?: 0
-            if (progress == 0) return
-            outState.putInt(BUNDLE_KEY_PROGRESS, progress)
-        }
     }
 }

@@ -26,6 +26,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scottyab.rootbeer.RootBeer
 import org.torproject.android.service.OrbotConstants
+import org.torproject.android.ui.connect.ConnectUiState
 import org.torproject.android.ui.connect.ConnectViewModel
 import org.torproject.android.ui.connect.RequestPostNotificationPermission
 import org.torproject.android.ui.core.BaseActivity
@@ -263,7 +264,12 @@ class OrbotActivity : BaseActivity() {
             val status = intent?.getStringExtra(TorService.EXTRA_STATUS)
             when (intent?.action) {
                 OrbotConstants.LOCAL_ACTION_STATUS -> {
-                    connectViewModel.updateState(this@OrbotActivity, status)
+                    val oldState = connectViewModel.uiState.value
+                    var progress: Int? = null
+                    if (oldState is ConnectUiState.Starting) {
+                        progress = oldState.bootstrapPercent
+                    }
+                    connectViewModel.updateState(this@OrbotActivity, status, progress)
                 }
 
                 OrbotConstants.LOCAL_ACTION_LOG -> {
