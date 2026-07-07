@@ -1,3 +1,45 @@
+/** 17.9.5-tor-0.4.9.11 06 Jul 2026 ce886c6e341aef4498a79c9b65f58346c84dc992 **/
+
+Important fixes and changes since 17.9.4 (tor-0.4.9.8):
+
+Tor & networking
+- Upgraded tor-android to 0.4.9.11 (via 0.4.9.9 with x86 fix)
+- Bumped Snowflake to 2.14.1 (new IPtProxy release)
+- Updated built-in bridges and geoip data from torproject
+- Fixed obfs4 regression when no outbound proxy is set (#1688)
+- Verified/fixed onion service client authorization via .auth_private file import and dialog (#1706, #1584)
+
+Kindness Mode (Snowflake proxy)
+- Reworked the connection/quality test to exhaust every way to determine snowflake eligibility before connecting to Tor, with clearer error messages (e.g. detecting another active VPN app, with a shortcut into system VPN settings)
+- Config changes now immediately invalidate/restart a running snowflake proxy (#1710)
+- NAT type updates live in the fragment without binding to the service
+- New Regionalization.kt / CensoredCountries.kt to centralize country logic and disable kindness mode in heavily censored regions
+- Reworked Usage Limits bottom sheet and main Kindness page (#1509)
+- Report connected snowflakes as orbot-android instead of generic iptproxy
+
+Android 17 (API 37)
+- Raised compile/target SDK to Android 17 / API 37
+- Request ACCESS_LOCAL_NETWORK when enabling "open proxy on all interfaces", with an explanatory dialog; auto-uncheck the preference if the permission is revoked outside the app
+- Upgraded WaifuUPnP to v1.1.0 with API 37 changes
+
+UI & service stability
+- More accurate connection progress via STATUS_CLIENT events; progress and subtitle persist across rotation
+- Fixed progress bar briefly zeroing out on rotation/reopen while Tor is starting
+- Fixed log being cleared on rotation; log fragment reworked and decoupled from OrbotActivity
+- Fixed default-to-no-internet bug when rotating during VPN establishment
+- Removed "No Network Auto-Sleep" setting, now defaulted on (#1112)
+- Screenshot blocking now defaults off (#1729)
+- Fixed lateinit Play Store crash (#1728) and a boot auto-start false trigger (#1713)
+- Fixed a race condition in OrbotService
+- Removed taskAffinity/hasFragileUserData from the manifest (fixes app-switcher duplication)
+- New navbar assets; DNSTT confirmation dialog styling and fix for missing DNSTT option (#1728)
+
+Build & maintenance
+- Upgraded to Gradle 9.6.1 (Gradle 10 ready) and Java 24, faster configuration-cache performance
+- Kotlin serialization 2.4.0 and various dependency bumps
+- Extensive lint/warning cleanup and many updated Weblate translations
+
+
 /** 17.9.5-RC-2-tor-0.4.9.11 30 June 2026 ef1232789f8e3ecde517aa5b3ae2ba96c5c1a5be **/
 
 99e24d21b update build-in bridges

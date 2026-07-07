@@ -1,0 +1,6 @@
+- update to Tor 0.4.9.11 and Snowflake 2.14.1
+- reworked Kindness Mode: clearer proxy quality check, live NAT type, and smarter handling in censored regions
+- Android 17 support, including permission handling for "open proxy on all interfaces"
+- more accurate connection progress that persists across rotation
+- fixes for logs clearing on rotation, a Play Store crash, and boot auto-start
+- updated built-in bridges, geoip, and many translations
