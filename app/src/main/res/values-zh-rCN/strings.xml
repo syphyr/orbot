@@ -327,4 +327,5 @@
     <string name="kindness_quality_upgrade_perm_granted">已在此设备上授予访问附近设备权限。</string>
     <string name="grant_permission">授予权限</string>
     <string name="set_permission_in_settings">在设置中设置权限</string>
+    <string name="open_proxy_needs_local_network_permission">在 Android 17 及更高版本中，Orbot 需要允许访问附近设备的权限才能在所有接口上打开代理。</string>
 </resources>
