@@ -10,18 +10,17 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
-import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.setFragmentResult
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.torproject.android.R
 import org.torproject.android.databinding.FragmentTestingBinding
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.vpn.VpnServicePrepareWrapper
+import org.torproject.android.ui.TransparentWindowDialogFragment
 import org.torproject.android.ui.connect.ConnectUiState
 import org.torproject.android.ui.connect.ConnectViewModel
 import org.torproject.android.util.CoroutineUtils.waitUntilStateFlowEquals
@@ -46,7 +45,7 @@ import kotlin.time.Duration.Companion.milliseconds
  *
  *   Sets Prefs.snowflakeNeedsQualityCheck to false if test passes, true if otherwise
  */
-class TestingDialogFragment : DialogFragment() {
+class TestingDialogFragment : TransparentWindowDialogFragment() {
 
     private lateinit var mBinding: FragmentTestingBinding
     val torConnectedViewModel: ConnectViewModel by activityViewModels()
@@ -68,43 +67,13 @@ class TestingDialogFragment : DialogFragment() {
     ): View {
         mBinding = FragmentTestingBinding.inflate(inflater, container, false)
 
-        mBinding.btnCancel1.setOnClickListener {
-            dismiss()
-        }
-
-        mBinding.btnContinue1.setOnClickListener {
-            mBinding.boxInstructions.visibility = View.GONE
-            mBinding.boxWarnings.visibility = View.VISIBLE
-        }
-
-        mBinding.btnCancel2.setOnClickListener {
-            dismiss()
-        }
-
-        mBinding.swAcknowledge.setOnCheckedChangeListener { _, value ->
-            mBinding.btnContinue2.isEnabled = value
-
-            val context = context ?: return@setOnCheckedChangeListener
-
-            mBinding.btnContinue2.backgroundTintList = ContextCompat.getColorStateList(
-                context, if (value) R.color.orbot_btn_enabled_purple else R.color.orbot_btn_disable_grey)
-        }
-
-        mBinding.btnContinue2.setOnClickListener {
-            if (mBinding.btnContinue2.isEnabled) {
-                mBinding.boxWarnings.visibility = View.GONE
-                mBinding.boxTesting.visibility = View.VISIBLE
-
-                doQualityTestRequiringConsent()
-            }
-        }
-
         mBinding.btnStopTest.setOnClickListener {
+            unbindServiceIfBound()
             dismiss()
         }
 
-        mBinding.btnContinue3.setOnClickListener {
-            setFragmentResult(KEY_RESULT, Bundle().apply { putBoolean(KEY_RESULT, true) })
+        mBinding.btnContinue.setOnClickListener {
+            Prefs.beSnowflakeProxy = true
             dismiss()
         }
         mBinding.btnDeclinedBoxOk.setOnClickListener { dismiss() }
@@ -114,17 +83,10 @@ class TestingDialogFragment : DialogFragment() {
 
     override fun onStart() {
         super.onStart()
-        dialog?.window?.let { window ->
-            window.setBackgroundDrawableResource(android.R.color.transparent)
-            dialog?.window?.setLayout(
-                (resources.displayMetrics.widthPixels * 0.9).toInt(),
-                ViewGroup.LayoutParams.WRAP_CONTENT
-            )
 
-            // benign tests to immediately see if the user can/can't use kindness mode
-            // if we don't get a definite answer, prompt the user for consent to determine for sure
-            doQualityTestRequiringNoUserConsent()
-        }
+        // benign tests to immediately see if the user can/can't use kindness mode
+        // if we don't get a definite answer, prompt the user for consent to determine for sure
+        doQualityTestRequiringNoUserConsent()
 
     }
 
@@ -163,31 +125,31 @@ class TestingDialogFragment : DialogFragment() {
             return
         }
 
+        Log.d(TAG, "device has internet")
+
         // immediately succeed if we've recently succeeded
         if (!Prefs.snowflakeNeedsQualityCheck) {
             Log.d(TAG, "recently passed quality check, proceeding")
-            mBinding.btnContinue3.callOnClick()
+            setPassedState()
+            mBinding.btnContinue.callOnClick()
             return
         }
 
         // immediately succeed if you're already connecting directly to Tor
         if (torConnectionState == ConnectUiState.On && Prefs.transport == Transport.NONE && Prefs.outboundProxy.first == null) {
             Log.d(TAG, "there's an active direct connection to tor, no need to test")
-            Prefs.snowflakeNeedsQualityCheck = false
-            mBinding.btnContinue3.callOnClick()
+            setPassedState()
+            mBinding.btnContinue.callOnClick()
             return
         }
 
-        // at this point, we need to obtain user consent to actually do the connection test...
-        showUserConsentUi()
+        doQualityTestRequiringConsent()
     }
 
-    private fun showUserConsentUi() {
-        mBinding.boxInstructions.visibility = View.VISIBLE
-        mBinding.boxWarnings.visibility = View.GONE
-        mBinding.boxTesting.visibility = View.GONE
-        mBinding.boxApproved.visibility = View.GONE
-        mBinding.boxDeclined.visibility = View.GONE
+    private fun setPassedState() {
+        Prefs.snowflakeNeedsQualityCheck = false
+        Prefs.beSnowflakeProxy = true
+        findNavController().navigate(R.id.kindnessFragment)
     }
 
     private fun isOrbotOnOrStarting(): Boolean {
@@ -280,8 +242,7 @@ class TestingDialogFragment : DialogFragment() {
     }
 
     fun showTestPassedUi() {
-        Prefs.snowflakeNeedsQualityCheck = false
-        setFragmentResult(KEY_RESULT, Bundle().apply { putBoolean(KEY_RESULT, true) })
+        setPassedState()
         mBinding.boxTesting.visibility = View.GONE
         mBinding.boxApproved.visibility = View.VISIBLE
     }
@@ -300,8 +261,7 @@ class TestingDialogFragment : DialogFragment() {
 
         if (bubbleMsg == null) {
             mBinding.tvErrorBubbleMessage.visibility = View.INVISIBLE
-        }
-        else {
+        } else {
             mBinding.tvErrorBubbleMessage.visibility = View.VISIBLE
             mBinding.tvErrorBubbleMessage.text = bubbleMsg
             mBinding.tvErrorBubbleMessage.setOnClickListener(bubbleAction)
@@ -309,7 +269,6 @@ class TestingDialogFragment : DialogFragment() {
     }
 
     companion object {
-        const val KEY_RESULT = "kindness_test_result"
         const val TAG = "TestingFragment"
         const val CONNECTION_TEST_TIMEOUT_MS = 90000L
         fun show(fragmentManager: FragmentManager) =

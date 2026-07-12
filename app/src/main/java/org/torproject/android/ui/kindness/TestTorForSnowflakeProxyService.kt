@@ -1,6 +1,5 @@
 package org.torproject.android.ui.kindness
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.BroadcastReceiver
 import android.content.ComponentName
@@ -29,12 +28,11 @@ class TestTorForSnowflakeProxyService : TorService() {
     companion object {
         const val TAG = "SnowflakeTestTorService"
 
-        @SuppressLint("InlinedApi")
         fun launchTorTestingService(
             orbotActivity: Activity,
             torStatusReceiver: BroadcastReceiver,
         ): ServiceConnection {
-            Log.wtf(TAG, "Preparing to launch tor testing service...")
+            Log.d(TAG, "Preparing to launch tor testing service...")
 
             // 1. Write a barebones torrc to disk
             writeMinimalTorrcToDisk(orbotActivity)
@@ -62,7 +60,10 @@ class TestTorForSnowflakeProxyService : TorService() {
 
         private fun writeMinimalTorrcToDisk(orbotActivity: Activity) {
             // write the bare minimum torrc needed to directly connect to the tor network
-            val minimalTorrc = listOf("RunAsDaemon 1", "AvoidDiskWrites 1").joinToString("\n")
+            val minimalTorrc = listOf(
+                "RunAsDaemon 1",
+                "AvoidDiskWrites 1"
+            ).joinToString("\n")
             val torrcFile = getTorrc(orbotActivity)
             DiskUtils.flushTextToFile(torrcFile, minimalTorrc, append = false)
         }

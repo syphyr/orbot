@@ -17,6 +17,7 @@ import androidx.preference.PreferenceManager
 import org.torproject.android.R
 import org.torproject.android.Regionalization
 import org.torproject.android.databinding.FragmentKindnessBinding
+import org.torproject.android.ui.kindness.testing.ActivateDialogInitial
 import org.torproject.android.util.Prefs
 
 class KindnessFragment : Fragment() {
@@ -27,18 +28,10 @@ class KindnessFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         mBinding = FragmentKindnessBinding.inflate(inflater)
-        mBinding.swVolunteerMode.isChecked = Prefs.beSnowflakeProxy
         mBinding.swVolunteerMode.setOnCheckedChangeListener { _, isChecked ->
             Prefs.beSnowflakeProxy = isChecked
-            activity?.let {
-                if (isChecked) {
-                    SnowflakeProxyService.startSnowflakeProxyForegroundService(it)
-                } else {
-                    SnowflakeProxyService.stopSnowflakeProxyForegroundService(it)
-                    updateNatTypeUi(IPtProxy.NATUnknown)
-                }
-                drawHeaderIcon()
-            }
+            refreshProxyService()
+            drawHeaderIcon()
         }
 
         mBinding.rowUsageLimits.setOnClickListener {
@@ -54,7 +47,7 @@ class KindnessFragment : Fragment() {
         }
 
         mBinding.btnActionContinue.setOnClickListener {
-            TestingDialogFragment.show(parentFragmentManager)
+            ActivateDialogInitial.show(parentFragmentManager)
         }
 
         if (Regionalization.isKindnessModeDisabledForCountry()) {
@@ -91,22 +84,10 @@ class KindnessFragment : Fragment() {
             viewLifecycleOwner
         ) { _, _ ->
             // restart snowflake proxy if a setting has changed
-            mBinding.swVolunteerMode.toggle()
-            mBinding.swVolunteerMode.toggle()
-            updateUsageLimitsUi()
-        }
-
-        parentFragmentManager.setFragmentResultListener(
-            TestingDialogFragment.KEY_RESULT,
-            viewLifecycleOwner
-        ) { _, bundle ->
-
-            if (bundle.getBoolean(TestingDialogFragment.KEY_RESULT)) {
-                if (!Prefs.snowflakeNeedsQualityCheck) {
-                    mBinding.swVolunteerMode.isChecked = true
-                    showPanelStatus(true)
-                }
+            repeat(2) {
+                mBinding.swVolunteerMode.toggle()
             }
+            updateUsageLimitsUi()
         }
         return mBinding.root
     }
@@ -134,12 +115,27 @@ class KindnessFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        if (!Prefs.snowflakeNeedsQualityCheck) {
+            mBinding.swVolunteerMode.isChecked = Prefs.beSnowflakeProxy
+            refreshProxyService()
+            showPanelStatus(true)
+        }
         // Updates these values when user returns to screen after running snowflake proxy for some time.
         updateUsageLimitsUi()
         updateNatTypeUi(Prefs.lastSnowflakeNatType)
         mBinding.tvAlltimeTotal.text = "${Prefs.snowflakesServed}"
         mBinding.tvWeeklyTotal.text = "${Prefs.snowflakesServedWeekly}"
         drawHeaderIcon()
+    }
+
+    private fun refreshProxyService() {
+        if (Prefs.beSnowflakeProxy) {
+            SnowflakeProxyService.startSnowflakeProxyForegroundService(requireContext())
+        } else {
+            SnowflakeProxyService.stopSnowflakeProxyForegroundService(requireContext())
+            updateNatTypeUi(IPtProxy.NATUnknown)
+        }
+
     }
 
     private val natTypeObserver =
