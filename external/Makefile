@@ -114,54 +114,48 @@ all: assets
 #------------------------------------------------------------------------------#
 # openssl
 
-# Disable rc4 cipher for 64-bit archs, to avoid this link error for tor:
-# external/lib/libcrypto.a(e_rc4_hmac_md5.o):e_rc4_hmac_md5.c:function rc4_hmac_md5_cipher: error: undefined reference to 'rc4_md5_enc'
-OPENSSL_CONF_FLAG=
-ifneq ($(findstring 64, $(NDK_ABI)),)
- OPENSSL_CONF_FLAG+=no-rc4
+# openssl3.0.x looks for NDK with the word root instead of home in the var name
+export ANDROID_NDK_ROOT=$(ANDROID_NDK_HOME)
+
+openssl/Makefile: openssl/Configure $(wildcard openssl/Configurations/*.*)
+	cd openssl && CFLAGS="$(CFLAGS) -Wno-macro-redefined" \
+		./Configure \
+				no-shared no-ssl3 no-tls1 no-tls1_1 \
+				no-ocsp no-nextprotoneg no-psk no-srp no-ts \
+				no-cmp no-cms no-ct no-dgram no-dtls no-http \
+				no-quic no-srtp no-argon2 no-aria no-bf \
+				no-blake2 no-camellia no-cast no-des no-dsa \
+				no-gost no-idea no-integrity-only-ciphers no-md2 \
+				no-md4 no-mdc2 no-ml-dsa no-ocb no-rc2 no-rc4 \
+				no-rc5 no-rmd160 no-scrypt no-seed no-siphash \
+				no-slh-dsa no-sm2 no-sm3 no-sm4 no-whirlpool \
+				no-ec2m no-ssl-trace no-tls-deprecated-ec \
+				no-siv no-tests no-padlockeng no-ui-console \
+				no-apps no-async no-comp no-ktls no-legacy no-zlib \
+				android-$(NDK_ABI) \
+				-D__ANDROID_API__=$(NDK_PLATFORM_LEVEL) \
+				--prefix=/ \
+				--openssldir=/
+
+openssl-build-stamp: openssl/Makefile
+ifeq ($(V), 0)
+	PATH=$(PATH) make -j`nproc` --silent -C openssl install_dev DESTDIR=$(EXTERNAL_ROOT) ECHO=':'
+else
+	PATH=$(PATH) make -j`nproc` -C openssl install_dev DESTDIR=$(EXTERNAL_ROOT)
 endif
-
-# OpenSSL's 'make depend' fails if _MIPS_SZLONG is not set:
-ifneq ($(filter mips%, $(NDK_ABI)),)
- ifneq ($(findstring 64, $(NDK_ABI)),)
-  OPENSSL_CONF_FLAG+=-D_MIPS_SZLONG=64
- else
-  OPENSSL_CONF_FLAG+=-D_MIPS_SZLONG=32 -D__MIPSEL__
- endif
-endif
-
-lib/libcrypto.a:
-	cd openssl && \
-		./Configure android-arm -D__ANDROID_API__=$(NDK_PLATFORM_LEVEL) $(OPENSSL_CONF_FLAG) && \
-		make CC="clang" ANDROID_DEV=$(NDK_SYSROOT)/usr depend && \
-		make CC="clang" ANDROID_DEV=$(NDK_SYSROOT)/usr build_libs
-
-lib/libssl.a:
-	cp config.sub openssl
-	cp config.guess openssl
-	cd openssl && \
-		./Configure android-arm -D__ANDROID_API__=$(NDK_PLATFORM_LEVEL) $(OPENSSL_CONF_FLAG) && \
-		make CC="clang" ANDROID_DEV=$(NDK_SYSROOT)/usr depend && \
-		make CC="clang" ANDROID_DEV=$(NDK_SYSROOT)/usr build_libs
-
-openssl-build-stamp: lib/libcrypto.a lib/libssl.a
-	touch openssl-build-stamp
-
-openssl: openssl-build-stamp
-	test -d lib || mkdir lib
-	test -d include || mkdir include
-	test -d include/openssl || mkdir include/openssl
-	cp openssl/libcrypto.a lib/libcrypto.a
-	cp openssl/libssl.a lib/libssl.a
-	cp openssl/include/openssl/* include/openssl
+	touch $@
 
 openssl-clean:
-	-rm -f openssl-build-stamp
-	-rm -f lib/libcrypto.a
-	-rm -f lib/libssl.a
-	-rm -rf include/openssl
+	-rm openssl-build-stamp
+	-rm lib/libcrypto.a
+	-rm lib/libssl.a
+	-make -C openssl uninstall_dev > /dev/null
+	-make -C openssl clean
 	-cd openssl && \
-		git clean -fdx
+		git clean -fdx && \
+		git reset --hard && \
+		git submodule foreach --recursive git clean -fdx && \
+		git submodule foreach --recursive git reset --hard
 
 #------------------------------------------------------------------------------#
 # libevent
