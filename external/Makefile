@@ -46,20 +46,21 @@ ifneq ($(filter arm64%, $(APP_ABI)),)
 endif
 NDK_SYSROOT=$(ANDROID_NDK_HOME)/sysroot
 NDK_UNAME := $(shell uname -s | tr '[A-Z]' '[a-z]')
-ifneq ($(filter mips%, $(NDK_ABI)),)
- HOST := $(NDK_ABI)el-linux-android
-endif
 ifneq ($(filter arm64, $(NDK_ABI)),)
  HOST := aarch64-linux-android
+ ALTHOST := $(HOST)
 endif
 ifneq ($(filter arm, $(NDK_ABI)),)
  HOST := arm-linux-androideabi
+ ALTHOST := arm-linux-androideabi
 endif
 ifneq ($(filter x86, $(NDK_ABI)),)
  HOST := i686-linux-android
+ ALTHOST := $(HOST)
 endif
 ifneq ($(filter x86_64, $(NDK_ABI)),)
  HOST := x86_64-linux-android
+ ALTHOST := $(HOST)
 endif
 
 NDK_TOOLCHAIN := $(HOST)-$(NDK_TOOLCHAIN_VERSION)
@@ -160,37 +161,33 @@ openssl-clean:
 #------------------------------------------------------------------------------#
 # libevent
 
-libevent/Makefile:
-	cp 0001-libevent-Do-not-build-tests.patch libevent
-	-cd libevent && \
-		patch -N -p1 --reject-file=- < 0001-libevent-Do-not-build-tests.patch
+libevent/Makefile: libevent/Makefile.am libevent/configure.ac
 	cd libevent && ./autogen.sh
-	cp config.sub libevent
-	cp config.guess libevent
-	cd libevent && \
-		CC="$(CC)" AR="$(AR)" RANLIB=$(RANLIB) CFLAGS="$(CFLAGS) -I$(EXTERNAL_ROOT)/include" LDFLAGS="$(LDFLAGS)" \
-			./configure \
-				--host=$(HOST) \
+	cd libevent && ./configure \
+				LDFLAGS="-L../lib" \
+				CFLAGS="-I../include" \
+				--host=$(ALTHOST) \
+				--disable-libevent-regress \
+				--disable-samples \
+				--disable-openssl \
 				--disable-shared \
-				--enable-static \
-				--disable-samples
+				--prefix=/
 
-libevent-build-stamp: libevent/Makefile
-	$(MAKE) -C libevent ./include/event2/event-config.h all-am
-	touch libevent-build-stamp
+libevent-build-stamp: openssl-build-stamp libevent/Makefile
+	$(MAKE) -C libevent install DESTDIR=$(EXTERNAL_ROOT)
+	touch $@
 
-libevent: openssl libevent-build-stamp
-	test -d lib || mkdir lib
-	test -d include || mkdir include
-	cp libevent/.libs/libevent.a lib
-	cp -R libevent/include/event2 include
+libevent: libevent-build-stamp
 
 libevent-clean:
-	-rm -rf include/event2
 	-rm -f lib/libevent.a
 	-rm -f libevent-build-stamp
+	-$(MAKE) -C libevent uninstall DESTDIR=$(EXTERNAL_ROOT)
+	-$(MAKE) -C libevent clean
 	-cd libevent && \
-		git clean -fdx
+		git clean -fdx && \
+		git reset --hard
+
 #------------------------------------------------------------------------------#
 # lzma
 
