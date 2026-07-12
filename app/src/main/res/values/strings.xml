@@ -363,7 +363,7 @@
     <string name="if_you_are_using_tor_bridges_they_will_temporarily_be_disconnected">If you are using Tor bridges, they will temporarily be disconnected.</string>
     <string name="i_acknowledge_i_have_read_the_above">I acknowledge I have read the above.</string>
     <string name="testing_connection">Testing Connection</string>
-    <string name="please_wait_while_we_check_to_see_if_you_can_run_an_effective_proxy">Please wait while we check to see if you can run an effective proxy.</string>
+    <string name="please_wait_while_we_check_to_see_if_you_can_run_an_effective_proxy">Please wait while we check to see if you can run an effective proxy…</string>
     <string name="stop_test">Stop Test</string>
     <string name="approved">Approved</string>
     <string name="not_approved">Not Approved</string>
