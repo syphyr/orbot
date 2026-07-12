@@ -1,6 +1,6 @@
 package org.torproject.android.ui.kindness
 
-import IPtProxy.IPtProxy
+import  IPtProxy.IPtProxy
 import android.content.Intent
 import android.content.SharedPreferences
 import android.content.res.ColorStateList
@@ -17,7 +17,6 @@ import androidx.preference.PreferenceManager
 import org.torproject.android.R
 import org.torproject.android.Regionalization
 import org.torproject.android.databinding.FragmentKindnessBinding
-import org.torproject.android.ui.kindness.testing.ActivateDialogInitial
 import org.torproject.android.util.Prefs
 
 class KindnessFragment : Fragment() {

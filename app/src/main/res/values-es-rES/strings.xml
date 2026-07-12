@@ -307,6 +307,4 @@
     <string name="grant_permission">Permiso concedido</string>
     <string name="set_permission_in_settings">Establece permiso en Ajustes</string>
     <string name="kindness_your_impact">Su impacto en números</string>
-    <string name="testing_consent_header">Antes de convertirse en un Proxy Snowflake, necesitamos probar su conexión de Internet para ver si puede servir como un proxy útil para otros.</string>
-    <string name="testing_consent_direct_tor_disclaimer">Durante esta prueba, Orbot intentará conectar directamente a Tor sin utilizar puentes. Esta prueba fallará en regiones muy censuradas que bloquean ese bloque de Tor.</string>
 </resources>
