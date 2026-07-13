@@ -121,7 +121,7 @@
     <string name="snowflake_proxy_msg_description">当您帮助某人规避审查时显示消息</string>
     <string name="secure_your_connection_title">准备连接</string>
     <string name="connected_title">已连接</string>
-    <string name="strict_nodes_description">将“排除节点”设置视为构建所有线路的要求。如果“排除节点”设置无法生成线路，可能会破坏功能。</string>
+    <string name="strict_nodes_description">将排除节点设置视为构建所有线路的要求。如果使用您的排除节点设置无法构建线路，可能会破坏功能。</string>
     <string name="volunteer_mode">善举模式</string>
     <string name="trying_to_connect_title">正在连接…</string>
     <string name="secure_your_connection_subtitle">隐藏应用以规避网络监控，并在应用被屏蔽时获取访问权限。</string>
@@ -133,7 +133,7 @@
     <string name="snowflake">Snowflake</string>
     <string name="smart_connect">智能连接</string>
     <string name="direct_connect">直接连接</string>
-    <string name="direct_connect_subtitle">连接 Tor 的最佳方式，在 Tor 未被屏蔽时使用。</string>
+    <string name="direct_connect_subtitle">连接到 Tor 的最佳方式，在 Tor 未被屏蔽时使用。</string>
     <string name="next">下一步</string>
     <string name="snowflake_subtitle">通过 Tor 志愿者连接，绕过某些 Tor 屏蔽。</string>
     <string name="power_user_mode">高级用户模式</string>
@@ -156,7 +156,7 @@
     <string name="btn_copy_log">复制日志</string>
     <string name="log_copied">日志已复制</string>
     <string name="snowflake_amp">Snowflake AMP</string>
-    <string name="kindness_config_detail">配置您的设备如何以及何时可以作为其他 Tor 用户的 Snowflake 代理。</string>
+    <string name="kindness_config_detail">配置您的设备何时以及如何可以为其他 Tor 用户充当 Snowflake 代理。</string>
     <string name="not_sure">不确定？</string>
     <string name="ask_tor">询问 Tor</string>
     <string name="many_ways">有很多方式可以连接到 Tor，有些方式可能对您更有效。</string>
@@ -322,4 +322,10 @@
     <string name="testing_explanation_no_net">连接到互联网，查看您是否适合启用善举模式</string>
     <string name="kindness_mode_disclaimer_bridge">如果您所在国家/地区的互联网没有严格审查，请激活该模式。</string>
     <string name="kindness_mode_unsupported_country">您已选择 %s 作为您所在的国家/地区，但很遗憾，善举模式无法在此地区帮他人连接到 Tor。如果您认为此消息是错误显示，您可以清除国家/地区并测试，以确认您是否符合成为 Snowflake 代理的条件</string>
+    <string name="Paused">已暂停</string>
+    <string name="kindness_quality_upgrade_need_local_network">在 Android 17 及更高版本上，您还必须为 Orbot 授予允许访问附近设备的权限，以便访问您的路由器。</string>
+    <string name="kindness_quality_upgrade_perm_granted">已在此设备上授予访问附近设备权限。</string>
+    <string name="grant_permission">授予权限</string>
+    <string name="set_permission_in_settings">在设置中设置权限</string>
+    <string name="open_proxy_needs_local_network_permission">在 Android 17 及更高版本中，Orbot 需要允许访问附近设备的权限才能在所有接口上打开代理。</string>
 </resources>

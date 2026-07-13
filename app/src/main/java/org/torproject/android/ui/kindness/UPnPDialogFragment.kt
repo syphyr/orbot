@@ -2,23 +2,16 @@ package org.torproject.android.ui.kindness
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.app.AlertDialog
 import android.app.Dialog
-import android.content.Context
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.provider.Settings
-import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AlertDialog
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.FragmentManager
 import org.torproject.android.R
-import org.torproject.android.util.createWithCurves
+import org.torproject.android.util.NetworkUtils
+import org.torproject.android.util.openSystemSettings
 
 class UPnPDialogFragment : DialogFragment() {
     @SuppressLint("InlinedApi")
@@ -28,13 +21,14 @@ class UPnPDialogFragment : DialogFragment() {
             getString(R.string.kindness_quality_upgrade_line1),
             getString(R.string.kindness_quality_upgrade_line2)
         )
-        val builder = AlertDialog.Builder(requireContext(), R.style.OrbotDialogTheme)
+        val builder = AlertDialog.Builder(requireContext())
             .setPositiveButton(android.R.string.ok, null)
             .setTitle(R.string.kindness_quality_upgrade_title)
             .setMessage(msg)
 
         val accessLocalNetworkNeeded =
-            needsAccessLocalNetworkPermission(requireContext()) ?: return builder.createWithCurves()
+            NetworkUtils.needsAccessLocalNetworkPermission(requireContext())
+                ?: return builder.create()
         if (accessLocalNetworkNeeded) {
             msg += "\n\n${getString(R.string.kindness_quality_upgrade_need_local_network)}"
             val repeatedlyDenied = ActivityCompat.shouldShowRequestPermissionRationale(
@@ -46,12 +40,7 @@ class UPnPDialogFragment : DialogFragment() {
             builder
                 .setNeutralButton(permissionButtonText) { _, _ ->
                     if (repeatedlyDenied) {
-                        activity?.startActivity(
-                            Intent(
-                                Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
-                                Uri.fromParts("package", activity?.packageName, null)
-                            ).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                        )
+                        openSystemSettings()
                     } else {
                         requestPermissionLauncher.launch(Manifest.permission.ACCESS_LOCAL_NETWORK)
                     }
@@ -61,7 +50,7 @@ class UPnPDialogFragment : DialogFragment() {
         }
         return builder
             .setMessage(msg)
-            .createWithCurves()
+            .create()
     }
 
     private val requestPermissionLauncher =
@@ -73,24 +62,6 @@ class UPnPDialogFragment : DialogFragment() {
 
         fun show(fragmentManager: FragmentManager) {
             UPnPDialogFragment().show(fragmentManager, TAG)
-        }
-
-        // returns null if permission Android 36 or lower, else true/false
-        fun needsAccessLocalNetworkPermission(context: Context): Boolean? {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.CINNAMON_BUN) {
-                return null
-            }
-            val checkAccessLocalNetworkPerm =
-                ContextCompat.checkSelfPermission(
-                    context,
-                    Manifest.permission.ACCESS_LOCAL_NETWORK
-                )
-            if (checkAccessLocalNetworkPerm == PackageManager.PERMISSION_DENIED) {
-                Log.d(TAG, "local network permission not granted for UPnP")
-                return true
-            }
-            Log.d(TAG, "Local network permission granted for UPnP")
-            return false
         }
     }
 }

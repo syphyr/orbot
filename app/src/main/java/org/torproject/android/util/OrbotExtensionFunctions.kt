@@ -2,9 +2,9 @@ package org.torproject.android.util
 
 import android.annotation.SuppressLint
 import android.app.AlarmManager
-import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.net.VpnService
 import android.os.Build
 import android.os.PowerManager
@@ -12,6 +12,7 @@ import android.provider.Settings
 import android.util.Log
 import android.widget.Toast
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import org.torproject.android.service.OrbotConstants
@@ -137,6 +138,16 @@ fun Fragment.haveIBeenDetached(): Boolean {
     return retVal
 }
 
+// open top-level system settings for Orbot
+fun Fragment.openSystemSettings() {
+    activity?.startActivity(
+        Intent(
+            Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+            Uri.fromParts("package", activity?.packageName, null)
+        ).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+    )
+}
+
 fun ListPreference.removeEntry(label: String) {
     val entries = entries?.toMutableList() ?: return
     val entryValues = entryValues?.toMutableList() ?: return
@@ -150,8 +161,3 @@ fun ListPreference.removeEntry(label: String) {
     this.entries = entries.toTypedArray()
     this.entryValues = entryValues.toTypedArray()
 }
-
-fun AlertDialog.Builder.createWithCurves(): AlertDialog =
-    create().apply {
-        window?.setBackgroundDrawableResource(R.drawable.bg_modal_rounded)
-    }

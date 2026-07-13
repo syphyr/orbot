@@ -1,13 +1,12 @@
 package org.torproject.android.ui.more.camo
 
-import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import org.torproject.android.BuildConfig
 import org.torproject.android.R
 import org.torproject.android.util.Prefs
-import org.torproject.android.util.createWithCurves
 
 class CamoConfirmationDialogFragment : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -16,7 +15,7 @@ class CamoConfirmationDialogFragment : DialogFragment() {
         val camoAppName = getString(args.getInt(BUNDLE_KEY_NAME))
         val altIconValue = args.getInt(BUNDLE_KEY_ALT_ICON_VAL)
 
-        return AlertDialog.Builder(context)
+        return AlertDialog.Builder(requireContext())
             .setIcon(args.getInt(BUNDLE_KEY_IMAGE_ID))
             .setTitle(getString(R.string.app_icon_dialog_title, camoAppName))
             .setMessage(getString(R.string.app_icon_dialog_msg, camoAppName))
@@ -39,7 +38,7 @@ class CamoConfirmationDialogFragment : DialogFragment() {
                 )
                 activity?.finishAffinity()
             }
-            .createWithCurves()
+            .create()
     }
 
     companion object {

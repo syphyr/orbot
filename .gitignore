@@ -44,3 +44,5 @@ build_shadowsocks.log
 
 # for messing with fastlane screengrab locally
 screenshot_sandbox*/
+
+app/fullperm/release

@@ -1,8 +1,8 @@
 package org.torproject.android.ui.connect
 
-import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import org.torproject.android.R
 
@@ -16,8 +16,9 @@ class DNSTTConfirmationDialog : DialogFragment() {
             .setNegativeButton(android.R.string.cancel, null)
             .setPositiveButton(R.string.connect) { _, _ ->
                 dismiss()
-                val parent = requireActivity().supportFragmentManager.findFragmentByTag(TAG)
-                        as ConfigConnectionBottomSheet
+                val parent = requireActivity().supportFragmentManager.findFragmentByTag(
+                    ConfigConnectionBottomSheet.TAG
+                ) as ConfigConnectionBottomSheet
                 parent.closeAndConnect()
             }
             .create()

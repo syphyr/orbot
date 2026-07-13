@@ -89,11 +89,6 @@ class ConfigConnectionBottomSheet :
         binding.acCountry.onFocusChangeListener = this
         binding.acCountry.onItemClickListener = this
 
-        binding.dnsttContainer.visibility =
-            if (Regionalization.countriesWithDnsttSupport
-                    .contains(selectedCountryCode)
-            ) View.VISIBLE else View.GONE
-
         radios = arrayListOf(
             binding.rbDirect,
             binding.rbSmart,
@@ -167,6 +162,8 @@ class ConfigConnectionBottomSheet :
         binding.tvTelegramSubtitle.text = getString(R.string.bridges_via_telegram_subtitle, "start")
 
         selectRadioButtonFromPreference()
+
+        updateDnsttVisibility()
 
         binding.btnAction.setOnClickListener {
             if (binding.rbObfs4.isChecked) {

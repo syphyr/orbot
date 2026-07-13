@@ -293,4 +293,7 @@
     <string name="pref_proxy_no_proxy">No Proxy</string>
     <string name="pref_proxy_ss_title">ShadowSocks Configuration URL</string>
     <string name="pref_proxy_ss_summary">Full ShadowSocks configuration URL beginning with ss://</string>
+    <string name="volunteer_mode_weekly_label">This Week</string>
+    <string name="volunteer_mode_alltime_label">Total</string>
+    <string name="kindness_mode_disclaimer_bridge">Activate if the Internet in your country is not heavily censored.</string>
 </resources>

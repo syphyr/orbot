@@ -1,0 +1,6 @@
+- nuashonrú ar Tor 0.4.9.11 agus Snowflake 2.14.1
+- Mód Cineáltais athchóirithe: seiceáil cáilíochta seachfhreastalaí níos soiléire, cineál NAT beo, & láimhseáil níos cliste i réigiúin chinsireachta
+- Tacaíocht do Android 17, lena n-áirítear láimhseáil ceadanna do "seachfhreastalaí oscailte ar gach comhéadan"
+- dul chun cinn nasc níos cruinne a mhaireann ar fud rothlaithe
+- socruithe le haghaidh logaí a ghlanadh ar rothlaithe
+- droichid ionsuite nuashonraithe, geoip, aistriúcháin

@@ -48,6 +48,7 @@ class ConnectFragment : Fragment(),
     lateinit var binding: FragmentConnectBinding
 
     val viewModel: ConnectViewModel by activityViewModels()
+
     private val startTorVpnResultLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
             // The user pressed OK, we can start Tor VPN

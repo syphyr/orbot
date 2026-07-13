@@ -1,12 +1,15 @@
 package org.torproject.android.util
 
+import android.Manifest
 import android.content.Context
+import android.content.pm.PackageManager
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.net.VpnService
 import android.os.Build
 import android.provider.Settings
 import android.util.Log
+import androidx.core.content.ContextCompat
 import java.net.InetSocketAddress
 import java.net.Socket
 
@@ -129,5 +132,28 @@ object NetworkUtils {
         } catch (_: Exception) {
             return false
         }
+    }
+
+    /**
+     * Checks whether ACCESS_LOCAL_NETWORK still needs to be requested from the user. Any feature
+     * that talks to devices on the LAN (kindness mode's UPnP probing, or the SOCKS/HTTP proxy
+     * listening on all interfaces) needs this permission on Android 17+.
+     *
+     * Returns null on Android 16 and below, where the permission doesn't exist.
+     */
+    fun needsAccessLocalNetworkPermission(context: Context): Boolean? {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.CINNAMON_BUN) {
+            return null
+        }
+        val checkAccessLocalNetworkPerm = ContextCompat.checkSelfPermission(
+            context,
+            Manifest.permission.ACCESS_LOCAL_NETWORK
+        )
+        if (checkAccessLocalNetworkPerm == PackageManager.PERMISSION_DENIED) {
+            Log.d(TAG, "local network permission not granted")
+            return true
+        }
+        Log.d(TAG, "local network permission granted")
+        return false
     }
 }
