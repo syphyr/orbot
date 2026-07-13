@@ -313,8 +313,12 @@ tor/Makefile: tor/configure
 	cd tor && \
                 CC="$(CC)" AR="$(AR)" RANLIB=$(RANLIB) CFLAGS="$(CFLAGS) -D_FORTIFY_SOURCE=2 -fwrapv -fno-strict-aliasing -fno-strict-overflow" LDFLAGS="$(LDFLAGS)" \
                         LIBS="-L$(EXTERNAL_ROOT)/lib" CFLAGS="-I$(EXTERNAL_ROOT)/include -I$(EXTERNAL_ROOT)/include/event2" \
-                        ./configure \
-                                --host=$(HOST) \
+			LZMA_CFLAGS="-I$(EXTERNAL_ROOT)/include -DLZMA_API_STATIC" \
+			LZMA_LIBS="$(EXTERNAL_ROOT)/lib/liblzma.a" \
+			ZSTD_CFLAGS="-I$(EXTERNAL_ROOT)/include" \
+			ZSTD_LIBS="$(EXTERNAL_ROOT)/lib/libzstd.a" \
+			./configure \
+				--host=$(HOST) \
 				--disable-asciidoc --enable-android \
 				--enable-static-libevent --with-libevent-dir=$(EXTERNAL_ROOT) \
 				--enable-static-openssl --with-openssl-dir=$(EXTERNAL_ROOT) \
