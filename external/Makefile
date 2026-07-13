@@ -323,7 +323,7 @@ tor/Makefile: tor/configure
 				--enable-static-libevent --with-libevent-dir=$(EXTERNAL_ROOT) \
 				--enable-static-openssl --with-openssl-dir=$(EXTERNAL_ROOT) \
 				--enable-static-zlib --with-zlib-dir=$(EXTERNAL_ROOT) \
-				--enable-lzma --enable-zstd \
+				--enable-lzma --enable-zstd --enable-gpl \
 				--disable-linker-hardening --disable-gcc-hardening --disable-tool-name-check --disable-systemd
 
 tor-build-stamp: tor/Makefile
