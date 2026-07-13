@@ -33,7 +33,7 @@
       
         <activity android:name=".OrbotMainActivity" 
             android:configChanges="orientation|screenSize"
-            android:excludeFromRecents="true"
+            android:excludeFromRecents="false"
             android:launchMode="singleTop"
             >
             <intent-filter>
