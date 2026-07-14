@@ -5,27 +5,6 @@ import androidx.core.net.toUri
 object OrbotConstants {
     const val TAG = "Orbot"
 
-    const val PREF_REACHABLE_ADDRESSES = "pref_reachable_addresses"
-    const val PREF_REACHABLE_ADDRESSES_PORTS = "pref_reachable_addresses_ports"
-
-    const val PREF_DNSPORT = "pref_dnsport"
-    const val PREF_HTTP = "pref_http"
-    const val PREF_SOCKS = "pref_socks"
-    const val PREF_TRANSPORT = "pref_transport"
-
-    const val PREF_ISOLATE_DEST = "pref_isolate_dest"
-    const val PREF_ISOLATE_PORT = "pref_isolate_port"
-    const val PREF_ISOLATE_PROTOCOL = "pref_isolate_protocol"
-    const val PREF_ISOLATE_KEEP_ALIVE = "pref_isolate_keep_alive"
-
-    const val PREF_CONNECTION_PADDING = "pref_connection_padding"
-    const val PREF_REDUCED_CONNECTION_PADDING = "pref_reduced_connection_padding"
-    const val PREF_CIRCUIT_PADDING = "pref_circuit_padding"
-    const val PREF_REDUCED_CIRCUIT_PADDING = "pref_reduced_circuit_padding"
-
-    const val PREF_PREFER_IPV6 = "pref_prefer_ipv6"
-    const val PREF_DISABLE_IPV4 = "pref_disable_ipv4"
-
     const val APP_TOR_KEY = "_app_tor"
 
     const val DIRECTORY_TOR_DATA = "tordata"
@@ -93,7 +72,6 @@ object OrbotConstants {
     const val LOCAL_ACTION_V3_NAMES_UPDATED = "V3_NAMES_UPDATED"
 
     const val LOCAL_ACTION_QUICK_SETTINGS_NEWNYM = "TILE_NEWNYM"
-
 
 
     /**
