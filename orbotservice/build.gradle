@@ -27,9 +27,9 @@ android {
 }
 
 dependencies {
-    compile project(':jsocksAndroid')
-    compile project(':RootCommands')
-    compile 'com.android.support:appcompat-v7:25.4.0'
-    compile fileTree(dir: 'libs', include: ['*.jar','*.so'])
-    testCompile 'junit:junit:4.12'
+    implementation project(':jsocksAndroid')
+    implementation project(':RootCommands')
+    implementation 'com.android.support:appcompat-v7:25.4.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar','*.so'])
+    testImplementation 'junit:junit:4.12'
 }
