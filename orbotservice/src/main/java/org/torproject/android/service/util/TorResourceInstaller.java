@@ -69,11 +69,8 @@ public class TorResourceInstaller implements TorServiceConstants {
         InputStream is;
         File outFile;
 
-        String cpuPath = "armeabi-v7a";
+        String cpuPath = "arm64-v8a";
             
-        if (Build.CPU_ABI.contains("x86"))
-        	cpuPath = "x86";
-
         deleteDirectory(installFolder);
         
         installFolder.mkdirs();

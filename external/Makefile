@@ -29,9 +29,9 @@ endif
 # Android NDK setup
 ANDROID_TOOLCHAIN_HOME ?= /opt/android-ndk
 ANDROID_NDK_HOME ?= /opt/toolchains
-NDK_PLATFORM_LEVEL ?= 16
+NDK_PLATFORM_LEVEL ?= 21
 NDK_TOOLCHAIN_VERSION=4.9
-APP_ABI ?= armeabi-v7a
+APP_ABI ?= arm64-v8a
 NDK_ABI ?= $(APP_ABI)
 
 # PIEFLAGS for SDK 16/Android L must be set to -fPIE -pie, but can override for earlier targets 
@@ -44,7 +44,6 @@ endif
 ifneq ($(filter arm64%, $(APP_ABI)),)
  NDK_ABI := arm64
 endif
-NDK_SYSROOT=$(ANDROID_NDK_HOME)/sysroot
 NDK_UNAME := $(shell uname -s | tr '[A-Z]' '[a-z]')
 ifneq ($(filter arm64, $(NDK_ABI)),)
  HOST := aarch64-linux-android
@@ -67,7 +66,11 @@ NDK_TOOLCHAIN := $(HOST)-$(NDK_TOOLCHAIN_VERSION)
 ifneq ($(filter x86%, $(NDK_ABI)),)
  NDK_TOOLCHAIN := $(NDK_ABI)-$(NDK_TOOLCHAIN_VERSION)
 endif
-NDK_TOOLCHAIN_BASE=$(ANDROID_NDK_HOME)
+NDK_TOOLCHAIN_BASE := $(ANDROID_NDK_HOME)/$(NDK_TOOLCHAIN)
+
+NDK_SYSROOT := $(NDK_TOOLCHAIN_BASE)/sysroot
+
+PATH := $(NDK_TOOLCHAIN_BASE)/bin:$(PATH)
 
 # include Android's build flags
 TARGET_ARCH_ABI = $(APP_ABI)
@@ -116,7 +119,7 @@ all: assets
 # openssl
 
 # openssl3.0.x looks for NDK with the word root instead of home in the var name
-export ANDROID_NDK_ROOT=$(ANDROID_NDK_HOME)
+export ANDROID_NDK_ROOT=$(NDK_TOOLCHAIN_BASE)
 
 openssl/Makefile: openssl/Configure $(wildcard openssl/Configurations/*.*)
 	cd openssl && CFLAGS="$(CFLAGS) -Wno-macro-redefined" \
@@ -345,17 +348,17 @@ tor-clean:
 #------------------------------------------------------------------------------#
 # PLUTO Pluggable Transports
 
-pluto/bin/armeabi-v7a/obfs4proxy:
+pluto/bin:
 #don't build for now until we sort out Go SDK 
 #	cd pluto && \
 #		./build.sh
 
-pluto-build-stamp: pluto/bin/armeabi-v7a/obfs4proxy
+pluto-build-stamp: pluto/bin
 	touch pluto-build-stamp
 
 pluto: pluto-build-stamp
 	test -d bin || mkdir bin
-	cp pluto/bin/armeabi-v7a/obfs4proxy bin
+	cp pluto/bin/$(APP_ABI)/obfs4proxy bin
 
 pluto-clean:
 	-rm -f bin/obfs4proxy
