@@ -2,13 +2,19 @@ sudo update-java-alternatives -s java-1.8.0-openjdk-amd64
 java -version
 javac -version
 
-export ANDROID_TOOLCHAIN_HOME=~/src/android-ndk-r21d
-export ANDROID_NDK_HOME=~/toolchains/arm-linux-androideabi-4.9
-export PATH=$ANDROID_NDK_HOME/bin:$ANDROID_TOOLCHAIN_HOME:$PATH
+unset ANDROID_NDK_HOME
+
+export PKG_CONFIG_LIBDIR="$(pwd)/external/lib/pkgconfig"
+
+export ANDROID_TOOLCHAIN_HOME="$HOME/src/android-ndk-r21e"
+
+export PATH=$ANDROID_TOOLCHAIN_HOME:$PATH
 
 cd orbotservice/src/main
 ndk-build NDK_PROJECT_PATH=.
 cd ../../..
 make -C external
-./gradlew assemble
+#android update project --name Orbot --target android-23 --path .
+#./gradlew assemble
+./gradlew assembleRelease
 ./gradlew --stop

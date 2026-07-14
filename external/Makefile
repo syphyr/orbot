@@ -27,8 +27,8 @@ else
 endif
 
 # Android NDK setup
-ANDROID_TOOLCHAIN_HOME ?= /opt/android-ndk
-ANDROID_NDK_HOME ?= /opt/toolchains
+ANDROID_TOOLCHAIN_HOME := $(HOME)/src/android-ndk-r21e
+ANDROID_NDK_HOME := $(HOME)/toolchains
 NDK_PLATFORM_LEVEL ?= 21
 NDK_TOOLCHAIN_VERSION=4.9
 APP_ABI ?= arm64-v8a
