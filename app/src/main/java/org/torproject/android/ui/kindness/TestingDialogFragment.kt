@@ -28,7 +28,6 @@ import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
 import org.torproject.android.util.sendIntentToService
 import org.torproject.jni.TorService
-import kotlin.getValue
 import kotlin.time.Duration.Companion.milliseconds
 
 /**
@@ -48,7 +47,7 @@ import kotlin.time.Duration.Companion.milliseconds
 class TestingDialogFragment : DialogFragment() {
 
     private lateinit var mBinding: FragmentTestingBinding
-    val torConnectedViewModel: ConnectViewModel by activityViewModels()
+    private val torConnectedViewModel: ConnectViewModel by activityViewModels()
 
     private var stoppedNormalTorConnection = false
 
@@ -233,7 +232,7 @@ class TestingDialogFragment : DialogFragment() {
 
     private fun currentTorState() = torConnectedViewModel.uiState.value
 
-    val torStatusReceiver: BroadcastReceiver = object : BroadcastReceiver() {
+    private val torStatusReceiver: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             val status = intent?.getStringExtra(TorService.EXTRA_STATUS)
             Log.d(TAG, "Got tor status from testing service: $status")
@@ -261,11 +260,10 @@ class TestingDialogFragment : DialogFragment() {
     }
 
     private fun unbindServiceIfBound() {
-        if (connectionTestServiceConnection != null) {
+        connectionTestServiceConnection?.let {
             Log.d(TAG, "unregistering receiver, killing service")
-            val connection = connectionTestServiceConnection!!
             requireActivity().unregisterReceiver(torStatusReceiver)
-            requireActivity().unbindService(connection)
+            requireActivity().unbindService(it)
             connectionTestServiceConnection = null
         }
     }
@@ -277,7 +275,7 @@ class TestingDialogFragment : DialogFragment() {
         mBinding.boxApproved.visibility = View.VISIBLE
     }
 
-    fun showTestFailedUi(
+    private fun showTestFailedUi(
         errorExplanation: String? = null,
         bubbleMsg: String? = null,
         bubbleAction: View.OnClickListener = {}

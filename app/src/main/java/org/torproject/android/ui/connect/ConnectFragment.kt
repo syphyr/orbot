@@ -1,5 +1,6 @@
 package org.torproject.android.ui.connect
 
+import android.annotation.SuppressLint
 import android.app.AlarmManager
 import android.content.Context
 import android.content.Intent
@@ -27,16 +28,16 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import net.freehaven.tor.control.TorControlCommands
 import org.torproject.android.R
-import org.torproject.android.util.sendIntentToService
 import org.torproject.android.databinding.FragmentConnectBinding
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 import org.torproject.android.service.circumvention.Transport
 import org.torproject.android.service.vpn.VpnServicePrepareWrapper
-import org.torproject.android.util.Prefs
 import org.torproject.android.ui.OrbotMenuAction
 import org.torproject.android.ui.more.LogBottomSheet
 import org.torproject.android.util.NetworkUtils
+import org.torproject.android.util.Prefs
+import org.torproject.android.util.sendIntentToService
 import org.torproject.jni.TorService
 import kotlin.time.Duration.Companion.milliseconds
 
@@ -167,6 +168,7 @@ class ConnectFragment : Fragment(),
     }
 
     // see https://github.com/guardianproject/orbot-android/pull/1707
+    @SuppressLint("SetTextI18n")
     private fun updatePrivateDnsLabel() {
         val privateDns = NetworkUtils.PrivateDns.getPrivateDnsConfiguration(requireContext())
         when (privateDns) {
@@ -213,7 +215,7 @@ class ConnectFragment : Fragment(),
         }
     }
 
-    fun attemptToStartTorPowerUserMode(): Boolean {
+    private fun attemptToStartTorPowerUserMode(): Boolean {
         // android 14 awkwardly needs this permission to be explicitly granted to use the
         // FOREGROUND_SERVICE_TYPE_SYSTEM_EXEMPTED permission without grabbing a VPN Intent
         val alarmManager =
@@ -235,7 +237,7 @@ class ConnectFragment : Fragment(),
 
 
     // starts Tor, plus often the VPNService. For power users it runs tor as a proxy
-    fun startTorConnection() = setState(TorService.ACTION_START)
+    private fun startTorConnection() = setState(TorService.ACTION_START)
 
     fun attemptToStartTor() {
         Prefs.putUseVpn(!Prefs.isPowerUserMode)
@@ -265,7 +267,7 @@ class ConnectFragment : Fragment(),
         refreshMenuList(requireContext())
     }
 
-    fun displayVpnStartError(msg: String) {
+    private fun displayVpnStartError(msg: String) {
         turnOffConnectSwitchWithoutEvent()
         VpnAlwaysOnDialog.newInstance(msg).show(
             requireActivity().supportFragmentManager,
@@ -273,7 +275,7 @@ class ConnectFragment : Fragment(),
         )
     }
 
-    var lastState: String? = null
+    private var lastState: String? = null
 
     @Synchronized
     fun setState(newState: String) {
@@ -358,7 +360,7 @@ class ConnectFragment : Fragment(),
         }
     }
 
-    fun doLayoutOff() {
+    private fun doLayoutOff() {
         viewModel.updateSubtitleState()
         binding.ivStatus.setImageResource(R.drawable.orbiesleeping)
         refreshMenuList(requireContext())
@@ -371,7 +373,7 @@ class ConnectFragment : Fragment(),
         binding.ivStatus.setOnClickListener(null)
     }
 
-    fun doLayoutStarting(context: Context) {
+    private fun doLayoutStarting(context: Context) {
         binding.tvSubtitle.visibility = View.VISIBLE
         binding.tvSubtitle.text = viewModel.subtitleState.value
         with(binding.progressBar) {

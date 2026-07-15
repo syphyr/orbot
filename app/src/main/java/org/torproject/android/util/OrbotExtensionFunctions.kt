@@ -12,15 +12,13 @@ import android.provider.Settings
 import android.util.Log
 import android.widget.Toast
 import androidx.annotation.StringRes
-import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
+import androidx.preference.ListPreference
 import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.OrbotService
 import java.text.Normalizer
-import androidx.core.net.toUri
-import androidx.preference.ListPreference
-import org.torproject.android.R
 
 /**
  * Extension function for `Intent` to add a flag that marks the intent as originating

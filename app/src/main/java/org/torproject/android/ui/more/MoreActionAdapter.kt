@@ -34,8 +34,8 @@ class MoreActionAdapter(
         val item = items[position]
         if (item.removeTint)
             ImageViewCompat.setImageTintList(holder.icon, null)
-        if (item.backgroundColor != null) {
-            holder.card.setCardBackgroundColor(item.backgroundColor!!)
+        item.backgroundColor?.let {
+            holder.card.setCardBackgroundColor(it)
         }
         holder.icon.apply {
             setImageResource(item.imgId)

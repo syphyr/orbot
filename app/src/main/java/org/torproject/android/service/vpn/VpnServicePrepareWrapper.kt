@@ -99,7 +99,7 @@ object VpnServicePrepareWrapper {
         return if (context.packageName == currentAlwaysOnPackageName) null
         else {
             context.packageManager
-                .getInstalledPackagesList(0)
+                .getInstalledPackagesList()
                 .firstOrNull { it.packageName == currentAlwaysOnPackageName }
                 ?.applicationInfo
                 ?.loadLabel(context.packageManager)

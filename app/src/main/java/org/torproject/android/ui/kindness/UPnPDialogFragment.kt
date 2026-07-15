@@ -16,11 +16,10 @@ import org.torproject.android.util.openSystemSettings
 class UPnPDialogFragment : DialogFragment() {
     @SuppressLint("InlinedApi")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        var msg = String.format(
-            "%s\n\n%s",
-            getString(R.string.kindness_quality_upgrade_line1),
-            getString(R.string.kindness_quality_upgrade_line2)
-        )
+        var msg =
+            getString(R.string.kindness_quality_upgrade_line1) + "\n" +
+                    getString(R.string.kindness_quality_upgrade_line2)
+        
         val builder = AlertDialog.Builder(requireContext())
             .setPositiveButton(android.R.string.ok, null)
             .setTitle(R.string.kindness_quality_upgrade_title)

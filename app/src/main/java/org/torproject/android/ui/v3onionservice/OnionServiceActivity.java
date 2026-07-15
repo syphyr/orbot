@@ -22,9 +22,9 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import org.torproject.android.R;
-import org.torproject.android.util.DiskUtils;
-import org.torproject.android.ui.core.BaseActivity;
 import org.torproject.android.service.db.OnionServiceColumns;
+import org.torproject.android.ui.core.BaseActivity;
+import org.torproject.android.util.DiskUtils;
 
 public class OnionServiceActivity extends BaseActivity {
 
@@ -32,7 +32,7 @@ public class OnionServiceActivity extends BaseActivity {
     private static final String BASE_WHERE_SELECTION_CLAUSE = OnionServiceColumns.CREATED_BY_USER + "=";
     private static final String BUNDLE_KEY_SHOW_USER_SERVICES = "show_user_key";
     private static final int REQUEST_CODE_READ_ZIP_BACKUP = 347;
-    private RadioButton radioShowUserServices;
+    RadioButton radioShowUserServices;
     private FloatingActionButton fab;
     private ContentResolver mContentResolver;
     private OnionV3ListAdapter mAdapter;
@@ -79,7 +79,7 @@ public class OnionServiceActivity extends BaseActivity {
         });
     }
 
-    private void filterServices(boolean showUserServices) {
+    void filterServices(boolean showUserServices) {
         String predicate;
         if (showUserServices) {
             predicate = "1";

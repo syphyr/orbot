@@ -16,7 +16,8 @@ object V3ClientAuthColumns : BaseColumns {
     const val HASH: String = "hash"
     const val ENABLED: String = "enabled"
 
-    val V3_CLIENT_AUTH_PROJECTION: Array<String> = arrayOf(BaseColumns._ID, DOMAIN, HASH, ENABLED)
+    private val V3_CLIENT_AUTH_PROJECTION: Array<String> =
+        arrayOf(BaseColumns._ID, DOMAIN, HASH, ENABLED)
 
     fun addClientAuthToTorrc(
         torrc: StringBuffer,

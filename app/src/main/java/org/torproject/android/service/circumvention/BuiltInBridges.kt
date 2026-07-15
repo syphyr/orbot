@@ -31,9 +31,9 @@ data class BuiltInBridges(
 
     companion object {
 
-        const val FILE_NAME = "builtin-bridges.json"
+        private const val FILE_NAME = "builtin-bridges.json"
 
-        const val UPDATE_FILE_NAME = "updated-bridges.json"
+        private const val UPDATE_FILE_NAME = "updated-bridges.json"
 
         /**
          * https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/trac/-/issues/40001#note_2811603
@@ -133,7 +133,10 @@ data class BuiltInBridges(
      */
     fun getUdpDnstt(context: Context, countryCode: String?): List<Bridge>? {
         if (countryCode.isNullOrEmpty()) return null
-        if (countryCode != "global" && !Regionalization.countriesWithDnsttSupport.contains(countryCode)) return null
+        if (countryCode != "global" && !Regionalization.countriesWithDnsttSupport.contains(
+                countryCode
+            )
+        ) return null
 
         val dnsInfo: DnsInfo
 

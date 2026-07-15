@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--suppress GrazieInspection -->
 <resources>
     <string name="app_name">Orbot</string>
     <string name="app_description">Orbot is a free proxy app that empowers other apps to use the internet more securely. Orbot uses Tor to encrypt your Internet traffic and then hides it by bouncing through a series of computers around the world. Tor is free software and an open network that helps you defend against a form of network surveillance that threatens personal freedom and privacy, confidential business activities and relationships, and state security known as traffic analysis.</string>
@@ -141,7 +141,6 @@
     <string name="bridge_snowflake_sqs">Connect through other Tor users using Snowflake (Method 3 - SQS)</string>
     <string name="snowflake_proxy_msg_title">Show Connection Notification</string>
     <string name="snowflake_proxy_msg_description">Show a message when you help someone circumvent censorship</string>
-    <!-- new UX -->
     <string name="volunteer_mode">Kindness Mode</string>
     <string name="secure_your_connection_title">Ready to connect</string>
     <string name="secure_your_connection_subtitle">Hide apps from network monitoring and get access when they are blocked.</string>
@@ -283,7 +282,6 @@
     <string name="invalid_bridge_qr_code">Invalid Bridge QR Code</string>
     <string name="you_already_have_these_bridges">You\'ve already added the bridges in this QR Code</string>
 
-    <!-- strings from the old orbotservice module -->
     <string name="orbot_vpn">Orbot VPN</string>
     <string name="status_starting_up">Orbot is Starting&#8230;</string>
     <string name="status_activated">Connected to the Tor Network</string>

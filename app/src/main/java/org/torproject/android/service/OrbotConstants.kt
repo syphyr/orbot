@@ -19,13 +19,12 @@ object OrbotConstants {
     const val TOR_DNS_PORT_DEFAULT = 9053
     const val TOR_TRANSPROXY_PORT_DEFAULT = 9040
 
-    // control port
-    const val LOG_NOTICE_HEADER = "NOTICE: "
     const val LOG_NOTICE_BOOTSTRAPPED = "BOOTSTRAP PROGRESS="
 
 
     // needed when Orbot exits and tor is not running, but the notification is still active
-    const val ACTION_STOP_FOREGROUND_TASK = "org.torproject.android.intent.action.STOP_FOREGROUND_TASK"
+    const val ACTION_STOP_FOREGROUND_TASK =
+        "org.torproject.android.intent.action.STOP_FOREGROUND_TASK"
 
     const val ACTION_RESTART_VPN_IF_RUNNING = "org.torproject.android.intent.action.RESTART_VPN"
 

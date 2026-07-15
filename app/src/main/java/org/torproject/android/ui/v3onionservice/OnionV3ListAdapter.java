@@ -1,7 +1,6 @@
 package org.torproject.android.ui.v3onionservice;
 
 import android.annotation.SuppressLint;
-import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -38,12 +37,12 @@ public class OnionV3ListAdapter extends CursorAdapter {
         var id = cursor.getInt(cursor.getColumnIndex(OnionServiceColumns._ID));
         final var where = BaseColumns._ID + "=" + id;
         TextView localPort = view.findViewById(R.id.hs_port);
-        localPort.setText(String.format("%s\n%s", context.getString(R.string.local_port),
-                cursor.getString(cursor.getColumnIndex(OnionServiceColumns.PORT))));
+        localPort.setText(context.getString(R.string.local_port) + "\n" +
+                cursor.getString(cursor.getColumnIndex(OnionServiceColumns.PORT)));
 
         TextView onionPort = view.findViewById(R.id.onion_port);
-        onionPort.setText(String.format("%s\n%s", context.getString(R.string.onion_port),
-                cursor.getString(cursor.getColumnIndex(OnionServiceColumns.ONION_PORT))));
+        onionPort.setText(context.getString(R.string.onion_port) + "\n" +
+                cursor.getString(cursor.getColumnIndex(OnionServiceColumns.ONION_PORT)));
 
         TextView name = view.findViewById(R.id.hs_name);
         name.setText(cursor.getString(cursor.getColumnIndex(OnionServiceColumns.NAME)));

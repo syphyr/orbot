@@ -79,7 +79,6 @@ object Regionalization {
     private const val JAPAN = "JP"
     private const val ROMANIA = "RO"
     private const val SINGAPORE = "SG"
-    private const val SLOVAKIA = "SK"
     private const val UNITED_ARAB_EMIRATES = "AE"
     private const val AFGHANISTAN = "AF"
     private const val BANGLADESH = "BD"

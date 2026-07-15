@@ -1,6 +1,7 @@
 package org.torproject.android.service.vpn
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
@@ -42,11 +43,12 @@ class TorifiedApp : Comparable<TorifiedApp> {
     var usesInternet: Boolean = false
 
     override fun compareTo(other: TorifiedApp): Int =
-         (name ?: "").compareTo(other.name ?: "", ignoreCase = true)
+        (name ?: "").compareTo(other.name ?: "", ignoreCase = true)
 
     override fun toString(): String = name ?: ""
 
     companion object {
+        @SuppressLint("QueryPermissionsNeeded")
         fun getApps(context: Context): ArrayList<TorifiedApp> {
             val torifiedPackages = Prefs.torifiedApps
                 .split("|")

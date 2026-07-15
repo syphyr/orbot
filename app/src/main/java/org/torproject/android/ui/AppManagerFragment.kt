@@ -1,6 +1,7 @@
 package org.torproject.android.ui
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.ApplicationInfo
@@ -63,25 +64,21 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
 
     @kotlinx.coroutines.FlowPreview
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentAppManagerBinding.inflate(layoutInflater)
         retainedCheckedPackages =
             savedInstanceState?.getStringArray(BUNDLE_KEY_CHECKED_PACKAGES)?.toSet() ?: emptySet()
         val restoredQuery = savedInstanceState?.getString(BUNDLE_KEY_SEARCH_QUERY).orEmpty()
-        appSelectionChanged =
-            appSelectionChanged || savedInstanceState?.getBoolean(BUNDLE_KEY_APPS_CHANGED, false) == true
+        appSelectionChanged = appSelectionChanged || savedInstanceState?.getBoolean(
+            BUNDLE_KEY_APPS_CHANGED, false
+        ) == true
         if (restoredQuery.isNotEmpty()) {
             binding.searchBar.setText(restoredQuery)
             searchQuery.value = restoredQuery
         }
 
-        searchQuery
-            .debounce(250.milliseconds)
-            .distinctUntilChanged()
-            .onEach { filterApps(it) }
+        searchQuery.debounce(250.milliseconds).distinctUntilChanged().onEach { filterApps(it) }
             .launchIn(scope)
 
         binding.searchBar.addTextChangedListener(object : TextWatcher {
@@ -91,14 +88,12 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
                 if (s?.isEmpty() == true) {
                     binding.searchBarLayout.endIconMode = TextInputLayout.END_ICON_CUSTOM
                     binding.searchBarLayout.endIconDrawable = ResourcesCompat.getDrawable(
-                        resources,
-                        R.drawable.ic_search, null
+                        resources, R.drawable.ic_search, null
                     )
                 } else {
                     binding.searchBarLayout.endIconMode = TextInputLayout.END_ICON_CLEAR_TEXT
                     binding.searchBarLayout.endIconDrawable = ResourcesCompat.getDrawable(
-                        resources,
-                        R.drawable.ic_close, null
+                        resources, R.drawable.ic_close, null
                     )
                 }
             }
@@ -114,7 +109,13 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
                 // do something when click navigation
                 (context as AppCompatActivity).supportFragmentManager.popBackStack()
             }
-            title = requireContext().getString(R.string.title_choose_apps)
+
+            title =
+                requireContext().getString(R.string.btn_choose_apps)
+                    .split(" ")
+                    .joinToString(separator = "") {
+                        it.replaceFirstChar { c -> if (c.isLowerCase()) c.uppercase() else c.toString() }
+                    }
         }
         return binding.root
     }
@@ -133,10 +134,8 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
         super.onSaveInstanceState(outState)
         outState.putString(BUNDLE_KEY_SEARCH_QUERY, searchQuery.value)
         outState.putBoolean(BUNDLE_KEY_APPS_CHANGED, appSelectionChanged)
-        val checkedPackages = (allApps.orEmpty() + suggestedApps.orEmpty())
-            .filter { it.isTorified }
-            .map { it.packageName }
-            .toTypedArray()
+        val checkedPackages = (allApps.orEmpty() + suggestedApps.orEmpty()).filter { it.isTorified }
+            .map { it.packageName }.toTypedArray()
         outState.putStringArray(BUNDLE_KEY_CHECKED_PACKAGES, checkedPackages)
     }
 
@@ -193,12 +192,11 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
     private var suggestedApps: List<TorifiedApp>? = null
 
     // contains apps, but also other things like TextViews for suggested apps
-    var allUnfilteredUiItems: MutableList<TorifiedAppWrapper> = ArrayList()
+    private var allUnfilteredUiItems: MutableList<TorifiedAppWrapper> = ArrayList()
 
     private fun loadApps() {
         activity?.let {
-            if (allApps == null) allApps =
-                getApps(it, null, alSuggested, retainedCheckedPackages)
+            if (allApps == null) allApps = getApps(it, null, alSuggested, retainedCheckedPackages)
             TorifiedApp.sortAppsForTorifiedAndAbc(allApps)
             if (suggestedApps == null) suggestedApps =
                 getApps(it, alSuggested, null, retainedCheckedPackages)
@@ -208,7 +206,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
 
             val inflater = layoutInflater
             if (allUnfilteredUiItems.isEmpty()) {
-                // only show suggested apps, text, etc and other apps header if there are any suggested apps installed...
+                // only show suggested apps, text, etc. and other apps header if there are any suggested apps installed...
                 if (!suggestedApps.isNullOrEmpty()) {
                     val headerSuggested = TorifiedAppWrapper()
                     headerSuggested.header = getString(R.string.apps_suggested_title)
@@ -230,10 +228,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
             }
 
             adapterAppsAll = object : ArrayAdapter<TorifiedAppWrapper?>(
-                it,
-                R.layout.layout_apps_item,
-                R.id.itemtext,
-                filteredList
+                it, R.layout.layout_apps_item, R.id.itemtext, filteredList
             ) {
                 override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
                     var cv = convertView
@@ -304,8 +299,7 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
                             ) else {
                                 v.setBackgroundColor(
                                     ContextCompat.getColor(
-                                        context,
-                                        android.R.color.transparent
+                                        context, android.R.color.transparent
                                     )
                                 )
                             }
@@ -396,11 +390,12 @@ class AppManagerFragment : Fragment(), View.OnClickListener {
          * [.BYPASS_VPN_PACKAGES]
          */
         private fun includeAppInUi(applicationInfo: ApplicationInfo): Boolean {
-            return applicationInfo.enabled &&
-                    applicationInfo.packageName != BuildConfig.APPLICATION_ID &&
-                    !OrbotConstants.BYPASS_VPN_PACKAGES.contains(applicationInfo.packageName)
+            return applicationInfo.enabled && applicationInfo.packageName != BuildConfig.APPLICATION_ID && !OrbotConstants.BYPASS_VPN_PACKAGES.contains(
+                applicationInfo.packageName
+            )
         }
 
+        @SuppressLint("QueryPermissionsNeeded")
         fun getApps(
             context: Context,
             filterInclude: List<String>?,

@@ -157,12 +157,12 @@ class SnowflakeProxyService : Service() {
     }
 
 
-    private fun startSnowflakeProxy(logReason: String? = null) {
+    internal fun startSnowflakeProxy(logReason: String? = null) {
         Log.d(TAG, "Starting snowflake proxy - $logReason")
         snowflakeProxyWrapper.enableProxy()
     }
 
-    private fun stopSnowflakeProxy(logMessage: String? = null) {
+    internal fun stopSnowflakeProxy(logMessage: String? = null) {
         Log.d(TAG, "Stopping snowflake proxy - reason: $logMessage")
         Prefs.lastSnowflakeNatType = IPtProxy.IPtProxy.NATUnknown
         snowflakeProxyWrapper.stopProxy()
@@ -193,7 +193,7 @@ class SnowflakeProxyService : Service() {
         private const val CHANNEL_ID = "snowflake"
         private const val ACTION_STOP_SNOWFLAKE_SERVICE = "ACTION_STOP_SNOWFLAKE_SERVICE"
 
-        fun getIntent(context: Context) = Intent(context, SnowflakeProxyService::class.java)
+        private fun getIntent(context: Context) = Intent(context, SnowflakeProxyService::class.java)
 
         // start this service, but not necessarily snowflake proxy from the app UI
         fun startSnowflakeProxyForegroundService(context: Context) =

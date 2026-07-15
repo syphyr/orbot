@@ -50,7 +50,7 @@ class OrbotActivity : BaseActivity() {
     // used to hide UI while password isn't obtained
     private var rootLayout: View? = null
 
-    private val connectViewModel: ConnectViewModel by viewModels()
+    internal val connectViewModel: ConnectViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -141,6 +141,6 @@ interface MoatApi {
         val version: String? = null,
         val code: Int? = null,
         val status: String? = null,
-        val detail: String? = null
+        private val detail: String? = null
     ) : Throwable(if (detail.isNullOrEmpty()) "$code $status" else detail)
 }

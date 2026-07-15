@@ -20,7 +20,7 @@ abstract class RequestScheduleExactAlarmDialogFragment : DialogFragment() {
             .setMessage(getMessageId())
             .setNegativeButton(
                 android.R.string.cancel
-            ) { dialog: DialogInterface?, _: Int -> dialog!!.cancel() }
+            ) { dialog: DialogInterface?, _: Int -> dialog?.cancel() }
             .setPositiveButton(
                 getPositiveButtonId()
             ) { _: DialogInterface?, _: Int ->
@@ -35,9 +35,9 @@ abstract class RequestScheduleExactAlarmDialogFragment : DialogFragment() {
         show(activity.supportFragmentManager, "RequestAlarmPermDialog")
 
 
-
     protected abstract fun getTitleId(): Int
     protected abstract fun getMessageId(): Int
 
+    @Suppress("SameReturnValue")
     protected open fun getPositiveButtonId() = android.R.string.ok
 }

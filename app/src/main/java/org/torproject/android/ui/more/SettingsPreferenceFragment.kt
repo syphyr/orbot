@@ -36,10 +36,11 @@ class SettingsPreferenceFragment : AbstractPreferenceFragment(), OnPreferenceCha
     override fun rootTitleId(): Int = R.string.menu_settings
 
     // If these EditTextPrefs exist, use a numerical keyboard
-    val numericalPortPrefs = listOf(Prefs.PREF_SOCKS, Prefs.PREF_HTTP, Prefs.PREF_PROXY_PORT)
+    private val numericalPortPrefs =
+        listOf(Prefs.PREF_SOCKS, Prefs.PREF_HTTP, Prefs.PREF_PROXY_PORT)
 
     // render these EditTextPreferences, if they exist, as passwords
-    val passwordPrefs = listOf(Prefs.PREF_PROXY_PASSWORD)
+    private val passwordPrefs = listOf(Prefs.PREF_PROXY_PASSWORD)
 
     private val requestLocalNetworkPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->

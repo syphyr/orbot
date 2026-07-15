@@ -85,16 +85,17 @@ object NetworkUtils {
             private const val MODE_AUTOMATIC = "automatic"
             private const val MODE_OPPORTUNISTIC = "opportunistic"
 
-            const val HOSTNAME_UNKNOWN = ""
+            private const val HOSTNAME_UNKNOWN = ""
 
             // private DNS is only available on Android P+
-            fun isPrivateDnsSupported(): Boolean = Build.VERSION.SDK_INT >= Build.VERSION_CODES.P
+            private fun isPrivateDnsSupported(): Boolean =
+                Build.VERSION.SDK_INT >= Build.VERSION_CODES.P
 
             fun getPrivateDnsConfiguration(context: Context): PrivateDns {
                 if (!isPrivateDnsSupported()) return Off
                 val dnsMode =
                     Settings.Global.getString(context.contentResolver, KEY_MODE) ?: MODE_OFF
-               return when (dnsMode) {
+                return when (dnsMode) {
                     MODE_OFF -> Off
                     MODE_AUTOMATIC, MODE_OPPORTUNISTIC -> Opportunistic
                     MODE_HOSTNAME -> Strict(
