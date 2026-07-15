@@ -138,11 +138,13 @@ class KindnessFragment : Fragment() {
     }
 
     private val natTypeObserver =
-        SharedPreferences.OnSharedPreferenceChangeListener { sharedPrefs, key ->
-            if (key == Prefs.PREF_LAST_SNOWFLAKE_NAT_TYPE)
+        SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
+            if (key == Prefs.PREF_LAST_SNOWFLAKE_NAT_TYPE) {
                 updateNatTypeUi(Prefs.lastSnowflakeNatType)
-            else if (key == Prefs.PREF_LAST_SNOWFLAKE_ACTIVE)
+            }
+            else if (key == Prefs.PREF_LAST_SNOWFLAKE_ACTIVE) {
                 drawHeaderIcon()
+            }
         }
 
     override fun onStart() {
