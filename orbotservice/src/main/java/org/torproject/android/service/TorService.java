@@ -1782,9 +1782,11 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
             {
                 int ORPort =  Integer.parseInt(prefs.getString(OrbotConstants.PREF_OR_PORT, "9001"));
                 String nickname = prefs.getString(OrbotConstants.PREF_OR_NICKNAME, "Orbot");
+                String email = prefs.getString(OrbotConstants.PREF_OR_EMAIL, "your@e-mail");
 
                 extraLines.append("ORPort" + ' ' + ORPort).append('\n');
                 extraLines.append("Nickname" + ' ' + nickname).append('\n');
+                extraLines.append("ContactInfo" + ' ' + email).append('\n');
                 extraLines.append("ExitRelay" + ' ' + "0").append('\n');
 
             } else if (becomeRelay) {

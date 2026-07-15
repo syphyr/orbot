@@ -144,6 +144,13 @@ android:summary="@string/the_nickname_for_your_tor_relay"
 android:dialogTitle="@string/enter_a_custom_relay_nickname"
 />
 
+<EditTextPreference android:key="pref_or_email"
+android:defaultValue="your@e-mail"
+android:title="@string/relay_email"
+android:summary="@string/contact_info_for_your_tor_relay"
+android:dialogTitle="@string/enter_relay_contact_info"
+/>
+
 </PreferenceCategory>
 
 <PreferenceCategory android:title="ReachableAddresses">

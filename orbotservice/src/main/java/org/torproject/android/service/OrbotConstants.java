@@ -22,6 +22,7 @@ public interface OrbotConstants {
     public final static String PREF_OR = "pref_or";
     public final static String PREF_OR_PORT = "pref_or_port";
     public final static String PREF_OR_NICKNAME = "pref_or_nickname";
+    public final static String PREF_OR_EMAIL = "pref_or_email";
     public final static String PREF_REACHABLE_ADDRESSES = "pref_reachable_addresses";
     public final static String PREF_REACHABLE_ADDRESSES_PORTS = "pref_reachable_addresses_ports";
 	public final static  int RESULT_CLOSE_ALL = 0;
