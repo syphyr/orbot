@@ -314,4 +314,8 @@
     <string name="testing_explanation_no_net">Connetti ad internet per vedere se sei un buon candidato per la modalità altruismo</string>
     <string name="kindness_mode_disclaimer_bridge">Attivala se internet non viene pesantemente censurato nel tuo Paese.</string>
     <string name="kindness_mode_unsupported_country">Hai selezionato %s come tuo Paese, ma purtroppo la modalità altruismo non può aiutare le persone a connettersi a Tor in questa regione. Se pensi di vedere questo messaggio per errore, puoi rimuovere il tuo Paese e provare a vedere se sei idoneo a essere un proxy Snowflake</string>
+    <string name="open_proxy_needs_local_network_permission">Su Android 17 e successivi, Orbot ha bisogno dell\'autorizzazione \"Dispositivi nelle vicinanze\" per aprire il proxy su tutte le interfacce.</string>
+    <string name="private_dns">DNS privato</string>
+    <string name="private_dns_strict">DNS privato rigoroso attivato…</string>
+    <string name="private_dns_explanation">Usare un DNS privato rigoroso con uno specifico risolutore, farà fuoriuscire il traffico e i servizi onion dalla VPN di Orbot. Imposta il DNS privato per essere automatico.</string>
 </resources>
