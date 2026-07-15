@@ -4,6 +4,8 @@
     <!-- REJECT any binaries that aren't 16KB aligned -->
     <issue id="Aligned16KB" severity="fatal" />
 
+    <issue id="AppCompatMethod" severity="error" />
+
     <!-- Our translations are crowd-sourced -->
     <issue id="MissingTranslation" severity="ignore" />
 
@@ -15,11 +17,24 @@
     <issue id="UnusedResources" severity="warning" />
     <issue id="WrongConstant" severity="warning" />
 
+    <issue id="UseAppTint" severity="error" />
+    <issue id="UseCompatLoadingForColorStateLists" severity="error" />
+    <issue id="UseCompatTextViewDrawableApis" severity="error" />
+    <issue id="UseCompatTextViewDrawableXml" severity="error" />
+    <issue id="UseRequireInsteadOfGet" severity="error" />
+    <issue id="UseSupportActionBar" severity="error" />
+    <issue id="UseSwitchCompatOrMaterialCode" severity="error" />
+    <issue id="UseSwitchCompatOrMaterialXml" severity="error" />
+    <issue id="UsingOnClickInXml" severity="error" />
+    <issue id="UseAppTint" severity="error" />
+    <issue id="UseCompatLoadingForDrawables" severity="error" />
+    <issue id="UseGetLayoutInflater" severity="error" />
+
+
     <!-- this is being triggered by a javax package that is not used, so we are making it a warning -->
     <issue id="InvalidPackage" severity="warning" />
 
     <!-- These are important to us, so promote from warning to error -->
-    <issue id="AppCompatMethod" severity="error" />
     <issue id="DefaultLocale" severity="error" />
     <issue id="GetInstance" severity="error" />
     <issue id="HardwareIds" severity="error" />

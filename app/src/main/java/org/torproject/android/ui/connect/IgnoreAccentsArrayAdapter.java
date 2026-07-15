@@ -16,6 +16,7 @@ import android.widget.TextView;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * A ListAdapter that manages a ListView backed by an array of arbitrary
@@ -142,21 +143,21 @@ public class IgnoreAccentsArrayAdapter<T> extends BaseAdapter implements Filtera
                     results.count = list.size();
                 }
             } else {
-                var prefixString = prefix.toString().toLowerCase();
+                var prefixString = prefix.toString().toLowerCase(Locale.getDefault());
                 var values = mOriginalValues;
                 final var newValues = new ArrayList<>(values.size());
 
                 for (var value : values) {
-                    final var valueText = value.toString().toLowerCase().substring(5);
+                    final var valueText = value.toString().toLowerCase(Locale.getDefault()).substring(5);
                     var valueTextNoPalatals = Normalizer
                             .normalize(valueText, Normalizer.Form.NFD)
                             .replaceAll("[^\\p{ASCII}]", "")
-                            .toLowerCase();
+                            .toLowerCase(Locale.getDefault());
 
                     var prefixStringNoPalatals = Normalizer
                             .normalize(prefixString, Normalizer.Form.NFD)
                             .replaceAll("[^\\p{ASCII}]", "")
-                            .toLowerCase();
+                            .toLowerCase(Locale.getDefault());
                     // First match against the whole, non-splitted value
                     if (valueText.startsWith(prefixString) || valueTextNoPalatals.startsWith(prefixStringNoPalatals)) {
                         newValues.add(value);
