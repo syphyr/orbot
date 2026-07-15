@@ -268,6 +268,7 @@
     <string name="my_country_optional">My Country (optional)</string>
     <string name="limit_dns_tunnel_use">Limit DNS Tunnel Use</string>
     <string name="dns_tunnel_usage_description">DNS tunnels prioritise access over speed and may feel slower. We recommend enabling them only for essential apps. Video streaming is not recommended.</string>
+    <!--suppress PluralsCandidate-->
     <string name="added_bridges_from_qr">Adding %1$d bridges from the QR Code</string>
     <string name="invalid_bridge_qr_code">Invalid Bridge QR Code</string>
     <string name="you_already_have_these_bridges">You\'ve already added the bridges in this QR Code</string>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -16,14 +16,14 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            tools:title="@string/btn_choose_apps"
+            android:baselineAligned="false"
             app:navigationIcon="?attr/homeAsUpIndicator"
-            android:baselineAligned="false" />
+            tools:title="@string/btn_choose_apps" />
 
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <FrameLayout xmlns:tools="http://schemas.android.com/tools"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:duplicateParentState="true"
@@ -39,9 +39,9 @@
             android:layout_marginStart="@dimen/activity_horizontal_margin"
             android:layout_marginTop="4dp"
             android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginBottom="8dp"
             app:boxBackgroundMode="outline"
             app:endIconDrawable="@drawable/ic_search"
-            android:layout_marginBottom="8dp"
             app:endIconMode="custom">
 
             <com.google.android.material.textfield.TextInputEditText

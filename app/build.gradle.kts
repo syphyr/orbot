@@ -100,7 +100,6 @@ configure<ApplicationExtension> {
         }
         create("nightly") {
             dimension = "free"
-            // overwrites defaults from defaultConfig
             applicationId = "org.torproject.android.nightly"
             versionCode = (Date().time / 1000).toInt()
         }
@@ -113,14 +112,12 @@ configure<ApplicationExtension> {
         }
     }
 
+    // run with ./gradlew lint
     lint {
         abortOnError = false
+        checkTestSources = false
         checkReleaseBuilds = false
-        disable += "InvalidPackage"
-        htmlReport = true
         lintConfig = file("../lint.xml")
-        textReport = false
-        xmlReport = false
     }
 
 }

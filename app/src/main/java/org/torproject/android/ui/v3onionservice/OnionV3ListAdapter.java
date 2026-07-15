@@ -31,7 +31,7 @@ public class OnionV3ListAdapter extends CursorAdapter {
         return mLayoutInflater.inflate(R.layout.layout_hs_list_item, parent, false);
     }
 
-    @SuppressLint("Range")
+    @SuppressLint({"Range", "SetTextI18n"})
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
         var id = cursor.getInt(cursor.getColumnIndex(OnionServiceColumns._ID));
