@@ -1,4 +1,5 @@
 import com.android.build.api.dsl.ApplicationExtension
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 import java.io.FileInputStream
 import java.util.Date
 import java.util.Properties
@@ -8,7 +9,12 @@ plugins {
     alias(libs.plugins.android.application)
 }
 
-kotlin { jvmToolchain(24) }
+kotlin {
+    compilerOptions {
+        languageVersion = KotlinVersion.KOTLIN_2_4
+    }
+    jvmToolchain(24)
+}
 
 val orbotBaseVersionCode = 1795300400
 fun getVersionName(): Provider<String> {
