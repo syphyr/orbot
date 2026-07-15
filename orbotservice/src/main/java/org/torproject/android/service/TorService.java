@@ -652,8 +652,8 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
         fileControlPort = new File(appBinHome, "control.txt");
         extraLines.append(TORRC_CONTROLPORT_FILE_KEY).append(' ').append(fileControlPort.getCanonicalPath()).append('\n');
 
-//         extraLines.append("RunAsDaemon 1").append('\n');
- //        extraLines.append("AvoidDiskWrites 1").append('\n');
+        extraLines.append("RunAsDaemon 1").append('\n');
+        extraLines.append("AvoidDiskWrites 1").append('\n');
         
          String socksPortPref = prefs.getString(OrbotConstants.PREF_SOCKS,
                  String.valueOf(TorServiceConstants.SOCKS_PROXY_PORT_DEFAULT));
