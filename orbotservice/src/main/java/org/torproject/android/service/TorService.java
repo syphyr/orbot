@@ -1783,12 +1783,9 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
                 int ORPort =  Integer.parseInt(prefs.getString(OrbotConstants.PREF_OR_PORT, "9001"));
                 String nickname = prefs.getString(OrbotConstants.PREF_OR_NICKNAME, "Orbot");
 
-                String dnsFile = writeDNSFile ();
-                
-                extraLines.append("ServerDNSResolvConfFile" + ' ' + dnsFile).append('\n');
                 extraLines.append("ORPort" + ' ' + ORPort).append('\n');
                 extraLines.append("Nickname" + ' ' + nickname).append('\n');
-                extraLines.append("ExitPolicy" + ' ' + "reject *:*").append('\n');
+                extraLines.append("ExitRelay" + ' ' + "0").append('\n');
 
             } else if (becomeRelay) {
                 Log.e(OrbotConstants.TAG, "Unable to start relay. Disable all Bridges, Reachable Addresses, and Reduced Padding.");
@@ -1860,19 +1857,6 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
             if (c <= '\u007F') out[j++] = c;
         }
         return new String(out);
-    }
-
-    //using Google DNS for now as the public DNS server
-    private String writeDNSFile () throws IOException
-    {
-        File file = new File(appBinHome, "resolv.conf");
-
-        PrintWriter bw = new PrintWriter(new FileWriter(file));
-        bw.println("nameserver 8.8.8.8");
-        bw.println("nameserver 8.8.4.4");
-        bw.close();
-    
-        return file.getCanonicalPath();
     }
 
     @SuppressLint("NewApi")
