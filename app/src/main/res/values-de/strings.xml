@@ -132,7 +132,6 @@
     <string name="power_user_mode">Power-User-Modus</string>
     <string name="apps_suggested_title">Vorgeschlagene Apps</string>
     <string name="power_user_description">Für Benutzer, die mit Tor vertraut sind. Ermöglicht den Start von Orbot ohne die VPN-Einstellung und zeigt offene SOCKS- und HTTP-Ports an</string>
-    <string name="title_choose_apps">Apps auswählen</string>
     <string name="app_suggested_subtitle">Orbot funktioniert am besten mit Messaging- und Social-Media-Apps.</string>
     <string name="apps_other_apps">Andere Apps</string>
     <string name="smart_connect">Smart Connect</string>
@@ -150,7 +149,6 @@
     <string name="btn_choose_apps">Anwendungen auswählen</string>
     <string name="btn_change_exit">Ausgang ändern</string>
     <string name="btn_refresh">Verbindung auffrischen</string>
-    <string name="hide_apps">Verstecke Apps vor der Netzwerküberwachung und erhalte Zugriff, wenn sie blockiert sind.</string>
     <string name="pref_isolate_port">Zielports isolieren</string>
     <string name="pref_isolate_protocol">Client-Protokolle isolieren</string>
     <string name="no_internet_title">Mit dem Internet verbinden</string>

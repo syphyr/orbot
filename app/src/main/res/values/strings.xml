@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--suppress GrazieInspection -->
 <resources>
     <string name="app_name">Orbot</string>
     <string name="app_description">Orbot is a free proxy app that empowers other apps to use the internet more securely. Orbot uses Tor to encrypt your Internet traffic and then hides it by bouncing through a series of computers around the world. Tor is free software and an open network that helps you defend against a form of network surveillance that threatens personal freedom and privacy, confidential business activities and relationships, and state security known as traffic analysis.</string>
@@ -141,7 +141,6 @@
     <string name="bridge_snowflake_sqs">Connect through other Tor users using Snowflake (Method 3 - SQS)</string>
     <string name="snowflake_proxy_msg_title">Show Connection Notification</string>
     <string name="snowflake_proxy_msg_description">Show a message when you help someone circumvent censorship</string>
-    <!-- new UX -->
     <string name="volunteer_mode">Kindness Mode</string>
     <string name="secure_your_connection_title">Ready to connect</string>
     <string name="secure_your_connection_subtitle">Hide apps from network monitoring and get access when they are blocked.</string>
@@ -187,11 +186,9 @@
     <string name="Enabled">Enabled</string>
     <string name="Disabled">Disabled</string>
     <string name="Paused">Paused</string>
-    <string name="title_choose_apps">Choose Apps</string>
     <string name="app_suggested_subtitle">Orbot works best with messaging and social media apps.</string>
     <string name="apps_suggested_title">Suggested Apps</string>
     <string name="apps_other_apps">Other Apps</string>
-    <string name="hide_apps">Hide apps from network monitoring and get access when they are blocked.</string>
     <string name="btn_copy_log">Copy Log</string>
     <string name="log_copied">Log Copied</string>
     <string name="not_sure">Not sure?</string>
@@ -267,11 +264,11 @@
     <string name="unlock_app_msg" formatted="true">Please unlock your device in order to use %s</string>
     <string name="run_smart_connect_">Run Smart Connect to find the best way</string>
     <string name="scan_qr_code">Scan QR Code</string>
+    <!--suppress PluralsCandidate-->
     <string name="added_bridges_from_qr">Adding %1$d bridges from the QR Code</string>
     <string name="invalid_bridge_qr_code">Invalid Bridge QR Code</string>
     <string name="you_already_have_these_bridges">You\'ve already added the bridges in this QR Code</string>
 
-    <!-- strings from the old orbotservice module -->
     <string name="orbot_vpn">Orbot VPN</string>
     <string name="status_starting_up">Orbot is Starting&#8230;</string>
     <string name="status_activated">Connected to the Tor Network</string>
@@ -351,6 +348,9 @@
     <string name="battery_optimizations_are_enabled">Battery Optimizations are currently active for Orbot. This is the default and is reasonable for most users…</string>
     <string name="btn_connect_anyway">Connect Anyway</string>
     <string name="btn_connect_anyway_stop_showing">Connect and Turn Off This Warning</string>
+    <string name="private_dns">Private DNS</string>
+    <string name="private_dns_strict">Strict Private DNS Enabled…</string>
+    <string name="private_dns_explanation">Using a strict Private DNS with a specific resolver will leak your traffic and onion services outside Orbot\'s VPN. Please set your Private DNS to be Automatic.</string>
     <string name="activate_kindness_mode">Activate Kindness Mode</string>
     <string name="running_kindness_mode_on_android">Running Kindness Mode on Android</string>
     <string name="kindness_mode_runs_when_the_device_is_connected_to_wifi">Kindness mode runs when the device is connected to Wi-Fi.</string>

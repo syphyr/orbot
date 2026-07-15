@@ -1,4 +1,5 @@
 import com.android.build.api.dsl.ApplicationExtension
+import org.jetbrains.kotlin.gradle.dsl.KotlinVersion
 import java.io.FileInputStream
 import java.util.Date
 import java.util.Properties
@@ -8,7 +9,12 @@ plugins {
     alias(libs.plugins.android.application)
 }
 
-kotlin { jvmToolchain(24) }
+kotlin {
+    compilerOptions {
+        languageVersion = KotlinVersion.KOTLIN_2_4
+    }
+    jvmToolchain(24)
+}
 
 val orbotBaseVersionCode = 1795300400
 fun getVersionName(): Provider<String> {
@@ -100,7 +106,6 @@ configure<ApplicationExtension> {
         }
         create("nightly") {
             dimension = "free"
-            // overwrites defaults from defaultConfig
             applicationId = "org.torproject.android.nightly"
             versionCode = (Date().time / 1000).toInt()
         }
@@ -113,14 +118,12 @@ configure<ApplicationExtension> {
         }
     }
 
+    // run with ./gradlew lint
     lint {
         abortOnError = false
+        checkTestSources = false
         checkReleaseBuilds = false
-        disable += "InvalidPackage"
-        htmlReport = true
         lintConfig = file("../lint.xml")
-        textReport = false
-        xmlReport = false
     }
 
 }

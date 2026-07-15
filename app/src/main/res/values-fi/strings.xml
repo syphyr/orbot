@@ -131,7 +131,6 @@
     <string name="secure_your_connection_subtitle">Piilota sovelluksia verkkoseurannalta ja käytä estettyjä palveluita.</string>
     <string name="power_user_description">Kokeneille Tor-käyttäjille. Mahdollistaa Orbotin käynnistyksen ilman VPN-asetusta ja näyttää avoimet SOCKS- ja HTTP-portit.</string>
     <string name="power_user_mode">Tehokäyttäjätila</string>
-    <string name="title_choose_apps">Valitse sovelluksia</string>
     <string name="app_suggested_subtitle">Orbot toimii parhaiten viestintäsovellusten ja sosiaalisen median sovellusten kanssa.</string>
     <string name="apps_other_apps">Muut sovellukset</string>
     <string name="apps_suggested_title">Ehdotetut sovellukset</string>
@@ -142,7 +141,6 @@
     <string name="snowflake_subtitle">Muodostaa Tor-yhteyden vapaaehtoisten välityksellä. Kiertää joitakin Tor-estoja.</string>
     <string name="connect">Yhdistä</string>
     <string name="next">Seuraava</string>
-    <string name="hide_apps">Piilota sovelluksia verkkoseurannalta ja käytä estettyjä palveluita.</string>
     <string name="log_copied">Lokitiedot kopioitu</string>
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="ask_tor">Kysy Torilta</string>

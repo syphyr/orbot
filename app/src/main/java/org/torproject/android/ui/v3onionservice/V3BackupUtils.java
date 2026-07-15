@@ -29,6 +29,7 @@ import java.nio.channels.FileChannel;
 import java.nio.charset.Charset;
 import java.util.Objects;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class V3BackupUtils {
     private static final String configFileName = "config.json";
     private final Context mContext;
@@ -61,7 +62,9 @@ public class V3BackupUtils {
         return backupFile.getPath();
     }
 
-    /** @noinspection CallToPrintStackTrace*/ // todo this doesn't export data for onions that orbot hosts which have authentication (not supported yet...)
+    /**
+     * @noinspection CallToPrintStackTrace
+     */ // todo this doesn't export data for onions that orbot hosts which have authentication (not supported yet...)
     @SuppressLint("Range")
     private String[] createFilesForZippingV3(String relativePath) {
         final String v3BasePath = getV3BasePath() + "/" + relativePath + "/";
@@ -137,7 +140,7 @@ public class V3BackupUtils {
                 Toast.makeText(mContext, R.string.backup_restored, Toast.LENGTH_LONG).show();
             } else {
                 // collision, clean up files
-                for (File file: Objects.requireNonNull(v3Path.listFiles()))
+                for (File file : Objects.requireNonNull(v3Path.listFiles()))
                     file.delete();
                 v3Path.delete();
                 Toast.makeText(mContext, mContext.getString(R.string.backup_port_exist, ("" + port)), Toast.LENGTH_LONG).show();

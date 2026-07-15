@@ -144,8 +144,6 @@
     <string name="smart_connect">Smart Connect (προεπιλογή)</string>
     <string name="connect">Συνδέστε το</string>
     <string name="next">Επόμενο</string>
-    <string name="title_choose_apps">Επιλέξτε εφαρμογές</string>
-    <string name="hide_apps">Απόκρυψη εφαρμογών από την παρακολούθηση του δικτύου και πρόσβαση σε αυτές όταν είναι μπλοκαρισμένες.</string>
     <string name="log_copied">Ημερολόγιο Αντιγραφή</string>
     <string name="not_sure">Δεν είστε σίγουροι\?</string>
     <string name="ask_tor">Ρωτήστε τον Tor</string>

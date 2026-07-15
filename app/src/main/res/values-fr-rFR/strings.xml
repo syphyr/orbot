@@ -120,7 +120,6 @@
     <string name="snowflake_proxy_msg_title">Afficher la notification de connexion</string>
     <string name="snowflake_proxy_msg_description">Afficher un message lorsque vous aidez quelqu\'un à contourner la censure</string>
     <string name="power_user_mode">Mode utilisateur avancé</string>
-    <string name="title_choose_apps">Choisir les applications</string>
     <string name="app_suggested_subtitle">Orbot fonctionne mieux avec les applications de messagerie et de médias sociaux.</string>
     <string name="apps_suggested_title">Applications suggérées</string>
     <string name="apps_other_apps">Autres applications</string>
@@ -157,7 +156,6 @@
     <string name="menu_kindness">La gentillesse</string>
     <string name="option_only_on_wifi">Uniquement sur Wifi</string>
     <string name="volunteer_mode">Mode gentillesse</string>
-    <string name="hide_apps">Masquer les applications de la surveillance du réseau et y accéder lorsqu\'elles sont bloquées.</string>
     <string name="kindness_config_detail">Configurez quand et comment votre appareil peut agir en tant que proxy Snowflake pour les autres utilisateurs de Tor.</string>
     <string name="btn_copy_log">Journal des copies</string>
     <string name="log_copied">Journal copié</string>

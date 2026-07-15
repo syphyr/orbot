@@ -162,11 +162,9 @@
     <string name="custom_bridges_description">Greamaigh na seoltaí droichid a fhaigheann tú thíos. Nó scan an cód QR chun iad a chur leis. Is féidir le cairde droichid a fháil duit ag %1$s.</string>
     <string name="power_user_mode">Mód Úsáideora Cumhachta</string>
     <string name="power_user_description">D’úsáideoirí atá eolach ar Tor. Ligeann sé duit Orbot a thosú gan an socrú VPN agus taispeánann sé calafoirt SOCKS agus HTTP atá oscailte</string>
-    <string name="title_choose_apps">Roghnaigh Aipeanna</string>
     <string name="app_suggested_subtitle">Oibríonn Orbot is fearr le haipeanna teachtaireachtaí agus meán sóisialta.</string>
     <string name="apps_suggested_title">Aipeanna Molta</string>
     <string name="apps_other_apps">Aipeanna Eile</string>
-    <string name="hide_apps">Folaigh aipeanna ó mhonatóireacht líonra agus faigh rochtain nuair a bhíonn siad blocáilte.</string>
     <string name="btn_copy_log">Cóipeáil Log</string>
     <string name="log_copied">Log Cóipeáilte</string>
     <string name="not_sure">Níl tú cinnte?</string>

@@ -23,7 +23,6 @@
     <string name="enable">Aktivizoje</string>
     <string name="pref_transport_dialog">Formësim Porte</string>
     <string name="pref_torrc_dialog">Torrc vetjake</string>
-    <string name="title_choose_apps">Zgjidhni Aplikacione</string>
     <string name="user_services">Shërbime përdoruesi</string>
     <string name="app_services">Shërbime aplikacionesh</string>
     <string name="snowflake_proxy_msg_title">Shfaq Njoftim Lidhjeje</string>
@@ -117,7 +116,6 @@
     <string name="consider_enable_battery_optimizations">Pa shërbime të strehuara në funksionim, shihni mundësinë e aktivizimit të optimizimeve të baterisë</string>
     <string name="direct_connect_subtitle">Rruga më e mirë për t’u lidhur me Tor-in. Përdoreni nëse Tor-i s’është i bllokuar.</string>
     <string name="app_suggested_subtitle">Më mirë se me gjithçka tjetër, Orbot-i funksionon me aplikacione shkëmbimi mesazhesh dhe mediash shoqërore.</string>
-    <string name="secure_your_connection_subtitle">Fshihini aplikacione mbikëqyrjes së rrjetit dhe përfitoni hyrje kur janë të bllokuar.</string>
     <string name="volunteer_mode">Mënyra Dashamirësi</string>
     <string name="snowflake_subtitle">Lidhuni përmes vullnetarësh Tor. Anashkalohen disa bllokime Tor-i.</string>
     <string name="fingerprints_nicks_countries_and_addresses_for_the_last_hop">Shenja gishtash, nofka, vende dhe adresa për hopin e fundit</string>
@@ -143,7 +141,8 @@
     <string name="pref_proxy_password_title">Fjalëkalim Ndërmjetësi Në Dalje</string>
     <string name="setting_debug">Diagnostiojeni</string>
     <string name="menu_more">Më tepër</string>
-    <string name="hide_apps">Fshihni aplikacione nga mbikëqyrje rrjeti dhe përfitoni hyrje, kur janë të bllokuar.</string>
+    <string name="secure_your_connection_subtitle">Fshihini aplikacione mbikëqyrjes së rrjetit dhe përfitoni hyrje kur janë të bllokuar.</string>
+
     <string name="no_internet_subtitle">Që të përdorni Orbot-in, ju duhet një lidhje internet.</string>
     <string name="not_sure">Jo i sigurt\?</string>
     <string name="ask_tor">Pyetni Tor-in</string>

@@ -22,7 +22,6 @@
     <string name="connected_title">ബന്ധിപ്പിച്ചു</string>
     <string name="btn_refresh">റീഫ്രെഷ്</string>
     <string name="next">അടുത്തത്</string>
-    <string name="title_choose_apps">ആപ്പുകൾ തിരഞ്ഞെടുക്കുക</string>
     <string name="no_internet_title">ഇന്റർനെറ്റ് ആയിട്ട് ബന്ധിപ്പിക്കുക</string>
     <string name="setting_padding">പാഡിങ്</string>
     <string name="setting_debug">ഡീബഗ്</string>
@@ -36,4 +35,5 @@
     <string name="enable">സജ്ജമാക്കുക</string>
     <string name="hidden_services">ഒണിയൻ സേവനങ്ങൾ</string>
     <string name="set_transport">ഗതാഗതം സജ്ജമാക്കുക</string>
+    <string name="btn_choose_apps">ആപ്പുകൾ തിരഞ്ഞെടുക്കുക</string>
 </resources>

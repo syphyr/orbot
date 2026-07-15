@@ -123,7 +123,7 @@
     <string name="snowflake_proxy_msg_title">Miikthegu’ açhcxa’ kaajiyu’jnxis</string>
     <string name="snowflake_proxy_msg_description">Teeçx yuwe ktheguju’, idx Snowflake vxitetx kaajxkhewũ’ya pu’çxte</string>
     <!--new UX-->
-  <string name="volunteer_mode">Modo Kindness</string>
+    <string name="volunteer_mode">Modo Kindness</string>
     <string name="secure_your_connection_title">Açhwa’ ewyã’ja’</string>
     <string name="secure_your_connection_subtitle">Msũuth Appetx paathegkameen. jĩiçxa’ me’ka kaajxkhewũ’jnximee ũste.</string>
     <string name="connected_title">Kitxanxi ũsa’</string>
@@ -141,7 +141,6 @@
     <string name="next">Vxite</string>
     <string name="power_user_mode">Meh kseelpi’jya jiisa</string>
     <string name="power_user_description">Tora’s kseelpi’jya jiya’jsatxi’. Nvxitu’k VPN phewu’jmee Orbota’s pu’txkan ki kaavxa’jak SOCKS vxite HTTP vxitx phadenxi ũssatx </string>
-    <string name="title_choose_apps">Teeçx App mtxhitxh</string>
     <string name="app_suggested_subtitle">ORBOTa’ jxthaakwe ewa’ vxite App çaam wessu</string>
     <string name="apps_suggested_title">Vxite App thegwa’</string>
     <string name="apps_other_apps">Vxite App</string>

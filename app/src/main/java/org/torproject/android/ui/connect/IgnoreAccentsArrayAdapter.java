@@ -16,6 +16,7 @@ import android.widget.TextView;
 import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * A ListAdapter that manages a ListView backed by an array of arbitrary
@@ -37,7 +38,7 @@ public class IgnoreAccentsArrayAdapter<T> extends BaseAdapter implements Filtera
      * Contains the list of objects that represent the data of this ArrayAdapter.
      * The content of this list is referred to as "the array" in the documentation.
      */
-    private List<T> mObjects;
+    List<T> mObjects;
 
     /**
      * Lock used to modify the content of {@link #mObjects}. Any write operation
@@ -45,7 +46,7 @@ public class IgnoreAccentsArrayAdapter<T> extends BaseAdapter implements Filtera
      * used by the filter (see {@link #getFilter()}) to make a synchronized copy of
      * the original array of data.
      */
-    private final Object mLock = new Object();
+    final Object mLock = new Object();
 
     /**
      * The resource indicating what views to inflate to display the content of this
@@ -53,7 +54,7 @@ public class IgnoreAccentsArrayAdapter<T> extends BaseAdapter implements Filtera
      */
     private final int mResource;
 
-    private ArrayList<T> mOriginalValues;
+    ArrayList<T> mOriginalValues;
     private HRArrayFilter mFilter;
 
     private final LayoutInflater mInflater;
@@ -123,7 +124,7 @@ public class IgnoreAccentsArrayAdapter<T> extends BaseAdapter implements Filtera
      * a prefix. Each item that does not start with the supplied prefix
      * is removed from the list.</p>
      */
-    private class HRArrayFilter extends Filter {
+    class HRArrayFilter extends Filter {
         @Override
         protected FilterResults performFiltering(CharSequence prefix) {
             var results = new FilterResults();
@@ -134,6 +135,7 @@ public class IgnoreAccentsArrayAdapter<T> extends BaseAdapter implements Filtera
                 }
             }
 
+            //noinspection SizeReplaceableByIsEmpty
             if (prefix == null || prefix.length() == 0) {
                 synchronized (mLock) {
                     var list = new ArrayList<>(mOriginalValues);
@@ -141,21 +143,21 @@ public class IgnoreAccentsArrayAdapter<T> extends BaseAdapter implements Filtera
                     results.count = list.size();
                 }
             } else {
-                var prefixString = prefix.toString().toLowerCase();
+                var prefixString = prefix.toString().toLowerCase(Locale.getDefault());
                 var values = mOriginalValues;
                 final var newValues = new ArrayList<>(values.size());
 
                 for (var value : values) {
-                    final var valueText = value.toString().toLowerCase().substring(5);
+                    final var valueText = value.toString().toLowerCase(Locale.getDefault()).substring(5);
                     var valueTextNoPalatals = Normalizer
                             .normalize(valueText, Normalizer.Form.NFD)
                             .replaceAll("[^\\p{ASCII}]", "")
-                            .toLowerCase();
+                            .toLowerCase(Locale.getDefault());
 
                     var prefixStringNoPalatals = Normalizer
                             .normalize(prefixString, Normalizer.Form.NFD)
                             .replaceAll("[^\\p{ASCII}]", "")
-                            .toLowerCase();
+                            .toLowerCase(Locale.getDefault());
                     // First match against the whole, non-splitted value
                     if (valueText.startsWith(prefixString) || valueTextNoPalatals.startsWith(prefixStringNoPalatals)) {
                         newValues.add(value);

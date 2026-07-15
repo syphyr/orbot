@@ -12,7 +12,6 @@
     <string name="set_locale_title">ژبه</string>
     <string name="menu_new_identity">New Identity</string>
     <string name="connected_title">ونښلول شو</string>
-    <string name="title_choose_apps">کاریالونه ټاکل</string>
     <string name="connect">نښلول</string>
     <string name="next">بل</string>
     <string name="menu_settings">امستنې</string>
@@ -21,4 +20,5 @@
     <string name="app_name">اوربوټ</string>
     <string name="hidden_services">د Onion خدمات</string>
     <string name="set_transport">لیږد تنظیم کړئ</string>
+    <string name="btn_choose_apps">کاریالونه ټاکل</string>
 </resources>

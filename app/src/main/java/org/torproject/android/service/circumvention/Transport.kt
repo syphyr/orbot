@@ -106,7 +106,7 @@ enum class Transport(val id: String) {
             "eyJhd3MtYWNjZXNzLWtleS1pZCI6IkFLSUE1QUlGNFdKSlhTN1lIRUczIiwiYXdzLXNlY3JldC1rZXkiOiI3U0RNc0pBNHM1RitXZWJ1L3pMOHZrMFFXV0lsa1c2Y1dOZlVsQ0tRIn0="
     }
 
-    val transportNames: Set<String>
+    private val transportNames: Set<String>
         get() {
             return when (this) {
                 NONE -> emptySet()

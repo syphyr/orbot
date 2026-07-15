@@ -21,6 +21,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class ZipUtilities {
     private static final int BUFFER = 2048;
     public static final String ZIP_MIME_TYPE = "application/zip";
@@ -102,7 +103,7 @@ public class ZipUtilities {
                 if (!ONION_SERVICE_CONFIG_FILES.contains(filename)) { // *any* kind of foreign file
                     File[] writtenFiles = outputDir.listFiles();
                     if (writtenFiles != null) {
-                        for (File writtenFile: writtenFiles) {
+                        for (File writtenFile : writtenFiles) {
                             writtenFile.delete();
                         }
                     }

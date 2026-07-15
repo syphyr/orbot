@@ -145,12 +145,10 @@
     <string name="direct_connect_subtitle">A melhor maneira de se conectar ao Tor. Use caso o Tor não esteja bloqueado.</string>
     <string name="snowflake_subtitle">Conecta-se através de voluntários do Tor. Contorna alguns bloqueios do Tor.</string>
     <string name="power_user_description">Para usuários familiarizados com o Tor. Permite que você inicie o Orbot sem a configuração VPN e mostra as portas SOCKS e HTTP que estejam abertas</string>
-    <string name="title_choose_apps">Escolha os aplicativos</string>
     <string name="app_suggested_subtitle">O Orbot funciona melhor com aplicativos de mensagens e mídias sociais.</string>
     <string name="apps_suggested_title">Sugestões de aplicativos</string>
     <string name="apps_other_apps">Outros aplicativos</string>
     <string name="power_user_mode">Modo de usuário avançado</string>
-    <string name="hide_apps">Oculte os aplicativos do monitoramento da rede e obtenha acesso quando eles estiverem bloqueados.</string>
     <string name="log_copied">Registro log copiado</string>
     <string name="snowflake_amp">Snowflake AMP</string>
     <string name="not_sure">Não tem certeza?</string>

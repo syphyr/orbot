@@ -20,22 +20,22 @@ class Bridge(var raw: String) {
         var fingerprint1: String? = null
     ) {
 
-        var fingerprint2: String? = null
+        private var fingerprint2: String? = null
         var url: String? = null
         var front: String? = null
         var fronts = mutableSetOf<String>()
-        var cert: String? = null
-        var iatMode: String? = null
-        var ice: String? = null
-        var utls: String? = null
-        var utlsImitate: String? = null
+        private var cert: String? = null
+        private var iatMode: String? = null
+        private var ice: String? = null
+        private var utls: String? = null
+        private var utlsImitate: String? = null
         var ver: String? = null
 
         // DNSTT
         var udp: String? = null
         var doh: String? = null
         var dot: String? = null
-        var pubkey: String? = null
+        private var pubkey: String? = null
         var domain: String? = null
 
         constructor(bridge: Bridge) : this(
@@ -107,7 +107,7 @@ class Bridge(var raw: String) {
         }
     }
 
-    val rawPieces: List<String>
+    private val rawPieces: List<String>
         get() {
             val pieces = raw.split(" ").toMutableList()
 
@@ -221,20 +221,6 @@ class Bridge(var raw: String) {
 
         val fingerprintRegex = Regex("^[a-f0-9]{40}$", RegexOption.IGNORE_CASE)
 
-        @JvmStatic
-        fun parseBridges(bridges: String): List<Bridge> {
-            return bridges
-                .split("\n")
-                .mapNotNull {
-                    val b = it.trim()
-                    if (b.isNotEmpty()) Bridge(b) else null
-                }
-        }
-
-        @JvmStatic
-        fun getTransports(bridges: List<Bridge>): Set<String> {
-            return bridges.mapNotNull { it.transport }.toSet()
-        }
     }
 }
 

@@ -3,15 +3,53 @@
 
 package org.torproject.android.service;
 
-import static org.torproject.android.service.OrbotConstants.*;
-import static org.torproject.jni.TorService.*;
+import static org.torproject.android.service.OrbotConstants.ACTION_LOCAL_LOCALE_SET;
+import static org.torproject.android.service.OrbotConstants.ACTION_RESTART_VPN_IF_RUNNING;
+import static org.torproject.android.service.OrbotConstants.ACTION_STOP_FOREGROUND_TASK;
+import static org.torproject.android.service.OrbotConstants.ACTION_UPDATE_ONION_NAMES;
+import static org.torproject.android.service.OrbotConstants.CMD_ACTIVE;
+import static org.torproject.android.service.OrbotConstants.CMD_SET_EXIT;
+import static org.torproject.android.service.OrbotConstants.DIRECTORY_TOR_DATA;
+import static org.torproject.android.service.OrbotConstants.EXTRA_DNS_PORT;
+import static org.torproject.android.service.OrbotConstants.EXTRA_HTTP_PROXY;
+import static org.torproject.android.service.OrbotConstants.EXTRA_HTTP_PROXY_HOST;
+import static org.torproject.android.service.OrbotConstants.EXTRA_HTTP_PROXY_PORT;
+import static org.torproject.android.service.OrbotConstants.EXTRA_NOT_SYSTEM;
+import static org.torproject.android.service.OrbotConstants.EXTRA_SOCKS_PROXY;
+import static org.torproject.android.service.OrbotConstants.EXTRA_SOCKS_PROXY_HOST;
+import static org.torproject.android.service.OrbotConstants.EXTRA_SOCKS_PROXY_PORT;
+import static org.torproject.android.service.OrbotConstants.EXTRA_TRANS_PORT;
+import static org.torproject.android.service.OrbotConstants.GEOIP6_ASSET_KEY;
+import static org.torproject.android.service.OrbotConstants.GEOIP_ASSET_KEY;
+import static org.torproject.android.service.OrbotConstants.LOCAL_ACTION_LOG;
+import static org.torproject.android.service.OrbotConstants.LOCAL_ACTION_PORTS;
+import static org.torproject.android.service.OrbotConstants.LOCAL_ACTION_QUICK_SETTINGS_NEWNYM;
+import static org.torproject.android.service.OrbotConstants.LOCAL_ACTION_STATUS;
+import static org.torproject.android.service.OrbotConstants.LOCAL_ACTION_V3_NAMES_UPDATED;
+import static org.torproject.android.service.OrbotConstants.LOCAL_EXTRA_BOOTSTRAP_PERCENT;
+import static org.torproject.android.service.OrbotConstants.LOCAL_EXTRA_LOG;
+import static org.torproject.android.service.OrbotConstants.LOG_NOTICE_BOOTSTRAPPED;
+import static org.torproject.jni.TorService.ACTION_ERROR;
+import static org.torproject.jni.TorService.ACTION_START;
+import static org.torproject.jni.TorService.ACTION_STATUS;
+import static org.torproject.jni.TorService.ACTION_STOP;
+import static org.torproject.jni.TorService.EXTRA_PACKAGE_NAME;
+import static org.torproject.jni.TorService.EXTRA_STATUS;
+import static org.torproject.jni.TorService.STATUS_OFF;
+import static org.torproject.jni.TorService.STATUS_ON;
+import static org.torproject.jni.TorService.STATUS_STOPPING;
 
 import android.annotation.SuppressLint;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
-import android.content.*;
+import android.content.BroadcastReceiver;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.ServiceConnection;
 import android.content.pm.ServiceInfo;
 import android.net.VpnService;
 import android.os.Build;
@@ -21,6 +59,11 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.ServiceCompat;
+import androidx.core.content.ContextCompat;
+
 import net.freehaven.tor.control.TorControlCommands;
 import net.freehaven.tor.control.TorControlConnection;
 
@@ -29,21 +72,20 @@ import org.torproject.android.service.circumvention.SmartConnect;
 import org.torproject.android.service.db.OnionServiceColumns;
 import org.torproject.android.service.tor.CustomTorResourceInstaller;
 import org.torproject.android.service.tor.ShadowSocks;
-import org.torproject.android.util.*;
 import org.torproject.android.service.tor.TorConfig;
 import org.torproject.android.service.vpn.OrbotVpnManager;
+import org.torproject.android.util.DiskUtils;
+import org.torproject.android.util.Prefs;
 import org.torproject.jni.TorService;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Locale;
+import java.util.StringTokenizer;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-
-import androidx.annotation.NonNull;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.ServiceCompat;
-import androidx.core.content.ContextCompat;
 
 import kotlin.Unit;
 
@@ -64,7 +106,6 @@ public class OrbotService extends VpnService {
     private volatile boolean shouldUnbindTorService;
     private NotificationManager mNotificationManager = null;
     private NotificationCompat.Builder mNotifyBuilder;
-    private File mV3OnionBasePath;
     private static final String TAG = "OrbotService";
 
     protected void showToolbarNotification(String notifyMsg, int notifyType, int icon) {
@@ -718,7 +759,7 @@ public class OrbotService extends VpnService {
                     stopTorAsync(!userIsQuittingOrbot);
                 }
                 case ACTION_UPDATE_ONION_NAMES -> updateV3OnionNames();
-                case ACTION_STOP_FOREGROUND_TASK -> stopForeground(true);
+                case ACTION_STOP_FOREGROUND_TASK -> stopForeground(STOP_FOREGROUND_REMOVE);
                 case ACTION_RESTART_VPN_IF_RUNNING -> {
                     if (mVpnManager != null) mVpnManager.restartVPN(new Builder());
                 }

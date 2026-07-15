@@ -86,7 +86,7 @@ public class ClientAuthCreateDialogFragment extends DialogFragment {
         inputValidator.afterTextChanged(null);
     }
 
-    private boolean checkInput() {
+    boolean checkInput() {
         var onion = sanitizeOnionDomainTextField();
         if (!onion.matches("([a-z0-9]{56})")) return false;
         var hash = etKeyHash.getText().toString();

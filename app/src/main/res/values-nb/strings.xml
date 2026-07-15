@@ -119,7 +119,6 @@
     <string name="connected_title">Tilkoblet</string>
     <string name="btn_refresh">Gjenoppfrisk</string>
     <string name="connect">Koble til</string>
-    <string name="title_choose_apps">Velg programmer</string>
     <string name="no_internet_title">Koble til Internett</string>
     <string name="next">Neste</string>
     <string name="setting_padding">Spaltefyll</string>
@@ -135,7 +134,6 @@
     <string name="smart_connect">Smart Connect (standard)</string>
     <string name="apps_other_apps">Andre apper</string>
     <string name="option_only_when_charging">Bare ved lading</string>
-    <string name="hide_apps">Skjul apper fra nettverksovervåking og få tilgang når de er blokkert.</string>
     <string name="pref_isolate_port_summary">Bruk en annen krets for hver destinasjonsport</string>
     <string name="pref_isolate_protocol">Isolere klientprotokoller</string>
     <string name="secure_your_connection_subtitle">Skjul apper fra nettverksovervåking og få tilgang når de er blokkert.</string>

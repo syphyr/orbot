@@ -14,7 +14,6 @@
     <string name="error">Սխալ</string>
     <string name="save">Պահել</string>
     <string name="name">Անուն</string>
-    <string name="title_choose_apps">Ընտրել ափփեր</string>
     <string name="hidden_services">Onion ծառայություններ</string>
     <string name="disable">Կարողազրկել</string>
     <string name="enable">Կարողացնել</string>
@@ -88,4 +87,5 @@
     <string name="pref_prefer_ipv6">Նախընտել IPv6 միացումները</string>
     <string name="pref_disable_ipv4">Կարողազրկել IPv4 միացումները</string>
     <string name="snowflake_proxy_msg_title">Ցուցադրել միացման ծանոցումը</string>
+    <string name="btn_choose_apps">Ընտրել ափփեր</string>
 </resources>

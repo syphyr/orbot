@@ -61,7 +61,6 @@
     <string name="name">Nombre</string>
     <string name="disable">Deshabilitar</string>
     <string name="btn_refresh">Actualizar</string>
-    <string name="title_choose_apps">Elegir aplicaciones</string>
     <string name="connect">Conectar</string>
     <string name="next">Siguiente</string>
     <string name="restore_backup">Restaurar copia de seguridad</string>
@@ -73,4 +72,5 @@
     <string name="hidden_services">Servicios Onion</string>
     <string name="confirm">Confirmar</string>
     <string name="set_transport">Configurar transporte</string>
+    <string name="btn_choose_apps">Elegir aplicaciones</string>
 </resources>

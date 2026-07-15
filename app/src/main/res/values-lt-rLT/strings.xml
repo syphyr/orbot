@@ -146,11 +146,9 @@
     <string name="connect">Prisijungti</string>
     <string name="next">Toliau</string>
     <string name="app_suggested_subtitle">„Orbot“ geriausiai veikia su pranešimų ir socialinių tinklų programėlėmis.</string>
-    <string name="title_choose_apps">Pasirinkti programėles</string>
     <string name="apps_suggested_title">Siūlomos programėlės</string>
     <string name="direct_connect_subtitle">Geriausias būdas prisijungti prie „Tor“. Naudokite, jei „Tor“ neužblokuotas.</string>
     <string name="direct_connect">Tiesioginis ryšys su „Tor“</string>
-    <string name="hide_apps">Paslėpkite programėles nuo tinklo stebėjimo ir gaukite prieigą, kai jos blokuojamos.</string>
     <string name="menu_more">Daugiau</string>
     <string name="setting_debug">Derinimas</string>
     <string name="no_internet_title">Prisijunkite prie interneto</string>

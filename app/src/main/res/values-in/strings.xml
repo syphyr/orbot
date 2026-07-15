@@ -67,10 +67,9 @@
     <string name="hidden_services">Layanan Onion</string>
     <string name="v3_hosted_services">Layanan Onion yang Disediakan</string>
     <string name="v3_client_auth_activity_title">Otorisasi Klien</string>
-    <string name="secure_your_connection_subtitle">Sembunyikan aplikasi dari pemantauran jaringan dan dapatkan akses ketika mereka diblokir..</string>
+    <string name="secure_your_connection_subtitle">Sembunyikan aplikasi dari pemantauran jaringan dan dapatkan akses ketika mereka diblokir.</string>
     <string name="power_user_mode">Mode Pengguna Berdaya</string>
     <string name="power_user_description">Untuk pengguna yang familier dengan Tor. Memungkinkan Anda untuk memulai Orbot tanpa pengaturan VPN dan menampilkan porta SOCKS dan HTTP yang terbuka</string>
-    <string name="title_choose_apps">Pilih Aplikasi</string>
     <string name="app_suggested_subtitle">Orbot bekerja baik dengan aplikasi perpesanan dan media sosial.</string>
     <string name="apps_suggested_title">Aplikasi yang Disarankan</string>
     <string name="apps_other_apps">Aplikasi Lain</string>
@@ -142,7 +141,6 @@
     <string name="pref_reduced_circuit_padding_summary">Gunakan algoritma beban rendah untuk mengurangi penggunaan data dan baterai</string>
     <string name="pref_prefer_ipv6">Lebih suka koneksi IPv6</string>
     <string name="pref_prefer_ipv6_summary">Menggunakan nodus keluar bahwa alamat IPv6 lebih disukai</string>
-    <string name="hide_apps">Sembunyikan aplikasi dari pemantauan jaringan dan dapatkan akses ketika mereka diblokir.</string>
     <string name="log_copied">Catatan Disalin</string>
     <string name="snowflake_amp">Snowflake AMP</string>
     <string name="not_sure">Tidak yakin\?</string>

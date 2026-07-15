@@ -138,7 +138,6 @@
     <string name="consider_disable_battery_optimizations">Gostovane storitve tečejo, razmislite o onemogočanju optimizacij baterije</string>
     <string name="pref_reduced_connection_padding_summary">Prej zapre relejne povezave in pošlje manj polnilnih paketov, da zmanjša porabo podatkov in baterije</string>
     <string name="next">Naprej</string>
-    <string name="title_choose_apps">Izberi aplikacije</string>
     <string name="setting_debug">Razhroščevanje</string>
     <string name="menu_more">Več</string>
     <string name="connect">Poveži</string>
@@ -161,7 +160,6 @@
     <string name="kindness_config_detail">Konfigurirajte, kako in kdaj lahko vaša naprava deluje kot proksi snežinka za druge uporabnike Tora.</string>
     <string name="root_warning">Orbot je zaznal, da je vaša naprava korenirana, kar lahko povzroči varnostne težave.</string>
     <string name="direct_connect">Neposredna povezava s Torom</string>
-    <string name="hide_apps">Skrijte aplikacije pred nadzorom omrežja in pridobite dostop, ko so blokirane.</string>
     <string name="app_suggested_subtitle">Orbot najbolje deluje z aplikacijami za sporočanje in družbena omrežja.</string>
     <string name="apps_suggested_title">Predlagane aplikacije</string>
     <string name="apps_other_apps">Ostale aplikacije</string>

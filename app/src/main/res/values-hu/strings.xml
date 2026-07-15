@@ -89,7 +89,6 @@
     <string name="trying_to_connect_title">Csatlakozás…</string>
     <string name="menu_new_identity">Új személyazonosság</string>
     <string name="no_internet_title">Csatlakozás az internethez</string>
-    <string name="title_choose_apps">Alkalmazások kiválasztása</string>
     <string name="setting_debug">Hibakeresés</string>
     <string name="menu_more">Több</string>
     <string name="version">Verzió:</string>
@@ -105,4 +104,5 @@
     <string name="couldn_t_start_tor_process_">Nem indítható el a Tor folyamat:</string>
     <string name="unable_to_start_tor">A Tor indítása sikertelen:</string>
     <string name="set_transport">Átvitel beállítása</string>
+    <string name="btn_choose_apps">Alkalmazások kiválasztása</string>
 </resources>

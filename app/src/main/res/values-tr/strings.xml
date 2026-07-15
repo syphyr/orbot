@@ -136,13 +136,11 @@
     <string name="connect">Bağlan</string>
     <string name="next">Sonraki</string>
     <string name="snowflake">Snowflake</string>
-    <string name="title_choose_apps">Uygulamaları Seç</string>
     <string name="apps_suggested_title">Önerilen Uygulamalar</string>
     <string name="power_user_mode">Uzman Kullanıcı Modu</string>
     <string name="app_suggested_subtitle">Orbot en iyi mesajlaşma ve sosyal medya uygulamalarıyla çalışır.</string>
     <string name="power_user_description">Tor\'a aşina olan kullanıcılar için. Orbot\'u VPN ayarı olmadan başlatmanıza izin verir ve açık SOCKS ve HTTP bağlantı noktalarını gösterir</string>
     <string name="apps_other_apps">Diğer Uygulamalar</string>
-    <string name="hide_apps">Uygulamaları ağ izlenmesinden gizleyin ve engellendiklerinde erişim sağlayın.</string>
     <string name="log_copied">Günlük Kopyalandı</string>
     <string name="not_sure">Emin değil misiniz\?</string>
     <string name="ask_tor">Tor\'a sor</string>

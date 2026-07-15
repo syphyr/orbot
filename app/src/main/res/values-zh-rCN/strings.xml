@@ -138,7 +138,6 @@
     <string name="snowflake_subtitle">通过 Tor 志愿者连接，绕过某些 Tor 屏蔽。</string>
     <string name="power_user_mode">高级用户模式</string>
     <string name="power_user_description">适用于熟悉 Tor 的用户。允许您在不使用 VPN 设置的情况下启动 Orbot，并显示开放的 SOCKS 和 HTTP 端口</string>
-    <string name="title_choose_apps">选择应用</string>
     <string name="app_suggested_subtitle">Orbot 与即时通讯和社交媒体应用搭配使用效果最佳。</string>
     <string name="apps_suggested_title">建议应用</string>
     <string name="apps_other_apps">其他应用</string>
@@ -147,7 +146,6 @@
     <string name="setting_padding">填充</string>
     <string name="setting_debug">调试</string>
     <string name="menu_kindness">善举</string>
-    <string name="hide_apps">隐藏应用以规避网络监控，并在应用被屏蔽时获取访问权限。</string>
     <string name="pref_isolate_port">隔离目标端口</string>
     <string name="pref_isolate_protocol">隔离客户端协议</string>
     <string name="pref_isolate_protocol_summary">为每个连接协议使用不同的线路</string>

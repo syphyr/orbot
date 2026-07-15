@@ -137,12 +137,10 @@
     <string name="snowflake_subtitle">اتصال از طریق داوطلبان Tor. از برخی مسدودیت‌های Tor رد می‌شود.</string>
     <string name="direct_connect_subtitle">بهترین روش اتصال به Tor. درصورت مسدودنبودن Tor از آن استفاده کنید.</string>
     <string name="power_user_mode">حالت کاربری حرفه‌ای</string>
-    <string name="title_choose_apps">انتخاب برنامه‌ها</string>
     <string name="apps_other_apps">دیگر برنامه‌ها</string>
     <string name="power_user_description">برای کاربران آشنا با Tor. اجازه می‌دهد تا Orbot را بدون تنظیمات VPN شروع کند و درگاه‌های باز HTTP و SOCKS را نشان می‌دهد</string>
     <string name="app_suggested_subtitle">Orbot بهترین کارایی را با برنامه‌های شبکهٔ اجتماعی و پیام‌رسان دارد.</string>
     <string name="apps_suggested_title">برنامه‌های توصیه‌شده</string>
-    <string name="hide_apps">برنامه‌ها را از نظارت بر شبکه پنهان کنید و هنگام مسدودشدن، به آن‌ها دسترسی پیدا کنید.</string>
     <string name="pref_isolate_port">جداسازی درگاه‌های مقصد</string>
     <string name="pref_isolate_port_summary">برای هر درگاه مقصد از مدار متفاوتی استفاده کنید</string>
     <string name="pref_isolate_protocol">جداسازی پروتکل‌های کلاینت</string>

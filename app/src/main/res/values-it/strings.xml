@@ -122,7 +122,6 @@
     <string name="menu_more">Altro</string>
     <string name="connected_title">Connesso</string>
     <string name="version">Versione:</string>
-    <string name="title_choose_apps">Scegli le app</string>
     <string name="pref_isolate_port">Isola le porte di destinazione</string>
     <string name="pref_isolate_port_summary">Usa un circuito diverso per ogni porta di destinazione</string>
     <string name="apps_other_apps">Altre app</string>
@@ -155,7 +154,6 @@
     <string name="snowflake_amp">Snowflake (AMP)</string>
     <string name="power_user_description">Per gli utenti familiari con Tor. Consente di avviare Orbot senza l\'impostazione VPN e mostra le porte SOCKS e HTTP aperte</string>
     <string name="apps_suggested_title">App consigliate</string>
-    <string name="hide_apps">Nascondi le app dal monitoraggio della rete e ottieni l\'accesso quando vengono bloccate.</string>
     <string name="not_sure">Non sei sicuro\?</string>
     <string name="ask_tor">Chiedi a Tor</string>
     <string name="many_ways">Ci sono molti modi per raggiungere Tor. Alcuni possono funzionare meglio di altri per te.</string>

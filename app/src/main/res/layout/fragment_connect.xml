@@ -70,29 +70,29 @@
             android:gravity="center_horizontal"
             android:paddingStart="@dimen/alert_dialog_margin"
             android:paddingEnd="@dimen/alert_dialog_margin"
-            android:text="@string/hide_apps"
+            android:text="@string/secure_your_connection_subtitle"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.Material3.BodySmall"
             android:textColor="#cccccc"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+            app:layout_constraintTop_toBottomOf="@+id/progressBar"
+            tools:text="@string/secure_your_connection_subtitle" />
 
         <ListView
             android:id="@+id/lvConnected"
             android:layout_width="match_parent"
             android:layout_height="220dp"
             android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
             android:dividerHeight="1dp"
             android:drawSelectorOnTop="true"
             android:visibility="visible"
-            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvSubtitle"
             tools:visibility="visible" />
-
 
 
         <com.google.android.material.switchmaterial.SwitchMaterial
@@ -112,6 +112,20 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/lvConnected" />
 
-
+        <TextView
+            android:id="@+id/tvPrivateDnsStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="2dp"
+            android:maxLines="2"
+            android:paddingBottom="@dimen/button_horizontal_small_margin"
+            android:textAlignment="center"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/switchConnect"
+            tools:text="Info About Private Dns Settings"
+            tools:visibility="visible" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

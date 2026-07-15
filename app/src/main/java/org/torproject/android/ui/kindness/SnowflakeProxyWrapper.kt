@@ -107,7 +107,7 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
     fun isProxyRunning(): Boolean = proxy != null
 
 
-    private fun onConnected() {
+    internal fun onConnected() {
         Prefs.addSnowflakeServed()
         service.refreshNotification()
         if (!Prefs.showSnowflakeProxyToast()) return

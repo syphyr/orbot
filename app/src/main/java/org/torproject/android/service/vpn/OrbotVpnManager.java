@@ -16,7 +16,9 @@
 
 package org.torproject.android.service.vpn;
 
-import static org.torproject.android.service.OrbotConstants.*;
+import static org.torproject.android.service.OrbotConstants.BYPASS_VPN_PACKAGES;
+import static org.torproject.android.service.OrbotConstants.EXTRA_SOCKS_PROXY_PORT;
+import static org.torproject.android.service.OrbotConstants.LOCAL_ACTION_PORTS;
 import static org.torproject.jni.TorService.ACTION_STOP;
 
 import android.content.Intent;
@@ -33,9 +35,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import org.torproject.android.service.Notifications;
 import org.torproject.android.service.OrbotService;
 import org.torproject.android.service.TProxyService;
-import org.torproject.android.service.Notifications;
 import org.torproject.android.util.Prefs;
 import org.torproject.jni.TorService;
 
@@ -228,6 +230,7 @@ public class OrbotVpnManager implements Handler.Callback {
         }
         Log.i(TAG, "App based routing is enabled?=" + individualAppsWereSelected + ", isLockdownMode=" + isLockdownMode);
 
+        //noinspection StatementWithEmptyBody
         if (isLockdownMode) {
              /* TODO https://github.com/guardianproject/orbot/issues/774
                 Need to allow briar, onionshare, etc to enter orbot's vpn gateway, but not enter the tor

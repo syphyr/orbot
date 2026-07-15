@@ -102,7 +102,6 @@
     <string name="connected_title">Verbonden</string>
     <string name="trying_to_connect_title">Bezig met verbinden…</string>
     <string name="btn_refresh">Verbinding vernieuwen</string>
-    <string name="title_choose_apps">Kies apps</string>
     <string name="menu_more">Meer</string>
     <string name="custom_bridges">Aangepaste Bruggen</string>
     <string name="user_services">Diensten van de gebruiker</string>
@@ -184,7 +183,6 @@
     <string name="app_suggested_subtitle">Orbot werkt het beste met berichten- en sociale media-apps.</string>
     <string name="apps_suggested_title">Aanbevolen apps</string>
     <string name="apps_other_apps">Andere apps</string>
-    <string name="hide_apps">Verberg apps voor netwerkmonitoring en krijg toegang wanneer ze worden geblokkeerd.</string>
     <string name="btn_copy_log">Kopieerlog</string>
     <string name="log_copied">Log gekopieerd</string>
     <string name="not_sure">Twijfel je nog?</string>
