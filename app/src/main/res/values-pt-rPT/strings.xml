@@ -154,7 +154,6 @@
     <string name="setting_debug">Depurar</string>
     <string name="menu_kindness">Bondade</string>
     <string name="menu_more">Mais</string>
-    <string name="hide_apps">Oculte as aplicações da monitorização da rede e obtenha acesso quando elas estiverem bloqueadas.</string>
     <string name="pref_isolate_protocol">Isolar os protocolos do cliente</string>
     <string name="no_internet_title">Ligar à Internet</string>
     <string name="option_only_on_wifi">Apenas ligado à Wi-Fi</string>

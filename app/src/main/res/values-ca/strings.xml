@@ -118,7 +118,6 @@
     <string name="apps_other_apps">Altres aplicacions</string>
     <string name="pref_reduced_circuit_padding_summary">Utilitza algoritmes de farciment amb una càrrega menor per a reduir l\'ús de dades i bateria</string>
     <string name="option_only_when_charging">Només quan s\'està carregant</string>
-    <string name="hide_apps">Oculteu les aplicacions al rastreig de la xarxa i obteniu-ne accés quan són blocades.</string>
     <string name="pref_isolate_port_summary">Utilitza un circuit diferent per a cada port de destinació</string>
     <string name="snowflake_proxy_msg_title">Mostra la notificació de connexió</string>
     <string name="pref_isolate_protocol">Aïlla els protocols de client</string>

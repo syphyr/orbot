@@ -70,13 +70,14 @@
             android:gravity="center_horizontal"
             android:paddingStart="@dimen/alert_dialog_margin"
             android:paddingEnd="@dimen/alert_dialog_margin"
-            android:text="@string/hide_apps"
+            android:text="@string/secure_your_connection_subtitle"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.Material3.BodySmall"
             android:textColor="#cccccc"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+            app:layout_constraintTop_toBottomOf="@+id/progressBar"
+            tools:text="@string/secure_your_connection_subtitle" />
 
         <ListView
             android:id="@+id/lvConnected"

@@ -135,7 +135,6 @@
     <string name="smart_connect">Smart Connect (standard)</string>
     <string name="apps_other_apps">Andre apper</string>
     <string name="option_only_when_charging">Bare ved lading</string>
-    <string name="hide_apps">Skjul apper fra nettverksovervåking og få tilgang når de er blokkert.</string>
     <string name="pref_isolate_port_summary">Bruk en annen krets for hver destinasjonsport</string>
     <string name="pref_isolate_protocol">Isolere klientprotokoller</string>
     <string name="secure_your_connection_subtitle">Skjul apper fra nettverksovervåking og få tilgang når de er blokkert.</string>

@@ -142,7 +142,6 @@
     <string name="apps_suggested_title">提案されたアプリ</string>
     <string name="app_suggested_subtitle">Orbot は、メッセージングアプリや SNS アプリとの相性が抜群です。</string>
     <string name="action_activate">有効化</string>
-    <string name="hide_apps">アプリをネットワーク監視から隠し、遮断されているときにはアクセスできるようにします。</string>
     <string name="pref_isolate_port">宛先ポートを分離</string>
     <string name="pref_isolate_port_summary">宛先ポートごとに別の回路を使用する</string>
     <string name="pref_isolate_protocol">クライアントプロトコルを分離</string>

@@ -142,7 +142,6 @@
     <string name="v3_backup_key">Zapasowy klucz autoryzacji klienta</string>
     <string name="v3_backup_key_warning">Uwaga: to może ujawnić twój klucz innym aplikacjom</string>
     <string name="pref_circuit_padding">Wypełnienie obwodu</string>
-    <string name="hide_apps">Ukryj aplikacje przed monitorowaniem sieci i uzyskaj dostęp, gdy zostaną zablokowane.</string>
     <string name="pref_isolate_port">Izoluj porty docelowe</string>
     <string name="pref_isolate_protocol">Izoluj protokoły klienta</string>
     <string name="snowflake_amp">Snowflake AMP</string>

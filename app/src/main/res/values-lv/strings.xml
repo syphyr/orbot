@@ -142,7 +142,6 @@
     <string name="smart_connect">Smart Connect (noklusējuma iestatījums)</string>
     <string name="apps_other_apps">Citas lietotnes</string>
     <string name="option_only_when_charging">Tikai uzlādes laikā</string>
-    <string name="hide_apps">Paslēpiet lietotnes no tīkla uzraudzības un iegūstiet piekļuvi, ja tās ir bloķētas.</string>
     <string name="pref_isolate_port_summary">Katrai galamērķa ostai izmantojiet atšķirīgu ķēdi</string>
     <string name="no_internet_title">Savienojums ar internetu</string>
     <string name="pref_isolate_protocol">Izolēt klienta protokolus</string>

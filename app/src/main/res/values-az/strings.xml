@@ -138,7 +138,6 @@
     <string name="bridge_snowflake_amp">Snowflake istifadə edərək digər Tor istifadəçiləri ilə əlaqə saxlayın (Metod 2 - AMP)</string>
     <string name="volunteer_mode">Xeyirxahlıq rejimi</string>
     <string name="secure_your_connection_title">Qoşulmağa hazırdır</string>
-    <string name="hide_apps">Tətbiqləri şəbəkə monitorinqindən gizlədin və bloklandıqda giriş əldə edin.</string>
     <string name="not_sure">Əmin deyilsiniz?</string>
     <string name="snowflake_subtitle">Tor könüllüləri vasitəsilə bağlanır. Bəzi Tor bloklamalarının ətrafında olur.</string>
     <string name="power_user_mode">Güc istifadəçi rejimi</string>

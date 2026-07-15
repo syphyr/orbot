@@ -140,7 +140,6 @@
     <string name="smart_connect">חיבור חכם (ברירת מחדל)</string>
     <string name="apps_other_apps">יישומונים אחרים</string>
     <string name="option_only_when_charging">רק בעת טעינה</string>
-    <string name="hide_apps">הסתרת יישומונים מניטור רשת וקבלת גישה כשהן חסומות.</string>
     <string name="snowflake_proxy_msg_title">הצגת הודעת חיבור</string>
     <string name="secure_your_connection_subtitle">הסתרת יישומונים מניטור רשת וקבלת גישה כשהן חסומות.</string>
     <string name="apps_suggested_title">יישומונים מוצעים</string>

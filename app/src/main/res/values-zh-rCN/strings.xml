@@ -147,7 +147,6 @@
     <string name="setting_padding">填充</string>
     <string name="setting_debug">调试</string>
     <string name="menu_kindness">善举</string>
-    <string name="hide_apps">隐藏应用以规避网络监控，并在应用被屏蔽时获取访问权限。</string>
     <string name="pref_isolate_port">隔离目标端口</string>
     <string name="pref_isolate_protocol">隔离客户端协议</string>
     <string name="pref_isolate_protocol_summary">为每个连接协议使用不同的线路</string>

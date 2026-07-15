@@ -99,7 +99,6 @@
     <string name="pref_reduced_circuit_padding_summary">Použití algoritmů pro vyplňování s nižší režií ke snížení spotřeby dat a baterie</string>
     <string name="copy_address_to_clipboard">Kopírování adresy do schránky</string>
     <string name="option_only_when_charging">Pouze při nabíjení</string>
-    <string name="hide_apps">Skrýt aplikace před sledováním sítě a získat k nim přístup, když jsou blokovány.</string>
     <string name="hidden_service_request">Aplikace chce otevřít cibulový server na portu %1$s do sítě Tor. Pokud aplikaci důvěřujete, je to bezpečné.</string>
     <string name="vpn_default_world">Globální (Auto)</string>
     <string name="pref_isolate_port_summary">Pro každý cílový port použijte jiný okruh</string>

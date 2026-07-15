@@ -150,7 +150,6 @@
     <string name="btn_choose_apps">Anwendungen auswählen</string>
     <string name="btn_change_exit">Ausgang ändern</string>
     <string name="btn_refresh">Verbindung auffrischen</string>
-    <string name="hide_apps">Verstecke Apps vor der Netzwerküberwachung und erhalte Zugriff, wenn sie blockiert sind.</string>
     <string name="pref_isolate_port">Zielports isolieren</string>
     <string name="pref_isolate_protocol">Client-Protokolle isolieren</string>
     <string name="no_internet_title">Mit dem Internet verbinden</string>

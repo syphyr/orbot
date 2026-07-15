@@ -155,7 +155,6 @@
     <string name="ask_tor">Fråga Tor</string>
     <string name="many_ways">Det finns många sätt att nå Tor. Vissa kanske fungerar bättre än andra för dig.</string>
     <string name="kindness_config_detail">Konfigurera hur och när din enhet kan fungera som en Snowflake-proxy för andra Tor-användare.</string>
-    <string name="hide_apps">Dölj appar från nätverksövervakning och få tillgång till dem när de är blockerade.</string>
     <string name="setting_padding">Stoppning</string>
     <string name="setting_debug">Felsökning</string>
     <string name="menu_more">Detaljer</string>
