@@ -1620,6 +1620,8 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
 
         boolean becomeRelay = prefs.getBoolean(OrbotConstants.PREF_OR, false);
         boolean ReachableAddresses = prefs.getBoolean(OrbotConstants.PREF_REACHABLE_ADDRESSES,false);
+        boolean reducedConnectionPadding = prefs.getBoolean(OrbotConstants.PREF_REDUCED_CONNECTION_PADDING, true);
+        boolean reducedCircuitPadding = prefs.getBoolean(OrbotConstants.PREF_REDUCED_CIRCUIT_PADDING, true);
 
         boolean enableStrictNodes = prefs.getBoolean("pref_strict_nodes", false);
         String entranceNodes = prefs.getString("pref_entrance_nodes", "");
@@ -1776,7 +1778,7 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
 
         try
         {
-            if (becomeRelay && (!useBridges) && (!ReachableAddresses))
+            if (becomeRelay && (!useBridges) && (!ReachableAddresses) && (!reducedConnectionPadding) && (!reducedCircuitPadding))
             {
                 int ORPort =  Integer.parseInt(prefs.getString(OrbotConstants.PREF_OR_PORT, "9001"));
                 String nickname = prefs.getString(OrbotConstants.PREF_OR_NICKNAME, "Orbot");
@@ -1788,6 +1790,8 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
                 extraLines.append("Nickname" + ' ' + nickname).append('\n');
                 extraLines.append("ExitPolicy" + ' ' + "reject *:*").append('\n');
 
+            } else if (becomeRelay) {
+                Log.e(OrbotConstants.TAG, "Unable to start relay. Disable all Bridges, Reachable Addresses, and Reduced Padding.");
             }
         }
         catch (Exception e)
