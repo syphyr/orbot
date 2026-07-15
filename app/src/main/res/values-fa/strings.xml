@@ -138,7 +138,6 @@
     <string name="direct_connect_subtitle">بهترین روش اتصال به Tor. درصورت مسدودنبودن Tor از آن استفاده کنید.</string>
     <string name="power_user_mode">حالت کاربری حرفه‌ای</string>
     <string name="action_activate">فعال‌سازی</string>
-    <string name="title_choose_apps">انتخاب برنامه‌ها</string>
     <string name="apps_other_apps">دیگر برنامه‌ها</string>
     <string name="power_user_description">برای کاربران آشنا با Tor. اجازه می‌دهد تا Orbot را بدون تنظیمات VPN شروع کند و درگاه‌های باز HTTP و SOCKS را نشان می‌دهد</string>
     <string name="app_suggested_subtitle">Orbot بهترین کارایی را با برنامه‌های شبکهٔ اجتماعی و پیام‌رسان دارد.</string>

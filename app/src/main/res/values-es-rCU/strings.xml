@@ -149,7 +149,6 @@
     <string name="next">Siguiente</string>
     <string name="power_user_mode">Modo usuario avanzado</string>
     <string name="power_user_description">Para usuarios que conocen Tor. Permite iniciar Orbot sin el ajuste VPN y muestra puertos abiertos SOCKS y HTTP</string>
-    <string name="title_choose_apps">Elegir aplicaciones</string>
     <string name="app_suggested_subtitle">Orbot funciona mejor con aplicaciones de mensajería y redes sociales.</string>
     <string name="apps_suggested_title">Aplicaciones sugeridas</string>
     <string name="hide_apps">Ocultar aplicaciones del monitoreo de red y obtener acceso cuando estén bloqueadas.</string>

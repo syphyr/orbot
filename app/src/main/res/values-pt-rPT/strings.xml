@@ -137,7 +137,6 @@
     <string name="snowflake_proxy_msg_title">Mostrar notificação de ligação</string>
     <string name="strict_nodes_description">Tratar as definições de Excluir Nós como um requisito para a construção de todos os circuitos. Isto pode quebrar a funcionalidade se nenhum circuito for capaz de ser gerado com as suas definições de Excluir Nós.</string>
     <string name="version">Versão:</string>
-    <string name="title_choose_apps">Escolha as apps</string>
     <string name="snowflake">Snowflake</string>
     <string name="snowflake_subtitle">Conecta-se através de voluntários do Tor. Contorna alguns bloqueios do Tor.</string>
     <string name="smart_connect">Conexão inteligente (padrão)</string>

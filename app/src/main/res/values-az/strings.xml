@@ -152,7 +152,6 @@
     <string name="snowflake_amp">Qar dənəciyi (AMP)</string>
     <string name="snowflake">Snowflake (Orijinal)</string>
     <string name="app_suggested_subtitle">Orbot mesajlaşma və sosial media proqramları ilə ən yaxşı şəkildə işləyir.</string>
-    <string name="title_choose_apps">Proqramları seçin</string>
     <string name="direct_connect_subtitle">Tor-a qoşulmağın ən yaxşı yolu. Tor bloklanmadıqda istifadə edin.</string>
     <string name="no_internet_subtitle">Orbotdan istifadə etmək üçün internet bağlantısı lazımdır.</string>
     <string name="ask_tor">Tordan soruşun</string>

@@ -130,7 +130,6 @@
     <string name="pref_reduced_connection_padding_summary">Sulgeb releeühendused varem ja saadab vähem täitepakette, et vähendada andmete ja aku kasutamist</string>
     <string name="pref_reduced_circuit_padding_summary">Kasutage andmete ja aku kasutamise vähendamiseks väiksema koormusega polsterdamisalgoritme</string>
     <string name="power_user_mode">Elektrikasutajarežiim</string>
-    <string name="title_choose_apps">Vali rakendused</string>
     <string name="apps_other_apps">Muud rakendused</string>
     <string name="asking">KÜSIME…</string>
     <string name="snowflake_subtitle">Ühendab Tori vabatahtlike kaudu. Saab ümber mõnest Tor\'i blokeeringust.</string>

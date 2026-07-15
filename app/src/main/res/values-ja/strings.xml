@@ -139,7 +139,6 @@
     <string name="power_user_mode">パワーユーザーモード</string>
     <string name="apps_other_apps">他のアプリ</string>
     <string name="power_user_description">Tor に精通しているユーザー向け。VPN 設定なしで Orbot を起動でき、開いている SOCKS ポートと HTTP ポートが表示されます</string>
-    <string name="title_choose_apps">アプリを選ぶ</string>
     <string name="apps_suggested_title">提案されたアプリ</string>
     <string name="app_suggested_subtitle">Orbot は、メッセージングアプリや SNS アプリとの相性が抜群です。</string>
     <string name="action_activate">有効化</string>

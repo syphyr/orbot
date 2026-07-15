@@ -140,7 +140,6 @@
     <string name="action_activate">Активувати</string>
     <string name="app_suggested_subtitle">Orbot найкраще працює з застосунками для обміну повідомленнями та соціальними мережами.</string>
     <string name="apps_suggested_title">Рекомендовані застосунки</string>
-    <string name="title_choose_apps">Вибрати застосунки</string>
     <string name="power_user_description">Для користувачів, знайомих з Tor. Дозволяє запускати Orbot без налаштування VPN і показує відкриті SOCKS і HTTP-порти</string>
     <string name="apps_other_apps">Інші застосунки</string>
     <string name="hide_apps">Приховуйте застосунки від моніторингу мережі та отримуйте доступ, коли вони заблоковані.</string>

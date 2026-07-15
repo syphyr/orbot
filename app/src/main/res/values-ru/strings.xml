@@ -137,7 +137,6 @@
     <string name="smart_connect">Умное Подключение</string>
     <string name="direct_connect">Прямое Подключение</string>
     <string name="power_user_mode">Режим опытного пользователя</string>
-    <string name="title_choose_apps">Выбор приложений</string>
     <string name="apps_suggested_title">Рекомендуемые приложения</string>
     <string name="power_user_description">Для пользователей, знакомых с Tor. Позволяет запустить Orbot без настроек VPN и показывает открытые SOCKS и HTTP порты</string>
     <string name="apps_other_apps">Другие приложения</string>

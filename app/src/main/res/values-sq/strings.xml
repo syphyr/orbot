@@ -23,7 +23,6 @@
     <string name="enable">Aktivizoje</string>
     <string name="pref_transport_dialog">Formësim Porte</string>
     <string name="pref_torrc_dialog">Torrc vetjake</string>
-    <string name="title_choose_apps">Zgjidhni Aplikacione</string>
     <string name="user_services">Shërbime përdoruesi</string>
     <string name="app_services">Shërbime aplikacionesh</string>
     <string name="snowflake_proxy_msg_title">Shfaq Njoftim Lidhjeje</string>

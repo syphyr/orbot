@@ -134,7 +134,6 @@
     <string name="power_user_mode">Power User Mode (strömförsörjningsläge)</string>
     <string name="power_user_description">För användare som är bekanta med Tor. Gör det möjligt att starta Orbot utan VPN-inställning och visar öppna SOCKS- och HTTP-portar</string>
     <string name="action_activate">Aktivera</string>
-    <string name="title_choose_apps">Välj appar</string>
     <string name="asking">FRÅGAR…</string>
     <string name="no_internet_title">Anslut till internet</string>
     <string name="no_internet_subtitle">Du behöver en internetuppkoppling för att använda Orbot.</string>

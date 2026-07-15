@@ -76,7 +76,6 @@
     <string name="menu_new_identity">Novi identitet</string>
     <string name="connect">Poveži se</string>
     <string name="next">Sljedeća</string>
-    <string name="title_choose_apps">Odaberi aplikacije</string>
     <string name="connected_title">Spojeno</string>
     <string name="trying_to_connect_title">Spajanje …</string>
     <string name="disable">Deaktiviraj</string>
@@ -111,4 +110,5 @@
     <string name="setting_unlock_pass_description">Za otvaranje Orbota zatraži unos PIN-a, lozinke ili potez prstom preko ekrana</string>
     <string name="setting_unlock_with_biometrics_title">Koristi biometriju (opcionalno)</string>
     <string name="setting_unlock_with_biometrics_description">Otključaj Orbot otiskom prsta ili Face ID-om ako su postavljeni na tvom uređaju.</string>
+    <string name="btn_choose_apps">Odaberi aplikacije</string>
 </resources>

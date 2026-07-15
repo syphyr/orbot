@@ -60,7 +60,6 @@
     <string name="trying_to_connect_title">מתבצעת התחברות…</string>
     <string name="btn_refresh">ריענון החיבור</string>
     <string name="connect">התחברות</string>
-    <string name="title_choose_apps">בחירת יישומונים</string>
     <string name="pref_open_proxy_on_all_interfaces_title">פתיחת מתווך על כל הממשקים</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">לאפשר לעמיתים ברשת האלחוטית, מכשירים קשורים ולכל אחד אחר שיכול להתחבר ל־IP שלך לגשת לTor</string>
     <string name="pref_socks_summary">פתחה דרכה Tor מגיש את מתווך ה־SOCKS שלו (ברירת מחדל: 9050 או 0 להשבתה)</string>

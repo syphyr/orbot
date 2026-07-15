@@ -86,7 +86,6 @@
     <string name="consider_enable_battery_optimizations">لا توجد خدمات مستضافة قيد التشغيل، ففكر في تفعيل تحسينات البطارية</string>
     <string name="full_device_vpn">كل الجهاز عبر VPN</string>
     <string name="action_activate">نشّط</string>
-    <string name="title_choose_apps">اختر تطبيقات</string>
     <string name="setting_debug">تنقيح</string>
     <string name="v3_client_auth_activity_title">تفويض العميل</string>
     <string name="confirm">أكّد</string>
