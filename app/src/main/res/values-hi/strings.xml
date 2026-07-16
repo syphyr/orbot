@@ -52,7 +52,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">डीबग लॉग से आउटपुट चालू करें (देखने के लिए एडीबी या एलॉगकैट इस्तेमाल करें)</string>
     <string name="project_home">प्रोजेक्ट घर:</string>
     <string name="third_party_software">दूसरे लोगों का सॉफ्टवेयर:</string>
-    <string name="hidden_service_request">एक ऐप टॉर नेटवर्क के लिए %1$s पोर्ट पे अनियन सर्वर खोलना चाहता है। अगर आप ऐप पर भरोसा करते हैं, तो ये महफूज़ है।</string>
     <string name="set_locale_title">भाषा</string>
     <string name="newnym">आपने अपने टॉर पहचान को बदल दिया है!</string>
     <string name="pref_socks_title">टॉर सॉक्स</string>

@@ -44,7 +44,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">デバッグログの出力を有効化 (閲覧には adb か aLogCat が必要です)</string>
     <string name="project_home">プロジェクトのホーム:</string>
     <string name="third_party_software">サードパーティ製ソフトウェア:</string>
-    <string name="hidden_service_request">アプリが Tor ネットワークへポート %1$s 上にオニオンサーバー開放しようとしています。信頼できるアプリであれば、これは安全です。</string>
     <string name="set_locale_title">言語</string>
     <string name="newnym">新たな Tor 識別子に切り替えました！</string>
     <string name="pref_socks_title">Tor SOCKS</string>

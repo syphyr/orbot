@@ -52,8 +52,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">imatanak ajllirañ qhantayaña (uñjañatakix adb jan ukax aLogCat apnaqañamawa)</string>
     <string name="project_home">Nayrïr uñsta janja:</string>
     <string name="third_party_software">Yaqhanakankir software:</string>
-    <string name="hidden_service_request">Tor llikar %1$s waythapiwjanx mä aplikasyunaw mä siwulla yanapir
-\njist\'arañ muni. Ukar atinistax jark\'aqatawa.</string>
     <string name="set_locale_title">Aru</string>
     <string name="newnym">¡Jichhax Tor sutimax yaqhäxiwa!</string>
     <string name="pref_socks_title">Toran SOCKS ukapa</string>

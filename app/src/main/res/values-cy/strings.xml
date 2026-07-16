@@ -55,7 +55,6 @@
     <string name="pref_socks_summary">Porthladd y mae Tor yn cynnig ei ddirprwy SOCKS arno (diofyn: 9050 neu 0 i\'w analluogi)</string>
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Galluogi log dadfygio i allbwn (rhaid defnyddio adb neu aLogcat i weld)</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Rhedeg fel cleient y tu ôl i wal dân gyda pholisïau cyfyngol</string>
-    <string name="hidden_service_request">Mae ap eisiau agor gweinydd winwnsyn ar borth %1$s i rwydwaith Tor. Mae hyn yn ddiogel os ydych chi\'n ymddiried yn yr app.</string>
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Olion bysedd, nicks, gwledydd a chyfeiriadau i\'w heithrio</string>
     <string name="newnym">Rydych chi wedi newid i hunaniaeth Tor newydd!</string>
     <string name="enter_ports">Rhowch borthladdoedd</string>

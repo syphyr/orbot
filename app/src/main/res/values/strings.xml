@@ -57,7 +57,6 @@
     <string name="third_party_software">3rd-Party-Software: </string>
     <string name="version">Version:</string>
     <string name="license">License:</string>
-    <string name="hidden_service_request">An app wants to open onion server on port %1$s to the Tor network. This is safe if you trust the app.</string>
     <string name="set_locale_title">Language</string>
     <string name="newnym">You\'ve switched to a new Tor identity!</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Open Proxy on All Interfaces</string>

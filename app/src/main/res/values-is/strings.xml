@@ -44,7 +44,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">virkja gerð villuskráningar á úttaki (verður að nota adb eða aLogCat til að skoða)</string>
     <string name="project_home">Heimili verkefnisins:</string>
     <string name="third_party_software">Hugbúnaður frá 3ja aðila:</string>
-    <string name="hidden_service_request">Forrit vill opna onion-netþjón á gáttinni %1$s inn á Tor-netið. Þetta er öruggt ef þú treystir forritinu.</string>
     <string name="set_locale_title">Tungumál</string>
     <string name="newnym">Þú ert komin með nýtt Tor-auðkenni!</string>
     <string name="pref_socks_title">Tor SOCKS</string>

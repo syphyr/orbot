@@ -52,7 +52,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">schakel debug log naar uitvoer in (adb of aLogCat is nodig om dit te bekijken)</string>
     <string name="project_home">Project homepagina:</string>
     <string name="third_party_software">Software van 3e partijen: </string>
-    <string name="hidden_service_request">Een app wil de verborgenserverpoort %1$s tot het Tor-netwerk openen. Dit is veilig als je de app vertrouwt.</string>
     <string name="set_locale_title">Taal</string>
     <string name="newnym">Je bent naar een nieuwe Tor identiteit gewisseld!</string>
     <string name="pref_socks_title">Tor SOCKS</string>

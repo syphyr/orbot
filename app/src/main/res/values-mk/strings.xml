@@ -44,7 +44,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">активирајте го дневникот за отстранување грешки за излез (за да се прикаже мора да се користи adb или aLogCat)</string>
     <string name="project_home">Почетна страница(и):</string>
     <string name="third_party_software">Софтвер од производител од 3-та страна:</string>
-    <string name="hidden_service_request">Апликација сака да отвори сокриена серверска порта %1$s кон Tor мрежата. Ова е безбедно доколку и верувате на апликацијата.</string>
     <string name="set_locale_title">Јазик</string>
     <string name="newnym">Се префрливте на нов идентитет на Tor!</string>
     <string name="pref_socks_title">Tor SOCKS</string>

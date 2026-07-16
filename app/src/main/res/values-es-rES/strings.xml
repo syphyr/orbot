@@ -44,7 +44,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Habilitar el registro de depuración (debug log) a la salida (debe utilizar adb o aLogCat para verlo)</string>
     <string name="project_home">Página web:</string>
     <string name="third_party_software">Software de terceros:</string>
-    <string name="hidden_service_request">Una aplicación quiere abrir un servidor cebolla en el puerto %1$s a la red Tor. Esto es seguro si confías en la aplicación.</string>
     <string name="set_locale_title">Idioma</string>
     <string name="newnym">¡Has cambiado a una nueva identidad de Tor!</string>
     <string name="pref_socks_title">SOCKS de Tor</string>

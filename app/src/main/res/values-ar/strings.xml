@@ -113,7 +113,6 @@
     <string name="apps_other_apps">تطبيقات أخرى</string>
     <string name="menu_kindness">اللطف</string>
     <string name="v3_key_hash">x25519 المفتاح الخاص في Base32</string>
-    <string name="hidden_service_request">يريد أحد التطبيقات فتح خادم البصل على المنفذ %1$s لشبكة تور. هذا آمن إذا كنت تثق في التطبيق.</string>
     <string name="pref_isolate_dest">اعزل عناوين الوجهة</string>
     <string name="v3_delete_client_authorization">احذف مفتاح استيثاق العميل</string>
     <string name="v3_delete_client_authorization_confirm">احذف استيثاق العميل</string>

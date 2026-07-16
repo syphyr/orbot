@@ -52,7 +52,6 @@
     <string name="enter_exclude_nodes">Zadajte Vylúčiť uzly</string>
     <string name="strict_nodes">Prísne uzly</string>
     <string name="version">Verzia:</string>
-    <string name="hidden_service_request">Aplikácia chce otvoriť cibuľový server na porte %1$s do siete Tor. Je to bezpečné, ak aplikácii dôverujete.</string>
     <string name="reachable_addresses">Dosiahnuteľné adresy</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Spustenie ako klient za bránou firewall s reštriktívnymi zásadami</string>
     <string name="reachable_ports">Dosiahnuteľné porty</string>

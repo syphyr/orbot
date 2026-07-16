@@ -44,7 +44,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">เปิดใช้งานการส่งออกบันทึกดีบั๊ก (ต้องใช้ adb หรือ aLogCat เพื่อดู)</string>
     <string name="project_home">ที่อยู่โครงการ:</string>
     <string name="third_party_software">ซอฟต์แวร์โดยผู้ผลิตอื่น:</string>
-    <string name="hidden_service_request">โปรแกรมต้องการเปิดพอร์ต %1$d ที่ซ่อนอยู่ของเซิร์ฟเวอร์ให้เชื่อมกับเครือข่าย Tor การกระทำนี้ปลอดภัยถ้าคุณเชื่อถือโปรแกรมนั้น</string>
     <string name="set_locale_title">ภาษา</string>
     <string name="newnym">คุณได้เปลี่ยนมาใช้ตัวตน Tor ใหม่แล้ว!</string>
     <string name="pref_socks_title">Tor SOCKS</string>

@@ -95,7 +95,6 @@
     <string name="pref_isolate_dest">隔离目标地址</string>
     <string name="onion_port">洋葱端口</string>
     <string name="hidden_services">洋葱服务</string>
-    <string name="hidden_service_request">有应用想要在端口 %1$s 上向 Tor 网络开放洋葱服务器。如果您信任此应用，则这是安全的。</string>
     <string name="pref_connection_padding">连接填充</string>
     <string name="custom_bridges">自定义网桥</string>
     <string name="pref_reduced_circuit_padding_summary">使用开销较低的填充算法以减少数据和电池用量</string>

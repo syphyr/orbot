@@ -52,7 +52,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Ausgabe des Fehlerprotokolls ermöglichen (benötigt adb oder aLogCat zur Ansicht)</string>
     <string name="project_home">Internetseite des Projektes:</string>
     <string name="third_party_software">Drittanbieteranwendungen:</string>
-    <string name="hidden_service_request">Eine App möchte den Onion-Server auf Port %1$s zum Tor-Netzwerk öffnen. Dies ist sicher, wenn du der App vertraust.</string>
     <string name="set_locale_title">Sprache</string>
     <string name="newnym">Du hast zu einer neuen Tor-Identität gewechselt!</string>
     <string name="pref_socks_title">Tor-SOCKS</string>

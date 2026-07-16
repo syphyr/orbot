@@ -79,7 +79,6 @@
     <string name="backup_restored">Przywrócono kopię zapasową</string>
     <string name="backup_saved_at_external_storage">Kopia zapasowa zapisywana w pamięci zewnętrznej</string>
     <string name="backup_service">Usługa kopii zapasowej (uwaga: może to ujawnić konfigurację usługi innym aplikacjom)</string>
-    <string name="hidden_service_request">Aplikacja chce otworzyć port serwera Onion %1$s do sieci Tor. Jest to bezpieczne, jeśli zaufasz aplikacji.</string>
     <string name="wizard_details_msg">Orbot to aplikacja typu open source, która zawiera Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks i LibEvent. Zapewnia lokalny serwer Proxy HTTP (8118) i serwer Proxy SOCKS (9050) do sieci Tor. Orbot ma również możliwość, na zrootowanym urządzeniu, wysyłania całego ruchu internetowego przez Tor.</string>
     <string name="app_services">Usługi aplikacji</string>
     <string name="user_services">Usługi użytkownika</string>

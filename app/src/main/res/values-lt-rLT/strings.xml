@@ -109,7 +109,6 @@
     <string name="pref_socks_summary">Prievadas, kuriuo „Tor“ siūlo SOCKS įgaliotąjį serverį (numatytoji reikšmė: 9050 arba 0, jei norite išjungti)</string>
     <string name="pref_reduced_connection_padding_summary">Greičiau uždaromos relių jungtys ir siunčiama mažiau užpildymo paketų, kad būtų sumažintas duomenų ir akumuliatoriaus naudojimas</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Leisti „Wi-Fi“ poroms, pririštiems įrenginiams ir visiems kitiems, kurie gali prisijungti prie jūsų IP, pasiekti „Tor“</string>
-    <string name="hidden_service_request">Programėlė nori atidaryti „Tor“ tinklo prievado %1$s onion serverį. Tai saugu, jei pasitikite programėle.</string>
     <string name="wizard_details_msg">„Orbot“ yra atvirojo kodo programa, kurią sudaro „Tor“, „Obfs4Proxy“, „Go-Tun2Socks“ ir „LibEvent“. Ji suteikia vietinį HTTP įgaliotąjį (proxy) serverį (8118) ir SOCKS įgaliotąjį serverį (9050) į „Tor“ tinklą.</string>
     <string name="pref_general_group">Bendrieji</string>
     <string name="menu_log">Žurnalas</string>

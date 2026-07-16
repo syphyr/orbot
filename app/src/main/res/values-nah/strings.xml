@@ -47,7 +47,6 @@
     <string name="third_party_software">Tlalnamiquinechicolli ic yei</string>
     <string name="version">Yuhcayotl yancuic</string>
     <string name="license">Temacahuiliztli:</string>
-    <string name="hidden_service_request">Ce tepoztlatlatquitl quinequi quitlapoz ce itetlayecolti xonacatl ipan tzalantli %1$s matlatl Tor. ¿Ticticuauhtlamati in tepoztlatlatquitl?</string>
     <string name="set_locale_title">Tlahtolcopa</string>
     <string name="newnym">¡Axan tiyancuitlacauh ica Tor!</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Xictlapoa ipan nochi cetiliztli</string>

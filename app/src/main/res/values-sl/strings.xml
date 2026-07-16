@@ -127,7 +127,6 @@
     <string name="pref_open_proxy_on_all_interfaces_summary">Omogočite dostop do Tor-a vrstnikom Wi-Fi, vezanim napravam in vsem drugim, ki se lahko povežejo z vašim IP-jem</string>
     <string name="reachable_ports">Dosegljiva vrata</string>
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Omogočite izpis dnevnika odpravljanja napak (za ogled morate uporabiti adb ali aLogcat)</string>
-    <string name="hidden_service_request">Aplikacija želi v omrežju Tor odpreti čebulni strežnik na vratih %1$s. To je varno, če aplikaciji zaupate.</string>
     <string name="backup_service">Storitev varnostnega kopiranja <i>(Opozorilo: to lahko razkrije konfiguracijo storitve drugim aplikacijam)</i></string>
     <string name="local_port">Lokalno pristanišče</string>
     <string name="backup_port_exist">Napaka: Storitev Onion že uporablja vrata %s</string>

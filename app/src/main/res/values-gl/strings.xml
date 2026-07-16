@@ -44,7 +44,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">habilitar rexistro de depuración na saída (debe usar adb ou aLogCat para ver)</string>
     <string name="project_home">Inicio do Proxecto:</string>
     <string name="third_party_software">Software de Terceiros:</string>
-    <string name="hidden_service_request">Unha aplicación quere abrir o porto oculto de servidor %1$s a rede Tor. Esto é seguro se vostede confía na app.</string>
     <string name="set_locale_title">Idioma</string>
     <string name="newnym">Cambiou a unha nova identidade Tor!</string>
     <string name="pref_socks_title">SOCKS de Tor</string>

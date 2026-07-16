@@ -52,7 +52,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">habilitar registro de depuración para salida (debe usar adb o aLogCat para visualizar)</string>
     <string name="project_home">proyecto de inicio(s):</string>
     <string name="third_party_software">Software de terceros:</string>
-    <string name="hidden_service_request">Una aplicación quiere abrir el puerto del servidor oculto %1$d a la red de tor. Esto es seguro si confías en la aplicación</string>
     <string name="set_locale_title">Idioma</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_dnsport_title">Puerto DNS Tor</string>

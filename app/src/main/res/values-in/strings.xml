@@ -105,7 +105,6 @@
     <string name="app_services">Layanan aplikasi</string>
     <string name="custom_bridges">Jembatan Khusu</string>
     <string name="wizard_details_msg">Orbot adalah aplikasi sumber terbuka yang berisi Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel, dan LibEvent. Aplikasi ini menyediakan terowongan VPN, proxy HTTP Connect lokal (hanya HTTPS pada port 8118), dan proxy SOCKS (9050) ke jaringan Tor.</string>
-    <string name="hidden_service_request">Sebuah aplikasi ingin membuka server onion di porta %1$s ke jaringan Tor. Ini aman jika Anda mempercayai aplikasinya.</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Perbolehkan peer Wi-Fi, perangkat tertambat dan siapa pun yang dapat menghubungkan ke IP Anda, untuk mengakses Tor</string>
     <string name="strict_nodes_description">Terapkan pengaturan Kecualikan Nodus sebagai kebutuhan untuk membangun semua sirkuit. Ini mungkin merusak penggunaan jika tidak ada sirkuit yang dapat dibuat dengan pengaturan Kecualikan Nodus Anda.</string>
     <string name="enable">Aktifkan</string>

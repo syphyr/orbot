@@ -36,7 +36,6 @@
     <string name="strict_nodes_description">Usar la configuración de Excluir nodos como un requisito para construir todos los circuitos. Esto puede interrumpir la funcionalidad si no se pueden generar circuitos con la configuración de Excluir Nodos.</string>
     <string name="consider_disable_battery_optimizations">Servicios alojados en ejecución, considera deshabilitar las optimizaciones de batería</string>
     <string name="license">Licencia:</string>
-    <string name="hidden_service_request">Una aplicación quiere abrir un servidor de cebolla en el puerto %1$s a la red Tor. Esto es seguro si confías en la aplicación.</string>
     <string name="newnym">¡Has cambiado a una nueva identidad de Tor!</string>
     <string name="pref_socks_dialog">Configuración del puerto SOCKS</string>
     <string name="pref_transport_summary">Puerto en el que Tor ofrece tu proxy transparente (predeterminado: 9040 o 0 para deshabilitar)</string>

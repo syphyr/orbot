@@ -44,7 +44,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Aktivera debug loggen för output (måste använda adb eller aLogCat för att se)</string>
     <string name="project_home">Projekt hem:</string>
     <string name="third_party_software">Tredjepartsprogramvara:</string>
-    <string name="hidden_service_request">En app vill öppna dold serverport %1$s till Tor-nätverket. Det här är säkert om du litar på appen.</string>
     <string name="set_locale_title">Språk</string>
     <string name="newnym">Du har bytt till en ny Tor identitet!</string>
     <string name="pref_socks_title">Tor-SOCKS</string>

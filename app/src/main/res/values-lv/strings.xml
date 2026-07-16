@@ -78,7 +78,6 @@
     <string name="btn_choose_apps">Izvēlieties lietotnes</string>
     <string name="btn_change_exit">Mainīt izeju</string>
     <string name="btn_refresh">Atjaunināt</string>
-    <string name="hidden_service_request">Programma vēlas atvērt sīpolu serveri Tor tīklā porta %1$s. Tas ir droši, ja lietotnei uzticaties.</string>
     <string name="v3_backup_name_hint">Rezerves kopijas faila nosaukums…</string>
     <string name="pref_circuit_padding">Ķēdes polsterējums</string>
     <string name="pref_prefer_ipv6_summary">Norāda, ka IPv6 adreses ir vēlamas</string>

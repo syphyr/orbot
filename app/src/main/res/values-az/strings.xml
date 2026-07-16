@@ -85,7 +85,6 @@
     <string name="wizard_details_msg">Orbot Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks və LibEvent ehtiva edən açıq mənbəli proqramdır. Tor şəbəkəsinə VPN tuneli, yerli HTTP Connect proksisi (yalnız 8118 portunda HTTPS) və SOCKS proksisi (9050) təmin edir.</string>
     <string name="pref_reduced_circuit_padding_summary">Data və batareyanın istifadəsini azaltmaq üçün aşağı yerüstü doldurma alqoritmlərindən istifadə edin</string>
     <string name="copy_address_to_clipboard">Ünvanı panoya kopyalayın</string>
-    <string name="hidden_service_request">Tətbiq %1$s portunda soğan serverini Tor şəbəkəsinə açmaq istəyir. Tətbiqə etibar edirsinizsə, bu təhlükəsizdir.</string>
     <string name="vpn_default_world">Qlobal (Avtomatik)</string>
     <string name="pref_isolate_port_summary">Hər təyinat portu üçün fərqli dövrədən istifadə edin</string>
     <string name="pref_isolate_dest">Təyinat ünvanlarını təcrid edin</string>

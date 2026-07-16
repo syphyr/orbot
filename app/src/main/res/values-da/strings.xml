@@ -83,7 +83,6 @@
     <string name="pref_allow_background_starts_summary">Lad en hvilken som helst app fortælle Orbot, at Tor og relaterede tjenester skal startes</string>
     <string name="version">Version:</string>
     <string name="license">Licens:</string>
-    <string name="hidden_service_request">En app ønsker at åbne en løgserver på port %1$s til Tor-netværket. Dette er sikkert, hvis du stoler på appen.</string>
     <string name="menu_new_identity">Ny identitet</string>
     <string name="strict_nodes_description">Behandl indstillingerne for udelukkelse af knuder som et krav for at opbygge alle kredsløb. Dette kan ødelægge funktionaliteten, hvis der ikke kan genereres kredsløb med dine indstillinger for udelukkede knuder.</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Åbn proxy på alle grænseflader</string>

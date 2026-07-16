@@ -44,7 +44,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Activa el registre de depuració a la sortida (cal utilitzar l\'adb o l\'aLogCat per a veure\'l)</string>
     <string name="project_home">Lloc web del projecte:</string>
     <string name="third_party_software">Programari de terceres parts:</string>
-    <string name="hidden_service_request">Una aplicació vol obrir el port %1$s del servidor onion a la xarxa Tor. Això és segur si confieu en l\'aplicació.</string>
     <string name="set_locale_title">Llengua</string>
     <string name="newnym">Heu canviat a una nova identitat Tor!</string>
     <string name="pref_socks_title">SOCKS del Tor</string>

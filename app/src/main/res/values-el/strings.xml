@@ -52,7 +52,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">ενεργοποίηση καταγραφών αποσφαλμάτωσης (για την προβολή τους απαιτείται χρήση adb ή aLogCat)</string>
     <string name="project_home">Έργο Home:</string>
     <string name="third_party_software">Λογισμικό τρίτων:</string>
-    <string name="hidden_service_request">Μια εφαρμογή θέλει να ανοίξει διακομιστή onion στη θύρα %1$s στο δίκτυο Tor. Αυτό είναι ασφαλές αν εμπιστεύεστε την εφαρμογή.</string>
     <string name="set_locale_title">Γλώσσα </string>
     <string name="newnym">Έχετε αλλάξει επιτυχώς την ταυτότητα σας στο Tor! </string>
     <string name="pref_socks_title">Tor SOCKS</string>

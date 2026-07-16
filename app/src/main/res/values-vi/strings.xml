@@ -68,7 +68,6 @@
     <string name="pref_http_summary">Cổng mà Tor cho proxy HTTP của nó (mặc định: 8118 hoặc 0 để tắt)</string>
     <string name="pref_http_title">HTTP Tor</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Mở Proxy trên tất cả các giao diện</string>
-    <string name="hidden_service_request">Một ứng dụng muốn mở máy chủ onion ở cổng %1$s vào mạng Tor. Việc này là an toàn nếu bạn tin tưởng ứng dụng đó.</string>
     <string name="wizard_details_msg">Orbot là một ứng dụng mã nguồn mở chứa Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel, LibEvent. Nó cung cấp một proxy HTTP cục bộ (8118) và một proxy SOCKS (9050) vào mạng Tor.</string>
     <string name="custom_bridges">Cầu nối tuỳ chỉnh</string>
     <string name="pref_reduced_connection_padding_summary">Đóng các kết nối chuyển tiếp sớm hơn và gửi ít gói đặt khoảng cách hơn để giảm sử dụng dữ liệu và pin</string>

@@ -64,7 +64,6 @@
     <string name="disable">Poista käytöstä</string>
     <string name="enable">Ota käyttöön</string>
     <string name="wizard_details_msg">Orbot-sovellus on avointa lähdekoodia ja se sisältää seuraavat: Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks ja LibEvent. Se tarjoaa VPN-tunnelin, paikallisen HTTP Connect -välityspalvelimen (HTTPS vain portissa 8118) ja SOCKS-välityspalvelimen (9050) Tor-verkkoon.</string>
-    <string name="hidden_service_request">Sovellus haluaa avata Tor-verkkoon Onion-palvelimen portissa %1$s. Tämä on turvallista, jos luotat sovellukseen.</string>
     <string name="pref_http_title">Tori HTTP</string>
     <string name="pref_http_summary">Portti, jonka kautta Torin HTTP-välityspalvelin on tavoitettavissa (oletus on 8118 tai pois käytöstä arvolla 0).</string>
     <string name="pref_http_dialog">Syötä HTTP-porttimääritys</string>

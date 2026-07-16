@@ -44,7 +44,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Attiva i log di debug in output (richiede adb o aLogCat per essere visualizzati)</string>
     <string name="project_home">Pagina principale del progetto:</string>
     <string name="third_party_software">Software di terze parti:</string>
-    <string name="hidden_service_request">Un\'app vuole aprire unserver nascosto sulla porta %1$s verso la rete Tor. È un\'azione sicura se ti fidi dell\'app.</string>
     <string name="set_locale_title">Lingua</string>
     <string name="newnym">Sei passato a una nuova identità Tor!</string>
     <string name="pref_socks_title">SOCKS di Tor</string>

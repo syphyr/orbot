@@ -63,7 +63,6 @@
     <string name="project_home">پروجیکٹ ہوم:</string>
     <string name="third_party_software">تیسری پارٹی سافٹ ویئر:</string>
     <string name="license">لائسنس:</string>
-    <string name="hidden_service_request">ایک ایپ ٹور نیٹ ورک پر پورٹ %1$s پر اونین سرور کھولنا چاہتی ہے۔ اگر آپ ایپ پر بھروسہ کرتے ہیں تو یہ محفوظ ہے۔</string>
     <string name="newnym">آپ نے ایک نئی ٹور شناخت اپنا لی ہے!</string>
     <string name="pref_open_proxy_on_all_interfaces_title">تمام انٹرفیسز پر پراکسی کھولیں</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">وائی فائی کے ساتھیوں، ٹیتھرڈ ڈیوائسز اور کسی دوسرے کو جو آپ کے آئی پی سے منسلک ہو سکے، ٹور تک رسائی کی اجازت دیں</string>

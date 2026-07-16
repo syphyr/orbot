@@ -119,7 +119,6 @@
     <string name="reachable_ports">அடையக்கூடிய துறைமுகங்கள்</string>
     <string name="ports_reachable_behind_a_restrictive_firewall">ஒரு கட்டுப்பாட்டு ஃபயர்வாலுக்கு பின்னால் துறைமுகங்கள் அடையக்கூடியவை</string>
     <string name="enter_ports">துறைமுகங்களை உள்ளிடவும்</string>
-    <string name="hidden_service_request">ஒரு பயன்பாடு டோர் பிணையத்தில் துறைமுகம் %1$s இல் வெங்காய சேவையகத்தைத் திறக்க விரும்புகிறது. நீங்கள் பயன்பாட்டை நம்பினால் இது பாதுகாப்பானது.</string>
     <string name="newnym">நீங்கள் ஒரு புதிய டோர் அடையாளத்திற்கு மாறிவிட்டீர்கள்!</string>
     <string name="pref_open_proxy_on_all_interfaces_title">அனைத்து இடைமுகங்களிலும் பதிலாள் திறக்கவும்</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">வைஃபை சகாக்கள், இணைக்கப்பட்ட சாதனங்கள் மற்றும் உங்கள் ஐபியுடன் இணைக்கக்கூடிய வேறு எவரையும் அனுமதிக்கவும், டோர் அணுகவும்</string>

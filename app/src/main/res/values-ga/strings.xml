@@ -48,7 +48,6 @@
     <string name="third_party_software">Bogearraí Tríú Páirtí:</string>
     <string name="version">Leagan:</string>
     <string name="license">Ceadúnas:</string>
-    <string name="hidden_service_request">Tá aip ag iarraidh freastalaí onion a oscailt ar phort %1$s chuig líonra Tor. Tá sé seo sábháilte má tá muinín agat as an aip.</string>
     <string name="set_locale_title">Teanga</string>
     <string name="newnym">Tá tú tar éis aistriú go céannacht Tor nua!</string>
     <string name="pref_open_proxy_on_all_interfaces_title">Oscail Seachfhreastalaí ar Gach Comhéadan</string>

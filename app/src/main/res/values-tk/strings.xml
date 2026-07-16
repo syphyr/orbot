@@ -131,7 +131,6 @@
     <string name="pref_proxy_host_title">Çykýan Proksi Wekili</string>
     <string name="fingerprints_nicks_countries_and_addresses_to_exclude">Gatnaşmajak barmak yzlary, gysgaltmalar, ýurtlar we salgylar</string>
     <string name="third_party_software">Üçünji tarap programma üpjünçiligi:</string>
-    <string name="hidden_service_request">Bir programma, %1$s portdaky onion serwerini Tor network-ine açmak isleýär. Programma ynanýan bolsaňyz, bu howpsuz.</string>
     <string name="pref_open_proxy_on_all_interfaces_summary">Wi-Fi ulgamlaryna, birikdirilen enjamlara we IP-ä birikdirip bilýänlere Tor-a girmäge rugsat beriň</string>
     <string name="pref_socks_title">Tor SOCKS</string>
     <string name="pref_socks_summary">Tor-uň SOCKS proksi hödürleýän porty (deslapky: 9050 ýa-da 0 ýapmak üçin)</string>

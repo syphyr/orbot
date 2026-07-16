@@ -44,7 +44,6 @@
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">gaitu arazketarako egunkariak (adb edo aLogCat erabili behar da ikusteko)</string>
     <string name="project_home">Proiektuaren etxea(k):</string>
     <string name="third_party_software">Hirugarrengoen softwarea:</string>
-    <string name="hidden_service_request">Aplikazio batek ezkutuko zerbitzariko %1$s ataka ireki nau du Tor sarera. Segurua da aplikazioaz fidatzen bazara.</string>
     <string name="set_locale_title">Hizkuntza</string>
     <string name="newnym">Tor identitate berri batera aldatu duzu!</string>
     <string name="pref_socks_title">Tor SOCKS</string>
