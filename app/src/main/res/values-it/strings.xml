@@ -305,7 +305,6 @@
     <string name="grant_permission">Consenti autorizzazione</string>
     <string name="set_permission_in_settings">Imposta autorizzazione nelle impostazioni</string>
     <string name="kindness_your_impact">Il tuo impatto in numeri</string>
-    <string name="test_risk_consent">Capisco, inizia il test</string>
     <string name="testing_explanation_approved">Sei un ottimo candidato per diventare un proxy Snowflake nella rete Tor.</string>
     <string name="testing_continue">Continua</string>
     <string name="testing_explanation_declined">Non puoi essere un proxy Snowflake utile al momento. Se continui a vedere questo messaggio, riprova su una rete diversa.</string>

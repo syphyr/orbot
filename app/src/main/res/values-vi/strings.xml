@@ -211,7 +211,6 @@
     <string name="kindness_quality_upgrade_line1">Proxy của bạn có thể mạnh hơn khi chế độ thân thiện được chạy trên Wi-Fi.</string>
     <string name="kindness_quality_upgrade_line2">Để nâng cấp, bật UPnP trên router Wi-Fi của bạn cho thiết bị này.</string>
     <string name="kindness_your_impact">Ảnh hưởng của bạn đến từ Số lượng</string>
-    <string name="test_risk_consent">Tôi Hiểu, Bắt đầu Kiểm tra</string>
     <string name="testing_explanation_approved">Bạn là ứng viên tốt để trở thành Snowflake Proxy cho mạng Tor.</string>
     <string name="testing_continue">Tiếp tục</string>
     <string name="testing_explanation_declined">Bạn không thể là Snowflake Proxy hữu dụng lúc này. Nếu bạn liên tục thấy tin nhắn này, hãy thử lại trên mạng khác.</string>
