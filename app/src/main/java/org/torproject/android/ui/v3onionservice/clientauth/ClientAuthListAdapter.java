@@ -27,7 +27,7 @@ public class ClientAuthListAdapter extends CursorAdapter {
 
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        return mLayoutInflater.inflate(R.layout.layout_client_cookie_list_item, null);
+        return mLayoutInflater.inflate(R.layout.layout_client_cookie_list_item, parent, false);
     }
 
     @SuppressLint("Range")
