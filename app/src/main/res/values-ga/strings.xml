@@ -311,4 +311,7 @@
     <string name="grant_permission">Deonaigh Cead</string>
     <string name="set_permission_in_settings">Socraigh Cead sna Socruithe</string>
     <string name="open_proxy_needs_local_network_permission">Ar Android 17 agus níos airde, teastaíonn cead \"Ceadaigh Rochtain ar Ghléasanna In Aice Láimhe\" ó Orbot chun an seachfhreastalaí a oscailt ar gach comhéadan.</string>
+    <string name="private_dns">DNS Príobháideach</string>
+    <string name="private_dns_strict">Cumasaíodh DNS Príobháideach Dian…</string>
+    <string name="private_dns_explanation">Má úsáideann tú DNS Príobháideach dian le réiteoir ar leith, sceithfidh tú do thrácht agus do sheirbhísí onion lasmuigh de VPN Orbot. Socraigh do DNS Príobháideach go hUathoibríoch le do thoil.</string>
 </resources>
