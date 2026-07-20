@@ -133,7 +133,7 @@ public interface TorServiceConstants {
     public static final String PREF_BINARY_TOR_VERSION_INSTALLED = "BINARY_TOR_VERSION_INSTALLED";
     
     //lyrebird
-    public static final String OBFSCLIENT_ASSET_KEY = "lyrebird";
+    public static final String LYREBIRD_ASSET_KEY = "lyrebird";
     
    // public static final String MEEK_ASSET_KEY = "meek-client";
     

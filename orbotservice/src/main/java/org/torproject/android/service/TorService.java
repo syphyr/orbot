@@ -556,7 +556,7 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
             mShell = Shell.startShell();
 
             fileTor= new File(appBinHome, TorServiceConstants.TOR_ASSET_KEY);
-            fileObfsclient = new File(appBinHome, TorServiceConstants.OBFSCLIENT_ASSET_KEY);
+            fileObfsclient = new File(appBinHome, TorServiceConstants.LYREBIRD_ASSET_KEY);
             fileXtables = new File(appBinHome, TorServiceConstants.IPTABLES_ASSET_KEY);
             fileTorRc = new File(appBinHome, TorServiceConstants.TORRC_ASSET_KEY);
 

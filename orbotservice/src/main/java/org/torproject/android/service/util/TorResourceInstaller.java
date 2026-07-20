@@ -79,8 +79,8 @@ public class TorResourceInstaller implements TorServiceConstants {
         outFile = new File(installFolder, TORRC_ASSET_KEY);
         streamToFile(is,outFile, false, false);
         
-        is = context.getAssets().open(cpuPath + '/' + OBFSCLIENT_ASSET_KEY + MP3_EXT);
-        outFile = new File(installFolder, OBFSCLIENT_ASSET_KEY);
+        is = context.getAssets().open(cpuPath + '/' + LYREBIRD_ASSET_KEY + MP3_EXT);
+        outFile = new File(installFolder, LYREBIRD_ASSET_KEY);
         streamToFile(is,outFile, false, true);
         setExecutable(outFile);
 
