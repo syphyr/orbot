@@ -3,15 +3,16 @@
 package org.torproject.android.control.examples;
 
 import org.torproject.android.control.*;
+
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Arrays;
-import java.util.Map;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 public class Main implements TorControlCommands {
 
@@ -118,8 +119,8 @@ public class Main implements TorControlCommands {
         // Usage signal [reload|shutdown|dump|debug|halt]
         TorControlConnection conn = getConnection(args, false);
         // distinguish shutdown signal from other signals
-        if ("SHUTDOWN".equalsIgnoreCase(args[1])
-        		|| "HALT".equalsIgnoreCase(args[1])) {
+        if (SIGNAL_SHUTDOWN.equalsIgnoreCase(args[1])
+                || SIGNAL_HALT.equalsIgnoreCase(args[1])) {
         	conn.shutdownTor(args[1].toUpperCase());
         } else {
         	conn.signal(args[1].toUpperCase());
