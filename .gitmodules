@@ -1,6 +1,6 @@
 [submodule "external/tor"]
 	path = external/tor
-	url = https://git.torproject.org/git/tor.git
+	url = https://github.com/syphyr/tor
 	ignore = dirty
 [submodule "external/libevent"]
 	path = external/libevent
@@ -8,7 +8,7 @@
 	ignore = dirty
 [submodule "external/jtorctl"]
 	path = external/jtorctl
-	url = https://github.com/guardianproject/jtorctl
+	url = https://github.com/syphyr/jtorctl
 	ignore = dirty
 [submodule "external/openssl"]
 	path = external/openssl
@@ -24,7 +24,7 @@
 	ignore = dirty
 [submodule "external/pluto"]
 	path = external/pluto
-	url = https://github.com/guardianproject/pluto.git
+	url = https://github.com/syphyr/pluto
 	ignore = dirty
 [submodule "external/jsocks"]
 	path = external/jsocks
