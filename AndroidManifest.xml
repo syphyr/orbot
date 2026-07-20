@@ -3,7 +3,7 @@
       package="org.torproject.android" 
         android:installLocation="auto"      
       >
-    <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="23"/>
+    <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="25"/>
     <!-- 
  <permission android:name="org.torproject.android.MANAGE_TOR" 
      android:label="@string/permission_manage_tor_label" 

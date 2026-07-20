@@ -527,12 +527,7 @@ public class TorControlConnection implements TorControlCommands {
      * @see <a href="https://torproject.gitlab.io/torspec/control-spec/#loadconf">control-spec: LOADCONF</a>
      */
     public void loadConf(String[] configLines) throws IOException {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < configLines.length; i++) {
-            sb.append(configLines[i]);
-            if (i < configLines.length - 1) sb.append("\n");
-        }
-        sendAndWaitForResponse(LOADCONF + "\r\n", sb.toString());
+        sendAndWaitForResponse(LOADCONF + "\r\n", String.join("\n", configLines));
     }
 
     /**

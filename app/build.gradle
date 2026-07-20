@@ -5,7 +5,7 @@ android {
     buildToolsVersion '26.0.3'
     defaultConfig {
         applicationId "org.torproject.android"
-        minSdkVersion 16
+        minSdkVersion 24
         targetSdkVersion 25
     }
     lintOptions {
@@ -21,25 +21,21 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     flavorDimensions "free"
 
     productFlavors {
-     /* minimalperm {
-            dimension "free"
-            minSdkVersion 16
-            applicationId 'org.torproject.android'
-            targetSdkVersion 23
-            maxSdkVersion 23
-            versionCode 2000000001
-            versionName '16.0.1-1-arm-SDK16'
-        } */
         fullperm {
             dimension "free"
-            minSdkVersion 23
+            minSdkVersion 24
             applicationId 'org.torproject.android'
             targetSdkVersion 25
             versionCode 2000000002
-            versionName '16.0.1-1-arm64-SDK23'
+            versionName '16.0.1-1-arm64-SDK24'
         }
     }
 }
