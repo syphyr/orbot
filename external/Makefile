@@ -358,10 +358,10 @@ pluto-build-stamp: pluto/bin
 
 pluto: pluto-build-stamp
 	test -d bin || mkdir bin
-	cp pluto/bin/$(APP_ABI)/obfs4proxy bin
+	cp pluto/bin/$(APP_ABI)/lyrebird bin
 
 pluto-clean:
-	-rm -f bin/obfs4proxy
+	-rm -f bin/lyrebird
 	-rm -f pluto-build-stamp
 
 #------------------------------------------------------------------------------#
@@ -375,8 +375,8 @@ assets: tor iptables pluto
 	-zip ../orbotservice/src/main/assets/$(APP_ABI)/tor.mp3 bin/tor
 	-$(STRIP) bin/xtables
 	-zip ../orbotservice/src/main/assets/$(APP_ABI)/xtables.mp3 bin/xtables
-	-$(STRIP) bin/obfs4proxy
-	-zip ../orbotservice/src/main/assets/$(APP_ABI)/obfs4proxy.mp3 bin/obfs4proxy
+	-$(STRIP) bin/lyrebird
+	-zip ../orbotservice/src/main/assets/$(APP_ABI)/lyrebird.mp3 bin/lyrebird
 	-$(STRIP) ../orbotservice/src/main/libs/$(APP_ABI)/pdnsd
 	-zip ../orbotservice/src/main/assets/$(APP_ABI)/pdnsd.mp3 ../orbotservice/src/main/libs/$(APP_ABI)/pdnsd
 	-rm ../orbotservice/src/main/libs/$(APP_ABI)/pdnsd
@@ -384,7 +384,7 @@ assets: tor iptables pluto
 assets-clean:
 	-rm ../orbotservice/src/main/assets/$(APP_ABI)/tor.mp3
 	-rm ../orbotservice/src/main/assets/$(APP_ABI)/xtables.mp3
-	-rm ../orbotservice/src/main/assets/$(APP_ABI)/obfs4proxy.mp3
+	-rm ../orbotservice/src/main/assets/$(APP_ABI)/lyrebird.mp3
 	-rm ../orbotservice/src/main/assets/$(APP_ABI)/pdnsd.mp3
 
 

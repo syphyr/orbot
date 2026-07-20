@@ -1020,26 +1020,25 @@ public class OrbotMainActivity extends AppCompatActivity
             	   
             	   switch (which)
             	   {
-            	   case 0: //obfs 4;
-                       Prefs.setBridgesList("obfs4");
-            		   enableBridges(true);
+            	   case 0: //obfs4;
+                           Prefs.setBridgesList("obfs4");
+                           enableBridges(true);
 
-            		   break;
-            	   case 1: //azure
-            		   Prefs.setBridgesList("meek");
-            		   enableBridges(true);
-            		   
-            		   break;
-            	   case 2: //amazon
-                       Prefs.setBridgesList("meek");
-            		   enableBridges(true);
-            		   
-            		   break;
-            	   case 3:
-            		   showGetBridgePrompt("obfs4");
-            		   
-            		   break;
-            		  
+                           break;
+                   case 1: //azure
+                           Prefs.setBridgesList("meek");
+                           enableBridges(true);
+
+                           break;
+                   case 2: //amazon
+                           Prefs.setBridgesList("meek");
+                           enableBridges(true);
+
+                           break;
+                   case 3:
+                           showGetBridgePrompt("obfs4");
+
+                           break;
             	   }
             	   
                }

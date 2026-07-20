@@ -1686,6 +1686,7 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
             
             String bridgeList = new String(Prefs.getBridgesList().getBytes("ISO-8859-1"));
             boolean obfsBridges = bridgeList.contains("obfs3")||bridgeList.contains("obfs4");
+            boolean webtunnelBridges = bridgeList.contains("webtunnel");
             boolean meekBridges = bridgeList.contains("meek");
 
             //check if any PT bridges are needed
@@ -1693,6 +1694,11 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
             {
                 extraLines.append("ClientTransportPlugin obfs3 exec " + fileObfsclient.getCanonicalPath()).append('\n');
                 extraLines.append("ClientTransportPlugin obfs4 exec " + fileObfsclient.getCanonicalPath()).append('\n');
+            }
+
+            if (webtunnelBridges)
+            {
+                extraLines.append("ClientTransportPlugin webtunnel exec " + fileObfsclient.getCanonicalPath()).append('\n');
             }
 
             if (meekBridges)
@@ -1728,6 +1734,9 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
 
                 if (meekBridges)
                     type = "meek_lite";
+
+                if (webtunnelBridges)
+                    type = "webtunnel";
 
                 getBridges(type,extraLines);
 

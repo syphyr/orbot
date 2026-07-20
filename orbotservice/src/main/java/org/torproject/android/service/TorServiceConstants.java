@@ -132,8 +132,8 @@ public interface TorServiceConstants {
     public static final String BINARY_TOR_VERSION = "0.4.9.11-openssl3.5.7";
     public static final String PREF_BINARY_TOR_VERSION_INSTALLED = "BINARY_TOR_VERSION_INSTALLED";
     
-    //obfsproxy 
-    public static final String OBFSCLIENT_ASSET_KEY = "obfs4proxy";
+    //lyrebird
+    public static final String OBFSCLIENT_ASSET_KEY = "lyrebird";
     
    // public static final String MEEK_ASSET_KEY = "meek-client";
     
