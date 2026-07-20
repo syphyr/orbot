@@ -4,7 +4,7 @@
     android:installLocation="auto">
 
     <uses-sdk
-        android:minSdkVersion="16"
+        android:minSdkVersion="24"
         android:targetSdkVersion="25" />
     <!--
  <permission android:name="org.torproject.android.MANAGE_TOR" 
