@@ -4,11 +4,6 @@
 # Install and prepare the Android OS SDK ( http://source.android.com/download )
 # on Debian or Ubuntu
 
-### these modify the calling shell
-# workaround for cross-compiling bug in autoconf
-export ac_cv_func_malloc_0_nonnull=yes
-export ac_cv_func_setpgrp_void=yes
-
 EXTERNAL_ROOT := $(shell pwd)
 
 DEBUG ?= 0
@@ -32,34 +27,30 @@ ANDROID_NDK_HOME := $(HOME)/toolchains
 NDK_PLATFORM_LEVEL ?= 21
 NDK_TOOLCHAIN_VERSION=4.9
 APP_ABI ?= arm64-v8a
-NDK_ABI ?= $(APP_ABI)
 
 # PIEFLAGS for SDK 16/Android L must be set to -fPIE -pie, but can override for earlier targets 
 PIECFLAGS ?= -fPIE -fPIC
 PIELDFLAGS ?= -pie
 
-ifneq ($(filter arm%, $(APP_ABI)),)
-  NDK_ABI := arm
-endif
-ifneq ($(filter arm64%, $(APP_ABI)),)
- NDK_ABI := arm64
-endif
-NDK_UNAME := $(shell uname -s | tr '[A-Z]' '[a-z]')
-ifneq ($(filter arm64, $(NDK_ABI)),)
+ifneq ($(filter arm64-v8a, $(APP_ABI)),)
  HOST := aarch64-linux-android
  ALTHOST := $(HOST)
+ NDK_ABI := arm64
 endif
-ifneq ($(filter arm, $(NDK_ABI)),)
- HOST := arm-linux-androideabi
+ifneq ($(filter armeabi-v7a, $(APP_ABI)),)
+ HOST := armv7a-linux-androideabi
  ALTHOST := arm-linux-androideabi
+ NDK_ABI := arm
 endif
-ifneq ($(filter x86, $(NDK_ABI)),)
+ifneq ($(filter x86, $(APP_ABI)),)
  HOST := i686-linux-android
  ALTHOST := $(HOST)
+ NDK_ABI := x86
 endif
-ifneq ($(filter x86_64, $(NDK_ABI)),)
+ifneq ($(filter x86_64, $(APP_ABI)),)
  HOST := x86_64-linux-android
  ALTHOST := $(HOST)
+ NDK_ABI := x86_64
 endif
 
 NDK_TOOLCHAIN := $(HOST)-$(NDK_TOOLCHAIN_VERSION)
@@ -196,11 +187,26 @@ libevent-clean:
 
 xz/Makefile:
 	cd xz && ./autogen.sh
-	cp config.sub xz
-	cp config.guess xz
 	cd xz && \
-		 CC="$(CC)" CXX="$(CXX)" PKG_CONFIG_PATH="$(EXTERNAL_ROOT)/lib/pkgconfig" AR="$(AR)" RANLIB="$(RANLIB)" CFLAGS="$(CFLAGS) -std=c99" LDFLAGS="$(LDFLAGS)"  \
-		./configure  --host=$(HOST) --disable-shared --enable-static --disable-doc --disable-xz --disable-xzdec --disable-lzmadec --disable-lzmainfo --disable-lzma-links --disable-scripts --prefix=$(EXTERNAL_ROOT)
+		CC="$(CC)" \
+		CXX="$(CXX)" \
+		PKG_CONFIG_PATH="$(EXTERNAL_ROOT)/lib/pkgconfig" \
+		AR="$(AR)" \
+		RANLIB="$(RANLIB)" \
+		CFLAGS="$(CFLAGS) -std=c99" \
+		LDFLAGS="$(LDFLAGS)"  \
+		 ./configure \
+			--host=$(HOST) \
+			--enable-static \
+			--disable-doc \
+			--disable-lzma-links \
+			--disable-lzmadec \
+			--disable-lzmainfo \
+			--disable-xz \
+			--disable-xzdec \
+			--disable-scripts \
+			--disable-shared \
+			--prefix=$(EXTERNAL_ROOT)
 
 lzma: lzma-build-stamp
 	$(MAKE) -C xz install
@@ -221,8 +227,24 @@ lzma-clean:
 # zstd
 
 zstd: zstd-build-stamp
-	$(MAKE) -C zstd/lib CC="$(CC)" CXX="$(CXX)" AR="$(AR)" RANLIB="$(RANLIB)" CFLAGS="$(CFLAGS)"  LDFLAGS="$(LDFLAGS)" PREFIX="$(EXTERNAL_ROOT)" libzstd.a-mt 
-	$(MAKE) -C zstd/lib CC="$(CC)" CXX="$(CXX)" AR="$(AR)" RANLIB="$(RANLIB)" CFLAGS="$(CFLAGS)"  LDFLAGS="$(LDFLAGS)" PREFIX="$(EXTERNAL_ROOT)" libzstd.pc 
+	$(MAKE) -C zstd/lib \
+		CC="$(CC)" \
+		CXX="$(CXX)" \
+		AR="$(AR)" \
+		RANLIB="$(RANLIB)" \
+		CFLAGS="$(CFLAGS)"  \
+		LDFLAGS="$(LDFLAGS)" \
+		PREFIX="$(EXTERNAL_ROOT)" \
+		libzstd.a-mt
+	$(MAKE) -C zstd/lib \
+		CC="$(CC)" \
+		CXX="$(CXX)" \
+		AR="$(AR)" \
+		RANLIB="$(RANLIB)" \
+		CFLAGS="$(CFLAGS)"  \
+		LDFLAGS="$(LDFLAGS)" \
+		PREFIX="$(EXTERNAL_ROOT)" \
+		libzstd.pc
 	test -d lib || mkdir lib
 	test -d lib/pkgconfig || mkdir lib/pkgconfig
 	test -d include || mkdir include
@@ -253,8 +275,16 @@ zlib-build-stamp:
 
 zlib: zlib-build-stamp
 	cd zlib && \
-		CC="$(CC)" CXX="$(CXX)" PKG_CONFIG_PATH="$(EXTERNAL_ROOT)/lib/pkgconfig" AR="$(AR)" RANLIB="$(RANLIB)" CFLAGS="$(CFLAGS)" LDFLAGS="$(LDFLAGS)" \
-		./configure --static --prefix=$(EXTERNAL_ROOT)
+		CC="$(CC)" \
+		CXX="$(CXX)" \
+		PKG_CONFIG_PATH="$(EXTERNAL_ROOT)/lib/pkgconfig" \
+		AR="$(AR)" \
+		RANLIB="$(RANLIB)" \
+		CFLAGS="$(CFLAGS)" \
+		LDFLAGS="$(LDFLAGS)" \
+		./configure \
+			--static \
+			--prefix=$(EXTERNAL_ROOT)
 	$(MAKE) -C zlib install
 
 zlib-clean:
@@ -284,11 +314,16 @@ iptables/Makefile:
 	-cd iptables && \
 	 	patch -N -p0 --reject-file=- < iptables-patch-4
 	cd iptables && ./autogen.sh
-	cp config.sub iptables
-	cp config.guess iptables
 	cd iptables && \
-		CC="$(CC)" AR="$(AR)" RANLIB=$(RANLIB) CFLAGS="$(CFLAGS) -I$(EXTERNAL_ROOT)/include" LDFLAGS="$(LDFLAGS)" \
-			./configure --host=$(HOST) --disable-shared --enable-static 
+		CC="$(CC)" \
+		AR="$(AR)" \
+		RANLIB=$(RANLIB) \
+		CFLAGS="$(CFLAGS) -I$(EXTERNAL_ROOT)/include" \
+		LDFLAGS="$(LDFLAGS)" \
+			./configure \
+				--host=$(HOST) \
+				--disable-shared \
+				--enable-static
 
 iptables-build-stamp: iptables/Makefile
 	$(MAKE) -C iptables 
@@ -306,28 +341,40 @@ iptables-clean:
 #------------------------------------------------------------------------------#
 # tor
 
-tor/configure: 
+tor/Makefile:
+	@which pkg-config || (echo "ERROR: pkg-config is required! apt-get install pkg-config"; exit 1)
+	cd tor && ./autogen.sh
 	cd tor && \
-	 ./autogen.sh
-
-tor/Makefile: tor/configure
-	cp config.sub tor
-	cp config.guess tor
-	cd tor && \
-                CC="$(CC)" AR="$(AR)" RANLIB=$(RANLIB) CFLAGS="$(CFLAGS) -D_FORTIFY_SOURCE=2 -fwrapv -fno-strict-aliasing -fno-strict-overflow" LDFLAGS="$(LDFLAGS)" \
-                        LIBS="-L$(EXTERNAL_ROOT)/lib" CFLAGS="-I$(EXTERNAL_ROOT)/include -I$(EXTERNAL_ROOT)/include/event2" \
-			LZMA_CFLAGS="-I$(EXTERNAL_ROOT)/include -DLZMA_API_STATIC" \
-			LZMA_LIBS="$(EXTERNAL_ROOT)/lib/liblzma.a" \
-			ZSTD_CFLAGS="-I$(EXTERNAL_ROOT)/include" \
-			ZSTD_LIBS="$(EXTERNAL_ROOT)/lib/libzstd.a" \
+		CC="$(CC)" \
+		AR="$(AR)" \
+		RANLIB=$(RANLIB) \
+		LDFLAGS="$(LDFLAGS)" \
+		LIBS="-L$(EXTERNAL_ROOT)/lib" \
+		CFLAGS="$(CFLAGS) -I$(EXTERNAL_ROOT)/include" \
+		LZMA_CFLAGS="-I$(EXTERNAL_ROOT)/include -DLZMA_API_STATIC" \
+		LZMA_LIBS="$(EXTERNAL_ROOT)/lib/liblzma.a" \
+		ZSTD_CFLAGS="-I$(EXTERNAL_ROOT)/include" \
+		ZSTD_LIBS="$(EXTERNAL_ROOT)/lib/libzstd.a" \
+		PKG_CONFIG_PATH="$(EXTERNAL_ROOT)/lib/pkgconfig" \
 			./configure \
 				--host=$(HOST) \
-				--disable-asciidoc --enable-android \
+				--enable-android \
+				--enable-gpl \
+				--enable-lzma \
+				--enable-pic \
 				--enable-static-libevent --with-libevent-dir=$(EXTERNAL_ROOT) \
 				--enable-static-openssl --with-openssl-dir=$(EXTERNAL_ROOT) \
 				--enable-static-zlib --with-zlib-dir=$(EXTERNAL_ROOT) \
-				--enable-lzma --enable-zstd --enable-gpl \
-				--disable-linker-hardening --disable-gcc-hardening --disable-tool-name-check --disable-systemd
+				--enable-zstd \
+				--disable-asciidoc \
+				--disable-html-manual \
+				--disable-libscrypt \
+				--disable-manpage \
+				--disable-seccomp \
+				--disable-system-torrc \
+				--disable-systemd \
+				--disable-tool-name-check \
+				--prefix=$(EXTERNAL_ROOT)
 
 tor-build-stamp: tor/Makefile
 	$(MAKE) -C tor all-am
