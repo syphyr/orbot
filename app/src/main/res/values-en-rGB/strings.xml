@@ -293,4 +293,5 @@
     <string name="volunteer_mode_weekly_label">This Week</string>
     <string name="volunteer_mode_alltime_label">Total</string>
     <string name="kindness_mode_disclaimer_bridge">Activate if the Internet in your country is not heavily censored.</string>
+    <string name="volunteer_mode_subtitle_desc">Kindness Mode turns your device into a Snowflake Proxy on the Tor network — a bridge to help others connect.</string>
 </resources>
