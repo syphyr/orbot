@@ -2077,43 +2077,40 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
     }
 
 
-    private void loadBridgeDefaults ()
-    {
-        if (alBridges == null)
-        {
+    private void loadBridgeDefaults() {
+        if (alBridges == null) {
             alBridges = new ArrayList<Bridge>();
 
-            try
-            {
-                BufferedReader in=
-                        new BufferedReader(new InputStreamReader(getAssets().open("bridges.txt"), "UTF-8"));
-                String str;
+            // Use try-with-resources to ensure the reader closes even if an exception occurs
+            try (BufferedReader in = new BufferedReader(
+                    new InputStreamReader(getAssets().open("bridges.txt"), "UTF-8"))) {
 
-                while ((str=in.readLine()) != null) {
+                String line;
+                while ((line = in.readLine()) != null) {
+                    line = line.trim();
 
-                    StringTokenizer st = new StringTokenizer (str," ");
+                    if (line.isEmpty()) {
+                        continue;
+                    }
+
+                    StringTokenizer st = new StringTokenizer(line, " ");
+                    if (!st.hasMoreTokens()) continue;
+
                     Bridge b = new Bridge();
                     b.type = st.nextToken();
 
-                    StringBuffer sbConfig = new StringBuffer();
-
-                    while(st.hasMoreTokens())
+                    StringBuilder sbConfig = new StringBuilder();
+                    while (st.hasMoreTokens()) {
                         sbConfig.append(st.nextToken()).append(' ');
+                    }
 
                     b.config = sbConfig.toString().trim();
-
                     alBridges.add(b);
-
                 }
-
-                in.close();
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-
     }
 
     //we should randomly sort alBridges so we don't have the same bridge order each time
