@@ -1013,24 +1013,19 @@ public class OrbotMainActivity extends AppCompatActivity
                // The 'which' argument contains the index position
                // of the selected item
             	   
-            	   switch (which)
-            	   {
-            	   case 0: //obfs4;
+                   switch (which)
+                   {
+                   case 0: //obfs4;
                            Prefs.setBridgesList("obfs4");
                            enableBridges(true);
 
                            break;
-                   case 1: //azure
+                   case 1: //meek
                            Prefs.setBridgesList("meek");
                            enableBridges(true);
 
                            break;
-                   case 2: //amazon
-                           Prefs.setBridgesList("meek");
-                           enableBridges(true);
-
-                           break;
-                   case 3:
+                   case 2:
                            showGetBridgePrompt("obfs4");
 
                            break;

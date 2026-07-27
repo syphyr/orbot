@@ -3,9 +3,8 @@
 <resources>
 
 	<string-array name="bridge_options">
-	    <item>Obfs4 (Best)</item>
-	    <item>Tunnel through Azure</item>
-	    <item>Tunnel through Amazon</item>
+	    <item>obfs4</item>
+	    <item>meek_lite</item>
 	    <item>Get New Bridges</item>
 	    <item></item>
 	</string-array>
