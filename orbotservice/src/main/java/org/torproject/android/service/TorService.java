@@ -1685,9 +1685,11 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
             extraLines.append("UseBridges 1").append('\n');
             
             String bridgeList = new String(Prefs.getBridgesList().getBytes("ISO-8859-1"));
-            boolean obfsBridges = bridgeList.contains("obfs3")||bridgeList.contains("obfs4");
+            boolean obfsBridges = bridgeList.contains("obfs3") || bridgeList.contains("obfs4");
             boolean webtunnelBridges = bridgeList.contains("webtunnel");
             boolean meekBridges = bridgeList.contains("meek");
+            boolean snowflakeBridges = bridgeList.contains("snowflake");
+            boolean scramblesuitBridges = bridgeList.contains("scramblesuit");
 
             //check if any PT bridges are needed
             if (obfsBridges)
@@ -1699,6 +1701,16 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
             if (webtunnelBridges)
             {
                 extraLines.append("ClientTransportPlugin webtunnel exec " + fileObfsclient.getCanonicalPath()).append('\n');
+            }
+
+            if (snowflakeBridges)
+            {
+                extraLines.append("ClientTransportPlugin snowflake exec " + fileObfsclient.getCanonicalPath()).append('\n');
+            }
+
+            if (scramblesuitBridges)
+            {
+                extraLines.append("ClientTransportPlugin scramblesuit exec " + fileObfsclient.getCanonicalPath()).append('\n');
             }
 
             if (meekBridges)
@@ -1737,6 +1749,12 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
 
                 if (webtunnelBridges)
                     type = "webtunnel";
+
+                if (snowflakeBridges)
+                    type = "snowflake";
+
+                if (scramblesuitBridges)
+                    type = "scramblesuit";
 
                 getBridges(type,extraLines);
 
