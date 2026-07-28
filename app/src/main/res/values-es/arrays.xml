@@ -5,6 +5,8 @@
 	<string-array name="bridge_options">
 	    <item>obfs4</item>
 	    <item>meek_lite</item>
+	    <item>snowflake</item>
+	    <item>webtunnel</item>
 	    <item>Obtener nuevos puentes</item>
 	    <item></item>
 	</string-array>

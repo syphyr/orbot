@@ -1026,6 +1026,16 @@ public class OrbotMainActivity extends AppCompatActivity
 
                            break;
                    case 2:
+                           Prefs.setBridgesList("snowflake");
+                           enableBridges(true);
+
+                           break;
+                   case 3:
+                           Prefs.setBridgesList("webtunnel");
+                           enableBridges(true);
+
+                           break;
+                   case 4:
                            showGetBridgePrompt("obfs4");
 
                            break;
