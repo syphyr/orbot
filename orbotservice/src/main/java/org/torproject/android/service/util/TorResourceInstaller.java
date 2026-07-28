@@ -135,10 +135,12 @@ public class TorResourceInstaller implements TorServiceConstants {
         outFile = new File(installFolder, GEOIP_ASSET_KEY);
         is = context.getResources().openRawResource(R.raw.geoip);
         streamToFile(is, outFile, false, true);
+        setReadWriteable(outFile);
         
         is = context.getResources().openRawResource(R.raw.geoip6);
         outFile = new File(installFolder, GEOIP6_ASSET_KEY);
         streamToFile(is, outFile, false, true);
+        setReadWriteable(outFile);
     
         return true;
     }
@@ -287,7 +289,13 @@ public class TorResourceInstaller implements TorServiceConstants {
                 
         return true;
     }*/
-    
+
+    private void setReadWriteable(File fileBin) {
+        fileBin.setReadable(true);
+        fileBin.setExecutable(false);
+        fileBin.setWritable(false);
+        fileBin.setWritable(true, true);
+    }
 
     private void setExecutable(File fileBin) {
         fileBin.setReadable(true);
