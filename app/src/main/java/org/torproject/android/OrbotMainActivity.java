@@ -1015,13 +1015,13 @@ public class OrbotMainActivity extends AppCompatActivity
             	   
                    switch (which)
                    {
-                   case 0: //obfs4;
+                   case 0:
                            Prefs.setBridgesList("obfs4");
                            enableBridges(true);
 
                            break;
-                   case 1: //meek
-                           Prefs.setBridgesList("meek");
+                   case 1:
+                           Prefs.setBridgesList("meek_lite");
                            enableBridges(true);
 
                            break;

@@ -1680,45 +1680,40 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
         else
         {
 
-            loadBridgeDefaults ();
+            loadBridgeDefaults();
 
             extraLines.append("UseBridges 1").append('\n');
             
             String bridgeList = new String(Prefs.getBridgesList().getBytes("ISO-8859-1"));
-            boolean obfsBridges = bridgeList.contains("obfs3") || bridgeList.contains("obfs4");
+            boolean obfsBridges = bridgeList.contains("obfs4");
             boolean webtunnelBridges = bridgeList.contains("webtunnel");
-            boolean meekBridges = bridgeList.contains("meek");
+            boolean meekBridges = bridgeList.contains("meek_lite");
             boolean snowflakeBridges = bridgeList.contains("snowflake");
             boolean scramblesuitBridges = bridgeList.contains("scramblesuit");
 
             //check if any PT bridges are needed
             if (obfsBridges)
             {
-                extraLines.append("ClientTransportPlugin obfs3 exec " + fileObfsclient.getCanonicalPath()).append('\n');
                 extraLines.append("ClientTransportPlugin obfs4 exec " + fileObfsclient.getCanonicalPath()).append('\n');
             }
-
-            if (webtunnelBridges)
+            else if (webtunnelBridges)
             {
                 extraLines.append("ClientTransportPlugin webtunnel exec " + fileObfsclient.getCanonicalPath()).append('\n');
             }
-
-            if (snowflakeBridges)
+            else if (snowflakeBridges)
             {
                 extraLines.append("ClientTransportPlugin snowflake exec " + fileObfsclient.getCanonicalPath()).append('\n');
             }
-
-            if (scramblesuitBridges)
+            else if (scramblesuitBridges)
             {
                 extraLines.append("ClientTransportPlugin scramblesuit exec " + fileObfsclient.getCanonicalPath()).append('\n');
             }
-
-            if (meekBridges)
+            else if (meekBridges)
             {
                 extraLines.append("ClientTransportPlugin meek_lite exec " + fileObfsclient.getCanonicalPath()).append('\n');
             }
 
-            if (bridgeList != null && bridgeList.length() > 5) //longer then 1 = some real values here
+            if (bridgeList != null && bridgeList.length() > 15) // > all bridge types
             {
 	            String[] bridgeListLines = bridgeList.split("\\r?\\n");
 
@@ -1742,19 +1737,19 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
             else
             {
 
-                String type = "obfs4";
+                String type;
 
-                if (meekBridges)
+                if (meekBridges) {
                     type = "meek_lite";
-
-                if (webtunnelBridges)
+                } else if (webtunnelBridges) {
                     type = "webtunnel";
-
-                if (snowflakeBridges)
+                } else if (snowflakeBridges) {
                     type = "snowflake";
-
-                if (scramblesuitBridges)
+                } else if (scramblesuitBridges) {
                     type = "scramblesuit";
+                } else {
+                    type = "obfs4";
+                }
 
                 getBridges(type,extraLines);
 
