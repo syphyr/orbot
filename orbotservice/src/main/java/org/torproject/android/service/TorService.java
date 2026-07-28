@@ -2093,19 +2093,18 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
                         continue;
                     }
 
-                    StringTokenizer st = new StringTokenizer(line, " ");
-                    if (!st.hasMoreTokens()) continue;
+                    // Find the first space to separate the type from the config
+                    int firstSpaceIndex = line.indexOf(' ');
 
-                    Bridge b = new Bridge();
-                    b.type = st.nextToken();
-
-                    StringBuilder sbConfig = new StringBuilder();
-                    while (st.hasMoreTokens()) {
-                        sbConfig.append(st.nextToken()).append(' ');
+                    // A valid bridge line MUST have a type AND a config (separated by a space)
+                    if (firstSpaceIndex != -1) {
+                        Bridge b = new Bridge();
+                        b.type = line.substring(0, firstSpaceIndex).trim();
+                        b.config = line.substring(firstSpaceIndex + 1).trim();
+                        alBridges.add(b);
+                    } else {
+                        System.out.println("Skipping invalid bridge line (no space found): " + line);
                     }
-
-                    b.config = sbConfig.toString().trim();
-                    alBridges.add(b);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -2118,6 +2117,9 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
 
     private void getBridges (String type, StringBuffer extraLines)
     {
+        if (alBridges == null || alBridges.isEmpty()) {
+            return;
+        }
 
         Collections.shuffle(alBridges, bridgeSelectRandom);
 
@@ -2138,7 +2140,7 @@ public class TorService extends Service implements TorServiceConstants, OrbotCon
 
                 bridgeCount++;
 
-                if (bridgeCount > maxBridges)
+                if (bridgeCount >= maxBridges)
                     break;
             }
         }
