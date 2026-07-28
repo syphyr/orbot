@@ -383,9 +383,13 @@ tor-build-stamp: tor/Makefile
 tor: zlib lzma zstd libevent openssl tor-build-stamp
 	test -d bin || mkdir bin
 	cp tor/src/app/tor bin
+	cp tor/src/config/geoip bin
+	cp tor/src/config/geoip6 bin
 
 tor-clean:
 	-rm -f bin/tor
+	-rm -f bin/geoip
+	-rm -f bin/geoip6
 	-rm -f tor-build-stamp
 	-cd tor && \
 		git clean -fdx
@@ -420,6 +424,8 @@ assets: tor iptables pluto
 	install -d ../orbotservice/src/main/assets/$(APP_ABI)
 	-$(STRIP) bin/tor
 	-zip ../orbotservice/src/main/assets/$(APP_ABI)/tor.mp3 bin/tor
+	-zip ../orbotservice/src/main/assets/geoip.mp3 bin/geoip
+	-zip ../orbotservice/src/main/assets/geoip6.mp3 bin/geoip6
 	-$(STRIP) bin/xtables
 	-zip ../orbotservice/src/main/assets/$(APP_ABI)/xtables.mp3 bin/xtables
 	-$(STRIP) bin/lyrebird

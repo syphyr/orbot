@@ -132,12 +132,12 @@ public class TorResourceInstaller implements TorServiceConstants {
         InputStream is;
         File outFile;
         
+        is = context.getAssets().open(GEOIP_ASSET_KEY + MP3_EXT);
         outFile = new File(installFolder, GEOIP_ASSET_KEY);
-        is = context.getResources().openRawResource(R.raw.geoip);
         streamToFile(is, outFile, false, true);
         setReadWriteable(outFile);
         
-        is = context.getResources().openRawResource(R.raw.geoip6);
+        is = context.getAssets().open(GEOIP6_ASSET_KEY + MP3_EXT);
         outFile = new File(installFolder, GEOIP6_ASSET_KEY);
         streamToFile(is, outFile, false, true);
         setReadWriteable(outFile);
