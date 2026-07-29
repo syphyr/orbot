@@ -72,9 +72,8 @@ public class Languages {
         DisplayMetrics ignored = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getMetrics(ignored);
         Resources resources;
-        Set<Locale> localeSet = new LinkedHashSet<Locale>();
+        Set<Locale> localeSet = new LinkedHashSet<>();
         for (Locale locale : localesToTest) {
-            config.locale = locale;
             resources = new Resources(assets, ignored, config);
             if (!TextUtils.equals(defaultString, resources.getString(resId))
                     || locale.equals(Locale.ENGLISH))
