@@ -61,16 +61,10 @@ public class SettingsPreferences
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 String language = (String) newValue;
                 if (preference == prefLocale) {
-                    SharedPreferences settings = TorServiceUtils
-                            .getSharedPrefs(getApplicationContext());
-
-                    String lang = settings.getString("pref_default_locale",
-                            Locale.getDefault().getLanguage());
-                    OrbotApp app = (OrbotApp) getApplication();
-                    Languages.setLanguage(app, language, true);
-                    lang = settings.getString("pref_default_locale",
-                            Locale.getDefault().getLanguage());
-                    OrbotApp.forceChangeLanguage(SettingsPreferences.this);
+                    Intent intentResult = new Intent();
+                    intentResult.putExtra("locale",language);
+                    setResult(RESULT_OK,intentResult);
+                    finish();
                 }
                 return false;
             }
@@ -154,5 +148,8 @@ public class SettingsPreferences
 		return true;
 	}
 
-
+        @Override
+        protected void attachBaseContext(Context base) {
+            super.attachBaseContext(LocaleHelper.onAttach(base));
+        }
 }

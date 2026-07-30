@@ -21,14 +21,14 @@ import java.util.TreeMap;
 public class Languages {
     public static final String TAG = "Languages";
 
-    public static final Locale defaultLocale;
+    public static Locale defaultLocale;
     public static final Locale TIBETAN = new Locale("bo");
     static final Locale localesToTest[] = {
             Locale.ENGLISH, Locale.FRENCH, Locale.GERMAN,
             Locale.ITALIAN, Locale.JAPANESE, Locale.KOREAN,
             Locale.TRADITIONAL_CHINESE, Locale.SIMPLIFIED_CHINESE,
             TIBETAN, new Locale("af"), new Locale("am"),
-            new Locale("ar"), new Locale("az"), new Locale("bg"),
+            new Locale("ar"), new Locale("ay"), new Locale("az"), new Locale("bg"),
             new Locale("bn"), new Locale("ca"), new Locale("cs"),
             new Locale("da"), new Locale("el"), new Locale("es"),
             new Locale("et"), new Locale("eu"), new Locale("fa"),
@@ -61,11 +61,10 @@ public class Languages {
     private static Map<String, String> tmpMap = new TreeMap<String, String>();
     private static Map<String, String> nameMap;
 
-    static {
-        defaultLocale = Locale.getDefault();
-    }
 
     private Languages(Activity activity) {
+
+
         AssetManager assets = activity.getAssets();
         Configuration config = activity.getResources().getConfiguration();
         // Resources() requires DisplayMetrics, but they are only needed for drawables
@@ -79,22 +78,21 @@ public class Languages {
                     || locale.equals(Locale.ENGLISH))
                 localeSet.add(locale);
         }
+
         for (Locale locale : localeSet) {
             if (locale.equals(TIBETAN)) {
                 // include English name for devices without Tibetan font support
-                tmpMap.put(TIBETAN.getLanguage(), "Tibetan བོད་སྐད།"); // Tibetan
+                tmpMap.put(TIBETAN.toString(), "Tibetan བོད་སྐད།"); // Tibetan
             } else if (locale.equals(Locale.SIMPLIFIED_CHINESE)) {
                 tmpMap.put(Locale.SIMPLIFIED_CHINESE.toString(), "中文 (中国)"); // Chinese (China)
             } else if (locale.equals(Locale.TRADITIONAL_CHINESE)) {
                 tmpMap.put(Locale.TRADITIONAL_CHINESE.toString(), "中文 (台灣)"); // Chinese (Taiwan)
             } else {
-                tmpMap.put(locale.getLanguage(), locale.getDisplayLanguage(locale));
+                tmpMap.put(locale.toString(), locale.getDisplayLanguage(locale));
             }
         }
 
         /* USE_SYSTEM_DEFAULT is a fake one for displaying in a chooser menu. */
-        localeSet.add(null);
-        tmpMap.put(USE_SYSTEM_DEFAULT, activity.getString(resId));
         nameMap = Collections.unmodifiableMap(tmpMap);
     }
 
@@ -117,6 +115,8 @@ public class Languages {
      * @return
      */
     public static void setup(Class<?> clazz, int resId) {
+        defaultLocale = Locale.getDefault();
+
         if (Languages.clazz == null) {
             Languages.clazz = clazz;
             Languages.resId = resId;
@@ -138,7 +138,6 @@ public class Languages {
         return singleton;
     }
 
-    //@TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     @SuppressLint("NewApi")
 	public static void setLanguage(final ContextWrapper contextWrapper, String language, boolean refresh) {
         if (locale != null && TextUtils.equals(locale.getLanguage(), language) && (!refresh)) {
@@ -155,16 +154,23 @@ public class Languages {
             }
         }
 
-        final Resources resources = contextWrapper.getBaseContext().getResources();
-        Configuration config = resources.getConfiguration();
-        if (Build.VERSION.SDK_INT >= 17) {
-            config.setLocale(locale);
-        } else {
-            config.locale = locale;
-        }
-        resources.updateConfiguration(config, resources.getDisplayMetrics());
-        Locale.setDefault(locale);
+        setLocale(contextWrapper, locale);
 
+    }
+
+    @SuppressWarnings("deprecation")
+    private static void setLocale(final ContextWrapper contextWrapper, Locale locale){
+        Resources resources = contextWrapper.getResources();
+        Configuration configuration = resources.getConfiguration();
+        DisplayMetrics displayMetrics = resources.getDisplayMetrics();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1){
+            configuration.setLocale(locale);
+            contextWrapper.getApplicationContext().createConfigurationContext(configuration);
+        }
+        else{
+            configuration.locale=locale;
+            resources.updateConfiguration(configuration,displayMetrics);
+        }
     }
 
     /**
@@ -184,21 +190,6 @@ public class Languages {
     }
 
     /**
-     * Return the name of the language based on the locale.
-     *
-     * @param locale
-     * @return
-     */
-    public String getName(String locale) {
-        String ret = nameMap.get(locale);
-        // if no match, try to return a more general name (i.e. English for
-        // en_IN)
-        if (ret == null && locale.contains("_"))
-            ret = nameMap.get(locale.split("_")[0]);
-        return ret;
-    }
-
-    /**
      * Return an array of the names of all the supported languages, sorted to
      * match what is returned by {@link Languages#getSupportedLocales()}.
      *
@@ -206,17 +197,6 @@ public class Languages {
      */
     public String[] getAllNames() {
         return nameMap.values().toArray(new String[nameMap.size()]);
-    }
-
-    public int getPosition(Locale locale) {
-        String localeName = locale.getLanguage();
-        int i = 0;
-        for (String key : nameMap.keySet())
-            if (TextUtils.equals(key, localeName))
-                return i;
-            else
-                i++;
-        return -1;
     }
 
     /**

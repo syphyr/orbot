@@ -22,6 +22,8 @@ import org.torproject.android.service.util.Prefs;
 import org.torproject.android.service.TorService;
 import org.torproject.android.service.TorServiceConstants;
 import org.torproject.android.service.util.TorServiceUtils;
+import org.torproject.android.settings.Languages;
+import org.torproject.android.settings.LocaleHelper;
 import org.torproject.android.settings.SettingsPreferences;
 import org.torproject.android.ui.AppManager;
 import org.torproject.android.ui.ImageProgressView;
@@ -64,6 +66,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.GestureDetector;
@@ -407,7 +410,11 @@ public class OrbotMainActivity extends AppCompatActivity
         return mGestureDetector.onTouchEvent(event);
 	}
    	
-    
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(LocaleHelper.onAttach(base));
+    }
+
    /*
     * Create the UI Options Menu (non-Javadoc)
     * @see android.app.Activity#onCreateOptionsMenu(android.view.Menu)
@@ -907,7 +914,24 @@ public class OrbotMainActivity extends AppCompatActivity
 
         if (request == REQUEST_SETTINGS && response == RESULT_OK)
         {
-            OrbotApp.forceChangeLanguage(this);
+            if (data != null && (!TextUtils.isEmpty(data.getStringExtra("locale")))) {
+
+                    String newLocale = data.getStringExtra("locale");
+                    Prefs.setDefaultLocale(newLocale);
+                    Languages.setLanguage(this, newLocale, true);
+
+                    finish();
+
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            //Do something after 100ms
+                            startActivity(new Intent(OrbotMainActivity.this,OrbotMainActivity.class));
+
+                        }
+                    }, 1000);
+            }
             if (data != null && data.getBooleanExtra("transproxywipe", false))
             {
                     
