@@ -926,9 +926,9 @@ public class OrbotMainActivity extends AppCompatActivity
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            //Do something after 100ms
-                            startActivity(new Intent(OrbotMainActivity.this,OrbotMainActivity.class));
-
+                            Intent intent = new Intent(OrbotMainActivity.this, OrbotMainActivity.class);
+                            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                            startActivity(intent);
                         }
                     }, 1000);
             }
