@@ -58,13 +58,12 @@ public class Languages {
     private static Languages singleton;
     private static Class<?> clazz;
     private static int resId;
-    private static Map<String, String> tmpMap = new TreeMap<String, String>();
     private static Map<String, String> nameMap;
 
 
     private Languages(Activity activity) {
 
-
+        Map<String, String> tmpMap = new TreeMap<>();
         AssetManager assets = activity.getAssets();
         Configuration config = activity.getResources().getConfiguration();
         // Resources() requires DisplayMetrics, but they are only needed for drawables
