@@ -37,10 +37,6 @@ ifneq ($(NDK_REQUIRED_REVISION), $(NDK_REVISION))
  $(warning WARNING: NDK $(NDK_REQUIRED_REVISION) required for reproducible builds, $(NDK_REVISION) is installed.)
 endif
 
-# PIEFLAGS for SDK 16/Android L must be set to -fPIE -pie, but can override for earlier targets 
-PIECFLAGS ?= -fPIE -fPIC
-PIELDFLAGS ?= -pie
-
 ifneq ($(filter arm64-v8a, $(APP_ABI)),)
  HOST := aarch64-linux-android
  ALTHOST := $(HOST)
@@ -75,14 +71,20 @@ export TZ := UTC
 export LC_ALL := C.UTF-8
 export SOURCE_DATE_EPOCH := 1234567890
 
+# PIEFLAGS for SDK 16/Android L must be set to -fPIE -pie, but can override for earlier targets
+PIECFLAGS ?= -fPIE -fPIC
+PIELDFLAGS ?= -pie
+
 REPRODUCIBLE_CFLAGS := \
   -fbuild-session-timestamp=$(SOURCE_DATE_EPOCH) \
   -fdebug-compilation-dir . \
   -no-canonical-prefixes \
 
-ALL_CFLAGS := $(REPRODUCIBLE_CFLAGS) $(CFLAGS) -Os -DANDROID
+ALL_CFLAGS := $(REPRODUCIBLE_CFLAGS) $(PIECFLAGS) $(CFLAGS) -Os -DANDROID
+ALL_LDFLAGS := $(PIELDFLAGS) $(LDFLAGS)
 
 export CFLAGS := $(ALL_CFLAGS)
+export LDFLAGS := $(ALL_LDFLAGS)
 
 .PHONY = clean showsetup \
 	assets assets-clean \
