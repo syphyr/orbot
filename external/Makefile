@@ -418,15 +418,20 @@ lyrebird-clean:
 
 assets: tor iptables lyrebird
 	install -d ../orbotservice/src/main/assets/$(APP_ABI)
-	-$(STRIP) bin/tor
-	-zip ../orbotservice/src/main/assets/$(APP_ABI)/tor.mp3 bin/tor
+ifneq ($(DEBUG), 1)
+	-$(STRIP) --strip-unneeded -R .note -R .comment --strip-debug bin/tor
+	-$(STRIP) --strip-unneeded -R .note -R .comment --strip-debug bin/xtables
+	-$(STRIP) --strip-unneeded -R .note -R .comment --strip-debug ../orbotservice/src/main/libs/$(APP_ABI)/pdnsd
+endif
 	-zip ../orbotservice/src/main/assets/geoip.mp3 bin/geoip
 	-zip ../orbotservice/src/main/assets/geoip6.mp3 bin/geoip6
-	-$(STRIP) bin/xtables
+	$(EXTERNAL_ROOT)/bin/termux-elf-cleaner --api-level $(NDK_PLATFORM_LEVEL) bin/tor
+	-zip ../orbotservice/src/main/assets/$(APP_ABI)/tor.mp3 bin/tor
+	$(EXTERNAL_ROOT)/bin/termux-elf-cleaner --api-level $(NDK_PLATFORM_LEVEL) bin/xtables
 	-zip ../orbotservice/src/main/assets/$(APP_ABI)/xtables.mp3 bin/xtables
-	-$(STRIP) bin/lyrebird
+	$(EXTERNAL_ROOT)/bin/termux-elf-cleaner --api-level $(NDK_PLATFORM_LEVEL) bin/lyrebird
 	-zip ../orbotservice/src/main/assets/$(APP_ABI)/lyrebird.mp3 bin/lyrebird
-	-$(STRIP) ../orbotservice/src/main/libs/$(APP_ABI)/pdnsd
+	$(EXTERNAL_ROOT)/bin/termux-elf-cleaner --api-level $(NDK_PLATFORM_LEVEL) ../orbotservice/src/main/libs/$(APP_ABI)/pdnsd
 	-zip ../orbotservice/src/main/assets/$(APP_ABI)/pdnsd.mp3 ../orbotservice/src/main/libs/$(APP_ABI)/pdnsd
 	-rm ../orbotservice/src/main/libs/$(APP_ABI)/pdnsd
 

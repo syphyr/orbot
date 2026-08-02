@@ -42,3 +42,6 @@
 	path = external/lyrebird
 	url = https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/lyrebird.git
 	ignore = dirty
+[submodule "external/elf-cleaner"]
+	path = external/elf-cleaner
+	url = https://github.com/syphyr/termux-elf-cleaner

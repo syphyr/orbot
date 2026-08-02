@@ -1,0 +1,29 @@
+EXTERNAL_ROOT := $(shell pwd)
+
+.PHONY = elf-cleaner-clean
+
+all: PREBUILD_EXECUTABLE
+
+#------------------------------------------------------------------------------#
+# elf-cleaner
+
+elf-cleaner/Makefile:
+	cd elf-cleaner && \
+	cmake -B build -G Ninja -DCMAKE_INSTALL_PREFIX=$(EXTERNAL_ROOT)
+
+elf-cleaner-build-stamp: elf-cleaner/Makefile
+	ninja install -C elf-cleaner/build
+	touch $@
+
+elf-cleaner-clean:
+	-rm -f bin/termux-elf-cleaner
+	-rm -f elf-cleaner-build-stamp
+	-cd elf-cleaner && \
+		git clean -fdx && \
+		git reset --hard
+
+elf-cleaner: elf-cleaner-build-stamp
+
+PREBUILD_EXECUTABLE: elf-cleaner
+
+clean: elf-cleaner-clean
