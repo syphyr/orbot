@@ -22,10 +22,6 @@
 	path = external/badvpn
 	url = https://github.com/guardianproject/badvpn.git
 	ignore = dirty
-[submodule "external/pluto"]
-	path = external/pluto
-	url = https://github.com/syphyr/pluto
-	ignore = dirty
 [submodule "external/jsocks"]
 	path = external/jsocks
 	url = https://github.com/guardianproject/jsocks.git
@@ -41,4 +37,8 @@
 [submodule "external/zlib"]
 	path = external/zlib
 	url = https://github.com/madler/zlib
+	ignore = dirty
+[submodule "external/lyrebird"]
+	path = external/lyrebird
+	url = https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/lyrebird.git
 	ignore = dirty

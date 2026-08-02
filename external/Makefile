@@ -389,30 +389,32 @@ tor-clean:
 		git reset HEAD --hard
 
 #------------------------------------------------------------------------------#
-# PLUTO Pluggable Transports
+# Lyrebird Pluggable Transports
 
-pluto/bin:
-#don't build for now until we sort out Go SDK 
-#	cd pluto && \
-#		./build.sh
+lyrebird/bin:
+	cd lyrebird/cmd/lyrebird && \
+		CGO_ENABLED=1 \
+		GOOS=android \
+		GOARCH=$(NDK_ABI) \
+		go build -v -ldflags="-s -w -checklinkname=0"
 
-pluto-build-stamp: pluto/bin
-	touch pluto-build-stamp
+lyrebird-build-stamp: lyrebird/bin
+	touch lyrebird-build-stamp
 
-pluto: pluto-build-stamp
+lyrebird: lyrebird-build-stamp
 	test -d bin || mkdir bin
-	cp pluto/bin/$(APP_ABI)/lyrebird bin
+	cp lyrebird/cmd/lyrebird/lyrebird bin
 
-pluto-clean:
+lyrebird-clean:
 	-rm -f bin/lyrebird
-	-rm -f pluto-build-stamp
+	-rm -f lyrebird-build-stamp
 
 #------------------------------------------------------------------------------#
 #create and clean assets: FYI - tor is stored as a ZIP file with an mp3 extension
 #in order to stop Android OS (older devices) from trying to compress/decompress it
 #this is related to a bug in compression of assets and resources > 1MB
 
-assets: tor iptables pluto
+assets: tor iptables lyrebird
 	install -d ../orbotservice/src/main/assets/$(APP_ABI)
 	-$(STRIP) bin/tor
 	-zip ../orbotservice/src/main/assets/$(APP_ABI)/tor.mp3 bin/tor
@@ -437,7 +439,7 @@ assets-clean:
 # cleanup, cleanup, put the toys away
 
 ##clean: openssl-clean libevent-clean tor-clean assets-clean
-clean: zlib-clean openssl-clean libevent-clean lzma-clean zstd-clean tor-clean iptables-clean pluto-clean assets-clean
+clean: zlib-clean openssl-clean libevent-clean lzma-clean zstd-clean tor-clean iptables-clean lyrebird-clean assets-clean
 
 #------------------------------------------------------------------------------#
 # debugging stuff
