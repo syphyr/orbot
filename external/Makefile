@@ -22,11 +22,20 @@ else
 endif
 
 # Android NDK setup
-ANDROID_TOOLCHAIN_HOME := $(HOME)/src/android-ndk-r21e
-ANDROID_NDK_HOME := $(HOME)/toolchains
-NDK_PLATFORM_LEVEL ?= 21
-NDK_TOOLCHAIN_VERSION=4.9
+ANDROID_NDK_HOME := $(ANDROID_HOME)/ndk/29.0.14206865
 APP_ABI ?= arm64-v8a
+
+# matching NDK revisions are required for reproducible builds
+NDK_REVISION := $(shell sed -n 's,^Pkg.Revision *= *\([^ ]*\),\1,p' $(ANDROID_NDK_HOME)/source.properties)
+NDK_REQUIRED_REVISION := 29.0.14206865
+MIN_NDK_VERSION := 29
+NDK_PLATFORM_LEVEL := 24
+ifeq ($(shell test $(MIN_NDK_VERSION) -gt $(firstword $(subst ., ,$(NDK_REVISION))); echo $$?),0)
+ $(error NDK r$(MIN_NDK_VERSION) or newer required! r$(NDK_REVISION) is installed at $(ANDROID_NDK_HOME).)
+endif
+ifneq ($(NDK_REQUIRED_REVISION), $(NDK_REVISION))
+ $(warning WARNING: NDK $(NDK_REQUIRED_REVISION) required for reproducible builds, $(NDK_REVISION) is installed.)
+endif
 
 # PIEFLAGS for SDK 16/Android L must be set to -fPIE -pie, but can override for earlier targets 
 PIECFLAGS ?= -fPIE -fPIC
@@ -53,46 +62,27 @@ ifneq ($(filter x86_64, $(APP_ABI)),)
  NDK_ABI := x86_64
 endif
 
-NDK_TOOLCHAIN := $(HOST)-$(NDK_TOOLCHAIN_VERSION)
-ifneq ($(filter x86%, $(NDK_ABI)),)
- NDK_TOOLCHAIN := $(NDK_ABI)-$(NDK_TOOLCHAIN_VERSION)
-endif
-NDK_TOOLCHAIN_BASE := $(ANDROID_NDK_HOME)/$(NDK_TOOLCHAIN)
+NDK_UNAME := $(shell uname -s | tr '[A-Z]' '[a-z]')
+NDK_TOOLCHAIN_BASE=$(ANDROID_NDK_HOME)/toolchains/llvm/prebuilt/$(NDK_UNAME)-$(NDK_PROCESSOR)
 
-NDK_SYSROOT := $(NDK_TOOLCHAIN_BASE)/sysroot
+export CC := $(NDK_TOOLCHAIN_BASE)/bin/$(HOST)$(NDK_PLATFORM_LEVEL)-clang
+export AR := $(NDK_TOOLCHAIN_BASE)/bin/llvm-ar
+export LD := $(NDK_TOOLCHAIN_BASE)/bin/ld
+export RANLIB := $(NDK_TOOLCHAIN_BASE)/bin/llvm-ranlib
+export STRIP := $(NDK_TOOLCHAIN_BASE)/bin/llvm-strip
 
-PATH := $(NDK_TOOLCHAIN_BASE)/bin:$(PATH)
+export TZ := UTC
+export LC_ALL := C.UTF-8
+export SOURCE_DATE_EPOCH := 1234567890
 
-# include Android's build flags
-TARGET_ARCH_ABI = $(APP_ABI)
-#include $(ANDROID_TOOLCHAIN_HOME)/build/core/toolchains/$(HOST)-clang/config.mk
-#include $(ANDROID_TOOLCHAIN_HOME)/build/core/toolchains/$(HOST)-clang/setup.mk
+REPRODUCIBLE_CFLAGS := \
+  -fbuild-session-timestamp=$(SOURCE_DATE_EPOCH) \
+  -fdebug-compilation-dir . \
+  -no-canonical-prefixes \
 
-CC := $(NDK_TOOLCHAIN_BASE)/bin/$(HOST)-gcc --sysroot=$(NDK_SYSROOT)
-CXX := $(NDK_TOOLCHAIN_BASE)/bin/$(HOST)-g++ --sysroot=$(NDK_SYSROOT)
-LD := $(NDK_TOOLCHAIN_BASE)/bin/$(HOST)-ld
-AR := $(NDK_TOOLCHAIN_BASE)/bin/$(HOST)-ar
-RANLIB := $(NDK_TOOLCHAIN_BASE)/bin/$(HOST)-ranlib
+ALL_CFLAGS := $(REPRODUCIBLE_CFLAGS) $(CFLAGS) -Os -DANDROID
 
-ifeq ($(DEBUG), 1)
-	STRIP := $(NOOP)
-else
-	STRIP := $(NDK_TOOLCHAIN_BASE)/bin/$(HOST)-strip --strip-unneeded -R .note -R .comment --strip-debug
-endif
-
-
-CFLAGS = -DANDROID $(TARGET_CFLAGS) $(PIECFLAGS)
-LDFLAGS = -llog $(TARGET_LDFLAGS) $(PIELDFLAGS)
-
-# change 'release' to 'debug' for unoptimized debug builds
-ifeq ($(APP_ABI),armeabi-v7a)
-	CFLAGS += $(TARGET_arm_release_CFLAGS)
-endif
-ifeq ($(APP_ABI),armeabi)
-	CFLAGS += $(TARGET_thumb_release_CFLAGS)
-endif
-
-
+export CFLAGS := $(ALL_CFLAGS)
 
 .PHONY = clean showsetup \
 	assets assets-clean \
@@ -109,11 +99,13 @@ all: assets
 #------------------------------------------------------------------------------#
 # openssl
 
+PATH := $(ANDROID_NDK_HOME)/toolchains/llvm/prebuilt/$(NDK_UNAME)-$(NDK_PROCESSOR)/bin:$(PATH)
+
 # openssl3.0.x looks for NDK with the word root instead of home in the var name
-export ANDROID_NDK_ROOT=$(NDK_TOOLCHAIN_BASE)
+export ANDROID_NDK_ROOT=$(ANDROID_NDK_HOME)
 
 openssl/Makefile: openssl/Configure $(wildcard openssl/Configurations/*.*)
-	cd openssl && CFLAGS="$(CFLAGS) -Wno-macro-redefined" \
+	cd openssl && PATH=$(PATH) && CFLAGS="$(CFLAGS) -Wno-macro-redefined" \
 		./Configure \
 				no-shared no-ssl3 no-tls1 no-tls1_1 \
 				no-ocsp no-nextprotoneg no-psk no-srp no-ts \
