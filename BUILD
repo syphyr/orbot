@@ -32,8 +32,19 @@ Be sure that you have all of the git submodules up-to-date:
 To begin building, from the Orbot root directory, you first need to build all
 external C/native dependencies:
 
-	export ANDROID_NDK_HOME={PATH TO YOUR NDK INSTALL}
+	export ANDROID_NDK_HOME=$ANDROID_HOME/ndk/29.0.14206865
+	export ANDROID_NDK_ROOT=$ANDROID_NDK_HOME
+	export PATH=$ANDROID_NDK_HOME:$PATH
+	export PKG_CONFIG_LIBDIR="$(pwd)/external/lib/pkgconfig"
+
+	cd orbotservice/src/main
+	ndk-build NDK_PROJECT_PATH=.
+	cd ../../..
+	make -C external -f build-tools
 	make -C external
+	unset ANDROID_NDK_HOME
+	#./gradlew assemble
+	./gradlew assembleRelease
 
 At this point, you'll have Tor and Polipo binaries that can be run on an
 Android handset.  You can verify the ARM binary was properly built using the
