@@ -40,7 +40,7 @@
 	ignore = dirty
 [submodule "external/lyrebird"]
 	path = external/lyrebird
-	url = https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/lyrebird.git
+	url = https://github.com/syphyr/obfs4
 	ignore = dirty
 [submodule "external/elf-cleaner"]
 	path = external/elf-cleaner
