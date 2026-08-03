@@ -8,9 +8,6 @@ EXTERNAL_ROOT := $(shell pwd)
 
 DEBUG ?= 0
 
-# No-op command.
-NOOP = true
-
 # Android now has 64-bit and 32-bit versions of the NDK for GNU/Linux.  We
 # assume that the build platform uses the appropriate version, otherwise the
 # user building this will have to manually set NDK_PROCESSOR or NDK_TOOLCHAIN.
@@ -108,7 +105,7 @@ PATH := $(ANDROID_NDK_HOME)/toolchains/llvm/prebuilt/$(NDK_UNAME)-$(NDK_PROCESSO
 export ANDROID_NDK_ROOT=$(ANDROID_NDK_HOME)
 
 openssl/Makefile: openssl/Configure $(wildcard openssl/Configurations/*.*)
-	cd openssl && PATH=$(PATH) && CFLAGS="$(CFLAGS) -Wno-macro-redefined" \
+	cd openssl && PATH="$(PATH)" && CFLAGS="$(CFLAGS) -Wno-macro-redefined" \
 		./Configure \
 				no-shared no-ssl3 no-tls1 no-tls1_1 \
 				no-ocsp no-nextprotoneg no-psk no-srp no-ts \
@@ -312,7 +309,7 @@ iptables/Makefile:
 	cd iptables && \
 		CC="$(CC)" \
 		AR="$(AR)" \
-		RANLIB=$(RANLIB) \
+		RANLIB="$(RANLIB)" \
 		CFLAGS="$(CFLAGS) -I$(EXTERNAL_ROOT)/include" \
 		LDFLAGS="$(LDFLAGS)" \
 			./configure \
@@ -342,7 +339,7 @@ tor/Makefile:
 	cd tor && \
 		CC="$(CC)" \
 		AR="$(AR)" \
-		RANLIB=$(RANLIB) \
+		RANLIB="$(RANLIB)" \
 		LDFLAGS="$(LDFLAGS)" \
 		LIBS="-L$(EXTERNAL_ROOT)/lib" \
 		CFLAGS="$(CFLAGS) -I$(EXTERNAL_ROOT)/include" \
@@ -396,11 +393,11 @@ tor-clean:
 
 lyrebird/bin:
 	cd lyrebird/cmd/lyrebird && \
-		CC=$(CC) \
-		CXX=$(CXX) \
+		CC="$(CC)" \
+		CXX="$(CXX)" \
 		CGO_ENABLED=1 \
 		GOOS=android \
-		GOARCH=$(NDK_ABI) \
+		GOARCH="$(NDK_ABI)" \
 		go build -v -ldflags="-s -w -checklinkname=0"
 
 lyrebird-build-stamp: lyrebird/bin
