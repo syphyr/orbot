@@ -22,7 +22,7 @@ else
 endif
 
 # Android NDK setup
-ANDROID_NDK_HOME := $(ANDROID_HOME)/ndk/29.0.14206865
+ANDROID_NDK_HOME ?= $(ANDROID_HOME)/ndk/29.0.14206865
 APP_ABI ?= arm64-v8a
 
 # matching NDK revisions are required for reproducible builds
