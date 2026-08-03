@@ -62,6 +62,7 @@ NDK_UNAME := $(shell uname -s | tr '[A-Z]' '[a-z]')
 NDK_TOOLCHAIN_BASE=$(ANDROID_NDK_HOME)/toolchains/llvm/prebuilt/$(NDK_UNAME)-$(NDK_PROCESSOR)
 
 export CC := $(NDK_TOOLCHAIN_BASE)/bin/$(HOST)$(NDK_PLATFORM_LEVEL)-clang
+export CXX := $(NDK_TOOLCHAIN_BASE)/bin/$(HOST)$(NDK_PLATFORM_LEVEL)-clang++
 export AR := $(NDK_TOOLCHAIN_BASE)/bin/llvm-ar
 export LD := $(NDK_TOOLCHAIN_BASE)/bin/ld
 export RANLIB := $(NDK_TOOLCHAIN_BASE)/bin/llvm-ranlib
@@ -395,6 +396,8 @@ tor-clean:
 
 lyrebird/bin:
 	cd lyrebird/cmd/lyrebird && \
+		CC=$(CC) \
+		CXX=$(CXX) \
 		CGO_ENABLED=1 \
 		GOOS=android \
 		GOARCH=$(NDK_ABI) \
