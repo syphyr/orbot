@@ -288,6 +288,7 @@ inline static char *stpcpy (char *dest, const char *src)
 #endif
 
 #ifndef HAVE_MEMPCPY
+#if defined(__ANDROID__) && __ANDROID_API__ < 24
 inline static void *mempcpy(void *dest, const void *src, size_t len)
   __attribute__((always_inline));
 inline static void *mempcpy(void *dest, const void *src, size_t len)
@@ -295,6 +296,7 @@ inline static void *mempcpy(void *dest, const void *src, size_t len)
   memcpy(dest,src,len);
   return ((char *)dest)+len;
 }
+#endif
 #endif
 
 #ifndef HAVE_GETLINE
