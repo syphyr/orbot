@@ -424,6 +424,7 @@ assets: tor iptables lyrebird
 ifneq ($(DEBUG), 1)
 	-$(STRIP) --strip-unneeded -R .note -R .comment --strip-debug bin/tor
 	-$(STRIP) --strip-unneeded -R .note -R .comment --strip-debug bin/xtables
+	-$(STRIP) --strip-unneeded -R .note -R .comment --strip-debug bin/lyrebird
 	-$(STRIP) --strip-unneeded -R .note -R .comment --strip-debug ../orbotservice/src/main/libs/$(APP_ABI)/pdnsd
 endif
 	-zip ../orbotservice/src/main/assets/geoip.mp3 bin/geoip
