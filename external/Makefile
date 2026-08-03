@@ -38,21 +38,25 @@ ifneq ($(filter arm64-v8a, $(APP_ABI)),)
  HOST := aarch64-linux-android
  ALTHOST := $(HOST)
  NDK_ABI := arm64
+ GO_ARCH := $(NDK_ABI)
 endif
 ifneq ($(filter armeabi-v7a, $(APP_ABI)),)
  HOST := armv7a-linux-androideabi
  ALTHOST := arm-linux-androideabi
  NDK_ABI := arm
+ GO_ARCH := $(NDK_ABI)
 endif
 ifneq ($(filter x86, $(APP_ABI)),)
  HOST := i686-linux-android
  ALTHOST := $(HOST)
  NDK_ABI := x86
+ GO_ARCH := 386
 endif
 ifneq ($(filter x86_64, $(APP_ABI)),)
  HOST := x86_64-linux-android
  ALTHOST := $(HOST)
  NDK_ABI := x86_64
+ GO_ARCH := amd64
 endif
 
 NDK_UNAME := $(shell uname -s | tr '[A-Z]' '[a-z]')
@@ -397,7 +401,7 @@ lyrebird/bin:
 		CXX="$(CXX)" \
 		CGO_ENABLED=1 \
 		GOOS=android \
-		GOARCH="$(NDK_ABI)" \
+		GOARCH="$(GO_ARCH)" \
 		go build -v -ldflags="-s -w -checklinkname=0"
 
 lyrebird-build-stamp: lyrebird/bin
