@@ -237,8 +237,6 @@
   <string name="newnym">Вы переключились на новый идентификатор Tor!</string>
   <string name="menu_verify_browser">Проверить браузер</string>
   <string name="menu_use_chatsecure">Использовать ChatSecure</string>
-  <string name="permission_manage_tor_label">Управление Tor</string>
-  <string name="permission_manage_tor_description">Разрешить приложению управлять сервисом Tor</string>
   <string name="it_doesn_t_seem_like_you_have_orweb_installed_want_help_with_that_or_should_we_just_open_the_browser_">Не похоже, что у вас установлен Orfox. Хотите справку на эту тему или просто открыть браузер?</string>
   <string name="install_apps_">Установить приложения?</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">Нет подключения к сети. Tor входит в режим сна...</string>

@@ -233,8 +233,6 @@
   <string name="newnym">Anda telah beralih ke identitas Tor baru!</string>
   <string name="menu_verify_browser">Peramban</string>
   <string name="menu_use_chatsecure">Gunakan ChatSecure</string>
-  <string name="permission_manage_tor_label">Kelola Tor</string>
-  <string name="permission_manage_tor_description">Aktifkan aplikasi ini untuk mengontrol layanan Tor</string>
   <string name="install_apps_">Pasang aplikasi?</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">Tidak ada jaringan terhubung. Menidurkan Tor...</string>
   <string name="network_connectivity_is_good_waking_tor_up_">Jaringan terhubung baik. Memanggil Tor...</string>

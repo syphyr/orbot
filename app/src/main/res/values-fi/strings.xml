@@ -228,8 +228,6 @@
   <string name="pref_disable_network_summary">Laita Tor nukkumaan, kun internet-yhteyttä ei ole saatavilla</string>
   <string name="newnym">Vaihdoit Tor-identiteettisi uuteen!</string>
   <string name="menu_use_chatsecure">Käytä ChatSecurea</string>
-  <string name="permission_manage_tor_label">Hallinnoi Toria</string>
-  <string name="permission_manage_tor_description">Anna tämän sovelluksen ohjata Tor-palvelua</string>
   <string name="install_apps_">Asennetaanko sovelluksia?</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">Ei verkkoyhteyttä. Tor siirtyy valmiustilaan...</string>
   <string name="network_connectivity_is_good_waking_tor_up_">Verkkoyhteys toimii. Herätetään Tor...</string>

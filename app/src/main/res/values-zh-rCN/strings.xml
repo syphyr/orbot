@@ -242,8 +242,6 @@ Tor帮助你避开那些威胁到你的隐私，重要信息和社交关系的�
   <string name="newnym">已切换为新的 Tor 标识！</string>
   <string name="menu_verify_browser">浏览器</string>
   <string name="menu_use_chatsecure">使用 ChatSecure</string>
-  <string name="permission_manage_tor_label">管理 Tor</string>
-  <string name="permission_manage_tor_description">启用该应用可对 Tor 服务进行控制</string>
   <string name="it_doesn_t_seem_like_you_have_orweb_installed_want_help_with_that_or_should_we_just_open_the_browser_">似乎您还没有安装 Orfox。是否需要帮助，或者我们应该打开浏览器？</string>
   <string name="install_apps_">安装应用？</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">没有网络连接；让 Tor 进入睡眠…</string>

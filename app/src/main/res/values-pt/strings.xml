@@ -156,8 +156,6 @@
   <string name="up">para cima</string>
   <string name="newnym">Mudou para uma nova identidade do Tor!</string>
   <string name="menu_use_chatsecure">Usar ChatSecure</string>
-  <string name="permission_manage_tor_label">Gerir Tor</string>
-  <string name="permission_manage_tor_description">Ative esta app para controlar o serviço Tor</string>
   <string name="install_apps_">Instalar apps?</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">Nenhuma conetividade de rede. A hibernar Tor…</string>
   <string name="network_connectivity_is_good_waking_tor_up_">A conetividade de rede é boa. A iniciar Tor…</string>

@@ -207,8 +207,6 @@
   <string name="pref_disable_network_summary">Jarri Tor lotan internet atzigarri ez dagoenean</string>
   <string name="newnym">ChatSecure - Andriodentzako berehalako mezulari bezero ziurra</string>
   <string name="menu_use_chatsecure">ChatSecure erabili</string>
-  <string name="permission_manage_tor_label">Tor kudeatu</string>
-  <string name="permission_manage_tor_description">Gaitu app hau Tor zerbitzua kontrolatzeko</string>
   <string name="install_apps_">App-ak instalatu?</string>
   <string name="kb">KB</string>
   <string name="mb">MB</string>

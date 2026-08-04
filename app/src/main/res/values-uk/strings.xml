@@ -228,8 +228,6 @@
   <string name="pref_disable_network_summary">Переводити в режим сну при відсутності інтернет-з\'єднання</string>
   <string name="newnym">Ви перемкнулись на новий ідентифікатор Tor!</string>
   <string name="menu_use_chatsecure">Використовувати ChatSecure</string>
-  <string name="permission_manage_tor_label">Керування Tor</string>
-  <string name="permission_manage_tor_description">Дозволити додатку керувати сервісом Tor</string>
   <string name="install_apps_">Встановити додатки?</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">Немає доступу до мережі інтернет. Tor переходить в режим сну…</string>
   <string name="network_connectivity_is_good_waking_tor_up_">Доступ до мережі хороший. Tor виходить з режиму сну…</string>

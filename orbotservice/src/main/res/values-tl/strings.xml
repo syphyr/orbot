@@ -230,7 +230,6 @@
   <string name="newnym">Ikaw ay nagpalit ng bagong pagkakakilanlan sa Tor!</string>
   <string name="menu_verify_browser">Browser</string>
   <string name="menu_use_chatsecure">Gamitin ang ChatSecure</string>
-  <string name="permission_manage_tor_label">Manage Tor</string>
   <string name="menu_vpn">VPN</string>
   <string name="kbps">kbps</string>
   <string name="mbps">mbps</string>

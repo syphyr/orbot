@@ -237,8 +237,6 @@
   <string name="newnym">Сменихте своята Тор идентичност!</string>
   <string name="menu_verify_browser">Браузър</string>
   <string name="menu_use_chatsecure">Използвай ChatSecure</string>
-  <string name="permission_manage_tor_label">Настрой Tor</string>
-  <string name="permission_manage_tor_description">Разреши тази програма да контролира Tor</string>
   <string name="it_doesn_t_seem_like_you_have_orweb_installed_want_help_with_that_or_should_we_just_open_the_browser_">Не изглежда да имате Orfox инсталиран. Желаете ли помощ с това, или просто да отворим браузъра?</string>
   <string name="install_apps_">Инсталирай програми?</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">Няма интернет връзка. Преминаване в режим на изчкаване...</string>

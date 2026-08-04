@@ -202,8 +202,6 @@
   <string name="pref_disable_network_summary">Pane Tor magama kui Internetiühendus puudub</string>
   <string name="newnym">Lülitusite uuele Tor identiteedile!</string>
   <string name="menu_use_chatsecure">Kasutage ChatSecure\'t</string>
-  <string name="permission_manage_tor_label">Hallake Tor\'i</string>
-  <string name="permission_manage_tor_description">Lubage sellel rakendusel hallata Tor teenust</string>
   <string name="install_apps_">Paigaldada rakendusi?</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">Interneti ühendus puudub. Panen Tori magama...</string>
   <string name="network_connectivity_is_good_waking_tor_up_">Interneti ühendus hea. Äratan Tori üles...</string>

@@ -237,8 +237,6 @@
   <string name="newnym">Prebacili ste se na nov Tor identitet!</string>
   <string name="menu_verify_browser">Preglednik</string>
   <string name="menu_use_chatsecure">Koristi ChatSecure</string>
-  <string name="permission_manage_tor_label">Upravljaj Tor-om</string>
-  <string name="permission_manage_tor_description">Omogući ovoj palikaciji da upravlja Tor-om</string>
   <string name="it_doesn_t_seem_like_you_have_orweb_installed_want_help_with_that_or_should_we_just_open_the_browser_">Čini se da nemate Orfox instaliran. Želite li pomoć s tim ili da samo otvorimo preglednik?</string>
   <string name="install_apps_">Instaliraj aplikacije?</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">Nema mrežne povezivosti. Stavljam Tor na spavanje...</string>

@@ -238,8 +238,6 @@ direcciones (o rangos). No prevalecen sobre las configuraciones de exclusión de
   <string name="newnym">¡Ha cambiado a una nueva identidad de Tor!</string>
   <string name="menu_verify_browser">Navegador</string>
   <string name="menu_use_chatsecure">Usar ChatSecure</string>
-  <string name="permission_manage_tor_label">Administrar Tor</string>
-  <string name="permission_manage_tor_description">Habilita esta aplicación para controlar el servicio Tor</string>
   <string name="it_doesn_t_seem_like_you_have_orweb_installed_want_help_with_that_or_should_we_just_open_the_browser_">No parece que tenga Orfox instalado. ¿Quiere ayuda con eso, o simplemente debemos abrir el navegador?</string>
   <string name="install_apps_">¿Instalar aplicaciones?</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">No hay conectividad de red. Poniendo a Tor a dormir...</string>

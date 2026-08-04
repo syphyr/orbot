@@ -241,8 +241,6 @@ LibEvent v2.0.21: http://www.monkey.org/~provos/libevent/</string>
   <string name="newnym">Yeni Tor oxşarına qoşuldun!</string>
   <string name="menu_verify_browser">Bax</string>
   <string name="menu_use_chatsecure">ChatSecure istifadə et</string>
-  <string name="permission_manage_tor_label">Toru İdarə Et</string>
-  <string name="permission_manage_tor_description">Tor xidmətini idarə etməsi üçün aplikasiyanı aktivləşdir</string>
   <string name="it_doesn_t_seem_like_you_have_orweb_installed_want_help_with_that_or_should_we_just_open_the_browser_">Deyəsən Orfoxu quraşdırmamısınız. Yardıma ehtiyacınız var, yoxsa yalnız brauzeri açmalıyıq?</string>
   <string name="install_apps_">Aplikasiya quraşdırılsın?</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">İnternetlə əlaqə yoxdur. Tor gözləmə rejiminə keçir...</string>

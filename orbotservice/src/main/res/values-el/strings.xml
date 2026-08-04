@@ -202,7 +202,5 @@
   <string name="pref_disable_network_summary">Θέσε το Tor σε λειτουργία sleep όταν δεν υπάρχει διαθέσιμη σύνδεση Ιnternet</string>
   <string name="newnym">Έχετε αλλάξει επιτυχώς την ταυτότητα σας στο Tor! </string>
   <string name="menu_use_chatsecure">Χρήση του ChatSecure</string>
-  <string name="permission_manage_tor_label">Διαχείριση Tor</string>
-  <string name="permission_manage_tor_description">Εξουσιοδοτήστε την εφαρμογή να ελέγχει την υπηρεσία του Tor</string>
   <string name="install_apps_">Εγκατάσταση εφαρμογών?</string>
 </resources>

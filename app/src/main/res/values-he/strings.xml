@@ -204,8 +204,6 @@ tor-assistants@torproject.org</string>
   <string name="pref_disable_network_summary">כבה את Tor כאשר אין חיבור לאינטרנט</string>
   <string name="newnym">החלפת אל זהות Tor חדשה!</string>
   <string name="menu_use_chatsecure">הפעל את ChatSecure</string>
-  <string name="permission_manage_tor_label">נהל Tor</string>
-  <string name="permission_manage_tor_description">אפשר את אפליקציה זו כדי לשלוט בשירות Tor</string>
   <string name="install_apps_">להתקין אפליקציה?</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">אין חיבור לרשת. מכבה את Tor....</string>
   <string name="network_connectivity_is_good_waking_tor_up_">החיבור עובד טוב. מעיר את Tor...</string>

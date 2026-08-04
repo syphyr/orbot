@@ -228,8 +228,6 @@
   <string name="pref_disable_network_summary">Стави го Тор на sleep кога интернетот не е достапен</string>
   <string name="newnym">Се префрливте на нов идентитет на Tor!</string>
   <string name="menu_use_chatsecure">Користи ChatSecure</string>
-  <string name="permission_manage_tor_label">Управувај со Tor</string>
-  <string name="permission_manage_tor_description">Дозволи оваа апликација да го управува со сервисот на Tor</string>
   <string name="install_apps_">Инсталирај апликации?</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">Нема мрежно поврзување. Ставете го Тор на режимот на спиење...</string>
   <string name="network_connectivity_is_good_waking_tor_up_">Мрежното поврзување е добро. Го буди Tor...</string>

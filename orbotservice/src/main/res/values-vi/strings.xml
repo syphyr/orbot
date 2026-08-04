@@ -237,8 +237,6 @@
   <string name="newnym">Bạn đã chuyển sang một mạch Tor mới!</string>
   <string name="menu_verify_browser">Trình duyệt</string>
   <string name="menu_use_chatsecure">Dùng ChatSecure</string>
-  <string name="permission_manage_tor_label">Quản lý Tor</string>
-  <string name="permission_manage_tor_description">Cho phép ứng dụng này điều khiển dịch vụ Tor</string>
   <string name="it_doesn_t_seem_like_you_have_orweb_installed_want_help_with_that_or_should_we_just_open_the_browser_">Có vẻ như bạn chưa cài Orfox. Bạn có cần giúp không, hay chỉ cần mở trình duyệt thường thôi?</string>
   <string name="install_apps_">Cài đặt ứng dụng?</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">Không có mạng. Đang chuyển Tor sang chế độ ngủ...</string>

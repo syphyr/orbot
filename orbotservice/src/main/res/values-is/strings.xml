@@ -228,8 +228,6 @@
   <string name="pref_disable_network_summary">Svæfðu Tor þegar engin internet tenging er til staðar</string>
   <string name="newnym">Þú ert komin með nýtt Tor auðkenni!</string>
   <string name="menu_use_chatsecure">Nota ChatSecure</string>
-  <string name="permission_manage_tor_label">Stilla Tor</string>
-  <string name="permission_manage_tor_description">Leyfa þessu smáforriti að stjórna Tor þjónustunni</string>
   <string name="install_apps_">Setja upp smáforrit?</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">Engin tenging við netið. Tor verður svæfður...</string>
   <string name="network_connectivity_is_good_waking_tor_up_">Tenging við netið er góð. Tor verður vakinn...</string>

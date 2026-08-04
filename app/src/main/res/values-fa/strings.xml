@@ -236,8 +236,6 @@
   <string name="newnym">شما به شناسه جدید تور منتقل شدید</string>
   <string name="menu_verify_browser">مرورگر</string>
   <string name="menu_use_chatsecure">استفاده از ChatSecure</string>
-  <string name="permission_manage_tor_label">مدیریت تور</string>
-  <string name="permission_manage_tor_description">این برنامه بتواند سرویس تور را مدیریت کند</string>
   <string name="install_apps_">برنامه نصب شود؟</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">ارتباط شبکه ای وجود ندارد. تور به حالت خواب می رود</string>
   <string name="network_connectivity_is_good_waking_tor_up_">ارتباط شبکه ای خوب است. تور را بیدار نمایید...</string>

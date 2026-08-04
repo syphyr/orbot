@@ -232,8 +232,6 @@
   <string name="newnym">Yeni bir Tor kimliğine geçiş yaptınız!</string>
   <string name="menu_verify_browser">Tarayıcı</string>
   <string name="menu_use_chatsecure">ChatSecure Kullan</string>
-  <string name="permission_manage_tor_label">Tor\'u Yönet</string>
-  <string name="permission_manage_tor_description">Tor servisini kontrol etmek için bu uygulamayı etkinleştir</string>
   <string name="it_doesn_t_seem_like_you_have_orweb_installed_want_help_with_that_or_should_we_just_open_the_browser_">Orfox yüklü gibi görünmüyor. Bu konuyla alakalı yardım istiyor musun, ya da sadece tarayıcı mı açılsın?</string>
   <string name="install_apps_">Uygulamalar kurulsun mu?</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">Hiçbir ağ bağlantısı yok. Tor uyku moduna alınıyor...</string>

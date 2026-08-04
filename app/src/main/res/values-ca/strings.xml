@@ -210,8 +210,6 @@
   <string name="pref_disable_network_summary">Posa el Tor en pausa mentre no hi ha connexió a internet</string>
   <string name="newnym">Heu canviat a una nova identitat Tor.</string>
   <string name="menu_use_chatsecure">Utilitza ChatSecure</string>
-  <string name="permission_manage_tor_label">Gestiona Tor</string>
-  <string name="permission_manage_tor_description">Activa aquesta app per controlar el servei Tor</string>
   <string name="install_apps_">Voleu instal·lar les apps?</string>
   <string name="your_tor_public_ips_">Les vostres IP públiques de Tor:</string>
   <string name="kbps">kbps</string>

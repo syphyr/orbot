@@ -224,8 +224,6 @@
   <string name="newnym">Du har byttet til en ny Tor-identitet!</string>
   <string name="menu_verify_browser">Nettleser</string>
   <string name="menu_use_chatsecure">Bruk ChatSecure</string>
-  <string name="permission_manage_tor_label">Håndter Tor</string>
-  <string name="permission_manage_tor_description">La dette programmet kontrollere Tor-tjenesten</string>
   <string name="it_doesn_t_seem_like_you_have_orweb_installed_want_help_with_that_or_should_we_just_open_the_browser_">Det ser ikke ut til at du har Orfox installert. Ønsker du hjelp med dette, eller skal vi bare åpne nettleseren?</string>
   <string name="install_apps_">Installere programmer?</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">Ingen nettverkstilkobling. Putting Tor å sove ...</string>

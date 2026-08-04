@@ -237,8 +237,6 @@
   <string name="newnym">Sei passato a una nuova identità Tor!</string>
   <string name="menu_verify_browser">Browser</string>
   <string name="menu_use_chatsecure">Usa ChatSecure</string>
-  <string name="permission_manage_tor_label">Gestisci Tor</string>
-  <string name="permission_manage_tor_description">Abilita questa app per controllare il servizio Tor</string>
   <string name="it_doesn_t_seem_like_you_have_orweb_installed_want_help_with_that_or_should_we_just_open_the_browser_">Non sembra che tu abbia Orfox installato. Necessiti di aiuto, o apro semplicemente il browser?</string>
   <string name="install_apps_">Installare applicazioni?</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">Nessuna connettività di rete. Mettendo Tor a riposo...</string>

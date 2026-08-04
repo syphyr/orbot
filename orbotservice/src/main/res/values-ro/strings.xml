@@ -208,8 +208,6 @@
   <string name="pref_disable_network_summary">Pune Tor să doarmă dacă nu este internet disponibil</string>
   <string name="newnym">Ați comutat la o nouă identitate Tor!</string>
   <string name="menu_use_chatsecure">Utilizați ChatSecure</string>
-  <string name="permission_manage_tor_label">Administrare Tor</string>
-  <string name="permission_manage_tor_description">Activați această aplicație pentru a controla serviciile Tor</string>
   <string name="install_apps_">Se instalează aplicația?</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">Nu este conexiune la rețea. Se pune Tor în adormire...</string>
   <string name="network_connectivity_is_good_waking_tor_up_">Conexiunea la rețea este bună. Se trezește Tor...</string>

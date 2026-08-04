@@ -237,8 +237,6 @@
   <string name="newnym">Új Tor identitásra váltottál!</string>
   <string name="menu_verify_browser">Böngésző</string>
   <string name="menu_use_chatsecure">ChatSecure használata</string>
-  <string name="permission_manage_tor_label">Tor kezelése</string>
-  <string name="permission_manage_tor_description">Engedélyezi ennek az alkalmazásnak, hogy a Tor szolgáltatást vezérelje</string>
   <string name="it_doesn_t_seem_like_you_have_orweb_installed_want_help_with_that_or_should_we_just_open_the_browser_">Úgy tűnik, hogy neked nincs Orfox telepítve. Kérsz segítséget benne, vagy csak nyissuk meg böngészőt?</string>
   <string name="install_apps_">Alkalmazások telepítése?</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">Nincs hálózati kapcsolat. Tor alvó állapotba helyezése...</string>

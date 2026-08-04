@@ -209,8 +209,6 @@
   <string name="pref_disable_network_summary">Uspat Tor když není k dispozici přístup k Internetu</string>
   <string name="newnym">Vaše identita na Toru byla změněna!</string>
   <string name="menu_use_chatsecure">Použít ChatSecure</string>
-  <string name="permission_manage_tor_label">Spravovat Tor</string>
-  <string name="permission_manage_tor_description">Umožnit této aplikaci ovládat službu Tor</string>
   <string name="install_apps_">Nainstalovat aplikace?</string>
   <string name="restart_orbot_to_use_this_bridge_">Pro projevení změn restartujte Orbot</string>
   <string name="menu_qr">QR kódy</string>

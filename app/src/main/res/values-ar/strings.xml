@@ -240,8 +240,6 @@ HTTP: / /tinyurl.com/proxyandroid\n</string>
   <string name="newnym">لقد تحولت الى هوية تور جديدة</string>
   <string name="menu_verify_browser">متصفح</string>
   <string name="menu_use_chatsecure">استخدم جات سكيور </string>
-  <string name="permission_manage_tor_label">أدارة تور</string>
-  <string name="permission_manage_tor_description">قم بتمكين هذا التطبيق من التحكم بخدمات تور</string>
   <string name="it_doesn_t_seem_like_you_have_orweb_installed_want_help_with_that_or_should_we_just_open_the_browser_">لا يبدو بأن لديك اورفوكس منصباً. هل تريد مساعدتاً في ذلك او لنقم فقط بتشغيل المتصفح؟</string>
   <string name="install_apps_">هل ترغب بتنصيب التطبيقات؟</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">لا يوجد اتصال بألشبكة. سيدخل تور الى وضع النوم</string>

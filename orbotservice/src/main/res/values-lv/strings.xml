@@ -228,8 +228,6 @@
   <string name="pref_disable_network_summary">Kad nav interneta, pārslēgt Tor\'u uz miega režīmu</string>
   <string name="newnym">Jūs pārslēdzāties uz jaunu Tor\'a identitāti!</string>
   <string name="menu_use_chatsecure">Lietot ChatSecure</string>
-  <string name="permission_manage_tor_label">Pārvaldīt Tor\'u</string>
-  <string name="permission_manage_tor_description">Iespējot šo lietotni kontrolēt pakalpojumu Tor</string>
   <string name="install_apps_">Vai instalēt lietotnes?</string>
   <string name="no_network_connectivity_putting_tor_to_sleep_">Nav tīkla savienojuma. Tor\'am iestata miega režīmu...</string>
   <string name="network_connectivity_is_good_waking_tor_up_">Labs tīkla savienojums. Aktivizē Tor\'u...</string>
