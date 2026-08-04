@@ -188,7 +188,7 @@ class Bridge(var raw: String) {
         get() = getPiece("udp")
 
     val doh
-        get() = getPiece("dot")
+        get() = getPiece("doh")
 
     val dot
         get() = getPiece("dot")
