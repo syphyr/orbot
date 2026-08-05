@@ -42,7 +42,6 @@ external C/native dependencies:
 	cd ../../..
 	make -C external -f build-tools
 	make -C external
-	unset ANDROID_NDK_HOME
 	#./gradlew assemble
 	./gradlew assembleRelease
 
