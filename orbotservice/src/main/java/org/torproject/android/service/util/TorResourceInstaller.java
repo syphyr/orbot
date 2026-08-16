@@ -69,8 +69,24 @@ public class TorResourceInstaller implements TorServiceConstants {
         InputStream is;
         File outFile;
 
-        String cpuPath = "arm64-v8a";
-            
+        String cpuPath;
+        switch (Build.CPU_ABI) {
+            case "arm64-v8a":
+                cpuPath = "arm64-v8a";
+                break;
+            case "armeabi-v7a":
+                cpuPath = "armeabi-v7a";
+                break;
+            case "x86_64":
+                cpuPath = "x86_64";
+                break;
+            case "x86":
+                cpuPath = "x86";
+                break;
+            default:
+                throw new RuntimeException("Unsupported CPU Architecture: " + Build.CPU_ABI);
+        }
+
         deleteDirectory(installFolder);
         
         installFolder.mkdirs();
