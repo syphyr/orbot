@@ -17,7 +17,11 @@
     <com.google.android.material.textview.MaterialTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="2dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:textStyle="bold"
+        android:textSize="18sp"
         android:text="@string/service_type" />
 
     <com.google.android.material.button.MaterialButtonToggleGroup
