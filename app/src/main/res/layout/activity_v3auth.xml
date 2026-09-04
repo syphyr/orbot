@@ -15,11 +15,14 @@
         android:theme="@style/DefaultTheme.AppBarOverlay"
         app:elevation="0dp">
 
-        <androidx.appcompat.widget.Toolbar
+        <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:baselineAligned="false"
+            android:background="@android:color/transparent"
+            app:titleTextColor="@android:color/white"
+            app:titleCentered="true"
             app:popupTheme="@style/DefaultTheme.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
