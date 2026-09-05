@@ -147,7 +147,7 @@ private fun StatusPanel(
     SelectionContainer {
         Column(
             modifier = Modifier
-                .widthIn(max = 280.dp)
+                .widthIn(max = 320.dp)
                 .shadow(4.dp, RoundedCornerShape(12.dp))
                 .clip(RoundedCornerShape(12.dp))
                 .background(colorResource(R.color.panel_widget_background))
