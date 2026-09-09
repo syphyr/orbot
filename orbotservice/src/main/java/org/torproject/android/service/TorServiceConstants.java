@@ -129,7 +129,7 @@ public interface TorServiceConstants {
     public static final String CMD_UPDATE_TRANS_PROXY = "update";
     public static final String CMD_SET_EXIT = "setexit";
 
-    public static final String BINARY_TOR_VERSION = "tor-0.4.9.11-44-gd59e9cce09";
+    public static final String BINARY_TOR_VERSION = "tor-0.4.9.12-22-g5baba0c4ac";
     public static final String PREF_BINARY_TOR_VERSION_INSTALLED = "BINARY_TOR_VERSION_INSTALLED";
     
     //lyrebird
