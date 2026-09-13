@@ -27,13 +27,9 @@ import android.net.VpnService;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.Message;
 import android.os.ParcelFileDescriptor;
 import android.system.OsConstants;
 import android.util.Log;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 
 import org.torproject.android.service.Notifications;
 import org.torproject.android.service.OrbotService;
@@ -47,7 +43,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class OrbotVpnManager implements Handler.Callback {
+public class OrbotVpnManager {
     private static final String TAG = "OrbotVpnManager";
     boolean isStarted = false;
     private ParcelFileDescriptor mInterface;
@@ -118,12 +114,6 @@ public class OrbotVpnManager implements Handler.Callback {
         } catch (Exception | Error e) {
             Log.d(TAG, "error stopping tun2socks", e);
         }
-    }
-
-    @Override
-    public boolean handleMessage(@NonNull Message message) {
-        Toast.makeText(mService, message.what, Toast.LENGTH_SHORT).show();
-        return true;
     }
 
     private synchronized void setupTun2Socks(final VpnService.Builder builder) {
