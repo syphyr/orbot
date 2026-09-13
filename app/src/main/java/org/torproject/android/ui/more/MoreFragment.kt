@@ -47,8 +47,8 @@ class MoreFragment : Fragment() {
             StatusSection(
                 httpPort = httpPort,
                 socksPort = socksPort,
-                orbotVersion = normalizedVersion!!,
-                torVersion = gitVersion!!
+                orbotVersion = normalizedVersion ?: "Unknown",
+                torVersion = gitVersion ?: "Unknown"
             )
         }
     }
