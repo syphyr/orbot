@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export ANDROID_NDK_HOME="/usr/local/src/androidSDK/android-sdk-linux/ndk/29.0.14206865"
+export ANDROID_NDK_HOME="/usr/local/src/androidSDK/android-sdk-linux/ndk/30.0.16248370"
 export ANDROID_NDK_ROOT="$ANDROID_NDK_HOME"
 
 echo "NDK is set to $ANDROID_NDK_ROOT"
