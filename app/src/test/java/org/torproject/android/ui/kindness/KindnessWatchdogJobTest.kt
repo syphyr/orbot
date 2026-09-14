@@ -10,8 +10,10 @@ class KindnessWatchdogJobTest {
     @Test
     fun restartsWhenWantedAndDead() {
         assertTrue(
-            KindnessWatchdogJob.shouldRestart(
-                wantsProxy = true, serviceRunning = false, regionBlocked = false
+            KindnessWatchdogJob.shouldRestartKindnessMode(
+                wantsProxy = true,
+                serviceRunning = false,
+                regionBlocked = false
             )
         )
     }
@@ -19,8 +21,10 @@ class KindnessWatchdogJobTest {
     @Test
     fun leavesARunningServiceAlone() {
         assertFalse(
-            KindnessWatchdogJob.shouldRestart(
-                wantsProxy = true, serviceRunning = true, regionBlocked = false
+            KindnessWatchdogJob.shouldRestartKindnessMode(
+                wantsProxy = true,
+                serviceRunning = true,
+                regionBlocked = false
             )
         )
     }
@@ -28,8 +32,10 @@ class KindnessWatchdogJobTest {
     @Test
     fun respectsTheUserSayingNo() {
         assertFalse(
-            KindnessWatchdogJob.shouldRestart(
-                wantsProxy = false, serviceRunning = false, regionBlocked = false
+            KindnessWatchdogJob.shouldRestartKindnessMode(
+                wantsProxy = false,
+                serviceRunning = false,
+                regionBlocked = false
             )
         )
     }
@@ -37,8 +43,10 @@ class KindnessWatchdogJobTest {
     @Test
     fun respectsARegionBlock() {
         assertFalse(
-            KindnessWatchdogJob.shouldRestart(
-                wantsProxy = true, serviceRunning = false, regionBlocked = true
+            KindnessWatchdogJob.shouldRestartKindnessMode(
+                wantsProxy = true,
+                serviceRunning = false,
+                regionBlocked = true
             )
         )
     }

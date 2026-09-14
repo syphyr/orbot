@@ -6,9 +6,11 @@ import android.app.job.JobScheduler
 import android.app.job.JobService
 import android.content.ComponentName
 import android.content.Context
+import android.os.Build
+import android.util.Log
 import org.torproject.android.Regionalization
 import org.torproject.android.util.Prefs
-import java.util.concurrent.TimeUnit
+import kotlin.time.Duration.Companion.minutes
 
 /**
  * Brings the Snowflake proxy service back when the system has killed it but the
@@ -18,18 +20,25 @@ import java.util.concurrent.TimeUnit
  */
 class KindnessWatchdogJob : JobService() {
 
+    // Returning false from this method means your job is already finished. The system's
+    // wakelock for the job will be released, and onStopJob(JobParameters) will not be invoked.
+    // aka return false means that the job has completed its work
     override fun onStartJob(params: JobParameters?): Boolean {
+        Log.d(TAG, "onStartJob()")
         if (!Prefs.beSnowflakeProxy) {
-            cancel(applicationContext)
+            val scheduler =
+                applicationContext.getSystemService(JOB_SCHEDULER_SERVICE) as JobScheduler
+            scheduler.cancel(JOB_ID)
             return false
         }
-        if (shouldRestart(
+        if (shouldRestartKindnessMode(
                 wantsProxy = Prefs.beSnowflakeProxy,
                 serviceRunning = SnowflakeProxyService.isRunning,
                 regionBlocked = Regionalization.isKindnessModeDisabledForCountry(Prefs.bridgeCountry)
             )
         ) {
             try {
+                Log.d(TAG, "attempting to restart kindness mode...")
                 SnowflakeProxyService.startSnowflakeProxyForegroundService(applicationContext)
             } catch (_: IllegalStateException) {
                 // Background foreground-service starts can be denied on API 31+
@@ -40,24 +49,44 @@ class KindnessWatchdogJob : JobService() {
         return false
     }
 
-    override fun onStopJob(params: JobParameters?) = false
+
+    // from JobService.java:
+    // return false to end the job entirely (or, for a periodic job, to reschedule it according to
+    // its requested periodic criteria). Regardless of the value returned, your job must stop executing
+    override fun onStopJob(params: JobParameters?): Boolean {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            Log.d(
+                TAG,
+                "onStopJob: reason=${params?.stopReason} (AppCanceled=${JobParameters.STOP_REASON_CANCELLED_BY_APP}, timeout=${JobParameters.STOP_REASON_TIMEOUT}...)"
+            )
+        }
+        return false
+    }
 
     companion object {
         private const val JOB_ID = 4817
+        private val PERIODIC_JOB_INTERVAL: Long = 15.minutes.inWholeMilliseconds
+        private const val TAG = "KindnessWatchdogJob"
 
-        fun shouldRestart(wantsProxy: Boolean, serviceRunning: Boolean, regionBlocked: Boolean) =
-            wantsProxy && !serviceRunning && !regionBlocked
-
-        fun schedule(context: Context) {
-            val jobScheduler = context.getSystemService(JOB_SCHEDULER_SERVICE) as JobScheduler
-            val jobInfo =
-                JobInfo.Builder(JOB_ID, ComponentName(context, KindnessWatchdogJob::class.java))
-                    .setPeriodic(TimeUnit.MINUTES.toMillis(15)).setPersisted(true).build()
-            jobScheduler.schedule(jobInfo)
+        fun shouldRestartKindnessMode(
+            wantsProxy: Boolean,
+            serviceRunning: Boolean,
+            regionBlocked: Boolean
+        ): Boolean {
+            return wantsProxy
+                    && !serviceRunning
+                    && !regionBlocked
         }
 
-        fun cancel(context: Context) {
-            (context.getSystemService(JOB_SCHEDULER_SERVICE) as JobScheduler).cancel(JOB_ID)
+        // called when SnowflakeProxyWrapper is constructed
+        fun schedulePeriodicKindnessWatchDog(context: Context) {
+            val jobScheduler = context.getSystemService(JOB_SCHEDULER_SERVICE) as JobScheduler
+            val jobInfoBuilder =
+                JobInfo.Builder(JOB_ID, ComponentName(context, KindnessWatchdogJob::class.java))
+                    .setPeriodic(PERIODIC_JOB_INTERVAL)
+                    .setPersisted(true) // "whether to persist this job across device reboots"
+
+            jobScheduler.schedule(jobInfoBuilder.build())
         }
     }
 }

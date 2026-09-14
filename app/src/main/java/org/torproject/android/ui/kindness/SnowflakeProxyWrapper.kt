@@ -27,21 +27,26 @@ import kotlin.time.Duration.Companion.milliseconds
  */
 class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
 
+    init {
+        releaseStalePortsIfNecessary()
+        KindnessWatchdogJob.schedulePeriodicKindnessWatchDog(service)
+    }
+
     private var proxy: SnowflakeProxy? = null
 
     private var mappedPorts = mutableListOf<Int>()
 
-    // Bumped under lock by every enableProxy() and stopProxy() call. The slow
-    // part of a start runs on IO with no lock held, so by the time it is ready
-    // to bring the proxy up, a stop (or a newer start) may have won; comparing
-    // generations is how it finds out it must back off instead of leaving a
-    // proxy running that nothing owns anymore (#1183).
-    private var startGeneration = 0
+    // Bumped under lock by every enableProxy() and stopProxy() call. The slow  part of a start
+    // runs on IO with no lock held, so by the time it is ready to bring the proxy up, a stop
+    // (or a newer start) may have won; comparing  generations via shouldCommitStart() is how we
+    // finds out if we need to back off, saving us from leaving an orphaned proxy running that
+    // see #1183 and #1807
+    private var currentGeneration = 0
 
     @Synchronized
     fun enableProxy() {
         if (proxy != null) return
-        val generation = ++startGeneration
+        val generationAtLaunch = ++currentGeneration
         CoroutineScope(Dispatchers.IO).launch {
             val ports = mapPorts()
             val stunServers =
@@ -50,17 +55,19 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
             val stunUrl = stunServers[SecureRandom().nextInt(stunServers.size)]
 
             val built = SnowflakeProxy()
-            val fronts = localFronts(service)
+            val fronts = loadLocalFrontsFromAssets(service)
             with(built) {
-                proxyTypeIdentifier = "orbot-android"
-                brokerUrl = fronts["snowflake-target-direct"]
-                capacity = 1L
-                pollInterval = 120L
+
+                proxyTypeIdentifier = SNOWFLAKE_PROXY_IDENTIFIER
+                brokerUrl = fronts[FRONTS_FILE_KEY_BROKER_URL]
+                capacity = SNOWFLAKE_PROXY_MAX_CLIENT_CAPACITY
+                pollInterval = SNOWFLAKE_PROXY_BROKER_POLL_INTERVAL_SECONDS
                 stunServer = stunUrl
-                relayUrl = fronts["snowflake-relay-url"]
-                natProbeUrl = fronts["snowflake-nat-probe"]
+                relayUrl = fronts[FRONTS_FILE_KEY_RELAY_URL]
+                natProbeUrl = fronts[FRONTS_FILE_KEY_NAT_PROBE]
+
                 clientEvents = object : SnowflakeClientEvents {
-                    override fun connected() = onConnected()
+                    override fun connected() = onSnowflakeProxyConnectionEstablished()
                     override fun connectionFailed() {}
                     override fun disconnected(country: String?) {}
                     override fun stats(
@@ -85,19 +92,28 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
             }
 
             synchronized(this@SnowflakeProxyWrapper) {
-                if (!shouldCommitStart(generation, startGeneration, proxy != null)) {
+                if (!shouldActuallyStartSnowflakeProxyInIPtProxy(
+                        generationAtLaunch = generationAtLaunch,
+                        currentGeneration = currentGeneration,
+                        proxyPresent = proxy != null
+                    )
+                ) {
                     // A stop or a newer start arrived while ports were being
                     // mapped. This start lost; it cleans up its own mappings
                     // and never calls start().
                     closePorts(ports)
                     return@launch
                 }
+
+                // OK WE ARE GOOD to start snowflake proxy in IPtProxy !
+
                 mappedPorts = ports.toMutableList()
-                if (ports.isNotEmpty()) {
-                    // Written down before the proxy comes up, so a run that
-                    // dies without reaching stopProxy() leaves a record the
-                    // next launch can clean up after (#1795).
-                    Prefs.snowflakeUpnpPorts = encodePorts(ports)
+                if (ports.isNotEmpty()) { // see: #1795
+                    // We write the set of UPnP ports to Prefs here *before* starting snowflake
+                    // proxy. the ports are clenaed up when we call stopProxy(), but if snowflake
+                    // dies before that code is launched, we use this value later to release them
+                    // staritng *before* starting up a new instance of snowflake proxy
+                    encodeUPnPPortsToPrefs(ports)
                 }
                 proxy = built
                 built.start()
@@ -109,7 +125,7 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
 
     @Synchronized
     fun stopProxy() {
-        startGeneration++
+        currentGeneration++
         val p = proxy ?: return
 
         p.stop()
@@ -117,12 +133,16 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
         Prefs.snowflakeProxyRunning = false
         releaseMappedPorts()
 
-        // IPtProxy's start() flips its isRunning flag inside a goroutine of
-        // its own, so a stop() that outruns that goroutine is a silent no-op
-        // and the proxy comes up anyway, unstoppable once this reference is
-        // dropped (#1183). Watching it for a moment catches the late arrival
-        // and puts it down. Upstream's start() returns right after spawning
-        // that goroutine, which is what makes calling it under this lock safe.
+        // IPtProxy's start() (called above with the line built.start()...) flips its own isRunning
+        // flag inside  a goroutine of its own, such that any subsequent call to IPtProxy's stop()
+        // that happens to outrun that this goroutine is effectively a silent no-op and the proxy
+        // comes up anyway - rendering it unstoppable once this reference is dropped (#1183)
+        //
+        // By watching IPtProxy's isRunning for a moment in the coroutine below, we can catch any
+        // possible late arrivals and properly puts down the proxy with a call to .stop()
+        //
+        // IPtProxy's start() returns right after spawning that goroutine, which is what makes
+        // calling it under this lock safe.
         CoroutineScope(Dispatchers.IO).launch {
             repeat(10) {
                 delay(200.milliseconds)
@@ -136,32 +156,31 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
 
     fun isProxyRunning(): Boolean = proxy != null
 
-    // Ports a previous run mapped but never released, most likely because the
-    // process died before stopProxy() could run (#1795). The record is cleared
-    // synchronously so a start racing this cleanup cannot have its own fresh
-    // mappings closed out from under it.
-    fun releaseStalePorts() {
-        val stale = decodePorts(Prefs.snowflakeUpnpPorts)
+    // Ports a previous run mapped but never released, most likely because the  process died before
+    // stopProxy() could run (#1795). The record is cleared synchronously so a start racing this
+    // cleanup cannot have its own fresh mappings closed out from under it.
+    private fun releaseStalePortsIfNecessary() {
+        val stale = decodeUPnPPorts()
         if (stale.isEmpty()) return
-        Prefs.snowflakeUpnpPorts = ""
         CoroutineScope(Dispatchers.IO).launch {
-            for (port in stale) {
-                UPnP.closePortUDP(port)
-            }
+            closePorts(stale)
+            Prefs.snowflakeUpnpPorts = ""
         }
     }
 
-    internal fun onConnected() {
+    internal fun onSnowflakeProxyConnectionEstablished() {
         Prefs.addSnowflakeServed()
         service.refreshNotification()
-        if (!Prefs.showSnowflakeProxyToast()) return
-        val message: String = String.format(
-            service.getString(R.string.snowflake_proxy_client_connected_msg),
-            ONION_EMOJI,
-            ONION_EMOJI
-        )
-        Handler(service.mainLooper).post {
-            service.applicationContext.showToast(message)
+        if (Prefs.showSnowflakeProxyToast()) {
+            Handler(service.mainLooper).post {
+                service.applicationContext.showToast(
+                    String.format(
+                        service.getString(R.string.snowflake_proxy_client_connected_msg),
+                        ONION_EMOJI,
+                        ONION_EMOJI
+                    )
+                )
+            }
         }
     }
 
@@ -198,33 +217,64 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
     }
 
     @Synchronized
-    private fun localFronts(context: Context): HashMap<String, String> {
+    private fun loadLocalFrontsFromAssets(context: Context): HashMap<String, String> {
         val map = HashMap<String, String>()
         try {
-            val reader = BufferedReader(InputStreamReader(context.assets.open("fronts")))
+            val reader = BufferedReader(
+                InputStreamReader(
+                    context.assets.open(SNOWFLAKE_PROXY_FRONTS__FILENAME)
+                )
+            )
             reader.forEachLine {
-                val kv = it.split(" ")
+                val kv = it.split(FRONTS_FILE_DELIMITER)
                 map[kv[0]] = kv[1]
             }
             reader.close()
         } catch (e: Exception) {
-            Log.e("CDNFronts", "error loading fronts from assets $e")
+            Log.e(
+                TAG,
+                "error loading snowflake fronts from $SNOWFLAKE_PROXY_FRONTS__FILENAME in assets $e"
+            )
         }
         return map
     }
 
     companion object {
+
+        private const val TAG = "SnowflakeProxyWrapper"
+        private const val SNOWFLAKE_PROXY_FRONTS__FILENAME = "fronts"
+        private const val FRONTS_FILE_DELIMITER = ' '
+        private const val FRONTS_FILE_KEY_BROKER_URL = "snowflake-target-direct"
+        private const val FRONTS_FILE_KEY_RELAY_URL = "snowflake-relay-url"
+        private const val FRONTS_FILE_KEY_NAT_PROBE = "snowflake-nat-probe"
+
+        // don't change the proxy identifier without getting permission from torproject
+        private const val SNOWFLAKE_PROXY_IDENTIFIER = "orbot-android"
+        private const val SNOWFLAKE_PROXY_MAX_CLIENT_CAPACITY = 1L
+        private const val SNOWFLAKE_PROXY_BROKER_POLL_INTERVAL_SECONDS = 120L
+
+
         private const val ONION_EMOJI: String = "\uD83E\uDDC5"
 
         // The one rule that decides whether a start that did its slow work on
-        // IO still owns the right to bring the proxy up (#1183).
-        fun shouldCommitStart(
-            generationAtLaunch: Int, currentGeneration: Int, proxyPresent: Boolean
-        ): Boolean = generationAtLaunch == currentGeneration && !proxyPresent
+        // IO still owns the right to bring the proxy up (#1183)
+        // returns true - if the two generation int args are equal AND IF there's no proxy present
+        // see: https://github.com/guardianproject/orbot-android/pull/1807
+        fun shouldActuallyStartSnowflakeProxyInIPtProxy(
+            generationAtLaunch: Int,
+            currentGeneration: Int,
+            proxyPresent: Boolean
+        ): Boolean {
+            return generationAtLaunch == currentGeneration && !proxyPresent
+        }
 
-        fun encodePorts(ports: List<Int>): String = ports.joinToString(",")
+        fun encodeUPnPPortsToPrefs(ports: List<Int>): String {
+            val strPorts = ports.joinToString(",")
+            Prefs.snowflakeUpnpPorts = strPorts
+            return strPorts
+        }
 
-        fun decodePorts(value: String): List<Int> =
+        fun decodeUPnPPorts(value: String = Prefs.snowflakeUpnpPorts): List<Int> =
             value.split(",").mapNotNull { it.trim().toIntOrNull() }.filter { it in 1..65535 }
     }
 }

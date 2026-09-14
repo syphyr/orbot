@@ -45,8 +45,6 @@ class SnowflakeProxyService : Service() {
         isRunning = true
         createNotificationChannel()
         snowflakeProxyWrapper = SnowflakeProxyWrapper(this)
-        snowflakeProxyWrapper.releaseStalePorts()
-        KindnessWatchdogJob.schedule(this)
         powerConnectionReceiver = PowerConnectionReceiver(this)
         regionChangedObserver =
             SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
