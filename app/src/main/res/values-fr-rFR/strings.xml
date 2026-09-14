@@ -44,7 +44,7 @@
     <string name="project_home">Page d’accueil du projet :</string>
     <string name="third_party_software">Logiciels tiers :</string>
     <string name="set_locale_title">Langue</string>
-    <string name="newnym">Vous avez basculé vers une nouvelle identité Tor</string>
+    <string name="newnym">Vous avez basculé vers une nouvelle identité Tor !</string>
     <string name="pref_socks_title">SOCKS Tor</string>
     <string name="pref_socks_summary">Port sur lequel Tor offre son mandataire SOCKS (par défaut : 9050 ou 0 pour le désactiver)</string>
     <string name="pref_socks_dialog">Configuration du part SOCKS</string>
@@ -92,7 +92,7 @@
     <string name="pref_prefer_ipv6_summary">Indique aux sorties que les adresses IPv6 sont préférables</string>
     <string name="pref_disable_ipv4">Désactiver les connexions IPv4</string>
     <string name="pref_disable_ipv4_summary">Indique aux sorties de ne pas se connecter aux adresses IPv4</string>
-    <string name="full_device_vpn">RPV de l’appareil entier</string>
+    <string name="full_device_vpn">VPN de l’appareil entier</string>
     <string name="menu_new_identity">Nouvelle identité</string>
     <string name="user_services">Services utilisateur</string>
     <string name="app_services">Services d’appli</string>
@@ -150,15 +150,15 @@
     <string name="pref_isolate_protocol_summary">Utiliser un circuit différent pour chaque protocole de connexion</string>
     <string name="snowflake_amp">Snowflake AMP</string>
     <string name="many_ways">Il existe de nombreuses façons d\'atteindre Tor. Certaines peuvent fonctionner mieux que d\'autres pour vous.</string>
-    <string name="power_user_description">Pour les utilisateurs familiers avec Tor. Permet de démarrer Orbot sans le paramètre RPV et montre les ports SOCKS et HTTP ouverts</string>
+    <string name="power_user_description">Pour les utilisateurs familiers avec Tor. Permet de démarrer Orbot sans le paramètre VPN et montre les ports SOCKS et HTTP ouverts</string>
     <string name="no_internet_title">Se connecter à l\'internet</string>
     <string name="menu_kindness">La gentillesse</string>
-    <string name="option_only_on_wifi">Uniquement sur Wifi</string>
+    <string name="option_only_on_wifi">Uniquement sur Wi-Fi</string>
     <string name="volunteer_mode">Mode gentillesse</string>
     <string name="kindness_config_detail">Configurez quand et comment votre appareil peut agir en tant que proxy Snowflake pour les autres utilisateurs de Tor.</string>
     <string name="btn_copy_log">Copier le journal</string>
     <string name="log_copied">Journal copié</string>
-    <string name="strict_nodes_description">Considérez les paramètres « Exclure des nœuds » comme une condition à la création de tous les circuits. Cela peut entraîner un dysfonctionnement si aucun circuit ne peut être généré avec vos paramètres « Exclure des nœuds ».</string>
+    <string name="strict_nodes_description">Considérez les paramètres « Exclure des nœuds » comme une exigence pour la création de tous les circuits. Cela peut entraîner un dysfonctionnement si aucun circuit ne peut être construit avec vos paramètres « Exclure les nœuds ».</string>
     <string name="not_sure">Pas sûr ?</string>
     <string name="root_warning">Orbot a détecté que votre appareil est rooté, ce qui peut entraîner des problèmes de sécurité.</string>
     <string name="pref_detect_root_summary">Avertir au démarrage si les droits d\'accès root sont activés sur cet appareil</string>
@@ -173,7 +173,7 @@
     <string name="unable_to_start_tor">Impossible de démarrer Tor :</string>
     <string name="mebibyte_per_second">Mio/s</string>
     <string name="kibibyte_per_second">Kio/s</string>
-    <string name="system_vpn_settings">Paramètres du RPV/VPN Android</string>
+    <string name="system_vpn_settings">Paramètres du VPN/RPV Android</string>
     <string name="pref_isolate_keep_alive">Garder les circuits isolés actifs</string>
     <string name="pref_isolate_keep_alive_summary">Garder les circuits isolés actifs qui ont au moins un flux avec authentification SOCKS activée</string>
     <string name="search_for_apps">Chercher des applis</string>
@@ -228,8 +228,8 @@
     <string name="my_country_optional">Mon pays (facultatif)</string>
     <string name="country_clear">Supprimer le pays</string>
     <string name="limit_dns_tunnel_use">Limiter l\'utilisation du Tunnel DNS</string>
-    <string name="unable_to_start_orbot_vpn_title">Impossible de démarrer Orbot RPV</string>
-    <string name="open_vpn_settings">Ouvrez les Paramètres RPV d\'Android.</string>
+    <string name="unable_to_start_orbot_vpn_title">Impossible de démarrer Orbot VPN</string>
+    <string name="open_vpn_settings">Ouvrez les Paramètres VPN d\'Android</string>
     <string name="volunteer_mode_title">Bienvenue en mode Gentillesse</string>
     <string name="volunteer_mode_weekly_label">Cette semaine</string>
     <string name="bridges_via_email">Ponts depuis Tor (obfs4) par e-mail</string>
@@ -240,7 +240,7 @@
     <string name="kindness_proxy_quality_unrestricted">libre</string>
     <string name="set_permission_in_settings">Modifier l\'autorisation dans les Paramètres</string>
     <string name="kindness_your_impact">Votre impact en chiffres</string>
-    <string name="testing_explanation_other_vpn_bubble">Ouvrir les Paramètres RPV du Système…</string>
+    <string name="testing_explanation_other_vpn_bubble">Ouvrir les Paramètres VPN du Système…</string>
     <string name="app_icon_chooser_label_todo">Tâches</string>
     <string name="app_icon_dialog_title" formatted="true">Changer à %1$s</string>
     <string name="app_icon_dialog_msg" formatted="true">Le passage à %1$s redémarrera Orbot</string>
@@ -251,20 +251,20 @@
     <string name="snowflake_proxy_client_connected_msg">%1$s Le mode Gentelisse a aidé quelqu\'un à contourner la censure %2$s</string>
     <string name="log_notice_unable_to_update_onions">impossible de téléverser les noms onion</string>
     <string name="log_notice_updating_torrc">Mise à jour de la configuration torrc personnalisée…</string>
-    <string name="setting_app_icon_description">Choisissez l\'apparence d\'Orbot sur votre appareil</string>
+    <string name="setting_app_icon_description">Modifier l\'apparence de Orbot sur votre appareil</string>
     <string name="status_conn_done_pt">Itinéraire alternatif établi</string>
     <string name="dns_tunnel_usage_description">Les tunnels DNS privilégient l\'accès à la vitesse et peuvent sembler plus lents. Nous recommandons de les activer uniquement pour les applications essentielles. Le streaming vidéo est déconseillé.</string>
     <string name="battery_optimization_title">Désactiver les Optimisations de la Batterie</string>
     <string name="battery_optimizations_dialog_btn_disable">Ouvrir les paramètres d\'optimisation de la batterie</string>
     <string name="battery_optimizations_are_disabled">Les optimisations de la batterie sont actuellement désactivées pour Orbot…</string>
     <string name="battery_optimizations_are_enabled">Les optimisations de batterie sont actuellement activées pour Orbot. C\'est le réglage par défaut, ce qui convient à la plupart des utilisateurs…</string>
-    <string name="btn_connect_anyway">Connectez-vous quand même</string>
+    <string name="btn_connect_anyway">Se connecter quand même</string>
     <string name="activate_kindness_mode">Activez le mode Gentillesse</string>
     <string name="running_kindness_mode_on_android">Activer le mode Gentelesse sur Android</string>
     <string name="kindness_mode_runs_when_the_device_is_connected_to_wifi">Le mode Gentillesse s\'active lorsque l\'appareil est connecté au Wi-Fi.</string>
     <string name="you_can_change_the_settings_anytime">Vous pouvez modifier ces paramètres à tout moment.</string>
     <string name="we_recommend_charging_the_device_when_running_kindness_mode">Nous recommandons de charger l\'appareil lorsque le mode Gentillesse est activé.</string>
-    <string name="turn_off_kindness_mode_when_you_use_another_vpn_on_this_device">Désactiver le mode Gentillesse lorsque vous utilisez une autre application RPV sur cet appareil.</string>
+    <string name="turn_off_kindness_mode_when_you_use_another_vpn_on_this_device">Désactiver le mode Gentillesse lorsque vous utilisez une autre application VPN sur cet appareil.</string>
     <string name="i_acknowledge_i_have_read_the_above">Je reconnais avoir lu ce qui précède.</string>
     <string name="testing_connection">Test de votre connexion</string>
     <string name="stop_test">Arrêtez le test</string>
@@ -313,8 +313,23 @@
     <string name="kindness_mode_disabled_power">Branchez votre appareil à une source d\'alimentation pour aider les gens à contourner la censure</string>
     <string name="bridges_via_telegram_subtitle">Cela vous permettra probablement de rester connecté même si Tor est fortement bloqué. Elle lancera le canal Telegram « Tor Bot ». Appuyez sur « Start » ou écrivez %1$s dans la discussion pour obtenir des adresses de ponts (bridges).</string>
     <string name="bridges_via_email_subtitle">Masque votre trafic. Contourne certains blocages de Tor. Nécessite un courriel envoyé depuis un compte Gmail ou Riseup.</string>
-    <string name="bridge_meek_azure_subtitle">"Masque votre trafic. Contourne certains blocages de Tor.  Peut être très lent."</string>
+    <string name="bridge_meek_azure_subtitle">Masque votre trafic. Contourne certains blocages de Tor. Peut être très lent.</string>
     <string name="custom_bridges_subtitle">Renseignez-vous auprès de vos réseaux et organisations de confiance pour savoir si quelqu\'un héberge un pont. Sinon, un ami peut vous procurer des ponts.</string>
     <string name="request_notification_permission_msg">Sans activer les notifications, Orbot ne peut pas fonctionner comme un VPN Tor ni utiliser le mode gentilesse.\n\nLorsque cette option est activée, nous n\'affichons qu\'une seule notification lorsque Orbot est en cours d\'exécution.</string>
     <string name="setting_unlock_pass_description">Exiger le code PIN, le mot de passe ou le schéma de déverrouillage de votre appareil pour ouvrir Orbot</string>
+    <string name="testing_explanation_other_vpn">Le mode Gentillesse ne peut être activé que si vous utilisez une autre application VPN. Pour devenir un proxy Snowflake, vous devez soit désactiver l\'autre application VPN, soit passer à Orbot.</string>
+    <string name="unable_to_start_unknown_reason_error_msg">L\'autorisation VPN a été refusée ou une autre application VPN a activé la fonctionnalité « VPN permanent ». Vous pouvez ignorer ce message et vous reconnecter si vous avez fermé par erreur la boîte de dialogue précédente de demande de connexion VPN. Les utilisateurs techniques peuvent utiliser une autre application VPN et utiliser Tor comme proxy SOCKS en activant le mode utilisateur avancé d\'Orbot.</string>
+    <string name="battery_optimization_dialog_msg">Certains appareils Android peuvent arrêter Orbot lorsqu\'il s\'exécute en arrière-plan. Pour la plupart des utilisateurs souhaitant garantir qu\'Orbot reste connecté et actif, il suffit de le configurer comme « VPN permanent » dans les paramètres du système. Toutefois, vous pouvez également empêcher votre appareil d\'appliquer des optimisations de batterie à Orbot si vous le jugez nécessaire.</string>
+    <string name="battery_optimizations_dialog_msg_power_user">Certains appareils Android peuvent interrompre l\'exécution d\'Orbot lorsqu\'il fonctionne en tant que service en arrière-plan en mode utilisateur avancé. Vous pouvez toujours désactiver/réactiver les optimisations de batterie ultérieurement dans les paramètres d\'Orbot…</string>
+    <string name="camo_samsung_instructions">Sur votre appareil Samsung Galaxy, les icônes des notifications d\'Orbot ne changeront que si vous ouvrez Paramètres -&gt; Notifications -&gt; Paramètres avancés et désactivez « Afficher l\'icône de l\'application dans les notifications ». Cliquez ici pour ouvrir les paramètres de notification.</string>
+    <string name="unable_to_start_legacy_vpn_error_msg">Il existe un profil VPN personnalisé configuré comme « VPN permanent ». Veuillez le désactiver avant de démarrer Orbot.</string>
+    <string name="unable_to_start_other_vpn_app_error_msg">L\'application %1$s est configurée en tant que « VPN permanent ». Veuillez le désactiver avant de démarrer Orbot.</string>
+    <string name="power_user_mode_permission_msg">Veuillez autoriser Orbot à configurer des alarmes et des rappels pour utiliser le mode utilisateur avancé. Cela ne créera pas réellement d\'alarmes sur votre appareil. Cette autorisation est nécessaire pour que le système maintienne OrbotService en cours d\'exécution lorsque Orbot n\'est pas utilisé comme VPN à l\'échelle du système.</string>
+    <string name="open_proxy_needs_local_network_permission">Sous Android 17 et versions ultérieures, Orbot nécessite l\'autorisation « Autoriser l\'accès aux appareils à proximité » pour ouvrir un proxy sur toutes les interfaces.</string>
+    <string name="kindness_quality_upgrade_need_local_network">Sous Android 17 et versions ultérieures, vous devez accorder l\'autorisation « Autoriser l\'accès aux appareils à proximité » pour qu\'Orbot puisse accéder à votre routeur.</string>
+    <string name="kindness_quality_upgrade_perm_granted">L\'autorisation « Accès aux appareils à proximité » a été accordée sur votre appareil.</string>
+    <string name="power_user_mode_permission">Autorisation « Alarmes et rappels » requise pour le mode utilisateur avancé</string>
+    <string name="kindness_mode_active_message" formatted="true">Vous avez aidé %1$d personnes à contourner la censure</string>
+    <string name="kindness_mode_unsupported_country">Vous avez sélectionné la/le %s comme pays ; malheureusement, le mode Gentilisse ne peut pas être utilisé dans cette région pour aider d\'autres personnes à se connecter à Tor. Si vous pensez recevoir ce message par erreur, vous pouvez supprimer les filtres de pays et vérifier votre éligibilité en tant que proxy Snowflake</string>
+    <string name="private_dns_explanation">L\'utilisation du mode « Strict » pour le DNS privé avec un résolveur spécifique entraînera une fuite d\'informations concernant les sites web et les services Onion que vous visitez en dehors du VPN d\'Orbot. Veuillez configurer votre DNS privé en mode automatique.</string>
 </resources>
