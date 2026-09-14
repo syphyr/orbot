@@ -31,6 +31,9 @@ import android.os.ParcelFileDescriptor;
 import android.system.OsConstants;
 import android.util.Log;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import org.torproject.android.service.Notifications;
 import org.torproject.android.service.OrbotService;
 import org.torproject.android.service.TProxyService;
@@ -55,11 +58,11 @@ public class OrbotVpnManager {
 
     private static final int DELAY_FD_LISTEN_MS = 5000;
 
-    public OrbotVpnManager(OrbotService service) {
+    public OrbotVpnManager(@NonNull OrbotService service) {
         mService = service;
     }
 
-    public void handleIntent(VpnService.Builder builder, Intent intent) {
+    public void handleIntent(@NonNull VpnService.Builder builder, @Nullable Intent intent) {
         if (intent == null) return;
         var action = intent.getAction();
         if (action == null) return;
@@ -89,7 +92,7 @@ public class OrbotVpnManager {
         }
     }
 
-    public void restartVPN(VpnService.Builder builder) {
+    public void restartVPN(@NonNull VpnService.Builder builder) {
         stopVPN();
         setupTun2Socks(builder);
     }
@@ -161,6 +164,7 @@ public class OrbotVpnManager {
         }
     }
 
+    @NonNull
     public File getHevSocksTunnelConfFile() throws IOException {
         var file = new File(mService.getCacheDir(), "tproxy.conf");
         //noinspection ResultOfMethodCallIgnored
