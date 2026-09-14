@@ -20,6 +20,7 @@ import java.io.BufferedReader
 import java.io.InputStreamReader
 import java.security.SecureRandom
 import kotlin.random.Random
+import kotlin.time.Duration.Companion.milliseconds
 
 /**
  * Manages configuration, state and static methods of Snowflake Proxy via ipt-proxy
@@ -124,7 +125,7 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
         // that goroutine, which is what makes calling it under this lock safe.
         CoroutineScope(Dispatchers.IO).launch {
             repeat(10) {
-                delay(200)
+                delay(200.milliseconds)
                 if (p.isRunning) {
                     p.stop()
                     return@launch

@@ -31,7 +31,7 @@ class KindnessWatchdogJob : JobService() {
         ) {
             try {
                 SnowflakeProxyService.startSnowflakeProxyForegroundService(applicationContext)
-            } catch (e: IllegalStateException) {
+            } catch (_: IllegalStateException) {
                 // Background foreground-service starts can be denied on API 31+
                 // when the app holds no exemption. The next boot, app open, or
                 // watchdog run after the user grants one will pick it back up.
@@ -49,17 +49,15 @@ class KindnessWatchdogJob : JobService() {
             wantsProxy && !serviceRunning && !regionBlocked
 
         fun schedule(context: Context) {
-            val jobScheduler =
-                context.getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
-            val jobInfo = JobInfo.Builder(JOB_ID, ComponentName(context, KindnessWatchdogJob::class.java))
-                .setPeriodic(TimeUnit.MINUTES.toMillis(15))
-                .setPersisted(true)
-                .build()
+            val jobScheduler = context.getSystemService(JOB_SCHEDULER_SERVICE) as JobScheduler
+            val jobInfo =
+                JobInfo.Builder(JOB_ID, ComponentName(context, KindnessWatchdogJob::class.java))
+                    .setPeriodic(TimeUnit.MINUTES.toMillis(15)).setPersisted(true).build()
             jobScheduler.schedule(jobInfo)
         }
 
         fun cancel(context: Context) {
-            (context.getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler).cancel(JOB_ID)
+            (context.getSystemService(JOB_SCHEDULER_SERVICE) as JobScheduler).cancel(JOB_ID)
         }
     }
 }

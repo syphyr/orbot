@@ -4,6 +4,7 @@ import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
+// see https://github.com/guardianproject/orbot-android/pull/1807/
 class KindnessWatchdogJobTest {
 
     @Test

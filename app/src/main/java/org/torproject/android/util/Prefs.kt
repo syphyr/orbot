@@ -244,6 +244,7 @@ object Prefs {
         get() = cr?.getPrefBoolean(PREF_LAST_SNOWFLAKE_ACTIVE) ?: false
         set(isRunning) = cr?.putPref(PREF_LAST_SNOWFLAKE_ACTIVE, isRunning) ?: Unit
 
+    // see https://github.com/guardianproject/orbot-android/issues/1795
     var snowflakeUpnpPorts: String
         get() = cr?.getPrefString(PREF_SNOWFLAKE_UPNP_PORTS) ?: ""
         set(value) = cr?.putPref(PREF_SNOWFLAKE_UPNP_PORTS, value) ?: Unit
