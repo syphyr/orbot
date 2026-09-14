@@ -308,4 +308,13 @@
     <string name="the_test_will_try_to_connect_directly_to_the_tor_network">Le test tentera de se connecter directement au réseau Tor.</string>
     <string name="if_you_are_using_tor_bridges_they_will_temporarily_be_disconnected">Si vous utilisez des ponts, votre connexion sera temporairement interrompue.</string>
     <string name="please_wait_while_we_check_to_see_if_you_can_run_an_effective_proxy">Veuillez patienter pendant que nous vérifions si vous pouvez exécuter un proxy Snowflake efficace…</string>
+    <string name="kindness_mode_disabled_internet">Se connecter à Internet pour aider les gens à contourner la censure</string>
+    <string name="kindness_mode_disabled_wifi">Se connecter au Wi-Fi pour aider les gens à contourner la censure</string>
+    <string name="kindness_mode_disabled_power">Branchez votre appareil à une source d\'alimentation pour aider les gens à contourner la censure</string>
+    <string name="bridges_via_telegram_subtitle">Cela vous permettra probablement de rester connecté même si Tor est fortement bloqué. Elle lancera le canal Telegram « Tor Bot ». Appuyez sur « Start » ou écrivez %1$s dans la discussion pour obtenir des adresses de ponts (bridges).</string>
+    <string name="bridges_via_email_subtitle">Masque votre trafic. Contourne certains blocages de Tor. Nécessite un courriel envoyé depuis un compte Gmail ou Riseup.</string>
+    <string name="bridge_meek_azure_subtitle">"Masque votre trafic. Contourne certains blocages de Tor.  Peut être très lent."</string>
+    <string name="custom_bridges_subtitle">Renseignez-vous auprès de vos réseaux et organisations de confiance pour savoir si quelqu\'un héberge un pont. Sinon, un ami peut vous procurer des ponts.</string>
+    <string name="request_notification_permission_msg">Sans activer les notifications, Orbot ne peut pas fonctionner comme un VPN Tor ni utiliser le mode gentilesse.\n\nLorsque cette option est activée, nous n\'affichons qu\'une seule notification lorsque Orbot est en cours d\'exécution.</string>
+    <string name="setting_unlock_pass_description">Exiger le code PIN, le mot de passe ou le schéma de déverrouillage de votre appareil pour ouvrir Orbot</string>
 </resources>
