@@ -268,6 +268,6 @@
     <string name="i_acknowledge_i_have_read_the_above">Je reconnais avoir lu ce qui précède.</string>
     <string name="testing_connection">Test de votre connexion</string>
     <string name="stop_test">Arrêtez le test</string>
-    <string name="not_approved">Non approuvé</string>
     <string name="bridge_snowflake_sqs">Se connecter par d’autres utilisateurs de Tor grâce à Snowflake (méthode 3 – SQS)</string>
+    <string name="not_approved">Non approuvé</string>
 </resources>
