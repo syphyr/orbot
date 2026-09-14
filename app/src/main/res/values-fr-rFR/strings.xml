@@ -49,7 +49,7 @@
     <string name="pref_socks_summary">Port sur lequel Tor offre son mandataire SOCKS (par défaut : 9050 ou 0 pour le désactiver)</string>
     <string name="pref_socks_dialog">Configuration du part SOCKS</string>
     <string name="pref_transport_title">Port de mandataire transparent de Tor</string>
-    <string name="pref_transport_summary">Port sur lequel Tor offre son Mandataire Transparent (par défaut : 9040 ou 0 pour le désactiver)</string>
+    <string name="pref_transport_summary">Port sur lequel Tor offre son mandataire transparent (par défaut : 9040 ou 0 pour le désactiver)</string>
     <string name="pref_transport_dialog">Configuration du port du mandataire transparent</string>
     <string name="pref_dnsport_title">Port DNS de Tor</string>
     <string name="pref_dnsport_summary">Port sur lequel Tor offre son DNS (par défaut : 9053 ou 0 pour le désactiver)</string>
@@ -107,9 +107,9 @@
     <string name="v3_delete_client_authorization_confirm">Supprimer l’autorisation client</string>
     <string name="v3_delete_client_authorization">Supprimer la clé d’autorisation client</string>
     <string name="v3_backup_key_warning">Avertissement : Cela pourrait exposer vôtre clé à d’autres applications</string>
-    <string name="v3_key_hash">Clé Privée x25519 en Base32</string>
+    <string name="v3_key_hash">Clé privée x25519 en Base32</string>
     <string name="v3_client_auth_activity_title">Autorisation de clients</string>
-    <string name="v3_hosted_services">Services Onion Hébergés</string>
+    <string name="v3_hosted_services">Services onion hébergés</string>
     <string name="backup_port_exist">Erreur : Un service Onion utilise déjà le port %s</string>
     <string name="v3_backup_key">Sauvegarder la clé d’autorisation client</string>
     <string name="v3_onion">Domaine .onion</string>
@@ -269,4 +269,5 @@
     <string name="testing_connection">Test de votre connexion</string>
     <string name="stop_test">Arrêtez le test</string>
     <string name="not_approved">Non Approuvé</string>
+    <string name="bridge_snowflake_sqs">Se connecter par d’autres utilisateurs de Tor grâce à Snowflake (méthode 3 – SQS)</string>
 </resources>
