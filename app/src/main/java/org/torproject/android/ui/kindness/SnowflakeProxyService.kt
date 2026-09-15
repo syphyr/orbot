@@ -202,6 +202,10 @@ class SnowflakeProxyService : Service() {
         private const val CHANNEL_ID = "snowflake"
         private const val ACTION_STOP_SNOWFLAKE_SERVICE = "ACTION_STOP_SNOWFLAKE_SERVICE"
 
+        fun shouldIgnoreSnowflakePreferenceChange(key: String?): Boolean =
+            key != Prefs.PREF_BRIDGE_COUNTRY && key != Prefs.PREF_CAMO_APP_PACKAGE
+
+
         // Read by the watchdog to tell "off because the user said so" apart
         // from "off because the system killed us" (#1799, #1783).
         @Volatile
