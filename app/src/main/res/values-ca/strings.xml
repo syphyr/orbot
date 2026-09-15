@@ -15,8 +15,6 @@
     <string name="pref_entrance_node">Nodes d\'entrada</string>
     <string name="pref_entrance_node_summary">Empremtes, àlies, països i adreces per al primer salt</string>
     <string name="pref_entrance_node_dialog">Introduïu els nodes d\'entrada</string>
-    <string name="pref_allow_background_starts_title">Permet l\'inici en rerefons</string>
-    <string name="pref_allow_background_starts_summary">Permet a qualsevol aplicació iniciar la xarxa Tor mitjançant l\'Orbot i els serveis relacionats</string>
     <string name="pref_proxy_title">Servidor intermediari de sortida a la xarxa (opcional)</string>
     <string name="pref_proxy_type_title">Tipus de servidor intermediari de sortida</string>
     <string name="pref_proxy_type_summary">Protocol a utilitzar per al servidor intermediari</string>

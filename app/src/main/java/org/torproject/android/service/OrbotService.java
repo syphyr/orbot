@@ -33,7 +33,6 @@ import static org.torproject.jni.TorService.ACTION_ERROR;
 import static org.torproject.jni.TorService.ACTION_START;
 import static org.torproject.jni.TorService.ACTION_STATUS;
 import static org.torproject.jni.TorService.ACTION_STOP;
-import static org.torproject.jni.TorService.EXTRA_PACKAGE_NAME;
 import static org.torproject.jni.TorService.EXTRA_STATUS;
 import static org.torproject.jni.TorService.STATUS_OFF;
 import static org.torproject.jni.TorService.STATUS_ON;
@@ -366,13 +365,8 @@ public class OrbotService extends VpnService {
         return fileTorRcCustom;
     }
 
-    /**
-     * Send Orbot's status in reply to an ACTION_START Intent, targeted only to the app that sent the
-     * initial request. If the user has disabled auto-starts, the reply ACTION_START Intent will
-     * include the Intent extra STATUS_STARTS_DISABLED
-     */
+    // Send Orbot's status in reply to an ACTION_START Intent
     protected void replyWithStatus(@NonNull Intent startRequest) {
-        String packageName = startRequest.getStringExtra(EXTRA_PACKAGE_NAME);
         Intent reply = new Intent(ACTION_STATUS)
                 .putExtra(EXTRA_STATUS, mCurrentStatus)
                 .putExtra(EXTRA_SOCKS_PROXY, "socks://127.0.0.1:" + mPortSOCKS)
@@ -382,9 +376,6 @@ public class OrbotService extends VpnService {
                 .putExtra(EXTRA_HTTP_PROXY_HOST, "127.0.0.1")
                 .putExtra(EXTRA_HTTP_PROXY_PORT, mPortHTTP)
                 .putExtra(EXTRA_DNS_PORT, mPortDns);
-
-        if (packageName != null)
-            sendBroadcast(reply.setPackage(packageName));
 
         sendBroadcast(reply.setAction(LOCAL_ACTION_STATUS).setPackage(getPackageName()));
 

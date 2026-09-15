@@ -20,7 +20,6 @@ object Prefs {
     private const val PREF_DETECT_ROOT = "pref_detect_root"
     private const val PREF_ENABLE_LOGGING = "pref_enable_logging"
     private const val PREF_START_ON_BOOT = "pref_start_boot"
-    private const val PREF_ALLOW_BACKGROUND_STARTS = "pref_allow_background_starts"
     const val PREF_OPEN_PROXY_ON_ALL_INTERFACES = "pref_open_proxy_on_all_interfaces"
     private const val PREF_USE_VPN = "pref_vpn"
     private const val PREF_LAST_SNOWFLAKE_QUALITY_CHECK = "pref_last_snowflake_quality_check"
@@ -177,10 +176,6 @@ object Prefs {
     @JvmStatic
     fun useDebugLogging(): Boolean {
         return cr?.getPrefBoolean(PREF_ENABLE_LOGGING) ?: false
-    }
-
-    fun allowBackgroundStarts(): Boolean {
-        return cr?.getPrefBoolean(PREF_ALLOW_BACKGROUND_STARTS) ?: false
     }
 
     fun openProxyOnAllInterfaces(context: Context): Boolean {

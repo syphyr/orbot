@@ -14,8 +14,6 @@
     <string name="pref_entrance_node">Nœuds d’entrée</string>
     <string name="pref_entrance_node_summary">Empreintes, pseudos, pays et adresses pour le premier saut</string>
     <string name="pref_entrance_node_dialog">Saisir les nœuds d’entrée</string>
-    <string name="pref_allow_background_starts_title">Permettre les lancements en arrière-plan</string>
-    <string name="pref_allow_background_starts_summary">Laisser n’importe quelle appli indiquer à Orbot de démarrer Tor et les services connexes</string>
     <string name="pref_proxy_title">Mandataire pour le réseau sortant (facultatif)</string>
     <string name="pref_proxy_type_title">Type de mandataire sortant</string>
     <string name="pref_proxy_type_summary">Protocole à utiliser pour le mandataire</string>

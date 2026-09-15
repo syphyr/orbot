@@ -23,8 +23,6 @@
     <string name="pref_entrance_node">Κόμβοι εισόδου</string>
     <string name="pref_entrance_node_summary">Αποτυπώματα, ψευδώνυμα, χώρες και διευθύνσεις για την πρώτη σύνδεση</string>
     <string name="pref_entrance_node_dialog">Εισαγάγετε κόμβους εισόδου</string>
-    <string name="pref_allow_background_starts_title">Να επιτρέπονται εκκινήσεις στο παρασκήνιο</string>
-    <string name="pref_allow_background_starts_summary">Να επιτρέπεται σε οποιαδήποτε εφαρμογή να πει στο Orbot να ξεκινήσει τον Tor και σχετικές υπηρεσίες</string>
     <string name="pref_proxy_title">Διακομιστής μεσολάβησης εξερχομένου δικτύου (προαιρετικό)</string>
     <string name="pref_proxy_type_title">Τύπος διακομιστή μεσολάβησης εξόδου</string>
     <string name="pref_proxy_type_summary">Πρωτόκολλο διακομιστή μεσολάβησης</string>

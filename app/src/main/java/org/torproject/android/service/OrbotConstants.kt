@@ -72,14 +72,6 @@ object OrbotConstants {
 
     const val LOCAL_ACTION_QUICK_SETTINGS_NEWNYM = "TILE_NEWNYM"
 
-
-    /**
-     * The user has disabled the ability for background starts triggered by
-     * apps. Fallback to the old Intent action that brings up Orbot:
-     * [.ACTION_START]
-     */
-    const val STATUS_STARTS_DISABLED = "STARTS_DISABLED"
-
     // actions for internal command Intents
     const val CMD_SET_EXIT = "setexit"
     const val CMD_ACTIVE = "ACTIVE"
