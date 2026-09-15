@@ -82,12 +82,9 @@ class KindnessFragment : Fragment() {
             KindnessConfigBottomSheet.KEY_CONFIG_CHANGED,
             viewLifecycleOwner
         ) { _, _ ->
-            // restart snowflake proxy if a setting has changed
-            // todo this logic should be further decoupled from UI
             if (Prefs.beSnowflakeProxy) {
-                repeat(2) {
-                    mBinding.swVolunteerMode.toggle()
-                }
+                refreshProxyService()
+                drawHeaderIcon()
             }
             updateUsageLimitsUi()
         }
