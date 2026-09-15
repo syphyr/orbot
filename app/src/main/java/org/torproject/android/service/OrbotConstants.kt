@@ -3,7 +3,6 @@ package org.torproject.android.service
 import androidx.core.net.toUri
 
 object OrbotConstants {
-    const val TAG = "Orbot"
 
     const val DIRECTORY_TOR_DATA = "tordata"
 
@@ -67,7 +66,6 @@ object OrbotConstants {
 
     // actions for internal command Intents
     const val CMD_SET_EXIT = "setexit"
-    const val CMD_ACTIVE = "ACTIVE"
 
     const val ONION_SERVICES_DIR = "v3_onion_services"
     const val V3_CLIENT_AUTH_DIR = "v3_client_auth"

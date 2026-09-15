@@ -11,7 +11,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.torproject.android.R
-import org.torproject.android.service.OrbotConstants
 import org.torproject.android.service.circumvention.BuiltInBridges
 import org.torproject.android.util.NetworkUtils
 import org.torproject.android.util.Prefs
@@ -189,7 +188,7 @@ class SnowflakeProxyWrapper(private val service: SnowflakeProxyService) {
         val start = Random.nextInt(49152, 65536 - 2)
         val ports = mutableListOf<Int>()
         for (port in (start..start + 2)) {
-            if (UPnP.openPortUDP(port, OrbotConstants.TAG)) {
+            if (UPnP.openPortUDP(port, TAG)) {
                 ports.add(port)
             }
         }

@@ -26,6 +26,7 @@ import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.scottyab.rootbeer.RootBeer
 import org.torproject.android.service.OrbotConstants
+import org.torproject.android.service.OrbotService
 import org.torproject.android.ui.connect.ConnectUiState
 import org.torproject.android.ui.connect.ConnectViewModel
 import org.torproject.android.ui.connect.RequestPostNotificationPermission
@@ -234,7 +235,7 @@ class OrbotActivity : BaseActivity() {
          *   1a. If true, sends tor the "ACTIVE" signal over the control port
          * 2. OrbotService replies back to OrbotActivity with its status, regardless of step 1
          */
-        sendIntentToService(OrbotConstants.CMD_ACTIVE)
+        sendIntentToService(OrbotService.SIGNAL_ACTIVE)
 
 
         if (Prefs.beSnowflakeProxy) {
