@@ -180,7 +180,7 @@ object Prefs {
     }
 
     fun allowBackgroundStarts(): Boolean {
-        return cr?.getPrefBoolean(PREF_ALLOW_BACKGROUND_STARTS, false) ?: false
+        return cr?.getPrefBoolean(PREF_ALLOW_BACKGROUND_STARTS) ?: false
     }
 
     fun openProxyOnAllInterfaces(context: Context): Boolean {
@@ -482,7 +482,7 @@ object Prefs {
 
     @JvmStatic
     fun isAppTorified(appId: String): Boolean {
-        return cr?.getPrefBoolean("$appId${OrbotConstants.APP_TOR_KEY}") ?: true
+        return cr?.getPrefBoolean("$appId${OrbotConstants.APP_TOR_KEY}", true) ?: true
     }
 
     @JvmStatic
