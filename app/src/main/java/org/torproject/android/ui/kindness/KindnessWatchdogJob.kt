@@ -24,13 +24,18 @@ class KindnessWatchdogJob : JobService() {
     // wakelock for the job will be released, and onStopJob(JobParameters) will not be invoked.
     // aka return false means that the job has completed its work
     override fun onStartJob(params: JobParameters?): Boolean {
-        Log.d(TAG, "onStartJob()")
+        Log.d(TAG, "onStartJob: Prefs.beSnowflakeProxy=${Prefs.beSnowflakeProxy}")
         if (!Prefs.beSnowflakeProxy) {
             val scheduler =
                 applicationContext.getSystemService(JOB_SCHEDULER_SERVICE) as JobScheduler
+            Log.d(TAG, "onStartJob: cancelling job since pref is false...")
             scheduler.cancel(JOB_ID)
             return false
         }
+        Log.d(
+            TAG,
+            "wantsProxy=${Prefs.beSnowflakeProxy} serviceRunning=${SnowflakeProxyService.isRunning}"
+        )
         if (shouldRestartKindnessMode(
                 wantsProxy = Prefs.beSnowflakeProxy,
                 serviceRunning = SnowflakeProxyService.isRunning,
@@ -38,12 +43,13 @@ class KindnessWatchdogJob : JobService() {
             )
         ) {
             try {
-                Log.d(TAG, "attempting to restart kindness mode...")
+                Log.d(TAG, "onStartJob: attempting to (re)start kindness in IPtProxy...")
                 SnowflakeProxyService.startSnowflakeProxyForegroundService(applicationContext)
-            } catch (_: IllegalStateException) {
+            } catch (e: IllegalStateException) {
                 // Background foreground-service starts can be denied on API 31+
                 // when the app holds no exemption. The next boot, app open, or
                 // watchdog run after the user grants one will pick it back up.
+                Log.e(TAG, "couldn't start kindness mode $e")
             }
         }
         return false
@@ -65,6 +71,8 @@ class KindnessWatchdogJob : JobService() {
 
     companion object {
         private const val JOB_ID = 4817
+
+        // android won't run periodic jobs with periods shorter than 15 min !
         private val PERIODIC_JOB_INTERVAL: Long = 15.minutes.inWholeMilliseconds
         private const val TAG = "KindnessWatchdogJob"
 
@@ -85,7 +93,10 @@ class KindnessWatchdogJob : JobService() {
                 JobInfo.Builder(JOB_ID, ComponentName(context, KindnessWatchdogJob::class.java))
                     .setPeriodic(PERIODIC_JOB_INTERVAL)
                     .setPersisted(true) // "whether to persist this job across device reboots"
-
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+                jobInfoBuilder.setTraceTag(TAG)
+            }
+            Log.d(TAG, "scheduling $TAG with period of $PERIODIC_JOB_INTERVAL ms")
             jobScheduler.schedule(jobInfoBuilder.build())
         }
     }

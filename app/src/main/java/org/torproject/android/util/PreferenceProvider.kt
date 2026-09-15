@@ -122,7 +122,6 @@ private fun <T> ContentResolver.getPref(key: String, converter: (Cursor, Int) ->
             null, null, null, null
         )
         if (cursor == null) {
-            Log.e(PreferenceProvider.TAG, "couldn't get a cursor when querying for pref $key")
             return@preferenceProviderCall null
         }
 
