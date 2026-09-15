@@ -5,8 +5,6 @@ import androidx.core.net.toUri
 object OrbotConstants {
     const val TAG = "Orbot"
 
-    const val APP_TOR_KEY = "_app_tor"
-
     const val DIRECTORY_TOR_DATA = "tordata"
 
     // geoip data file asset key
@@ -60,11 +58,6 @@ object OrbotConstants {
 
     const val LOCAL_ACTION_LOG = "log"
     const val LOCAL_ACTION_STATUS = "status"
-    const val LOCAL_ACTION_BANDWIDTH = "bandwidth"
-    const val LOCAL_EXTRA_TOTAL_READ = "totalRead"
-    const val LOCAL_EXTRA_TOTAL_WRITTEN = "totalWritten"
-    const val LOCAL_EXTRA_LAST_WRITTEN = "lastWritten"
-    const val LOCAL_EXTRA_LAST_READ = "lastRead"
     const val LOCAL_EXTRA_LOG = "log"
     const val LOCAL_EXTRA_BOOTSTRAP_PERCENT = "percent"
     const val LOCAL_ACTION_PORTS = "ports"

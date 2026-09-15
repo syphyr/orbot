@@ -88,7 +88,7 @@ object NetworkUtils {
         // we either don't have a VPN app running, if it is, check for certain it's not Orbot
         if (!deviceUsingVpn) return false
         val isOrbotRegisteredAsVpn = VpnService.prepare(context) != null
-        Log.d(logTag, "isOrbotRegisteredAsVpn: $isOrbotRegisteredAsVpn")
+        Log.d(logTag, "isOrbotRegisteredAsVpn=$isOrbotRegisteredAsVpn")
         return isOrbotRegisteredAsVpn
     }
 

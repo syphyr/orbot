@@ -156,11 +156,6 @@ fun ContentResolver.getPrefLong(key: String, default: Long? = null): Long? {
     return getPref(key) { c, i -> c.getLongOrNull(i) } ?: default
 }
 
-@Suppress("unused")
-fun ContentResolver.getPrefFloat(key: String, default: Float? = null): Float? {
-    return getPref(key) { c, i -> c.getFloatOrNull(i) } ?: default
-}
-
 private fun ContentResolver.putPref(key: String, values: ContentValues) {
     val result: Unit? = preferenceProviderCall(null) {
         update(
@@ -198,14 +193,6 @@ fun ContentResolver.putPref(key: String, value: Int) {
 fun ContentResolver.putPref(key: String, value: Long) {
     putPref(key, ContentValues().apply {
         put(PreferenceProvider.ROW_TYPE, Long::class.toString())
-        put(PreferenceProvider.ROW_VALUE, value)
-    })
-}
-
-@Suppress("unused")
-fun ContentResolver.putPref(key: String, value: Float) {
-    putPref(key, ContentValues().apply {
-        put(PreferenceProvider.ROW_TYPE, Float::class.toString())
         put(PreferenceProvider.ROW_VALUE, value)
     })
 }

@@ -8,13 +8,6 @@
     <string name="menu_exit">Exit</string>
     <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Orbot is an open-source application that contains Tor, IPtProxy (Lyrebird, Meek, Snowflake), hev-socks5-tunnel and LibEvent. It provides a VPN tunnel, a local HTTP Connect proxy (HTTPS only on port 8118) and a SOCKS proxy (9050) into the Tor network.</string>
-    <!--END Welcome Wizard strings (DJH)-->
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="error">Error</string>
     <string name="set_locale_title">Language</string>
     <string name="save">Save</string>

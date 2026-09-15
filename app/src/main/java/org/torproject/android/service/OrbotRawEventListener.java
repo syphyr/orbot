@@ -1,11 +1,9 @@
 package org.torproject.android.service;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import net.freehaven.tor.control.RawEventListener;
 import net.freehaven.tor.control.TorControlCommands;
@@ -25,7 +23,6 @@ import java.util.StringTokenizer;
 
 public class OrbotRawEventListener implements RawEventListener {
     private final OrbotService mService;
-    private long mTotalBandwidthWritten, mTotalBandwidthRead;
     private final Map<String, DebugLoggingNode> hmBuiltNodes;
     private final Map<Integer, ExitNode> exitNodeMap;
     private final Set<Integer> ignoredInternalCircuits;
@@ -35,8 +32,6 @@ public class OrbotRawEventListener implements RawEventListener {
 
     OrbotRawEventListener(OrbotService orbotService) {
         mService = orbotService;
-        mTotalBandwidthRead = 0;
-        mTotalBandwidthWritten = 0;
         hmBuiltNodes = new HashMap<>();
 
         exitNodeMap = new HashMap<>();
@@ -95,15 +90,6 @@ public class OrbotRawEventListener implements RawEventListener {
 
         if (mService.mCurrentStatus.equals(TorService.STATUS_ON))
             mService.showBandwidthNotification(message, read != 0 || written != 0);
-
-        mTotalBandwidthWritten += written;
-        mTotalBandwidthRead += read;
-        var bandwidthIntent = new Intent(OrbotConstants.LOCAL_ACTION_BANDWIDTH)
-                .putExtra(OrbotConstants.LOCAL_EXTRA_TOTAL_WRITTEN, mTotalBandwidthWritten)
-                .putExtra(OrbotConstants.LOCAL_EXTRA_TOTAL_READ, mTotalBandwidthRead)
-                .putExtra(OrbotConstants.LOCAL_EXTRA_LAST_WRITTEN, written)
-                .putExtra(OrbotConstants.LOCAL_EXTRA_LAST_READ, read);
-        LocalBroadcastManager.getInstance(mService).sendBroadcast(bandwidthIntent);
     }
 
     private void handleNewDescriptors(String[] descriptors) {

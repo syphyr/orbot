@@ -6,18 +6,10 @@
     <string name="menu_log">Καταγραφή</string>
     <string name="menu_about">Σχετικά</string>
     <string name="menu_exit">Έξοδος</string>
-    <!--Welcome Wizard strings (DJH)-->
     <string name="wizard_details_msg">Το Orbot είναι μια εφαρμογή ανοιχτού κώδικα που περιέχει τα Tor, IPtProxy (Obfs4Proxy, Meek, Snowflake), Go-Tun2Socks και LibEvent. Παρέχει ένα δίαυλο VPN, έναν τοπικό διακομιστή μεσολάβησης HTTP Connect (HTTPS μόνο στη θύρα 8118) και έναν διακομιστή μεσολάβησης SOCKS (9050) στο δίκτυο Tor.</string>
-    <!--END Welcome Wizard strings (DJH)-->
     <string name="pref_general_group">Γενικά</string>
     <string name="pref_start_boot_title">Έναρξη του Orbot κατά την εκκίνηση</string>
     <string name="pref_start_boot_summary">Αυτόματη έναρξη του Orbot και σύνδεση στο Tor όταν ξεκινά η Android συσκευή σας</string>
-    <!--New Wizard Strings-->
-    <!--Title Screen-->
-    <!--Warning screen-->
-    <!--Permissions screen-->
-    <!--TipsAndTricks screen-->
-    <!--Transparent Proxy screen-->
     <string name="pref_node_configuration">Ρύθμιση κόμβου</string>
     <string name="pref_node_configuration_summary">Οι ρυθμίσεις αυτές είναι προχωρημένες και μπορούν να μειώσουν την ανωνυμία σας</string>
     <string name="pref_entrance_node">Κόμβοι εισόδου</string>

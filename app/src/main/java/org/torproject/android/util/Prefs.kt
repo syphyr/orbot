@@ -476,11 +476,6 @@ object Prefs {
         set(value) = cr?.putPref(OrbotConstants.PREFS_DNS_PORT, value) ?: Unit
 
     @JvmStatic
-    fun isAppTorified(appId: String): Boolean {
-        return cr?.getPrefBoolean("$appId${OrbotConstants.APP_TOR_KEY}", true) ?: true
-    }
-
-    @JvmStatic
     fun orbotServiceLogClear() {
         cr?.putPref(PREF_ORBOT_SERVICE_LOG, "")
     }
