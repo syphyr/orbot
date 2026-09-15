@@ -3,6 +3,7 @@ package org.torproject.android.ui.kindness
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
+import org.torproject.android.ui.kindness.SnowflakeProxyService.Companion.shouldIgnoreSnowflakePreferenceChange
 import org.torproject.android.util.Prefs
 
 class SnowflakeProxyServiceTest {

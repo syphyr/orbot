@@ -31,6 +31,7 @@ object Prefs {
     private const val PREF_BE_A_SNOWFLAKE_LIMIT_CHARGING = "pref_be_a_snowflake_limit_charing"
     const val PREF_LAST_SNOWFLAKE_NAT_TYPE = "pref_snowflake_last_nat"
     const val PREF_LAST_SNOWFLAKE_ACTIVE = "pref_is_snowflake_running"
+    private const val PREF_SNOWFLAKE_UPNP_PORTS = "pref_snowflake_upnp_ports"
 
     private const val PREF_USE_SMART_CONNECT = "pref_use_smart_connect"
     private const val PREF_SMART_CONNECT_TIMEOUT = "pref_smart_connect_timeout"
@@ -242,6 +243,11 @@ object Prefs {
     var snowflakeProxyRunning: Boolean
         get() = cr?.getPrefBoolean(PREF_LAST_SNOWFLAKE_ACTIVE) ?: false
         set(isRunning) = cr?.putPref(PREF_LAST_SNOWFLAKE_ACTIVE, isRunning) ?: Unit
+
+    // see https://github.com/guardianproject/orbot-android/issues/1795
+    var snowflakeUpnpPorts: String
+        get() = cr?.getPrefString(PREF_SNOWFLAKE_UPNP_PORTS) ?: ""
+        set(value) = cr?.putPref(PREF_SNOWFLAKE_UPNP_PORTS, value) ?: Unit
 
     val snowflakesServed: Int
         get() = cr?.getPrefInt(PREF_SNOWFLAKES_SERVED_COUNT) ?: 0
