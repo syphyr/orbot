@@ -145,7 +145,7 @@ object Prefs {
         set(value) = cr?.putPref(PREF_DEFAULT_LOCALE, value) ?: Unit
 
     fun detectRoot(): Boolean {
-        return cr?.getPrefBoolean(PREF_DETECT_ROOT) ?: true
+        return cr?.getPrefBoolean(PREF_DETECT_ROOT, true) ?: true
     }
 
     var beSnowflakeProxy: Boolean
@@ -416,13 +416,13 @@ object Prefs {
         get() = cr?.getPrefBoolean(PREF_CONNECTION_PADDING) ?: false
 
     val reducedConnectionPadding: Boolean
-        get() = cr?.getPrefBoolean(PREF_REDUCED_CONNECTION_PADDING) ?: true
+        get() = cr?.getPrefBoolean(PREF_REDUCED_CONNECTION_PADDING, true) ?: true
 
     val circuitPadding: Boolean
-        get() = cr?.getPrefBoolean(PREF_CIRCUIT_PADDING) ?: true
+        get() = cr?.getPrefBoolean(PREF_CIRCUIT_PADDING, true) ?: true
 
     val reducedCircuitPadding: Boolean
-        get() = cr?.getPrefBoolean(PREF_REDUCED_CIRCUIT_PADDING) ?: true
+        get() = cr?.getPrefBoolean(PREF_REDUCED_CIRCUIT_PADDING, true) ?: true
 
     val torTransPort: String?
         get() = cr?.getPrefString(PREF_TRANSPORT)
@@ -461,7 +461,7 @@ object Prefs {
         get() = cr?.getPrefBoolean(PREF_ISOLATE_KEEP_ALIVE) ?: false
 
     val preferIpv6: Boolean
-        get() = cr?.getPrefBoolean(PREF_PREFER_IPV6) ?: true
+        get() = cr?.getPrefBoolean(PREF_PREFER_IPV6, true) ?: true
 
     val disableIpv4: Boolean
         get() = cr?.getPrefBoolean(PREF_DISABLE_IPV4) ?: false
