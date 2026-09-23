@@ -159,7 +159,6 @@ libevent/Makefile: libevent/Makefile.am libevent/configure.ac
 				--host=$(ALTHOST) \
 				--disable-libevent-regress \
 				--disable-samples \
-				--disable-openssl \
 				--disable-shared \
 				--prefix=/
 
@@ -314,7 +313,7 @@ iptables/Makefile:
 		CC="$(CC)" \
 		AR="$(AR)" \
 		RANLIB="$(RANLIB)" \
-		CFLAGS="$(CFLAGS) -I$(EXTERNAL_ROOT)/include" \
+		CFLAGS="-I$(EXTERNAL_ROOT)/include $(CFLAGS)" \
 		LDFLAGS="$(LDFLAGS)" \
 			./configure \
 				--host=$(HOST) \
@@ -344,9 +343,8 @@ tor/Makefile:
 		CC="$(CC)" \
 		AR="$(AR)" \
 		RANLIB="$(RANLIB)" \
-		LDFLAGS="$(LDFLAGS)" \
-		LIBS="-L$(EXTERNAL_ROOT)/lib" \
-		CFLAGS="$(CFLAGS) -I$(EXTERNAL_ROOT)/include" \
+		LDFLAGS="-L$(EXTERNAL_ROOT)/lib $(LDFLAGS)" \
+		CFLAGS="-I$(EXTERNAL_ROOT)/include $(CFLAGS)" \
 		LZMA_CFLAGS="-I$(EXTERNAL_ROOT)/include -DLZMA_API_STATIC" \
 		LZMA_LIBS="$(EXTERNAL_ROOT)/lib/liblzma.a" \
 		ZSTD_CFLAGS="-I$(EXTERNAL_ROOT)/include" \
