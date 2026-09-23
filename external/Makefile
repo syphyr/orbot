@@ -24,8 +24,8 @@ APP_ABI ?= arm64-v8a
 
 # matching NDK revisions are required for reproducible builds
 NDK_REVISION := $(shell sed -n 's,^Pkg.Revision *= *\([^ ]*\),\1,p' $(ANDROID_NDK_HOME)/source.properties)
-NDK_REQUIRED_REVISION := 29.0.14206865
-MIN_NDK_VERSION := 29
+NDK_REQUIRED_REVISION := 30.0.16248370
+MIN_NDK_VERSION := 30
 NDK_PLATFORM_LEVEL := 24
 ifeq ($(shell test $(MIN_NDK_VERSION) -gt $(firstword $(subst ., ,$(NDK_REVISION))); echo $$?),0)
  $(error NDK r$(MIN_NDK_VERSION) or newer required! r$(NDK_REVISION) is installed at $(ANDROID_NDK_HOME).)
