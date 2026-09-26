@@ -185,7 +185,6 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.biometric)
     implementation(libs.androidx.lifecycle.process)
-    implementation(libs.androidx.localbroadcast)
     implementation(libs.androidx.window)
     implementation(libs.retrofit.converter)
     implementation(libs.rootbeer.lib)
@@ -208,7 +207,7 @@ dependencies {
     // uncomment to use a local build of tor-android:
     // api(files("../../tor-android/tor-android-binary/build/outputs/aar/tor-android-binary-debug.aar"))
 
-    testImplementation(libs.junit)
+    testImplementation(kotlin("test-junit"))
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso)
