@@ -36,9 +36,9 @@
     <string name="strict_nodes">Hacer estricta la exclusión de nodos (incluso si falla la comunicación)</string>
     <string name="reachable_addresses">Reglas de direcciones accesibles ([accept(*)|reject] IP:port, etc.)</string>
     <string name="run_as_a_client_behind_a_firewall_with_restrictive_policies">Ejecutar Tor como sólo cliente detrás de un cortafuegos (firewall) con políticas restrictivas</string>
-    <string name="reachable_ports">Puertos accesibles</string>
+    <string name="reachable_ports">Puertos Accesibles</string>
     <string name="ports_reachable_behind_a_restrictive_firewall">Puertos accesibles detrás de un firewall restrictivo (80 y 443 por defecto)</string>
-    <string name="enter_ports">Introduzca puertos</string>
+    <string name="enter_ports">Introduzca Puertos</string>
     <string name="enable_debug_log_to_output_must_use_adb_or_alogcat_to_view_">Habilitar el registro de depuración (debug log) a la salida (debe utilizar adb o aLogCat para verlo)</string>
     <string name="project_home">Página web:</string>
     <string name="third_party_software">Software de terceros:</string>
@@ -279,7 +279,7 @@
     <string name="pref_proxy_no_proxy">Sin proxy</string>
     <string name="pref_proxy_ss_title">Configuración de URL ShadowSocks</string>
     <string name="pref_proxy_ss_summary">URL de configuración completa de ShadowSock comenzando con ss://</string>
-    <string name="volunteer_mode_title">Modo Amabilidad: Ayuda a otros a conectarse a Tor</string>
+    <string name="volunteer_mode_title">Te damos la bienvenda a Modo Amabilidad</string>
     <string name="volunteer_mode_weekly_label">Esta semana</string>
     <string name="volunteer_mode_alltime_label">Total</string>
     <string name="volunteer_mode_subtitle_desc">El Modo Amabilidad convierte tu dispositivo en un proxy Snowflake en la red Tor, un puente para ayudar a otros a conectarse.</string>
@@ -302,4 +302,6 @@
     <string name="grant_permission">Permiso concedido</string>
     <string name="set_permission_in_settings">Establece permiso en Ajustes</string>
     <string name="kindness_your_impact">Su impacto en números</string>
+    <string name="open_proxy_needs_local_network_permission">En Android 17 y superior, Orbot necesita el permiso de acceso a dispositivos cercanos para abrir el proxy en todas las interfaces.</string>
+    <string name="testing_explanation_approved">Usted es un gran candidato para convertirse en un Snowflake Proxy en la red Tor.</string>
 </resources>
