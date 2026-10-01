@@ -232,6 +232,7 @@
             app:iconSpaceReserved="false" />
 
         <org.torproject.android.ui.settings.SecureListPreference
+            android:defaultValue=""
             android:dialogTitle="@string/pref_proxy_type_summary"
             android:entries="@array/proxy_types"
             android:entryValues="@array/proxy_type_values"

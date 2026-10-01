@@ -8,12 +8,7 @@ import org.torproject.android.util.Settings
 class SecureEditTextPreference(context: Context, attrs: AttributeSet?) :
     EditTextPreference(context, attrs) {
 
-    override fun persistString(value: String?): Boolean {
-        Settings.set(key, value)
-        return true
-    }
-
-    override fun getText(): String {
-        return Settings.get(key) ?: ""
+    init {
+        preferenceDataStore = SecurePreferenceDataStore()
     }
 }

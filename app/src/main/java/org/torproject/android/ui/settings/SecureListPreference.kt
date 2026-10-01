@@ -8,12 +8,7 @@ import org.torproject.android.util.Settings
 class SecureListPreference(context: Context, attrs: AttributeSet?) :
     ListPreference(context, attrs) {
 
-    override fun persistString(value: String?): Boolean {
-        Settings.set(key, value)
-        return true
-    }
-
-    override fun getValue(): String {
-        return Settings.get(key) ?: ""
+    init {
+        preferenceDataStore = SecurePreferenceDataStore()
     }
 }
