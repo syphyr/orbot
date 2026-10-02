@@ -93,9 +93,10 @@ interface MoatApi {
     @GET("builtin")
     suspend fun builtin(): BuiltInBridges
 
+    /* unused for now...
     @GET("countries")
     suspend fun countries(): List<String>
-
+    */
 
     @Serializable
     data class SettingsRequest(

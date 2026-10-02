@@ -324,7 +324,7 @@
     <string name="orbot_will_test_your_connection_to_determine_if_you_can_be_a_snowflake_proxy_for_others">Orbot va a probar tu conexión para determinar si puedes ser un Snowflake Proxy para otras personas.</string>
     <string name="the_test_will_try_to_connect_directly_to_the_tor_network">La prueba consistirá en conectarse directamente a la red Tor.</string>
     <string name="if_you_are_using_tor_bridges_they_will_temporarily_be_disconnected">Si estás usando puentes Tor, van a ser desconectados de manera temporal.</string>
-    <string name="i_acknowledge_i_have_read_the_above">Confirmo que he leido lo anterior.</string>
+    <string name="i_acknowledge_i_have_read_the_above">Confirmo que he leído lo anterior.</string>
     <string name="testing_connection">Probando Conexión</string>
     <string name="please_wait_while_we_check_to_see_if_you_can_run_an_effective_proxy">Por favor, espera mientras comprobamos si puedes ejecutar un proxy de manera eficaz..</string>
     <string name="stop_test">Terminar Prueba</string>

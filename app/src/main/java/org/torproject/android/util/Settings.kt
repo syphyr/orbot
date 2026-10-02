@@ -24,7 +24,6 @@ import kotlinx.coroutines.withContext
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import org.torproject.android.util.Settings.CURRENT_MIGRATION_STEP
-import org.torproject.android.util.Settings.init
 import org.torproject.android.util.Settings.migrate
 import java.io.InputStream
 import java.io.OutputStream
