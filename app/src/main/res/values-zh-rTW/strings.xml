@@ -167,4 +167,10 @@
     <string name="status_disabled">Orbot 已停用</string>
     <string name="status_shutting_down">Tor服務 正在關閉</string>
     <string name="set_transport">設定傳輸方式</string>
+    <string name="open_orbot_to_connect_to_tor">打開 Orbot 以連線到 Tor</string>
+    <string name="bridges_via_telegram">透過 Telegram 取得 obfs4 橋接器</string>
+    <string name="bridges_via_email">透過電子郵件取得 obfs4 橋接器</string>
+    <string name="kindness_mode_active_message" formatted="true">您已幫助 %1$d 人繞過審查</string>
+    <string name="app_icon_dialog_msg" formatted="true">切換到 %1$s 將重啟應用程式</string>
+    <string name="setting_app_icon_description">選擇 Orbot 在您的裝置上的顯示方式</string>
 </resources>
