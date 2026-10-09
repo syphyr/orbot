@@ -9,11 +9,16 @@ plugins {
     alias(libs.plugins.android.application)
 }
 
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(24))
+    }
+}
+
 kotlin {
     compilerOptions {
         languageVersion = KotlinVersion.KOTLIN_2_4
     }
-    jvmToolchain(24)
 }
 
 val orbotBaseVersionCode = 1797200100
@@ -41,11 +46,6 @@ configure<ApplicationExtension> {
         multiDexEnabled = true
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         flavorDimensions += "free"
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_24
-        targetCompatibility = JavaVersion.VERSION_24
     }
 
     splits {
